@@ -1,1 +1,1 @@
-@start binaries\xrEngine.exe
+@start Binaries\xrEngine.exe

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "Sources\Externals\zlib\zlib.vcxproj", "{B5919129-6716-499D-9516-04EC34C86CDF}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugTrap", "Sources\Externals\BugTrap\BugTrap.vcxproj", "{E8CF1ADA-264A-4127-86C2-FD7057D3792C}"
@@ -114,6 +116,246 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xrGame", "Sources\xrEngine\
 		{A19B1DF2-82EC-4364-8BDF-85D13A1C89B5} = {A19B1DF2-82EC-4364-8BDF-85D13A1C89B5}
 		{A0F7D1FB-59A7-4717-A7E4-96F37E91998E} = {A0F7D1FB-59A7-4717-A7E4-96F37E91998E}
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs&Utils", "Docs&Utils", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\Advanced - Effective Modern C++ 11 & 14, 2016 (перевод, на русском).pdf = Docs&Utils\Advanced - Effective Modern C++ 11 & 14, 2016 (перевод, на русском).pdf
+		Docs&Utils\Advanced - Principles and Practice Using C++ 11 & 14, 2nd Edition 2016 (перевод, на русском).pdf = Docs&Utils\Advanced - Principles and Practice Using C++ 11 & 14, 2nd Edition 2016 (перевод, на русском).pdf
+		Docs&Utils\Beginner - Beginning C++ 11 Through Game Programming, 4rd Edition 2015 (перевод, на русском).pdf = Docs&Utils\Beginner - Beginning C++ 11 Through Game Programming, 4rd Edition 2015 (перевод, на русском).pdf
+		Docs&Utils\Beginner - C++ and Algorithmic Thinking Part 1 of 5, 2015.pdf = Docs&Utils\Beginner - C++ and Algorithmic Thinking Part 1 of 5, 2015.pdf
+		Docs&Utils\dds (2).8bi = Docs&Utils\dds (2).8bi
+		Docs&Utils\dds.8bi = Docs&Utils\dds.8bi
+		Docs&Utils\Инфопоршни (infoportions).docx = Docs&Utils\Инфопоршни (infoportions).docx
+		Docs&Utils\инфопоршни.txt = Docs&Utils\инфопоршни.txt
+		Docs&Utils\логика (3).txt = Docs&Utils\логика (3).txt
+		Docs&Utils\Логика NPC.doc = Docs&Utils\Логика NPC.doc
+		Docs&Utils\Логика NPC.pdf = Docs&Utils\Логика NPC.pdf
+		Docs&Utils\Логика NPC.txt = Docs&Utils\Логика NPC.txt
+		Docs&Utils\Логика НПС.txt = Docs&Utils\Логика НПС.txt
+		Docs&Utils\логика.docx = Docs&Utils\логика.docx
+		Docs&Utils\Настройка логики (2).pdf = Docs&Utils\Настройка логики (2).pdf
+		Docs&Utils\Настройка логики(1).pdf = Docs&Utils\Настройка логики(1).pdf
+		Docs&Utils\Настройка логики.pdf = Docs&Utils\Настройка логики.pdf
+		Docs&Utils\Обзор редактора уровней.doc = Docs&Utils\Обзор редактора уровней.doc
+		Docs&Utils\Спавн-меню. ОП-2. 2.09-1-2+ВСЕ ПОРШНИ из ОП-2.rar = Docs&Utils\Спавн-меню. ОП-2. 2.09-1-2+ВСЕ ПОРШНИ из ОП-2.rar
+		Docs&Utils\Энциклопедия оружия.docx = Docs&Utils\Энциклопедия оружия.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CDC", "CDC", "{B79493A0-E1F4-4FD6-B356-AF69308B9527}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\CDC\gamemtl_xr_cdc.7z = Docs&Utils\CDC\gamemtl_xr_cdc.7z
+		Docs&Utils\CDC\lanims_xr_cdc.7z = Docs&Utils\CDC\lanims_xr_cdc.7z
+		Docs&Utils\CDC\level_cdc.7z = Docs&Utils\CDC\level_cdc.7z
+		Docs&Utils\CDC\level_particle_static_cdc.7z = Docs&Utils\CDC\level_particle_static_cdc.7z
+		Docs&Utils\CDC\level_sound_static_cdc_v.0.2.7z = Docs&Utils\CDC\level_sound_static_cdc_v.0.2.7z
+		Docs&Utils\CDC\particles_xr_cdc.7z = Docs&Utils\CDC\particles_xr_cdc.7z
+		Docs&Utils\CDC\save_unpacker_0_4.rar = Docs&Utils\CDC\save_unpacker_0_4.rar
+		Docs&Utils\CDC\senvironment_xr_cdc.7z = Docs&Utils\CDC\senvironment_xr_cdc.7z
+		Docs&Utils\CDC\shaders_xrlc_xr_cdc.7z = Docs&Utils\CDC\shaders_xrlc_xr_cdc.7z
+		Docs&Utils\CDC\shaders_xr_cdc.7z = Docs&Utils\CDC\shaders_xr_cdc.7z
+		Docs&Utils\CDC\universal_acdc1.42.rar = Docs&Utils\CDC\universal_acdc1.42.rar
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dialog", "Dialog", "{779E8C4B-04F7-488F-8089-1F611A580F0C}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\Dialog\SoC. Создание диалогов.txt = Docs&Utils\Dialog\SoC. Создание диалогов.txt
+		Docs&Utils\Dialog\SoC. Создание новых веток диалогов.txt = Docs&Utils\Dialog\SoC. Создание новых веток диалогов.txt
+		Docs&Utils\Dialog\Диалоги (4).txt = Docs&Utils\Dialog\Диалоги (4).txt
+		Docs&Utils\Dialog\Диалоги и общение.txt = Docs&Utils\Dialog\Диалоги и общение.txt
+		Docs&Utils\Dialog\Диалоги Часть1.txt = Docs&Utils\Dialog\Диалоги Часть1.txt
+		Docs&Utils\Dialog\Диалоги.doc = Docs&Utils\Dialog\Диалоги.doc
+		Docs&Utils\Dialog\Диалоги.docx = Docs&Utils\Dialog\Диалоги.docx
+		Docs&Utils\Dialog\Диалоги.txt = Docs&Utils\Dialog\Диалоги.txt
+		Docs&Utils\Dialog\Несколько замечаний по диалогам.txt = Docs&Utils\Dialog\Несколько замечаний по диалогам.txt
+		Docs&Utils\Dialog\Новые диалоги.docx = Docs&Utils\Dialog\Новые диалоги.docx
+		Docs&Utils\Dialog\Правила по диалогам.docx = Docs&Utils\Dialog\Правила по диалогам.docx
+		Docs&Utils\Dialog\Создание диалогов (2).txt = Docs&Utils\Dialog\Создание диалогов (2).txt
+		Docs&Utils\Dialog\Создание диалогов (полный обзор).docx = Docs&Utils\Dialog\Создание диалогов (полный обзор).docx
+		Docs&Utils\Dialog\Создание диалогов (полный обзор).txt = Docs&Utils\Dialog\Создание диалогов (полный обзор).txt
+		Docs&Utils\Dialog\Создание диалогов.doc = Docs&Utils\Dialog\Создание диалогов.doc
+		Docs&Utils\Dialog\Создание диалогов2.docx = Docs&Utils\Dialog\Создание диалогов2.docx
+		Docs&Utils\Dialog\Создание новых веток диалога.pdf = Docs&Utils\Dialog\Создание новых веток диалога.pdf
+		Docs&Utils\Dialog\Создание новых веток диалогов.txt = Docs&Utils\Dialog\Создание новых веток диалогов.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dialog Editor 0.8 beta", "Dialog Editor 0.8 beta", "{7EC6E07C-7078-46E4-9140-4E5AE3054FF2}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\Dialog Editor 0.8 beta\DialogEditor  Version 0.8b.exe = Docs&Utils\Dialog Editor 0.8 beta\DialogEditor  Version 0.8b.exe
+		Docs&Utils\Dialog Editor 0.8 beta\DialogEditor  Version 0.8b_old.exe = Docs&Utils\Dialog Editor 0.8 beta\DialogEditor  Version 0.8b_old.exe
+		Docs&Utils\Dialog Editor 0.8 beta\dialogs.xml = Docs&Utils\Dialog Editor 0.8 beta\dialogs.xml
+		Docs&Utils\Dialog Editor 0.8 beta\DialogsAndTalks.htm = Docs&Utils\Dialog Editor 0.8 beta\DialogsAndTalks.htm
+		Docs&Utils\Dialog Editor 0.8 beta\dialogs_escape_1.xml = Docs&Utils\Dialog Editor 0.8 beta\dialogs_escape_1.xml
+		Docs&Utils\Dialog Editor 0.8 beta\dialogs_escape_1_string.xml = Docs&Utils\Dialog Editor 0.8 beta\dialogs_escape_1_string.xml
+		Docs&Utils\Dialog Editor 0.8 beta\InfoPortions.htm = Docs&Utils\Dialog Editor 0.8 beta\InfoPortions.htm
+		Docs&Utils\Dialog Editor 0.8 beta\manual.jpg = Docs&Utils\Dialog Editor 0.8 beta\manual.jpg
+		Docs&Utils\Dialog Editor 0.8 beta\manual1.gif = Docs&Utils\Dialog Editor 0.8 beta\manual1.gif
+		Docs&Utils\Dialog Editor 0.8 beta\StringsTool2.exe = Docs&Utils\Dialog Editor 0.8 beta\StringsTool2.exe
+		Docs&Utils\Dialog Editor 0.8 beta\string_table.xml = Docs&Utils\Dialog Editor 0.8 beta\string_table.xml
+		Docs&Utils\Dialog Editor 0.8 beta\test.xml = Docs&Utils\Dialog Editor 0.8 beta\test.xml
+		Docs&Utils\Dialog Editor 0.8 beta\test_string.xml = Docs&Utils\Dialog Editor 0.8 beta\test_string.xml
+		Docs&Utils\Dialog Editor 0.8 beta\TexturesList.exe = Docs&Utils\Dialog Editor 0.8 beta\TexturesList.exe
+		Docs&Utils\Dialog Editor 0.8 beta\tt1.xml = Docs&Utils\Dialog Editor 0.8 beta\tt1.xml
+		Docs&Utils\Dialog Editor 0.8 beta\Инструкция.jpg = Docs&Utils\Dialog Editor 0.8 beta\Инструкция.jpg
+		Docs&Utils\Dialog Editor 0.8 beta\Редактор в деле.jpg = Docs&Utils\Dialog Editor 0.8 beta\Редактор в деле.jpg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gameplay", "gameplay", "{186814E4-9918-4651-89C2-4B2B39B51033}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\gameplay\Истории Зоны.doc = Docs&Utils\gameplay\Истории Зоны.doc
+		Docs&Utils\gameplay\Персоналии.doc = Docs&Utils\gameplay\Персоналии.doc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Object Editor v3.0.0", "Object Editor v3.0.0", "{FB2A9256-B3FC-4BE1-A731-EDF3CE573121}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\Object Editor v3.0.0\DevIL.dll = Docs&Utils\Object Editor v3.0.0\DevIL.dll
+		Docs&Utils\Object Editor v3.0.0\ILU.dll = Docs&Utils\Object Editor v3.0.0\ILU.dll
+		Docs&Utils\Object Editor v3.0.0\Object Editor v3.0.0.exe = Docs&Utils\Object Editor v3.0.0\Object Editor v3.0.0.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PpeEditor_1.2.0", "PpeEditor_1.2.0", "{3BC5312C-E745-460C-A6A5-056F0F10008F}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\PpeEditor_1.2.0\dump.bat = Docs&Utils\PpeEditor_1.2.0\dump.bat
+		Docs&Utils\PpeEditor_1.2.0\ltxi.bat = Docs&Utils\PpeEditor_1.2.0\ltxi.bat
+		Docs&Utils\PpeEditor_1.2.0\ltxo.bat = Docs&Utils\PpeEditor_1.2.0\ltxo.bat
+		Docs&Utils\PpeEditor_1.2.0\nl.bat = Docs&Utils\PpeEditor_1.2.0\nl.bat
+		Docs&Utils\PpeEditor_1.2.0\open.bat = Docs&Utils\PpeEditor_1.2.0\open.bat
+		Docs&Utils\PpeEditor_1.2.0\PpeEditor.exe = Docs&Utils\PpeEditor_1.2.0\PpeEditor.exe
+		Docs&Utils\PpeEditor_1.2.0\ReadMe.txt = Docs&Utils\PpeEditor_1.2.0\ReadMe.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "satan_uml", "satan_uml", "{CC7C9B37-7ADE-425A-A65F-8AC004460997}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\satan_uml\command.xml = Docs&Utils\satan_uml\command.xml
+		Docs&Utils\satan_uml\statistic.xml = Docs&Utils\satan_uml\statistic.xml
+		Docs&Utils\satan_uml\Statistics.vsd = Docs&Utils\satan_uml\Statistics.vsd
+		Docs&Utils\satan_uml\UI_abstract.vsd = Docs&Utils\satan_uml\UI_abstract.vsd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stalker Script Manual", "Stalker Script Manual", "{2B019D9A-862C-4889-8291-FDCF7E8EC5A0}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\Stalker Script Manual\Stalker Script Manual (12).doc = Docs&Utils\Stalker Script Manual\Stalker Script Manual (12).doc
+		Docs&Utils\Stalker Script Manual\Stalker Script Manual.docx = Docs&Utils\Stalker Script Manual\Stalker Script Manual.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xrStalkerDOCs", "xrStalkerDOCs", "{5651A832-6E12-4BE7-BAF8-FC60110F4ECE}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\xrStalkerDOCs\Finish Line.mpp = Docs&Utils\xrStalkerDOCs\Finish Line.mpp
+		Docs&Utils\xrStalkerDOCs\Game Quests Sample.vsd = Docs&Utils\xrStalkerDOCs\Game Quests Sample.vsd
+		Docs&Utils\xrStalkerDOCs\L01_Escape.vsd = Docs&Utils\xrStalkerDOCs\L01_Escape.vsd
+		Docs&Utils\xrStalkerDOCs\L05_rostok.vsd = Docs&Utils\xrStalkerDOCs\L05_rostok.vsd
+		Docs&Utils\xrStalkerDOCs\L07_Military.vsd = Docs&Utils\xrStalkerDOCs\L07_Military.vsd
+		Docs&Utils\xrStalkerDOCs\L10_Radar.vsd = Docs&Utils\xrStalkerDOCs\L10_Radar.vsd
+		Docs&Utils\xrStalkerDOCs\quest_balance.xls = Docs&Utils\xrStalkerDOCs\quest_balance.xls
+		Docs&Utils\xrStalkerDOCs\Stalker.vss = Docs&Utils\xrStalkerDOCs\Stalker.vss
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Документация", "Документация", "{6B414C15-F611-49EE-A60C-8D8E0D37CEA5}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\Документация\Настройка логики (2).doc = Docs&Utils\Документация\Настройка логики (2).doc
+		Docs&Utils\Документация\Настройка логики (3).doc = Docs&Utils\Документация\Настройка логики (3).doc
+		Docs&Utils\Документация\Настройка логики от Икстрима.doc = Docs&Utils\Документация\Настройка логики от Икстрима.doc
+		Docs&Utils\Документация\Настройка логики.doc = Docs&Utils\Документация\Настройка логики.doc
+		Docs&Utils\Документация\Настройка объектов.doc = Docs&Utils\Документация\Настройка объектов.doc
+		Docs&Utils\Документация\Настройка объектов.docx = Docs&Utils\Документация\Настройка объектов.docx
+		Docs&Utils\Документация\Настройки монстров.doc = Docs&Utils\Документация\Настройки монстров.doc
+		Docs&Utils\Документация\Настройки монстров.docx = Docs&Utils\Документация\Настройки монстров.docx
+		Docs&Utils\Документация\Обновления документации.doc = Docs&Utils\Документация\Обновления документации.doc
+		Docs&Utils\Документация\Общая часть.doc = Docs&Utils\Документация\Общая часть.doc
+		Docs&Utils\Документация\Общая часть.docx = Docs&Utils\Документация\Общая часть.docx
+		Docs&Utils\Документация\Редактор уровней.doc = Docs&Utils\Документация\Редактор уровней.doc
+		Docs&Utils\Документация\Ролевая часть.doc = Docs&Utils\Документация\Ролевая часть.doc
+		Docs&Utils\Документация\Свобная таблица фич геймплея.xls = Docs&Utils\Документация\Свобная таблица фич геймплея.xls
+		Docs&Utils\Документация\Содержание.doc = Docs&Utils\Документация\Содержание.doc
+		Docs&Utils\Документация\Содержание.docx = Docs&Utils\Документация\Содержание.docx
+		Docs&Utils\Документация\Содержание.htm = Docs&Utils\Документация\Содержание.htm
+		Docs&Utils\Документация\Удачные скриптовые решения.doc = Docs&Utils\Документация\Удачные скриптовые решения.doc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Именование", "Именование", "{C5787F6B-28A0-4B6B-BBB4-1AA53A3371D7}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\Именование\Изменения в именовании.txt = Docs&Utils\Именование\Изменения в именовании.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Стандарт кодирования", "Стандарт кодирования", "{22A00995-87F0-47C0-B240-8C8B2D1BFB44}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\Стандарт кодирования\90 рекомендаций по стилю написания программ на C++.docx = Docs&Utils\Стандарт кодирования\90 рекомендаций по стилю написания программ на C++.docx
+		Docs&Utils\Стандарт кодирования\BHEngine Coding Standart.docx = Docs&Utils\Стандарт кодирования\BHEngine Coding Standart.docx
+		Docs&Utils\Стандарт кодирования\C++ Coding Standard v1.02.docx = Docs&Utils\Стандарт кодирования\C++ Coding Standard v1.02.docx
+		Docs&Utils\Стандарт кодирования\commit_coding.txt = Docs&Utils\Стандарт кодирования\commit_coding.txt
+		Docs&Utils\Стандарт кодирования\common.txt = Docs&Utils\Стандарт кодирования\common.txt
+		Docs&Utils\Стандарт кодирования\CppCodingStandards_RU.chm = Docs&Utils\Стандарт кодирования\CppCodingStandards_RU.chm
+		Docs&Utils\Стандарт кодирования\cpp_code.txt = Docs&Utils\Стандарт кодирования\cpp_code.txt
+		Docs&Utils\Стандарт кодирования\cpp_comment.txt = Docs&Utils\Стандарт кодирования\cpp_comment.txt
+		Docs&Utils\Стандарт кодирования\RUS - Sutter - CPP Coding Standards..pdf = Docs&Utils\Стандарт кодирования\RUS - Sutter - CPP Coding Standards..pdf
+		Docs&Utils\Стандарт кодирования\Гайд по оформлению кода на С++ от Стэнфордского университета.docx = Docs&Utils\Стандарт кодирования\Гайд по оформлению кода на С++ от Стэнфордского университета.docx
+		Docs&Utils\Стандарт кодирования\Рекомендации по написанию кода в C++.docx = Docs&Utils\Стандарт кодирования\Рекомендации по написанию кода в C++.docx
+		Docs&Utils\Стандарт кодирования\рекомендации по написанию программ на С++.pdf = Docs&Utils\Стандарт кодирования\рекомендации по написанию программ на С++.pdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc_scripters", "doc_scripters", "{ADBCCF2C-6F9D-412F-86E7-CFF17AD26442}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\Stalker Script Manual\doc_scripters\!for_scripters (3).doc = Docs&Utils\Stalker Script Manual\doc_scripters\!for_scripters (3).doc
+		Docs&Utils\Stalker Script Manual\doc_scripters\!for_scripters.doc = Docs&Utils\Stalker Script Manual\doc_scripters\!for_scripters.doc
+		Docs&Utils\Stalker Script Manual\doc_scripters\for_scripters.doc = Docs&Utils\Stalker Script Manual\doc_scripters\for_scripters.doc
+		Docs&Utils\Stalker Script Manual\doc_scripters\stalker_script_function.doc = Docs&Utils\Stalker Script Manual\doc_scripters\stalker_script_function.doc
+		Docs&Utils\Stalker Script Manual\doc_scripters\zmey_scripts.doc = Docs&Utils\Stalker Script Manual\doc_scripters\zmey_scripts.doc
+		Docs&Utils\Stalker Script Manual\doc_scripters\Как писать скрипты.txt = Docs&Utils\Stalker Script Manual\doc_scripters\Как писать скрипты.txt
+		Docs&Utils\Stalker Script Manual\doc_scripters\Настройка скриптов Джона.doc = Docs&Utils\Stalker Script Manual\doc_scripters\Настройка скриптов Джона.doc
+		Docs&Utils\Stalker Script Manual\doc_scripters\Начальные сведения о скриптах.txt = Docs&Utils\Stalker Script Manual\doc_scripters\Начальные сведения о скриптах.txt
+		Docs&Utils\Stalker Script Manual\doc_scripters\Несколько слов о скриптовой модели игры.txt = Docs&Utils\Stalker Script Manual\doc_scripters\Несколько слов о скриптовой модели игры.txt
+		Docs&Utils\Stalker Script Manual\doc_scripters\Новые модели поведения NPC.txt = Docs&Utils\Stalker Script Manual\doc_scripters\Новые модели поведения NPC.txt
+		Docs&Utils\Stalker Script Manual\doc_scripters\Патруль.doc = Docs&Utils\Stalker Script Manual\doc_scripters\Патруль.doc
+		Docs&Utils\Stalker Script Manual\doc_scripters\Скриптовый язык LUA начинающим..doc = Docs&Utils\Stalker Script Manual\doc_scripters\Скриптовый язык LUA начинающим..doc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignerDoc", "DesignerDoc", "{1ECE174C-EDAD-4377-AF6A-B2AACE856D65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{B860B118-1848-49F7-A413-3973B9CF88A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Physics", "Physics", "{ABD12600-A3AC-4DF1-BDEA-77D7389F8B8B}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Physics\ph_door.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Physics\ph_door.doc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Restrictors", "Restrictors", "{89267716-05A9-43F7-98A8-F7DD63E106B7}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Restrictors\sr_idle.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Restrictors\sr_idle.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Restrictors\sr_no_weapon.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Restrictors\sr_no_weapon.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Restrictors\sr_sound.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Restrictors\sr_sound.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Restrictors\sr_tip.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Restrictors\sr_tip.doc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stalker", "Stalker", "{EFE33431-81E1-42D2-8AEA-0D18FFC6F9DD}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Stalker\xr_camper.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Stalker\xr_camper.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Stalker\xr_walker.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\BuildingBlocks\Stalker\xr_walker.doc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GenericSchemes", "GenericSchemes", "{E84B21C9-FBC1-4824-9C75-AC091B0BF30D}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\GenericSchemes\smartterains.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\GenericSchemes\smartterains.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\GenericSchemes\state_manager.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\GenericSchemes\state_manager.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\GenericSchemes\xr_gulag.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\GenericSchemes\xr_gulag.doc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other", "Other", "{9870C312-D627-4009-9D57-148B3683EE65}"
+	ProjectSection(SolutionItems) = preProject
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\state_manager.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\state_manager.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\Диалоги.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\Диалоги.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\работа с XML.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\работа с XML.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\система string_table.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\система string_table.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\система заданий и квестов.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\система заданий и квестов.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\система новостей.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\система новостей.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\система отношений.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\система отношений.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\устройство info_portion.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\устройство info_portion.doc
+		Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\устройство npc_profile.doc = Docs&Utils\xrStalkerDOCs\DesignerDoc\Other\устройство npc_profile.doc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{064B9C31-7B69-474E-94CF-6849625A4CD8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1.0006", "Game\Resources1.0006\1.0006.vcxproj", "{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OGSM2.4.3", "Game\ResourcesOGSM2.4.3\OGSM2.4.3.vcxproj", "{6D4A9220-5CF9-406A-A345-026492F409CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -389,20 +631,69 @@ Global
 		{200652A6-043E-4634-8837-87983B3BD5E0}.Release_Dedicated|Win32.Build.0 = Release|Win32
 		{200652A6-043E-4634-8837-87983B3BD5E0}.Release|Win32.ActiveCfg = Release|Win32
 		{200652A6-043E-4634-8837-87983B3BD5E0}.Release|Win32.Build.0 = Release|Win32
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Debug_Dedicated|Win32.ActiveCfg = Debug|Win32
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Debug_Dedicated|Win32.Build.0 = Debug|Win32
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Debug|Win32.Build.0 = Debug|Win32
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Mixed_Dedicated|Win32.ActiveCfg = Debug|Win32
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Mixed_Dedicated|Win32.Build.0 = Debug|Win32
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Mixed|Win32.ActiveCfg = Debug|Win32
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Mixed|Win32.Build.0 = Debug|Win32
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Release_Dedicated|Win32.ActiveCfg = Release|Win32
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Release_Dedicated|Win32.Build.0 = Release|Win32
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Release|Win32.ActiveCfg = Release|Win32
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Release|Win32.Build.0 = Release|Win32
+		{6D4A9220-5CF9-406A-A345-026492F409CD}.Debug_Dedicated|Win32.ActiveCfg = Debug|Win32
+		{6D4A9220-5CF9-406A-A345-026492F409CD}.Debug_Dedicated|Win32.Build.0 = Debug|Win32
+		{6D4A9220-5CF9-406A-A345-026492F409CD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6D4A9220-5CF9-406A-A345-026492F409CD}.Debug|Win32.Build.0 = Debug|Win32
+		{6D4A9220-5CF9-406A-A345-026492F409CD}.Mixed_Dedicated|Win32.ActiveCfg = Debug|Win32
+		{6D4A9220-5CF9-406A-A345-026492F409CD}.Mixed_Dedicated|Win32.Build.0 = Debug|Win32
+		{6D4A9220-5CF9-406A-A345-026492F409CD}.Mixed|Win32.ActiveCfg = Debug|Win32
+		{6D4A9220-5CF9-406A-A345-026492F409CD}.Mixed|Win32.Build.0 = Debug|Win32
+		{6D4A9220-5CF9-406A-A345-026492F409CD}.Release_Dedicated|Win32.ActiveCfg = Release|Win32
+		{6D4A9220-5CF9-406A-A345-026492F409CD}.Release_Dedicated|Win32.Build.0 = Release|Win32
+		{6D4A9220-5CF9-406A-A345-026492F409CD}.Release|Win32.ActiveCfg = Release|Win32
+		{6D4A9220-5CF9-406A-A345-026492F409CD}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E8CF1ADA-264A-4127-86C2-FD7057D3792C} = {3040E755-C7D0-409F-A6F5-E6B2714B2605}
 		{B5919129-6716-499D-9516-04EC34C86CDF} = {3040E755-C7D0-409F-A6F5-E6B2714B2605}
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C} = {3040E755-C7D0-409F-A6F5-E6B2714B2605}
 		{566551F4-4EF1-4CB4-A131-F982E7606907} = {3040E755-C7D0-409F-A6F5-E6B2714B2605}
 		{071217DA-CDDE-40D3-81D4-DCDA7785F3EA} = {3040E755-C7D0-409F-A6F5-E6B2714B2605}
-		{1BF75FEB-87DD-486C-880B-227987D191C2} = {3040E755-C7D0-409F-A6F5-E6B2714B2605}
 		{15CBFEFF-7965-41F5-B4E2-21E8795C9159} = {071217DA-CDDE-40D3-81D4-DCDA7785F3EA}
 		{653F3841-3F26-49B9-AFCF-091DB4B67031} = {071217DA-CDDE-40D3-81D4-DCDA7785F3EA}
 		{3A214E06-B95E-4D61-A291-1F8DF2EC10FD} = {071217DA-CDDE-40D3-81D4-DCDA7785F3EA}
 		{E48B6A8B-F7FE-4DA8-8248-E64DBAC4F56C} = {071217DA-CDDE-40D3-81D4-DCDA7785F3EA}
 		{CEBDE98B-A6AA-46E6-BC79-FAAF823DB9EC} = {071217DA-CDDE-40D3-81D4-DCDA7785F3EA}
+		{1BF75FEB-87DD-486C-880B-227987D191C2} = {3040E755-C7D0-409F-A6F5-E6B2714B2605}
+		{B79493A0-E1F4-4FD6-B356-AF69308B9527} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{779E8C4B-04F7-488F-8089-1F611A580F0C} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{7EC6E07C-7078-46E4-9140-4E5AE3054FF2} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{186814E4-9918-4651-89C2-4B2B39B51033} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{FB2A9256-B3FC-4BE1-A731-EDF3CE573121} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{3BC5312C-E745-460C-A6A5-056F0F10008F} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{CC7C9B37-7ADE-425A-A65F-8AC004460997} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{2B019D9A-862C-4889-8291-FDCF7E8EC5A0} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{5651A832-6E12-4BE7-BAF8-FC60110F4ECE} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{6B414C15-F611-49EE-A60C-8D8E0D37CEA5} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{C5787F6B-28A0-4B6B-BBB4-1AA53A3371D7} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{22A00995-87F0-47C0-B240-8C8B2D1BFB44} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{ADBCCF2C-6F9D-412F-86E7-CFF17AD26442} = {2B019D9A-862C-4889-8291-FDCF7E8EC5A0}
+		{1ECE174C-EDAD-4377-AF6A-B2AACE856D65} = {5651A832-6E12-4BE7-BAF8-FC60110F4ECE}
+		{B860B118-1848-49F7-A413-3973B9CF88A6} = {1ECE174C-EDAD-4377-AF6A-B2AACE856D65}
+		{ABD12600-A3AC-4DF1-BDEA-77D7389F8B8B} = {B860B118-1848-49F7-A413-3973B9CF88A6}
+		{89267716-05A9-43F7-98A8-F7DD63E106B7} = {B860B118-1848-49F7-A413-3973B9CF88A6}
+		{EFE33431-81E1-42D2-8AEA-0D18FFC6F9DD} = {B860B118-1848-49F7-A413-3973B9CF88A6}
+		{E84B21C9-FBC1-4824-9C75-AC091B0BF30D} = {1ECE174C-EDAD-4377-AF6A-B2AACE856D65}
+		{9870C312-D627-4009-9D57-148B3683EE65} = {1ECE174C-EDAD-4377-AF6A-B2AACE856D65}
+		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5} = {064B9C31-7B69-474E-94CF-6849625A4CD8}
+		{6D4A9220-5CF9-406A-A345-026492F409CD} = {064B9C31-7B69-474E-94CF-6849625A4CD8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6EE06C0F-0B91-4801-96DB-70C6320A2026}
 	EndGlobalSection
 EndGlobal
