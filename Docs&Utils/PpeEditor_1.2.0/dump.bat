@@ -1,0 +1,1 @@
+PpeEditor.exe -dump nightvision.ppe>dump.txt

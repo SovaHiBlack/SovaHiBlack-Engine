@@ -1,0 +1,1 @@
+PpeEditor.exe -ltxo C:\Games\GSC World Publishing\S.T.A.L.K.E.R\gamedata_source\anims\nightvision.ppe -o tt.ltx

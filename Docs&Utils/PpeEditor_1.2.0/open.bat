@@ -1,0 +1,1 @@
+PpeEditor.exe C:\Games\GSC World Publishing\S.T.A.L.K.E.R\gamedata\anims\my1.ppe

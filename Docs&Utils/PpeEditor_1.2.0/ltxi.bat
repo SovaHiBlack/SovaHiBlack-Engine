@@ -1,0 +1,1 @@
+PpeEditor.exe -ltxi test.ltx -o tt.ppe
