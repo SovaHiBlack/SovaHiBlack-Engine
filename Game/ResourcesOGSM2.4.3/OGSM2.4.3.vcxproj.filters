@@ -148,6 +148,156 @@
     <Filter Include="spawns\unpack">
       <UniqueIdentifier>{dcc3c2a7-9dda-4a37-a1cb-cdb64f3a1b8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="meshes\actors">
+      <UniqueIdentifier>{31fd2be3-ee22-4e3f-a9b6-13d5c34bfebb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\dm">
+      <UniqueIdentifier>{5bb78712-0f2d-4709-9f75-210c5b9c4dd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\equipments">
+      <UniqueIdentifier>{180a05f2-e658-449f-9c32-91e294382c9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\food">
+      <UniqueIdentifier>{dc903da6-6c46-4cf6-9e6c-bcb6f87fb7c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\grenadier">
+      <UniqueIdentifier>{cf7671d7-10d8-46b4-b435-a4f2461819e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\medic">
+      <UniqueIdentifier>{ba7d9139-c018-474c-b792-4f1e0fa7199f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters">
+      <UniqueIdentifier>{a01952f3-3c7f-4466-a4f2-9c901df0a4d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\objects">
+      <UniqueIdentifier>{b8e42bd4-a548-4da9-a658-5636353af976}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics">
+      <UniqueIdentifier>{58605eac-53de-4e69-a0e3-97a2bdd78fce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons">
+      <UniqueIdentifier>{69573d67-9e74-45a0-9993-84618289aa6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\bandit">
+      <UniqueIdentifier>{bd9512b9-cde6-49ec-bc5e-3b1313be3510}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\barman">
+      <UniqueIdentifier>{bb53ac79-6680-420b-bfbd-e849c61ba891}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\dolg">
+      <UniqueIdentifier>{cb406060-4cc9-4f69-9e80-f5690e382c3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\ecolog">
+      <UniqueIdentifier>{17d45986-ff8f-48c0-9845-55b09907acbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\hero">
+      <UniqueIdentifier>{0c0c3ecf-9fe5-4ea1-a8ea-025e1a662142}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\izgoy">
+      <UniqueIdentifier>{d2b7b4a6-3c00-45eb-988e-b15e5743e8fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\killer">
+      <UniqueIdentifier>{6ca77c9d-b493-40c7-b4be-8ab8ee09ccdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\militari">
+      <UniqueIdentifier>{78495479-f087-4d0e-9d7e-d2b8c1d57e24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\monolit">
+      <UniqueIdentifier>{5e14cb1a-4524-4ecc-a0f8-76fe00f38806}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\nauchniy">
+      <UniqueIdentifier>{c8c30d7b-3aea-4bda-a204-87eeb47c7dad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\neytral">
+      <UniqueIdentifier>{ca2fe4fe-ed8c-49f1-ba3e-1a99066e7cd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\novice">
+      <UniqueIdentifier>{4787cfaa-d14d-4752-afb2-409e8aa60476}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\protect">
+      <UniqueIdentifier>{40c01864-5d23-49ff-8676-416cd82f05cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\soldier">
+      <UniqueIdentifier>{282fef4b-bca2-4e66-bad9-be8e5e83bdb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\stalker_mp">
+      <UniqueIdentifier>{edd8f073-8cda-43c0-81a8-853628eaeab7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\stalker_zombi">
+      <UniqueIdentifier>{7dd42310-5ccb-4637-b18d-99c26d30d219}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\svoboda">
+      <UniqueIdentifier>{b968246a-3311-4cd0-866f-b8e475465f10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\trader">
+      <UniqueIdentifier>{48a2ed94-b25a-40be-a1e0-e07b8028fabc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\actors\ucheniy">
+      <UniqueIdentifier>{8cb1396a-8a60-445a-b268-c24f9a6c4fd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\burer">
+      <UniqueIdentifier>{455f46d4-76f0-49bb-bfed-b5d811a17307}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\cat">
+      <UniqueIdentifier>{772f11e9-8e95-4595-91a6-389cdb0d9eb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\chimera">
+      <UniqueIdentifier>{f61a0b07-fea6-4b75-8bd7-c1b43529cec5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\crow">
+      <UniqueIdentifier>{3a14510c-47c3-4206-a91a-67b6ec27c1a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\dark_stalker">
+      <UniqueIdentifier>{f3dbd6d1-e1b4-45ff-9532-a309be0abcc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\dog">
+      <UniqueIdentifier>{b32c00bc-df93-447b-b371-faba8d0881a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\flesh">
+      <UniqueIdentifier>{c086a1e8-57ee-4f2f-b71c-5fb34789385f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\izlom">
+      <UniqueIdentifier>{6f35e644-6f70-4531-8858-d30c45d8a7f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\kontroler">
+      <UniqueIdentifier>{ac6c2840-33b7-42e3-91eb-32f5cef5bf81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\krovosos">
+      <UniqueIdentifier>{0eee37db-2796-4dbf-8b5f-3e1d61095c6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\mutant_boar">
+      <UniqueIdentifier>{7919b0bf-82a7-4b0f-9047-2a92b2f33962}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\phantom">
+      <UniqueIdentifier>{deaa2b33-90a8-4c7c-9bed-4f8427c07f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\poltergeist">
+      <UniqueIdentifier>{522f2a64-a40b-42b8-b693-4c63db85a1c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\pseudodog">
+      <UniqueIdentifier>{42d2c0cb-cd41-455d-937d-01da375d4064}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\psevdogigant">
+      <UniqueIdentifier>{b2821efc-b189-4aa6-b7ec-1e09d1295b5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\rat">
+      <UniqueIdentifier>{42c6f177-0ab8-411c-8dfc-2818a0c1f46f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\snork">
+      <UniqueIdentifier>{2a31ea76-bb3b-4552-bbf9-184d3f2cfe49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\stalker_zombi">
+      <UniqueIdentifier>{ddaae559-2b78-4278-a63e-f3c2f6000974}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\topolinypuh">
+      <UniqueIdentifier>{96f3ec1d-0ebc-40e6-a30f-574c5f2a0068}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\tushkano">
+      <UniqueIdentifier>{ac4669e1-3270-4752-b155-ee9932e27f5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\monsters\zombi">
+      <UniqueIdentifier>{84fd5b2a-9656-40df-a16c-094a8e9b417a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ai\alife\anomalydetectprobability.efd">
@@ -4925,6 +5075,1218 @@
     </None>
     <None Include="spawns\unpack\way_l12u_sarcofag.ltx">
       <Filter>spawns\unpack</Filter>
+    </None>
+    <None Include="meshes\batch_convert.ltx">
+      <Filter>meshes</Filter>
+    </None>
+    <None Include="meshes\actors\bandits_animation.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\barman_animation.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\critical_hit_grup_1.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\critical_hit_grup_2.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\critical_hit_grup_3.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\critical_hit_grup_4.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\critical_hit_grup_5.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\critical_hit_grup_6.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\critical_hit_grup_7.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\exoskeleton_animation.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\exoskeleton_animation_.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\monolit_animation.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\mp_stalker.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\soldiers_animation.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_animation.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_animation.omf-">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_animation_old.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_drunk.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\trader_animation.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\ucheniy.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\zombie_animation.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\zombie_wounded.omf">
+      <Filter>meshes\actors</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_1.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_2.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_3.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_4.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_5.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_6.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_7.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_8.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_9.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_borov.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_drunk.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_master.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\bandit\stalker_bandit_veteran.ogf">
+      <Filter>meshes\actors\bandit</Filter>
+    </None>
+    <None Include="meshes\actors\barman\barman.ogf">
+      <Filter>meshes\actors\barman</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_antigas.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_balon_1.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_balon_2.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_balon_3.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_balon_4.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_balon_5.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_balon_6.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_balon_7.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_balon_8.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_balon_80.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_exoskeleton.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_komandir.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_mask.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_mask_1.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\dolg\stalker_do_nauchniy.ogf">
+      <Filter>meshes\actors\dolg</Filter>
+    </None>
+    <None Include="meshes\actors\ecolog\stalker_ecolog.ogf">
+      <Filter>meshes\actors\ecolog</Filter>
+    </None>
+    <None Include="meshes\actors\ecolog\stalker_ecolog_military.ogf">
+      <Filter>meshes\actors\ecolog</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_bandit.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_chemical.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_commander.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_dolg.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_ecolog.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_exoskeleton.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_hood.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_killer.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_kurtka.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_military.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_mk1_exo.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_monolit.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_novice.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_scien.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_soldier.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_specops.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_svoboda_heavy.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\hero\stalker_svoboda_light.ogf">
+      <Filter>meshes\actors\hero</Filter>
+    </None>
+    <None Include="meshes\actors\izgoy\izgoy.ogf">
+      <Filter>meshes\actors\izgoy</Filter>
+    </None>
+    <None Include="meshes\actors\killer\stalker_ki_antigas.ogf">
+      <Filter>meshes\actors\killer</Filter>
+    </None>
+    <None Include="meshes\actors\killer\stalker_ki_exoskeleton.ogf">
+      <Filter>meshes\actors\killer</Filter>
+    </None>
+    <None Include="meshes\actors\killer\stalker_ki_head_1.ogf">
+      <Filter>meshes\actors\killer</Filter>
+    </None>
+    <None Include="meshes\actors\killer\stalker_ki_head_2.ogf">
+      <Filter>meshes\actors\killer</Filter>
+    </None>
+    <None Include="meshes\actors\killer\stalker_ki_head_5.ogf">
+      <Filter>meshes\actors\killer</Filter>
+    </None>
+    <None Include="meshes\actors\killer\stalker_ki_hero.ogf">
+      <Filter>meshes\actors\killer</Filter>
+    </None>
+    <None Include="meshes\actors\killer\stalker_ki_informator.ogf">
+      <Filter>meshes\actors\killer</Filter>
+    </None>
+    <None Include="meshes\actors\killer\stalker_ki_mask.ogf">
+      <Filter>meshes\actors\killer</Filter>
+    </None>
+    <None Include="meshes\actors\killer\stalker_ki_nauchniy.ogf">
+      <Filter>meshes\actors\killer</Filter>
+    </None>
+    <None Include="meshes\actors\militari\stalker_militari_1.ogf">
+      <Filter>meshes\actors\militari</Filter>
+    </None>
+    <None Include="meshes\actors\militari\stalker_militari_2.ogf">
+      <Filter>meshes\actors\militari</Filter>
+    </None>
+    <None Include="meshes\actors\militari\stalker_militari_antigas_1.ogf">
+      <Filter>meshes\actors\militari</Filter>
+    </None>
+    <None Include="meshes\actors\militari\stalker_militari_antigas_2.ogf">
+      <Filter>meshes\actors\militari</Filter>
+    </None>
+    <None Include="meshes\actors\monolit\stalker_mo_exo.ogf">
+      <Filter>meshes\actors\monolit</Filter>
+    </None>
+    <None Include="meshes\actors\monolit\stalker_mo_head_1.ogf">
+      <Filter>meshes\actors\monolit</Filter>
+    </None>
+    <None Include="meshes\actors\monolit\stalker_mo_head1.ogf">
+      <Filter>meshes\actors\monolit</Filter>
+    </None>
+    <None Include="meshes\actors\monolit\stalker_mo_head2.ogf">
+      <Filter>meshes\actors\monolit</Filter>
+    </None>
+    <None Include="meshes\actors\monolit\stalker_mo_hood_9.ogf">
+      <Filter>meshes\actors\monolit</Filter>
+    </None>
+    <None Include="meshes\actors\monolit\stalker_mo_komandir.ogf">
+      <Filter>meshes\actors\monolit</Filter>
+    </None>
+    <None Include="meshes\actors\monolit\stalker_mo_mask.ogf">
+      <Filter>meshes\actors\monolit</Filter>
+    </None>
+    <None Include="meshes\actors\monolit\stalker_mo_nauchniy.ogf">
+      <Filter>meshes\actors\monolit</Filter>
+    </None>
+    <None Include="meshes\actors\nauchniy\nauchniy_0.ogf">
+      <Filter>meshes\actors\nauchniy</Filter>
+    </None>
+    <None Include="meshes\actors\nauchniy\nauchniy_1.ogf">
+      <Filter>meshes\actors\nauchniy</Filter>
+    </None>
+    <None Include="meshes\actors\ucheniy\ucheniy_1.ogf">
+      <Filter>meshes\actors\ucheniy</Filter>
+    </None>
+    <None Include="meshes\actors\ucheniy\ucheniy_1_strong.ogf">
+      <Filter>meshes\actors\ucheniy</Filter>
+    </None>
+    <None Include="meshes\actors\ucheniy\ucheniy_2.ogf">
+      <Filter>meshes\actors\ucheniy</Filter>
+    </None>
+    <None Include="meshes\actors\ucheniy\ucheniy_3.ogf">
+      <Filter>meshes\actors\ucheniy</Filter>
+    </None>
+    <None Include="meshes\actors\ucheniy\ucheniy_4.ogf">
+      <Filter>meshes\actors\ucheniy</Filter>
+    </None>
+    <None Include="meshes\actors\trader\trader.ogf">
+      <Filter>meshes\actors\trader</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_balon_1.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_balon_10.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_cook.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_exoskeleton.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_hood_9.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_hood_91.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_leader.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_max.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_nauchniy.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_rukzak_1.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_rukzak_1_1.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_rukzak_2.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_rukzak_3.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\svoboda\stalker_sv_rukzak_3_1.ogf">
+      <Filter>meshes\actors\svoboda</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\stalker_zombi.omf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\stalker_zombie_specnaz.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\stalker_zombie1.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\stalker_zombie2.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\stalker_zombie3.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\stalker_zombie4.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\stalker_zombie5.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\stalker_zombie6.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\stalker_zombie7.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\stalker_zombie8.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\zombie_exoskeleton.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\zombie_fresh_0.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\zombie_fresh_1.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_zombi\zombie_fresh_2.ogf">
+      <Filter>meshes\actors\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_killer_antigas.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_killer_exoskeleton.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_killer_head_1.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_killer_head_3.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_killer_mask.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_killer_mask_de.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_killer_mask_fr.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_killer_mask_uk.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_killer_mask_us.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_killer_military.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_sci_killer.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_sci_svoboda.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_sv_balon_10.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_sv_exoskeleton.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_sv_hood_9.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_sv_military.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_sv_rukzak_2.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\stalker_mp\stalker_sv_rukzak_3.ogf">
+      <Filter>meshes\actors\stalker_mp</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_antigas.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_bandana.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_bandana_1.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_bandana_2.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_bandana_3.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_bandana_4.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_bandana_5.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_bandana_6.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_beret.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_beret_1.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_beret_2.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_beret_3.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_beret_4.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_beret_5.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_mask.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_obichniy.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\soldier_spetsnaz.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\stalker_military_black.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\soldier\stalker_military_green.ogf">
+      <Filter>meshes\actors\soldier</Filter>
+    </None>
+    <None Include="meshes\actors\protect\protect_suit1.ogf">
+      <Filter>meshes\actors\protect</Filter>
+    </None>
+    <None Include="meshes\actors\protect\protect_suit2.ogf">
+      <Filter>meshes\actors\protect</Filter>
+    </None>
+    <None Include="meshes\actors\novice\green_stalker_1.ogf">
+      <Filter>meshes\actors\novice</Filter>
+    </None>
+    <None Include="meshes\actors\novice\green_stalker_2.ogf">
+      <Filter>meshes\actors\novice</Filter>
+    </None>
+    <None Include="meshes\actors\novice\green_stalker_3.ogf">
+      <Filter>meshes\actors\novice</Filter>
+    </None>
+    <None Include="meshes\actors\novice\green_stalker_4.ogf">
+      <Filter>meshes\actors\novice</Filter>
+    </None>
+    <None Include="meshes\actors\novice\green_stalker_5.ogf">
+      <Filter>meshes\actors\novice</Filter>
+    </None>
+    <None Include="meshes\actors\novice\green_stalker_6.ogf">
+      <Filter>meshes\actors\novice</Filter>
+    </None>
+    <None Include="meshes\actors\novice\green_stalker_7.ogf">
+      <Filter>meshes\actors\novice</Filter>
+    </None>
+    <None Include="meshes\actors\novice\green_stalker_8.ogf">
+      <Filter>meshes\actors\novice</Filter>
+    </None>
+    <None Include="meshes\actors\novice\green_stalker_9.ogf">
+      <Filter>meshes\actors\novice</Filter>
+    </None>
+    <None Include="meshes\actors\novice\green_stalker_10.ogf">
+      <Filter>meshes\actors\novice</Filter>
+    </None>
+    <None Include="meshes\actors\novice\green_stalker_11.ogf">
+      <Filter>meshes\actors\novice</Filter>
+    </None>
+    <None Include="meshes\actors\novice\green_stalker_antigas.ogf">
+      <Filter>meshes\actors\novice</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_bar_security.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_balon_1.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_balon_2.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_balon_3.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_balon_4.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_balon_5.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_balon_6.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_balon_7.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_balon_8.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_exoskeleton.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_hood_1.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_hood_2.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_hood_3.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_hood_4.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_hood_5.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_hood_6.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_hood_7.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_hood_8.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_hood_9.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_hood_uzor.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_nauchniy.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_rukzak_1.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_rukzak_2.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_rukzak_3.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_rukzak_4.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_rukzak_5.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_rukzak_6.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_neytral_rukzak_7.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\actors\neytral\stalker_prizrak.ogf">
+      <Filter>meshes\actors\neytral</Filter>
+    </None>
+    <None Include="meshes\dm\dm_lightning_stancia_01.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\dm\dm_lightning_stancia_02.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\dm\dm_lightning_stancia_03.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\dm\dm_lightning_stancia_05.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\dm\dm_lightning-01.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\dm\dm_lightning-01-glow.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\dm\dm_lightning-02.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\dm\dm_lightning-02-glow.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\dm\dm_lightning-03.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\dm\dm_lightning-03-glow.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\dm\dm_lightning-04.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\dm\dm_lightning-04-glow.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\dm\rain.dm">
+      <Filter>meshes\dm</Filter>
+    </None>
+    <None Include="meshes\equipments\art_zombie_hand.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\bandit_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\camera.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\dolg_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\drink_nonstop.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\drink_nonstop_old.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\drink_stalker.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\drink_stalker_old.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\ecolog_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\exoskelet.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\exoskelet_freedom.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\exoskelet_killer.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\exoskelet_monolith.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\gasmask1.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\gasmask2.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\gasmask3.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\green_stalker_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_antirad.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_aptechka.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_aptechka2.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_aptechka3.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_bandage.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_battery_02.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_boar_leg.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_book_01.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_book_02.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_book_03.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_book_open_01.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_box_01.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_box_01_visual.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_burer_hand.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_datchik1.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_datchik2.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_datchik3.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_decoder.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_delo.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_dipl.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_document_01.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_document_1.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_document_2.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_dog_tail.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_flash_1.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_flash_2.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_flesh_eye.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_fmradio.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_foto1.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_foto2.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_gasmask1.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_guitar.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_harmonica.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_krovosos_jaw.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_merger.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_minipda.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_mks10.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_notebook.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_pda.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_psevdodog_tail.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_psi_helmet.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_psi_protection.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_rukzak.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_snork_leg.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_transiver.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_zapiska.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\item_zombie_hand.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\light_night.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\monolit_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\novice_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\projector.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\projector_ani.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\scientific_freedom.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\scientific_killer.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\scientific_monolith.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\scientist_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\soldier_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\specnaz_soldier_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\specnaz_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\stalker_comander_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\stalker_dolg_nauchniy_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\stalker_killer_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\stalker_military_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\stalker_scient_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\stalker_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\svoboda_heavy_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\equipments\svoboda_light_suit.ogf">
+      <Filter>meshes\equipments</Filter>
+    </None>
+    <None Include="meshes\food\conserv1.ogf">
+      <Filter>meshes\food</Filter>
+    </None>
+    <None Include="meshes\food\conserv2.ogf">
+      <Filter>meshes\food</Filter>
+    </None>
+    <None Include="meshes\food\konserva_kukuruza.ogf">
+      <Filter>meshes\food</Filter>
+    </None>
+    <None Include="meshes\food\konserva_olives.ogf">
+      <Filter>meshes\food</Filter>
+    </None>
+    <None Include="meshes\food\konserva_olives_open.ogf">
+      <Filter>meshes\food</Filter>
+    </None>
+    <None Include="meshes\food\konserva_orehi.ogf">
+      <Filter>meshes\food</Filter>
+    </None>
+    <None Include="meshes\food\konserva_orehi_open.ogf">
+      <Filter>meshes\food</Filter>
+    </None>
+    <None Include="meshes\food\konserva_sardina.ogf">
+      <Filter>meshes\food</Filter>
+    </None>
+    <None Include="meshes\food\konserva_sardina_open.ogf">
+      <Filter>meshes\food</Filter>
+    </None>
+    <None Include="meshes\food\konserva_tushenka.ogf">
+      <Filter>meshes\food</Filter>
+    </None>
+    <None Include="meshes\food\konserva_yantar.ogf">
+      <Filter>meshes\food</Filter>
+    </None>
+    <None Include="meshes\grenadier\wpn_f_1.ogf">
+      <Filter>meshes\grenadier</Filter>
+    </None>
+    <None Include="meshes\grenadier\wpn_rgd_5.ogf">
+      <Filter>meshes\grenadier</Filter>
+    </None>
+    <None Include="meshes\medic\item_yad.ogf">
+      <Filter>meshes\medic</Filter>
+    </None>
+    <None Include="meshes\monsters\_dog_animation.omf">
+      <Filter>meshes\monsters</Filter>
+    </None>
+    <None Include="meshes\monsters\bloodsucker_animations.omf">
+      <Filter>meshes\monsters</Filter>
+    </None>
+    <None Include="meshes\monsters\burer_animation.omf">
+      <Filter>meshes\monsters</Filter>
+    </None>
+    <None Include="meshes\monsters\dog_animation.omf">
+      <Filter>meshes\monsters</Filter>
+    </None>
+    <None Include="meshes\monsters\kontroller.omf">
+      <Filter>meshes\monsters</Filter>
+    </None>
+    <None Include="meshes\monsters\psevdodog_animation.omf">
+      <Filter>meshes\monsters</Filter>
+    </None>
+    <None Include="meshes\monsters\psevdogigant_animation.omf">
+      <Filter>meshes\monsters</Filter>
+    </None>
+    <None Include="meshes\monsters\rat_animation.omf">
+      <Filter>meshes\monsters</Filter>
+    </None>
+    <None Include="meshes\monsters\zombi_animation.omf">
+      <Filter>meshes\monsters</Filter>
+    </None>
+    <None Include="meshes\monsters\burer\burer.ogf">
+      <Filter>meshes\monsters\burer</Filter>
+    </None>
+    <None Include="meshes\monsters\burer\burer_1.ogf">
+      <Filter>meshes\monsters\burer</Filter>
+    </None>
+    <None Include="meshes\monsters\cat\cat.ogf">
+      <Filter>meshes\monsters\cat</Filter>
+    </None>
+    <None Include="meshes\monsters\chimera\chimera.ogf">
+      <Filter>meshes\monsters\chimera</Filter>
+    </None>
+    <None Include="meshes\monsters\chimera\chimera_strong.ogf">
+      <Filter>meshes\monsters\chimera</Filter>
+    </None>
+    <None Include="meshes\monsters\crow\crow.ogf">
+      <Filter>meshes\monsters\crow</Filter>
+    </None>
+    <None Include="meshes\monsters\dark_stalker\dark_stalker.ogf">
+      <Filter>meshes\monsters\dark_stalker</Filter>
+    </None>
+    <None Include="meshes\monsters\dog\dog.ogf">
+      <Filter>meshes\monsters\dog</Filter>
+    </None>
+    <None Include="meshes\monsters\dog\dog_bulterier.ogf">
+      <Filter>meshes\monsters\dog</Filter>
+    </None>
+    <None Include="meshes\monsters\dog\dog_bulterier_dead.ogf">
+      <Filter>meshes\monsters\dog</Filter>
+    </None>
+    <None Include="meshes\monsters\dog\dog_dead.ogf">
+      <Filter>meshes\monsters\dog</Filter>
+    </None>
+    <None Include="meshes\monsters\dog\dog_red.ogf">
+      <Filter>meshes\monsters\dog</Filter>
+    </None>
+    <None Include="meshes\monsters\dog\dog_red_dead.ogf">
+      <Filter>meshes\monsters\dog</Filter>
+    </None>
+    <None Include="meshes\monsters\dog\dog_white.ogf">
+      <Filter>meshes\monsters\dog</Filter>
+    </None>
+    <None Include="meshes\monsters\dog\dog_white_dead.ogf">
+      <Filter>meshes\monsters\dog</Filter>
+    </None>
+    <None Include="meshes\monsters\flesh\flesh.ogf">
+      <Filter>meshes\monsters\flesh</Filter>
+    </None>
+    <None Include="meshes\monsters\flesh\flesh_dead.ogf">
+      <Filter>meshes\monsters\flesh</Filter>
+    </None>
+    <None Include="meshes\monsters\flesh\flesh_strong.ogf">
+      <Filter>meshes\monsters\flesh</Filter>
+    </None>
+    <None Include="meshes\monsters\izlom\izlom.ogf">
+      <Filter>meshes\monsters\izlom</Filter>
+    </None>
+    <None Include="meshes\monsters\kontroler\kontroler.ogf">
+      <Filter>meshes\monsters\kontroler</Filter>
+    </None>
+    <None Include="meshes\monsters\kontroler\kontroler_2.ogf">
+      <Filter>meshes\monsters\kontroler</Filter>
+    </None>
+    <None Include="meshes\monsters\kontroler\kontroler_3.ogf">
+      <Filter>meshes\monsters\kontroler</Filter>
+    </None>
+    <None Include="meshes\monsters\kontroler\kontroler_4.ogf">
+      <Filter>meshes\monsters\kontroler</Filter>
+    </None>
+    <None Include="meshes\monsters\kontroler\kontroler_5.ogf">
+      <Filter>meshes\monsters\kontroler</Filter>
+    </None>
+    <None Include="meshes\monsters\kontroler\kontroler_dead.ogf">
+      <Filter>meshes\monsters\kontroler</Filter>
+    </None>
+    <None Include="meshes\monsters\krovosos\krovosos.ogf">
+      <Filter>meshes\monsters\krovosos</Filter>
+    </None>
+    <None Include="meshes\monsters\krovosos\krovosos_dead.ogf">
+      <Filter>meshes\monsters\krovosos</Filter>
+    </None>
+    <None Include="meshes\monsters\krovosos\krovosos_strong.ogf">
+      <Filter>meshes\monsters\krovosos</Filter>
+    </None>
+    <None Include="meshes\monsters\krovosos\krovosos_strong_xray.ogf">
+      <Filter>meshes\monsters\krovosos</Filter>
+    </None>
+    <None Include="meshes\monsters\krovosos\krovosos_xray.ogf">
+      <Filter>meshes\monsters\krovosos</Filter>
+    </None>
+    <None Include="meshes\monsters\mutant_boar\mutant_boar.ogf">
+      <Filter>meshes\monsters\mutant_boar</Filter>
+    </None>
+    <None Include="meshes\monsters\mutant_boar\mutant_boar_dead.ogf">
+      <Filter>meshes\monsters\mutant_boar</Filter>
+    </None>
+    <None Include="meshes\monsters\mutant_boar\mutant_boar_strong.ogf">
+      <Filter>meshes\monsters\mutant_boar</Filter>
+    </None>
+    <None Include="meshes\monsters\zombi\zombi_1.ogf">
+      <Filter>meshes\monsters\zombi</Filter>
+    </None>
+    <None Include="meshes\monsters\zombi\zombi_1_ghost.ogf">
+      <Filter>meshes\monsters\zombi</Filter>
+    </None>
+    <None Include="meshes\monsters\zombi\zombi_2.ogf">
+      <Filter>meshes\monsters\zombi</Filter>
+    </None>
+    <None Include="meshes\monsters\zombi\zombi_3.ogf">
+      <Filter>meshes\monsters\zombi</Filter>
+    </None>
+    <None Include="meshes\monsters\zombi\zombi_4.ogf">
+      <Filter>meshes\monsters\zombi</Filter>
+    </None>
+    <None Include="meshes\monsters\zombi\zombi_trup.ogf">
+      <Filter>meshes\monsters\zombi</Filter>
+    </None>
+    <None Include="meshes\monsters\zombi\zombi_trup_2.ogf">
+      <Filter>meshes\monsters\zombi</Filter>
+    </None>
+    <None Include="meshes\monsters\zombi\zombi_x3.ogf">
+      <Filter>meshes\monsters\zombi</Filter>
+    </None>
+    <None Include="meshes\monsters\zombi\zombi_x4.ogf">
+      <Filter>meshes\monsters\zombi</Filter>
+    </None>
+    <None Include="meshes\monsters\tushkano\tushkano.ogf">
+      <Filter>meshes\monsters\tushkano</Filter>
+    </None>
+    <None Include="meshes\monsters\tushkano\tushkano_dead.ogf">
+      <Filter>meshes\monsters\tushkano</Filter>
+    </None>
+    <None Include="meshes\monsters\topolinypuh\topolinypuh.ogf">
+      <Filter>meshes\monsters\topolinypuh</Filter>
+    </None>
+    <None Include="meshes\monsters\topolinypuh\tp_bottom.ogf">
+      <Filter>meshes\monsters\topolinypuh</Filter>
+    </None>
+    <None Include="meshes\monsters\stalker_zombi\stalker_zombi.ogf">
+      <Filter>meshes\monsters\stalker_zombi</Filter>
+    </None>
+    <None Include="meshes\monsters\snork\snork.ogf">
+      <Filter>meshes\monsters\snork</Filter>
+    </None>
+    <None Include="meshes\monsters\snork\snork_dead.ogf">
+      <Filter>meshes\monsters\snork</Filter>
+    </None>
+    <None Include="meshes\monsters\rat\rat_1.ogf">
+      <Filter>meshes\monsters\rat</Filter>
+    </None>
+    <None Include="meshes\monsters\rat\rat_2.ogf">
+      <Filter>meshes\monsters\rat</Filter>
+    </None>
+    <None Include="meshes\monsters\rat\rat_3.ogf">
+      <Filter>meshes\monsters\rat</Filter>
+    </None>
+    <None Include="meshes\monsters\psevdogigant\psevdogigant.ogf">
+      <Filter>meshes\monsters\psevdogigant</Filter>
+    </None>
+    <None Include="meshes\monsters\psevdogigant\psevdogigant_dead.ogf">
+      <Filter>meshes\monsters\psevdogigant</Filter>
+    </None>
+    <None Include="meshes\monsters\psevdogigant\psevdogigant_strong.ogf">
+      <Filter>meshes\monsters\psevdogigant</Filter>
+    </None>
+    <None Include="meshes\monsters\pseudodog\pseudodog.ogf">
+      <Filter>meshes\monsters\pseudodog</Filter>
+    </None>
+    <None Include="meshes\monsters\pseudodog\pseudodog_dead.ogf">
+      <Filter>meshes\monsters\pseudodog</Filter>
+    </None>
+    <None Include="meshes\monsters\pseudodog\pseudodog_grey.ogf">
+      <Filter>meshes\monsters\pseudodog</Filter>
+    </None>
+    <None Include="meshes\monsters\pseudodog\pseudodog_grey_dead.ogf">
+      <Filter>meshes\monsters\pseudodog</Filter>
+    </None>
+    <None Include="meshes\monsters\poltergeist\poltergeist.ogf">
+      <Filter>meshes\monsters\poltergeist</Filter>
+    </None>
+    <None Include="meshes\monsters\poltergeist\poltergeist_strong.ogf">
+      <Filter>meshes\monsters\poltergeist</Filter>
+    </None>
+    <None Include="meshes\monsters\poltergeist\poltergeyst_dead.ogf">
+      <Filter>meshes\monsters\poltergeist</Filter>
+    </None>
+    <None Include="meshes\monsters\phantom\cat_0.ogf">
+      <Filter>meshes\monsters\phantom</Filter>
+    </None>
+    <None Include="meshes\monsters\phantom\chimera_0.ogf">
+      <Filter>meshes\monsters\phantom</Filter>
+    </None>
+    <None Include="meshes\monsters\phantom\dog_0.ogf">
+      <Filter>meshes\monsters\phantom</Filter>
+    </None>
+    <None Include="meshes\monsters\phantom\flesh_0.ogf">
+      <Filter>meshes\monsters\phantom</Filter>
+    </None>
+    <None Include="meshes\monsters\phantom\kontroler_0.ogf">
+      <Filter>meshes\monsters\phantom</Filter>
+    </None>
+    <None Include="meshes\monsters\phantom\krovosos_0.ogf">
+      <Filter>meshes\monsters\phantom</Filter>
+    </None>
+    <None Include="meshes\monsters\phantom\mutant_boar_0.ogf">
+      <Filter>meshes\monsters\phantom</Filter>
+    </None>
+    <None Include="meshes\monsters\phantom\pseudodog_0.ogf">
+      <Filter>meshes\monsters\phantom</Filter>
+    </None>
+    <None Include="meshes\monsters\phantom\psevdogigant_0.ogf">
+      <Filter>meshes\monsters\phantom</Filter>
+    </None>
+    <None Include="meshes\monsters\phantom\snork_0.ogf">
+      <Filter>meshes\monsters\phantom</Filter>
+    </None>
+    <None Include="meshes\monsters\phantom\tushkano_0.ogf">
+      <Filter>meshes\monsters\phantom</Filter>
+    </None>
+    <None Include="meshes\monsters\phantom\zombi_0.ogf">
+      <Filter>meshes\monsters\phantom</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
