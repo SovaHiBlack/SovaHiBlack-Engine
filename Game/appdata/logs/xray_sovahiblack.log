@@ -1,0 +1,136 @@
+* Detected CPU: GenuineIntel P3 family, F6/M10/S4, 2495.00 mhz, 17-clk 'rdtsc'
+* CPU Features: RDTSC, MMX, SSE, SSE2
+
+Initializing File System...
+using fs-ltx fsgame.ltx
+FS: 30164 files cached, 4922Kb memory used.
+Init FileSystem 0.333539 sec
+'X-Ray Engine' build 9749, Oct 17 2025
+
+Initializing Engine...
+Executing config-script "user.ltx"...
+[d:\sovahiblack-engine\game\appdata\user.ltx] successfully loaded.
+Starting INPUT device...
+Loading DLL: xrRender_R2.dll
+Loading DLL: xrGame.dll
+! Unable to find Software\GSC Game World\STALKER-SHOC\ in registry
+* [win32]: free[4045004 K], reserved[61184 K], committed[88052 K]
+* [ D3D ]: textures[0 K]
+* [x-ray]: crt heap[9329 K], process heap[9329 K], game lua[0 K], engine lua[0 K], render[0 K]
+* [x-ray]: economy: strings[2021 K], smem[0 K]
+Executing config-script "d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\default_controls.ltx"...
+! cant convert dik_name for dik[16], prop=[
+! cant convert dik_name for dik[17], prop=[
+! cant convert dik_name for dik[18], prop=[
+! cant convert dik_name for dik[19], prop=[
+! cant convert dik_name for dik[20], prop=[
+! cant convert dik_name for dik[21], prop=[
+! cant convert dik_name for dik[22], prop=[
+! cant convert dik_name for dik[23], prop=[
+! cant convert dik_name for dik[24], prop=[
+! cant convert dik_name for dik[25], prop=[
+! cant convert dik_name for dik[26], prop=[
+! cant convert dik_name for dik[27], prop=[
+! cant convert dik_name for dik[30], prop=[
+! cant convert dik_name for dik[31], prop=[
+! cant convert dik_name for dik[32], prop=[
+! cant convert dik_name for dik[33], prop=[
+! cant convert dik_name for dik[34], prop=[
+! cant convert dik_name for dik[35], prop=[
+! cant convert dik_name for dik[36], prop=[
+! cant convert dik_name for dik[37], prop=[
+! cant convert dik_name for dik[38], prop=[
+! cant convert dik_name for dik[39], prop=[
+! cant convert dik_name for dik[40], prop=[
+! cant convert dik_name for dik[41], prop=[
+! cant convert dik_name for dik[44], prop=[
+! cant convert dik_name for dik[45], prop=[
+! cant convert dik_name for dik[46], prop=[
+! cant convert dik_name for dik[47], prop=[
+! cant convert dik_name for dik[48], prop=[
+! cant convert dik_name for dik[49], prop=[
+! cant convert dik_name for dik[50], prop=[
+! cant convert dik_name for dik[51], prop=[
+! cant convert dik_name for dik[52], prop=[
+! cant convert dik_name for dik[144], prop=[
+[d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\default_controls.ltx] successfully loaded.
+Executing config-script "user.ltx"...
+Executing config-script "d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\rspec_extreme.ltx"...
+! Unknown command:  r__dtex_range
+! Unknown command:  r__ssa_glod_end
+! Unknown command:  r__ssa_glod_start
+! Unknown command:  r__wallmark_ttl
+! Unknown command:  rs_detail
+! Unknown command:  rs_skeleton_update
+! Unknown command:  vid_bpp
+[d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\rspec_extreme.ltx] successfully loaded.
+Executing config-script "d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\default_controls.ltx"...
+[d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\default_controls.ltx] successfully loaded.
+[d:\sovahiblack-engine\game\appdata\user.ltx] successfully loaded.
+SOUND: OpenAL: enumerate devices...
+SOUND: OpenAL: EnumerationExtension Present
+devices Generic Software
+SOUND: OpenAL: system  default SndDevice name is Generic Software
+SOUND: OpenAL: All available devices:
+1. Generic Software, Spec Version 1.1 (default)
+SOUND: OpenAL: SelectBestDevice is Generic Software 1.1
+SOUND: OpenAL: Required device: Generic Software. Created device: Generic Software.
+* sound: EAX 2.0 extension: absent
+* sound: EAX 2.0 deferred: absent
+* sound : cache: 32773 kb, 3805 lines, 8820 bpl
+Starting RENDER device...
+* GPU [vendor:8086]-[device:46A8]: Intel(R) Iris(R) Xe Graphics
+* GPU driver: 32.0.101.6299
+* CREATE: DeviceREF: 1
+* Vertex Processor: PURE HARDWARE
+*     Texture memory: 4067 M
+*          DDI-level: 9.0
+* GPU shading: vs(fffe0300/3.0/30), ps(ffff0300/3.0/30)
+* GPU vertex cache: unrecognized, 16
+* DVB created: 1536K
+* DIB created: 512K
+! Version conflict in shader 'def_shaders\def_aref'
+! Version conflict in shader 'def_shaders\def_aref_v'
+! Version conflict in shader 'def_shaders\def_trans'
+! Version conflict in shader 'def_shaders\def_trans_v'
+! Version conflict in shader 'def_shaders\def_trans_v_tuchi'
+! Version conflict in shader 'def_shaders\lod_old'
+! Renderer doesn't support blender 'effects\shadow_world'
+! Version conflict in shader 'effects\watertest-1'
+count of .thm files=6
+load time=14 ms
+* NULLRT supported
+* ...and used
+* HWDST/PCF supported and used
+- r__tf_aniso 16
+- r2_tf_mipbias 0.
+Starting engine...
+Loading DLL: xrGameSpy.dll
+* DVB created: 1536K
+* DIB created: 512K
+- r__tf_aniso 16
+- r2_tf_mipbias 0.
+* GPU shading: vs(fffe0300/3.0/30), ps(ffff0300/3.0/30)
+* GPU vertex cache: unrecognized, 16
+*** RESET [0 ms]
+* MEMORY USAGE: 116887 K
+[16-9] get_xml_name for[message_box.xml] returns [message_box.xml]
+Input:  1
+Config-file [d:\sovahiblack-engine\game\appdata\user.ltx] saved successfully
+Destroying Direct3D...
+* RM_Dump: textures  : 0
+* RM_Dump: rtargets  : 0
+* RM_Dump: rtargetsc : 0
+* RM_Dump: vs        : 0
+* RM_Dump: ps        : 0
+* RM_Dump: dcl       : 0
+* RM_Dump: states    : 0
+* RM_Dump: tex_list  : 0
+* RM_Dump: matrices  : 0
+* RM_Dump: lst_constants: 0
+* RM_Dump: v_passes  : 0
+* RM_Dump: v_elements: 0
+* RM_Dump: v_shaders : 0
+refCount:pBaseZB 1
+refCount:pBaseRT 1
+DeviceREF: 1
