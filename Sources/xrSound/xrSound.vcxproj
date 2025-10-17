@@ -72,11 +72,7 @@
       </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>
-        $(SolutionDir)\Output\Libraries\;
-        $(SolutionDir)\Sources\Externals\EAX\Lib\;
-        $(SolutionDir)\Sources\Externals\Xiph\Libraries\
-      </AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Output\Libraries\;$(SolutionDir)\Sources\Externals\EAX\Lib\</AdditionalLibraryDirectories>
       <ImportLibrary>$(SolutionDir)\Output\Libraries\$(ProjectName).lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
