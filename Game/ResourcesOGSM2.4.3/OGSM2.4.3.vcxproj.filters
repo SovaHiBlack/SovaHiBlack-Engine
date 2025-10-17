@@ -298,6 +298,291 @@
     <Filter Include="meshes\monsters\zombi">
       <UniqueIdentifier>{84fd5b2a-9656-40df-a16c-094a8e9b417a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="meshes\objects\dynamics">
+      <UniqueIdentifier>{b43092ad-4b6d-425c-8eac-3c19ffef7de1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\objects\dynamics\balon">
+      <UniqueIdentifier>{91f9b4e9-b7a3-450b-80c4-8dc9e8c02ee7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\objects\dynamics\bed">
+      <UniqueIdentifier>{20ad5b42-f09a-4e44-97e0-c702bfa31ef3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\objects\dynamics\box">
+      <UniqueIdentifier>{3cdd3b3c-e3f8-411f-bf4d-d3b2c04ae9af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\objects\dynamics\chair">
+      <UniqueIdentifier>{a75676f9-d1a8-4176-845d-abad85168b55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\objects\dynamics\decor">
+      <UniqueIdentifier>{80ee3436-76f9-4d4e-855a-0a43269f20c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\objects\dynamics\plitka">
+      <UniqueIdentifier>{5f4fafb3-3f8e-49a7-973b-775135d46e77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\objects\dynamics\box\prt">
+      <UniqueIdentifier>{33e35adf-4e3c-4f6d-af54-3567bef8c2c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\anomaly">
+      <UniqueIdentifier>{6579a630-9565-497f-b5c6-0cd8ad200ebd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\balon">
+      <UniqueIdentifier>{5de8ba3d-1a33-4373-a857-27688f1ef2d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\box">
+      <UniqueIdentifier>{70ef618a-1d1e-4984-8d78-6f5f6dc24ee5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\dead_body">
+      <UniqueIdentifier>{4abacd4e-2c1f-4ef9-87f6-5832f9c7e5da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\decor">
+      <UniqueIdentifier>{1c9e4979-8fdd-4d09-b9d0-964c74be933a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\door">
+      <UniqueIdentifier>{cca34152-9df9-409a-a086-7946a52a0f24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\equipment_cache">
+      <UniqueIdentifier>{c08f538b-28d2-4129-a975-2ba9f3cae779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\keyboard">
+      <UniqueIdentifier>{5991c476-a979-478f-b130-652c5bc03282}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\krovati">
+      <UniqueIdentifier>{3366c74e-43ba-4e4d-bad1-8f3ebb4fb0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\large_trash">
+      <UniqueIdentifier>{06b01277-51ff-4df0-9aa3-c98329c0a7da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\light">
+      <UniqueIdentifier>{4c8bd96e-c85c-4824-b77b-c37e86e4d6b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\rope">
+      <UniqueIdentifier>{01ffde23-1b6f-4348-bcca-e88542a5520e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\shkaf">
+      <UniqueIdentifier>{fde2e1c6-4023-48d6-bc60-79bae9092e69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\small_trash">
+      <UniqueIdentifier>{7633a438-dc81-4e1f-a3cf-6cbbe7d0079a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\stol">
+      <UniqueIdentifier>{1d65fa81-571e-4014-b2e6-679decd82b48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\stul">
+      <UniqueIdentifier>{b6a051ee-908c-4f95-b6bb-119675452043}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\target">
+      <UniqueIdentifier>{0f71e2f3-9e4f-43f2-84a4-de9a7c963863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\technica">
+      <UniqueIdentifier>{7df80ce8-84d5-43e9-8f22-642727aa7262}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\test">
+      <UniqueIdentifier>{2e11f8d9-11aa-4662-960e-1311cdcc40cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\vehicles">
+      <UniqueIdentifier>{2cdb15d2-e337-4166-a4c2-b642a5601778}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\zabor">
+      <UniqueIdentifier>{965ebe77-ef48-4b87-8e47-b8ae42bfbbc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\box\prt">
+      <UniqueIdentifier>{2821c1b1-250c-40d1-99fa-b9ef218ebaaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\decor\prt">
+      <UniqueIdentifier>{dfd216f6-ed90-44ed-bc36-e074f6490a2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\door\prt">
+      <UniqueIdentifier>{f5acd533-cbfb-4ed4-a229-0392cb42c778}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\large_trash\prt">
+      <UniqueIdentifier>{66619c17-117e-43de-aa67-c5f0c0505d8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\light\new_light">
+      <UniqueIdentifier>{32ed1654-6621-4000-bc78-e2cf138dbe0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\small_trash\prt">
+      <UniqueIdentifier>{01b2b238-3d49-4d87-baaa-769a68fea286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\test\old">
+      <UniqueIdentifier>{cfebf9a4-143f-497c-9281-7f8302969242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\vehicles\btr">
+      <UniqueIdentifier>{c273b415-5915-42e8-8374-63d66d611ae2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\vehicles\kamaz">
+      <UniqueIdentifier>{d11b0089-3915-4397-b1ef-3e2732eba01d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\vehicles\mi24">
+      <UniqueIdentifier>{198773b0-9d05-42e0-b8ba-c03bea0a40aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\vehicles\moskvich">
+      <UniqueIdentifier>{4b417595-9fa9-4343-9d81-8379bd229488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\vehicles\niva">
+      <UniqueIdentifier>{0296cc60-7972-4074-938f-44d0c7a91203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\vehicles\tr13">
+      <UniqueIdentifier>{be7526fc-33e0-49b0-b5be-369f14c1d6ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\vehicles\uaz">
+      <UniqueIdentifier>{290cb130-f091-490c-a2c3-9f6d31ead67d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\vehicles\zaz">
+      <UniqueIdentifier>{e89e3700-c1ae-4eb4-b7d7-a2afbe0b656b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\vehicles\kamaz\old">
+      <UniqueIdentifier>{c9a4bbb2-c61c-46d7-a8c5-df8582acdbdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\vehicles\mi24\part">
+      <UniqueIdentifier>{4b4b65e6-d1e0-4418-86bf-234861d00c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\vehicles\zaz\part">
+      <UniqueIdentifier>{f136a16c-8fb3-4703-a3eb-a92e5d9e206d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\physics\zabor\prt">
+      <UniqueIdentifier>{1acd5de2-c8c0-4146-8bbd-65bf13acb132}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\abakan">
+      <UniqueIdentifier>{0bdd471c-d009-4e2f-a455-a4d86d2e5f09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\ak74">
+      <UniqueIdentifier>{224dee6b-779a-41ed-a3fa-8ca741d0f68a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\ak-74u">
+      <UniqueIdentifier>{5df37dd9-e482-4db5-98bb-ffddfc166f10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\ammo">
+      <UniqueIdentifier>{3fa404a1-d862-45b4-9a58-4fdd2e1b5cf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\aptechka">
+      <UniqueIdentifier>{17538b0d-56b6-48d0-91e7-98074b1c3789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\artefact">
+      <UniqueIdentifier>{03b2d4f7-a87b-4ad9-b4f1-57d880da47e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\bandage">
+      <UniqueIdentifier>{67ddd10a-66b0-4736-b448-622178a944e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\beretta92fs">
+      <UniqueIdentifier>{348ef44a-df4a-493d-9b60-69ea39258023}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\binoculars">
+      <UniqueIdentifier>{d8d9d1cf-5ec2-4236-8556-4e6679a26b89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\bm_16">
+      <UniqueIdentifier>{bb16240a-8470-4554-9a08-b6e797b35a16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\bolt">
+      <UniqueIdentifier>{54dc5eab-0fe2-499d-8911-70fa2fce75f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\bred">
+      <UniqueIdentifier>{9da8f2ae-c597-4bc4-b4d2-c89ac1938675}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\colt1911">
+      <UniqueIdentifier>{38914d0c-6404-49a6-8c73-b327e719f684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\desert_eagle">
+      <UniqueIdentifier>{022d80a4-b3ab-4c56-9cd0-1a97062aeeb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\fn2000">
+      <UniqueIdentifier>{a277790e-7a32-4aaf-8810-359d179a101b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\fort">
+      <UniqueIdentifier>{1e485386-7b17-4fba-bf3d-974b639167b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\g36">
+      <UniqueIdentifier>{a7fe4909-2905-42be-be57-9e7a9bde286c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\gauss">
+      <UniqueIdentifier>{6807ced5-b4aa-4ce1-8972-236aa7fcc077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\grenade">
+      <UniqueIdentifier>{7cd4a25c-440e-4dc2-b6a2-f203dcd3b41d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\groza">
+      <UniqueIdentifier>{85b63066-8580-43ab-8f5d-96c9d54e1ee1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\hpsa">
+      <UniqueIdentifier>{98e9481e-972e-471e-8ffa-31971ef277e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\knife">
+      <UniqueIdentifier>{11bee75b-9179-4500-a144-35a58642bf1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\kolbasa">
+      <UniqueIdentifier>{6bca6ef8-ae68-4f14-8460-716de0519760}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\l85">
+      <UniqueIdentifier>{05be3048-8e67-40d1-97aa-b6cc088e6b89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\lr300">
+      <UniqueIdentifier>{e7837d80-aae3-4eae-b69a-44a9e2dcc742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\mounted_weapons">
+      <UniqueIdentifier>{740401db-cacb-4b65-9add-265c9784844b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\mp5">
+      <UniqueIdentifier>{ae840c1c-82fc-4e49-a527-a159e3bd8acc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\p90">
+      <UniqueIdentifier>{547a628b-da15-4371-8ac5-a3af9e8f95ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\pb">
+      <UniqueIdentifier>{eb729b56-a26c-4d81-86d3-86c045ffc14e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\pm">
+      <UniqueIdentifier>{6100bce7-3fd1-4ae2-b4ad-6d6c67151718}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\rg-6">
+      <UniqueIdentifier>{261335ce-a529-4e24-99ed-ca726202631f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\rpg_7">
+      <UniqueIdentifier>{6d03fc42-e593-4b98-b980-a4154f164188}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\sig220">
+      <UniqueIdentifier>{a1482dc4-05ff-4a4a-a269-29bbfb19553c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\sig550">
+      <UniqueIdentifier>{b8fa678b-2166-4d3f-958b-7826b657504f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\sigaret">
+      <UniqueIdentifier>{a5ca43c5-6438-495a-bb3f-9635daf17306}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\spas12">
+      <UniqueIdentifier>{913a25f6-9f2c-4589-bb1f-808528fe9ae9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\svd">
+      <UniqueIdentifier>{d5586c09-4af6-4257-a325-42c1d8c80a0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\svu">
+      <UniqueIdentifier>{4a568f74-ae12-4c28-a78d-6d49f09a72d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\svug">
+      <UniqueIdentifier>{4f8f52dc-99f5-4c3b-9a9f-64f1dae63c7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\toz34">
+      <UniqueIdentifier>{e8c9e8a8-f9c3-4819-9a39-64d654079aa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\upgrade">
+      <UniqueIdentifier>{1718b43e-bd99-4f80-b147-7b93d67cefaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\usp_45">
+      <UniqueIdentifier>{a03e0b7a-ee69-4a51-b449-912655794a58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\val">
+      <UniqueIdentifier>{e2b145e9-acd8-4485-b88b-a71eb920cb41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\vintorez">
+      <UniqueIdentifier>{1cbf219c-f2a9-41ee-96b6-1e8a02a99f1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\vodka">
+      <UniqueIdentifier>{0f645556-03d8-4624-a705-d4187029c689}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\walter_99">
+      <UniqueIdentifier>{3524c86d-e46f-41d2-b272-88768da990a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="meshes\weapons\winchester1300">
+      <UniqueIdentifier>{03a9b9d1-6c82-428a-95b8-90262f88068c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ai\alife\anomalydetectprobability.efd">
@@ -6287,6 +6572,1878 @@
     </None>
     <None Include="meshes\monsters\phantom\zombi_0.ogf">
       <Filter>meshes\monsters\phantom</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\balon\balon_01.ogf">
+      <Filter>meshes\objects\dynamics\balon</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\balon\bidon.ogf">
+      <Filter>meshes\objects\dynamics\balon</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\balon\bochka_close_1.ogf">
+      <Filter>meshes\objects\dynamics\balon</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\balon\bochka_close_2.ogf">
+      <Filter>meshes\objects\dynamics\balon</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\balon\bochka_close_3.ogf">
+      <Filter>meshes\objects\dynamics\balon</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\balon\bochka_close_4.ogf">
+      <Filter>meshes\objects\dynamics\balon</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\balon\bochka_fuel.ogf">
+      <Filter>meshes\objects\dynamics\balon</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\balon\bochka_open_1.ogf">
+      <Filter>meshes\objects\dynamics\balon</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\balon\bochka_open_2.ogf">
+      <Filter>meshes\objects\dynamics\balon</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\balon\bochka_open_3.ogf">
+      <Filter>meshes\objects\dynamics\balon</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\balon\bochka_open_4.ogf">
+      <Filter>meshes\objects\dynamics\balon</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\balon\kanistra.ogf">
+      <Filter>meshes\objects\dynamics\balon</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\bed\bed_01.ogf">
+      <Filter>meshes\objects\dynamics\bed</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\box\box_1a.ogf">
+      <Filter>meshes\objects\dynamics\box</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\box\box_1b.ogf">
+      <Filter>meshes\objects\dynamics\box</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\box\box_1c.ogf">
+      <Filter>meshes\objects\dynamics\box</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\box\box_wood_01.ogf">
+      <Filter>meshes\objects\dynamics\box</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\box\box_wood_tara.ogf">
+      <Filter>meshes\objects\dynamics\box</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\box\prt\box_wood_01_prt1.ogf">
+      <Filter>meshes\objects\dynamics\box\prt</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\box\prt\box_wood_01_prt2.ogf">
+      <Filter>meshes\objects\dynamics\box\prt</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\box\prt\box_wood_01_prt3.ogf">
+      <Filter>meshes\objects\dynamics\box\prt</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\box\prt\box_wood_01_prt4.ogf">
+      <Filter>meshes\objects\dynamics\box\prt</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\box\prt\box_wood_01_prt5.ogf">
+      <Filter>meshes\objects\dynamics\box\prt</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\box\prt\box_wood_01_prt6.ogf">
+      <Filter>meshes\objects\dynamics\box\prt</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\box\prt\box_wood_01_prt7.ogf">
+      <Filter>meshes\objects\dynamics\box\prt</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\chair\lavochka_01.ogf">
+      <Filter>meshes\objects\dynamics\chair</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\chair\lavochka_02.ogf">
+      <Filter>meshes\objects\dynamics\chair</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\chair\stul_wood_01.ogf">
+      <Filter>meshes\objects\dynamics\chair</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\chair\taburet_wood_01.ogf">
+      <Filter>meshes\objects\dynamics\chair</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\decor\tv_1_br.ogf">
+      <Filter>meshes\objects\dynamics\decor</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\decor\vedro_01.ogf">
+      <Filter>meshes\objects\dynamics\decor</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\plitka\plitka_br1.ogf">
+      <Filter>meshes\objects\dynamics\plitka</Filter>
+    </None>
+    <None Include="meshes\objects\dynamics\plitka\plitka1.ogf">
+      <Filter>meshes\objects\dynamics\plitka</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\anomaly_hvatalka.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\anomaly_liana.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\anomaly_studen.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\anomaly_studen_bottom_01.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\anomaly_studen_bottom_02.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\anomaly_studen_bottom_03.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\anomaly_studen_up_01.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\anomaly_studen_up_02.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_ameba1.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_ameba2.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_ameba3.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_battery.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_blackdrip.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_blackdrip_1.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_blackdrip_2.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_cristall.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_electra1.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_electra2.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_electra3.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_electra4.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_fire.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_gravy1.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_gravy2.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_gravy3.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_kaply.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_monolit.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_monolit_ghost.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_myasorubka1.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_myasorubka2.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_myasorubka3.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_needles1.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_needles2.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_plenka.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_pustishka.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_pustishka1.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_rusty_hairs.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\artefact_spiral.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\pautina.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\topolinypuh.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\anomaly\tp_bottom.ogf">
+      <Filter>meshes\physics\anomaly</Filter>
+    </None>
+    <None Include="meshes\physics\balon\balon_01.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\balon_02.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\bidon.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\bochka_close_1.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\bochka_close_2.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\bochka_close_3.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\bochka_close_4.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\bochka_fuel.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\bochka_open_1.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\bochka_open_2.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\bochka_open_3.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\bochka_open_4.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\bomb_01.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\box_lab_03.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\balon\kanistra.ogf">
+      <Filter>meshes\physics\balon</Filter>
+    </None>
+    <None Include="meshes\physics\box\box_1a.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\box_1b.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\box_1c.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\box_lab_01.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\box_lab_02.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\box_metall_01.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\box_pak_01.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\box_wood_01.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\box_wood_tara.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\expl_dinamit.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\konteyner_01.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\konteyner_02.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\konteyner_03.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\seif_01.ogf">
+      <Filter>meshes\physics\box</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_lab_02_prt1.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_lab_02_prt2.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_lab_02_prt3.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_lab_02_prt4.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_lab_02_prt5.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_lab_02_prt6.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_metall_01_prt1.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_metall_01_prt2.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_wood_01_prt1.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_wood_01_prt2.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_wood_01_prt3.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_wood_01_prt4.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_wood_01_prt5.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_wood_01_prt6.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\box\prt\box_wood_01_prt7.ogf">
+      <Filter>meshes\physics\box\prt</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_combine_pose_00.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_combine_pose_01.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_combine_pose_02.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_combine_pose_03.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_combine_pose_04.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_combine_pose_05.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_combine_pose_06.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_crash.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_crash_monster.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_foot1.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_foot2.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_head.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_hend1.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_hend2.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\skelet_torso.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\trofey_boar.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\trofey_cat.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\trofey_chimera.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\trofey_pseudodog.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\trupik.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\trupik_crash.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\trupik_fresh.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\trupik_rope.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\vertel_boar.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\dead_body\vertel_boar_nobranch.ogf">
+      <Filter>meshes\physics\dead_body</Filter>
+    </None>
+    <None Include="meshes\physics\decor\bag_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\banka_kraski_1.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\bottle_bar_1.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\bottle_bar_stakan.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\brain.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\butil_1.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\butil_2.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\butil_3.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\butilka_1.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\butilka_2.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\butilka_2a.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\butilka_2b.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\butilka_vodka_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\fire_schit.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\fire_vedro.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\freezer.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kartina_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kartina_02.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kartina03.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kartina04.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kartina05.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kartina06.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kitchen_bludo.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kitchen_kastrula.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kitchen_kastrula_up.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kitchen_krujka.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kitchen_lojka.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kitchen_miska.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kitchen_tarelka1.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kitchen_tarelka2.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kiy.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\kozel_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\krisagenerator.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\med_stoyka_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\monolith_generator.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\musor_konteyner_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\mysor_korzina_1.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\mysor_korzina_2.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\ognetushitel.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\plakat_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\plakat_3x4.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\plakat_map_gold_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\plakat_prop_map_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\pool_shar02.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\priemnik_gorizont.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\rupor.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\sign_bar_logo_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\sign_mine.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\sign_radiation.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\sign_stop.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\switcher.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\teapot_1.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\tiski.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\tomb_00.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\tomb_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\tomb_02.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\tomb_03.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\tomb_04.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\tv_1.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\tv_1_br.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\tv_2_br.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\vedro_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\ventilator_01.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\ventilator_mike.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\ventilator01_exp.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\ventilyator_lab.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\vetrogenerator.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\weapons_schit.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\wetryak.ogf">
+      <Filter>meshes\physics\decor</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\bottle_bar_1_prt0.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\bottle_bar_1_prt1.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\bottle_bar_1_prt2.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\bottle_bar_1_prt3.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\bottle_bar_1_prt4.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\bottle_bar_1_prt5.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\bottle_bar_1_prt6.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\bottle_bar_1_prt7.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\vetrogenerator_prt1.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\vetrogenerator_prt2.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\vetrogenerator_prt3.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\vetrogenerator_prt4.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\vetrogenerator_prt5.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\vetrogenerator_prt6.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\vetrogenerator_prt7.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\vetrogenerator_prt8.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\vetrogenerator_prt9.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\vetrogenerator_prt10.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\decor\prt\vetrogenerator_prt11.ogf">
+      <Filter>meshes\physics\decor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\door\bookcase_village_50x90_ph_door_l.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\bookcase_village_50x90_ph_door_r.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\cabinet_village_140x210_ph_door_l.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\cabinet_village_140x210_ph_door_r.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\codedoor_key.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\codedoor_left.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\codedoor_right.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_bar_rostok_01.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_bar_rostok_02.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_darkvale_01.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_darkvaley_lest_01.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_darkvaley_nedostroika_01.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_darkvaley_outdoor_01.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_darkvalley_vorota_01.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_garbage_01.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_glory.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_locker.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_military_01.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_p.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_pripyat_01.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_prison_01.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_prison_pult_01.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_trader.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_traders_box.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_vagon_dist1.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_vagon1_iov.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_vagon2_iov.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_vagon3_iov.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\door_yantar_u_01.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\seif_01_ph_door.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\stol_6_ph_door.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\stol_7_ph_door.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\stol_8_ph_door.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\stol_8a_ph_door.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\stol_9a_ph_door.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\test_slider.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\tumba_village_50x120_ph_door.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\tumba_village_100x90_ph_01_door.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\tumba_village_100x90_ph_door_l.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\tumba_village_100x90_ph_door_r.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\tumba_village_140x60_ph_door.ogf">
+      <Filter>meshes\physics\door</Filter>
+    </None>
+    <None Include="meshes\physics\door\prt\door_locker_prt1.ogf">
+      <Filter>meshes\physics\door\prt</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_box_01_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_box_02_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_cross_1_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_cross_2_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_cross_3_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_electric_box_01_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_electric_box_02_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_hatch_01_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_hatch_02_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_instrument_case_01_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_pipe_01_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_pipe_02_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_pipe_valve_01_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_rucksack_01_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_rucksack_02_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_seif_01_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_seif_02_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_seif_03_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_trees_log_01_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_trees_stump_01_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\equipment_cache\equipment_zaz968_case.ogf">
+      <Filter>meshes\physics\equipment_cache</Filter>
+    </None>
+    <None Include="meshes\physics\keyboard\lab_primary_switcher.ogf">
+      <Filter>meshes\physics\keyboard</Filter>
+    </None>
+    <None Include="meshes\physics\krovati\divan_01.ogf">
+      <Filter>meshes\physics\krovati</Filter>
+    </None>
+    <None Include="meshes\physics\krovati\krovat_01.ogf">
+      <Filter>meshes\physics\krovati</Filter>
+    </None>
+    <None Include="meshes\physics\krovati\krovat_02.ogf">
+      <Filter>meshes\physics\krovati</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\aes_zabor.ogf">
+      <Filter>meshes\physics\large_trash</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\garbage_1.ogf">
+      <Filter>meshes\physics\large_trash</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\garbage_9.ogf">
+      <Filter>meshes\physics\large_trash</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\garbage_11.ogf">
+      <Filter>meshes\physics\large_trash</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\military_wall_brick.ogf">
+      <Filter>meshes\physics\large_trash</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\military_wall_brick_in.ogf">
+      <Filter>meshes\physics\large_trash</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\poddon.ogf">
+      <Filter>meshes\physics\large_trash</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\poddon_02.ogf">
+      <Filter>meshes\physics\large_trash</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\pricep_01.ogf">
+      <Filter>meshes\physics\large_trash</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\shifer_03.ogf">
+      <Filter>meshes\physics\large_trash</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\truba_bar_rostok.ogf">
+      <Filter>meshes\physics\large_trash</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\prt\military_wall_bricks_in_prt_1.ogf">
+      <Filter>meshes\physics\large_trash\prt</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\prt\military_wall_bricks_in_prt_2.ogf">
+      <Filter>meshes\physics\large_trash\prt</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\prt\military_wall_bricks_in_prt_3.ogf">
+      <Filter>meshes\physics\large_trash\prt</Filter>
+    </None>
+    <None Include="meshes\physics\large_trash\prt\prt_none.ogf">
+      <Filter>meshes\physics\large_trash\prt</Filter>
+    </None>
+    <None Include="meshes\physics\light\lamp_mike_2_glass.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa_01_on.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa_abajur_01.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa_abajur_02.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa_abajur_03.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa_galogen_1_ph.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa_galogen_4.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa_provod_01.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa_provod_02.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa_walls_01.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa01_alarm.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa01_ugl.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa01_ugl_2.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa01_ugl_3.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\lampa01_v.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\light_koster.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\light_torch.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\projector_01_nolight.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\rail_svetofor_blue.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\rope_projector_01.ogf">
+      <Filter>meshes\physics\light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_alarm_1.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_alarm_glass.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_alarm_white_glass.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_big_1_glass.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_big_2_glass.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_controll_monolith_glass.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_galogen_1_glass.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_galogen_rtut_1_glass.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_osoznanie_glass.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_sharnir_1.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_uglovaya_1_glass.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_white_glass.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\light\new_light\light_wire_1_glass.ogf">
+      <Filter>meshes\physics\light\new_light</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\wood_fence_1.ogf">
+      <Filter>meshes\physics\zabor</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\wood_fence_2.ogf">
+      <Filter>meshes\physics\zabor</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\wood_fence_3.ogf">
+      <Filter>meshes\physics\zabor</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\wood_fence_4.ogf">
+      <Filter>meshes\physics\zabor</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\wood_fence_5.ogf">
+      <Filter>meshes\physics\zabor</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\zabor_dver_02.ogf">
+      <Filter>meshes\physics\zabor</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\prt\wood_fence_part_1.ogf">
+      <Filter>meshes\physics\zabor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\prt\wood_fence_part_2.ogf">
+      <Filter>meshes\physics\zabor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\prt\wood_fence_part_3.ogf">
+      <Filter>meshes\physics\zabor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\prt\wood_fence_part_4.ogf">
+      <Filter>meshes\physics\zabor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\prt\wood_fence_part_5.ogf">
+      <Filter>meshes\physics\zabor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\prt\wood_fence_part_6.ogf">
+      <Filter>meshes\physics\zabor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\zabor\prt\wood_fence_part_7.ogf">
+      <Filter>meshes\physics\zabor\prt</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\btr\veh_btr_script_u_01.ogf">
+      <Filter>meshes\physics\vehicles\btr</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\btr\veh_btr_u_01.ogf">
+      <Filter>meshes\physics\vehicles\btr</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\kamaz\veh_kamaz_u_01.ogf">
+      <Filter>meshes\physics\vehicles\kamaz</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\kamaz\old\veh_kamaz_u_01.ogf">
+      <Filter>meshes\physics\vehicles\kamaz\old</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\mi24\veh_mi24_u_01.ogf">
+      <Filter>meshes\physics\vehicles\mi24</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\mi24\veh_mi24_u_01_fire.ogf">
+      <Filter>meshes\physics\vehicles\mi24</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\mi24\part\veh_mi24_part1.ogf">
+      <Filter>meshes\physics\vehicles\mi24\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\mi24\part\veh_mi24_part2.ogf">
+      <Filter>meshes\physics\vehicles\mi24\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\mi24\part\veh_mi24_part3.ogf">
+      <Filter>meshes\physics\vehicles\mi24\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\mi24\part\veh_mi24_part4.ogf">
+      <Filter>meshes\physics\vehicles\mi24\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\mi24\part\veh_mi24_part5.ogf">
+      <Filter>meshes\physics\vehicles\mi24\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\mi24\part\veh_mi24_part6.ogf">
+      <Filter>meshes\physics\vehicles\mi24\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\mi24\part\veh_mi24_part7.ogf">
+      <Filter>meshes\physics\vehicles\mi24\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\mi24\part\veh_mi24_part8.ogf">
+      <Filter>meshes\physics\vehicles\mi24\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\mi24\part\veh_mi24_part9.ogf">
+      <Filter>meshes\physics\vehicles\mi24\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\mi24\part\veh_mi24_part10.ogf">
+      <Filter>meshes\physics\vehicles\mi24\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\moskvich\veh_moskvitch_u_01.ogf">
+      <Filter>meshes\physics\vehicles\moskvich</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\zaz\veh_zaz_u_01.ogf">
+      <Filter>meshes\physics\vehicles\zaz</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\zaz\part\veh_zaz_u_01_part0.ogf">
+      <Filter>meshes\physics\vehicles\zaz\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\zaz\part\veh_zaz_u_01_part1.ogf">
+      <Filter>meshes\physics\vehicles\zaz\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\zaz\part\veh_zaz_u_01_part2.ogf">
+      <Filter>meshes\physics\vehicles\zaz\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\zaz\part\veh_zaz_u_01_part3.ogf">
+      <Filter>meshes\physics\vehicles\zaz\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\zaz\part\veh_zaz_u_01_part4.ogf">
+      <Filter>meshes\physics\vehicles\zaz\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\zaz\part\veh_zaz_u_01_part5.ogf">
+      <Filter>meshes\physics\vehicles\zaz\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\zaz\part\veh_zaz_u_01_part6.ogf">
+      <Filter>meshes\physics\vehicles\zaz\part</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\uaz\veh_uaz_u_01.ogf">
+      <Filter>meshes\physics\vehicles\uaz</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\tr13\veh_tr13_u_01.ogf">
+      <Filter>meshes\physics\vehicles\tr13</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\niva\include_test_niva.ogf">
+      <Filter>meshes\physics\vehicles\niva</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\niva\veh_niva_u_01.ogf">
+      <Filter>meshes\physics\vehicles\niva</Filter>
+    </None>
+    <None Include="meshes\physics\vehicles\niva\veh_niva_u_02.ogf">
+      <Filter>meshes\physics\vehicles\niva</Filter>
+    </None>
+    <None Include="meshes\physics\test\slider_test.ogf">
+      <Filter>meshes\physics\test</Filter>
+    </None>
+    <None Include="meshes\physics\test\slider_test1.ogf">
+      <Filter>meshes\physics\test</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\door_left.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\door_right.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\slider_test.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\stalker_ragdoll.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\stalker_ragdoll_new.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\target_andy.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_barrel.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_bullet_wallmark.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_bullet_wallmark_large_metall_trsh.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_door.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_lightplanes.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_mirror.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_pautina.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_selflight.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_transparent.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_x_barrel.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_xanomaly.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_xdistort.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_xdistortcolor.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_xdistortcolorl.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_xdistortcolorlinv.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_xdistortinv.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_xglass.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_xglass2.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_xmonolith.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\test\old\test_shaders_models_xwindows.ogf">
+      <Filter>meshes\physics\test\old</Filter>
+    </None>
+    <None Include="meshes\physics\technica\item_samopal.ogf">
+      <Filter>meshes\physics\technica</Filter>
+    </None>
+    <None Include="meshes\physics\technica\komp_block.ogf">
+      <Filter>meshes\physics\technica</Filter>
+    </None>
+    <None Include="meshes\physics\technica\komp_klava.ogf">
+      <Filter>meshes\physics\technica</Filter>
+    </None>
+    <None Include="meshes\physics\technica\komp_monitor.ogf">
+      <Filter>meshes\physics\technica</Filter>
+    </None>
+    <None Include="meshes\physics\technica\pribor_1c.ogf">
+      <Filter>meshes\physics\technica</Filter>
+    </None>
+    <None Include="meshes\physics\technica\pribor_1d.ogf">
+      <Filter>meshes\physics\technica</Filter>
+    </None>
+    <None Include="meshes\physics\target\target_10.ogf">
+      <Filter>meshes\physics\target</Filter>
+    </None>
+    <None Include="meshes\physics\target\target_25.ogf">
+      <Filter>meshes\physics\target</Filter>
+    </None>
+    <None Include="meshes\physics\target\target_50.ogf">
+      <Filter>meshes\physics\target</Filter>
+    </None>
+    <None Include="meshes\physics\target\target_100.ogf">
+      <Filter>meshes\physics\target</Filter>
+    </None>
+    <None Include="meshes\physics\target\target_120.ogf">
+      <Filter>meshes\physics\target</Filter>
+    </None>
+    <None Include="meshes\physics\target\target_140.ogf">
+      <Filter>meshes\physics\target</Filter>
+    </None>
+    <None Include="meshes\physics\target\target_160.ogf">
+      <Filter>meshes\physics\target</Filter>
+    </None>
+    <None Include="meshes\physics\target\target_180.ogf">
+      <Filter>meshes\physics\target</Filter>
+    </None>
+    <None Include="meshes\physics\target\target_200.ogf">
+      <Filter>meshes\physics\target</Filter>
+    </None>
+    <None Include="meshes\physics\stul\lavochka_01.ogf">
+      <Filter>meshes\physics\stul</Filter>
+    </None>
+    <None Include="meshes\physics\stul\lavochka_02.ogf">
+      <Filter>meshes\physics\stul</Filter>
+    </None>
+    <None Include="meshes\physics\stul\stul_1a.ogf">
+      <Filter>meshes\physics\stul</Filter>
+    </None>
+    <None Include="meshes\physics\stul\stul_1c.ogf">
+      <Filter>meshes\physics\stul</Filter>
+    </None>
+    <None Include="meshes\physics\stul\stul_wood_01.ogf">
+      <Filter>meshes\physics\stul</Filter>
+    </None>
+    <None Include="meshes\physics\stul\taburet_wood_01.ogf">
+      <Filter>meshes\physics\stul</Filter>
+    </None>
+    <None Include="meshes\physics\stol\stol_4.ogf">
+      <Filter>meshes\physics\stol</Filter>
+    </None>
+    <None Include="meshes\physics\stol\stol_6.ogf">
+      <Filter>meshes\physics\stol</Filter>
+    </None>
+    <None Include="meshes\physics\stol\stol_7.ogf">
+      <Filter>meshes\physics\stol</Filter>
+    </None>
+    <None Include="meshes\physics\stol\stol_8.ogf">
+      <Filter>meshes\physics\stol</Filter>
+    </None>
+    <None Include="meshes\physics\stol\stol_8a.ogf">
+      <Filter>meshes\physics\stol</Filter>
+    </None>
+    <None Include="meshes\physics\stol\stol_9a.ogf">
+      <Filter>meshes\physics\stol</Filter>
+    </None>
+    <None Include="meshes\physics\stol\stol_obedenniy.ogf">
+      <Filter>meshes\physics\stol</Filter>
+    </None>
+    <None Include="meshes\physics\small_trash\doski_br_01.ogf">
+      <Filter>meshes\physics\small_trash</Filter>
+    </None>
+    <None Include="meshes\physics\small_trash\doski_br_02.ogf">
+      <Filter>meshes\physics\small_trash</Filter>
+    </None>
+    <None Include="meshes\physics\small_trash\doski_br_03.ogf">
+      <Filter>meshes\physics\small_trash</Filter>
+    </None>
+    <None Include="meshes\physics\small_trash\wood_board_br_01.ogf">
+      <Filter>meshes\physics\small_trash</Filter>
+    </None>
+    <None Include="meshes\physics\small_trash\wood_board_br_01a.ogf">
+      <Filter>meshes\physics\small_trash</Filter>
+    </None>
+    <None Include="meshes\physics\small_trash\wood_board_br_01b.ogf">
+      <Filter>meshes\physics\small_trash</Filter>
+    </None>
+    <None Include="meshes\physics\small_trash\wood_board_br_02.ogf">
+      <Filter>meshes\physics\small_trash</Filter>
+    </None>
+    <None Include="meshes\physics\small_trash\wood_board_br_03.ogf">
+      <Filter>meshes\physics\small_trash</Filter>
+    </None>
+    <None Include="meshes\physics\small_trash\prt\wood_board_br_01_prt1.ogf">
+      <Filter>meshes\physics\small_trash\prt</Filter>
+    </None>
+    <None Include="meshes\physics\small_trash\prt\wood_board_br_01_prt2.ogf">
+      <Filter>meshes\physics\small_trash\prt</Filter>
+    </None>
+    <None Include="meshes\physics\small_trash\prt\wood_board_br_01_prt3.ogf">
+      <Filter>meshes\physics\small_trash\prt</Filter>
+    </None>
+    <None Include="meshes\physics\small_trash\prt\wood_board_br_01_prt4.ogf">
+      <Filter>meshes\physics\small_trash\prt</Filter>
+    </None>
+    <None Include="meshes\physics\shkaf\stelag_01.ogf">
+      <Filter>meshes\physics\shkaf</Filter>
+    </None>
+    <None Include="meshes\physics\rope\crane_platforma_stancia.ogf">
+      <Filter>meshes\physics\rope</Filter>
+    </None>
+    <None Include="meshes\physics\rope\krane_01.ogf">
+      <Filter>meshes\physics\rope</Filter>
+    </None>
+    <None Include="meshes\physics\rope\krane_02.ogf">
+      <Filter>meshes\physics\rope</Filter>
+    </None>
+    <None Include="meshes\physics\rope\krane_03.ogf">
+      <Filter>meshes\physics\rope</Filter>
+    </None>
+    <None Include="meshes\physics\rope\krane_05.ogf">
+      <Filter>meshes\physics\rope</Filter>
+    </None>
+    <None Include="meshes\physics\rope\krane_box_escape.ogf">
+      <Filter>meshes\physics\rope</Filter>
+    </None>
+    <None Include="meshes\physics\rope\krane_kreplenie_01.ogf">
+      <Filter>meshes\physics\rope</Filter>
+    </None>
+    <None Include="meshes\physics\rope\krane_platforma.ogf">
+      <Filter>meshes\physics\rope</Filter>
+    </None>
+    <None Include="meshes\physics\rope\projector_02.ogf">
+      <Filter>meshes\physics\rope</Filter>
+    </None>
+    <None Include="meshes\physics\rope\projector_03.ogf">
+      <Filter>meshes\physics\rope</Filter>
+    </None>
+    <None Include="meshes\physics\rope\rope_01.ogf">
+      <Filter>meshes\physics\rope</Filter>
+    </None>
+    <None Include="meshes\weapons\abakan\wpn_abakan.ogf">
+      <Filter>meshes\weapons\abakan</Filter>
+    </None>
+    <None Include="meshes\weapons\abakan\wpn_abakan_hud.ogf">
+      <Filter>meshes\weapons\abakan</Filter>
+    </None>
+    <None Include="meshes\weapons\ak74\wpn_ak74.ogf">
+      <Filter>meshes\weapons\ak74</Filter>
+    </None>
+    <None Include="meshes\weapons\ak74\wpn_ak74_hud.ogf">
+      <Filter>meshes\weapons\ak74</Filter>
+    </None>
+    <None Include="meshes\weapons\ak-74u\ak74u.ogf">
+      <Filter>meshes\weapons\ak-74u</Filter>
+    </None>
+    <None Include="meshes\weapons\ak-74u\wpn_ak74u_hud.ogf">
+      <Filter>meshes\weapons\ak-74u</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_9x18_fmj.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_9x18_pbp.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_9x18_pmm.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_9x19_fmj.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_9x19_pbp.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_9x39_ap.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_9x39_pab9.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_9x39_sp5.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_12x70_buck.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_12x76_dart.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_12x76_zhekan.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_57x28_ap.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_57x28_fmj.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_545x39_ap.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_545x39_fmj.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_556x45_ap.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_556x45_ss190.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_762x54_7h1.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_762x54_7h14.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_762x54_ap.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_1143x23_fmj.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_1143x23_hydro.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_gauss.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_m209.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_og-7b.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_vog-25.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\ammo\ammo_vog-25p.ogf">
+      <Filter>meshes\weapons\ammo</Filter>
+    </None>
+    <None Include="meshes\weapons\aptechka\aptechka.ogf">
+      <Filter>meshes\weapons\aptechka</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_ameba_mica_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_ameba_slime_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_ameba_slug_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_blood_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_cristall_flower_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_cristall_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_dummy_battery_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_dummy_dummy_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_dummy_glassbeads_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_dummy_pellicle_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_dummy_spring_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_electra_flash_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_electra_moonlight_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_electra_sparkler_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_fireball_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_fireball2_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_fuzz_kolobok_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_goldfish_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_gravi_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_kaply_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_medusa_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_mincer_meat_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_needles1_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_needles2_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_night_star_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_rusty_sea-urchin_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_soul_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\artefact\wpn_artefact_vyvert_hud.ogf">
+      <Filter>meshes\weapons\artefact</Filter>
+    </None>
+    <None Include="meshes\weapons\bandage\bandage.ogf">
+      <Filter>meshes\weapons\bandage</Filter>
+    </None>
+    <None Include="meshes\weapons\beretta92fs\wpn_beretta92fs.ogf">
+      <Filter>meshes\weapons\beretta92fs</Filter>
+    </None>
+    <None Include="meshes\weapons\beretta92fs\wpn_beretta92fs_hud.ogf">
+      <Filter>meshes\weapons\beretta92fs</Filter>
+    </None>
+    <None Include="meshes\weapons\binoculars\wpn_binoculars.ogf">
+      <Filter>meshes\weapons\binoculars</Filter>
+    </None>
+    <None Include="meshes\weapons\binoculars\wpn_binoculars_hud.ogf">
+      <Filter>meshes\weapons\binoculars</Filter>
+    </None>
+    <None Include="meshes\weapons\bm_16\wpn_bm-16.ogf">
+      <Filter>meshes\weapons\bm_16</Filter>
+    </None>
+    <None Include="meshes\weapons\bm_16\wpn_bm-16_hud.ogf">
+      <Filter>meshes\weapons\bm_16</Filter>
+    </None>
+    <None Include="meshes\weapons\bolt\wpn_bolt.ogf">
+      <Filter>meshes\weapons\bolt</Filter>
+    </None>
+    <None Include="meshes\weapons\bolt\wpn_bolt_hud.ogf">
+      <Filter>meshes\weapons\bolt</Filter>
+    </None>
+    <None Include="meshes\weapons\bred\bred.ogf">
+      <Filter>meshes\weapons\bred</Filter>
+    </None>
+    <None Include="meshes\weapons\bred\bred_hud.ogf">
+      <Filter>meshes\weapons\bred</Filter>
+    </None>
+    <None Include="meshes\weapons\colt1911\wpn_colt1911.ogf">
+      <Filter>meshes\weapons\colt1911</Filter>
+    </None>
+    <None Include="meshes\weapons\colt1911\wpn_colt1911_hud.ogf">
+      <Filter>meshes\weapons\colt1911</Filter>
+    </None>
+    <None Include="meshes\weapons\desert_eagle\wpn_desert_eagle.ogf">
+      <Filter>meshes\weapons\desert_eagle</Filter>
+    </None>
+    <None Include="meshes\weapons\desert_eagle\wpn_desert_eagle_hud.ogf">
+      <Filter>meshes\weapons\desert_eagle</Filter>
+    </None>
+    <None Include="meshes\weapons\fn2000\wpn_fn2000.ogf">
+      <Filter>meshes\weapons\fn2000</Filter>
+    </None>
+    <None Include="meshes\weapons\fn2000\wpn_fn2000_hud.ogf">
+      <Filter>meshes\weapons\fn2000</Filter>
+    </None>
+    <None Include="meshes\weapons\fn2000\wpn_fn2000_hud_new.ogf">
+      <Filter>meshes\weapons\fn2000</Filter>
+    </None>
+    <None Include="meshes\weapons\fn2000\wpn_fn2000_new.ogf">
+      <Filter>meshes\weapons\fn2000</Filter>
+    </None>
+    <None Include="meshes\weapons\fort\wpn_fort.ogf">
+      <Filter>meshes\weapons\fort</Filter>
+    </None>
+    <None Include="meshes\weapons\fort\wpn_fort_hud.ogf">
+      <Filter>meshes\weapons\fort</Filter>
+    </None>
+    <None Include="meshes\weapons\g36\wpn_g36.ogf">
+      <Filter>meshes\weapons\g36</Filter>
+    </None>
+    <None Include="meshes\weapons\g36\wpn_g36_hud.ogf">
+      <Filter>meshes\weapons\g36</Filter>
+    </None>
+    <None Include="meshes\weapons\gauss\wpn_gauss.ogf">
+      <Filter>meshes\weapons\gauss</Filter>
+    </None>
+    <None Include="meshes\weapons\gauss\wpn_gauss_hud.ogf">
+      <Filter>meshes\weapons\gauss</Filter>
+    </None>
+    <None Include="meshes\weapons\grenade\wpn_f_1.ogf">
+      <Filter>meshes\weapons\grenade</Filter>
+    </None>
+    <None Include="meshes\weapons\grenade\wpn_f_1_hud.ogf">
+      <Filter>meshes\weapons\grenade</Filter>
+    </None>
+    <None Include="meshes\weapons\grenade\wpn_gd_05.ogf">
+      <Filter>meshes\weapons\grenade</Filter>
+    </None>
+    <None Include="meshes\weapons\grenade\wpn_gd_05_hud.ogf">
+      <Filter>meshes\weapons\grenade</Filter>
+    </None>
+    <None Include="meshes\weapons\grenade\wpn_mines_1.ogf">
+      <Filter>meshes\weapons\grenade</Filter>
+    </None>
+    <None Include="meshes\weapons\grenade\wpn_mines_2.ogf">
+      <Filter>meshes\weapons\grenade</Filter>
+    </None>
+    <None Include="meshes\weapons\grenade\wpn_rgd_5.ogf">
+      <Filter>meshes\weapons\grenade</Filter>
+    </None>
+    <None Include="meshes\weapons\grenade\wpn_rgd_5_hud.ogf">
+      <Filter>meshes\weapons\grenade</Filter>
+    </None>
+    <None Include="meshes\weapons\groza\wpn_groza.ogf">
+      <Filter>meshes\weapons\groza</Filter>
+    </None>
+    <None Include="meshes\weapons\groza\wpn_groza_hud.ogf">
+      <Filter>meshes\weapons\groza</Filter>
+    </None>
+    <None Include="meshes\weapons\hpsa\wpn_hpsa.ogf">
+      <Filter>meshes\weapons\hpsa</Filter>
+    </None>
+    <None Include="meshes\weapons\hpsa\wpn_hpsa_hud.ogf">
+      <Filter>meshes\weapons\hpsa</Filter>
+    </None>
+    <None Include="meshes\weapons\knife\wpn_knife.ogf">
+      <Filter>meshes\weapons\knife</Filter>
+    </None>
+    <None Include="meshes\weapons\knife\wpn_knife_hud.ogf">
+      <Filter>meshes\weapons\knife</Filter>
+    </None>
+    <None Include="meshes\weapons\kolbasa\kolbasa.ogf">
+      <Filter>meshes\weapons\kolbasa</Filter>
+    </None>
+    <None Include="meshes\weapons\kolbasa\kolbasa_hud.ogf">
+      <Filter>meshes\weapons\kolbasa</Filter>
+    </None>
+    <None Include="meshes\weapons\kolbasa\wpn_kolbasa_hud.ogf">
+      <Filter>meshes\weapons\kolbasa</Filter>
+    </None>
+    <None Include="meshes\weapons\l85\wpn_l85.ogf">
+      <Filter>meshes\weapons\l85</Filter>
+    </None>
+    <None Include="meshes\weapons\l85\wpn_l85_hud.ogf">
+      <Filter>meshes\weapons\l85</Filter>
+    </None>
+    <None Include="meshes\weapons\l85\wpn_l85_hud_old.ogf">
+      <Filter>meshes\weapons\l85</Filter>
+    </None>
+    <None Include="meshes\weapons\lr300\wpn_lr300.ogf">
+      <Filter>meshes\weapons\lr300</Filter>
+    </None>
+    <None Include="meshes\weapons\lr300\wpn_lr300_hud.ogf">
+      <Filter>meshes\weapons\lr300</Filter>
+    </None>
+    <None Include="meshes\weapons\mounted_weapons\wpn_pkm_trenoga.ogf">
+      <Filter>meshes\weapons\mounted_weapons</Filter>
+    </None>
+    <None Include="meshes\weapons\mp5\wpn_mp5.ogf">
+      <Filter>meshes\weapons\mp5</Filter>
+    </None>
+    <None Include="meshes\weapons\mp5\wpn_mp5_hud.ogf">
+      <Filter>meshes\weapons\mp5</Filter>
+    </None>
+    <None Include="meshes\weapons\winchester1300\wpn_winchester1300.ogf">
+      <Filter>meshes\weapons\winchester1300</Filter>
+    </None>
+    <None Include="meshes\weapons\winchester1300\wpn_winchester1300_hud.ogf">
+      <Filter>meshes\weapons\winchester1300</Filter>
+    </None>
+    <None Include="meshes\weapons\walter_99\wpn_walter_99.ogf">
+      <Filter>meshes\weapons\walter_99</Filter>
+    </None>
+    <None Include="meshes\weapons\walter_99\wpn_walter_99_hud.ogf">
+      <Filter>meshes\weapons\walter_99</Filter>
+    </None>
+    <None Include="meshes\weapons\vodka\vodka.ogf">
+      <Filter>meshes\weapons\vodka</Filter>
+    </None>
+    <None Include="meshes\weapons\vodka\vodka_hud.ogf">
+      <Filter>meshes\weapons\vodka</Filter>
+    </None>
+    <None Include="meshes\weapons\vintorez\wpn_vintorez.ogf">
+      <Filter>meshes\weapons\vintorez</Filter>
+    </None>
+    <None Include="meshes\weapons\vintorez\wpn_vintorez_hud.ogf">
+      <Filter>meshes\weapons\vintorez</Filter>
+    </None>
+    <None Include="meshes\weapons\val\wpn_val.ogf">
+      <Filter>meshes\weapons\val</Filter>
+    </None>
+    <None Include="meshes\weapons\val\wpn_val_hud.ogf">
+      <Filter>meshes\weapons\val</Filter>
+    </None>
+    <None Include="meshes\weapons\usp_45\wpn_usp_45.ogf">
+      <Filter>meshes\weapons\usp_45</Filter>
+    </None>
+    <None Include="meshes\weapons\usp_45\wpn_usp_45_hud.ogf">
+      <Filter>meshes\weapons\usp_45</Filter>
+    </None>
+    <None Include="meshes\weapons\upgrade\wpn_grenade_launcher.ogf">
+      <Filter>meshes\weapons\upgrade</Filter>
+    </None>
+    <None Include="meshes\weapons\upgrade\wpn_grenade_launcher_m203.ogf">
+      <Filter>meshes\weapons\upgrade</Filter>
+    </None>
+    <None Include="meshes\weapons\upgrade\wpn_scope.ogf">
+      <Filter>meshes\weapons\upgrade</Filter>
+    </None>
+    <None Include="meshes\weapons\upgrade\wpn_scope_susat.ogf">
+      <Filter>meshes\weapons\upgrade</Filter>
+    </None>
+    <None Include="meshes\weapons\upgrade\wpn_silencer.ogf">
+      <Filter>meshes\weapons\upgrade</Filter>
+    </None>
+    <None Include="meshes\weapons\toz34\wpn_toz34_ext.ogf">
+      <Filter>meshes\weapons\toz34</Filter>
+    </None>
+    <None Include="meshes\weapons\toz34\wpn_toz34_hud.ogf">
+      <Filter>meshes\weapons\toz34</Filter>
+    </None>
+    <None Include="meshes\weapons\svug\wpnsvug.ogf">
+      <Filter>meshes\weapons\svug</Filter>
+    </None>
+    <None Include="meshes\weapons\svug\wpnsvug_hud.ogf">
+      <Filter>meshes\weapons\svug</Filter>
+    </None>
+    <None Include="meshes\weapons\svu\wpn_svu.ogf">
+      <Filter>meshes\weapons\svu</Filter>
+    </None>
+    <None Include="meshes\weapons\svu\wpn_svu_hud.ogf">
+      <Filter>meshes\weapons\svu</Filter>
+    </None>
+    <None Include="meshes\weapons\svd\wpn_svd.ogf">
+      <Filter>meshes\weapons\svd</Filter>
+    </None>
+    <None Include="meshes\weapons\svd\wpn_svd_hud.ogf">
+      <Filter>meshes\weapons\svd</Filter>
+    </None>
+    <None Include="meshes\weapons\spas12\wpn_spas12.ogf">
+      <Filter>meshes\weapons\spas12</Filter>
+    </None>
+    <None Include="meshes\weapons\spas12\wpn_spas12_hud.ogf">
+      <Filter>meshes\weapons\spas12</Filter>
+    </None>
+    <None Include="meshes\weapons\sigaret\sigaret.ogf">
+      <Filter>meshes\weapons\sigaret</Filter>
+    </None>
+    <None Include="meshes\weapons\sigaret\sigaret_hud.ogf">
+      <Filter>meshes\weapons\sigaret</Filter>
+    </None>
+    <None Include="meshes\weapons\sig550\wpn_sig550.ogf">
+      <Filter>meshes\weapons\sig550</Filter>
+    </None>
+    <None Include="meshes\weapons\sig550\wpn_sig550_hud.ogf">
+      <Filter>meshes\weapons\sig550</Filter>
+    </None>
+    <None Include="meshes\weapons\sig220\wpn_sig220.ogf">
+      <Filter>meshes\weapons\sig220</Filter>
+    </None>
+    <None Include="meshes\weapons\sig220\wpn_sig220_hud.ogf">
+      <Filter>meshes\weapons\sig220</Filter>
+    </None>
+    <None Include="meshes\weapons\rpg_7\wpn_rpg_7.ogf">
+      <Filter>meshes\weapons\rpg_7</Filter>
+    </None>
+    <None Include="meshes\weapons\rpg_7\wpn_rpg_7_grenade.ogf">
+      <Filter>meshes\weapons\rpg_7</Filter>
+    </None>
+    <None Include="meshes\weapons\rpg_7\wpn_rpg_7_hud.ogf">
+      <Filter>meshes\weapons\rpg_7</Filter>
+    </None>
+    <None Include="meshes\weapons\rg-6\wpn_rg-6.ogf">
+      <Filter>meshes\weapons\rg-6</Filter>
+    </None>
+    <None Include="meshes\weapons\rg-6\wpn_rg-6_hud.ogf">
+      <Filter>meshes\weapons\rg-6</Filter>
+    </None>
+    <None Include="meshes\weapons\pm\wpn_pm.ogf">
+      <Filter>meshes\weapons\pm</Filter>
+    </None>
+    <None Include="meshes\weapons\pm\wpn_pm_hud.ogf">
+      <Filter>meshes\weapons\pm</Filter>
+    </None>
+    <None Include="meshes\weapons\pb\wpn_pb.ogf">
+      <Filter>meshes\weapons\pb</Filter>
+    </None>
+    <None Include="meshes\weapons\pb\wpn_pb_hud.ogf">
+      <Filter>meshes\weapons\pb</Filter>
+    </None>
+    <None Include="meshes\weapons\p90\wpn_p90.ogf">
+      <Filter>meshes\weapons\p90</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

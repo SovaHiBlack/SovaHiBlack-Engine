@@ -70,6 +70,9 @@
     <Filter Include="Compression\lzo">
       <UniqueIdentifier>{0b41aef4-fd7d-4542-a273-bb94cced3274}</UniqueIdentifier>
     </Filter>
+    <Filter Include="XMLParser">
+      <UniqueIdentifier>{a04933af-f861-4a3f-8574-cad9f4d5fa11}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FTimer.cpp">
@@ -250,11 +253,21 @@
       <Filter>Compression\lzo</Filter>
     </ClCompile>
     <ClCompile Include="xrSyncronize.cpp" />
-    <ClCompile Include="xrXMLParser\tinystr.cpp" />
-    <ClCompile Include="xrXMLParser\tinyxml.cpp" />
-    <ClCompile Include="xrXMLParser\tinyxmlerror.cpp" />
-    <ClCompile Include="xrXMLParser\tinyxmlparser.cpp" />
-    <ClCompile Include="xrXMLParser\xrXMLParser.cpp" />
+    <ClCompile Include="xrXMLParser\tinystr.cpp">
+      <Filter>XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="xrXMLParser\tinyxml.cpp">
+      <Filter>XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="xrXMLParser\tinyxmlerror.cpp">
+      <Filter>XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="xrXMLParser\tinyxmlparser.cpp">
+      <Filter>XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="xrXMLParser\xrXMLParser.cpp">
+      <Filter>XMLParser</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FTimer.h">
@@ -525,9 +538,15 @@
       <Filter>Compression\lzo</Filter>
     </ClInclude>
     <ClInclude Include="xrSyncronize.h" />
-    <ClInclude Include="xrXMLParser\tinystr.h" />
-    <ClInclude Include="xrXMLParser\tinyxml.h" />
-    <ClInclude Include="xrXMLParser\xrXMLParser.h" />
+    <ClInclude Include="xrXMLParser\tinystr.h">
+      <Filter>XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="xrXMLParser\tinyxml.h">
+      <Filter>XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="xrXMLParser\xrXMLParser.h">
+      <Filter>XMLParser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="xrCore.rc">

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "Sources\Externals\zlib\zlib.vcxproj", "{B5919129-6716-499D-9516-04EC34C86CDF}"
 EndProject
@@ -632,29 +632,17 @@ Global
 		{200652A6-043E-4634-8837-87983B3BD5E0}.Release|Win32.ActiveCfg = Release|Win32
 		{200652A6-043E-4634-8837-87983B3BD5E0}.Release|Win32.Build.0 = Release|Win32
 		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Debug_Dedicated|Win32.ActiveCfg = Debug|Win32
-		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Debug_Dedicated|Win32.Build.0 = Debug|Win32
 		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Debug|Win32.ActiveCfg = Debug|Win32
-		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Debug|Win32.Build.0 = Debug|Win32
 		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Mixed_Dedicated|Win32.ActiveCfg = Debug|Win32
-		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Mixed_Dedicated|Win32.Build.0 = Debug|Win32
 		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Mixed|Win32.ActiveCfg = Debug|Win32
-		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Mixed|Win32.Build.0 = Debug|Win32
 		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Release_Dedicated|Win32.ActiveCfg = Release|Win32
-		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Release_Dedicated|Win32.Build.0 = Release|Win32
 		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Release|Win32.ActiveCfg = Release|Win32
-		{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}.Release|Win32.Build.0 = Release|Win32
 		{6D4A9220-5CF9-406A-A345-026492F409CD}.Debug_Dedicated|Win32.ActiveCfg = Debug|Win32
-		{6D4A9220-5CF9-406A-A345-026492F409CD}.Debug_Dedicated|Win32.Build.0 = Debug|Win32
 		{6D4A9220-5CF9-406A-A345-026492F409CD}.Debug|Win32.ActiveCfg = Debug|Win32
-		{6D4A9220-5CF9-406A-A345-026492F409CD}.Debug|Win32.Build.0 = Debug|Win32
 		{6D4A9220-5CF9-406A-A345-026492F409CD}.Mixed_Dedicated|Win32.ActiveCfg = Debug|Win32
-		{6D4A9220-5CF9-406A-A345-026492F409CD}.Mixed_Dedicated|Win32.Build.0 = Debug|Win32
 		{6D4A9220-5CF9-406A-A345-026492F409CD}.Mixed|Win32.ActiveCfg = Debug|Win32
-		{6D4A9220-5CF9-406A-A345-026492F409CD}.Mixed|Win32.Build.0 = Debug|Win32
 		{6D4A9220-5CF9-406A-A345-026492F409CD}.Release_Dedicated|Win32.ActiveCfg = Release|Win32
-		{6D4A9220-5CF9-406A-A345-026492F409CD}.Release_Dedicated|Win32.Build.0 = Release|Win32
 		{6D4A9220-5CF9-406A-A345-026492F409CD}.Release|Win32.ActiveCfg = Release|Win32
-		{6D4A9220-5CF9-406A-A345-026492F409CD}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
