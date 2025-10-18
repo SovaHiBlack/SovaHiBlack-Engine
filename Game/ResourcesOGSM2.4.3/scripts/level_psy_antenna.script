@@ -97,19 +97,20 @@ function PsyAntenna:update_psy_hit		(dt)
 		db.actor:hit					(psy_hit);
 	end;
 end
-function PsyAntenna:generate_phantoms 	()
+
+function PsyAntenna:generate_phantoms	()
 	if self.power_factor.a>0.1 then
 		if math.random()<self.phantom_spawn_probability then
 			if phantom_manager:phantom_count()<self.phantom_max then
-				local yaw	 			= math.pi*2.0*math.random();
-				local radius 			= self.phantom_spawn_radius*(math.random()/2.0+0.5);
-				local height 			= self.phantom_spawn_height*math.random();
-				local a_pos 			= db.actor:position();
-				local pos 				= vector():set(math.sin(yaw)*radius+a_pos.x,a_pos.y+height,math.cos(yaw)*radius+a_pos.z);
-				phantom_manager.spawn_phantom(pos);
-			end;
-		end;
-	end;
+				local yaw				= math.pi*2.0*math.random()
+				local radius			= self.phantom_spawn_radius*(math.random()/2.0+0.5)
+				local height			= self.phantom_spawn_height*math.random()
+				local a_pos				= db.actor:position()
+				local pos				= vector():set(math.sin(yaw)*radius+a_pos.x,a_pos.y+height,math.cos(yaw)*radius+a_pos.z)
+				phantom_manager.spawn_phantom(pos)
+			end
+		end
+	end
 end
 
 function PsyAntenna:switch_to_phase		(ph)

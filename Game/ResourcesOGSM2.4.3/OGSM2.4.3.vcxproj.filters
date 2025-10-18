@@ -583,6 +583,15 @@
     <Filter Include="meshes\weapons\winchester1300">
       <UniqueIdentifier>{03a9b9d1-6c82-428a-95b8-90262f88068c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="config\creatures\monsters">
+      <UniqueIdentifier>{f7e9579e-21d1-494c-bf9b-04bab808e85c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\creatures\stalkers">
+      <UniqueIdentifier>{82918aff-141e-4af8-a431-89ac39ede8d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\gameplay\info_portions">
+      <UniqueIdentifier>{28be567e-713a-451b-9e3f-c652c5380ae0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ai\alife\anomalydetectprobability.efd">
@@ -1158,112 +1167,13 @@
     <None Include="config\creatures\actor.ltx">
       <Filter>config\creatures</Filter>
     </None>
-    <None Include="config\creatures\aem_monsters.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\aem_stalkers.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\damages.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
     <None Include="config\creatures\game_relations.ltx">
       <Filter>config\creatures</Filter>
     </None>
     <None Include="config\creatures\helicopter.ltx">
       <Filter>config\creatures</Filter>
     </None>
-    <None Include="config\creatures\immunities.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_army.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_bandit.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_bloodsucker.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_boar.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_burer.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_cat.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_chimera.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_controller.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_crow.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_dog.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_dog_.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_flesh.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_fraction.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_fracture.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_giant.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_person.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_phantom.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_poltergeist.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_pseudodog.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_rat.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_snork.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_stalker.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_stalker_monolith.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_stalker_zombied.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_tushkano.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_zombie.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\monsters.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
     <None Include="config\creatures\spawn_sections.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\stalkers.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\vssver.scc">
       <Filter>config\creatures</Filter>
     </None>
     <None Include="config\misc\aem_manager.ltx">
@@ -8445,6 +8355,100 @@
     <None Include="meshes\weapons\p90\wpn_p90.ogf">
       <Filter>meshes\weapons\p90</Filter>
     </None>
+    <None Include="game.graph" />
+    <None Include="gamemtl.xr" />
+    <None Include="lanims.xr" />
+    <None Include="OGSM_history.rtf" />
+    <None Include="OGSM_info.rtf" />
+    <None Include="particles.xr" />
+    <None Include="senvironment.xr" />
+    <None Include="shaders.xr" />
+    <None Include="shaders_xrlc.xr" />
+    <None Include="stalkergame.inf" />
+    <None Include="config\creatures\m_flesh.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_chimera.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_bloodsucker.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_dog.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_boar.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_pseudodog.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_burer.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_giant.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_controller.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_poltergeist.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_zombie.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_fracture.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_snork.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_cat.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_rat.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_crow.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_tushkano.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_phantom.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\monsters.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_stalker.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\m_person.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\immunities.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\damages.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\m_stalker_monolith.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\m_stalker_zombied.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\stalkers.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\arena_monsters.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\arena_stalkers.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="anims\postprocess editor_stohe.log">
@@ -8468,9 +8472,6 @@
       <Filter>config</Filter>
     </Xml>
     <Xml Include="config\gameplay\aem_characters.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\aem_info.xml">
       <Filter>config\gameplay</Filter>
     </Xml>
     <Xml Include="config\gameplay\aem_profile.xml">
@@ -8669,138 +8670,6 @@
       <Filter>config\gameplay</Filter>
     </Xml>
     <Xml Include="config\gameplay\game_tasks_by_vendor.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_escape.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_known_objects.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l01escape.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l02garbage.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l03agroprom.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l04agroprom_u.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l04darkdolina.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l05dark_valley.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l05rostok.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l06dark_valley_u.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l06yantar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l07military.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l07rostok.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l08deadcity.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l08rostok_bar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l08yantar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l09marshes.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l09rostok_dolg.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l10military.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l10radar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l11pripyat.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l11yantar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l12stanciya.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l12u_sarcofag.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l12yantar_u.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l13deadcity.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l13generators.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l14swamp.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l15radar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l16radar_antena.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l17monolith_control.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l18pripyat.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l19stanciya.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l20sarcofag.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l21generators.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_l22warlab.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_lchanger_ico.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_level_tips.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_news.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_ogsm.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_portions.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_portions_light.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_portions_test.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\info_stories.xml">
       <Filter>config\gameplay</Filter>
     </Xml>
     <Xml Include="config\gameplay\npc_profile.xml">
@@ -9709,6 +9578,108 @@
     <Xml Include="config\text\rus\ui_st_pda.xml">
       <Filter>config\text\rus</Filter>
     </Xml>
+    <Xml Include="config\gameplay\info_portions.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_portions_light.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_portions_test.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_lchanger_ico.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_level_tips.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_known_objects.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l01escape.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l02garbage.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l03agroprom.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l04agroprom_u.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l05dark_valley.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l06dark_valley_u.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l07rostok.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l08yantar.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l08deadcity.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l08rostok_bar.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l09marshes.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l09rostok_dolg.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l10military.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l11pripyat.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l11yantar.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l12yantar_u.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l13deadcity.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l14swamp.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l10radar.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l16radar_antena.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l17monolith_control.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l19stanciya.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l12u_sarcofag.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l21generators.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_l22warlab.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_stories.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_ogsm.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\info_arena.xml">
+      <Filter>config\gameplay\info_portions</Filter>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shaders\shared\cloudconfig.h">
@@ -9789,5 +9760,6 @@
     <ClInclude Include="shaders\r1\shared\wmark.h">
       <Filter>shaders\r1\shared</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
 </Project>

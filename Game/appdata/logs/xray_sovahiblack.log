@@ -1,10 +1,10 @@
-* Detected CPU: GenuineIntel P3 family, F6/M10/S4, 2496.00 mhz, 18-clk 'rdtsc'
+* Detected CPU: GenuineIntel P3 family, F6/M10/S4, 2497.00 mhz, 17-clk 'rdtsc'
 * CPU Features: RDTSC, MMX, SSE, SSE2
 
 Initializing File System...
 using fs-ltx fsgame.ltx
-FS: 30164 files cached, 4922Kb memory used.
-Init FileSystem 0.595056 sec
+FS: 30150 files cached, 4922Kb memory used.
+Init FileSystem 0.680098 sec
 'X-Ray Engine' build 9749, Oct 17 2025
 
 Initializing Engine...
@@ -14,7 +14,7 @@ Starting INPUT device...
 Loading DLL: xrRender_R2.dll
 Loading DLL: xrGame.dll
 ! Unable to find Software\GSC Game World\STALKER-SHOC\ in registry
-* [win32]: free[4044884 K], reserved[61112 K], committed[88244 K]
+* [win32]: free[4044824 K], reserved[61040 K], committed[88376 K]
 * [ D3D ]: textures[0 K]
 * [x-ray]: crt heap[9330 K], process heap[9330 K], game lua[0 K], engine lua[0 K], render[0 K]
 * [x-ray]: economy: strings[2021 K], smem[0 K]
@@ -127,52 +127,52 @@ Loading DLL: xrGameSpy.dll
 - r2_tf_mipbias 0.
 * GPU shading: vs(fffe0300/3.0/30), ps(ffff0300/3.0/30)
 * GPU vertex cache: unrecognized, 16
-*** RESET [202 ms]
+*** RESET [178 ms]
 binaries\xrengine.exe 
 * phase time: 0 ms
-* phase cmem: 107428 K
+* phase cmem: 107724 K
 Кэширование объектов...
 Loading objects...
 Loading models...
-* [prefetch] time:    2405 ms
-* [prefetch] memory:  429236Kb
-* phase time: 2425 ms
-* phase cmem: 530263 K
+* [prefetch] time:    2690 ms
+* [prefetch] memory:  429252Kb
+* phase time: 2714 ms
+* phase cmem: 530571 K
 Сервер: Старт...
-* phase time: 27 ms
-* phase cmem: 530473 K
+* phase time: 28 ms
+* phase cmem: 530781 K
 Сервер: Загрузка симуляции жизни...
 * phase time: 9 ms
-* phase cmem: 530473 K
+* phase cmem: 530781 K
 Создание новой игры...
 * Creating new game...
 * Loading spawn registry...
 * 8641 spawn points are successfully loaded
 * Saving spawns...
 * Saving objects...
-* 17107 objects are successfully saved
+* 17108 objects are successfully saved
 * Game all.sav is successfully saved to file 'd:\sovahiblack-engine\game\appdata\savedgames\all.sav'
 * New game is successfully created!
-* phase time: 1240 ms
-* phase cmem: 560999 K
+* phase time: 1249 ms
+* phase cmem: 561291 K
 Сервер: Соединяемся...
 MaxPlayers = 32
-* phase time: 18 ms
-* phase cmem: 561099 K
+* phase time: 21 ms
+* phase cmem: 561391 K
 Клиент: Соединение с localhost...
 # Player not found. New player created.
 * client : connection accepted - <>
-* phase time: 10 ms
-* phase cmem: 561124 K
+* phase time: 12 ms
+* phase cmem: 561416 K
 Открытие потока...
-* phase time: 9 ms
-* phase cmem: 561124 K
+* phase time: 10 ms
+* phase cmem: 561416 K
 Загрузка формы объектов...
-* phase time: 1230 ms
-* phase cmem: 633791 K
+* phase time: 1228 ms
+* phase cmem: 634083 K
 Загрузка шейдеров...
 * phase time: 120 ms
-* phase cmem: 635326 K
+* phase cmem: 635618 K
 Загрузка геометрии...
 * [Loading VB] 65532 verts, 2047 Kb
 * [Loading VB] 65525 verts, 2047 Kb
@@ -215,25 +215,25 @@ MaxPlayers = 32
 * [Loading IB] 1048575 indices, 2047 Kb
 * [Loading IB] 1048575 indices, 2047 Kb
 * [Loading IB] 718302 indices, 1402 Kb
-* phase time: 147 ms
-* phase cmem: 704218 K
+* phase time: 197 ms
+* phase cmem: 704510 K
 Загрузка базы пространств...
-* phase time: 313 ms
-* phase cmem: 708687 K
+* phase time: 333 ms
+* phase cmem: 708979 K
 Загрузка детальных объектов...
 * [DETAILS] VertexConsts(256), Batch(61)
 * [DETAILS] 40687 v(20), 26352 p
 * [DETAILS] Batch(61), VB(794K), IB(154K)
-* phase time: 25 ms
-* phase cmem: 709679 K
+* phase time: 29 ms
+* phase cmem: 709971 K
 Загрузка секторов и порталов...
 * Loading HOM: d:\sovahiblack-engine\game\resourcesogsm2.4.3\levels\l01_escape\level.hom
-* phase time: 12 ms
-* phase cmem: 709868 K
+* phase time: 13 ms
+* phase cmem: 710160 K
 Загрузка ИИ объектов...
 - Loading music tracks from 'l01_escape_musics'...
 * phase time: 19 ms
-* phase cmem: 709907 K
+* phase cmem: 710199 K
 Клиент: Создание...
 - Game configuring : Started 
 - Game configuring : Finished 
@@ -316,19 +316,19 @@ MaxPlayers = 32
 [16-9] get_xml_name for[inventory_new.xml] returns [inventory_new_16.xml]
 [16-9] get_xml_name for[scroll_bar.xml] returns [scroll_bar.xml]
 [16-9] get_xml_name for[message_box.xml] returns [message_box.xml]
-* phase time: 85 ms
-* phase cmem: 718015 K
+* phase time: 88 ms
+* phase cmem: 718347 K
 Загрузка текстур...
 * t-report - base: 1447, 568679 K
 * t-report - lmap: 5, 5120 K
-* phase time: 1278 ms
-* phase cmem: 1017540 K
+* phase time: 1472 ms
+* phase cmem: 1017872 K
 Клиент: Синхронизация...
-* phase time: 15 ms
-* phase cmem: 1017540 K
-* [win32]: free[2494068 K], reserved[159520 K], committed[1540652 K]
+* phase time: 22 ms
+* phase cmem: 1017872 K
+* [win32]: free[2493720 K], reserved[159172 K], committed[1541348 K]
 * [ D3D ]: textures[573800 K]
-* [x-ray]: crt heap[1017540 K], process heap[1017540 K], game lua[28562 K], engine lua[130 K], render[0 K]
+* [x-ray]: crt heap[1017872 K], process heap[1017872 K], game lua[28565 K], engine lua[221 K], render[0 K]
 * [x-ray]: economy: strings[4669 K], smem[15587 K]
 [16-9] get_xml_name for[game_tutorials.xml] returns [game_tutorials_16.xml]
 [16-9] get_xml_name for[ui_credits.xml] returns [ui_credits.xml]
@@ -348,8 +348,8 @@ MaxPlayers = 32
 [16-9] get_xml_name for[game_tutorials.xml] returns [game_tutorials_16.xml]
 [16-9] get_xml_name for[ui_credits.xml] returns [ui_credits.xml]
 [16-9] get_xml_name for[ui_movies.xml] returns [ui_movies.xml]
-Intro start 10676
-* MEMORY USAGE: 1064235 K
+Intro start 12143
+* MEMORY USAGE: 1068106 K
 [16-9] get_xml_name for[game_tutorials.xml] returns [game_tutorials_16.xml]
 [16-9] get_xml_name for[ui_credits.xml] returns [ui_credits.xml]
 [16-9] get_xml_name for[ui_movies.xml] returns [ui_movies.xml]
@@ -365,9 +365,9 @@ Intro start 10676
 [16-9] get_xml_name for[game_tutorials.xml] returns [game_tutorials_16.xml]
 [16-9] get_xml_name for[ui_credits.xml] returns [ui_credits.xml]
 [16-9] get_xml_name for[ui_movies.xml] returns [ui_movies.xml]
-[16-9] get_xml_name for[ui_mm_main.xml] returns [ui_mm_main.xml]
-[16-9] get_xml_name for[scroll_bar.xml] returns [scroll_bar.xml]
-[16-9] get_xml_name for[message_box.xml] returns [message_box.xml]
+[16-9] get_xml_name for[game_tutorials.xml] returns [game_tutorials_16.xml]
+[16-9] get_xml_name for[ui_credits.xml] returns [ui_credits.xml]
+[16-9] get_xml_name for[ui_movies.xml] returns [ui_movies.xml]
 [16-9] get_xml_name for[game_tutorials.xml] returns [game_tutorials_16.xml]
 [16-9] get_xml_name for[ui_credits.xml] returns [ui_credits.xml]
 [16-9] get_xml_name for[ui_movies.xml] returns [ui_movies.xml]

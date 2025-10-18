@@ -286,15 +286,13 @@
     <None Include="anims\yantar_underground_psi.ppe" />
     <None Include="config\alife.ltx" />
     <None Include="config\creatures\actor.ltx" />
-    <None Include="config\creatures\aem_monsters.ltx" />
-    <None Include="config\creatures\aem_stalkers.ltx" />
+    <None Include="config\creatures\arena_monsters.ltx" />
+    <None Include="config\creatures\arena_stalkers.ltx" />
     <None Include="config\creatures\damages.ltx" />
     <None Include="config\creatures\game_relations.ltx" />
     <None Include="config\creatures\helicopter.ltx" />
     <None Include="config\creatures\immunities.ltx" />
     <None Include="config\creatures\monsters.ltx" />
-    <None Include="config\creatures\m_army.ltx" />
-    <None Include="config\creatures\m_bandit.ltx" />
     <None Include="config\creatures\m_bloodsucker.ltx" />
     <None Include="config\creatures\m_boar.ltx" />
     <None Include="config\creatures\m_burer.ltx" />
@@ -303,9 +301,7 @@
     <None Include="config\creatures\m_controller.ltx" />
     <None Include="config\creatures\m_crow.ltx" />
     <None Include="config\creatures\m_dog.ltx" />
-    <None Include="config\creatures\m_dog_.ltx" />
     <None Include="config\creatures\m_flesh.ltx" />
-    <None Include="config\creatures\m_fraction.ltx" />
     <None Include="config\creatures\m_fracture.ltx" />
     <None Include="config\creatures\m_giant.ltx" />
     <None Include="config\creatures\m_person.ltx" />
@@ -321,7 +317,6 @@
     <None Include="config\creatures\m_zombie.ltx" />
     <None Include="config\creatures\spawn_sections.ltx" />
     <None Include="config\creatures\stalkers.ltx" />
-    <None Include="config\creatures\vssver.scc" />
     <None Include="config\default_controls.ltx" />
     <None Include="config\defines.ltx" />
     <None Include="config\evaluation.ltx" />
@@ -834,6 +829,9 @@
     <None Include="config\weathers\weather_test.ltx" />
     <None Include="config\weathers\weather_yantar.ltx" />
     <None Include="config\_prefetch.ltx" />
+    <None Include="game.graph" />
+    <None Include="gamemtl.xr" />
+    <None Include="lanims.xr" />
     <None Include="meshes\actors\bandits_animation.omf" />
     <None Include="meshes\actors\bandit\stalker_bandit_1.ogf" />
     <None Include="meshes\actors\bandit\stalker_bandit_2.ogf" />
@@ -1862,6 +1860,9 @@
     <None Include="meshes\weapons\walter_99\wpn_walter_99_hud.ogf" />
     <None Include="meshes\weapons\winchester1300\wpn_winchester1300.ogf" />
     <None Include="meshes\weapons\winchester1300\wpn_winchester1300_hud.ogf" />
+    <None Include="OGSM_history.rtf" />
+    <None Include="OGSM_info.rtf" />
+    <None Include="particles.xr" />
     <None Include="scripts\.script" />
     <None Include="scripts\a1.script" />
     <None Include="scripts\a2.script" />
@@ -2338,6 +2339,8 @@
     <None Include="scripts\_test.script" />
     <None Include="scripts\_test_aura.script" />
     <None Include="scripts\_test_aura_2.script" />
+    <None Include="senvironment.xr" />
+    <None Include="shaders.xr" />
     <None Include="shaders\r1\.s" />
     <None Include="shaders\r1\add_point.ps" />
     <None Include="shaders\r1\add_ppa.ps" />
@@ -2685,6 +2688,7 @@
     <None Include="shaders\r2\waterd.vs" />
     <None Include="shaders\r2\wmark.vs" />
     <None Include="shaders\r2\yuv2rgb.ps" />
+    <None Include="shaders_xrlc.xr" />
     <None Include="spawns\all.spawn" />
     <None Include="spawns\unpack\af_spawn_places.ltx" />
     <None Include="spawns\unpack\alife_l01_escape.ltx" />
@@ -2743,6 +2747,7 @@
     <None Include="spawns\unpack\way_l12_stancia.ltx" />
     <None Include="spawns\unpack\way_l12_stancia_2.ltx" />
     <None Include="spawns\unpack\way__level_unknown.ltx" />
+    <None Include="stalkergame.inf" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="anims\postprocess editor_stohe.log" />
@@ -2754,7 +2759,7 @@
   <ItemGroup>
     <Xml Include="config\character_desc_general.xml" />
     <Xml Include="config\gameplay\aem_characters.xml" />
-    <Xml Include="config\gameplay\aem_info.xml" />
+    <Xml Include="config\gameplay\info_arena.xml" />
     <Xml Include="config\gameplay\aem_profile.xml" />
     <Xml Include="config\gameplay\character_criticals_1.xml" />
     <Xml Include="config\gameplay\character_criticals_2.xml" />
@@ -2821,18 +2826,13 @@
     <Xml Include="config\gameplay\encyclopedia_zone.xml" />
     <Xml Include="config\gameplay\game_tasks.xml" />
     <Xml Include="config\gameplay\game_tasks_by_vendor.xml" />
-    <Xml Include="config\gameplay\info_escape.xml" />
     <Xml Include="config\gameplay\info_known_objects.xml" />
     <Xml Include="config\gameplay\info_l01escape.xml" />
     <Xml Include="config\gameplay\info_l02garbage.xml" />
     <Xml Include="config\gameplay\info_l03agroprom.xml" />
     <Xml Include="config\gameplay\info_l04agroprom_u.xml" />
-    <Xml Include="config\gameplay\info_l04darkdolina.xml" />
     <Xml Include="config\gameplay\info_l05dark_valley.xml" />
-    <Xml Include="config\gameplay\info_l05rostok.xml" />
     <Xml Include="config\gameplay\info_l06dark_valley_u.xml" />
-    <Xml Include="config\gameplay\info_l06yantar.xml" />
-    <Xml Include="config\gameplay\info_l07military.xml" />
     <Xml Include="config\gameplay\info_l07rostok.xml" />
     <Xml Include="config\gameplay\info_l08deadcity.xml" />
     <Xml Include="config\gameplay\info_l08rostok_bar.xml" />
@@ -2843,23 +2843,17 @@
     <Xml Include="config\gameplay\info_l10radar.xml" />
     <Xml Include="config\gameplay\info_l11pripyat.xml" />
     <Xml Include="config\gameplay\info_l11yantar.xml" />
-    <Xml Include="config\gameplay\info_l12stanciya.xml" />
     <Xml Include="config\gameplay\info_l12u_sarcofag.xml" />
     <Xml Include="config\gameplay\info_l12yantar_u.xml" />
     <Xml Include="config\gameplay\info_l13deadcity.xml" />
-    <Xml Include="config\gameplay\info_l13generators.xml" />
     <Xml Include="config\gameplay\info_l14swamp.xml" />
-    <Xml Include="config\gameplay\info_l15radar.xml" />
     <Xml Include="config\gameplay\info_l16radar_antena.xml" />
     <Xml Include="config\gameplay\info_l17monolith_control.xml" />
-    <Xml Include="config\gameplay\info_l18pripyat.xml" />
     <Xml Include="config\gameplay\info_l19stanciya.xml" />
-    <Xml Include="config\gameplay\info_l20sarcofag.xml" />
     <Xml Include="config\gameplay\info_l21generators.xml" />
     <Xml Include="config\gameplay\info_l22warlab.xml" />
     <Xml Include="config\gameplay\info_lchanger_ico.xml" />
     <Xml Include="config\gameplay\info_level_tips.xml" />
-    <Xml Include="config\gameplay\info_news.xml" />
     <Xml Include="config\gameplay\info_ogsm.xml" />
     <Xml Include="config\gameplay\info_portions.xml" />
     <Xml Include="config\gameplay\info_portions_light.xml" />
@@ -3169,6 +3163,7 @@
     <Xml Include="config\ui\zone_map_16.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="shaders\r1\common.h" />
     <ClInclude Include="shaders\r1\shared\cloudconfig.h" />
     <ClInclude Include="shaders\r1\shared\common.h" />

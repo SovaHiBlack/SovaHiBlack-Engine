@@ -1,6 +1,3 @@
-[actor_terrain]
-	255,255,000,255
-
 [actor]:common_ph_friction_params_on_npc_death
 GroupControlSection		= spawn_group
 $spawn 					= "actor"
@@ -121,7 +118,7 @@ transparency_threshold	 	= 0.4				;0.25
 still_visible_time			= 5000				;время, которое объект всё ещё считается видимым, даже если он уже не во фрустуме
 
 [actor_immunities_gd_novice]
-burn_immunity 				= 0.5				;коэффициенты иммунитета 
+burn_immunity 				= 0.5					;коэффициенты иммунитета
 strike_immunity 			= 0.5
 shock_immunity 				= 0.5
 wound_immunity				= 0.5
@@ -131,9 +128,8 @@ chemical_burn_immunity 		= 0.5
 explosion_immunity 			= 0.1
 fire_wound_immunity  		= 0.5
 
-
 [actor_immunities_gd_stalker]
-burn_immunity 				= 0.65				;коэффициенты иммунитета 
+burn_immunity 				= 0.65					;коэффициенты иммунитета
 strike_immunity 			= 0.65
 shock_immunity 				= 0.65
 wound_immunity				= 0.65
@@ -144,7 +140,7 @@ explosion_immunity 			= 0.3
 fire_wound_immunity  		= 0.65
 
 [actor_immunities_gd_veteran]
-burn_immunity 				= 0.8				;коэффициенты иммунитета 
+burn_immunity 				= 0.8					;коэффициенты иммунитета
 strike_immunity 			= 0.8
 shock_immunity 				= 0.8
 wound_immunity				= 0.8
@@ -155,7 +151,7 @@ explosion_immunity 			= 0.6
 fire_wound_immunity  		= 0.8
 
 [actor_immunities_gd_master]
-burn_immunity 				= 1.0				;коэффициенты иммунитета 
+burn_immunity 				= 1.0					;коэффициенты иммунитета
 strike_immunity 			= 1.0
 shock_immunity 				= 1.0
 wound_immunity				= 1.0
@@ -172,16 +168,16 @@ satiety_power_v				= 0.000055				;увеличение силы при уменьшении сытости
 satiety_health_v			= 0.0001				;увеличение здоровья при уменьшении сытости 
 satiety_critical			= 0.3					;критическое значения сытости (в процентах от 0..1) когда здоровье начианает уменьшаться
 radiation_health_v			= 0.004					;уменьшение здоровья при воздействии радиации
-morale_v					= 0.0001				;скорость восстановления морали 						
+morale_v					= 0.0001				;скорость восстановления морали
 psy_health_v				= 0.001					;скорость восстановления psy-здоровья
 alcohol_v					= -0.0003
 health_hit_part				= 1.0					;процент хита, уходящий на отнимание здоровья
 power_hit_part				= 0.1					;процент хита, уходящий на отнимание силы
-max_power_leak_speed			= 0.0					;накопление усталости (макс граница, до которой восстанавливается сила) в секунду игрового времени
+max_power_leak_speed		= 0.0					;накопление усталости (макс граница, до которой восстанавливается сила) в секунду игрового времени
 max_walk_weight				= 60					;максимальный вес, который можно нести
 
-bleeding_v					= 0.001			 		;потеря крови при номинальной ране в секунду
-wound_incarnation_v			= 0.003		 			;скорость заживления раны
+bleeding_v					= 0.001					;потеря крови при номинальной ране в секунду
+wound_incarnation_v			= 0.003					;скорость заживления раны
 min_wound_size				= 0.0256				;минимальный размер раны, после которого она считается зажившей
 
 ;--when actor in sleep
@@ -285,14 +281,13 @@ bip01_r_foot	 	 		= 1.0, 6, 1.5
 bip01_r_toe0	 	 		= 1.0, 6, 1.5
 
 [actor_animation]
-;углы  дворота ног актера во время стрейфов (в градусах)
+;углы дворота ног актера во время стрейфов (в градусах)
 fwd_l_strafe_yaw    = 45
 back_l_strafe_yaw   = 45
 fwd_r_strafe_yaw    = 45
 back_r_strafe_yaw   = 45
 l_strafe_yaw		= 0
 r_strafe_yaw		= 0
-
 
 [actor_hit_snds]
 burn			=actor\pain1,actor\pain2,actor\pain3; ,actor\hurt4
@@ -306,3 +301,6 @@ chemical_burn	=actor\pain1,actor\pain2,actor\pain3;  ,actor\hurt4
 explosion		=affects\tinnitus3a
 wound_2			=actor\hurt1,actor\hurt2,actor\hurt3,actor\hurt4
 physic_strike	=actor\pain1,actor\pain2,actor\pain3; ,actor\hurt4
+
+[actor_terrain]
+	255,255,000,255

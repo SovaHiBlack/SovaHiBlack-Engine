@@ -65,14 +65,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Platform)'=='Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>
-        $(SolutionDir)\Sources\Externals\Boost\;
-        $(SolutionDir)\Sources\Externals\DXSDK_Aug2007\Include\;
-        $(SolutionDir)\Sources\Externals\Loki\;
-        $(SolutionDir)\Sources\xrCore\;
-        $(SolutionDir)\Sources\xrLua\LuaJIT\src\;
-        $(SolutionDir)\Sources\xrLua\Luabind\
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;$(SolutionDir)\Sources\Externals\Boost\;$(SolutionDir)\Sources\Externals\DXSDK_Aug2007\Include\;$(SolutionDir)\Sources\Externals\Loki\;$(SolutionDir)\Sources\xrCore\;$(SolutionDir)\Sources\xrLua\LuaJIT\src\;$(SolutionDir)\Sources\xrLua\Luabind\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>
