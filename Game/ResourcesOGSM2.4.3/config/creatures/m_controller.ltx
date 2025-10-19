@@ -19,13 +19,10 @@ MaxHealthValue		     = 400			; range [0..200]
 DynamicObjectsCount	 = 32
 smart_terrain_choose_interval	= 00:15:00
 
-
-
 ef_creature_type	 = 12						; option for evaluation functions
 ef_weapon_type		 = 11
 ef_detector_type			 = 1
 panic_threshold		= 0.1
-
 
 cform                = skeleton					; collision class
 class                = SM_CONTR					; AI class
@@ -60,8 +57,6 @@ ph_skel_fatal_impulse_factor  = 2.0
 ph_after_death_velocity_factor= 0.75
 ph_skel_shot_up_factor        = 0.25
 ;---------------------------------------------------------------------
-
-
 
 ;----------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
@@ -99,7 +94,6 @@ Max_Satiety			= 0.9		; макс. норма сытости (больше - очень сытый)
 
 distance_to_corpse	= 1.2		; дист. до трупа, при которой он переходит в состояние еды
 
-
 ;                           fSearchRange,fOptEnemyDistance,fOptEnemyDistanceWeight,fMinEnemyDistance,fMinEnemyDistanceWeight,fMaxEnemyDistance,fMaxEnemyDistanceWeight
 selector_free_hunting    =      20.0,            20.0,                 1000.0,                 0.0,               10000.0,               1000.0,               10000.0,      
 ;                           fSearchRange,fCoverFromEnemyWeight,fOptEnemyDistance,fOptEnemyDistanceWeight,fMinEnemyDistance,fMinEnemyDistanceWeight,fMaxEnemyDistance,fMaxEnemyDistanceWeight
@@ -128,7 +122,6 @@ morale_v			=    0.1			;скорость восстановления морали
 health_hit_part =        0.25;0.1;0.8	;процент хита, уходящий на отнимание здоровья
 power_hit_part =         0.1;0.9		;процент хита, уходящий на отнимание силы
 psy_health_v =           0.1			;скорость восстановления psy-здоровья
-
 
 immunities_sect				= controller_immunities
 
@@ -177,15 +170,13 @@ sound_die_in_anomaly	= monsters\controller\controller_die_
 
 killer_clsids				= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
 
-
 idle_sound_delay		= 12000
 eat_sound_delay			= 10000
 attack_sound_delay		= 5000
 
 sound_distant_idle			= monsters\controller\controller_idle_
 distant_idle_sound_delay	= 80000
-distant_idle_sound_range	= 100.0	
-
+distant_idle_sound_range	= 100.0
 
 sound_control_start		= monsters\controller\controller_control1
 sound_control_hit		= monsters\controller\controller_control2
@@ -223,8 +214,6 @@ critical_wound_bones_torso	= controller_critical_wound_bones_torso
 critical_wound_anim_legs	= critical_hit_torso_0
 critical_wound_bones_legs	= controller_critical_wound_bones_legs
 
-
-
 DamagedThreshold		= 0.1
 
 material				= creatures\medium
@@ -245,7 +234,6 @@ tube_min_dist			= 1
 control_fx_texture		= act\act_controller_hit
 control_fx_texture2		= act\act_controller_hit1
 
-
 ; Controlling ability properties
 Max_Controlled_Count	= 0
 
@@ -253,7 +241,7 @@ control_effector			= controller_control_effector
 
 Friend_Community_Overrides	= monolith
 
-;------------------------------------------------------------------------- 
+;-------------------------------------------------------------------------
 ; Psy Aura
 ;-------------------------------------------------------------------------
 PsyAura_HeadSound			= monsters\controller\controller_control1
@@ -273,10 +261,7 @@ PsyAura_HitDelay			= 1500
 PsyAura_PPHitDelay			= 300
 
 PsyAura_Fake_Sound 			= $no_sound ; Исправление эффекта пси-ауры (опционально)
-
-
-;------------------------------------------------------------------------- 
-
+;-------------------------------------------------------------------------
 
 Control_Hit					= weapons\generic_weapon_controler
 
@@ -285,7 +270,6 @@ species						= controller
 rank						= 401
 spec_rank					= normal
 community					= controller
-
 
 ;===========================================================================
 ; Step Events
@@ -298,7 +282,6 @@ stand_walk_fwd_0 	=	    1,	   0.01,     1,     0.25,    0.7,
 stand_walk_dmg_0 	=	    1,	   0.01,     1,     0.25,    0.7,     
 stand_run_fwd_0	 	=	    1,	   0.01,     1,	    0.25,    0.6,    
 stand_run_dmg_0	 	=	    1,	   0.01,     1,	    0.25,    0.6,    
-
 
 ;===========================================================================
 ; IMMUNITIES
@@ -367,7 +350,6 @@ ce_power			= 1.5 ; power
 ; Aura PP Effector
 ;=========================================================================================
 [controller_aura_pp_effector_section]
-
 duality_h		= 0.00
 duality_v		= 0.00
 blur			= 0.00
@@ -378,8 +360,6 @@ noise_fps		= 50
 color_base		= 0.5,0.5,0.5
 color_gray		= 0.33,0.330,0.33
 color_add		= 0.00,0.00,0.00
-
-
 
 ;===========================================================================
 ; Attack Animation Parameters
@@ -419,7 +399,6 @@ bip01_spine1 		= 1.0, -1, 0.5
 bip01_neck 			= 1.0, -1, 1.0
 bip01_head 			= 2.0, -1, 0.5, 10
 
-
 [m_controller_normal]:m_controller_e
 $spawn              = "monsters\old\controller_normal"
 visual				= monsters\kontroler\kontroler
@@ -455,9 +434,6 @@ community			= controller
 [controller_tubeman]:m_controller_normal
 $spawn              = "monsters\controllers\controller_tubeman"
 satiety_threshold	= 0.6
-
-
-
 
 [controller_critical_wound_bones_head]
 bip01_neck
@@ -505,7 +481,6 @@ bip01_r_finger31
 bip01_r_finger4
 bip01_r_finger41
 
-
 [controller_critical_wound_bones_legs]
 bip01_l_thigh
 bip01_l_calf
@@ -515,7 +490,6 @@ bip01_r_thigh
 bip01_r_calf
 bip01_r_foot
 bip01_r_toe1
-
 
 [arena_controller_1]:m_controller_e
 $spawn              = "monsters\old\controller_normal_fat"
