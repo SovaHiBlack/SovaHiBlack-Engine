@@ -352,9 +352,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other", "Other", "{9870C312
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{064B9C31-7B69-474E-94CF-6849625A4CD8}"
-	ProjectSection(SolutionItems) = preProject
-		Game\ResourcesOGSM2.4.3\config\gameplay\dialogs_aes.xml = Game\ResourcesOGSM2.4.3\config\gameplay\dialogs_aes.xml
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1.0006", "Game\Resources1.0006\1.0006.vcxproj", "{CB0C72A8-7CE4-4F17-9536-5C3D8C93EEF5}"
 EndProject

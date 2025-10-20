@@ -598,6 +598,12 @@
     <Filter Include="config\gameplay\dialogs">
       <UniqueIdentifier>{cb87a146-d365-45fc-89c0-2aceacf5a7bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="config\gameplay\profiles">
+      <UniqueIdentifier>{286126c9-b171-4fcf-871c-fa713aae92a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\gameplay\game_tasks">
+      <UniqueIdentifier>{22478875-42d5-4cd9-af7a-897f92c816df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ai\alife\anomalydetectprobability.efd">
@@ -8477,168 +8483,6 @@
     <Xml Include="config\character_desc_general.xml">
       <Filter>config</Filter>
     </Xml>
-    <Xml Include="config\gameplay\aem_characters.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\aem_profile.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_criticals_1.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_criticals_2.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_criticals_3.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_criticals_4.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_criticals_5.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_criticals_6.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_aes.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_aes2.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_agroprom.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_bandit.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_bar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_dar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_darkvalley.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_deadcity.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_dolg.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_ecolog.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_escape.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_garbage.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_general.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_killer.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_kishka.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_military.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_monolit.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_pripyat.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_radar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_sarcofag.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_simulation.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_soldier.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_stalker.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_svoboda.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_yantar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_desc_zombied.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_dialogs.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_drugs.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_food.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\character_items.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\game_tasks.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\game_tasks_by_vendor.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\npc_profile.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\tasks_aes.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\tasks_agroprom.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\tasks_bar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\tasks_darkvalley.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\tasks_deadcity.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\tasks_escape.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\tasks_garbage.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\tasks_military.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\tasks_pripyat.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\tasks_radar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\tasks_sarcofag.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\tasks_yantar.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
-    <Xml Include="config\gameplay\test.xml">
-      <Filter>config\gameplay</Filter>
-    </Xml>
     <Xml Include="config\ui\actor_diary.xml">
       <Filter>config\ui</Filter>
     </Xml>
@@ -9637,6 +9481,132 @@
     </Xml>
     <Xml Include="config\gameplay\dialogs_repair.xml">
       <Filter>config\gameplay\dialogs</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\npc_profile.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\aem_characters.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\aem_profile.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_criticals_1.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_criticals_2.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_criticals_3.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_criticals_4.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_criticals_5.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_criticals_6.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_aes.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_agroprom.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_bar.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_darkvalley.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_deadcity.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_escape.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_garbage.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_general.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_kishka.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_military.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_pripyat.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_radar.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_sarcofag.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_simulation.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_desc_yantar.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_dialogs.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_drugs.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_food.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\character_items.xml">
+      <Filter>config\gameplay\profiles</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\game_tasks.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\game_tasks_by_vendor.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\tasks_aes.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\tasks_agroprom.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\tasks_bar.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\tasks_darkvalley.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\tasks_deadcity.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\tasks_escape.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\tasks_garbage.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\tasks_military.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\tasks_pripyat.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\tasks_radar.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\tasks_sarcofag.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\gameplay\tasks_yantar.xml">
+      <Filter>config\gameplay\game_tasks</Filter>
     </Xml>
   </ItemGroup>
   <ItemGroup>
