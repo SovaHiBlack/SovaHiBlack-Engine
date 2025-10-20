@@ -369,9 +369,7 @@
     <None Include="config\misc\gulag_pripyat.ltx" />
     <None Include="config\misc\gulag_radar.ltx" />
     <None Include="config\misc\gulag_radar_u.ltx" />
-    <None Include="config\misc\gulag_radar_u.script" />
     <None Include="config\misc\gulag_sarcofag.ltx" />
-    <None Include="config\misc\gulag_selo.ltx" />
     <None Include="config\misc\gulag_tasks.ltx" />
     <None Include="config\misc\gulag_yantar.ltx" />
     <None Include="config\misc\items.ltx" />

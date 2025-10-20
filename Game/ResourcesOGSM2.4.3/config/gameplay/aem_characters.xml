@@ -1,10 +1,8 @@
 <?xml version='1.0' encoding="windows-1251"?>
-
 <xml>
+	<!-- MILITARY -->
 
-;------ MILITARY -------------------
-
-;------ 1on1 -------------------
+	<!-- 1on1 -->
 	<specific_character id="aem_military_1_1" team_default = "1">
 		<name>GENERATE_NAME_captain</name>
 		<icon>ui_npc_u_stalker_militari_antigas_2</icon>
@@ -12,25 +10,26 @@
 		<bio>bar_arena_stalker</bio>
 
 		<team>Soldier_military</team>
-		
+
 		<class>aem_military_1_1</class>
-		<community>arena_enemy</community> <terrain_sect>stalker_military_terrain</terrain_sect>
-		
+		<community>arena_enemy</community>
+		<terrain_sect>stalker_military_terrain</terrain_sect>
+
 		<rank>963</rank>
 		<reputation>0</reputation>
 
 		<visual>actors\militari\stalker_militari_2</visual>
-		<snd_config>characters_voice\human_03\military\</snd_config>	
+		<snd_config>characters_voice\human_03\military\</snd_config>
 		<supplies>
 			[spawn] \n
 			wpn_val_arena = 1 \n
 			ammo_9x39_sp5 = 1 \n
-			device_torch = 1 \n
+			device_torch = 1
 		</supplies>
-		
+
 #include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on2_1 -------------------
+	<!-- 1on2_1 -->
 	<specific_character id="aem_military_2_1" team_default = "1">
 		<name>GENERATE_NAME_lieutenant</name>
 		<icon>ui_npc_u_soldier_spetsnaz</icon>
@@ -40,23 +39,24 @@
 		<team>Soldier_military</team>
 
 		<class>aem_military_2_1</class>
-		<community>arena_enemy</community> <terrain_sect>stalker_terrain</terrain_sect>
-		
+		<community>arena_enemy</community>
+		<terrain_sect>stalker_terrain</terrain_sect>
+
 		<rank>894</rank>
 		<reputation>0</reputation>
-		
+
 		<visual>actors\soldier\soldier_spetsnaz</visual>
 		<snd_config>characters_voice\human_02\military\</snd_config>
 		<supplies>
-			[spawn] \n	
+			[spawn] \n
 			wpn_groza_arena = 1 \n
 			ammo_9x39_sp5 = 1 \n
-			device_torch = 1 \n
+			device_torch = 1
 		</supplies>
-		
+
 #include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on2_2 -------------------
+	<!-- 1on2_2 -->
 	<specific_character id="aem_military_2_2" team_default = "1">
 		<name>GENERATE_NAME_lieutenant</name>
 		<icon>ui_npc_u_soldier_spetsnaz</icon>
@@ -66,23 +66,24 @@
 		<team>Soldier_military</team>
 
 		<class>aem_military_2_2</class>
-		<community>arena_enemy</community> <terrain_sect>stalker_terrain</terrain_sect>
-		
+		<community>arena_enemy</community>
+		<terrain_sect>stalker_terrain</terrain_sect>
+
 		<rank>882</rank>
 		<reputation>0</reputation>
 
 		<visual>actors\soldier\soldier_spetsnaz</visual>
 		<snd_config>characters_voice\human_02\military\</snd_config>
 		<supplies>
-			[spawn] \n	
+			[spawn] \n
 			wpn_groza_arena = 1 \n
 			ammo_9x39_sp5 = 1 \n
-			device_torch = 1 \n
+			device_torch = 1
 		</supplies>
-		
+
 #include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_1 -------------------
+	<!-- 1on3_1 -->
 	<specific_character id="aem_military_3_1" team_default = "1">
 		<name>GENERATE_NAME_captain</name>
 		<icon>ui_npc_u_stalker_militari_antigas_2</icon>
@@ -90,25 +91,25 @@
 		<bio>bar_arena_stalker</bio>
 
 		<team>Soldier_military</team>
-		
+
 		<class>aem_military_3_1</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_military_terrain</terrain_sect>
-		
+
 		<rank>954</rank>
 		<reputation>0</reputation>
 
 		<visual>actors\militari\stalker_militari_antigas_2</visual>
-		<snd_config>characters_voice\human_03\military\</snd_config>	
+		<snd_config>characters_voice\human_03\military\</snd_config>
 		<supplies>
 			[spawn] \n
 			wpn_val_arena = 1 \n
 			ammo_9x39_sp5 = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_2 -------------------
+	<!-- 1on3_2 -->
 	<specific_character id="aem_military_3_2" team_default = "1">
 		<name>GENERATE_NAME_lieutenant</name>
 		<icon>ui_npc_u_stalker_militari_antigas_2</icon>
@@ -119,22 +120,22 @@
 
 		<class>aem_military_3_2</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_military_terrain</terrain_sect>
-		
+
 		<rank>914</rank>
 		<reputation>0</reputation>
 
 		<visual>actors\soldier\stalker_military_green</visual>
-		<snd_config>characters_voice\human_01\military\</snd_config>	
+		<snd_config>characters_voice\human_01\military\</snd_config>
 		<supplies>
 			[spawn] \n
 			wpn_groza_arena = 1 \n
 			ammo_9x39_sp5 = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_3 -------------------
+	<!-- 1on3_3 -->
 	<specific_character id="aem_military_3_3" team_default = "1">
 		<name>GENERATE_NAME_lieutenant</name>
 		<icon>ui_npc_u_stalker_militari_antigas_2</icon>
@@ -145,25 +146,25 @@
 
 		<class>aem_military_3_3</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_military_terrain</terrain_sect>
-		
+
 		<rank>910</rank>
 		<reputation>0</reputation>
 
 		<visual>actors\soldier\stalker_military_green</visual>
-		<snd_config>characters_voice\human_01\military\</snd_config>		
+		<snd_config>characters_voice\human_01\military\</snd_config>
 		<supplies>
 			[spawn] \n
 			wpn_groza_arena = 1 \n
 			ammo_9x39_sp5 = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
 
-;------ KILLERS -------------------
+	<!-- KILLERS -->
 
-;------ 1on1 -------------------
+	<!-- 1on1 -->
 	<specific_character id="aem_killer_1_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_ki_exoskeleton</icon>
@@ -171,14 +172,14 @@
 		<bio>sim_killer_master_bio</bio>
 
 		<team>Killer_specnaz</team>
-		
+
 		<class>aem_killer_1_1</class>
 		<community>arena_enemy</community>
 
 		<rank>899</rank>
 		<reputation>-50</reputation>
 
-		<visual>actors\killer\stalker_ki_exoskeleton</visual>		
+		<visual>actors\killer\stalker_ki_exoskeleton</visual>
 		<snd_config>characters_voice\human_01\ military\</snd_config>
 		<crouch_type>-1</crouch_type>
 		<supplies>
@@ -187,10 +188,10 @@
 			ammo_5.56x45_ap = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on2_1 -------------------
+	<!-- 1on2_1 -->
 	<specific_character id="aem_killer_2_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_ki_exoskeleton</icon>
@@ -198,14 +199,14 @@
 		<bio>sim_killer_master_bio</bio>
 
 		<team>Killer_specnaz</team>
-		
+
 		<class>aem_killer_2_1</class>
 		<community>arena_enemy</community>
 
 		<rank>896</rank>
 		<reputation>-50</reputation>
 
-		<visual>actors\killer\stalker_ki_exoskeleton</visual>		
+		<visual>actors\killer\stalker_ki_exoskeleton</visual>
 		<snd_config>characters_voice\human_01\ military\</snd_config>
 		<crouch_type>-1</crouch_type>
 		<supplies>
@@ -214,10 +215,10 @@
 			ammo_5.56x45_ap = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on2_2 -------------------
+	<!-- 1on2_2 -->
 	<specific_character id="aem_killer_2_2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_ki_exoskeleton</icon>
@@ -225,14 +226,14 @@
 		<bio>sim_killer_master_bio</bio>
 
 		<team>Killer_specnaz</team>
-		
+
 		<class>aem_killer_2_2</class>
 		<community>arena_enemy</community>
 
 		<rank>890</rank>
 		<reputation>-50</reputation>
 
-		<visual>actors\killer\stalker_ki_exoskeleton</visual>		
+		<visual>actors\killer\stalker_ki_exoskeleton</visual>
 		<snd_config>characters_voice\human_01\ military\</snd_config>
 		<crouch_type>-1</crouch_type>
 		<supplies>
@@ -241,10 +242,10 @@
 			ammo_12x70_buck = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_1 -------------------
+	<!-- 1on3_1 -->
 	<specific_character id="aem_killer_3_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_ki_nauchniy</icon>
@@ -255,10 +256,10 @@
 
 		<class>aem_killer_3_1</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_killer_terrain</terrain_sect>
-		
+
 		<rank>909</rank>
 		<reputation>-132</reputation>
-		
+
 		<visual>actors\killer\stalker_ki_nauchniy</visual>
 		<snd_config>characters_voice\human_03\killer\</snd_config>
 		<crouch_type>-1</crouch_type>
@@ -268,10 +269,10 @@
 			ammo_5.56x45_ap = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_2 -------------------
+	<!-- 1on3_2 -->
 	<specific_character id="aem_killer_3_2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_ki_antigas</icon>
@@ -285,19 +286,19 @@
 
 		<rank>890</rank>
 		<reputation>-95</reputation>
-				
+
 		<visual>actors\killer\stalker_ki_antigas</visual>
 		<snd_config>characters_voice\human_03\killer\</snd_config>
-		<supplies>	
-			[spawn] \n	
+		<supplies>
+			[spawn] \n
 			wpn_g36_arena = 1 \n
 			ammo_5.56x45_ap = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_3 -------------------
+	<!-- 1on3_3 -->
 	<specific_character id="aem_killer_3_3" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_ki_head_1</icon>
@@ -311,22 +312,22 @@
 
 		<rank>696</rank>
 		<reputation>-95</reputation>
-		
+
 		<visual>actors\killer\stalker_ki_head_1</visual>
 		<snd_config>characters_voice\human_01\killer\</snd_config>
-		<supplies>	
-			[spawn] \n	
+		<supplies>
+			[spawn] \n
 			wpn_g36_arena = 1 \n
 			ammo_5.56x45_ap = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
 
-;------ FREEDOM ----------
+	<!-- FREEDOM -->
 
-;------ 1on1 -------------------
+	<!-- 1on1 -->
 	<specific_character id="aem_freedom_1_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_sv_exoskeleton</icon>
@@ -334,7 +335,7 @@
 		<bio>mil_Svoboda_master_bio</bio>
 
 		<team>freedom_fighters</team>
-		
+
 		<class>aem_freedom_1_1</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -350,10 +351,10 @@
 			ammo_5.56x45_ap = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on2_1 -------------------
+	<!-- 1on2_1 -->
 	<specific_character id="aem_freedom_2_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_sv_rukzak_1_1</icon>
@@ -361,25 +362,25 @@
 		<bio>mil_Svoboda_specnaz_bio</bio>
 
 		<team>freedom_fighters</team>
-		
+
 		<class>aem_freedom_2_1</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
-		
+
 		<rank>630</rank>
 		<reputation>0</reputation>
 
 		<visual>actors\svoboda\stalker_sv_rukzak_1_1</visual>
 		<snd_config>characters_voice\human_03\freedom\</snd_config>
 		<supplies>
-			[spawn] \n	
+			[spawn] \n
 			wpn_fn2000_arena = 1 \n
 			ammo_5.56x45_ap = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on2_2 -------------------
+	<!-- 1on2_2 -->
 	<specific_character id="aem_freedom_2_2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_sv_rukzak_3_1</icon>
@@ -387,25 +388,25 @@
 		<bio>mil_Svoboda_specnaz_bio</bio>
 
 		<team>freedom_fighters</team>
-		
+
 		<class>aem_freedom_2_2</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
-		
+
 		<rank>730</rank>
 		<reputation>0</reputation>
 
 		<visual>actors\svoboda\stalker_sv_rukzak_3_1</visual>
 		<snd_config>characters_voice\human_03\freedom\</snd_config>
 		<supplies>
-			[spawn] \n	
+			[spawn] \n
 			wpn_g36_arena = 1 \n
 			ammo_5.56x45_ap = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_1 -------------------
+	<!-- 1on3_1 -->
 	<specific_character id="aem_freedom_3_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_sv_nauchniy</icon>
@@ -413,10 +414,10 @@
 		<bio>mil_Svoboda_master_bio</bio>
 
 		<team>freedom_fighters</team>
-		
+
 		<class>aem_freedom_3_1</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
-		
+
 		<rank>930</rank>
 		<reputation>0</reputation>
 
@@ -429,10 +430,10 @@
 			ammo_12x70_buck = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_2 -------------------
+	<!-- 1on3_2 -->
 	<specific_character id="aem_freedom_3_2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_sv_hood_9</icon>
@@ -440,10 +441,10 @@
 		<bio>mil_Svoboda_specnaz_bio</bio>
 
 		<team>freedom_fighters</team>
-		
+
 		<class>aem_freedom_3_2</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
-		
+
 		<rank>830</rank>
 		<reputation>0</reputation>
 
@@ -455,10 +456,10 @@
 			ammo_5.56x45_ap = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_3 -------------------
+	<!-- 1on3_3 -->
 	<specific_character id="aem_freedom_3_3" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_sv_hood_91</icon>
@@ -466,10 +467,10 @@
 		<bio>mil_Svoboda_specnaz_bio</bio>
 
 		<team>freedom_fighters</team>
-		
+
 		<class>aem_freedom_3_3</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
-		
+
 		<rank>730</rank>
 		<reputation>0</reputation>
 
@@ -481,10 +482,10 @@
 			ammo_5.56x45_ap = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ Спец. бой -------------------
+	<!-- Спец. бой -->
 	<specific_character id="aem_freedom" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_sv_exoskeleton</icon>
@@ -492,7 +493,7 @@
 		<bio>mil_Svoboda_master_bio</bio>
 
 		<team>freedom_fighters</team>
-		
+
 		<class>aem_freedom</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -508,12 +509,12 @@
 			ammo_5.56x45_ap = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
-	</specific_character>
-;------ DOLG ------------------
 
-;------ 1on1 -------------------
+		#include "gameplay\character_criticals_6.xml"
+	</specific_character>
+	<!-- DOLG -->
+
+	<!-- 1on1 -->
 	<specific_character id="aem_dolg_1_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_do_exoskeleton</icon>
@@ -521,7 +522,7 @@
 		<bio>sim_dolg_veteran_bio</bio>
 
 		<team>dolg_fighters</team>
-		
+
 		<class>aem_dolg_1_1</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -537,10 +538,10 @@
 			ammo_9x39_sp5 = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on2_1 -------------------
+	<!-- 1on2_1 -->
 	<specific_character id="aem_dolg_2_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_do_balon_1</icon>
@@ -548,7 +549,7 @@
 		<bio>sim_dolg_veteran_bio</bio>
 
 		<team>dolg_fighters</team>
-		
+
 		<class>aem_dolg_2_1</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -563,10 +564,10 @@
 			ammo_9x39_ap = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on2_2 -------------------
+	<!-- 1on2_2 -->
 	<specific_character id="aem_dolg_2_2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_do_balon_3</icon>
@@ -574,7 +575,7 @@
 		<bio>sim_dolg_veteran_bio</bio>
 
 		<team>dolg_fighters</team>
-		
+
 		<class>aem_dolg_2_2</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -589,18 +590,18 @@
 			ammo_9x39_ap = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_1 -------------------
+	<!-- 1on3_1 -->
 	<specific_character id="aem_dolg_3_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
-    		<icon>ui_npc_u_stalker_do_nauchniy</icon>
-   		<map_icon x="4" y="0"></map_icon>
+		<icon>ui_npc_u_stalker_do_nauchniy</icon>
+		<map_icon x="4" y="0"></map_icon>
 		<bio>sim_dolg_veteran_bio</bio>
 
 		<team>dolg_fighters</team>
-		
+
 		<class>aem_dolg_3_1</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -616,10 +617,10 @@
 			ammo_9x39_ap = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_2 -------------------
+	<!-- 1on3_2 -->
 	<specific_character id="aem_dolg_3_2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_do_balon_8</icon>
@@ -627,7 +628,7 @@
 		<bio>sim_dolg_veteran_bio</bio>
 
 		<team>dolg_fighters</team>
-		
+
 		<class>aem_dolg_3_2</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -642,10 +643,10 @@
 			ammo_9x39_ap = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_3 -------------------
+	<!-- 1on3_3 -->
 	<specific_character id="aem_dolg_3_3" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_do_antigas</icon>
@@ -653,7 +654,7 @@
 		<bio>sim_dolg_veteran_bio</bio>
 
 		<team>dolg_fighters</team>
-		
+
 		<class>aem_dolg_3_3</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -668,11 +669,11 @@
 			ammo_9x39_ap = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
 
-;------ Спец. бой -------------------
+	<!-- Спец. бой -->
 	<specific_character id="aem_dolg" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_do_exoskeleton</icon>
@@ -680,10 +681,10 @@
 		<bio>sim_dolg_master_bio</bio>
 
 		<team>dolg_fighters</team>
-		
+
 		<class>aem_dolg</class>
 		<community>arena_enemy</community>
-		
+
 		<rank>913</rank>
 		<reputation>136</reputation>
 
@@ -695,14 +696,14 @@
 			ammo_9x39_sp5 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_2.xml"
+
+		#include "gameplay\character_criticals_2.xml"
 	</specific_character>
 
 
-;------ NEUTRAL ------------------
+	<!-- NEUTRAL -->
 
-;------ 1on1 -------------------
+	<!-- 1on1 -->
 	<specific_character id="aem_neutral_1_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_neytral_exoskeleton</icon>
@@ -710,7 +711,7 @@
 		<bio>sim_stalker_master_bio</bio>
 
 		<team>neutral_fighters</team>
-		
+
 		<class>aem_neutral_1_1</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -726,10 +727,10 @@
 			ammo_5.56x45_ap = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on2_1 -------------------
+	<!-- 1on2_1 -->
 	<specific_character id="aem_neutral_2_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_neytral_balon_8</icon>
@@ -737,7 +738,7 @@
 		<bio>sim_stalker_veteran_bio</bio>
 
 		<team>neutral_fighters</team>
-		
+
 		<class>aem_neutral_2_1</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -752,10 +753,10 @@
 			ammo_9x39_ap = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on2_2 -------------------
+	<!-- 1on2_2 -->
 	<specific_character id="aem_neutral_2_2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_neytral_hood_8</icon>
@@ -763,7 +764,7 @@
 		<bio>sim_stalker_veteran_bio</bio>
 
 		<team>neutral_fighters</team>
-		
+
 		<class>aem_neutral_2_2</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -778,10 +779,10 @@
 			ammo_9x39_ap = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_1 -------------------
+	<!-- 1on3_1 -->
 	<specific_character id="aem_neutral_3_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_neytral_nauchniy</icon>
@@ -789,7 +790,7 @@
 		<bio>sim_stalker_master_bio</bio>
 
 		<team>neutral_fighters</team>
-		
+
 		<class>aem_neutral_3_1</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -805,10 +806,10 @@
 			ammo_5.56x45_ap = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_2 -------------------
+	<!-- 1on3_2 -->
 	<specific_character id="aem_neutral_3_2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_neytral_hood_9</icon>
@@ -816,7 +817,7 @@
 		<bio>sim_stalker_veteran_bio</bio>
 
 		<team>neutral_fighters</team>
-		
+
 		<class>aem_neutral_3_2</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -831,10 +832,10 @@
 			ammo_12x70_buck = 1 \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
-;------ 1on3_3 -------------------
+	<!-- 1on3_3 -->
 	<specific_character id="aem_neutral_3_3" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_neytral_hood_8</icon>
@@ -842,7 +843,7 @@
 		<bio>sim_stalker_veteran_bio</bio>
 
 		<team>neutral_fighters</team>
-		
+
 		<class>aem_neutral_3_3</class>
 		<community>arena_enemy</community> <terrain_sect>stalker_freedom_terrain</terrain_sect>
 
@@ -857,11 +858,11 @@
 			ammo_9x39_ap = 1 \n
 			device_torch = 1 \n
 		</supplies>
-		
-#include "gameplay\character_criticals_6.xml"
+
+		#include "gameplay\character_criticals_6.xml"
 	</specific_character>
 
-;------ Спецбой -------------------
+	<!-- Спецбой -->
 	<specific_character id="aem_neutral" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_neytral_exoskeleton</icon>
@@ -882,14 +883,14 @@
 			ammo_9x39_ap \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_2.xml"
+
+		#include "gameplay\character_criticals_2.xml"
 	</specific_character>
 
 
-;------ BANDIT ------------------
+	<!-- BANDIT -->
 
-;------ 1on1 -------------------
+	<!-- 1on1 -->
 	<specific_character id="aem_bandit_1_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_bandit_master</icon>
@@ -898,7 +899,7 @@
 
 		<class>aem_bandit_1_1</class>
 		<community>arena_enemy</community>
-		
+
 		<rank>912</rank>
 		<reputation>0</reputation>
 
@@ -911,22 +912,22 @@
 			ammo_5.56x45_ap \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_4.xml"
+
+		#include "gameplay\character_criticals_4.xml"
 	</specific_character>
-;------ 1on2_1 -------------------
+	<!-- 1on2_1 -->
 	<specific_character id="aem_bandit_2_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_bandit_3</icon>
 		<map_icon x="3" y="2"></map_icon>
 		<bio>sim_bandit_novice_bio</bio>
-	
+
 		<class>aem_bandit_2_1</class>
 		<community>arena_enemy</community>
-		
+
 		<rank>600</rank>
 		<reputation>-56</reputation>
-		
+
 		<snd_config>characters_voice\human_01\bandit\</snd_config>
 		<crouch_type>1</crouch_type>
 		<visual>actors\bandit\stalker_bandit_3</visual>
@@ -936,22 +937,22 @@
 			ammo_9x39_ap \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_4.xml"
+
+		#include "gameplay\character_criticals_4.xml"
 	</specific_character>
-;------ 1on2_2 -------------------
+	<!-- 1on2_2 -->
 	<specific_character id="aem_bandit_2_2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_bandit_3</icon>
 		<map_icon x="3" y="2"></map_icon>
 		<bio>sim_bandit_novice_bio</bio>
-	
+
 		<class>aem_bandit_2_2</class>
 		<community>arena_enemy</community>
-		
+
 		<rank>610</rank>
 		<reputation>-56</reputation>
-		
+
 		<snd_config>characters_voice\human_01\bandit\</snd_config>
 		<crouch_type>1</crouch_type>
 		<visual>actors\bandit\stalker_bandit_3</visual>
@@ -961,10 +962,10 @@
 			ammo_5.56x45_ap \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_4.xml"
+
+		#include "gameplay\character_criticals_4.xml"
 	</specific_character>
-;------ 1on3_1 -------------------
+	<!-- 1on3_1 -->
 	<specific_character id="aem_bandit_3_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_bandit_master</icon>
@@ -973,7 +974,7 @@
 
 		<class>aem_bandit_3_1</class>
 		<community>arena_enemy</community>
-		
+
 		<rank>912</rank>
 		<reputation>0</reputation>
 
@@ -986,19 +987,19 @@
 			ammo_5.56x45_ap \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_4.xml"
+
+		#include "gameplay\character_criticals_4.xml"
 	</specific_character>
-;------ 1on3_2 -------------------
+	<!-- 1on3_2 -->
 	<specific_character id="aem_bandit_3_2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_bandit_veteran</icon>
 		<map_icon x="3" y="2"></map_icon>
 		<bio>bar_arena_stalker</bio>
-		
+
 		<class>aem_bandit_3_2</class>
 		<community>arena_enemy</community>
-		
+
 		<rank>892</rank>
 		<reputation>0</reputation>
 
@@ -1011,19 +1012,19 @@
 			ammo_9x39_ap \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_4.xml"
+
+		#include "gameplay\character_criticals_4.xml"
 	</specific_character>
-;------ 1on3_3 -------------------
+	<!-- 1on3_3 -->
 	<specific_character id="aem_bandit_3_3" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_bandit_veteran</icon>
 		<map_icon x="3" y="2"></map_icon>
 		<bio>bar_arena_stalker</bio>
-		
+
 		<class>aem_bandit_3_3</class>
 		<community>arena_enemy</community>
-		
+
 		<rank>892</rank>
 		<reputation>0</reputation>
 
@@ -1036,12 +1037,12 @@
 			ammo_9x39_ap \n
 			device_torch \n
 		</supplies>
-		
-#include "gameplay\character_criticals_4.xml"
+
+		#include "gameplay\character_criticals_4.xml"
 	</specific_character>
 
 
-;------ NEW_MANAGERS ------------------
+	<!-- NEW_MANAGERS -->
 
 	<specific_character id="aem_admin_1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
@@ -1052,7 +1053,7 @@
 		<class>aem_admin</class>
 		<community>stalker</community> <terrain_sect>stalker_terrain</terrain_sect>
 		<money min="600" max="2000" infinitive="0"></money>
-		
+
 		<rank>531</rank>
 		<reputation>90</reputation>
 
@@ -1064,11 +1065,11 @@
 			[spawn] \n
 			wpn_val_arena = 1 \n
 			ammo_9x39_sp5 = 1 \n
-#include "gameplay\character_food.xml"
-#include "gameplay\character_drugs.xml"
+			#include "gameplay\character_food.xml"
+			#include "gameplay\character_drugs.xml"
 		</supplies>
 
-#include "gameplay\character_criticals_4.xml"
+		#include "gameplay\character_criticals_4.xml"
 		<start_dialog>bar_arena_man_start</start_dialog>
 		<actor_dialog>bar_arena_man_job</actor_dialog>
 		<actor_dialog>bar_arena_man_fights</actor_dialog>
@@ -1085,7 +1086,7 @@
 		<class>aem_admin</class>
 		<community>stalker</community> <terrain_sect>stalker_terrain</terrain_sect>
 		<money min="600" max="2000" infinitive="0"></money>
-		
+
 		<rank>531</rank>
 		<reputation>90</reputation>
 
@@ -1097,11 +1098,11 @@
 			[spawn] \n
 			wpn_groza = 1 \n
 			ammo_9x39_sp5 = 1 \n
-#include "gameplay\character_food.xml"
-#include "gameplay\character_drugs.xml"
+			#include "gameplay\character_food.xml"
+			#include "gameplay\character_drugs.xml"
 		</supplies>
 
-#include "gameplay\character_criticals_4.xml"
+		#include "gameplay\character_criticals_4.xml"
 		<start_dialog>bar_arena_man_start</start_dialog>
 		<actor_dialog>bar_arena_man_job</actor_dialog>
 		<actor_dialog>bar_arena_man_fights</actor_dialog>
@@ -1118,7 +1119,7 @@
 		<class>aem_admin</class>
 		<community>stalker</community> <terrain_sect>stalker_terrain</terrain_sect>
 		<money min="600" max="2000" infinitive="0"></money>
-		
+
 		<rank>531</rank>
 		<reputation>90</reputation>
 
@@ -1130,11 +1131,11 @@
 			[spawn] \n
 			wpn_abakan = 1 \n
 			ammo_5.45x39_fmj = 1 \n
-#include "gameplay\character_food.xml"
-#include "gameplay\character_drugs.xml"
+			#include "gameplay\character_food.xml"
+			#include "gameplay\character_drugs.xml"
 		</supplies>
-				
-#include "gameplay\character_criticals_4.xml"
+
+		#include "gameplay\character_criticals_4.xml"
 		<start_dialog>bar_arena_man_start</start_dialog>
 		<actor_dialog>bar_arena_man_job</actor_dialog>
 		<actor_dialog>bar_arena_man_fights</actor_dialog>
@@ -1151,7 +1152,7 @@
 		<class>aem_admin</class>
 		<community>stalker</community> <terrain_sect>stalker_terrain</terrain_sect>
 		<money min="600" max="2000" infinitive="0"></money>
-		
+
 		<rank>531</rank>
 		<reputation>90</reputation>
 
@@ -1163,11 +1164,11 @@
 			[spawn] \n
 			wpn_ak74 = 1 \n
 			ammo_5.45x39_fmj = 1 \n
-#include "gameplay\character_food.xml"
-#include "gameplay\character_drugs.xml"
+			#include "gameplay\character_food.xml"
+			#include "gameplay\character_drugs.xml"
 		</supplies>
-				
-#include "gameplay\character_criticals_4.xml"
+
+		#include "gameplay\character_criticals_4.xml"
 		<start_dialog>bar_arena_man_start</start_dialog>
 		<actor_dialog>bar_arena_man_job</actor_dialog>
 		<actor_dialog>bar_arena_man_fights</actor_dialog>
@@ -1184,7 +1185,7 @@
 		<class>aem_admin</class>
 		<community>stalker</community> <terrain_sect>stalker_terrain</terrain_sect>
 		<money min="600" max="2000" infinitive="0"></money>
-		
+
 		<rank>531</rank>
 		<reputation>90</reputation>
 
@@ -1196,11 +1197,11 @@
 			[spawn] \n
 			wpn_ak74u = 1 \n
 			ammo_5.45x39_fmj = 1 \n
-#include "gameplay\character_food.xml"
-#include "gameplay\character_drugs.xml"
+			#include "gameplay\character_food.xml"
+			#include "gameplay\character_drugs.xml"
 		</supplies>
-				
-#include "gameplay\character_criticals_4.xml"
+
+		#include "gameplay\character_criticals_4.xml"
 		<start_dialog>bar_arena_man_start</start_dialog>
 		<actor_dialog>bar_arena_man_job</actor_dialog>
 		<actor_dialog>bar_arena_man_fights</actor_dialog>
@@ -1217,7 +1218,7 @@
 		<class>aem_arny</class>
 		<community>stalker</community> <terrain_sect>stalker_terrain</terrain_sect>
 		<money min="600" max="2000" infinitive="0"></money>
-		
+
 		<rank>531</rank>
 		<reputation>90</reputation>
 
@@ -1229,18 +1230,18 @@
 			[spawn] \n
 			wpn_lr300 = 1 \n
 			ammo_5.56x45_ap = 1 \n
-#include "gameplay\character_food.xml"
-#include "gameplay\character_drugs.xml"
+			#include "gameplay\character_food.xml"
+			#include "gameplay\character_drugs.xml"
 		</supplies>
-				
-#include "gameplay\character_criticals_4.xml"
+
+		#include "gameplay\character_criticals_4.xml"
 
 		<start_dialog>bar_arena_man_start</start_dialog>
 		<actor_dialog>bar_arena_man_job</actor_dialog>
 		<actor_dialog>bar_arena_man_fights</actor_dialog>
 		<actor_dialog>bar_arena_man_extra</actor_dialog>
 
-#include "gameplay\character_dialogs.xml"
+		#include "gameplay\character_dialogs.xml"
 
 	</specific_character>
 </xml>

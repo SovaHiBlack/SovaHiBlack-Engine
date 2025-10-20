@@ -22,7 +22,7 @@
 		</objective>
 	</game_task>
 	
-	<!----------DELME:for andy-------------------->
+	<!-- DELME:for andy -->
 	
 	<game_task id="pl_task_1" prio="3">
 		<title>task_1</title>
@@ -40,6 +40,7 @@
 			<infoportion_complete>yan_labx16_switcher_2_off</infoportion_complete>
 		</objective>
 	</game_task>
+
 	<game_task id="pl_task_2" prio="2">
 		<title>task_2</title>
 		<objective>
@@ -54,6 +55,7 @@
 			<infoportion_complete>yan_labx16_switcher_2_off</infoportion_complete>
 		</objective>
 	</game_task>
+
 	<game_task id="pl_task_3" prio="1">
 		<title>task_3</title>
 		<objective>
@@ -123,5 +125,4 @@
 			<object_story_id>Escape_dinamite</object_story_id>
 		</objective>
 	</game_task>
-
 </game_tasks_data>

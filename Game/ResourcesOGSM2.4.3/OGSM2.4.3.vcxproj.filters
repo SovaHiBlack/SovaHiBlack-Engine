@@ -604,6 +604,12 @@
     <Filter Include="config\gameplay\game_tasks">
       <UniqueIdentifier>{22478875-42d5-4cd9-af7a-897f92c816df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="config\misc\zones">
+      <UniqueIdentifier>{4d67e3df-1d8a-4fa1-9759-fead34daa5c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\misc\gulag">
+      <UniqueIdentifier>{2995cd1f-e55c-49ba-abb3-fd7821fe8323}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ai\alife\anomalydetectprobability.efd">
@@ -1224,90 +1230,6 @@
     <None Include="config\misc\general_lair.ltx">
       <Filter>config\misc</Filter>
     </None>
-    <None Include="config\misc\gulag_agroprom.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_bar.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_dark_valley.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_deadcity.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_escape.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_garbage.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_general.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_kishka.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_labx18.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_mil_dolg.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_mil_fblockpost.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_mil_freedom1.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_mil_freedom2.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_mil_freedom3.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_mil_freedom4.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_mil_monolith.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_mil_mutants.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_mil_nblockpost.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_mil_village.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_military.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_pripyat.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_radar.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_radar_u.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_radar_u.script">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_sarcofag.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_selo.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_tasks.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\gulag_yantar.ltx">
-      <Filter>config\misc</Filter>
-    </None>
     <None Include="config\misc\items.ltx">
       <Filter>config\misc</Filter>
     </None>
@@ -1387,57 +1309,6 @@
       <Filter>config\misc</Filter>
     </None>
     <None Include="config\misc\vssver.scc">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_ameba.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_burningfuzz.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_buzz.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_gravi.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_kampfire.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_mincer.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_minefield.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_monolith.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_mosquitobald.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_nogravity.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_radioactive.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_rustyhair.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_teleport.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_torrid.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_witchesgalantine.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zone_zharka_static.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\zones.ltx">
       <Filter>config\misc</Filter>
     </None>
     <None Include="config\models\niva_engine.ltx">
@@ -8460,6 +8331,135 @@
     </None>
     <None Include="config\creatures\arena_stalkers.ltx">
       <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\misc\zones.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_witchesgalantine.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_gravi.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_mincer.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_mosquitobald.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_burningfuzz.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_buzz.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_radioactive.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_kampfire.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_torrid.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_zharka_static.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_minefield.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_teleport.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_nogravity.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_monolith.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_ameba.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\zone_rustyhair.ltx">
+      <Filter>config\misc\zones</Filter>
+    </None>
+    <None Include="config\misc\gulag_tasks.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_general.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_escape.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_garbage.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_dark_valley.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_labx18.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_bar.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_radar.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_radar_u.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_agroprom.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_military.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_yantar.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_pripyat.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_kishka.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_sarcofag.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_deadcity.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_mil_dolg.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_mil_village.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_mil_nblockpost.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_mil_fblockpost.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_mil_freedom1.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_mil_freedom2.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_mil_freedom3.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_mil_freedom4.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_mil_monolith.ltx">
+      <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\gulag_mil_mutants.ltx">
+      <Filter>config\misc\gulag</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
