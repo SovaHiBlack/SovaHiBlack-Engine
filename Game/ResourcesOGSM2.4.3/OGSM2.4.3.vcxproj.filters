@@ -610,6 +610,18 @@
     <Filter Include="config\misc\gulag">
       <UniqueIdentifier>{2995cd1f-e55c-49ba-abb3-fd7821fe8323}</UniqueIdentifier>
     </Filter>
+    <Filter Include="config\misc\trade">
+      <UniqueIdentifier>{493c6e0f-4208-4334-a16b-a79df688eafa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\misc\generic">
+      <UniqueIdentifier>{485e0343-19cf-4ae1-ad09-61e9efbf503b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\misc\items">
+      <UniqueIdentifier>{ed573715-ad7e-4108-ae3b-ac3e1072776c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\misc\managers">
+      <UniqueIdentifier>{e7114e03-e6ab-4b7e-99f2-ad438e0b7856}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ai\alife\anomalydetectprobability.efd">
@@ -1194,28 +1206,10 @@
     <None Include="config\creatures\spawn_sections.ltx">
       <Filter>config\creatures</Filter>
     </None>
-    <None Include="config\misc\aem_manager.ltx">
-      <Filter>config\misc</Filter>
-    </None>
     <None Include="config\misc\artefacts.ltx">
       <Filter>config\misc</Filter>
     </None>
-    <None Include="config\misc\death_generic.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\death_items_by_communities.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\death_items_by_levels.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\death_items_count.ltx">
-      <Filter>config\misc</Filter>
-    </None>
     <None Include="config\misc\devices.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\dialog_manager.ltx">
       <Filter>config\misc</Filter>
     </None>
     <None Include="config\misc\dream.ltx">
@@ -1230,31 +1224,10 @@
     <None Include="config\misc\general_lair.ltx">
       <Filter>config\misc</Filter>
     </None>
-    <None Include="config\misc\items.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\monster_items.ltx">
-      <Filter>config\misc</Filter>
-    </None>
     <None Include="config\misc\outfit.ltx">
       <Filter>config\misc</Filter>
     </None>
-    <None Include="config\misc\ph_box_generic.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\ph_box_items_by_communities.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\ph_box_items_by_levels.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\ph_box_items_count.ltx">
-      <Filter>config\misc</Filter>
-    </None>
     <None Include="config\misc\postprocess.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\quest_items.ltx">
       <Filter>config\misc</Filter>
     </None>
     <None Include="config\misc\respawn.ltx">
@@ -1269,46 +1242,10 @@
     <None Include="config\misc\smart_terrain_presets.ltx">
       <Filter>config\misc</Filter>
     </None>
-    <None Include="config\misc\task_manager.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\trade_barman.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\trade_dolg.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\trade_ecolog.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\trade_freedom.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\trade_generic.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\trade_povar.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\trade_pri.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\trade_trader.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\treasure_manager.ltx">
-      <Filter>config\misc</Filter>
-    </None>
     <None Include="config\misc\trigger.ltx">
       <Filter>config\misc</Filter>
     </None>
     <None Include="config\misc\ui_rad.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\unique_items.ltx">
-      <Filter>config\misc</Filter>
-    </None>
-    <None Include="config\misc\vssver.scc">
       <Filter>config\misc</Filter>
     </None>
     <None Include="config\models\niva_engine.ltx">
@@ -8460,6 +8397,78 @@
     </None>
     <None Include="config\misc\gulag_mil_mutants.ltx">
       <Filter>config\misc\gulag</Filter>
+    </None>
+    <None Include="config\misc\trade_barman.ltx">
+      <Filter>config\misc\trade</Filter>
+    </None>
+    <None Include="config\misc\trade_dolg.ltx">
+      <Filter>config\misc\trade</Filter>
+    </None>
+    <None Include="config\misc\trade_ecolog.ltx">
+      <Filter>config\misc\trade</Filter>
+    </None>
+    <None Include="config\misc\trade_freedom.ltx">
+      <Filter>config\misc\trade</Filter>
+    </None>
+    <None Include="config\misc\trade_generic.ltx">
+      <Filter>config\misc\trade</Filter>
+    </None>
+    <None Include="config\misc\trade_povar.ltx">
+      <Filter>config\misc\trade</Filter>
+    </None>
+    <None Include="config\misc\trade_pri.ltx">
+      <Filter>config\misc\trade</Filter>
+    </None>
+    <None Include="config\misc\trade_trader.ltx">
+      <Filter>config\misc\trade</Filter>
+    </None>
+    <None Include="config\misc\death_generic.ltx">
+      <Filter>config\misc\generic</Filter>
+    </None>
+    <None Include="config\misc\death_items_by_communities.ltx">
+      <Filter>config\misc\generic</Filter>
+    </None>
+    <None Include="config\misc\death_items_by_levels.ltx">
+      <Filter>config\misc\generic</Filter>
+    </None>
+    <None Include="config\misc\death_items_count.ltx">
+      <Filter>config\misc\generic</Filter>
+    </None>
+    <None Include="config\misc\ph_box_generic.ltx">
+      <Filter>config\misc\generic</Filter>
+    </None>
+    <None Include="config\misc\ph_box_items_by_communities.ltx">
+      <Filter>config\misc\generic</Filter>
+    </None>
+    <None Include="config\misc\ph_box_items_by_levels.ltx">
+      <Filter>config\misc\generic</Filter>
+    </None>
+    <None Include="config\misc\ph_box_items_count.ltx">
+      <Filter>config\misc\generic</Filter>
+    </None>
+    <None Include="config\misc\items.ltx">
+      <Filter>config\misc\items</Filter>
+    </None>
+    <None Include="config\misc\monster_items.ltx">
+      <Filter>config\misc\items</Filter>
+    </None>
+    <None Include="config\misc\quest_items.ltx">
+      <Filter>config\misc\items</Filter>
+    </None>
+    <None Include="config\misc\unique_items.ltx">
+      <Filter>config\misc\items</Filter>
+    </None>
+    <None Include="config\misc\aem_manager.ltx">
+      <Filter>config\misc\managers</Filter>
+    </None>
+    <None Include="config\misc\dialog_manager.ltx">
+      <Filter>config\misc\managers</Filter>
+    </None>
+    <None Include="config\misc\task_manager.ltx">
+      <Filter>config\misc\managers</Filter>
+    </None>
+    <None Include="config\misc\treasure_manager.ltx">
+      <Filter>config\misc\managers</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

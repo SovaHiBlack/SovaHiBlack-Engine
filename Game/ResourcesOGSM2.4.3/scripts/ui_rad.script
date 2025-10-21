@@ -1,6 +1,7 @@
 -- UI Radiation Mod
 -- by sokol_jack (sokol_jack@mail.ru)
 -- version 0.3
+
 local posx = 0
 local posy = 0
 local width = 0
@@ -13,8 +14,14 @@ local saved_aspect = 0
 local saved_width = -1
 
 function update(bShow)
-	if (db.actor == nil) then return end
-	if (db.actor.radiation == nil) then return end
+	if (db.actor==nil) then
+		return
+	end
+
+	if (db.actor.radiation==nil) then
+		return
+	end
+
 	local hud_rad = get_hud()
 	local wnd_
 	if (hud_rad) then
@@ -30,20 +37,22 @@ function update(bShow)
 				custom_static_rad = nil
 			end
 		end
+
 		local bDetected = false
 		if (db.actor:object("detector_simple") or db.actor:object("detector_advances") or db.actor:object("detector_elite")) then
 			bDetected = true
 		end
+
 		if (bDetected == false or bShow == false) then
 			if (custom_static_rad_back) then hud_rad:RemoveCustomStatic("hud_rad_back") end
 			if (custom_static_rad) then hud_rad:RemoveCustomStatic("hud_rad_level") end
 			return
 		end
 		if (custom_static_rad_back == nil or custom_static_rad == nil) then
-			if (device().aspect_ratio < 0.75) then --widescreen. Use coords from maingame_16.xml		
+			if (device().aspect_ratio < 0.75) then --widescreen. Use coords from maingame_16.xml
 				read_params(true)
 			else --normal -- Use coords from maingame.xml
-				read_params()		
+				read_params()
 			end		
 
 			if custom_static_rad_back == nil then
@@ -121,5 +130,5 @@ function read_params(bWide)
 				p_height = value
 			end
 		end
-	end	
+	end
 end

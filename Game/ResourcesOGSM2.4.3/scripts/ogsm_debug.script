@@ -19,14 +19,16 @@ if cs ~= nil then
 end
 end
 
--- Удаление шкалы радиации при использовании бинокля
+--` Удаление шкалы радиации при использовании бинокля
 function check_binoc()
-  local act_it=db.actor:active_item()
+	local act_it=db.actor:active_item()
 	if (ui_rad and db.actor.health>0) then
 		if act_it and act_it:section()=="wpn_binoc" then
 			local zoom=67.5/device().fov
 			zoom=(zoom-1)*1.5+1
-			if zoom<1.001 then zoom=1.001 end
+			if zoom<1.001 then
+				zoom=1.001
+			end
 			if zoom > 1.3 then
 				ui_rad.update(false)
 			else

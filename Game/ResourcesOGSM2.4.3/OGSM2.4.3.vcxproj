@@ -398,7 +398,6 @@
     <None Include="config\misc\trigger.ltx" />
     <None Include="config\misc\ui_rad.ltx" />
     <None Include="config\misc\unique_items.ltx" />
-    <None Include="config\misc\vssver.scc" />
     <None Include="config\misc\zones.ltx" />
     <None Include="config\misc\zone_ameba.ltx" />
     <None Include="config\misc\zone_burningfuzz.ltx" />

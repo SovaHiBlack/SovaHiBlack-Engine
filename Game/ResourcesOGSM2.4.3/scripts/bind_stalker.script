@@ -359,7 +359,7 @@ function actor_binder:update(delta)
 		end
 	end
 
-	-- Обновление шкалы радиации
+	--` Обновление шкалы радиации
 	if (ui_rad and self.object) then
 		ui_rad.update(self.object)
 	end
