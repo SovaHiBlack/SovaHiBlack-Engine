@@ -1,10 +1,10 @@
-* Detected CPU: GenuineIntel P3 family, F6/M10/S9, 2694.00 mhz, 42-clk 'rdtsc'
+* Detected CPU: GenuineIntel P3 family, F6/M10/S9, 2691.00 mhz, 29-clk 'rdtsc'
 * CPU Features: RDTSC, MMX, SSE, SSE2
 
 Initializing File System...
 using fs-ltx fsgame.ltx
-FS: 30123 files cached, 5158Kb memory used.
-Init FileSystem 1.257846 sec
+FS: 30121 files cached, 5158Kb memory used.
+Init FileSystem 5.031284 sec
 'X-Ray Engine' build 9752, Oct 20 2025
 
 Initializing Engine...
@@ -14,11 +14,44 @@ Starting INPUT device...
 Loading DLL: xrRender_R2.dll
 Loading DLL: xrGame.dll
 ! Unable to find Software\GSC Game World\STALKER-SHOC\ in registry
-* [win32]: free[4037600 K], reserved[60296 K], committed[96344 K]
+* [win32]: free[4037584 K], reserved[60104 K], committed[96552 K]
 * [ D3D ]: textures[0 K]
-* [x-ray]: crt heap[9356 K], process heap[9356 K], game lua[0 K], engine lua[0 K], render[0 K]
-* [x-ray]: economy: strings[2015 K], smem[0 K]
+* [x-ray]: crt heap[9358 K], process heap[9358 K], game lua[0 K], engine lua[0 K], render[0 K]
+* [x-ray]: economy: strings[2021 K], smem[0 K]
 Executing config-script "d:\engine\sovahiblack-engine\game\resourcesogsm2.4.3\config\default_controls.ltx"...
+! cant convert dik_name for dik[16], prop=[
+! cant convert dik_name for dik[17], prop=[
+! cant convert dik_name for dik[18], prop=[
+! cant convert dik_name for dik[19], prop=[
+! cant convert dik_name for dik[20], prop=[
+! cant convert dik_name for dik[21], prop=[
+! cant convert dik_name for dik[22], prop=[
+! cant convert dik_name for dik[23], prop=[
+! cant convert dik_name for dik[24], prop=[
+! cant convert dik_name for dik[25], prop=[
+! cant convert dik_name for dik[26], prop=[
+! cant convert dik_name for dik[27], prop=[
+! cant convert dik_name for dik[30], prop=[
+! cant convert dik_name for dik[31], prop=[
+! cant convert dik_name for dik[32], prop=[
+! cant convert dik_name for dik[33], prop=[
+! cant convert dik_name for dik[34], prop=[
+! cant convert dik_name for dik[35], prop=[
+! cant convert dik_name for dik[36], prop=[
+! cant convert dik_name for dik[37], prop=[
+! cant convert dik_name for dik[38], prop=[
+! cant convert dik_name for dik[39], prop=[
+! cant convert dik_name for dik[40], prop=[
+! cant convert dik_name for dik[41], prop=[
+! cant convert dik_name for dik[44], prop=[
+! cant convert dik_name for dik[45], prop=[
+! cant convert dik_name for dik[46], prop=[
+! cant convert dik_name for dik[47], prop=[
+! cant convert dik_name for dik[48], prop=[
+! cant convert dik_name for dik[49], prop=[
+! cant convert dik_name for dik[50], prop=[
+! cant convert dik_name for dik[51], prop=[
+! cant convert dik_name for dik[52], prop=[
 ! cant convert dik_name for dik[144], prop=[
 [d:\engine\sovahiblack-engine\game\resourcesogsm2.4.3\config\default_controls.ltx] successfully loaded.
 Executing config-script "user.ltx"...
@@ -65,7 +98,7 @@ Starting RENDER device...
 ! Renderer doesn't support blender 'effects\shadow_world'
 ! Version conflict in shader 'effects\watertest-1'
 count of .thm files=6
-load time=102 ms
+load time=61 ms
 * NULLRT supported
 * ...and used
 * HWDST/PCF supported and used
@@ -127,52 +160,52 @@ Loading DLL: xrGameSpy.dll
 - r2_tf_mipbias 0.
 * GPU shading: vs(fffe0300/3.0/30), ps(ffff0300/3.0/30)
 * GPU vertex cache: recognized, 32
-*** RESET [643 ms]
+*** RESET [628 ms]
 binaries\xrengine.exe 
 * phase time: 0 ms
-* phase cmem: 78384 K
+* phase cmem: 78390 K
 Кэширование объектов...
 Loading objects...
 Loading models...
-* [prefetch] time:    14679 ms
-* [prefetch] memory:  419976Kb
-* phase time: 14749 ms
-* phase cmem: 491919 K
+* [prefetch] time:    14280 ms
+* [prefetch] memory:  420974Kb
+* phase time: 14333 ms
+* phase cmem: 492925 K
 Сервер: Старт...
-* phase time: 63 ms
-* phase cmem: 492126 K
+* phase time: 114 ms
+* phase cmem: 493132 K
 Сервер: Загрузка симуляции жизни...
 * phase time: 14 ms
-* phase cmem: 492126 K
+* phase cmem: 493132 K
 Создание новой игры...
 * Creating new game...
 * Loading spawn registry...
 * 8641 spawn points are successfully loaded
 * Saving spawns...
 * Saving objects...
-* 17029 objects are successfully saved
+* 17157 objects are successfully saved
 * Game all.sav is successfully saved to file 'd:\engine\sovahiblack-engine\game\appdata\savedgames\all.sav'
 * New game is successfully created!
-* phase time: 4038 ms
-* phase cmem: 523571 K
+* phase time: 4145 ms
+* phase cmem: 523626 K
 Сервер: Соединяемся...
 MaxPlayers = 32
-* phase time: 49 ms
-* phase cmem: 523654 K
+* phase time: 41 ms
+* phase cmem: 523709 K
 Клиент: Соединение с localhost...
 # Player not found. New player created.
 * client : connection accepted - <>
-* phase time: 18 ms
-* phase cmem: 523678 K
+* phase time: 17 ms
+* phase cmem: 523734 K
 Открытие потока...
-* phase time: 27 ms
-* phase cmem: 523678 K
+* phase time: 20 ms
+* phase cmem: 523734 K
 Загрузка формы объектов...
-* phase time: 3388 ms
-* phase cmem: 596351 K
+* phase time: 3343 ms
+* phase cmem: 596406 K
 Загрузка шейдеров...
-* phase time: 303 ms
-* phase cmem: 597745 K
+* phase time: 321 ms
+* phase cmem: 597832 K
 Загрузка геометрии...
 * [Loading VB] 65532 verts, 2047 Kb
 * [Loading VB] 65525 verts, 2047 Kb
@@ -215,25 +248,25 @@ MaxPlayers = 32
 * [Loading IB] 1048575 indices, 2047 Kb
 * [Loading IB] 1048575 indices, 2047 Kb
 * [Loading IB] 718302 indices, 1402 Kb
-* phase time: 587 ms
-* phase cmem: 666551 K
+* phase time: 640 ms
+* phase cmem: 666605 K
 Загрузка базы пространств...
-* phase time: 1318 ms
-* phase cmem: 670951 K
+* phase time: 1243 ms
+* phase cmem: 671005 K
 Загрузка детальных объектов...
 * [DETAILS] VertexConsts(256), Batch(61)
 * [DETAILS] 40687 v(20), 26352 p
 * [DETAILS] Batch(61), VB(794K), IB(154K)
-* phase time: 99 ms
-* phase cmem: 671927 K
+* phase time: 96 ms
+* phase cmem: 671997 K
 Загрузка секторов и порталов...
 * Loading HOM: d:\engine\sovahiblack-engine\game\resourcesogsm2.4.3\levels\l01_escape\level.hom
-* phase time: 37 ms
-* phase cmem: 672132 K
+* phase time: 31 ms
+* phase cmem: 672187 K
 Загрузка ИИ объектов...
 - Loading music tracks from 'l01_escape_musics'...
-* phase time: 176 ms
-* phase cmem: 672172 K
+* phase time: 181 ms
+* phase cmem: 672226 K
 Клиент: Создание...
 - Game configuring : Started 
 - Game configuring : Finished 
@@ -316,67 +349,36 @@ MaxPlayers = 32
 [16-9] get_xml_name for[inventory_new.xml] returns [inventory_new_16.xml]
 [16-9] get_xml_name for[scroll_bar.xml] returns [scroll_bar.xml]
 [16-9] get_xml_name for[message_box.xml] returns [message_box.xml]
-* phase time: 306 ms
-* phase cmem: 680183 K
+* phase time: 339 ms
+* phase cmem: 680333 K
 Загрузка текстур...
 * t-report - base: 1447, 567911 K
 * t-report - lmap: 5, 5120 K
-* phase time: 9198 ms
-* phase cmem: 978094 K
+* phase time: 6180 ms
+* phase cmem: 978244 K
 Клиент: Синхронизация...
-* phase time: 47 ms
-* phase cmem: 978110 K
-* [win32]: free[2837188 K], reserved[111880 K], committed[1245172 K]
+* phase time: 37 ms
+* phase cmem: 978244 K
+* [win32]: free[2845668 K], reserved[98296 K], committed[1250276 K]
 * [ D3D ]: textures[573032 K]
-* [x-ray]: crt heap[978110 K], process heap[978110 K], game lua[28560 K], engine lua[131 K], render[0 K]
-* [x-ray]: economy: strings[4659 K], smem[15587 K]
-[16-9] get_xml_name for[game_tutorials.xml] returns [game_tutorials_16.xml]
-[16-9] get_xml_name for[ui_credits.xml] returns [ui_credits.xml]
-[16-9] get_xml_name for[ui_movies.xml] returns [ui_movies.xml]
-[16-9] get_xml_name for[map_spots.xml] returns [map_spots.xml]
-[16-9] get_xml_name for[map_spots_escape.xml] returns [map_spots_escape.xml]
-[16-9] get_xml_name for[map_spots_garbage.xml] returns [map_spots_garbage.xml]
-[16-9] get_xml_name for[map_spots_agroprom.xml] returns [map_spots_agroprom.xml]
-[16-9] get_xml_name for[map_spots_darkvalley.xml] returns [map_spots_darkvalley.xml]
-[16-9] get_xml_name for[map_spots_bar.xml] returns [map_spots_bar.xml]
-[16-9] get_xml_name for[map_spots_military.xml] returns [map_spots_military.xml]
-[16-9] get_xml_name for[map_spots_radar.xml] returns [map_spots_radar.xml]
-[16-9] get_xml_name for[map_spots_mp.xml] returns [map_spots_mp.xml]
-[16-9] get_xml_name for[map_spots_relations.xml] returns [map_spots_relations.xml]
-[16-9] get_xml_name for[map_spots_lchangers.xml] returns [map_spots_lchangers.xml]
-[16-9] get_xml_name for[maingame_pda_msg.xml] returns [maingame_pda_msg.xml]
-[16-9] get_xml_name for[game_tutorials.xml] returns [game_tutorials_16.xml]
-[16-9] get_xml_name for[ui_credits.xml] returns [ui_credits.xml]
-[16-9] get_xml_name for[ui_movies.xml] returns [ui_movies.xml]
-Intro start 2207
-* MEMORY USAGE: 1006333 K
-[16-9] get_xml_name for[ui_mm_main.xml] returns [ui_mm_main.xml]
-[16-9] get_xml_name for[scroll_bar.xml] returns [scroll_bar.xml]
-[16-9] get_xml_name for[ui_mm_main.xml] returns [ui_mm_main.xml]
-[16-9] get_xml_name for[scroll_bar.xml] returns [scroll_bar.xml]
-[16-9] get_xml_name for[message_box.xml] returns [message_box.xml]
-- Disconnect
-- Destroying level
-DestroySingleton::RefCounter: 0
-DestroySingleton::RefCounter: 0
-DestroySingleton::RefCounter: 0
-DestroySingleton::RefCounter: 0
-Input:  1
-Config-file [d:\engine\sovahiblack-engine\game\appdata\user.ltx] saved successfully
-Destroying Direct3D...
-* RM_Dump: textures  : 0
-* RM_Dump: rtargets  : 0
-* RM_Dump: rtargetsc : 0
-* RM_Dump: vs        : 0
-* RM_Dump: ps        : 0
-* RM_Dump: dcl       : 0
-* RM_Dump: states    : 0
-* RM_Dump: tex_list  : 0
-* RM_Dump: matrices  : 0
-* RM_Dump: lst_constants: 0
-* RM_Dump: v_passes  : 0
-* RM_Dump: v_elements: 0
-* RM_Dump: v_shaders : 0
-refCount:pBaseZB 1
-refCount:pBaseRT 1
-DeviceREF: 1
+* [x-ray]: crt heap[978244 K], process heap[978244 K], game lua[28565 K], engine lua[215 K], render[0 K]
+* [x-ray]: economy: strings[4670 K], smem[15587 K]
+ 
+FATAL ERROR
+ 
+[error]Expression    : strchr(str,']')
+[error]Function      : CInifile::Load
+[error]File          : D:\Engine\SovaHiBlack-Engine\Sources\xrCore\Xr_ini.cpp
+[error]Line          : 181
+[error]Description   : Bad ini section found: 
+[error]Arguments     : [trader
+ 
+
+stack trace:
+
+0023:7078ABDC xrCore.dll, CInifile::Load(), D:\Engine\SovaHiBlack-Engine\Sources\xrCore\Xr_ini.cpp, 182
+0023:7078AA95 xrCore.dll, CInifile::Load(), D:\Engine\SovaHiBlack-Engine\Sources\xrCore\Xr_ini.cpp, 168
+0023:7078A599 xrCore.dll, CInifile::CInifile(), D:\Engine\SovaHiBlack-Engine\Sources\xrCore\Xr_ini.cpp, 97
+0023:6EE423F2 xrGame.dll, luabind::detail::constructor_helper<1>::execute<CScriptIniFile,luabind::detail::null_type,char const *,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type>(), D:\Engine\SovaHiBlack-Engine\Sources\xrLua\Luabind\luabind\detail\constructor.hpp, 113
+0023:6EE4231F xrGame.dll, luabind::detail::construct_class<CScriptIniFile,luabind::detail::null_type,luabind::constructor<char const *,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type,luabind::detail::null_type> >::apply(), D:\Engine\SovaHiBlack-Engine\Sources\xrLua\Luabind\luabind\detail\constructor.hpp, 61
+0023:70C21795 xrLua.dll, luabind::detail::class_rep::constructor_dispatcher(), D:\Engine\SovaHiBlack-Engine\Sources\xrLua\Luabind\src\class_rep.cpp, 550
