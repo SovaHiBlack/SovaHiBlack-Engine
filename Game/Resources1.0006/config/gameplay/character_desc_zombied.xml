@@ -1,18 +1,16 @@
 <?xml version='1.0' encoding="windows-1251"?>
-
 <xml>
-<!---------------------------ZOMBIED----------------------->
+	<!-- ZOMBIED -->
 	<specific_character id="zombied_default1" team_default = "1">
 		<name>Зомбированный сталкер</name>
 		<icon x="20" y="10"></icon>
-		<map_icon x="7" y="0"></map_icon>
 		<bio>Один из сталкеров, которым не повезло.</bio>
 
 		<team>Zombied</team>
-		
+
 		<class>Zombied</class>
 		<community>zombied</community>
-		
+
 		<rank>40</rank>
 		<reputation>20</reputation>
 
@@ -24,7 +22,7 @@
 			wpn_toz34 \n
 			ammo_12x70_buck = 1 \n
 		</supplies>
-			
+
 		<start_dialog>hello_dialog</start_dialog>
 		<actor_dialog>general_pda_talk</actor_dialog>
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
@@ -33,14 +31,13 @@
 	<specific_character id="zombied_default2" team_default = "1">
 		<name>Зомбированный сталкер</name>
 		<icon x="20" y="10"></icon>
-		<map_icon x="7" y="0"></map_icon>
 		<bio>Один из сталкеров, которым не повезло.</bio>
 
 		<team>Zombied</team>
-		
+
 		<class>Zombied</class>
 		<community>zombied</community>
-	
+
 		<rank>40</rank>
 		<reputation>20</reputation>
 
@@ -52,7 +49,7 @@
 			wpn_toz34 \n
 			ammo_12x70_buck = 1 \n
 		</supplies>
-			
+
 		<start_dialog>hello_dialog</start_dialog>
 		<actor_dialog>general_pda_talk</actor_dialog>
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
@@ -61,14 +58,13 @@
 	<specific_character id="zombied_default3" team_default = "1">
 		<name>Зомбированный сталкер</name>
 		<icon x="20" y="10"></icon>
-		<map_icon x="7" y="0"></map_icon>
 		<bio>Один из сталкеров, которым не повезло.</bio>
 
 		<team>Zombied</team>
-		
+
 		<class>Zombied</class>
 		<community>zombied</community>
-		
+
 		<rank>40</rank>
 		<reputation>-20</reputation>
 
@@ -80,7 +76,7 @@
 			wpn_bm16 \n
 			ammo_12x70_buck = 1 \n
 		</supplies>
-			
+
 		<start_dialog>hello_dialog</start_dialog>
 		<actor_dialog>general_pda_talk</actor_dialog>
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
@@ -89,14 +85,13 @@
 	<specific_character id="zombied_default4" team_default = "1">
 		<name>Зомбированный сталкер</name>
 		<icon x="20" y="10"></icon>
-		<map_icon x="7" y="0"></map_icon>
 		<bio>Один из сталкеров, которым не повезло.</bio>
 
 		<team>Zombied</team>
-		
+
 		<class>Zombied</class>
 		<community>zombied</community>
-		
+
 		<rank>40</rank>
 		<reputation>-20</reputation>
 
@@ -108,7 +103,7 @@
 			wpn_bm16 \n
 			ammo_12x70_buck = 1 \n
 		</supplies>
-			
+
 		<start_dialog>hello_dialog</start_dialog>
 		<actor_dialog>general_pda_talk</actor_dialog>
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
@@ -117,14 +112,13 @@
 	<specific_character id="zombied_default5" team_default = "1">
 		<name>Зомбированный сталкер</name>
 		<icon x="20" y="10"></icon>
-		<map_icon x="7" y="0"></map_icon>
 		<bio>Один из сталкеров, которым не повезло.</bio>
 
 		<team>Zombied</team>
-		
+
 		<class>Zombied</class>
 		<community>zombied</community>
-		
+
 		<rank>60</rank>
 		<reputation>50</reputation>
 
@@ -136,7 +130,7 @@
 			wpn_ak74 \n
 			ammo_5.45x39_fmj = 1 \n
 		</supplies>
-			
+
 		<start_dialog>hello_dialog</start_dialog>
 		<actor_dialog>general_pda_talk</actor_dialog>
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
@@ -145,14 +139,13 @@
 	<specific_character id="zombied_default6" team_default = "1">
 		<name>Зомбированный сталкер</name>
 		<icon x="20" y="10"></icon>
-		<map_icon x="7" y="0"></map_icon>
 		<bio>Один из сталкеров, которым не повезло.</bio>
 
 		<team>Zombied</team>
-		
+
 		<class>Zombied</class>
 		<community>zombied</community>
-	
+
 		<rank>60</rank>
 		<reputation>50</reputation>
 
@@ -164,7 +157,7 @@
 			wpn_ak74u \n
 			ammo_5.45x39_fmj = 1 \n
 		</supplies>
-			
+
 		<start_dialog>hello_dialog</start_dialog>
 		<actor_dialog>general_pda_talk</actor_dialog>
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
@@ -173,14 +166,13 @@
 	<specific_character id="zombied_default7" team_default = "1">
 		<name>Зомбированный сталкер</name>
 		<icon x="20" y="10"></icon>
-		<map_icon x="7" y="0"></map_icon>
 		<bio>Один из сталкеров, которым не повезло.</bio>
 
 		<team>Zombied</team>
-		
+
 		<class>Zombied</class>
 		<community>zombied</community>
-		
+
 		<rank>60</rank>
 		<reputation>-50</reputation>
 
@@ -192,24 +184,23 @@
 			wpn_mp5 \n
 			ammo_9x19_fmj = 1 \n
 		</supplies>
-			
+
 		<start_dialog>hello_dialog</start_dialog>
 		<actor_dialog>general_pda_talk</actor_dialog>
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
 	</specific_character>
 
-<!---------------------------ZOMBIED VETERANS----------------------->
+	<!-- ZOMBIED VETERANS -->
 	<specific_character id="zombied_veteran_default1" team_default = "1">
 		<name>Зомбированный сталкер</name>
 		<icon x="20" y="10"></icon>
-		<map_icon x="7" y="0"></map_icon>
 		<bio>Один из сталкеров, которым не повезло.</bio>
 
 		<team>Zombied</team>
-		
+
 		<class>Zombied_veteran</class>
 		<community>zombied</community>
-		
+
 		<rank>60</rank>
 		<reputation>-50</reputation>
 
@@ -221,7 +212,7 @@
 			wpn_ak74 \n
 			ammo_5.45x39_fmj = 1 \n
 		</supplies>
-			
+
 		<start_dialog>hello_dialog</start_dialog>
 		<actor_dialog>general_pda_talk</actor_dialog>
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
@@ -230,14 +221,13 @@
 	<specific_character id="zombied_veteran_default2" team_default = "1">
 		<name>Зомбированный сталкер</name>
 		<icon x="20" y="10"></icon>
-		<map_icon x="7" y="0"></map_icon>
 		<bio>Один из сталкеров, которым не повезло.</bio>
 
 		<team>Zombied</team>
-		
+
 		<class>Zombied_veteran</class>
 		<community>zombied</community>
-		
+
 		<rank>60</rank>
 		<reputation>-50</reputation>
 
@@ -250,7 +240,7 @@
 			ammo_5.56x45_ss190 = 1 \n
 			device_torch \n
 		</supplies>
-			
+
 		<start_dialog>hello_dialog</start_dialog>
 		<actor_dialog>general_pda_talk</actor_dialog>
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
@@ -259,14 +249,13 @@
 	<specific_character id="zombied_veteran_default3" team_default = "1">
 		<name>Зомбированный сталкер</name>
 		<icon x="20" y="10"></icon>
-		<map_icon x="7" y="0"></map_icon>
 		<bio>Один из сталкеров, которым не повезло.</bio>
 
 		<team>Zombied</team>
-		
+
 		<class>Zombied_veteran</class>
 		<community>zombied</community>
-		
+
 		<rank>60</rank>
 		<reputation>-50</reputation>
 
@@ -279,7 +268,7 @@
 			ammo_5.56x45_ss190 = 1 \n
 			device_torch \n
 		</supplies>
-			
+
 		<start_dialog>hello_dialog</start_dialog>
 		<actor_dialog>general_pda_talk</actor_dialog>
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
@@ -288,14 +277,13 @@
 	<specific_character id="zombied_veteran_default4" team_default = "1">
 		<name>Зомбированный сталкер</name>
 		<icon x="20" y="10"></icon>
-		<map_icon x="7" y="0"></map_icon>
 		<bio>Один из сталкеров, которым не повезло.</bio>
 
 		<team>Zombied</team>
-		
+
 		<class>Zombied_veteran</class>
 		<community>zombied</community>
-		
+
 		<rank>60</rank>
 		<reputation>-50</reputation>
 
@@ -308,7 +296,7 @@
 			ammo_5.45x39_fmj = 1 \n
 			device_torch \n
 		</supplies>
-			
+
 		<start_dialog>hello_dialog</start_dialog>
 		<actor_dialog>general_pda_talk</actor_dialog>
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
@@ -317,14 +305,13 @@
 	<specific_character id="zombied_veteran_default5" team_default = "1">
 		<name>Зомбированный сталкер</name>
 		<icon x="20" y="10"></icon>
-		<map_icon x="7" y="0"></map_icon>
 		<bio>Один из сталкеров, которым не повезло.</bio>
 
 		<team>Zombied</team>
-		
+
 		<class>Zombied_veteran</class>
 		<community>zombied</community>
-		
+
 		<rank>60</rank>
 		<reputation>-50</reputation>
 
@@ -337,10 +324,9 @@
 			ammo_12x70_buck = 1 \n
 			device_torch \n
 		</supplies>
-			
+
 		<start_dialog>hello_dialog</start_dialog>
 		<actor_dialog>general_pda_talk</actor_dialog>
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
 	</specific_character>
-
 </xml>

@@ -2754,7 +2754,6 @@
     <Text Include="shaders\r2\test\p30_yuv2rgb.ps.log" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="config\character_desc_general.xml" />
     <Xml Include="config\gameplay\aem_characters.xml" />
     <Xml Include="config\gameplay\info_arena.xml" />
     <Xml Include="config\gameplay\aem_profile.xml" />

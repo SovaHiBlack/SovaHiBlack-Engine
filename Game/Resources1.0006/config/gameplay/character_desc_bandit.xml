@@ -1,11 +1,10 @@
 <?xml version='1.0' encoding="windows-1251"?>
 
 <xml>
-<!---------------------------BANDIT NOVICE----------------------->
+<!-- BANDIT NOVICE -->
 	<specific_character id="bandit_novice_default1" team_default = "1">
 		<name>Неизвестный бандит</name>
 		<icon x="14" y="4"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>Неизвестный сталкер. Сомнительная репутация. Детальная информация отсутствует.</bio>
 
 		<team>Bandit_novice</team>
@@ -33,7 +32,6 @@
 	<specific_character id="bandit_novice_default2" team_default = "1">
 		<name>Неизвестный бандит</name>
 		<icon x="14" y="4"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>Неизвестный сталкер. Сомнительная репутация. Детальная информация отсутствует.</bio>
 		
 		<team>Bandit_novice</team>
@@ -63,7 +61,6 @@
 	<specific_character id="bandit_novice_default3" team_default = "1">
 		<name>Неизвестный бандит</name>
 		<icon x="14" y="4"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>Неизвестный сталкер. Сомнительная репутация. Детальная информация отсутствует.</bio>
 		
 		<team>Bandit_novice</team>
@@ -88,11 +85,10 @@
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
 	</specific_character>
 
-<!---------------------------BANDIT GENERAL---------------------->
+<!-- BANDIT GENERAL -->
 	<specific_character id="bandit_general_defaul1t" team_default = "1">
 		<name>Неизвестный бандит</name>
 		<icon x="14" y="4"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>Неизвестный сталкер. Сомнительная репутация. Детальная информация отсутствует.</bio>
 		
 		<team>Bandit_general</team>
@@ -122,7 +118,6 @@
 	<specific_character id="bandit_general_default2" team_default = "1">
 		<name>Неизвестный бандит</name>
 		<icon x="14" y="4"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>Неизвестный сталкер. Сомнительная репутация. Детальная информация отсутствует.</bio>
 		
 		<team>Bandit_general</team>
@@ -152,7 +147,6 @@
 	<specific_character id="bandit_general_default3" team_default = "1">
 		<name>Неизвестный бандит</name>
 		<icon x="14" y="4"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>Неизвестный сталкер. Сомнительная репутация. Детальная информация отсутствует.</bio>
 				
 		<team>Bandit_general</team>
@@ -179,11 +173,10 @@
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
 	</specific_character>
 	
-<!---------------------------BANDIT VETERAN---------------------->
+<!-- BANDIT VETERAN -->
 	<specific_character id="bandit_veteran_default1" team_default = "1">
 		<name>Неизвестный бандит</name>
 		<icon x="22" y="14"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>Неизвестный сталкер. Сомнительная репутация. Детальная информация отсутствует.</bio>
 		
 		<team>Bandit_veteran</team>
@@ -213,7 +206,6 @@
 	<specific_character id="bandit_veteran_default2" team_default = "1">
 		<name>Неизвестный бандит</name>
 		<icon x="22" y="14"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>Неизвестный сталкер. Сомнительная репутация. Детальная информация отсутствует.</bio>
 		
 		<team>Bandit_veteran</team>
@@ -243,7 +235,6 @@
 	<specific_character id="bandit_veteran_default3" team_default = "1">
 		<name>Неизвестный бандит</name>
 		<icon x="22" y="14"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>Неизвестный сталкер. Сомнительная репутация. Детальная информация отсутствует.</bio>
 
 		<team>Bandit_veteran</team>
@@ -270,11 +261,10 @@
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
 	</specific_character>
 
-<!---------------------------BANDIT MASTER----------------------->
+<!-- BANDIT MASTER -->
 	<specific_character id="bandit_master_default1" team_default = "1">
 		<name>Неизвестный бандит</name>
 		<icon x="24" y="14"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>Неизвестный сталкер. Сомнительная репутация. Детальная информация отсутствует.</bio>
 		
 		<team>Bandit_master</team>
@@ -304,7 +294,6 @@
 	<specific_character id="bandit_master_default2" team_default = "1">
 		<name>Неизвестный бандит</name>
 		<icon x="24" y="14"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>Неизвестный сталкер. Сомнительная репутация. Детальная информация отсутствует.</bio>
 		
 		<team>Bandit_master</team>
@@ -334,7 +323,6 @@
 	<specific_character id="bandit_master_default3" team_default = "1">
 		<name>Неизвестный бандит</name>
 		<icon x="24" y="14"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>Неизвестный сталкер. Сомнительная репутация. Детальная информация отсутствует.</bio>
 		
 		<team>Bandit_master</team>
@@ -361,12 +349,11 @@
 		<actor_dialog>esc_stalker_talk_level</actor_dialog>
 	</specific_character>	
 
-<!---------------------------BANDIT BOROV----------------------->
+<!-- BANDIT BOROV -->
 
 	<specific_character id="bandit_borov" team_default = "1">
 		<name>Боров</name>
 		<icon x="26" y="14"></icon>
-		<map_icon x="0" y="0"></map_icon>
 		<bio>Лидер бандитов.</bio>
 
 		<class>bandit_borov</class>
@@ -393,11 +380,10 @@
 	</specific_character>
 
 
-<!---------------------------SVOBODA CRAZY STALKER----------------------->
+<!-- SVOBODA CRAZY STALKER -->
 	<specific_character id="svoboda_zombi_stalker" team_default = "1">
 		<name>Сумасшедший cталкер группировки "Свобода"</name>
 		<icon x="12" y="0"></icon>
-		<map_icon x="5" y="0"></map_icon>
 		<bio>Сталкер группировки "Свобода". Детальная информация отсутствует.</bio>
 
 		

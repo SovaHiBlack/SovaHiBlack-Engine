@@ -64,49 +64,56 @@ void CSpecificCharacter::Load(shared_str id)
 
 void CSpecificCharacter::load_shared	(LPCSTR)
 {
+
 #if 0
 	CTimer			timer;
 	timer.Start		();
 #endif
+
 	const ITEM_DATA& item_data = *id_to_index::GetById(m_OwnId);
 
 	CUIXml*		pXML = item_data._xml;
 
 	pXML->SetLocalRoot		(pXML->GetRoot());
 
-
 	XML_NODE* item_node = pXML->NavigateToNode(id_to_index::tag_name, item_data.pos_in_file);
 	R_ASSERT3(item_node, "specific_character id=", *item_data.id);
 
 	pXML->SetLocalRoot(item_node);
 
-
-
 	int norandom = pXML->ReadAttribInt(item_node, "no_random", 0);
-	if (1 == norandom) 
-		data()->m_bNoRandom = true;
+	if (1 == norandom)
+	{
+		data( )->m_bNoRandom = true;
+	}
 	else
-		data()->m_bNoRandom = false;
+	{
+		data( )->m_bNoRandom = false;
+	}
 
 	int team_default = pXML->ReadAttribInt(item_node, "team_default", 0);
-	if (1 == team_default) 
-		data()->m_bDefaultForCommunity = true;
+	if (1 == team_default)
+	{
+		data( )->m_bDefaultForCommunity = true;
+	}
 	else
-		data()->m_bDefaultForCommunity = false;
+	{
+		data( )->m_bDefaultForCommunity = false;
+	}
 
-	R_ASSERT3(!(data()->m_bNoRandom && data()->m_bDefaultForCommunity), 
-		"cannot set 'no_random' and 'team_default' flags simultaneously, profile id", *shared_str(item_data.id));
+	R_ASSERT3(!(data()->m_bNoRandom && data()->m_bDefaultForCommunity), "cannot set 'no_random' and 'team_default' flags simultaneously, profile id", *shared_str(item_data.id));
 	
-#ifdef  XRGAME_EXPORTS
-
+#ifdef XRGAME_EXPORTS
 	LPCSTR start_dialog = pXML->Read("start_dialog", 0, NULL);
 	if(start_dialog)
 	{
 		data()->m_StartDialog	= start_dialog;
 	}
 	else
-		data()->m_StartDialog	= NULL;
-
+	{
+		data( )->m_StartDialog = NULL;
+	}
+	
 	int dialogs_num = pXML->GetNodesNum(pXML->GetLocalRoot(), "actor_dialog");
 	data()->m_ActorDialogs.clear();
 	for(int i=0; i<dialogs_num; ++i)
@@ -132,9 +139,8 @@ void CSpecificCharacter::load_shared	(LPCSTR)
 #endif
 
 	data()->m_sVisual		= pXML->Read("visual", 0, "");
-	
 
-#ifdef  XRGAME_EXPORTS
+#ifdef XRGAME_EXPORTS
 	data()->m_sSupplySpawn	= pXML->Read("supplies", 0, "");
 	
 	if(!data()->m_sSupplySpawn.empty())
@@ -153,8 +159,7 @@ void CSpecificCharacter::load_shared	(LPCSTR)
 	data()->m_sound_voice_prefix	= pXML->Read("snd_config", 0, "");
 
 	data()->m_terrain_sect			= pXML->Read("terrain_sect", 0, "");
-
-#endif
+#endif // def XRGAME_EXPORTS
 
 	data()->m_Classes.clear			();
 	int classes_num					= pXML->GetNodesNum (pXML->GetLocalRoot(), "class");

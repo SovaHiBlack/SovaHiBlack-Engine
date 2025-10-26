@@ -1,11 +1,8 @@
 <?xml version='1.0' encoding="windows-1251"?>
-
 <xml>
-
 	<specific_character id="gar_seriy" team_default = "1">
 		<name>gar_seryi_name</name>
 		<icon>ui_npc_u_stalker_neytral_hood_4</icon>
-		<map_icon x="0" y="0"></map_icon>
 		<bio>gar_seryi_bio</bio>
 
 		<class>gar_seriy</class>
@@ -38,7 +35,6 @@
 	<specific_character id="gar_dram_novice" team_default = "1">
 		<name>gar_dram_novice_name</name>
 		<icon>ui_npc_u_green_stalker_11</icon>
-		<map_icon x="0" y="0"></map_icon>
 		<bio>gar_dram_novice_bio</bio>
 
 		<class>gar_dram_novice</class>
@@ -71,7 +67,6 @@
 	<specific_character id="gar_hellcar" team_default = "1">
 		<name>gar_hellcar_name</name>
 		<icon>ui_npc_u_stalker_neytral_balon_5</icon>
-		<map_icon x="0" y="0"></map_icon>
 		<bio>gar_hellcar_bio</bio>
 
 		<class>gar_hellcar</class>
@@ -108,7 +103,6 @@
 	<specific_character id="gar_bandit_novice_wounded" team_default = "1">
 		<name>GENERATE_NAME_bandit</name>
 		<icon>ui_npc_u_stalker_bandit_3</icon>
-		<map_icon x="0" y="0"></map_icon>
 		<bio>esc_bandit_novice_bio</bio>
 
 		
@@ -138,7 +132,6 @@
 	<specific_character id="gar_bandit_leader" team_default = "1">
 		<name>gar_bandit_leader_name</name>
 		<icon>ui_npc_u_stalker_bandit_master</icon>
-		<map_icon x="0" y="0"></map_icon>
 		<bio>gar_bandit_leader_bio</bio>
 		
 		<class>gar_bandit_leader</class>
@@ -167,11 +160,10 @@
 #include "gameplay\character_dialogs.xml"	
 	</specific_character>
 	
-	<!----------------------BANDIT NOVICE----------------------->
+	<!-- BANDIT NOVICE -->
 	<specific_character id="gar_bandit_novice_default1" team_default = "1">
 		<name>GENERATE_NAME_bandit</name>
 		<icon>ui_npc_u_stalker_bandit_3</icon>
-		<map_icon x="0" y="0"></map_icon>
 		<bio>esc_bandit_novice_bio</bio>
 	
 		<class>gar_bandit_novice</class>
@@ -200,7 +192,6 @@
 	<specific_character id="gar_bandit_novice_default2" team_default = "1">
 		<name>GENERATE_NAME_bandit</name>
 		<icon>ui_npc_u_stalker_bandit_4</icon>
-		<map_icon x="0" y="0"></map_icon>
 		<bio>esc_bandit_novice_bio</bio>
 		
 		<class>gar_bandit_novice</class>
@@ -231,7 +222,6 @@
 	<specific_character id="gar_bandit_novice_default3" team_default = "1">
 		<name>GENERATE_NAME_bandit</name>
 		<icon>ui_npc_u_stalker_bandit_5</icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>esc_bandit_novice_bio</bio>
 		
 		<class>gar_bandit_novice</class>
@@ -258,12 +248,11 @@
 	</specific_character>
 	
 	
-	<!---------------------------BANDIT general----------------------->
+	<!-- BANDIT general -->
 	
 	<specific_character id="gar_bandit_general_default1" team_default = "1">
 		<name>GENERATE_NAME_bandit</name>
 		<icon>ui_npc_u_stalker_bandit_3</icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>esc_bandit_novice_bio</bio>
 	
 		<class>gar_bandit_general</class>
@@ -295,7 +284,6 @@
 	<specific_character id="gar_bandit_general_default2" team_default = "1">
 		<name>GENERATE_NAME_bandit</name>
 		<icon>ui_npc_u_stalker_bandit_4</icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>esc_bandit_novice_bio</bio>
 		
 		<class>gar_bandit_general</class>
@@ -327,7 +315,6 @@
 	<specific_character id="gar_bandit_general_default3" team_default = "1">
 		<name>GENERATE_NAME_bandit</name>
 		<icon>ui_npc_u_stalker_bandit_5</icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>esc_bandit_novice_bio</bio>
 				
 		<class>gar_bandit_general</class>
@@ -356,12 +343,11 @@
 #include "gameplay\character_dialogs.xml"						
 	</specific_character>
 	
-	<!---------------------------Stalker general----------------------->
+	<!-- Stalker general -->
 	
 	<specific_character id="gar_stalker_general_default1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_neytral_hood_uzor</icon>
-		<map_icon x="1" y="0"></map_icon>
 		<bio>gar_stalker_regular_bio</bio>
 
 		<class>gar_stalker_general</class>
@@ -394,7 +380,6 @@
 	<specific_character id="gar_stalker_general_default2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_neytral_balon_8</icon>
-		<map_icon x="1" y="0"></map_icon>
 		<bio>gar_stalker_regular_bio</bio>
 
 		<class>gar_stalker_general</class>
@@ -427,7 +412,6 @@
 	<specific_character id="gar_stalker_general_default3" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_neytral_hood_2</icon>
-		<map_icon x="1" y="0"></map_icon>
 		<bio>gar_stalker_regular_bio</bio>
 
 		<class>gar_stalker_general</class>
@@ -460,7 +444,6 @@
 	<specific_character id="gar_stalker_general_default4" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_neytral_hood_2</icon>
-		<map_icon x="1" y="0"></map_icon>
 		<bio>gar_stalker_regular_bio</bio>
 
 		<class>gar_stalker_general</class>
@@ -493,7 +476,6 @@
 	<specific_character id="gar_stalker_general_default5" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_neytral_balon_8</icon>
-		<map_icon x="1" y="0"></map_icon>
 		<bio>gar_stalker_regular_bio</bio>
 
 		<class>gar_stalker_general</class>
@@ -528,7 +510,6 @@
 	<specific_character id="gar_wounded_bandit" team_default = "1">
 		<name>GENERATE_NAME_bandit</name>
 		<icon>ui_npc_u_stalker_neytral_hood_2</icon>
-		<map_icon x="1" y="0"></map_icon>
 		<bio>gar_stalker_regular_bio</bio>
 
 		<class>gar_wounded_bandit</class>
@@ -556,11 +537,10 @@
 #include "gameplay\character_dialogs.xml"
 	</specific_character>
 	
-	<!---------------------------DOLG BLOKPOST----------------------->
+	<!-- DOLG BLOKPOST -->
 	<specific_character id="gar_dolg_blokpost_default1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_do_mask_1</icon>
-		<map_icon x="4" y="0"></map_icon>
 		<bio>gar_dolg_blokpost_bio</bio>
 
 		<class>gar_dolg_blokpost</class>
@@ -594,7 +574,6 @@
 	<specific_character id="gar_dolg_blokpost_default2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_do_balon_8</icon>
-		<map_icon x="4" y="0"></map_icon>
 		<bio>gar_dolg_blokpost_bio</bio>
 
 		<class>gar_dolg_blokpost</class>
@@ -628,7 +607,6 @@
 	<specific_character id="gar_dolg_blokpost_default3" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon>ui_npc_u_stalker_do_balon_8</icon>
-		<map_icon x="4" y="0"></map_icon>
 		<bio>gar_dolg_blokpost_bio</bio>
 		
 		<class>gar_dolg_blokpost</class>
@@ -662,7 +640,6 @@
 	<specific_character id="gar_dolg_blokpost_commander" team_default = "1">
 		<name>gar_dolg_blokpost_leader_name</name>
 		<icon>ui_npc_u_stalker_do_balon_4</icon>
-		<map_icon x="4" y="0"></map_icon>
 		<bio>gar_dolg_blokpost_leader_bio</bio>
 		
 		<class>gar_dolg_blokpost_commander</class>
@@ -698,7 +675,6 @@
 	<specific_character id="gar_sniper" team_default = "1">
 		<name>GENERATE_NAME_bandit</name>
 		<icon>ui_npc_u_stalker_bandit_5</icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>esc_bandit_novice_bio</bio>
 				
 		<class>gar_sniper</class>
@@ -732,7 +708,6 @@
 	<specific_character id="gar_bandit_dm" team_default = "1">
 		<name>GENERATE_NAME_bandit</name>
 		<icon>ui_npc_u_stalker_bandit_master</icon>
-		<map_icon x="0" y="0"></map_icon>
 		<bio>esc_bandit_novice_bio</bio>
 		
 		<class>gar_bandit_dm</class>

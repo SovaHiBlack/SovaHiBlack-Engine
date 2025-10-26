@@ -1,12 +1,11 @@
 <?xml version='1.0' encoding="windows-1251"?>
 
 <xml>
-<!------------------------- STALKER ------------------------>
-<!-------------------------- DOCTOR ------------------------>
+<!-- STALKER -->
+<!-- DOCTOR -->
     <specific_character id="cit_doctor" team_default = "1">
         <name>cit_doctor_name</name>
         <icon>ui_npc_u_izgoy</icon>
-        <map_icon x="6" y="0"></map_icon>
         <bio>cit_doctor_bio</bio>
 
         <class>cit_doctor</class>
@@ -30,12 +29,11 @@
 #include "gameplay\character_dialogs.xml"
     </specific_character>
 
-<!----------------------------- KILLERS ------------------------->
-<!----------------------------- GENERAL ------------------------->
+<!-- KILLERS -->
+<!-- GENERAL -->
 	<specific_character id="cit_killer_general1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="18" y="8"></icon>
-		<map_icon x="2" y="0"></map_icon>
 		<bio>cit_killer_general_bio</bio>
 
 		<class>cit_killer_general</class>
@@ -64,7 +62,6 @@
 	<specific_character id="cit_killer_general2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="28" y="6"></icon>
-		<map_icon x="2" y="0"></map_icon>
 		<bio>cit_killer_general_bio</bio>
 
 		<class>cit_killer_general</class>
@@ -90,11 +87,10 @@
 		<start_dialog>hello_dialog</start_dialog>
 	</specific_character>
 
-<!----------------------------- VETERAN ------------------------->
+<!-- VETERAN -->
 	<specific_character id="cit_killer_veteran1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="18" y="8"></icon>
-		<map_icon x="2" y="0"></map_icon>
 		<bio>cit_killer_general_bio</bio>
 
 		<class>cit_killer_veteran</class>
@@ -122,7 +118,6 @@
 	<specific_character id="cit_killer_veteran2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="28" y="6"></icon>
-		<map_icon x="2" y="0"></map_icon>
 		<bio>cit_killer_general_bio</bio>
 
 		<class>cit_killer_veteran</class>
@@ -148,11 +143,10 @@
 		<start_dialog>hello_dialog</start_dialog>
 	</specific_character>
 
-<!------------------------------ NAUCHNIY ----------------------->
+<!-- NAUCHNIY -->
 	<specific_character id="cit_killer_nauchniy" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="14" y="0"></icon>
-		<map_icon x="2" y="0"></map_icon>
 		<bio>cit_killer_exo_bio</bio>
 
 		<class>cit_killer_nauchniy</class>
@@ -178,11 +172,10 @@
 		<start_dialog>hello_dialog</start_dialog>
 	</specific_character>
 
-<!------------------------------ EXO ----------------------->
+<!-- EXO -->
 	<specific_character id="cit_killer_exo" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="30" y="6"></icon>
-		<map_icon x="2" y="0"></map_icon>
 		<bio>cit_killer_exo_bio</bio>
 
 		<class>cit_killer_exo</class>
@@ -212,7 +205,6 @@
 	<specific_character id="cit_killer_exo_sniper" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="30" y="6"></icon>
-		<map_icon x="2" y="0"></map_icon>
 		<bio>cit_killer_exo_bio</bio>
 
 		<class>cit_killer_exo_sniper</class>
@@ -239,11 +231,10 @@
 		<start_dialog>hello_dialog</start_dialog>
 	</specific_character>
 
-<!---------------------------- LEADER ---------------------->
+<!-- LEADER -->
 	<specific_character id="cit_killer_leader" team_default = "1">
 		<name>cit_killers_leader_name</name>
 		<icon x="18" y="6"></icon>
-		<map_icon x="2" y="0"></map_icon>
 		<bio>cit_killers_leader_bio</bio>
 
 		<class>cit_killer_leader</class>
@@ -273,12 +264,11 @@
 		<start_dialog>hello_dialog</start_dialog>
 	</specific_character>
 
-<!-------------------------- BANDITS ----------------------->
-<!--------------------------- DRUNK ------------------------>
+<!-- BANDITS -->
+<!-- DRUNK -->
     <specific_character id="cit_bandit_drunk" team_default = "1">
         <name>GENERATE_NAME_stalker</name>
         <icon x="24" y="10"></icon>
-        <map_icon x="3" y="0"></map_icon>
         <bio>cit_bandit_drunk_bio</bio>
 
         <class>cit_bandit_drunk</class>
@@ -301,11 +291,10 @@
 		<start_dialog>hello_dialog</start_dialog>
     </specific_character>
 
-<!---------------------------BANDIT GENERAL---------------------->
+<!-- BANDIT GENERAL -->
 	<specific_character id="cit_bandit_general_defaul1t" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="14" y="4"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>cit_bandit_general_bio</bio>
 		
 		<class>cit_bandit_general</class>
@@ -334,7 +323,6 @@
 	<specific_character id="cit_bandit_general_default2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="28" y="2"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>cit_bandit_general_bio</bio>
 		
 		<class>cit_bandit_general</class>
@@ -362,7 +350,6 @@
 	<specific_character id="cit_bandit_general_default3" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="28" y="2"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>cit_bandit_general_bio</bio>
 		
 		<class>cit_bandit_general</class>
@@ -390,7 +377,6 @@
 	<specific_character id="cit_bandit_general_default4" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="24" y="6"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>cit_bandit_general_bio</bio>
 				
 		<class>cit_bandit_general</class>
@@ -415,11 +401,10 @@
 		<start_dialog>hello_dialog</start_dialog>
 	</specific_character>
 	
-<!---------------------------BANDIT VETERAN---------------------->
+<!-- BANDIT VETERAN -->
 	<specific_character id="cit_bandit_veteran_default1" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="22" y="14"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>cit_bandit_veteran_bio</bio>
 		
 		<class>cit_bandit_veteran</class>
@@ -448,7 +433,6 @@
 	<specific_character id="cit_bandit_veteran_default2" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="24" y="14"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>cit_bandit_veteran_bio</bio>
 		
 		<class>cit_bandit_veteran</class>
@@ -476,7 +460,6 @@
 	<specific_character id="cit_bandit_veteran_default3" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="24" y="14"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>cit_bandit_veteran_bio</bio>
 
 		<class>cit_bandit_veteran</class>
@@ -501,11 +484,10 @@
 		<start_dialog>hello_dialog</start_dialog>
 	</specific_character>
 
-<!-------------------------- VETERAN BEST ----------------------->
+<!-- VETERAN BEST -->
 	<specific_character id="cit_bandit_veteran_best" team_default = "1">
 		<name>GENERATE_NAME_stalker</name>
 		<icon x="22" y="14"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>cit_bandit_veteran_bio</bio>
 		
 		<class>cit_bandit_veteran_best</class>
@@ -531,11 +513,10 @@
 		<start_dialog>hello_dialog</start_dialog>
 	</specific_character>
 
-<!-------------------------- LEADER ----------------------->
+<!-- LEADER -->
 	<specific_character id="cit_bandit_leader" team_default = "1">
 		<name>cit_bandits_leader_name</name>
 		<icon x="22" y="14"></icon>
-		<map_icon x="3" y="2"></map_icon>
 		<bio>cit_bandits_leader_bio</bio>
 		
 		<class>cit_bandit_leader</class>
@@ -561,11 +542,10 @@
 		<start_dialog>hello_dialog</start_dialog>
 	</specific_character>
 
-<!----------------------- Василий Петрович ---------------------->
+<!-- Василий Петрович -->
 	<specific_character id="cit_vp" team_default = "1">
 		<name>cit_vp_name</name>
 		<icon x="24" y="4"></icon>
-		<map_icon x="1" y="0"></map_icon>
 		<bio>cit_vp_bio</bio>
 
 		<class>cit_vp</class>

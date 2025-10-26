@@ -8489,9 +8489,6 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="config\character_desc_general.xml">
-      <Filter>config</Filter>
-    </Xml>
     <Xml Include="config\ui\actor_diary.xml">
       <Filter>config\ui</Filter>
     </Xml>
