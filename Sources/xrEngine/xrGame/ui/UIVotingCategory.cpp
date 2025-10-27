@@ -50,7 +50,9 @@ CUIVotingCategory::~CUIVotingCategory()
 void CUIVotingCategory::Init()
 {
 	if (!xml_doc)
-		xml_doc = xr_new<CUIXml>();
+	{
+		xml_doc = xr_new<CUIXml>( );
+	}
 
 	xml_doc->Init(CONFIG_PATH, UI_PATH, "voting_category.xml");
 
@@ -60,7 +62,8 @@ void CUIVotingCategory::Init()
 	CUIXmlInit::InitStatic(*xml_doc, "category:background", 0, bkgrnd);
 
 	string256 _path;
-	for (int i = 0; i<7; i++){
+	for (int i = 0; i<7; i++)
+	{
 		sprintf_s(_path, "category:btn_%d", i + 1);
 		CUIXmlInit::Init3tButton(*xml_doc, _path, 0, btn[i]);
 		sprintf_s(_path, "category:txt_%d", i + 1);

@@ -3,7 +3,7 @@
 			<texture>ui_brokenline</texture>
 			<text font="letterica16" r="215" g="195" b="170" x="10" complex_mode="0">mm_mp_serversettings</text>
 		</cap_server_settings>
-		
+
 		<cap_server_name x="23" y="40" width="121" height="21">
 			<text font="letterica16" r="215" g="195" b="170" complex_mode="0">mm_mp_servername</text>
 		</cap_server_name>
@@ -16,26 +16,26 @@
 		<cap_max_players x="23" y="115" width="121" height="21">
 			<text font="letterica16" r="215" g="195" b="170" complex_mode="0">mm_mp_maxplayers</text>
 		</cap_max_players>
-		
+
 		<spin_max_players x="150" y="115" width="45" height="21">
-			<options_item entry="mm_net_srv_maxplayers" group="mm_mp_server"/>	
+			<options_item entry="mm_net_srv_maxplayers" group="mm_mp_server"/>
 		</spin_max_players>
 		<spin_game_mode x="150" y="90" width="275" height="21">
-			<options_item entry="mm_net_srv_gamemode" group="mm_mp_server"/>	
+			<options_item entry="mm_net_srv_gamemode" group="mm_mp_server"/>
 		</spin_game_mode>
-		
+
 		<edit_server_name x="150" y="40" width="275" height="21" max_symb_count="24">
 			<text font="letterica16" r="235" g="219" b="185" x="2" complex_mode="0"/>
 			<options_item entry="mm_net_srv_name" group="mm_mp_server"/>
 			<texture>ui_linetextSmall_e</texture>
-		</edit_server_name>		
-		<edit_password x="150" y="65" width="275" height="21" password="1" max_symb_count="8">		
+		</edit_server_name>
+		<edit_password x="150" y="65" width="275" height="21" password="1" max_symb_count="8">
 			<text font="letterica16" r="235" g="219" b="185" x="2" complex_mode="0"/>
 			<texture>ui_linetextSmall_e</texture>
 		</edit_password>
-		
+
 		<check_dedicated x="307" y="115" width="118" height="18">
-			<text font="letterica16" r="115" g="114" b="112" complex_mode="0">mm_mp_dedicated</text>			
+			<text font="letterica16" r="115" g="114" b="112" complex_mode="0">mm_mp_dedicated</text>
 		</check_dedicated>
 		<map_list x="7" y="158" width="419" height="247">
 			<header_1 x="0" y="0" width="186" height="17">
@@ -78,7 +78,5 @@
 				<texture_offset x="-3" y="-1"/>
 				<texture>ui_button_arrow_down</texture>
 			</btn_down>
-						
 		</map_list>
-		
 	</tab_server>

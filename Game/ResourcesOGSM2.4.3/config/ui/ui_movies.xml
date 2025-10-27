@@ -1,4 +1,3 @@
-
 	<intro_logo>
 		<global_wnd x="0" y="0" width="1024" height="768">
 			<auto_static x="0" y="0" width="1024" height="768" stretch="1">
@@ -15,7 +14,6 @@
 				<texture x="0" y="1" width="720" height="484">intro\thq_logo_hyuv</texture>
 			</video_wnd>
 		</item>
-
 
 		<item type="image">
 			<length_sec>9</length_sec>
@@ -41,7 +39,6 @@
 				</auto_static>
 			</main_wnd>
 		</item>
-
 	</intro_logo>
 
 	<intro_game>
@@ -61,7 +58,6 @@
 			</video_wnd>
 		</item>
 	</intro_game>
-
 
 	<x18_dream>
 		<play_each_item>1</play_each_item>
@@ -271,7 +267,7 @@
 				<texture>intro\intro_back</texture>
 			</auto_static>
 		</global_wnd>
-		
+
 		<item type="video">
 			<sound>characters_voice\scenario\video\dream_rats</sound>
 			<pause_state>on</pause_state>
@@ -290,7 +286,7 @@
 				<texture>intro\intro_back</texture>
 			</auto_static>
 		</global_wnd>
-		
+
 		<item type="video">
 			<sound>heart\3.ogg</sound>
 			<pause_state>on</pause_state>
@@ -309,7 +305,7 @@
 				<texture>intro\intro_back</texture>
 			</auto_static>
 		</global_wnd>
-		
+
 		<item type="video">
 			<sound>ambient\air_2.ogg</sound>
 			<pause_state>on</pause_state>
@@ -328,7 +324,7 @@
 				<texture>intro\intro_back</texture>
 			</auto_static>
 		</global_wnd>
-		
+
 		<item type="video">
 			<sound>heart\4.ogg</sound>
 			<pause_state>on</pause_state>
@@ -347,7 +343,7 @@
 				<texture>intro\intro_back</texture>
 			</auto_static>
 		</global_wnd>
-		
+
 		<item type="video">
 			<sound>characters_voice\human_01\monolith\states\sleep\sleep_6.ogg</sound>
 			<pause_state>off</pause_state>

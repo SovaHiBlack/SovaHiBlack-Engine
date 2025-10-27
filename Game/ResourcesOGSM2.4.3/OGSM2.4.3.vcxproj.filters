@@ -622,6 +622,12 @@
     <Filter Include="config\misc\managers">
       <UniqueIdentifier>{e7114e03-e6ab-4b7e-99f2-ad438e0b7856}</UniqueIdentifier>
     </Filter>
+    <Filter Include="config\ui\mainmenu">
+      <UniqueIdentifier>{1b62a73f-a07e-4e28-a76e-9dc1be9507ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\ui\texture">
+      <UniqueIdentifier>{a25064e2-85f6-47f5-88f1-d66d143bfbc9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ai\alife\anomalydetectprobability.efd">
@@ -8882,67 +8888,10 @@
     <Xml Include="config\ui\ui_mm_main.xml">
       <Filter>config\ui</Filter>
     </Xml>
-    <Xml Include="config\ui\ui_mm_mp.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_mm_mp_gs_ext.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_mm_mp_gs_ext_16.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_mm_mp_tabclient.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_mm_mp_taboptions.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_mm_mp_tabserver.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_mm_opt.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_mm_save_dlg.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_models_multiplayer.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
     <Xml Include="config\ui\ui_movies.xml">
       <Filter>config\ui</Filter>
     </Xml>
-    <Xml Include="config\ui\ui_mp_icon_rank.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_mp_main.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_npc_monster.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_npc_unique.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_numpad.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
     <Xml Include="config\ui\ui_numpad_wnd.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_old_textures.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_pda.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_statistics.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_team_logo.xml">
-      <Filter>config\ui</Filter>
-    </Xml>
-    <Xml Include="config\ui\ui_team_logo_small.xml">
       <Filter>config\ui</Filter>
     </Xml>
     <Xml Include="config\ui\ui_videoplayer.xml">
@@ -9613,6 +9562,63 @@
     </Xml>
     <Xml Include="config\gameplay\tasks_yantar.xml">
       <Filter>config\gameplay\game_tasks</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_team_logo.xml">
+      <Filter>config\ui\texture</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_team_logo_small.xml">
+      <Filter>config\ui\texture</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_statistics.xml">
+      <Filter>config\ui\texture</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_pda.xml">
+      <Filter>config\ui\texture</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_old_textures.xml">
+      <Filter>config\ui\texture</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_numpad.xml">
+      <Filter>config\ui\texture</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_npc_unique.xml">
+      <Filter>config\ui\texture</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_npc_monster.xml">
+      <Filter>config\ui\texture</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_mp_main.xml">
+      <Filter>config\ui\texture</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_mp_icon_rank.xml">
+      <Filter>config\ui\texture</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_models_multiplayer.xml">
+      <Filter>config\ui\texture</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_mm_save_dlg.xml">
+      <Filter>config\ui\mainmenu</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_mm_opt.xml">
+      <Filter>config\ui\mainmenu</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_mm_mp_tabserver.xml">
+      <Filter>config\ui\mainmenu</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_mm_mp_taboptions.xml">
+      <Filter>config\ui\mainmenu</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_mm_mp_tabclient.xml">
+      <Filter>config\ui\mainmenu</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_mm_mp_gs_ext.xml">
+      <Filter>config\ui\mainmenu</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_mm_mp_gs_ext_16.xml">
+      <Filter>config\ui\mainmenu</Filter>
+    </Xml>
+    <Xml Include="config\ui\ui_mm_mp.xml">
+      <Filter>config\ui\mainmenu</Filter>
     </Xml>
   </ItemGroup>
   <ItemGroup>

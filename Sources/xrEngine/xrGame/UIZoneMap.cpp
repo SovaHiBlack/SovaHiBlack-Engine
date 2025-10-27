@@ -23,42 +23,40 @@ CUIZoneMap::CUIZoneMap()
 {}
 
 CUIZoneMap::~CUIZoneMap()
-{
-	
-}
+{}
 
 void CUIZoneMap::Init()
 {
-
 	CUIXml uiXml;
-	bool xml_result			= uiXml.Init(CONFIG_PATH, UI_PATH, "zone_map.xml");
-	R_ASSERT3(xml_result, "xml file not found", "zone_map.xml");
+	bool xml_result					= uiXml.Init(CONFIG_PATH, UI_PATH, "zone_map.xml");
+	R_ASSERT3						(xml_result, "xml file not found", "zone_map.xml");
 
-	// load map backgroundwwwwwwwwwwwww
+	// load map background
 	CUIXmlInit xml_init;
-	xml_init.InitStatic			(uiXml, "minimap:background", 0, &m_background);
+	xml_init.InitStatic				(uiXml, "minimap:background", 0, &m_background);
 
-	if(IsGameTypeSingle()){
+	if(IsGameTypeSingle())
+	{
 		xml_init.InitStatic			(uiXml, "minimap:background:dist_text", 0, &m_pointerDistanceText);
 		m_background.AttachChild	(&m_pointerDistanceText);
 	}
 
-	xml_init.InitStatic(uiXml, "minimap:level_frame", 0, &m_clipFrame);
+	xml_init.InitStatic				(uiXml, "minimap:level_frame", 0, &m_clipFrame);
 
-	xml_init.InitStatic(uiXml, "minimap:center", 0, &m_center);
+	xml_init.InitStatic				(uiXml, "minimap:center", 0, &m_center);
 	
 	
 	m_activeMap						= xr_new<CUIMiniMap>();
 	m_clipFrame.AttachChild			(m_activeMap);
 	m_activeMap->SetAutoDelete		(true);
 
-	m_activeMap->EnableHeading		(true);  
+	m_activeMap->EnableHeading		(true);
 	xml_init.InitStatic				(uiXml, "minimap:compass", 0, &m_compass);
 
 //	m_background.AttachChild(&m_compass);
 
 	m_clipFrame.AttachChild			(&m_center);
-	m_center.SetWndPos				(m_clipFrame.GetWidth()/2,m_clipFrame.GetHeight()/2);
+	m_center.SetWndPos				(m_clipFrame.GetWidth()/2, m_clipFrame.GetHeight()/2);
 }
 
 void CUIZoneMap::Render			()

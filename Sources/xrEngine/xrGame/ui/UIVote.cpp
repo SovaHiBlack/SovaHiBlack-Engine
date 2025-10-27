@@ -44,13 +44,13 @@ void CUIVote::Init()
 
 	for (int i = 0; i<3; i++)
 	{
-		sprintf_s						(path, "vote:list_cap_%d", i+1);
+		sprintf_s					(path, "vote:list_cap_%d", i+1);
 		CUIXmlInit::InitStatic		(xml_doc, path, 0, cap[i]);
-		sprintf_s						(path, "vote:list_back_%d", i+1);
+		sprintf_s					(path, "vote:list_back_%d", i+1);
 		CUIXmlInit::InitFrameWindow	(xml_doc, path, 0, frame[i]);
-		sprintf_s						(path, "vote:list_%d", i+1);
+		sprintf_s					(path, "vote:list_%d", i+1);
 		CUIXmlInit::InitListBox		(xml_doc, path, 0, list[i]);
-	}	
+	}
 
 	CUIXmlInit::Init3tButton(xml_doc, "vote:btn_yes", 0, btn_yes);
 	CUIXmlInit::Init3tButton(xml_doc, "vote:btn_no", 0, btn_no);
