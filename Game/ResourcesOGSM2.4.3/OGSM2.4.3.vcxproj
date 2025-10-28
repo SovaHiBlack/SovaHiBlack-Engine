@@ -303,7 +303,7 @@
     <None Include="config\creatures\m_dog.ltx" />
     <None Include="config\creatures\m_flesh.ltx" />
     <None Include="config\creatures\m_fracture.ltx" />
-    <None Include="config\creatures\m_giant.ltx" />
+    <None Include="config\creatures\m_gigant.ltx" />
     <None Include="config\creatures\m_person.ltx" />
     <None Include="config\creatures\m_phantom.ltx" />
     <None Include="config\creatures\m_poltergeist.ltx" />

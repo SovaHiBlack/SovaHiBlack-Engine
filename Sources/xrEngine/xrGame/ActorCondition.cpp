@@ -89,8 +89,7 @@ void CActorCondition::LoadCondition(LPCSTR entity_section)
 	
 	m_fV_Alcohol				= pSettings->r_float(section,"alcohol_v");
 
-//. ???	m_fSatietyCritical			= pSettings->r_float(section,"satiety_critical");
-	m_fV_Satiety				= pSettings->r_float(section,"satiety_v");		
+	m_fV_Satiety				= pSettings->r_float(section,"satiety_v");
 	m_fV_SatietyPower			= pSettings->r_float(section,"satiety_power_v");
 	m_fV_SatietyHealth			= pSettings->r_float(section,"satiety_health_v");
 	
@@ -192,21 +191,20 @@ void CActorCondition::UpdateSatiety()
 	if (!IsGameTypeSingle()) return;
 
 	float k = 1.0f;
-	if(m_fSatiety>0)
+	if(m_fSatiety>0.0f)
 	{
 		m_fSatiety -=	m_fV_Satiety*
 						k*
 						m_fDeltaTime;
 	
 		clamp			(m_fSatiety,		0.0f,		1.0f);
-
 	}
 		
 	//сытость увеличивает здоровье только если нет открытых ран
 	if(!m_bIsBleeding)
 	{
 		m_fDeltaHealth += CanBeHarmed() ? 
-					(m_fV_SatietyHealth*(m_fSatiety>0.0f?1.f:-1.f)*m_fDeltaTime)
+					(m_fV_SatietyHealth*(m_fSatiety>0.0f?1.0f:-1.0f)*m_fDeltaTime)
 					: 0;
 	}
 
@@ -320,7 +318,7 @@ void CActorCondition::reinit	()
 {
 	inherited::reinit	();
 	m_bLimping					= false;
-	m_fSatiety					= 1.f;
+	m_fSatiety					= 1.0f;
 }
 
 void CActorCondition::ChangeAlcohol	(float value)

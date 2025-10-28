@@ -1148,7 +1148,8 @@ CSE_ALifeMonsterAbstract::CSE_ALifeMonsterAbstract(LPCSTR caSection)	: CSE_ALife
 
 #ifdef XRGAME_EXPORTS
 	m_stay_after_death_time_interval	= generate_time(1,1,1,pSettings->r_u32("monsters_common","stay_after_death_time_interval"),0,0);
-#endif // XRGAME_EXPORTS
+#endif // def XRGAME_EXPORTS
+
 }
 
 CSE_ALifeMonsterAbstract::~CSE_ALifeMonsterAbstract()

@@ -8212,7 +8212,7 @@
     <None Include="config\creatures\m_burer.ltx">
       <Filter>config\creatures\monsters</Filter>
     </None>
-    <None Include="config\creatures\m_giant.ltx">
+    <None Include="config\creatures\m_gigant.ltx">
       <Filter>config\creatures\monsters</Filter>
     </None>
     <None Include="config\creatures\m_controller.ltx">

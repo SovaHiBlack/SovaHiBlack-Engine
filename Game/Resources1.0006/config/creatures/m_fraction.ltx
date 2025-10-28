@@ -151,23 +151,27 @@ sound_friendly_fire	 = script_sound\reactions\friendly_fire\soldier\soldier_frie
 sound_panic_human	 = monsters\human\combat\ukr\ukr1_surrender,monsters\stalker\surrender\em1_surrender,monsters\stalker\copy\default\surrender\em1_surrender
 sound_panic_monster	 = script_sound\help\soldier\soldier_help_
 
-;entity condition
 immunities_sect				= stalker_immunities
 condition_sect				= stalker_condition
 
-
-satiety_v = 0.000001			;0.01			;скорость уменьшения сытости со временем
-radiation_v = 0.00001		;0.004			;скорость уменьшения радиации
-satiety_power_v = 0.000		;0.01			;увеличение силы при уменьшении сытости 
+;------------------------------------------------------------------------------
+; Entity Conditions
+;------------------------------------------------------------------------------
+satiety_v = 0.000001			;0.01			;скорость уменьшения сытости со временем [0...1]
+satiety_power_v = 0.000		;0.01			;увеличение силы при уменьшении сытости [0...1]
 satiety_health_v = 0.000	;0.03			;увеличение здоровья при уменьшении сытости 
-satiety_critical = 0		;0.25						;критическое значения сытости (в процентах от 0..1) когда здоровье начианает уменьшаться
+radiation_v = 0.00001		;0.004			;скорость уменьшения радиации [0...1]
 radiation_health_v = 0.01	;0.006			;уменьшение здоровья при воздействии радиации
+morale_v			= 0.01					;скорость восстановления морали [0...1]
+psy_health_v  = 0.1						;скорость восстановления psy-здоровья
 bleeding_v = 0.0005			;0.02			;потеря крови при максимальной ране
-morale_v			= 0.01					;скорость восстановления морали
 wound_incarnation_v = 0.00001	;0.001		    ;скорость заживания раны 
+
 health_hit_part = 1.0		;0.8			;процент хита, уходящий на отнимание здоровья
 power_hit_part = 1.0		;0.9			;процент хита, уходящий на отнимание силы
-psy_health_v  = 0.1						;скорость восстановления psy-здоровья
+
+
+
 
 burn_immunity = 1.0				;коэффициенты иммунитета 
 strike_immunity = 1.0
@@ -348,22 +352,27 @@ sound_friendly_fire	 = script_sound\reactions\friendly_fire\soldier\soldier_frie
 sound_panic_human	 = monsters\human\combat\ukr\ukr1_surrender,monsters\stalker\surrender\em1_surrender,monsters\stalker\copy\default\surrender\em1_surrender
 sound_panic_monster	 = script_sound\help\soldier\soldier_help_
 
-;entity condition
 immunities_sect				= stalker_immunities
 condition_sect				= stalker_condition
 
-satiety_v = 0.000001			;0.01			;скорость уменьшения сытости со временем
-radiation_v = 0.00001		;0.004			;скорость уменьшения радиации
-satiety_power_v = 0.000		;0.01			;увеличение силы при уменьшении сытости 
+;------------------------------------------------------------------------------
+; Entity Conditions
+;------------------------------------------------------------------------------
+satiety_v = 0.000001			;0.01			;скорость уменьшения сытости со временем [0...1]
+satiety_power_v = 0.000		;0.01			;увеличение силы при уменьшении сытости [0...1]
 satiety_health_v = 0.000	;0.03			;увеличение здоровья при уменьшении сытости 
-satiety_critical = 0		;0.25						;критическое значения сытости (в процентах от 0..1) когда здоровье начианает уменьшаться
+radiation_v = 0.00001		;0.004			;скорость уменьшения радиации [0...1]
 radiation_health_v = 0.01	;0.006			;уменьшение здоровья при воздействии радиации
+morale_v			= 0.01					;скорость восстановления морали [0...1]
+psy_health_v = 0.1						;скорость восстановления psy-здоровья
 bleeding_v = 0.0005			;0.02			;потеря крови при максимальной ране
-morale_v			= 0.01					;скорость восстановления морали
 wound_incarnation_v = 0.00001	;0.001		    ;скорость заживания раны 
+
 health_hit_part = 1.0		;0.8			;процент хита, уходящий на отнимание здоровья
 power_hit_part = 1.0		;0.9			;процент хита, уходящий на отнимание силы
-psy_health_v = 0.1						;скорость восстановления psy-здоровья
+
+
+
 
 burn_immunity = 1.0				;коэффициенты иммунитета 
 strike_immunity = 1.0
@@ -543,22 +552,27 @@ sound_friendly_fire	 = script_sound\reactions\friendly_fire\soldier\soldier_frie
 sound_panic_human	 = monsters\human\combat\ukr\ukr1_surrender,monsters\stalker\surrender\em1_surrender,monsters\stalker\copy\default\surrender\em1_surrender
 sound_panic_monster	 = script_sound\help\soldier\soldier_help_
 
-;entity condition
 immunities_sect				= stalker_immunities
 condition_sect				= stalker_condition
 
-satiety_v = 0.000001			;0.01			;скорость уменьшения сытости со временем
-radiation_v = 0.00001		;0.004			;скорость уменьшения радиации
-satiety_power_v = 0.000		;0.01			;увеличение силы при уменьшении сытости 
+;------------------------------------------------------------------------------
+; Entity Conditions
+;------------------------------------------------------------------------------
+satiety_v = 0.000001			;0.01			;скорость уменьшения сытости со временем [0...1]
+satiety_power_v = 0.000		;0.01			;увеличение силы при уменьшении сытости [0...1]
 satiety_health_v = 0.000	;0.03			;увеличение здоровья при уменьшении сытости 
-satiety_critical = 0		;0.25						;критическое значения сытости (в процентах от 0..1) когда здоровье начианает уменьшаться
+radiation_v = 0.00001		;0.004			;скорость уменьшения радиации [0...1]
 radiation_health_v = 0.01	;0.006			;уменьшение здоровья при воздействии радиации
+morale_v			= 0.01					;скорость восстановления морали [0...1]
+psy_health_v = 0.1						;скорость восстановления psy-здоровья
 bleeding_v = 0.0005			;0.02			;потеря крови при максимальной ране
-morale_v			= 0.01					;скорость восстановления морали
 wound_incarnation_v = 0.00001	;0.001		    ;скорость заживания раны 
+
 health_hit_part = 1.0		;0.8			;процент хита, уходящий на отнимание здоровья
 power_hit_part = 1.0		;0.9			;процент хита, уходящий на отнимание силы
-psy_health_v = 0.1						;скорость восстановления psy-здоровья
+
+
+
 
 burn_immunity = 1.0				;коэффициенты иммунитета 
 strike_immunity = 1.0
@@ -738,22 +752,27 @@ sound_friendly_fire	 = script_sound\reactions\friendly_fire\soldier\soldier_frie
 sound_panic_human	 = monsters\human\combat\ukr\ukr1_surrender,monsters\stalker\surrender\em1_surrender,monsters\stalker\copy\default\surrender\em1_surrender
 sound_panic_monster	 = script_sound\help\soldier\soldier_help_
 
-;entity condition
 immunities_sect				= stalker_immunities
 condition_sect				= stalker_condition
 
-satiety_v = 0.000001			;0.01			;скорость уменьшения сытости со временем
-radiation_v = 0.00001		;0.004			;скорость уменьшения радиации
-satiety_power_v = 0.000		;0.01			;увеличение силы при уменьшении сытости 
+;------------------------------------------------------------------------------
+; Entity Conditions
+;------------------------------------------------------------------------------
+satiety_v = 0.000001			;0.01			;скорость уменьшения сытости со временем [0...1]
+satiety_power_v = 0.000		;0.01			;увеличение силы при уменьшении сытости [0...1]
 satiety_health_v = 0.000	;0.03			;увеличение здоровья при уменьшении сытости 
-satiety_critical = 0		;0.25						;критическое значения сытости (в процентах от 0..1) когда здоровье начианает уменьшаться
+radiation_v = 0.00001		;0.004			;скорость уменьшения радиации [0...1]
 radiation_health_v = 0.01	;0.006			;уменьшение здоровья при воздействии радиации
+morale_v			= 0.01					;скорость восстановления морали [0...1]
+psy_health_v = 0.1						;скорость восстановления psy-здоровья
 bleeding_v = 0.0005			;0.02			;потеря крови при максимальной ране
-morale_v			= 0.01					;скорость восстановления морали
 wound_incarnation_v = 0.00001	;0.001		    ;скорость заживания раны 
+
 health_hit_part = 1.0		;0.8			;процент хита, уходящий на отнимание здоровья
 power_hit_part = 1.0		;0.9			;процент хита, уходящий на отнимание силы
-psy_health_v = 0.1						;скорость восстановления psy-здоровья
+
+
+
 
 burn_immunity = 1.0				;коэффициенты иммунитета 
 strike_immunity = 1.0
