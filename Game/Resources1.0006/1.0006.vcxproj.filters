@@ -571,6 +571,12 @@
     <Filter Include="spawns\unpack">
       <UniqueIdentifier>{126f5d6e-892d-44c5-b4be-6120da44938f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="config\creatures\monsters">
+      <UniqueIdentifier>{dd0fda2c-3267-4712-b2b3-61c7388ed6db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\creatures\stalkers">
+      <UniqueIdentifier>{daca241a-9877-4fa6-9ae9-e9b51617d585}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ai\alife\anomalydetectprobability.efd">
@@ -1059,106 +1065,13 @@
     <None Include="config\creatures\actor.ltx">
       <Filter>config\creatures</Filter>
     </None>
-    <None Include="config\creatures\damages.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
     <None Include="config\creatures\game_relations.ltx">
       <Filter>config\creatures</Filter>
     </None>
     <None Include="config\creatures\helicopter.ltx">
       <Filter>config\creatures</Filter>
     </None>
-    <None Include="config\creatures\immunities.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_army.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_bandit.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_bloodsucker.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_boar.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_burer.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_cat.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_chimera.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_controller.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_crow.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_dog.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_dog_.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_flesh.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_fraction.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_fracture.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_gigant.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_person.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_phantom.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_poltergeist.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_pseudodog.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_rat.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_snork.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_stalker.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_stalker_monolith.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_stalker_zombied.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_tushkano.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\m_zombie.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\monsters.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
     <None Include="config\creatures\spawn_sections.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\stalkers.ltx">
-      <Filter>config\creatures</Filter>
-    </None>
-    <None Include="config\creatures\vssver.scc">
       <Filter>config\creatures</Filter>
     </None>
     <None Include="config\misc\artefacts.ltx">
@@ -8033,6 +7946,84 @@
     <None Include="shaders.xr" />
     <None Include="shaders_xrlc.xr" />
     <None Include="stalkergame.inf" />
+    <None Include="config\creatures\monsters.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_flesh.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_chimera.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_bloodsucker.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_dog.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_boar.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_pseudodog.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_burer.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_gigant.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_controller.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_poltergeist.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_zombie.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_fracture.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_snork.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_cat.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_rat.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_crow.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_tushkano.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\m_phantom.ltx">
+      <Filter>config\creatures\monsters</Filter>
+    </None>
+    <None Include="config\creatures\stalkers.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\m_stalker.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\m_person.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\immunities.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\damages.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\m_stalker_zombied.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
+    <None Include="config\creatures\m_stalker_monolith.ltx">
+      <Filter>config\creatures\stalkers</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="anims\postprocess editor_stohe.log">
