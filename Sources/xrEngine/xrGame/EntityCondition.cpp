@@ -169,16 +169,19 @@ void CEntityCondition::ChangeEntityMorale(float value)
 }
 
 
-void CEntityCondition::ChangeBleeding(float percent)
+void CEntityCondition::ChangeBleeding(f32 percent)
 {
 	//затянуть раны
 	for(WOUND_VECTOR_IT it = m_WoundVector.begin(); m_WoundVector.end() != it; ++it)
 	{
 		(*it)->Incarnation			(percent, m_fMinWoundSize);
-		if(0 == (*it)->TotalSize	())
+		if (0 == (*it)->TotalSize( ))
+		{
 			(*it)->SetDestroy		(true);
+		}
 	}
 }
+
 bool RemoveWoundPred(CWound* pWound)
 {
 	if(pWound->GetDestroy())
