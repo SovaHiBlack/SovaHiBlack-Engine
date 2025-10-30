@@ -81,21 +81,13 @@ Accel_Generic			= 1.5
 Accel_Calm				= 2.5
 Accel_Aggressive		= 14.5
 
-;--------------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Attack parameters
-;--------------------------------------------------------------------------
+;------------------------------------------------------------------------------
 MinAttackDist		= 1.6	
 MaxAttackDist		= 2.0
-
 as_min_dist				= 1.0
 as_step					= 0.2
-
-DayTime_Begin		= 0	;6			; эрўрыр фэ  фы  ьюэёЄЁр
-DayTime_End			= 21		; ъюэхЎ фэ  фы  ьюэёЄЁр
-Min_Satiety			= 0.95	;0.3	;0.6		; ьшэ. эюЁьр ёvЄюёЄш (ьхэ№°х - єцх уюыюфэvщ)
-Max_Satiety			= 1.0		; ьръё. эюЁьр ёvЄюёЄш (сюы№°х - юўхэ№ ёvЄvщ)
-
-
 
 ;terrain				 = 255,255,255,255,30,40
 terrain				 = pseudodogs_terrain
@@ -129,8 +121,19 @@ eat_freq					= 5.0					;частота укусов в сек
 eat_slice					= 0.01					;увеличение сытости при 1 укусе
 eat_slice_weight			= 10.0					;уменьшение еды у трупа
 
-satiety_threshold			= 0.5					; below this value monster fill hunger
-distance_to_corpse			= 1.8					; фшёЄ. фю ЄЁєяр, яЁш ъюЄюЁющ юэ яхЁхїюфшЄ т ёюёЄю эшх хфv
+distance_to_corpse			= 1.8					;дистанция до трупа, при которой он переходит в состояние еды
+
+;------------------------------------------------------------------------------
+; Morale
+;------------------------------------------------------------------------------
+Morale_Hit_Quant				= 0.1
+Morale_Attack_Success_Quant		= 0.1
+Morale_Take_Heart_Speed			= 0.1
+Morale_Despondent_Speed			= 0.1
+Morale_Stable_Speed				= 0.01
+Morale_Despondent_Threashold	= 0.5
+
+
 
 ;---------------------------------------------------------
 ; Sounds and sound parameters
@@ -181,15 +184,6 @@ velocity_factor		     	= 0.5
 luminocity_factor			= 0.5 				; фактор освещения (только для Актёра)
 transparency_threshold		= 0.25
 
-;-------------------------------------------------------------------------
-; Morale
-;-------------------------------------------------------------------------
-Morale_Hit_Quant				= 0.1
-Morale_Attack_Success_Quant		= 0.1
-Morale_Take_Heart_Speed			= 0.1
-Morale_Despondent_Speed			= 0.1
-Morale_Stable_Speed				= 0.01
-Morale_Despondent_Threashold	= 0.5
 
 ;----------------------------------------------------------------------------
 ; Jump Parameters

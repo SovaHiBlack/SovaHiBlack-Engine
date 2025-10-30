@@ -24,8 +24,7 @@ retreat_threshold	 = 0.2
 eye_fov				 = 170
 eye_range			 = 10
 MaxHealthValue		 = 15				; range [0..200]
-hit_power			 = 5
-hit_type			 = wound
+
 transparency_threshold	 = 1.0
 DynamicObjectsCount	 = 32
 DynamicSoundsCount	 = 32
@@ -104,10 +103,6 @@ SoundThreshold		     = 0.06             ; range [0..1]
 ActionRefreshRate	     = 500			; milliseconds
 MaxHealthValue		     = 15			; range [0..200]
 
-EatMemberCorpses	     = 1			; range {0,1}
-Cannibalism				 = 1			; range {0,1}
-EatCorpseInterval	     = 600000		; milliseconds
-
 corp_mass				 = 500			;
 
 ;terrain		             = 3,255,255,255,30,60, 4,255,255,255,30,60, 11,255,255,255,30,60, 12,255,255,255,30,60, 13,255,255,255,30,60, 14,255,255,255,30,60, 15,255,255,255,30,60
@@ -137,7 +132,8 @@ eat_radiation = 0.01	;0.03;
 wounds_heal_perc = 0
 eat_portions_num = -1
 
-hit_type = wound
+hit_power			 = 5
+hit_type			 = wound
 
 ;------------------------------------------------------------------------------
 ; Entity Conditions

@@ -97,12 +97,17 @@ void CBaseMonster::reload	(LPCSTR section)
 	control().reload					(section);
 
 	// load monster type
-	m_monster_type = eMonsterTypeUniversal;
-	if (pSettings->line_exist(section,"monster_type")) {
-		if (xr_strcmp(pSettings->r_string(section,"monster_type"), "indoor") == 0)
-			m_monster_type = eMonsterTypeIndoor;
-		else if (xr_strcmp(pSettings->r_string(section,"monster_type"), "outdoor") == 0)
-			m_monster_type = eMonsterTypeOutdoor;
+	m_monster_type					= eMonsterTypeUniversal;
+	if (pSettings->line_exist(section,"monster_type"))
+	{
+		if (xr_strcmp(pSettings->r_string(section, "monster_type"), "indoor") == 0)
+		{
+			m_monster_type			= eMonsterTypeIndoor;
+		}
+		else if (xr_strcmp(pSettings->r_string(section, "monster_type"), "outdoor") == 0)
+		{
+			m_monster_type			= eMonsterTypeOutdoor;
+		}
 	}
 
 	Home->load						("home");
@@ -258,11 +263,11 @@ void CBaseMonster::settings_read(CInifile *ini, LPCSTR section, SMonsterSettings
 		READ_SETTINGS(data.m_run_attack_start_dist, "RunAttack_StartDistance",	r_float, ini, section);
 	}
 
-	READ_SETTINGS(data.m_dwDayTimeBegin,	"DayTime_Begin",		r_u32, ini, section);
-	READ_SETTINGS(data.m_dwDayTimeEnd,		"DayTime_End",			r_u32, ini, section);
+	//READ_SETTINGS(data.m_dwDayTimeBegin,	"DayTime_Begin",		r_u32, ini, section); //no used
+	//READ_SETTINGS(data.m_dwDayTimeEnd,		"DayTime_End",			r_u32, ini, section); //no used
 
 	READ_SETTINGS(data.m_fDistToCorpse,		"distance_to_corpse",	r_float, ini, section);
-	READ_SETTINGS(data.satiety_threshold,	"satiety_threshold",	r_float, ini, section);
+	//READ_SETTINGS(data.satiety_threshold,	"satiety_threshold",	r_float, ini, section);  // no used
 
 	READ_SETTINGS(data.m_fDamagedThreshold, "DamagedThreshold",		r_float, ini, section);
 

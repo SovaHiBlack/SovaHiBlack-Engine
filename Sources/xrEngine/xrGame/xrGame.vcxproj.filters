@@ -526,9 +526,6 @@
     <Filter Include="AI\AMonsters\common\monster states\Steal">
       <UniqueIdentifier>{9f0f489e-8d5f-4475-bbd8-54cad2faabce}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AMonsters\common\monster states\Hunt">
-      <UniqueIdentifier>{cf4782f8-7603-4235-b8a2-e56fc3b829f6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="AI\AMonsters\common\monster states\Controlled">
       <UniqueIdentifier>{a7d2ded2-965f-4ea8-b9c0-9683e924a6ad}</UniqueIdentifier>
     </Filter>
@@ -591,9 +588,6 @@
     </Filter>
     <Filter Include="AI\AMonsters\common\components\Event Handler\Custom Events">
       <UniqueIdentifier>{b8d10bba-daa4-4f30-b83b-f5f5a6f266a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AMonsters\common\components\Debug">
-      <UniqueIdentifier>{71976357-87c1-466a-a180-2a038ed9be5a}</UniqueIdentifier>
     </Filter>
     <Filter Include="AI\AMonsters\common\components\Melee Checker">
       <UniqueIdentifier>{b57ddf72-e32f-4af7-be66-7dcda1bb8854}</UniqueIdentifier>
@@ -1194,9 +1188,6 @@
     </Filter>
     <Filter Include="AI\AScript\ScriptClasses\ScriptSoundType">
       <UniqueIdentifier>{026279fa-3ec1-41da-9533-ec1ee01d079b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI">
-      <UniqueIdentifier>{aac8a642-2bea-4919-b912-71ddb12f716f}</UniqueIdentifier>
     </Filter>
     <Filter Include="AI\AScript\ScriptClasses\KeyBindings">
       <UniqueIdentifier>{30f36c58-52ba-4bd2-8a99-45fca7df5416}</UniqueIdentifier>
@@ -2032,259 +2023,262 @@
     <Filter Include="Core\Client\Objects\physics\IK">
       <UniqueIdentifier>{ae256453-c32a-41ac-9cae-8f90d5d456e1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common">
+    <Filter Include="UI">
+      <UniqueIdentifier>{aac8a642-2bea-4919-b912-71ddb12f716f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Common">
       <UniqueIdentifier>{ee04b0a4-b13f-40b1-87b1-eed6daf95853}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\InventoryWnd">
+    <Filter Include="UI\Common\InventoryWnd">
       <UniqueIdentifier>{832dec0e-a95c-4557-a06a-cd2190943e61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\TradeWnd">
+    <Filter Include="UI\Common\TradeWnd">
       <UniqueIdentifier>{fc4d5973-d4d0-4d5c-a698-f95dccf95674}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\PdaWnd">
+    <Filter Include="UI\Common\PdaWnd">
       <UniqueIdentifier>{e4c33bd0-d60b-43cb-a78d-685f29b1e244}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\MapWnd">
+    <Filter Include="UI\Common\MapWnd">
       <UniqueIdentifier>{29448098-be29-4e68-9f3a-9959541ed367}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\TalkWnd">
+    <Filter Include="UI\Common\TalkWnd">
       <UniqueIdentifier>{07e723ae-b1f5-448c-9204-6cd0d1ebb755}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\CarBodyWnd">
+    <Filter Include="UI\Common\CarBodyWnd">
       <UniqueIdentifier>{8948ef8d-d269-4102-9a08-30b319946e8a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\Diary">
+    <Filter Include="UI\Common\Diary">
       <UniqueIdentifier>{0fd61f13-6318-43c2-81ae-3476ef8cfd33}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\MainIngame">
+    <Filter Include="UI\Common\MainIngame">
       <UniqueIdentifier>{3bab74aa-e128-4623-a3a0-4fd041487db7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\Animations">
+    <Filter Include="UI\Common\Animations">
       <UniqueIdentifier>{c2a05859-7235-40c1-9fe0-b5985805119a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\Statistics">
+    <Filter Include="UI\Common\Statistics">
       <UniqueIdentifier>{4d54fba3-a3e9-46e2-bec9-708baeec9cae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\_Debug Fonts">
+    <Filter Include="UI\Common\_Debug Fonts">
       <UniqueIdentifier>{fc635f1d-43e3-437b-9fff-26238e668993}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\OptionsItem">
+    <Filter Include="UI\Common\OptionsItem">
       <UniqueIdentifier>{c5a8ca0e-d661-4c7d-bb67-5df114a92319}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\OptionsConsoleCommands">
+    <Filter Include="UI\Common\OptionsConsoleCommands">
       <UniqueIdentifier>{4a9b407f-2aa8-46f7-886a-ae3f9d2af0f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\EventsWnd">
+    <Filter Include="UI\Common\EventsWnd">
       <UniqueIdentifier>{b8bed9be-ec79-4bf4-bda6-824ad7a017f8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\MM">
+    <Filter Include="UI\Common\MM">
       <UniqueIdentifier>{7988ff47-9ae4-4980-81db-977187e6dfe0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\MM\KeyBinding">
+    <Filter Include="UI\Common\MM\KeyBinding">
       <UniqueIdentifier>{93aa3a83-5637-4cc8-9cdd-cc15383d0d46}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\CharacterInfo">
+    <Filter Include="UI\Common\CharacterInfo">
       <UniqueIdentifier>{8a07ba6a-ef39-4823-b941-5fc0434be6a9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\ItemInfo">
+    <Filter Include="UI\Common\ItemInfo">
       <UniqueIdentifier>{2043ad40-bbeb-48c8-9c2e-a87f607a7aa1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\OutfitInfo">
+    <Filter Include="UI\Common\OutfitInfo">
       <UniqueIdentifier>{a597e90c-e505-4019-9f50-b7331b9ca633}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\TimeWnd">
+    <Filter Include="UI\Common\TimeWnd">
       <UniqueIdentifier>{b6ddfba9-5279-4c2a-88f7-9173f802553f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\SleepWnd">
+    <Filter Include="UI\Common\SleepWnd">
       <UniqueIdentifier>{0243e683-41e7-4685-b0dd-1f2684ce829c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Common\InventoryUtilities">
+    <Filter Include="UI\Common\InventoryUtilities">
       <UniqueIdentifier>{efb15e9f-859d-4db9-aa37-6b4fa2fa5086}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows">
+    <Filter Include="UI\UIWindows">
       <UniqueIdentifier>{821c8112-362b-48aa-9766-4b83c1cc3a09}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\XML">
+    <Filter Include="UI\UIWindows\XML">
       <UniqueIdentifier>{aff0c88e-5f2e-4105-8af9-daeae06fed36}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\MessageBox">
+    <Filter Include="UI\UIWindows\MessageBox">
       <UniqueIdentifier>{a202a925-7b43-4450-a0cb-0467e069c1c0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\PropertiesBox">
+    <Filter Include="UI\UIWindows\PropertiesBox">
       <UniqueIdentifier>{e3956b73-c4df-4956-a2c7-a3d6c342b01c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\Static">
+    <Filter Include="UI\UIWindows\Static">
       <UniqueIdentifier>{cd76c69f-e9e3-4540-9e68-4c2c321c3452}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\EditBox">
+    <Filter Include="UI\UIWindows\EditBox">
       <UniqueIdentifier>{75d95b01-b25b-4594-a72a-890d09b2327f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\EditBox\customEB">
+    <Filter Include="UI\UIWindows\EditBox\customEB">
       <UniqueIdentifier>{1106f078-566d-4db5-98b5-2ba5710c5a2e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\Windows">
+    <Filter Include="UI\UIWindows\Windows">
       <UniqueIdentifier>{9f2aa6f3-a58a-4891-9282-7974330104ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\ProgressBar">
+    <Filter Include="UI\UIWindows\ProgressBar">
       <UniqueIdentifier>{9006f848-3d64-447d-a9ba-dac3e20015e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\TabControl">
+    <Filter Include="UI\UIWindows\TabControl">
       <UniqueIdentifier>{2a60eebd-8373-4442-8f25-d728244de5d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\TreeView">
+    <Filter Include="UI\UIWindows\TreeView">
       <UniqueIdentifier>{b963be42-e424-4f79-84a3-3e52951ddc3f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\ScriptWnd">
+    <Filter Include="UI\UIWindows\ScriptWnd">
       <UniqueIdentifier>{7ce5c81f-1659-4d03-9abb-ee6e6e77dfb5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\Buttons">
+    <Filter Include="UI\UIWindows\Buttons">
       <UniqueIdentifier>{b94ad989-fb55-4a4a-9515-0edcf57a6c89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\ComboBox">
+    <Filter Include="UI\UIWindows\ComboBox">
       <UniqueIdentifier>{aa67052c-fa92-4903-a7e8-55b94be380c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\InteractiveBackground">
+    <Filter Include="UI\UIWindows\InteractiveBackground">
       <UniqueIdentifier>{1258adef-f47d-4c15-b873-931f88fd56a6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\TrackBar">
+    <Filter Include="UI\UIWindows\TrackBar">
       <UniqueIdentifier>{a441da42-93d0-428c-bb45-8c945c1b9257}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\Frames">
+    <Filter Include="UI\UIWindows\Frames">
       <UniqueIdentifier>{3c4d405f-e71e-49e8-9360-5b83b358e91f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\ScrollView">
+    <Filter Include="UI\UIWindows\ScrollView">
       <UniqueIdentifier>{14b8947a-a853-4269-addb-f5515a875191}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\ScrollView\ListBox">
+    <Filter Include="UI\UIWindows\ScrollView\ListBox">
       <UniqueIdentifier>{b455fd56-7002-4b2c-92f9-b324c1805427}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\Lines">
+    <Filter Include="UI\UIWindows\Lines">
       <UniqueIdentifier>{127ec76c-1d60-4db1-8891-bf072b56c9be}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\VideoPlayer">
+    <Filter Include="UI\UIWindows\VideoPlayer">
       <UniqueIdentifier>{99095a58-7504-4243-9ddc-963f0e6c1822}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\DragDrop2">
+    <Filter Include="UI\UIWindows\DragDrop2">
       <UniqueIdentifier>{63e6d78b-f5dd-4dce-8e66-7a233246771a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\Label">
+    <Filter Include="UI\UIWindows\Label">
       <UniqueIdentifier>{f0efbb8e-7347-48d3-ac08-c1e5911b5c9b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\ScrollBar">
+    <Filter Include="UI\UIWindows\ScrollBar">
       <UniqueIdentifier>{42538fb8-ba43-4aca-aab9-161db3b59c00}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\SpinBox">
+    <Filter Include="UI\UIWindows\SpinBox">
       <UniqueIdentifier>{2b84f761-9791-4ff6-87fe-5a3ad9c79f84}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\ListBox">
+    <Filter Include="UI\UIWindows\ListBox">
       <UniqueIdentifier>{c728ac64-b157-46b8-815b-f6cc87e3e195}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\UIWindows\ListBox\Ex">
+    <Filter Include="UI\UIWindows\ListBox\Ex">
       <UniqueIdentifier>{7ec5f856-cebf-4cf0-8bf3-886751bd4f27}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\HUD">
+    <Filter Include="UI\HUD">
       <UniqueIdentifier>{4c85ff0f-0f0d-4ce2-af38-e5a7af6b5538}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\GameTypes">
+    <Filter Include="UI\GameTypes">
       <UniqueIdentifier>{1d31a422-89cf-4669-9fac-9d512a1a1be2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\GameTypes\GameCustom">
+    <Filter Include="UI\GameTypes\GameCustom">
       <UniqueIdentifier>{8f027e38-82be-46f7-818c-0e3f04725256}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\GameTypes\Deathmatch">
+    <Filter Include="UI\GameTypes\Deathmatch">
       <UniqueIdentifier>{aa90dd7c-7798-43dc-a3f8-ba8fdfe807c6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\GameTypes\Single">
+    <Filter Include="UI\GameTypes\Single">
       <UniqueIdentifier>{7f717131-cce0-44f6-98f9-c899e5e057e7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\GameTypes\TeamDeathmatch">
+    <Filter Include="UI\GameTypes\TeamDeathmatch">
       <UniqueIdentifier>{179a6267-582e-4734-8ccb-663c94660b2c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\GameTypes\ArtefactHunt">
+    <Filter Include="UI\GameTypes\ArtefactHunt">
       <UniqueIdentifier>{d52479e8-cd63-4146-bec6-5f7397c0e735}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\GameTypes\Game_custom_script">
+    <Filter Include="UI\GameTypes\Game_custom_script">
       <UniqueIdentifier>{a04befdd-f8df-4842-a68d-b56fd30e7d51}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer">
+    <Filter Include="UI\Multiplayer">
       <UniqueIdentifier>{ca859874-a600-4e07-81f9-54c3a73477d6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP">
+    <Filter Include="UI\Multiplayer\MM_MP">
       <UniqueIdentifier>{a896c311-6bbb-4ac0-bdee-0eb9d4b7f6fd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\CDkey">
+    <Filter Include="UI\Multiplayer\MM_MP\CDkey">
       <UniqueIdentifier>{f4011394-b82f-4cc8-96a7-d56b6400bcf2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\MapList">
+    <Filter Include="UI\Multiplayer\MM_MP\MapList">
       <UniqueIdentifier>{477ac371-b19a-4a4d-827f-6636d04a0e41}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\ServerList">
+    <Filter Include="UI\Multiplayer\MM_MP\ServerList">
       <UniqueIdentifier>{e106e960-44ae-46e7-833e-aaa58efcd363}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\TeamInfo">
+    <Filter Include="UI\Multiplayer\MM_MP\TeamInfo">
       <UniqueIdentifier>{e86358fc-e596-4a8b-a4e4-c6cc5d9caf42}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\HUD">
+    <Filter Include="UI\Multiplayer\HUD">
       <UniqueIdentifier>{c9f4e0ab-5bb5-41d6-bf29-758d364b890e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats">
+    <Filter Include="UI\Multiplayer\HUD\Stats">
       <UniqueIdentifier>{b03dc0b2-0500-45f9-9765-8c88b537cb80}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats\icons">
+    <Filter Include="UI\Multiplayer\HUD\Stats\icons">
       <UniqueIdentifier>{b7080590-dee5-4fde-8b12-9b529227a511}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats\frag_wnd">
+    <Filter Include="UI\Multiplayer\HUD\Stats\frag_wnd">
       <UniqueIdentifier>{8c39bb4d-f704-439a-9d14-009d81c72a63}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats\old">
+    <Filter Include="UI\Multiplayer\HUD\Stats\old">
       <UniqueIdentifier>{1de14446-6ac5-40b5-8ce3-bd43414ffbf1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Chat">
+    <Filter Include="UI\Multiplayer\HUD\Chat">
       <UniqueIdentifier>{bfccb0ea-ee71-44a4-8d32-3901e74aa842}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\HUD\GameLog">
+    <Filter Include="UI\Multiplayer\HUD\GameLog">
       <UniqueIdentifier>{2e4a16e3-b620-4141-9014-aa66b6ddd684}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\HUD\SpeechMenu">
+    <Filter Include="UI\Multiplayer\HUD\SpeechMenu">
       <UniqueIdentifier>{52300a13-4ea5-4de6-9724-f5909524d379}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\HUD\common">
+    <Filter Include="UI\Multiplayer\HUD\common">
       <UniqueIdentifier>{35f093ed-00f1-410b-9318-38e2d7a916f8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd">
+    <Filter Include="UI\Multiplayer\BuyWeaponWnd">
       <UniqueIdentifier>{9c9cdc2c-5067-4473-8033-a4462e258e2a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\rank_restrictions">
+    <Filter Include="UI\Multiplayer\BuyWeaponWnd\rank_restrictions">
       <UniqueIdentifier>{b14bd461-f9cf-40c8-9b7b-e541f4e97d10}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\TAB">
+    <Filter Include="UI\Multiplayer\BuyWeaponWnd\TAB">
       <UniqueIdentifier>{01fb0778-3722-4a34-9d83-63327b28dc43}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\buy_wnd">
+    <Filter Include="UI\Multiplayer\BuyWeaponWnd\buy_wnd">
       <UniqueIdentifier>{30c565c4-7352-4b19-8dc0-ac71f491d743}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info">
+    <Filter Include="UI\Multiplayer\team_skin_info">
       <UniqueIdentifier>{3e014ee8-2221-4029-ac04-4ebdc984a94d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\MapDesc">
+    <Filter Include="UI\Multiplayer\team_skin_info\MapDesc">
       <UniqueIdentifier>{e91f0701-0b0f-4591-929c-87c757b21e73}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\MapDesc\MapInfo">
+    <Filter Include="UI\Multiplayer\team_skin_info\MapDesc\MapInfo">
       <UniqueIdentifier>{4a9fdb25-d964-4c91-aa15-89d5f8a7d1be}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\Spawn">
+    <Filter Include="UI\Multiplayer\team_skin_info\Spawn">
       <UniqueIdentifier>{03e9eebe-6e35-4831-9c9f-b9b20054435b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\SkinSelector">
+    <Filter Include="UI\Multiplayer\team_skin_info\SkinSelector">
       <UniqueIdentifier>{b0e0e900-3f87-41b1-a8a2-ba38e830d1e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Multiplayer\Voting">
+    <Filter Include="UI\Multiplayer\Voting">
       <UniqueIdentifier>{32888906-1e8e-4bae-8c7a-fac59912e237}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Cursor">
+    <Filter Include="UI\Cursor">
       <UniqueIdentifier>{4d781e03-c816-4bbf-80dc-14ff4e5969ac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\UI\Tutorial">
+    <Filter Include="UI\Tutorial">
       <UniqueIdentifier>{2955a80c-d93e-45a5-9560-cd775358dba2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -4549,10 +4543,10 @@
       <Filter>AI\AScript\ScriptClasses\ScriptSoundType</Filter>
     </ClInclude>
     <ClInclude Include="script_ui_registrator.h">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="ScriptXMLInit.h">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="key_binding_registrator.h">
       <Filter>AI\AScript\ScriptClasses\KeyBindings</Filter>
@@ -6025,532 +6019,532 @@
       <Filter>Core\Client\Objects\physics\IK</Filter>
     </ClInclude>
     <ClInclude Include="ui\CExtraContentFilter.h">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="UI.h">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="ui_base.h">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="UIDialogHolder.h">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIInventoryWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\InventoryWnd</Filter>
+      <Filter>UI\Common\InventoryWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIOutfitSlot.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\InventoryWnd</Filter>
+      <Filter>UI\Common\InventoryWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITradeWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\TradeWnd</Filter>
+      <Filter>UI\Common\TradeWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIPdaAux.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\PdaWnd</Filter>
+      <Filter>UI\Common\PdaWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIPdaContactsWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\PdaWnd</Filter>
+      <Filter>UI\Common\PdaWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIPdaListItem.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\PdaWnd</Filter>
+      <Filter>UI\Common\PdaWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIPdaWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\PdaWnd</Filter>
+      <Filter>UI\Common\PdaWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\map_hint.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MapWnd</Filter>
+      <Filter>UI\Common\MapWnd</Filter>
     </ClInclude>
     <ClInclude Include="map_spot.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MapWnd</Filter>
+      <Filter>UI\Common\MapWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMap.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MapWnd</Filter>
+      <Filter>UI\Common\MapWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMapWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MapWnd</Filter>
+      <Filter>UI\Common\MapWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMapWndActions.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MapWnd</Filter>
+      <Filter>UI\Common\MapWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMapWndActionsSpace.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MapWnd</Filter>
+      <Filter>UI\Common\MapWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITalkDialogWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\TalkWnd</Filter>
+      <Filter>UI\Common\TalkWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITalkWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\TalkWnd</Filter>
+      <Filter>UI\Common\TalkWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UICarBodyWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\CarBodyWnd</Filter>
+      <Filter>UI\Common\CarBodyWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIDiaryWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Diary</Filter>
+      <Filter>UI\Common\Diary</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIEncyclopediaArticleWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Diary</Filter>
+      <Filter>UI\Common\Diary</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIEncyclopediaWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Diary</Filter>
+      <Filter>UI\Common\Diary</Filter>
     </ClInclude>
     <ClInclude Include="ui\UINewsItemWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Diary</Filter>
+      <Filter>UI\Common\Diary</Filter>
     </ClInclude>
     <ClInclude Include="ui\UINewsWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Diary</Filter>
+      <Filter>UI\Common\Diary</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIArtefactPanel.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClInclude>
     <ClInclude Include="ui\UICarPanel.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMainIngameWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMessagesWindow.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMoneyIndicator.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMotionIcon.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIPdaMsgListItem.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIPointerGage.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClInclude>
     <ClInclude Include="UIZoneMap.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIColorAnimatorWrapper.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Animations</Filter>
+      <Filter>UI\Common\Animations</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIActorInfo.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Statistics</Filter>
+      <Filter>UI\Common\Statistics</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIStalkersRankingWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Statistics</Filter>
+      <Filter>UI\Common\Statistics</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIDebugFonts.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\_Debug Fonts</Filter>
+      <Filter>UI\Common\_Debug Fonts</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIOptionsItem.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\OptionsItem</Filter>
+      <Filter>UI\Common\OptionsItem</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIOptionsManager.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\OptionsItem</Filter>
+      <Filter>UI\Common\OptionsItem</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIOptionsManagerScript.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\OptionsItem</Filter>
+      <Filter>UI\Common\OptionsItem</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIOptConCom.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\OptionsConsoleCommands</Filter>
+      <Filter>UI\Common\OptionsConsoleCommands</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIEventsWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\EventsWnd</Filter>
+      <Filter>UI\Common\EventsWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITaskDescrWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\EventsWnd</Filter>
+      <Filter>UI\Common\EventsWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITaskItem.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\EventsWnd</Filter>
+      <Filter>UI\Common\EventsWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\MMSound.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MM</Filter>
+      <Filter>UI\Common\MM</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMMShniaga.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MM</Filter>
+      <Filter>UI\Common\MM</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIEditKeyBind.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MM\KeyBinding</Filter>
+      <Filter>UI\Common\MM\KeyBinding</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIKeyBinding.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MM\KeyBinding</Filter>
+      <Filter>UI\Common\MM\KeyBinding</Filter>
     </ClInclude>
     <ClInclude Include="ui\UICharacterInfo.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\CharacterInfo</Filter>
+      <Filter>UI\Common\CharacterInfo</Filter>
     </ClInclude>
     <ClInclude Include="ui\ui_af_params.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\ItemInfo</Filter>
+      <Filter>UI\Common\ItemInfo</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIItemInfo.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\ItemInfo</Filter>
+      <Filter>UI\Common\ItemInfo</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIWpnParams.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\ItemInfo</Filter>
+      <Filter>UI\Common\ItemInfo</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIOutfitInfo.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\OutfitInfo</Filter>
+      <Filter>UI\Common\OutfitInfo</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITimeWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\TimeWnd</Filter>
+      <Filter>UI\Common\TimeWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UISleepWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\SleepWnd</Filter>
+      <Filter>UI\Common\SleepWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIInventoryUtilities.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\InventoryUtilities</Filter>
+      <Filter>UI\Common\InventoryUtilities</Filter>
     </ClInclude>
     <ClInclude Include="callback_info.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows</Filter>
+      <Filter>UI\UIWindows</Filter>
     </ClInclude>
     <ClInclude Include="ui\uiabstract.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows</Filter>
+      <Filter>UI\UIWindows</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIBtnHint.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows</Filter>
+      <Filter>UI\UIWindows</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMessages.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows</Filter>
+      <Filter>UI\UIWindows</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIWndCallback.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows</Filter>
+      <Filter>UI\UIWindows</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITextureMaster.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\XML</Filter>
+      <Filter>UI\UIWindows\XML</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIXmlInit.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\XML</Filter>
+      <Filter>UI\UIWindows\XML</Filter>
     </ClInclude>
     <ClInclude Include="ui\xrUIXmlParser.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\XML</Filter>
+      <Filter>UI\UIWindows\XML</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMessageBox.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\MessageBox</Filter>
+      <Filter>UI\UIWindows\MessageBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMessageBoxEx.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\MessageBox</Filter>
+      <Filter>UI\UIWindows\MessageBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIPropertiesBox.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\PropertiesBox</Filter>
+      <Filter>UI\UIWindows\PropertiesBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIAnimatedStatic.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClInclude>
     <ClInclude Include="UICustomItem.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMultiTextStatic.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIStatic.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClInclude>
     <ClInclude Include="UIStaticItem.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITextBanner.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIEditBox.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\EditBox</Filter>
+      <Filter>UI\UIWindows\EditBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIEditBoxEx.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\EditBox</Filter>
+      <Filter>UI\UIWindows\EditBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UICustomEdit.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\EditBox\customEB</Filter>
+      <Filter>UI\UIWindows\EditBox\customEB</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIDialogWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Windows</Filter>
+      <Filter>UI\UIWindows\Windows</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIFrameLineWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Windows</Filter>
+      <Filter>UI\UIWindows\Windows</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIFrameWindow.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Windows</Filter>
+      <Filter>UI\UIWindows\Windows</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIWindow.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Windows</Filter>
+      <Filter>UI\UIWindows\Windows</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIProgressBar.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ProgressBar</Filter>
+      <Filter>UI\UIWindows\ProgressBar</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIProgressShape.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ProgressBar</Filter>
+      <Filter>UI\UIWindows\ProgressBar</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITabButton.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\TabControl</Filter>
+      <Filter>UI\UIWindows\TabControl</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITabControl.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\TabControl</Filter>
+      <Filter>UI\UIWindows\TabControl</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITreeViewItem.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\TreeView</Filter>
+      <Filter>UI\UIWindows\TreeView</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIScriptWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScriptWnd</Filter>
+      <Filter>UI\UIWindows\ScriptWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\uiscriptwnd_script.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScriptWnd</Filter>
+      <Filter>UI\UIWindows\ScriptWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UI3tButton.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Buttons</Filter>
+      <Filter>UI\UIWindows\Buttons</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIButton.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Buttons</Filter>
+      <Filter>UI\UIWindows\Buttons</Filter>
     </ClInclude>
     <ClInclude Include="ui\UICheckButton.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Buttons</Filter>
+      <Filter>UI\UIWindows\Buttons</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIRadioButton.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Buttons</Filter>
+      <Filter>UI\UIWindows\Buttons</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIComboBox.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ComboBox</Filter>
+      <Filter>UI\UIWindows\ComboBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UI_IB_Static.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\InteractiveBackground</Filter>
+      <Filter>UI\UIWindows\InteractiveBackground</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIInteractiveBackground.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\InteractiveBackground</Filter>
+      <Filter>UI\UIWindows\InteractiveBackground</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITrackBar.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\TrackBar</Filter>
+      <Filter>UI\UIWindows\TrackBar</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITrackButton.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\TrackBar</Filter>
+      <Filter>UI\UIWindows\TrackBar</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIFrameLine.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Frames</Filter>
+      <Filter>UI\UIWindows\Frames</Filter>
     </ClInclude>
     <ClInclude Include="UIFrameRect.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Frames</Filter>
+      <Filter>UI\UIWindows\Frames</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIScrollView.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScrollView</Filter>
+      <Filter>UI\UIWindows\ScrollView</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIListBox.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScrollView\ListBox</Filter>
+      <Filter>UI\UIWindows\ScrollView\ListBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIListBoxItem.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScrollView\ListBox</Filter>
+      <Filter>UI\UIWindows\ScrollView\ListBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UILine.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Lines</Filter>
+      <Filter>UI\UIWindows\Lines</Filter>
     </ClInclude>
     <ClInclude Include="ui\UILines.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Lines</Filter>
+      <Filter>UI\UIWindows\Lines</Filter>
     </ClInclude>
     <ClInclude Include="ui\uilinestd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Lines</Filter>
+      <Filter>UI\UIWindows\Lines</Filter>
     </ClInclude>
     <ClInclude Include="ui\UISubLine.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Lines</Filter>
+      <Filter>UI\UIWindows\Lines</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIVideoPlayerWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\VideoPlayer</Filter>
+      <Filter>UI\UIWindows\VideoPlayer</Filter>
     </ClInclude>
     <ClInclude Include="ui\UICellCustomItems.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\DragDrop2</Filter>
+      <Filter>UI\UIWindows\DragDrop2</Filter>
     </ClInclude>
     <ClInclude Include="ui\UICellItem.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\DragDrop2</Filter>
+      <Filter>UI\UIWindows\DragDrop2</Filter>
     </ClInclude>
     <ClInclude Include="ui\UICellItemFactory.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\DragDrop2</Filter>
+      <Filter>UI\UIWindows\DragDrop2</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIDragDropListEx.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\DragDrop2</Filter>
+      <Filter>UI\UIWindows\DragDrop2</Filter>
     </ClInclude>
     <ClInclude Include="ui\UILabel.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Label</Filter>
+      <Filter>UI\UIWindows\Label</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIScrollBar.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScrollBar</Filter>
+      <Filter>UI\UIWindows\ScrollBar</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIScrollBox.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScrollBar</Filter>
+      <Filter>UI\UIWindows\ScrollBar</Filter>
     </ClInclude>
     <ClInclude Include="ui\UICustomSpin.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\SpinBox</Filter>
+      <Filter>UI\UIWindows\SpinBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UISpinNum.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\SpinBox</Filter>
+      <Filter>UI\UIWindows\SpinBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UISpinText.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\SpinBox</Filter>
+      <Filter>UI\UIWindows\SpinBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIListItem.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ListBox</Filter>
+      <Filter>UI\UIWindows\ListBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIListWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ListBox</Filter>
+      <Filter>UI\UIWindows\ListBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIListWnd_inline.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ListBox</Filter>
+      <Filter>UI\UIWindows\ListBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIListItemEx.h">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ListBox\Ex</Filter>
+      <Filter>UI\UIWindows\ListBox\Ex</Filter>
     </ClInclude>
     <ClInclude Include="ContextMenu.h">
-      <Filter>AI\AScript\ScriptClasses\UI\HUD</Filter>
+      <Filter>UI\HUD</Filter>
     </ClInclude>
     <ClInclude Include="HitMarker.h">
-      <Filter>AI\AScript\ScriptClasses\UI\HUD</Filter>
+      <Filter>UI\HUD</Filter>
     </ClInclude>
     <ClInclude Include="HUDManager.h">
-      <Filter>AI\AScript\ScriptClasses\UI\HUD</Filter>
+      <Filter>UI\HUD</Filter>
     </ClInclude>
     <ClInclude Include="UIGameCustom.h">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\GameCustom</Filter>
+      <Filter>UI\GameTypes\GameCustom</Filter>
     </ClInclude>
     <ClInclude Include="UIDMStatisticWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\Deathmatch</Filter>
+      <Filter>UI\GameTypes\Deathmatch</Filter>
     </ClInclude>
     <ClInclude Include="UIGameDM.h">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\Deathmatch</Filter>
+      <Filter>UI\GameTypes\Deathmatch</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIRankIndicator.h">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\Deathmatch</Filter>
+      <Filter>UI\GameTypes\Deathmatch</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIVoteStatusWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\Deathmatch</Filter>
+      <Filter>UI\GameTypes\Deathmatch</Filter>
     </ClInclude>
     <ClInclude Include="UIGameSP.h">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\Single</Filter>
+      <Filter>UI\GameTypes\Single</Filter>
     </ClInclude>
     <ClInclude Include="UIGameTDM.h">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\TeamDeathmatch</Filter>
+      <Filter>UI\GameTypes\TeamDeathmatch</Filter>
     </ClInclude>
     <ClInclude Include="UIGameAHunt.h">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\ArtefactHunt</Filter>
+      <Filter>UI\GameTypes\ArtefactHunt</Filter>
     </ClInclude>
     <ClInclude Include="UIGame_custom_script.h">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\Game_custom_script</Filter>
+      <Filter>UI\GameTypes\Game_custom_script</Filter>
     </ClInclude>
     <ClInclude Include="ui\UICDkey.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\CDkey</Filter>
+      <Filter>UI\Multiplayer\MM_MP\CDkey</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMapList.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\MapList</Filter>
+      <Filter>UI\Multiplayer\MM_MP\MapList</Filter>
     </ClInclude>
     <ClInclude Include="ui\ServerList.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\ServerList</Filter>
+      <Filter>UI\Multiplayer\MM_MP\ServerList</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIListItemAdv.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\ServerList</Filter>
+      <Filter>UI\Multiplayer\MM_MP\ServerList</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIListItemServer.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\ServerList</Filter>
+      <Filter>UI\Multiplayer\MM_MP\ServerList</Filter>
     </ClInclude>
     <ClInclude Include="ui\TeamInfo.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\TeamInfo</Filter>
+      <Filter>UI\Multiplayer\MM_MP\TeamInfo</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIStats.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIStatsPlayerInfo.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIStatsPlayerList.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIStatsIcon.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats\icons</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats\icons</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIFrags.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats\frag_wnd</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats\frag_wnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIFrags2.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats\frag_wnd</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats\frag_wnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIStatsWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats\old</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats\old</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIChatWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Chat</Filter>
+      <Filter>UI\Multiplayer\HUD\Chat</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIGameLog.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\GameLog</Filter>
+      <Filter>UI\Multiplayer\HUD\GameLog</Filter>
     </ClInclude>
     <ClInclude Include="ui\UISpeechMenu.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\SpeechMenu</Filter>
+      <Filter>UI\Multiplayer\HUD\SpeechMenu</Filter>
     </ClInclude>
     <ClInclude Include="ui\KillMessageStruct.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\common</Filter>
+      <Filter>UI\Multiplayer\HUD\common</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIPdaKillMessage.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\common</Filter>
+      <Filter>UI\Multiplayer\HUD\common</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIBuyWndBase.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIBuyWndShared.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMpItemsStoreWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMpTradeWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\Restrictions.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\rank_restrictions</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd\rank_restrictions</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIBuyWeaponTab.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\TAB</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd\TAB</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITabButtonMP.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\TAB</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd\TAB</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIBagWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\buy_wnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd\buy_wnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIBuyWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\buy_wnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd\buy_wnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMapDesc.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\MapDesc</Filter>
+      <Filter>UI\Multiplayer\team_skin_info\MapDesc</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIMapInfo.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\MapDesc\MapInfo</Filter>
+      <Filter>UI\Multiplayer\team_skin_info\MapDesc\MapInfo</Filter>
     </ClInclude>
     <ClInclude Include="ui\UISpawnWnd.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\Spawn</Filter>
+      <Filter>UI\Multiplayer\team_skin_info\Spawn</Filter>
     </ClInclude>
     <ClInclude Include="ui\UISkinSelector.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\SkinSelector</Filter>
+      <Filter>UI\Multiplayer\team_skin_info\SkinSelector</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIStatix.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\SkinSelector</Filter>
+      <Filter>UI\Multiplayer\team_skin_info\SkinSelector</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIChangeMap.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\Voting</Filter>
+      <Filter>UI\Multiplayer\Voting</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIChangeWeather.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\Voting</Filter>
+      <Filter>UI\Multiplayer\Voting</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIKickPlayer.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\Voting</Filter>
+      <Filter>UI\Multiplayer\Voting</Filter>
     </ClInclude>
     <ClInclude Include="ui\UITextVote.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\Voting</Filter>
+      <Filter>UI\Multiplayer\Voting</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIVote.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\Voting</Filter>
+      <Filter>UI\Multiplayer\Voting</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIVotingCategory.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\Voting</Filter>
+      <Filter>UI\Multiplayer\Voting</Filter>
     </ClInclude>
     <ClInclude Include="HUDCrosshair.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Cursor</Filter>
+      <Filter>UI\Cursor</Filter>
     </ClInclude>
     <ClInclude Include="HUDTarget.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Cursor</Filter>
+      <Filter>UI\Cursor</Filter>
     </ClInclude>
     <ClInclude Include="UICursor.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Cursor</Filter>
+      <Filter>UI\Cursor</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIGameTutorial.h">
-      <Filter>AI\AScript\ScriptClasses\UI\Tutorial</Filter>
+      <Filter>UI\Tutorial</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -7701,10 +7695,10 @@
       <Filter>AI\AScript\ScriptClasses\ScriptSoundType</Filter>
     </ClCompile>
     <ClCompile Include="ScriptXMLInit.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="ui_export_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="key_binding_registrator_script.cpp">
       <Filter>AI\AScript\ScriptClasses\KeyBindings</Filter>
@@ -9132,574 +9126,574 @@
       <Filter>Core\Client\Objects\physics\IK</Filter>
     </ClCompile>
     <ClCompile Include="ui\CExtraContentFilter.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="UI.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="ui_base.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="UIDialogHolder.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIInventoryWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\InventoryWnd</Filter>
+      <Filter>UI\Common\InventoryWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\uiinventorywnd2.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\InventoryWnd</Filter>
+      <Filter>UI\Common\InventoryWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIInventoryWnd3.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\InventoryWnd</Filter>
+      <Filter>UI\Common\InventoryWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIOutfitSlot.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\InventoryWnd</Filter>
+      <Filter>UI\Common\InventoryWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITradeWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\TradeWnd</Filter>
+      <Filter>UI\Common\TradeWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIPdaAux.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\PdaWnd</Filter>
+      <Filter>UI\Common\PdaWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIPdaContactsWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\PdaWnd</Filter>
+      <Filter>UI\Common\PdaWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIPdaListItem.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\PdaWnd</Filter>
+      <Filter>UI\Common\PdaWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIPdaWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\PdaWnd</Filter>
+      <Filter>UI\Common\PdaWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\map_hint.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MapWnd</Filter>
+      <Filter>UI\Common\MapWnd</Filter>
     </ClCompile>
     <ClCompile Include="map_spot.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MapWnd</Filter>
+      <Filter>UI\Common\MapWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMap.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MapWnd</Filter>
+      <Filter>UI\Common\MapWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMapWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MapWnd</Filter>
+      <Filter>UI\Common\MapWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMapWndActions.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MapWnd</Filter>
+      <Filter>UI\Common\MapWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITalkDialogWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\TalkWnd</Filter>
+      <Filter>UI\Common\TalkWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITalkWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\TalkWnd</Filter>
+      <Filter>UI\Common\TalkWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UICarBodyWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\CarBodyWnd</Filter>
+      <Filter>UI\Common\CarBodyWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIDiaryWnd2.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Diary</Filter>
+      <Filter>UI\Common\Diary</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIEncyclopediaArticleWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Diary</Filter>
+      <Filter>UI\Common\Diary</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIEncyclopediaWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Diary</Filter>
+      <Filter>UI\Common\Diary</Filter>
     </ClCompile>
     <ClCompile Include="ui\UINewsItemWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Diary</Filter>
+      <Filter>UI\Common\Diary</Filter>
     </ClCompile>
     <ClCompile Include="ui\UINewsWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Diary</Filter>
+      <Filter>UI\Common\Diary</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIArtefactPanel.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClCompile>
     <ClCompile Include="ui\UICarPanel.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMainIngameWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMessagesWindow.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMoneyIndicator.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMotionIcon.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIPdaMsgListItem.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIPointerGage.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClCompile>
     <ClCompile Include="UIZoneMap.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MainIngame</Filter>
+      <Filter>UI\Common\MainIngame</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIColorAnimatorWrapper.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Animations</Filter>
+      <Filter>UI\Common\Animations</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIActorInfo.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Statistics</Filter>
+      <Filter>UI\Common\Statistics</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIStalkersRankingWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\Statistics</Filter>
+      <Filter>UI\Common\Statistics</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIDebugFonts.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\_Debug Fonts</Filter>
+      <Filter>UI\Common\_Debug Fonts</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIOptionsItem.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\OptionsItem</Filter>
+      <Filter>UI\Common\OptionsItem</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIOptionsManager.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\OptionsItem</Filter>
+      <Filter>UI\Common\OptionsItem</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIOptionsManagerScript.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\OptionsItem</Filter>
+      <Filter>UI\Common\OptionsItem</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIOptConCom.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\OptionsConsoleCommands</Filter>
+      <Filter>UI\Common\OptionsConsoleCommands</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIEventsWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\EventsWnd</Filter>
+      <Filter>UI\Common\EventsWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITaskDescrWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\EventsWnd</Filter>
+      <Filter>UI\Common\EventsWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITaskItem.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\EventsWnd</Filter>
+      <Filter>UI\Common\EventsWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\MMSound.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MM</Filter>
+      <Filter>UI\Common\MM</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMMShniaga.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MM</Filter>
+      <Filter>UI\Common\MM</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIEditKeyBind.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MM\KeyBinding</Filter>
+      <Filter>UI\Common\MM\KeyBinding</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIKeyBinding.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\MM\KeyBinding</Filter>
+      <Filter>UI\Common\MM\KeyBinding</Filter>
     </ClCompile>
     <ClCompile Include="ui\UICharacterInfo.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\CharacterInfo</Filter>
+      <Filter>UI\Common\CharacterInfo</Filter>
     </ClCompile>
     <ClCompile Include="ui\IUWpnParams.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\ItemInfo</Filter>
+      <Filter>UI\Common\ItemInfo</Filter>
     </ClCompile>
     <ClCompile Include="ui\ui_af_params.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\ItemInfo</Filter>
+      <Filter>UI\Common\ItemInfo</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIItemInfo.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\ItemInfo</Filter>
+      <Filter>UI\Common\ItemInfo</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIOutfitInfo.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\OutfitInfo</Filter>
+      <Filter>UI\Common\OutfitInfo</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITimeWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\TimeWnd</Filter>
+      <Filter>UI\Common\TimeWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UISleepWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\SleepWnd</Filter>
+      <Filter>UI\Common\SleepWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIInventoryUtilities.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Common\InventoryUtilities</Filter>
+      <Filter>UI\Common\InventoryUtilities</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIBtnHint.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows</Filter>
+      <Filter>UI\UIWindows</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIWndCallback.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows</Filter>
+      <Filter>UI\UIWindows</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITextureMaster.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\XML</Filter>
+      <Filter>UI\UIWindows\XML</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIXmlInit.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\XML</Filter>
+      <Filter>UI\UIWindows\XML</Filter>
     </ClCompile>
     <ClCompile Include="ui\xrUIXmlParser.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\XML</Filter>
+      <Filter>UI\UIWindows\XML</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMessageBox.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\MessageBox</Filter>
+      <Filter>UI\UIWindows\MessageBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMessageBox_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\MessageBox</Filter>
+      <Filter>UI\UIWindows\MessageBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMessageBoxEx.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\MessageBox</Filter>
+      <Filter>UI\UIWindows\MessageBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIPropertiesBox.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\PropertiesBox</Filter>
+      <Filter>UI\UIWindows\PropertiesBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIPropertiesBox_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\PropertiesBox</Filter>
+      <Filter>UI\UIWindows\PropertiesBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIAnimatedStatic.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClCompile>
     <ClCompile Include="UICustomItem.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMultiTextStatic.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIStatic.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIStatic_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClCompile>
     <ClCompile Include="UIStaticItem.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITextBanner.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Static</Filter>
+      <Filter>UI\UIWindows\Static</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIEditBox.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\EditBox</Filter>
+      <Filter>UI\UIWindows\EditBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIEditBoxEx.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\EditBox</Filter>
+      <Filter>UI\UIWindows\EditBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UICustomEdit.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\EditBox\customEB</Filter>
+      <Filter>UI\UIWindows\EditBox\customEB</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIEditBox_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\EditBox\customEB</Filter>
+      <Filter>UI\UIWindows\EditBox\customEB</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIDialogWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Windows</Filter>
+      <Filter>UI\UIWindows\Windows</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIFrameLineWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Windows</Filter>
+      <Filter>UI\UIWindows\Windows</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIFrameWindow.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Windows</Filter>
+      <Filter>UI\UIWindows\Windows</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIWindow.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Windows</Filter>
+      <Filter>UI\UIWindows\Windows</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIWindow_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Windows</Filter>
+      <Filter>UI\UIWindows\Windows</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIProgressBar.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ProgressBar</Filter>
+      <Filter>UI\UIWindows\ProgressBar</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIProgressBar_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ProgressBar</Filter>
+      <Filter>UI\UIWindows\ProgressBar</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIProgressShape.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ProgressBar</Filter>
+      <Filter>UI\UIWindows\ProgressBar</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITabButton.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\TabControl</Filter>
+      <Filter>UI\UIWindows\TabControl</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITabControl.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\TabControl</Filter>
+      <Filter>UI\UIWindows\TabControl</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITabControl_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\TabControl</Filter>
+      <Filter>UI\UIWindows\TabControl</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITreeViewItem.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\TreeView</Filter>
+      <Filter>UI\UIWindows\TreeView</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIScriptWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScriptWnd</Filter>
+      <Filter>UI\UIWindows\ScriptWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIScriptWnd_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScriptWnd</Filter>
+      <Filter>UI\UIWindows\ScriptWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\uiscriptwnd_script2.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScriptWnd</Filter>
+      <Filter>UI\UIWindows\ScriptWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UI3tButton.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Buttons</Filter>
+      <Filter>UI\UIWindows\Buttons</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIButton.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Buttons</Filter>
+      <Filter>UI\UIWindows\Buttons</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIButton_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Buttons</Filter>
+      <Filter>UI\UIWindows\Buttons</Filter>
     </ClCompile>
     <ClCompile Include="ui\UICheckButton.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Buttons</Filter>
+      <Filter>UI\UIWindows\Buttons</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIRadioButton.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Buttons</Filter>
+      <Filter>UI\UIWindows\Buttons</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIComboBox.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ComboBox</Filter>
+      <Filter>UI\UIWindows\ComboBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIComboBox_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ComboBox</Filter>
+      <Filter>UI\UIWindows\ComboBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UI_IB_Static.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\InteractiveBackground</Filter>
+      <Filter>UI\UIWindows\InteractiveBackground</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITrackBar.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\TrackBar</Filter>
+      <Filter>UI\UIWindows\TrackBar</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITrackButton.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\TrackBar</Filter>
+      <Filter>UI\UIWindows\TrackBar</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIFrameLine.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Frames</Filter>
+      <Filter>UI\UIWindows\Frames</Filter>
     </ClCompile>
     <ClCompile Include="UIFrameRect.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Frames</Filter>
+      <Filter>UI\UIWindows\Frames</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIScrollView.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScrollView</Filter>
+      <Filter>UI\UIWindows\ScrollView</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIListBox.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScrollView\ListBox</Filter>
+      <Filter>UI\UIWindows\ScrollView\ListBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIListBoxItem.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScrollView\ListBox</Filter>
+      <Filter>UI\UIWindows\ScrollView\ListBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UILine.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Lines</Filter>
+      <Filter>UI\UIWindows\Lines</Filter>
     </ClCompile>
     <ClCompile Include="ui\UILines.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Lines</Filter>
+      <Filter>UI\UIWindows\Lines</Filter>
     </ClCompile>
     <ClCompile Include="ui\UISubLine.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Lines</Filter>
+      <Filter>UI\UIWindows\Lines</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIVideoPlayerWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\VideoPlayer</Filter>
+      <Filter>UI\UIWindows\VideoPlayer</Filter>
     </ClCompile>
     <ClCompile Include="ui\UICellCustomItems.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\DragDrop2</Filter>
+      <Filter>UI\UIWindows\DragDrop2</Filter>
     </ClCompile>
     <ClCompile Include="ui\UICellItem.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\DragDrop2</Filter>
+      <Filter>UI\UIWindows\DragDrop2</Filter>
     </ClCompile>
     <ClCompile Include="ui\UICellItemFactory.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\DragDrop2</Filter>
+      <Filter>UI\UIWindows\DragDrop2</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIDragDropListEx.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\DragDrop2</Filter>
+      <Filter>UI\UIWindows\DragDrop2</Filter>
     </ClCompile>
     <ClCompile Include="ui\UILabel.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\Label</Filter>
+      <Filter>UI\UIWindows\Label</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIScrollBar.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScrollBar</Filter>
+      <Filter>UI\UIWindows\ScrollBar</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIScrollBox.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ScrollBar</Filter>
+      <Filter>UI\UIWindows\ScrollBar</Filter>
     </ClCompile>
     <ClCompile Include="ui\UICustomSpin.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\SpinBox</Filter>
+      <Filter>UI\UIWindows\SpinBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UISpinNum.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\SpinBox</Filter>
+      <Filter>UI\UIWindows\SpinBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UISpinText.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\SpinBox</Filter>
+      <Filter>UI\UIWindows\SpinBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIListItem.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ListBox</Filter>
+      <Filter>UI\UIWindows\ListBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIListWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ListBox</Filter>
+      <Filter>UI\UIWindows\ListBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIListWnd_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ListBox</Filter>
+      <Filter>UI\UIWindows\ListBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIListItemEx.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\UIWindows\ListBox\Ex</Filter>
+      <Filter>UI\UIWindows\ListBox\Ex</Filter>
     </ClCompile>
     <ClCompile Include="ContextMenu.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\HUD</Filter>
+      <Filter>UI\HUD</Filter>
     </ClCompile>
     <ClCompile Include="HitMarker.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\HUD</Filter>
+      <Filter>UI\HUD</Filter>
     </ClCompile>
     <ClCompile Include="HUDManager.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\HUD</Filter>
+      <Filter>UI\HUD</Filter>
     </ClCompile>
     <ClCompile Include="UIGameCustom.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\GameCustom</Filter>
+      <Filter>UI\GameTypes\GameCustom</Filter>
     </ClCompile>
     <ClCompile Include="UIGameCustom_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\GameCustom</Filter>
+      <Filter>UI\GameTypes\GameCustom</Filter>
     </ClCompile>
     <ClCompile Include="UIDMStatisticWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\Deathmatch</Filter>
+      <Filter>UI\GameTypes\Deathmatch</Filter>
     </ClCompile>
     <ClCompile Include="UIGameDM.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\Deathmatch</Filter>
+      <Filter>UI\GameTypes\Deathmatch</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIRankIndicator.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\Deathmatch</Filter>
+      <Filter>UI\GameTypes\Deathmatch</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIVoteStatusWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\Deathmatch</Filter>
+      <Filter>UI\GameTypes\Deathmatch</Filter>
     </ClCompile>
     <ClCompile Include="UIGameSP.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\Single</Filter>
+      <Filter>UI\GameTypes\Single</Filter>
     </ClCompile>
     <ClCompile Include="UIGameTDM.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\TeamDeathmatch</Filter>
+      <Filter>UI\GameTypes\TeamDeathmatch</Filter>
     </ClCompile>
     <ClCompile Include="UIGameAHunt.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\ArtefactHunt</Filter>
+      <Filter>UI\GameTypes\ArtefactHunt</Filter>
     </ClCompile>
     <ClCompile Include="UIGame_custom_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\GameTypes\Game_custom_script</Filter>
+      <Filter>UI\GameTypes\Game_custom_script</Filter>
     </ClCompile>
     <ClCompile Include="ui\UICDkey.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\CDkey</Filter>
+      <Filter>UI\Multiplayer\MM_MP\CDkey</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMapList.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\MapList</Filter>
+      <Filter>UI\Multiplayer\MM_MP\MapList</Filter>
     </ClCompile>
     <ClCompile Include="ui\ServerList.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\ServerList</Filter>
+      <Filter>UI\Multiplayer\MM_MP\ServerList</Filter>
     </ClCompile>
     <ClCompile Include="ui\ServerList_GameSpy_func.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\ServerList</Filter>
+      <Filter>UI\Multiplayer\MM_MP\ServerList</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIListItemAdv.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\ServerList</Filter>
+      <Filter>UI\Multiplayer\MM_MP\ServerList</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIListItemServer.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\ServerList</Filter>
+      <Filter>UI\Multiplayer\MM_MP\ServerList</Filter>
     </ClCompile>
     <ClCompile Include="ui\TeamInfo.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\MM_MP\TeamInfo</Filter>
+      <Filter>UI\Multiplayer\MM_MP\TeamInfo</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIStats.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIStatsPlayerInfo.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIStatsPlayerList.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIStatsIcon.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats\icons</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats\icons</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIFrags.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats\frag_wnd</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats\frag_wnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIFrags2.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats\frag_wnd</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats\frag_wnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIStatsWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Stats\old</Filter>
+      <Filter>UI\Multiplayer\HUD\Stats\old</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIChatWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\Chat</Filter>
+      <Filter>UI\Multiplayer\HUD\Chat</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIGameLog.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\GameLog</Filter>
+      <Filter>UI\Multiplayer\HUD\GameLog</Filter>
     </ClCompile>
     <ClCompile Include="ui\UISpeechMenu.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\SpeechMenu</Filter>
+      <Filter>UI\Multiplayer\HUD\SpeechMenu</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIPdaKillMessage.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\HUD\common</Filter>
+      <Filter>UI\Multiplayer\HUD\common</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIBuyWndShared.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMpItemsStoreWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMpTradeWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMpTradeWnd_init.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMpTradeWnd_items.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMpTradeWnd_misc.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMpTradeWnd_trade.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMpTradeWnd_wpn.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\Restrictions.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\rank_restrictions</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd\rank_restrictions</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIBuyWeaponTab.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\TAB</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd\TAB</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITabButtonMP.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\TAB</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd\TAB</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIBagWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\buy_wnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd\buy_wnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIBuyWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\BuyWeaponWnd\buy_wnd</Filter>
+      <Filter>UI\Multiplayer\BuyWeaponWnd\buy_wnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMapDesc.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\MapDesc</Filter>
+      <Filter>UI\Multiplayer\team_skin_info\MapDesc</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMapInfo.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\MapDesc\MapInfo</Filter>
+      <Filter>UI\Multiplayer\team_skin_info\MapDesc\MapInfo</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIMapInfo_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\MapDesc\MapInfo</Filter>
+      <Filter>UI\Multiplayer\team_skin_info\MapDesc\MapInfo</Filter>
     </ClCompile>
     <ClCompile Include="ui\UISpawnWnd.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\Spawn</Filter>
+      <Filter>UI\Multiplayer\team_skin_info\Spawn</Filter>
     </ClCompile>
     <ClCompile Include="ui\UISkinSelector.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\SkinSelector</Filter>
+      <Filter>UI\Multiplayer\team_skin_info\SkinSelector</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIStatix.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\team_skin_info\SkinSelector</Filter>
+      <Filter>UI\Multiplayer\team_skin_info\SkinSelector</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIChangeMap.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\Voting</Filter>
+      <Filter>UI\Multiplayer\Voting</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIChangeWeather.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\Voting</Filter>
+      <Filter>UI\Multiplayer\Voting</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIKickPlayer.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\Voting</Filter>
+      <Filter>UI\Multiplayer\Voting</Filter>
     </ClCompile>
     <ClCompile Include="ui\UITextVote.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\Voting</Filter>
+      <Filter>UI\Multiplayer\Voting</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIVote.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\Voting</Filter>
+      <Filter>UI\Multiplayer\Voting</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIVotingCategory.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Multiplayer\Voting</Filter>
+      <Filter>UI\Multiplayer\Voting</Filter>
     </ClCompile>
     <ClCompile Include="HUDCrosshair.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Cursor</Filter>
+      <Filter>UI\Cursor</Filter>
     </ClCompile>
     <ClCompile Include="HUDTarget.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Cursor</Filter>
+      <Filter>UI\Cursor</Filter>
     </ClCompile>
     <ClCompile Include="UICursor.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Cursor</Filter>
+      <Filter>UI\Cursor</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIGameTutorial.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Tutorial</Filter>
+      <Filter>UI\Tutorial</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIGameTutorialSimpleItem.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Tutorial</Filter>
+      <Filter>UI\Tutorial</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIGameTutorialVideoItem.cpp">
-      <Filter>AI\AScript\ScriptClasses\UI\Tutorial</Filter>
+      <Filter>UI\Tutorial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

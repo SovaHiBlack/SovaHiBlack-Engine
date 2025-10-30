@@ -1,4 +1,4 @@
-_preset Extreme
+_preset Default
 ai_use_torch_dynamic_lights on
 bemsg 1
 unbindall
@@ -88,7 +88,7 @@ mm_net_filter_wo_ff on
 mm_net_filter_wo_pass on
 mm_net_srv_gamemode st_deathmatch
 mm_net_srv_maxplayers 32
-mm_net_srv_name VINETA
+mm_net_srv_name MARKETING1
 mm_net_srv_reinforcement_type 1
 mm_net_use_battleye off
 mm_net_weather_rateofchange 1.
@@ -110,9 +110,9 @@ net_sv_log_data off
 net_sv_pending_lim 2
 net_sv_update_rate 30
 ph_frequency 100.00000
-ph_iterations 38
+ph_iterations 18
 r1_dlights on
-r1_dlights_clip 75.
+r1_dlights_clip 30.
 r1_glows_per_frame 16
 r1_lmodel_lerp 0.1
 r1_pps_u 0.
@@ -145,7 +145,7 @@ r2_ls_squality 1.
 r2_ls_ssm_kernel 0.7
 r2_mblur 0.5
 r2_parallax_h 0.02
-r2_slight_fade 2.
+r2_slight_fade 1.
 r2_ssa_lod_a 48.
 r2_ssa_lod_b 32.
 r2_sun on
@@ -153,7 +153,7 @@ r2_sun_depth_far_bias 0.
 r2_sun_depth_far_scale 1.
 r2_sun_depth_near_bias -0.00004
 r2_sun_depth_near_scale 1.00001
-r2_sun_details on
+r2_sun_details off
 r2_sun_focus off
 r2_sun_lumscale 1.
 r2_sun_lumscale_amb 1.
@@ -173,25 +173,25 @@ r2_wait_sleep 0
 r2_zfill off
 r2_zfill_depth 0.1
 r2em 0.
-r__detail_density 0.2
-r__geometry_lod 1.2
-r__supersample 4
-r__tf_aniso 16
-renderer renderer_r2
+r__detail_density 0.3
+r__geometry_lod 1.
+r__supersample 1
+r__tf_aniso 4
+renderer renderer_r1
 rs_c_brightness 1.
 rs_c_contrast 1.
 rs_c_gamma 1.
 rs_fullscreen on
-rs_refresh_60hz on
+rs_refresh_60hz off
 rs_stats off
-rs_v_sync on
-rs_vis_distance 1.5
+rs_v_sync off
+rs_vis_distance 1.
 snd_acceleration on
 snd_cache_size 16
 snd_efx on
 snd_targets 16
-snd_volume_eff 0.3
-snd_volume_music 0.2
+snd_volume_eff 1.
+snd_volume_music 0.7
 sv_anomalies_enabled 1
 sv_anomalies_length 3
 sv_artefact_respawn_delta 30
@@ -236,4 +236,4 @@ sv_vote_quota 0.51
 sv_vote_time 1.
 sv_warm_up 0
 texture_lod 0
-vid_mode 1920x1080
+vid_mode 1024x768

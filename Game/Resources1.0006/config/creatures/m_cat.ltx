@@ -135,19 +135,13 @@ Accel_Generic			= 1.5
 Accel_Calm			= 1.5
 Accel_Aggressive		= 4.5
 
-;attack parameters
+;------------------------------------------------------------------------------
+; Attack parameters
+;------------------------------------------------------------------------------
 MinAttackDist		= 1.4
 MaxAttackDist		= 2.0
-
 as_min_dist				= 0.3
 as_step					= 0.4
-
-DayTime_Begin		= 6			; эрўрыр фэ  фы  ьюэёЄЁр
-DayTime_End			= 21		; ъюэхЎ фэ  фы  ьюэёЄЁр
-Min_Satiety		= 0.4	;0.6		; ьшэ. эюЁьр ёvЄюёЄш (ьхэ№°х - єцх уюыюфэvщ)
-Max_Satiety		= 1.0		; ьръё. эюЁьр ёvЄюёЄш (сюы№°х - юўхэ№ ёvЄvщ)
-
-
 
 ;							  fSearchRange,fCoverFromEnemyWeight,fOptEnemyDistance,fOptEnemyDistanceWeight,fMinEnemyDistance,fMinEnemyDistanceWeight,fMaxEnemyDistance,fMaxEnemyDistanceWeight
 selector_cover           =      20.0,            -1000.0,                30.0,                 0.0,                  0.0,              100000.0,             100000.0,               1000.0,
@@ -191,10 +185,11 @@ eat_freq					= 5.0					;частота укусов в сек
 eat_slice					= 0.01					;увеличение сытости при 1 укусе
 eat_slice_weight			= 10.0					;уменьшение еды у трупа
 
-satiety_threshold		= 0.5							; below this value monster fill hunger
-distance_to_corpse	= 1.5		; фшёЄ. фю ЄЁєяр, яЁш ъюЄюЁющ юэ яхЁхїюфшЄ т ёюёЄю эшх хфv
+distance_to_corpse			= 1.5					;дистанция до трупа, при которой он переходит в состояние еды
 
+;------------------------------------------------------------------------------
 ; Morale
+;------------------------------------------------------------------------------
 Morale_Hit_Quant				= 0.1
 Morale_Attack_Success_Quant		= 0.1
 Morale_Take_Heart_Speed			= 0.1

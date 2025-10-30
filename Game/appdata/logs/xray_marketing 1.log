@@ -1,0 +1,215 @@
+* Detected CPU: GenuineIntel P3 family, F6/M10/S9, 2694.00 mhz, 30-clk 'rdtsc'
+* CPU Features: RDTSC, MMX, SSE, SSE2
+
+Initializing File System...
+using fs-ltx fsgame.ltx
+FS: 30112 files cached, 5158Kb memory used.
+Init FileSystem 5.305060 sec
+'X-Ray Engine' build 9762, Oct 30 2025
+
+Initializing Engine...
+Executing config-script "user.ltx"...
+! Cannot open script file [user.ltx]
+Starting INPUT device...
+Loading DLL: xrRender_R1.dll
+Loading DLL: xrGame.dll
+! Unable to find Software\GSC Game World\STALKER-SHOC\ in registry
+* [win32]: free[4045956 K], reserved[51912 K], committed[96372 K]
+* [ D3D ]: textures[0 K]
+* [x-ray]: crt heap[9344 K], process heap[9344 K], game lua[0 K], engine lua[0 K], render[0 K]
+* [x-ray]: economy: strings[1981 K], smem[0 K]
+Executing config-script "d:\engine\sovahiblack-engine\game\resourcesogsm2.4.3\config\default_controls.ltx"...
+! cant convert dik_name for dik[144], prop=[
+[d:\engine\sovahiblack-engine\game\resourcesogsm2.4.3\config\default_controls.ltx] successfully loaded.
+Executing config-script "user.ltx"...
+! Cannot open script file [user.ltx]
+SOUND: OpenAL: enumerate devices...
+SOUND: OpenAL: EnumerationExtension Present
+devices Generic Software
+SOUND: OpenAL: system  default SndDevice name is Generic Software
+SOUND: OpenAL: All available devices:
+1. Generic Software, Spec Version 1.1 (default)
+SOUND: OpenAL: SelectBestDevice is Generic Software 1.1
+SOUND: OpenAL: Required device: Generic Software. Created device: Generic Software.
+* sound: EAX 2.0 extension: absent
+* sound: EAX 2.0 deferred: absent
+* sound : cache: 32773 kb, 3805 lines, 8820 bpl
+Starting RENDER device...
+* GPU [vendor:8086]-[device:152]: Intel(R) HD Graphics
+* GPU driver: 10.18.10.4252
+* CREATE: DeviceREF: 1
+* Vertex Processor: PURE HARDWARE
+*     Texture memory: 1783 M
+*          DDI-level: 9.0
+* GPU shading: vs(fffe0300/3.0/30), ps(ffff0300/3.0/30)
+* GPU vertex cache: recognized, 32
+* DVB created: 1536K
+* DIB created: 512K
+count of .thm files=6
+load time=171 ms
+* distortion: used, dev(30),need(14)
+* SSample: 1024x768
+* SSample: enabled
+- r__tf_aniso 4
+- r1_tf_mipbias 0.
+Starting engine...
+Loading DLL: xrGameSpy.dll
+* DVB created: 1536K
+* DIB created: 512K
+- r__tf_aniso 4
+- r1_tf_mipbias 0.
+* SSample: 1024x768
+* SSample: enabled
+* GPU shading: vs(fffe0300/3.0/30), ps(ffff0300/3.0/30)
+* GPU vertex cache: recognized, 32
+*** RESET [0 ms]
+* MEMORY USAGE: 85787 K
+* DVB created: 1536K
+* DIB created: 512K
+- r__tf_aniso 4
+- r1_tf_mipbias 0.
+* SSample: 1024x768
+* SSample: enabled
+* GPU shading: vs(fffe0300/3.0/30), ps(ffff0300/3.0/30)
+* GPU vertex cache: recognized, 32
+*** RESET [161 ms]
+binaries\xrengine.exe 
+* phase time: 0 ms
+* phase cmem: 85816 K
+Кэширование объектов...
+Loading objects...
+Loading models...
+* [prefetch] time:    10711 ms
+* [prefetch] memory:  271547Kb
+* phase time: 10786 ms
+* phase cmem: 350949 K
+Сервер: Старт...
+* phase time: 101 ms
+* phase cmem: 342098 K
+Сервер: Загрузка симуляции жизни...
+* phase time: 12 ms
+* phase cmem: 342098 K
+Создание новой игры...
+* Creating new game...
+* Loading spawn registry...
+* 8641 spawn points are successfully loaded
+* Saving spawns...
+* Saving objects...
+* 15501 objects are successfully saved
+* Game all.sav is successfully saved to file 'd:\engine\sovahiblack-engine\game\appdata\savedgames\all.sav'
+* New game is successfully created!
+* phase time: 4745 ms
+* phase cmem: 371731 K
+Сервер: Соединяемся...
+MaxPlayers = 32
+* phase time: 41 ms
+* phase cmem: 371814 K
+Клиент: Соединение с localhost...
+# Player not found. New player created.
+* client : connection accepted - <>
+* phase time: 15 ms
+* phase cmem: 371838 K
+Открытие потока...
+* phase time: 17 ms
+* phase cmem: 371838 K
+Загрузка формы объектов...
+* phase time: 3324 ms
+* phase cmem: 444506 K
+Загрузка шейдеров...
+* phase time: 359 ms
+* phase cmem: 445904 K
+Загрузка геометрии...
+* [Loading VB] 65532 verts, 2047 Kb
+* [Loading VB] 65525 verts, 2047 Kb
+* [Loading VB] 65535 verts, 2047 Kb
+* [Loading VB] 65466 verts, 2045 Kb
+* [Loading VB] 17208 verts, 537 Kb
+* [Loading VB] 65533 verts, 2047 Kb
+* [Loading VB] 65534 verts, 2047 Kb
+* [Loading VB] 65534 verts, 2047 Kb
+* [Loading VB] 65531 verts, 2047 Kb
+* [Loading VB] 65535 verts, 2047 Kb
+* [Loading VB] 65535 verts, 2047 Kb
+* [Loading VB] 46595 verts, 1456 Kb
+* [Loading VB] 65534 verts, 2047 Kb
+* [Loading VB] 65533 verts, 2047 Kb
+* [Loading VB] 65535 verts, 2047 Kb
+* [Loading VB] 65532 verts, 2047 Kb
+* [Loading VB] 65533 verts, 2047 Kb
+* [Loading VB] 65533 verts, 2047 Kb
+* [Loading VB] 53181 verts, 1661 Kb
+* [Loading IB] 1048575 indices, 2047 Kb
+* [Loading IB] 1048572 indices, 2047 Kb
+* [Loading IB] 1048572 indices, 2047 Kb
+* [Loading IB] 1048572 indices, 2047 Kb
+* [Loading IB] 1048572 indices, 2047 Kb
+* [Loading IB] 1048572 indices, 2047 Kb
+* [Loading IB] 1048575 indices, 2047 Kb
+* [Loading IB] 1048572 indices, 2047 Kb
+* [Loading IB] 1048575 indices, 2047 Kb
+* [Loading IB] 228285 indices, 445 Kb
+* phase time: 462 ms
+* phase cmem: 501614 K
+Загрузка базы пространств...
+* phase time: 1037 ms
+* phase cmem: 505513 K
+Загрузка детальных объектов...
+* [DETAILS] VertexConsts(256), Batch(61)
+* [DETAILS] 40687 v(20), 26352 p
+* [DETAILS] Batch(61), VB(794K), IB(154K)
+* phase time: 98 ms
+* phase cmem: 506504 K
+Загрузка секторов и порталов...
+* Loading HOM: d:\engine\sovahiblack-engine\game\resourcesogsm2.4.3\levels\l01_escape\level.hom
+* phase time: 27 ms
+* phase cmem: 506677 K
+Загрузка ИИ объектов...
+- Loading music tracks from 'l01_escape_musics'...
+* phase time: 136 ms
+* phase cmem: 506717 K
+Клиент: Создание...
+- Game configuring : Started 
+- Game configuring : Finished 
+* phase time: 389 ms
+* phase cmem: 514131 K
+Загрузка текстур...
+* t-report - base: 871, 247752 K
+* t-report - lmap: 10, 10241 K
+***FATAL***: Too many lmap-textures (limit: 8 textures or 32M).
+        Reduce pixel density (worse) or use more vertex lighting (better).
+* phase time: 3375 ms
+* phase cmem: 644792 K
+Клиент: Синхронизация...
+* phase time: 29 ms
+* phase cmem: 644792 K
+* [win32]: free[3211184 K], reserved[96000 K], committed[887056 K]
+* [ D3D ]: textures[257993 K]
+* [x-ray]: crt heap[644792 K], process heap[644792 K], game lua[28567 K], engine lua[233 K], render[0 K]
+* [x-ray]: economy: strings[4538 K], smem[15587 K]
+Intro start 5675
+* MEMORY USAGE: 669562 K
+- Disconnect
+- Destroying level
+DestroySingleton::RefCounter: 0
+DestroySingleton::RefCounter: 0
+DestroySingleton::RefCounter: 0
+DestroySingleton::RefCounter: 0
+Input:  1
+Config-file [d:\engine\sovahiblack-engine\game\appdata\user.ltx] saved successfully
+Destroying Direct3D...
+* RM_Dump: textures  : 0
+* RM_Dump: rtargets  : 0
+* RM_Dump: rtargetsc : 0
+* RM_Dump: vs        : 0
+* RM_Dump: ps        : 0
+* RM_Dump: dcl       : 0
+* RM_Dump: states    : 0
+* RM_Dump: tex_list  : 0
+* RM_Dump: matrices  : 0
+* RM_Dump: lst_constants: 0
+* RM_Dump: v_passes  : 0
+* RM_Dump: v_elements: 0
+* RM_Dump: v_shaders : 0
+refCount:pBaseZB 1
+refCount:pBaseRT 1
+DeviceREF: 1

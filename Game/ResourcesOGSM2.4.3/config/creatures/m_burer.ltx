@@ -66,9 +66,9 @@ Accel_Generic			= 1.5
 Accel_Calm				= 1.5
 Accel_Aggressive		= 200 ;6.5
 
-;--------------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Attack parameters
-;--------------------------------------------------------------------------
+;------------------------------------------------------------------------------
 MinAttackDist			= 1.5
 MaxAttackDist			= 2.5
 as_min_dist				= 0.5
@@ -104,12 +104,18 @@ eat_freq					= 5.0					;частота укусов в сек
 eat_slice					= 0.01					;увеличение сытости при 1 укусе
 eat_slice_weight			= 10.0					;уменьшение еды у трупа
 
-satiety_threshold			= 0.5							; below this value monster fill hunger
+distance_to_corpse			= 1.2					;дистанция до трупа, при которой он переходит в состояние еды
 
-DayTime_Begin			= 0			; начала дня для монстра
-DayTime_End				= 21		; конец дня для монстра
-Min_Satiety				= 0.6		; мин. норма сытости (меньше - уже голодный)
-Max_Satiety				= 0.9		; макс. норма сытости (больше - очень сытый)
+;------------------------------------------------------------------------------
+; Morale
+;------------------------------------------------------------------------------
+Morale_Hit_Quant				= 0.1
+Morale_Attack_Success_Quant		= 0.2
+Morale_Take_Heart_Speed			= 0.1
+Morale_Despondent_Speed			= 0.1
+Morale_Stable_Speed				= 0.1
+Morale_Despondent_Threashold	= 0.5
+
 
 
 ;---------------------------------------------------------
@@ -167,16 +173,6 @@ luminocity_factor			= 0.5 				; фактор освещения (только для Актёра)
 transparency_threshold		= 0.25
 
 
-;-------------------------------------------------------------------------
-; Morale
-;-------------------------------------------------------------------------
-
-Morale_Hit_Quant				= 0.1
-Morale_Attack_Success_Quant		= 0.2
-Morale_Take_Heart_Speed			= 0.1
-Morale_Despondent_Speed			= 0.1
-Morale_Stable_Speed				= 0.1
-Morale_Despondent_Threashold	= 0.5
 
 
 ;-------------------------------------------------------------------------
@@ -247,7 +243,7 @@ weapon_usage			= 0							; boolean
 actor_restrictor		= medium_monster ;medium_monster,stalker,none
 
 
-distance_to_corpse		= 1.2		; дист. до трупа, при которой он переходит в состояние еды
+
 
 selector_approach		=  20.0,            1.0,                 1000.0,             0.0,               0.0,              1000.0,				10000.0,      
 terrain					= burer_terrain

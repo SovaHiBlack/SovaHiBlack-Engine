@@ -74,7 +74,9 @@ Accel_Aggressive		= 6.5
 
 attack_effector			= m_boar_attack_effector
 attack_params			= m_boar_attack_params
-;attack parameters
+;------------------------------------------------------------------------------
+; Attack parameters
+;------------------------------------------------------------------------------
 MinAttackDist			= 2.6	
 MaxAttackDist			= 3.2
 as_min_dist				= 1.4
@@ -112,7 +114,18 @@ eat_freq					= 5.0					;частота укусов в сек
 eat_slice					= 0.01					;увеличение сытости при 1 укусе
 eat_slice_weight			= 10.0					;уменьшение еды у трупа
 
-satiety_threshold			= 0.5							; below this value monster fill hunger
+distance_to_corpse			= 2.1					;дистанция до трупа, при которой он переходит в состояние еды
+
+;------------------------------------------------------------------------------
+; Morale
+;------------------------------------------------------------------------------
+Morale_Hit_Quant				= 0.02
+Morale_Attack_Success_Quant		= 0.1
+Morale_Take_Heart_Speed			= 0.1
+Morale_Despondent_Speed			= 0.1
+Morale_Stable_Speed				= 0.05
+Morale_Despondent_Threashold	= 0.5
+
 
 ;------------------------------------------------------------------------
 ; Sound
@@ -162,15 +175,7 @@ velocity_factor		     	= 0.5
 luminocity_factor			= 0.5 				; фактор освещения (только для Актёра)
 transparency_threshold		= 0.25
 
-;-------------------------------------------------------------------------
-; Morale
-;-------------------------------------------------------------------------
-Morale_Hit_Quant				= 0.02
-Morale_Attack_Success_Quant		= 0.1
-Morale_Take_Heart_Speed			= 0.1
-Morale_Despondent_Speed			= 0.1
-Morale_Stable_Speed				= 0.05
-Morale_Despondent_Threashold	= 0.5
+
 
 ;-------------------------------------------------------------------------
 ; Damages
@@ -217,13 +222,7 @@ actor_restrictor		= medium_monster ;medium_monster,stalker,none
 step_params				= m_boar_step_params
 LegsCount				= 4
 
-DayTime_Begin					= 0			; эрўрыр фэ  фы  ьюэёЄЁр
-DayTime_End						= 21		; ъюэхЎ фэ  фы  ьюэёЄЁр
-
-distance_to_corpse				= 2.1		; фшёЄ. фю ЄЁєяр, яЁш ъюЄюЁющ юэ яхЁхїюфшЄ т ёюёЄю эшх хфv
-
 terrain							= boar_terrain
-
 
 material				= creatures\hoof
 

@@ -19,9 +19,9 @@ struct SMonsterSettings {
 
 	// -------------------------------------------------------
 
-	u32						m_dwDayTimeBegin;
-	u32						m_dwDayTimeEnd;
-	float					satiety_threshold;
+//	u32						m_dwDayTimeBegin; //no used
+//	u32						m_dwDayTimeEnd; //no used
+//	float					satiety_threshold; //no used
 	
 	// ----------------------------------------------------------- 
 
