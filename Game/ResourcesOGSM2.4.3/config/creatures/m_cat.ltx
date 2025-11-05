@@ -1,8 +1,16 @@
 [m_cat_e]:monster_base
-GroupControlSection	= spawn_group
-;$spawn              = "monsters\cat"			; option for Level Editor
+GroupControlSection					= spawn_group
+;$spawn								= "monsters\cat"			; option for Level Editor
 $npc			    = on						; option for Level Editor
 ;$prefetch 			= 16
+
+visual				= monsters\cat\cat
+corpse_visual		= monsters\cat\cat
+icon = ui_npc_monster_cat	
+
+;------------------------------------------------------------------------------
+; Offline Alife
+;------------------------------------------------------------------------------
 Scheduled		    = on						; option for ALife Simulator
 Human		     	= off						; option for ALife Simulator
 Health				= 100						; option for ALife Simulator
@@ -10,11 +18,9 @@ MinSpeed		    = 1.0						; option for ALife Simulator
 MaxSpeed		    = 1.5						; option for ALife Simulator
 going_speed         = 1.0                      ; option for ALife Simulator
 search_speed        = .5                       ; option for ALife Simulator
-visual				= monsters\cat\cat
-corpse_visual		= monsters\cat\cat
-icon = ui_npc_monster_cat	
+
 MaxHealthValue		= 100			; range [0..200]
-DynamicObjectsCount	= 32
+
 
 cform                = skeleton					; collision class
 class                = SM_CAT_S					; AI class
@@ -32,26 +38,25 @@ bone_head			 = bip01_head				; bone name
 bone_fire			 = bip01_head				; bone name
 weapon_usage		 = 0						; boolean
 
-;---------------------------------------------------------------------
+smart_terrain_choose_interval	= 00:15:00
+
+critical_wound_threshold		= 0.4
+critical_wound_decrease_quant	= 0.
+
+;------------------------------------------------------------------------------
 ; Physics
-;---------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ph_box0_center 		 = 0.0,  0.3,  0.0
 ph_box0_size 		 = 0.30, 0.3,  0.30
 ph_box1_center 		 = 0.0,  0.3,  0.0
 ph_box1_size 		 = 0.30, 0.3,  0.30
 ph_crash_speed_min			= 10
 ph_crash_speed_max			= 30
-ph_collision_damage_factor	= 0.1
 ph_mass 		     = 50						; also it's the food
-
-smart_terrain_choose_interval	= 00:15:00
-
-critical_wound_threshold		= 0.4
-critical_wound_decrease_quant	= 0.
+ph_collision_damage_factor	= 0.1
 
 destroyed_vis_name	 = physics\dead_body\skelet_crash_monster
 
-;---------------------------------------------------------------------
 ph_skeleton_airr_lin_factor   = -0.4
 ph_skeleton_airr_ang_factor   = -0.2
 ph_skeleton_hinger_factor1    = 1.0
@@ -59,29 +64,11 @@ ph_skeleton_ddelay            = 5.0
 ph_skel_fatal_impulse_factor  = 2.75
 ph_after_death_velocity_factor= 0.75
 ph_skel_shot_up_factor        = 0.25
-;---------------------------------------------------------------------
 
-SoundThreshold		 = 0.06						; range [0..1]
-
-
-eye_fov				 = 110	;140
-eye_range			 = 30	;50	;40;
-
-min_view_distance   		= 0.7				; коэффициент, который множится на eye_range, в зависимости от угла
-max_view_distance	 		= 1.0				; коэффициент, который множится на eye_range, в зависимости от угла
-visibility_threshold	 	= 100.0				; значение, при достижении суммой которого объект считается видимым
-always_visible_distance 	= 0.4
-time_quant					= 0.001
-decrease_value				= 0.01				; значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
-velocity_factor		     	= 0.5
-luminocity_factor			= 0.5 				; фактор освещения (только для Актёра)
-transparency_threshold		= 0.25
-
-max_hear_dist		 = 60
-
-
-
-; speed factors			linear | angular_real | angular_path | min |  max
+;------------------------------------------------------------------------------
+; Movement::Velocities & Acceleration
+;------------------------------------------------------------------------------
+; speed factors				linear | angular_real | angular_path | min   |  max
 Velocity_Stand			= 0,		3.0,			3.0,		1,		1		;0,	1.79,	1,		1
 Velocity_WalkFwdNormal	= 1.2,		1.5,			1.5,		0.2,	2.0
 Velocity_WalkFwdDamaged	= 1.2,		2.14,			2.14,		0.2,	2.0	
@@ -98,10 +85,135 @@ Accel_Aggressive		= 4.5
 ;------------------------------------------------------------------------------
 ; Attack parameters
 ;------------------------------------------------------------------------------
-MinAttackDist		= 1.4
-MaxAttackDist		= 2.0
-as_min_dist				= 0.3
-as_step					= 0.4
+MinAttackDist					= 1.4
+MaxAttackDist					= 2.0
+as_min_dist						= 0.3
+as_step							= 0.4
+
+hit_type						= strike
+
+attack_params					= m_cat_attack_params
+attack_effector					= m_cat_attack_effector
+
+;------------------------------------------------------------------------------
+; Entity Conditions
+;------------------------------------------------------------------------------
+satiety_v						= 0.01					;скорость уменьшения сытости со временем [0...1]
+satiety_power_v					= 0.005					;увеличение силы при уменьшении сытости [0...1]
+satiety_health_v				= 0.001					;увеличение здоровья при уменьшении сытости [0...1]
+radiation_v						= 0.00001				;скорость уменьшения радиации [0...1]
+radiation_health_v				= 0.01					;уменьшение здоровья при воздействии радиации [0...1]
+morale_v						= 0.01					;скорость восстановления морали [0...1]
+psy_health_v					= 0.1					;скорость восстановления psy-здоровья
+bleeding_v						= 0.04					;потеря крови при номинальной ране в секунду
+wound_incarnation_v				= 0.05					;крутизна кривой заживления (какой процент раны заживет в игровую секунду)
+min_wound_size					= 0.01					;минимальный размер раны, после которого она считается зажившей
+health_hit_part					= 1.0					;процент хита, уходящий на отнимание здоровья [0...1]
+power_hit_part					= 1.0					;процент хита, уходящий на отнимание силы [0...1]
+
+immunities_sect					= cat_immunities
+
+;------------------------------------------------------------------------------
+; Eat settings
+;------------------------------------------------------------------------------
+eat_freq						= 5.0					;частота укусов в сек
+eat_slice						= 0.01					;увеличение сытости при 1 укусе
+eat_slice_weight				= 10.0					;уменьшение еды у трупа
+
+distance_to_corpse				= 1.5					;дистанция до трупа, при которой он переходит в состояние еды
+
+;------------------------------------------------------------------------------
+; Morale
+;------------------------------------------------------------------------------
+Morale_Hit_Quant				= 0.1
+Morale_Attack_Success_Quant		= 0.1
+Morale_Take_Heart_Speed			= 0.1
+Morale_Despondent_Speed			= 0.1
+Morale_Stable_Speed				= 0.05
+Morale_Despondent_Threashold	= 0.5
+
+;------------------------------------------------------------------------------
+; Sounds and sound parameters
+;------------------------------------------------------------------------------
+sound_idle						= monsters\cat\idle_
+sound_distant_idle				= monsters\cat\idle_
+sound_eat						= monsters\cat\eat_
+sound_aggressive				= monsters\cat\attack_
+sound_attack_hit				= monsters\cat\hit_
+sound_take_damage				= monsters\cat\damage_
+sound_die						= monsters\cat\die_
+sound_die_in_anomaly			= monsters\cat\die_2
+sound_threaten					= monsters\cat\threat_
+sound_steal						= monsters\cat\steal_
+sound_panic						= monsters\cat\threat_
+
+killer_clsids					= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
+
+idle_sound_delay				= 55000
+eat_sound_delay					= 3000
+attack_sound_delay				= 6000
+
+distant_idle_sound_delay		= 80000
+distant_idle_sound_range		= 100.0
+
+SoundThreshold					= 0.06					;range [0..1]
+max_hear_dist					= 60
+
+;------------------------------------------------------------------------------
+; Vision
+;------------------------------------------------------------------------------
+eye_fov							= 110
+eye_range						= 30
+
+DynamicObjectsCount				= 32					;количество видимых объектов, с которыми может справиться монстр
+
+min_view_distance				= 0.7					;коэффициент, который множится на eye_range, в зависимости от угла
+max_view_distance				= 1.0					;коэффициент, который множится на eye_range, в зависимости от угла
+visibility_threshold			= 100.0					;значение, при достижении суммой которого объект считается видимым
+always_visible_distance			= 0.4
+time_quant						= 0.001
+decrease_value					= 0.01					;значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
+velocity_factor					= 0.5
+luminocity_factor				= 0.5					;фактор освещения (только для Актёра)
+transparency_threshold			= 0.25
+
+
+
+
+
+;-------------------------------------------------------------------------
+; Damages
+;-------------------------------------------------------------------------
+DamagedThreshold		= 0.2
+damage					= m_cat_damage
+
+material				= creatures\medium
+
+step_params				= m_cat_step_params
+
+LegsCount				= 4
+
+; jump parameters
+jump_delay					= 3000
+jump_factor					= 2.0
+jump_ground_trace_range		= 0.8
+jump_hit_trace_range		= 1.0
+jump_build_line_distance	= 0.0
+jump_min_distance			= 3.5
+jump_max_distance			= 6.0
+jump_max_angle				= 0.6
+
+
+;species of monster
+species					= cat
+rank					= 0
+spec_rank				= weak
+community				= cat
+;monster_type			= indoor
+
+
+
+
 
 ;							  fSearchRange,fCoverFromEnemyWeight,fOptEnemyDistance,fOptEnemyDistanceWeight,fMinEnemyDistance,fMinEnemyDistanceWeight,fMaxEnemyDistance,fMaxEnemyDistanceWeight
 selector_cover           =      20.0,            -1000.0,                30.0,                 0.0,                  0.0,              100000.0,             100000.0,               1000.0,
@@ -117,108 +229,6 @@ selector_walk_around	=      20.0,            6.0,                 1000.0,       
 
 
 terrain				 = 255,000,255,255
-
-hit_type = strike
-
-;------------------------------------------------------------------------------
-; Entity Conditions
-;------------------------------------------------------------------------------
-satiety_v					= 0.01					;скорость уменьшения сытости со временем [0...1]
-satiety_power_v				= 0.005					;увеличение силы при уменьшении сытости [0...1]
-satiety_health_v			= 0.001					;увеличение здоровья при уменьшении сытости [0...1]
-radiation_v					= 0.00001				;скорость уменьшения радиации [0...1]
-radiation_health_v			= 0.01					;уменьшение здоровья при воздействии радиации [0...1]
-morale_v					= 0.01					;скорость восстановления морали [0...1]
-psy_health_v				= 0.1					;скорость восстановления psy-здоровья
-bleeding_v					= 0.04					;потеря крови при номинальной ране в секунду
-wound_incarnation_v			= 0.05					;крутизна кривой заживления (какой процент раны заживет в игровую секунду)
-min_wound_size				= 0.01					;минимальный размер раны, после которого она считается зажившей
-health_hit_part				= 1.0					;процент хита, уходящий на отнимание здоровья [0...1]
-power_hit_part				= 1.0					;процент хита, уходящий на отнимание силы [0...1]
-
-immunities_sect				= cat_immunities
-
-;------------------------------------------------------------------------------
-; Eat settings
-;------------------------------------------------------------------------------
-eat_freq					= 5.0					;частота укусов в сек
-eat_slice					= 0.01					;увеличение сытости при 1 укусе
-eat_slice_weight			= 10.0					;уменьшение еды у трупа
-
-distance_to_corpse			= 1.5					;дистанция до трупа, при которой он переходит в состояние еды
-
-;------------------------------------------------------------------------------
-; Morale
-;------------------------------------------------------------------------------
-Morale_Hit_Quant				= 0.1
-Morale_Attack_Success_Quant		= 0.1
-Morale_Take_Heart_Speed			= 0.1
-Morale_Despondent_Speed			= 0.1
-Morale_Stable_Speed				= 0.05
-Morale_Despondent_Threashold	= 0.5
-
-
-; Sounds
-sound_idle				= monsters\cat\idle_
-sound_eat				= monsters\cat\eat_
-sound_aggressive		= monsters\cat\attack_
-sound_attack_hit		= monsters\cat\hit_
-sound_take_damage		= monsters\cat\damage_
-sound_die				= monsters\cat\die_
-sound_threaten			= monsters\cat\threat_
-sound_landing			= monsters\cat\land_
-sound_steal				= monsters\cat\steal_
-sound_panic				= monsters\cat\threat_
-sound_growling			= monsters\cat\attack_1
-sound_die_in_anomaly	= monsters\cat\die_2
-
-killer_clsids				= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
-
-
-; jump parameters
-jump_delay					= 3000
-jump_factor					= 2.0
-jump_ground_trace_range		= 0.8
-jump_hit_trace_range		= 1.0
-jump_build_line_distance	= 0.0
-jump_min_distance			= 3.5
-jump_max_distance			= 6.0
-jump_max_angle				= 0.6
-
-idle_sound_delay		= 55000
-eat_sound_delay			= 3000
-attack_sound_delay		= 6000
-
-sound_distant_idle			= monsters\cat\idle_
-distant_idle_sound_delay	= 80000
-distant_idle_sound_range	= 100.0	
-
-;-------------------------------------------------------------------------
-; Damages
-;-------------------------------------------------------------------------
-DamagedThreshold		= 0.2
-damage					= m_cat_damage
-
-material				= creatures\medium
-
-squad_attack_algorithm	= 1
-
-attack_effector			= m_cat_attack_effector
-
-attack_params			= m_cat_attack_params
-step_params				= m_cat_step_params
-
-LegsCount				= 4
-
-
-;species of monster
-species					= cat
-rank					= 0
-spec_rank				= weak
-community				= cat
-;monster_type			= indoor
-
-
 
 
 [m_cat_attack_params]
@@ -302,9 +312,8 @@ bip01_ponytail2		= 1.0, -1, 1.5
 
 
 [cat_weak]:m_cat_e	
-$spawn = "monsters\cat"	
+$spawn								= "monsters\cat"
 Health = 100
-MaxHealthValue = 100
 immunities_sect = cat_immunities_weak
 rank = 0	
 spec_rank = weak	

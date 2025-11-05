@@ -153,8 +153,6 @@ void CPseudoGigant::Load(LPCSTR section)
 	m_threaten_effector.ce_power			= pSettings->r_float(ppi_section,"ce_power");
 
 	// --------------------------------------------------------------------------------
-	
-
 	::Sound->create(m_sound_threaten_hit,pSettings->r_string(section,"sound_threaten_hit"),		st_Effect,SOUND_TYPE_WORLD);
 	::Sound->create(m_sound_start_threaten,pSettings->r_string(section,"sound_threaten_start"), st_Effect,SOUND_TYPE_MONSTER_ATTACKING);
 

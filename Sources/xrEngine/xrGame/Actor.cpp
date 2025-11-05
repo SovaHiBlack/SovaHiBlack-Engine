@@ -290,12 +290,6 @@ void CActor::Load	(LPCSTR section )
 	bb.set	(vBOX_center,vBOX_center); bb.grow(vBOX_size);
 	character_physics_support()->movement()->SetBox		(0,bb);
 
-	//// m_PhysicMovementControl: Foots
-	//Fvector	vFOOT_center= pSettings->r_fvector3	(section,"ph_foot_center"	);
-	//Fvector	vFOOT_size	= pSettings->r_fvector3	(section,"ph_foot_size"		);
-	//bb.set	(vFOOT_center,vFOOT_center); bb.grow(vFOOT_size);
-	////m_PhysicMovementControl->SetFoots	(vFOOT_center,vFOOT_size);
-
 	// m_PhysicMovementControl: Crash speed and mass
 	float	cs_min		= pSettings->r_float	(section,"ph_crash_speed_min"	);
 	float	cs_max		= pSettings->r_float	(section,"ph_crash_speed_max"	);

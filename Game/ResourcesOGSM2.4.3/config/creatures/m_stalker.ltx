@@ -1,4 +1,8 @@
 [stalker]:common_ph_friction_params_on_npc_death
+GroupControlSection					= spawn_group
+SpaceRestrictionSection				= space_restrictor,zone_mine_field
+attachable_items					= yad,device_torch,attachable_item,hand_radio,bread,vodka,energy_drink,kolbasa,guitar_a,harmonica_a,wpn_binoc,kruglov_flash
+
 class							= AI_STL_S						; Class identifier
 
 can_select_items				= on
@@ -7,7 +11,7 @@ can_select_items				= on
 ef_creature_type				= 17							; option for evaluation functions
 
 ;---LEVEL EDITOR------------------------------------------------------
-$spawn							= "stalkers\stalker"			; option for Level Editor
+$spawn								= "stalkers\stalker"			; option for Level Editor
 $npc							= on							; option for Level Editor
 visual							= actors\hero\stalker_novice.ogf; option for Level Editor
 corpse_visual					= equipments\item_rukzak.ogf	;actors\hero\stalker_novice.ogf; option for Level Editor
@@ -29,11 +33,6 @@ destroyed_vis_name				= physics\Dead_Body\skelet_crash
 
 ;---SCRIPTS-----------------------------------------------------------
 script_binding					= bind_stalker.init
-
-;---GROUP SECTIONS----------------------------------------------------
-GroupControlSection				= spawn_group
-SpaceRestrictionSection 		= space_restrictor,zone_mine_field
-attachable_items				= yad,device_torch,attachable_item,hand_radio,bread, vodka, energy_drink, kolbasa, guitar_a, harmonica_a, wpn_binoc, kruglov_flash
 
 ;---SECTIONS----------------------------------------------------------
 damage							= stalker_damage
@@ -108,7 +107,6 @@ sound_kill_wounded				= help\wounded\kill_wounded_
 sound_enemy_critically_wounded	= fight\enemy_hit\enemy_hit_
 sound_enemy_killed_or_wounded	= fight\enemy_down\enemy_down_
 ; obsolete after next update
-sound_attack					= fight\attack\attack_
 sound_search					= fight\searching_enemy\search_
 ; new after next update
 sound_attack_no_allies				= fight\fire\fire_,fight\threat\threat_distant_
@@ -504,12 +502,12 @@ limping_threshold			= 0.0
 	panic_stand_run_forward		= 7.0
 
 [stalker_trader]:stalker
-$spawn = "stalkers\stalker_trader"			; option for Level Editor
+$spawn								= "stalkers\stalker_trader"			; option for Level Editor
 use_single_item_rule = off
 can_select_items	 = off
 
 [stalker_sakharov]:stalker_trader
-$spawn							= "stalkers\stalker_sakharov"
+$spawn								= "stalkers\stalker_sakharov"
 immunities_sect					= stalker_immunities_sakharov
 
 [stalker_immunities_sakharov]

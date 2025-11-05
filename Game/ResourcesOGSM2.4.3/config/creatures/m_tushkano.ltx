@@ -1,22 +1,17 @@
 [m_tushkano_e]:monster_base
-GroupControlSection	= spawn_group
-SpaceRestrictionSection = space_restrictor,zone_mosquito_bald
-$spawn               = "monsters\old\tushkano"				; option for Level Editor
+GroupControlSection					= spawn_group
+SpaceRestrictionSection				= space_restrictor,zone_mosquito_bald
+$spawn								= "monsters\old\tushkano"				; option for Level Editor
 $npc			     = on						; option for Level Editor
 $prefetch 			 = 16
-Scheduled		     = on						; option for ALife Simulator
-Human		     	 = off						; option for ALife Simulator
-Health			     = 20						; option for ALife Simulator
-MinSpeed		     = 1.0						; option for ALife Simulator
-MaxSpeed		     = 5.0						; option for ALife Simulator
-going_speed          = 5;4.5                      ; option for ALife Simulator
-current_level_going_speed		= 1;2					; option for ALife Simulator
-search_speed         = 1.5                       ; option for ALife Simulator
+
 visual				 = monsters\tushkano\tushkano
 corpse_visual		 = monsters\tushkano\tushkano_dead
 icon				 = ui_npc_monster_tushkano
+
+
 MaxHealthValue		 = 20			; range [0..200]
-DynamicObjectsCount	 = 32
+
 smart_terrain_choose_interval	= 00:15:00
 
 ;---EVALUATION FUNCTIONS----------------------------------------------
@@ -27,27 +22,42 @@ panic_threshold		= 0.0
 
 cform                = skeleton					; collision class
 class                = SM_TUSHK ;AI_TUSH					; AI class
+script_binding  	 = bind_monster.bind
 
 bone_torso			 = bip01_spine1 			; bone name
 bone_head			 = bip01_head				; bone name
 bone_fire			 = bip01_head				; bone name
 weapon_usage		 = 0						; boolean
 
+terrain				 = tushkan_terrain
+
+;------------------------------------------------------------------------------
+; Offline Alife
+;------------------------------------------------------------------------------
+Scheduled		     = on						; option for ALife Simulator
+Human		     	 = off						; option for ALife Simulator
+Health			     = 20						; option for ALife Simulator
+MinSpeed		     = 1.0						; option for ALife Simulator
+MaxSpeed		     = 5.0						; option for ALife Simulator
+going_speed          = 5;4.5                      ; option for ALife Simulator
+current_level_going_speed		= 1;2					; option for ALife Simulator
+search_speed         = 1.5                       ; option for ALife Simulator
+
+
+;------------------------------------------------------------------------------
+; Physics
+;------------------------------------------------------------------------------
 ph_box0_center 		 = 0.0,  0.9,  0.0
 ph_box0_size 		 = 0.35, 0.9,  0.35
 ph_box1_center 		 = 0.0,  0.6,  0.0
 ph_box1_size 		 = 0.40, 0.6,  0.40
 ph_crash_speed_min			= 10
 ph_crash_speed_max			= 30
-ph_collision_damage_factor	= 0.1
 ph_mass 		     = 20
-actor_restrictor	 = medium_monster ;medium_monster,stalker,none
+ph_collision_damage_factor	= 0.1
 
 destroyed_vis_name	 = physics\dead_body\skelet_crash_monster
 
-script_binding  	 = bind_monster.bind
-
-;---------------------------------------------------------------------
 ph_skeleton_airr_lin_factor   = -0.4
 ph_skeleton_airr_ang_factor   = -0.2
 ph_skeleton_hinger_factor1    = 1.0
@@ -55,18 +65,11 @@ ph_skeleton_ddelay            = 5.0
 ph_skel_fatal_impulse_factor  = 2.0
 ph_after_death_velocity_factor= 0.75
 ph_skel_shot_up_factor        = 0.25
-;---------------------------------------------------------------------
 
-SoundThreshold		 = 0.06             ; range [0..1]
-
-max_hear_dist		 = 50
-
-;
-
-ImpulseMin			 = 20.0
-ImpulseMax			 = 35.0 
-
-; speed factors			linear | angular_real | angular_path | min |  max
+;------------------------------------------------------------------------------
+; Movement::Velocities & Acceleration
+;------------------------------------------------------------------------------
+; speed factors				linear | angular_real | angular_path | min   |  max
 Velocity_Stand			= 0,		3.5,			3.5,		1,		1
 Velocity_WalkFwdNormal	= 1.0,		7.5,			7.5,		0.02,	1.8	
 Velocity_RunFwdNormal	= 5.0,		3.5,			3.5,		0.3,	1	
@@ -83,56 +86,43 @@ Accel_Aggressive		= 7.5
 ;------------------------------------------------------------------------------
 ; Attack parameters
 ;------------------------------------------------------------------------------
-MinAttackDist		= 1.2	;0.5
-MaxAttackDist		= 1.8	;3.8
-as_min_dist				= 0.25
-as_step					= 0.25
+MinAttackDist					= 1.2
+MaxAttackDist					= 1.8
+as_min_dist						= 0.25
+as_step							= 0.25
 
-hit_power			 = 1
+hit_type						= wound
+hit_power						= 1
 
-eye_fov				 = 110	;140
-eye_range			 = 30	;50	;40;
-
-min_view_distance   		= 0.7				; коэффициент, который множится на eye_range, в зависимости от угла
-max_view_distance	 		= 1.0				; коэффициент, который множится на eye_range, в зависимости от угла
-visibility_threshold	 	= 100.0				; значение, при достижении суммой которого объект считается видимым
-always_visible_distance 	= 0.4
-time_quant					= 0.001
-decrease_value				= 0.01				; значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
-velocity_factor		     	= 0.5
-luminocity_factor			= 0.5 				; фактор освещения (только для Актёра)
-transparency_threshold		= 0.25
-
-terrain				 = tushkan_terrain
-
-hit_type = wound
+attack_params					= m_tushkano_attack_params
+attack_effector					= small_monster_attack_effector
 
 ;------------------------------------------------------------------------------
 ; Entity Conditions
 ;------------------------------------------------------------------------------
-satiety_v					= 0.00001				;скорость уменьшения сытости со временем [0...1]
-satiety_power_v				= 0.005					;увеличение силы при уменьшении сытости [0...1]
-satiety_health_v			= 0.0001				;увеличение здоровья при уменьшении сытости [0...1]
-radiation_v					= 0.00001				;скорость уменьшения радиации [0...1]
-radiation_health_v			= 0.01					;уменьшение здоровья при воздействии радиации [0...1]
-morale_v					= 0.01					;скорость восстановления морали [0...1]
-psy_health_v				= 0.1					;скорость восстановления psy-здоровья
-bleeding_v					= 0.04					;потеря крови при номинальной ране в секунду
-wound_incarnation_v			= 0.05					;крутизна кривой заживления (какой процент раны заживет в игровую секунду)
-min_wound_size				= 0.01					;минимальный размер раны, после которого она считается зажившей
-health_hit_part				= 1.0					;процент хита, уходящий на отнимание здоровья [0...1]
-power_hit_part				= 1.0					;процент хита, уходящий на отнимание силы [0...1]
+satiety_v						= 0.00001				;скорость уменьшения сытости со временем [0...1]
+satiety_power_v					= 0.005					;увеличение силы при уменьшении сытости [0...1]
+satiety_health_v				= 0.0001				;увеличение здоровья при уменьшении сытости [0...1]
+radiation_v						= 0.00001				;скорость уменьшения радиации [0...1]
+radiation_health_v				= 0.01					;уменьшение здоровья при воздействии радиации [0...1]
+morale_v						= 0.01					;скорость восстановления морали [0...1]
+psy_health_v					= 0.1					;скорость восстановления psy-здоровья
+bleeding_v						= 0.04					;потеря крови при номинальной ране в секунду
+wound_incarnation_v				= 0.05					;крутизна кривой заживления (какой процент раны заживет в игровую секунду)
+min_wound_size					= 0.01					;минимальный размер раны, после которого она считается зажившей
+health_hit_part					= 1.0					;процент хита, уходящий на отнимание здоровья [0...1]
+power_hit_part					= 1.0					;процент хита, уходящий на отнимание силы [0...1]
 
-immunities_sect				= tushkano_immunities
+immunities_sect					= tushkano_immunities
 
 ;------------------------------------------------------------------------------
 ; Eat settings
 ;------------------------------------------------------------------------------
-eat_freq					= 5.0					;частота укусов в сек
-eat_slice					= 0.01					;увеличение сытости при 1 укусе
-eat_slice_weight			= 10.0					;уменьшение еды у трупа
+eat_freq						= 5.0					;частота укусов в сек
+eat_slice						= 0.01					;увеличение сытости при 1 укусе
+eat_slice_weight				= 10.0					;уменьшение еды у трупа
 
-distance_to_corpse			= 1.2					;дистанция до трупа, при которой он переходит в состояние еды
+distance_to_corpse				= 1.2					;дистанция до трупа, при которой он переходит в состояние еды
 
 ;------------------------------------------------------------------------------
 ; Morale
@@ -144,44 +134,61 @@ Morale_Despondent_Speed			= 0.1
 Morale_Stable_Speed				= 0.05
 Morale_Despondent_Threashold	= 0.5
 
+;------------------------------------------------------------------------------
+; Sounds and sound parameters
+;------------------------------------------------------------------------------
+sound_idle						= monsters\tushkano\tushkano_idle_
+sound_distant_idle				= monsters\tushkano\tushkano_idle_
+sound_eat						= monsters\tushkano\tushkano_eat_
+sound_aggressive				= monsters\tushkano\tushkano_aggressive_
+sound_attack_hit				= monsters\tushkano\tushkano_attack_
+sound_take_damage				= monsters\tushkano\tushkano_pain_
+sound_die						= monsters\tushkano\tushkano_death_
+sound_die_in_anomaly			= monsters\tushkano\tushkano_anomaly_
+sound_threaten					= monsters\tushkano\tushkano_threaten_
+sound_steal						= monsters\tushkano\tushkano_idle_
+sound_panic						= monsters\tushkano\tushkano_panic_
 
-sound_idle				= monsters\tushkano\tushkano_idle_
-sound_eat				= monsters\tushkano\tushkano_eat_
-sound_aggressive		= monsters\tushkano\tushkano_aggressive_
-sound_attack_hit		= monsters\tushkano\tushkano_attack_
-sound_take_damage		= monsters\tushkano\tushkano_pain_
-sound_die				= monsters\tushkano\tushkano_death_
-sound_threaten			= monsters\tushkano\tushkano_threaten_
-sound_landing			= monsters\tushkano\tushkano_pain_
-sound_steal				= monsters\tushkano\tushkano_idle_
-sound_panic				= monsters\tushkano\tushkano_panic_
-sound_growling			= monsters\tushkano\tushkano_idle_
-sound_die_in_anomaly	= monsters\tushkano\tushkano_anomaly_
+killer_clsids					= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
 
-killer_clsids			= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
+idle_sound_delay				= 80000
+eat_sound_delay					= 4000
+attack_sound_delay				= 8000
+
+distant_idle_sound_delay		= 80000
+distant_idle_sound_range		= 100.0
+
+SoundThreshold					= 0.06					;range [0..1]
+max_hear_dist					= 50
+
+;------------------------------------------------------------------------------
+; Vision
+;------------------------------------------------------------------------------
+eye_fov							= 110
+eye_range						= 30
+
+DynamicObjectsCount				= 32					;количество видимых объектов, с которыми может справиться монстр
+
+min_view_distance				= 0.7					;коэффициент, который множится на eye_range, в зависимости от угла
+max_view_distance				= 1.0					;коэффициент, который множится на eye_range, в зависимости от угла
+visibility_threshold			= 100.0					;значение, при достижении суммой которого объект считается видимым
+always_visible_distance			= 0.4
+time_quant						= 0.001
+decrease_value					= 0.01					;значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
+velocity_factor					= 0.5
+luminocity_factor				= 0.5 					;фактор освещения (только для Актёра)
+transparency_threshold			= 0.25
 
 
-idle_sound_delay		= 80000
-eat_sound_delay			= 4000
-attack_sound_delay		= 8000
-
-sound_distant_idle			= monsters\tushkano\tushkano_idle_
-distant_idle_sound_delay	= 80000
-distant_idle_sound_range	= 100.0	
 
 DamagedThreshold		= 0.4
 critical_wound_threshold		= -1
 critical_wound_decrease_quant	= 0.
 
-
 material				= creatures\medium
-
-squad_attack_algorithm	= 1
-attack_effector			= small_monster_attack_effector
 
 LegsCount				= 2
 
-attack_params			= m_tushkano_attack_params
 step_params				= m_tushkano_step_params
 damage					= m_tushkano_damage
 
@@ -241,104 +248,104 @@ bip01_head 			= 2.0, -1, 0.5, 10
 ; TODO: KILL THIS LATER
 ;---------------------------
 [m_tushkano_normal]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal_old"
+$spawn								= "monsters\tushkanos\tushkano_normal_old"
 ;---------------------------
 rank 				= 401
 spec_rank			= normal
 community			= tushkano
 
 [tushkano_normal]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank 				= 401
 spec_rank			= normal
 community			= tushkano
 
 [tushkano_weak]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank 				= 0
 spec_rank			= weak
 community			= tushkano
 
 
 [arena_tushkano_1]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank = 401
 spec_rank			= normal
 community			= tushkano
 custom_data = scripts\arena_mob_1.ltx
 
 [arena_tushkano_2]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank = 401
 spec_rank			= normal
 community			= tushkano
 custom_data = scripts\arena_mob_2.ltx
 
 [arena_tushkano_3]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank = 401
 spec_rank			= normal
 community			= tushkano
 custom_data = scripts\arena_mob_3.ltx
 
 [arena_tushkano_4]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank = 401
 spec_rank			= normal
 community			= tushkano
 custom_data = scripts\arena_mob_4.ltx
 
 [arena_tushkano_5]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank = 401
 spec_rank			= normal
 community			= tushkano
 custom_data = scripts\arena_mob_5.ltx
 
 [arena_tushkano_6]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank = 401
 spec_rank			= normal
 community			= tushkano
 custom_data = scripts\arena_mob_6.ltx
 
 [arena_tushkano_7]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank = 401
 spec_rank			= normal
 community			= tushkano
 custom_data = scripts\arena_mob_7.ltx
 
 [arena_tushkano_8]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank = 401
 spec_rank			= normal
 community			= tushkano
 custom_data = scripts\arena_mob_8.ltx
 
 [arena_tushkano_9]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank = 401
 spec_rank			= normal
 community			= tushkano
 custom_data = scripts\arena_mob_9.ltx
 
 [arena_tushkano_10]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank = 401
 spec_rank			= normal
 community			= tushkano
 custom_data = scripts\arena_mob_10.ltx
 
 [arena_tushkano_11]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank = 401
 spec_rank			= normal
 community			= tushkano
 custom_data = scripts\arena_mob_11.ltx
 
 [arena_tushkano_12]:m_tushkano_e
-$spawn				= "monsters\tushkanos\tushkano_normal"
+$spawn								= "monsters\tushkanos\tushkano_normal"
 rank = 401
 spec_rank			= normal
 community			= tushkano

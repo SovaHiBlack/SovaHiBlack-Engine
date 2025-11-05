@@ -1,9 +1,17 @@
 [m_flesh_e]:monster_base
-GroupControlSection	= spawn_group
-SpaceRestrictionSection = space_restrictor,zone_mosquito_bald,zone_gravi_zone
-$spawn               = "monsters\fleshes\flesh_base"	; option for Level Editor
+GroupControlSection					= spawn_group
+SpaceRestrictionSection				= space_restrictor,zone_mosquito_bald,zone_gravi_zone
+$spawn								= "monsters\fleshes\flesh_base"	; option for Level Editor
 $npc			     = on						; option for Level Editor
 $prefetch 			 = 16
+
+visual				 = monsters\flesh\flesh
+corpse_visual		 = monsters\flesh\flesh_dead
+icon				 = ui_npc_monster_flesh
+
+;------------------------------------------------------------------------------
+; Offline Alife
+;------------------------------------------------------------------------------
 Scheduled		     = on						; option for ALife Simulator
 Human		     	 = off						; option for ALife Simulator
 Health			     = 350						; option for ALife Simulator
@@ -12,11 +20,9 @@ MaxSpeed		     = 1.5						; option for ALife Simulator
 going_speed          = 2.0                      ; option for ALife Simulator
 current_level_going_speed		= 1;2					; option for ALife Simulator
 search_speed         = .5                       ; option for ALife Simulator
-visual				 = monsters\flesh\flesh
-corpse_visual		 = monsters\flesh\flesh_dead
-icon				 = ui_npc_monster_flesh
+
 MaxHealthValue		     = 200			; range [0..200]
-DynamicObjectsCount	 = 32
+
 smart_terrain_choose_interval	= 00:15:00
 
 
@@ -38,22 +44,20 @@ bone_head			= bip01_head				; bone name
 bone_fire			= bip01_head				; bone name
 weapon_usage		= 0						; boolean
 
-;---------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Physics
-;---------------------------------------------------------------------
-; movement
+;------------------------------------------------------------------------------
 ph_box0_center 		 = 0.0,  0.9,  0.0
 ph_box0_size 		 = 0.55, 0.9,  0.55
 ph_box1_center 		 = 0.0,  0.6,  0.0
 ph_box1_size 		 = 0.40, 0.6,  0.40
 ph_crash_speed_min			= 10
 ph_crash_speed_max			= 30
-ph_collision_damage_factor	= 0.1
 ph_mass 		     = 200
+ph_collision_damage_factor	= 0.1
 
 destroyed_vis_name	 = physics\dead_body\skelet_crash_monster
 
-;----------------------------------------------------------------------------
 ph_skeleton_airr_lin_factor   = -0.4
 ph_skeleton_airr_ang_factor   = -0.2
 ph_skeleton_hinger_factor1    = 1.0
@@ -61,13 +65,11 @@ ph_skeleton_ddelay            = 5.0
 ph_skel_fatal_impulse_factor  = 2.0
 ph_after_death_velocity_factor= 0.75
 ph_skel_shot_up_factor        = 0.25
-;----------------------------------------------------------------------------
 
-;----------------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
-;----------------------------------------------------------------------------
-
-; speed factors			linear | angular_real | angular_path | min |  max
+;------------------------------------------------------------------------------
+; speed factors				linear | angular_real | angular_path | min   |  max
 Velocity_Stand			= 0,		1.79,			1.79,		1,		1
 Velocity_WalkFwdNormal	= 1.5,		2.0,			2.0,		0.2,	2.0
 Velocity_WalkFwdDamaged	= 1.2,		1.14,			1.14,		0.2,	2.0	
@@ -84,42 +86,42 @@ Accel_Aggressive		= 8.5
 ;------------------------------------------------------------------------------
 ; Attack parameters
 ;------------------------------------------------------------------------------
-MinAttackDist			= 2.3
-MaxAttackDist			= 2.9
-as_min_dist				= 1.3
-as_step					= 0.4
+MinAttackDist					= 2.3
+MaxAttackDist					= 2.9
+as_min_dist						= 1.3
+as_step							= 0.4
 
-attack_effector			= m_flesh_attack_effector
-attack_params			= m_flesh_attack_params
+Melee_Rotation_Factor			= 2.6
 
-Melee_Rotation_Factor	= 2.6
+attack_params					= m_flesh_attack_params
+attack_effector					= m_flesh_attack_effector
 
 ;------------------------------------------------------------------------------
 ; Entity Conditions
 ;------------------------------------------------------------------------------
-satiety_v					= 0.0001				;скорость уменьшения сытости со временем [0...1]
-satiety_power_v				= 0.005					;увеличение силы при уменьшении сытости [0...1]
-satiety_health_v			= 0.0005				;увеличение здоровья при уменьшении сытости [0...1]
-radiation_v					= 0.00001				;скорость уменьшения радиации [0...1]
-radiation_health_v			= 0.01					;уменьшение здоровья при воздействии радиации [0...1]
-morale_v					= 0.01					;скорость восстановления морали [0...1]
-psy_health_v				= 0.1					;скорость восстановления psy-здоровья
-bleeding_v					= 0.04					;потеря крови при номинальной ране в секунду
-wound_incarnation_v			= 0.05					;крутизна кривой заживления (какой процент раны заживет в игровую секунду)
-min_wound_size				= 0.01					;минимальный размер раны, после которого она считается зажившей
-health_hit_part				= 1.0					;процент хита, уходящий на отнимание здоровья [0...1]
-power_hit_part				= 1.0					;процент хита, уходящий на отнимание силы [0...1]
+satiety_v						= 0.0001				;скорость уменьшения сытости со временем [0...1]
+satiety_power_v					= 0.005					;увеличение силы при уменьшении сытости [0...1]
+satiety_health_v				= 0.0005				;увеличение здоровья при уменьшении сытости [0...1]
+radiation_v						= 0.00001				;скорость уменьшения радиации [0...1]
+radiation_health_v				= 0.01					;уменьшение здоровья при воздействии радиации [0...1]
+morale_v						= 0.01					;скорость восстановления морали [0...1]
+psy_health_v					= 0.1					;скорость восстановления psy-здоровья
+bleeding_v						= 0.04					;потеря крови при номинальной ране в секунду
+wound_incarnation_v				= 0.05					;крутизна кривой заживления (какой процент раны заживет в игровую секунду)
+min_wound_size					= 0.01					;минимальный размер раны, после которого она считается зажившей
+health_hit_part					= 1.0					;процент хита, уходящий на отнимание здоровья [0...1]
+power_hit_part					= 1.0					;процент хита, уходящий на отнимание силы [0...1]
 
-immunities_sect				= flesh_immunities
+immunities_sect					= flesh_immunities
 
 ;------------------------------------------------------------------------------
 ; Eat settings
 ;------------------------------------------------------------------------------
-eat_freq					= 5.0					;частота укусов в сек
-eat_slice					= 0.01					;увеличение сытости при 1 укусе
-eat_slice_weight			= 10.0					;уменьшение еды у трупа
+eat_freq						= 5.0					;частота укусов в сек
+eat_slice						= 0.01					;увеличение сытости при 1 укусе
+eat_slice_weight				= 10.0					;уменьшение еды у трупа
 
-distance_to_corpse			= 0.9					;дистанция до трупа, при которой он переходит в состояние еды
+distance_to_corpse				= 0.9					;дистанция до трупа, при которой он переходит в состояние еды
 
 ;------------------------------------------------------------------------------
 ; Morale
@@ -131,55 +133,50 @@ Morale_Despondent_Speed			= 0.1
 Morale_Stable_Speed				= 0.01
 Morale_Despondent_Threashold	= 0.5
 
-
-
-;---------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Sounds and sound parameters
-;---------------------------------------------------------
+;------------------------------------------------------------------------------
+sound_idle						= monsters\flesh\flesh_idle_
+sound_distant_idle				= monsters\flesh\flesh_idle_
+sound_eat						= monsters\flesh\flesh_eat_
+sound_aggressive				= monsters\flesh\flesh_aggressive_
+sound_attack_hit				= monsters\flesh\flesh_attack_
+sound_take_damage				= monsters\flesh\flesh_pain_
+sound_die						= monsters\flesh\flesh_death_
+sound_die_in_anomaly			= monsters\flesh\flesh_anomaly_death_
+sound_threaten					= monsters\flesh\flesh_attack_
+sound_steal						= monsters\biting\def_
+sound_panic						= monsters\flesh\flesh_panic_
 
-SoundThreshold		 = 0.07						; range [0..1]
-max_hear_dist		 = 40
+killer_clsids					= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
 
-sound_idle				= monsters\flesh\flesh_idle_
-sound_eat				= monsters\flesh\flesh_eat_
-sound_aggressive		= monsters\flesh\flesh_aggressive_
-sound_attack_hit		= monsters\flesh\flesh_attack_			;hit_
-sound_take_damage		= monsters\flesh\flesh_pain_
-sound_die				= monsters\flesh\flesh_death_
-sound_threaten			= monsters\flesh\flesh_attack_
-sound_landing			= monsters\biting\def_
-sound_steal				= monsters\biting\def_
-sound_panic				= monsters\flesh\flesh_panic_
-sound_growling			= monsters\biting\def_
-sound_die_in_anomaly	= monsters\flesh\flesh_anomaly_death_
-;sound_distant			= monsters\dog\flesh_distant_	; только для расстояний свыше 200м
+idle_sound_delay				= 85000
+eat_sound_delay					= 3000
+attack_sound_delay				= 6000
 
-killer_clsids			= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
+distant_idle_sound_delay		= 80000
+distant_idle_sound_range		= 100.0
 
-idle_sound_delay		= 85000
-eat_sound_delay			= 3000
-attack_sound_delay		= 6000
+SoundThreshold					= 0.07					;range [0..1]
+max_hear_dist					= 40
 
-sound_distant_idle			= monsters\flesh\flesh_idle_
-distant_idle_sound_delay	= 80000
-distant_idle_sound_range	= 100.0	
-
-;---------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Vision
-;---------------------------------------------------------
+;------------------------------------------------------------------------------
+eye_fov							= 100
+eye_range						= 30
 
-eye_fov					= 100
-eye_range				= 30	;60	;30
+DynamicObjectsCount				= 32					;количество видимых объектов, с которыми может справиться монстр
 
-min_view_distance   		= 0.4				; коэффициент, который множится на eye_range, в зависимости от угла
-max_view_distance	 		= 1.0				; коэффициент, который множится на eye_range, в зависимости от угла
-visibility_threshold	 	= 100.0				; значение, при достижении суммой которого объект считается видимым
-always_visible_distance 	= 0.2
-time_quant					= 0.001
-decrease_value				= 0.01				; значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
-velocity_factor		     	= 0.5
-luminocity_factor			= 0.5 				; фактор освещения (только для Актёра)
-transparency_threshold		= 0.25
+min_view_distance				= 0.4					;коэффициент, который множится на eye_range, в зависимости от угла
+max_view_distance				= 1.0					;коэффициент, который множится на eye_range, в зависимости от угла
+visibility_threshold			= 100.0					;значение, при достижении суммой которого объект считается видимым
+always_visible_distance			= 0.2
+time_quant						= 0.001
+decrease_value					= 0.01					;значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
+velocity_factor					= 0.5
+luminocity_factor				= 0.5					;фактор освещения (только для Актёра)
+transparency_threshold			= 0.25
 
 
 ;-------------------------------------------------------------------------
@@ -320,7 +317,7 @@ stand_attack_3 =	  	0.40,		0.40,		    150,        0.0, 0.5, 1.0,		 -1.0, 1.0, -1
 ;*********************************************************************************
 
 [flesh_weak]:m_flesh_e
-$spawn					= "monsters\fleshes\flesh_01_weak"
+$spawn								= "monsters\fleshes\flesh_01_weak"
 visual					= monsters\flesh\flesh
 corpse_visual			= monsters\flesh\flesh_dead
 icon					= ui_npc_monster_flesh
@@ -358,7 +355,7 @@ stand_attack_3 =	  	0.40,		0.40,		    150,        0.0, 0.5, 1.0,		 -1.0, 1.0, -1
 ;*********************************************************************************
 
 [flesh_normal]:m_flesh_e
-$spawn				= "monsters\fleshes\flesh_02_normal"
+$spawn								= "monsters\fleshes\flesh_02_normal"
 visual				= monsters\flesh\flesh
 corpse_visual		= monsters\flesh\flesh_dead
 icon				= ui_npc_monster_flesh
@@ -398,7 +395,7 @@ stand_attack_3 =	  	0.40,		0.40,		    150,        0.0, 0.5, 1.0,		 -1.0, 1.0, -1
 ;*********************************************************************************
 
 [flesh_strong]:m_flesh_e
-$spawn				= "monsters\fleshes\flesh_03_strong"
+$spawn								= "monsters\fleshes\flesh_03_strong"
 visual				= monsters\flesh\flesh_strong
 icon				= ui_npc_monster_flesh_strong
 panic_threshold		= 0.05	
@@ -434,8 +431,8 @@ stand_attack_3 =	  	0.40,		0.40,		    150,        0.0, 0.5, 1.0,		 -1.0, 1.0, -1
 
 
 [flesh_group]
-GroupControlSection	= spawn_group
-;$spawn              = "monsters\flesh-group"		; option for Level Editor
+GroupControlSection					= spawn_group
+;$spawn								= "monsters\flesh-group"		; option for Level Editor
 $npc			    = on						; option for Level Editor
 Human		     	= off						; option for ALife Simulator
 class               = AI_FLE_G					; AI class

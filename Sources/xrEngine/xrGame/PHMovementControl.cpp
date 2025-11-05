@@ -701,12 +701,8 @@ void CPHMovementControl::SetActorRestrictorRadius(CPHCharacter::ERestrictionType
 	if(m_character&&eCharacterType==actor)
 		static_cast<CPHActorCharacter*>(m_character)->SetRestrictorRadius(rt,r);
 }
-void CPHMovementControl::Load					(LPCSTR section){
-
-	//capture
-	
-	//strcpy(m_capture_bone,pSettings->r_string(section,"capture_bone"));
-	
+void CPHMovementControl::Load					(LPCSTR section)
+{
 	Fbox	bb;
 
 	// m_PhysicMovementControl: BOX
@@ -721,16 +717,11 @@ void CPHMovementControl::Load					(LPCSTR section){
 	bb.set	(vBOX0_center,vBOX0_center); bb.grow(vBOX0_size);
 	SetBox		(0,bb);
 
-	//// m_PhysicMovementControl: Foots
-	//Fvector	vFOOT_center= pSettings->r_fvector3	(section,"ph_foot_center"	);
-	//Fvector	vFOOT_size	= pSettings->r_fvector3	(section,"ph_foot_size"		);
-	//bb.set	(vFOOT_center,vFOOT_center); bb.grow(vFOOT_size);
-	//SetFoots	(vFOOT_center,vFOOT_size);
-
 	// m_PhysicMovementControl: Crash speed and mass
 	float	cs_min		= pSettings->r_float	(section,"ph_crash_speed_min"	);
 	float	cs_max		= pSettings->r_float	(section,"ph_crash_speed_max"	);
 	float	mass		= pSettings->r_float	(section,"ph_mass"				);
+
 	xr_token retrictor_types[]={
 		{ "actor",			CPHCharacter::rtActor},
 		{ "medium_monster",	CPHCharacter::rtMonsterMedium},
@@ -739,23 +730,15 @@ void CPHMovementControl::Load					(LPCSTR section){
 		{ 0,							0}
 	};
 
-	if(pSettings->line_exist(section,"actor_restrictor"))
-		SetRestrictionType(CPHCharacter::ERestrictionType(pSettings->r_token(section,"actor_restrictor",retrictor_types)));
-	fCollisionDamageFactor=READ_IF_EXISTS(pSettings,r_float,section,"ph_collision_damage_factor",fCollisionDamageFactor);
-	R_ASSERT3(fCollisionDamageFactor<=1.f,"ph_collision_damage_factor >1.",section);
+	if (pSettings->line_exist(section, "actor_restrictor"))
+	{
+		SetRestrictionType(CPHCharacter::ERestrictionType(pSettings->r_token(section, "actor_restrictor", retrictor_types)));
+	}
+
+	fCollisionDamageFactor = READ_IF_EXISTS(pSettings, r_float, section, "ph_collision_damage_factor", fCollisionDamageFactor);
+	R_ASSERT3(fCollisionDamageFactor <= 1.f, "ph_collision_damage_factor >1.", section);
 	SetCrashSpeeds	(cs_min,cs_max);
 	SetMass		(mass);
-
-
-	// m_PhysicMovementControl: Frictions
-	//float af, gf, wf;
-	//af					= pSettings->r_float	(section,"ph_friction_air"	);
-	//gf					= pSettings->r_float	(section,"ph_friction_ground");
-	//wf					= pSettings->r_float	(section,"ph_friction_wall"	);
-	//SetFriction	(af,wf,gf);
-
-	// BOX activate
-//	ActivateBox	(0);
 }
 
 void CPHMovementControl::CheckEnvironment(const Fvector &/**V/**/){
@@ -767,11 +750,16 @@ case peAtWall : eEnvironment=peAtWall		;break;
 	}
 }
 
-void CPHMovementControl::GroundNormal(Fvector & norm)		
+void CPHMovementControl::GroundNormal(Fvector& norm)
 {
-if(m_character&&m_character->b_exist)m_character->GroundNormal(norm);
-else norm.set(0.f,1.f,0.f);
-
+	if (m_character && m_character->b_exist)
+	{
+		m_character->GroundNormal(norm);
+	}
+	else
+	{
+		norm.set(0.0f, 1.0f, 0.0f);
+	}
 }
 
 void	CPHMovementControl::SetEnvironment( int enviroment,int old_enviroment){

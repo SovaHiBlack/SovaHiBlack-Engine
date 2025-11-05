@@ -1,12 +1,18 @@
-;=========================================================================================
-; Base Definition
-;=========================================================================================
 [m_gigant_e]:monster_base
-GroupControlSection	= spawn_group
-SpaceRestrictionSection = space_restrictor,zone_mosquito_bald
-$spawn               = "monsters\old\gigant"		; option for Level Editor
+GroupControlSection					= spawn_group
+SpaceRestrictionSection				= space_restrictor,zone_mosquito_bald
+$spawn								= "monsters\old\gigant"		; option for Level Editor
 $npc			     = on						; option for Level Editor
 $prefetch 			 = 16
+
+visual				 = monsters\psevdogigant\psevdogigant
+corpse_visual	     = monsters\psevdogigant\psevdogigant_dead
+icon				 = ui_npc_monster_psevdogigant
+
+
+;------------------------------------------------------------------------------
+; Offline Alife
+;------------------------------------------------------------------------------
 Scheduled		     = on						; option for ALife Simulator
 Human		     	 = off						; option for ALife Simulator
 Health			     = 400						; option for ALife Simulator
@@ -15,12 +21,12 @@ MaxSpeed		     = 5.0						; option for ALife Simulator
 going_speed          = 2;4.5                      ; option for ALife Simulator
 current_level_going_speed		= 1;2					; option for ALife Simulator
 search_speed         = 1.5                       ; option for ALife Simulator
-visual				 = monsters\psevdogigant\psevdogigant
-corpse_visual	     = monsters\psevdogigant\psevdogigant_dead
-icon				 = ui_npc_monster_psevdogigant
+
 MaxHealthValue		     = 200			; range [0..200]
-DynamicObjectsCount	 = 32
+
 smart_terrain_choose_interval	= 00:15:00
+
+
 
 ef_creature_type	= 19							; option for evaluation functions
 ef_weapon_type		= 3
@@ -37,35 +43,32 @@ bone_head			 = bip01_head				; bone name
 bone_fire			 = bip01_head				; bone name
 weapon_usage		 = 0						; boolean
 
-;---------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Physics
-;---------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ph_box0_center 		 = 0.0,  0.9,  0.0
 ph_box0_size 		 = 0.6, 0.9,  0.6
 ph_box1_center 		 = 0.0,  0.6,  0.0
 ph_box1_size 		 = 0.40, 0.6,  0.40
 ph_crash_speed_min			= 100
 ph_crash_speed_max			= 300
-ph_collision_damage_factor	= 0.1
 ph_mass 		     = 1500		;370
+ph_collision_damage_factor	= 0.1
 
 destroyed_vis_name	 = physics\Dead_Body\trupik_crash
 
-;---------------------------------------------------------------------
 ph_skeleton_airr_lin_factor   = 2.0 ;550.0 (изменно из-за того, что убрано домножение коэффициент 0.002 из кода)
 ph_skeleton_airr_ang_factor   = 0.0 ;0.0 (изменно из-за того, что убрано домножение на коэффициент 0.3 из кода (0.0*0.3=0.0))
 ph_skeleton_hinger_factor1    = 1.0 ;1.0 (изменно из-за того, что убрано домножение на коэффициент 5.0 из кода)
 ph_skeleton_ddelay	     	  = 15.0 ;Время изменения значения трения в суставе с момента создания шелла, сек
-
 ph_skel_fatal_impulse_factor  = 12.0
 ph_after_death_velocity_factor= 0.75
 ph_skel_shot_up_factor        = 0.25
-;---------------------------------------------------------------------
 
-;----------------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
-;----------------------------------------------------------------------------
-; speed factors			linear | angular_real | angular_path | min |  max
+;------------------------------------------------------------------------------
+; speed factors				linear | angular_real | angular_path | min   |  max
 Velocity_Stand			= 0,		6.0,			6.0,		1,		1
 Velocity_WalkFwdNormal	= 4.2,		4.0,			4.0,		0.1,	2.5
 Velocity_RunFwdNormal	= 11.0,		4.0,			4.0,		0.2,	1	
@@ -84,52 +87,48 @@ Accel_Aggressive	= 15.5
 ;------------------------------------------------------------------------------
 ; Attack parameters
 ;------------------------------------------------------------------------------
-MinAttackDist		= 1.5	;2.6	;0.5
-MaxAttackDist		= 3.0	;3.5	;3.8
-as_min_dist				= 2.0
-as_step					= 0.3
+MinAttackDist					= 1.5
+MaxAttackDist					= 3.0
+as_min_dist						= 2.0
+as_step							= 0.3
 
-;-----------------------------------------------------------------------
-; Run Attack 
-;-----------------------------------------------------------------------
-Run_Attack_Dist			= 4.5,		8.0
-Run_Attack_Delay		= 3000,		6000 
+hit_type						= wound
 
-;-----------------------------------------------------------------------
+attack_params					= m_gigant_attack_params
+attack_effector					= m_giant_attack_effector
 
-selector_approach		= 20.0,1.0,1000.0,0.0,0.0, 1000.0,	10000.0,      
-
-terrain					= giant_terrain
-
-
-hit_type				= wound
+;------------------------------------------------------------------------------
+; Run Attack
+;------------------------------------------------------------------------------
+Run_Attack_Dist					= 4.5,		8.0
+Run_Attack_Delay				= 3000,		6000
 
 ;------------------------------------------------------------------------------
 ; Entity Conditions
 ;------------------------------------------------------------------------------
-satiety_v					= 0.00001				;скорость уменьшения сытости со временем [0...1]
-satiety_power_v				= 0.001					;увеличение силы при уменьшении сытости [0...1]
-satiety_health_v			= 0.001					;увеличение здоровья при уменьшении сытости [0...1]
-radiation_v					= 0.00001				;скорость уменьшения радиации [0...1]
-radiation_health_v			= 0.01					;уменьшение здоровья при воздействии радиации [0...1]
-morale_v					= 0.01					;скорость восстановления морали [0...1]
-psy_health_v				= 0.1					;скорость восстановления psy-здоровья
-bleeding_v					= 0.01					;потеря крови при номинальной ране в секунду
-wound_incarnation_v			= 0.02					;крутизна кривой заживления (какой процент раны заживет в игровую секунду)
-min_wound_size				= 0.01					;минимальный размер раны, после которого она считается зажившей
-health_hit_part				= 1.0					;процент хита, уходящий на отнимание здоровья [0...1]
-power_hit_part				= 1.0					;процент хита, уходящий на отнимание силы [0...1]
+satiety_v						= 0.00001				;скорость уменьшения сытости со временем [0...1]
+satiety_power_v					= 0.001					;увеличение силы при уменьшении сытости [0...1]
+satiety_health_v				= 0.001					;увеличение здоровья при уменьшении сытости [0...1]
+radiation_v						= 0.00001				;скорость уменьшения радиации [0...1]
+radiation_health_v				= 0.01					;уменьшение здоровья при воздействии радиации [0...1]
+morale_v						= 0.01					;скорость восстановления морали [0...1]
+psy_health_v					= 0.1					;скорость восстановления psy-здоровья
+bleeding_v						= 0.01					;потеря крови при номинальной ране в секунду
+wound_incarnation_v				= 0.02					;крутизна кривой заживления (какой процент раны заживет в игровую секунду)
+min_wound_size					= 0.01					;минимальный размер раны, после которого она считается зажившей
+health_hit_part					= 1.0					;процент хита, уходящий на отнимание здоровья [0...1]
+power_hit_part					= 1.0					;процент хита, уходящий на отнимание силы [0...1]
 
-immunities_sect				= giant_immunities
+immunities_sect					= giant_immunities
 
 ;------------------------------------------------------------------------------
 ; Eat settings
 ;------------------------------------------------------------------------------
-eat_freq					= 5.0					;частота укусов в сек
-eat_slice					= 0.001					;увеличение сытости при 1 укусе
-eat_slice_weight			= 10.0					;уменьшение еды у трупа
+eat_freq						= 5.0					;частота укусов в сек
+eat_slice						= 0.001					;увеличение сытости при 1 укусе
+eat_slice_weight				= 10.0					;уменьшение еды у трупа
 
-distance_to_corpse			= 1.2					;дистанция до трупа, при которой он переходит в состояние еды
+distance_to_corpse				= 1.2					;дистанция до трупа, при которой он переходит в состояние еды
 
 ;------------------------------------------------------------------------------
 ; Morale
@@ -141,68 +140,68 @@ Morale_Despondent_Speed			= 0.1
 Morale_Stable_Speed				= 0.01
 Morale_Despondent_Threashold	= 0.5
 
+;------------------------------------------------------------------------------
+; Sounds and sound parameters
+;------------------------------------------------------------------------------
+sound_idle						= monsters\giant\giant_breath_
+sound_distant_idle				= monsters\giant\giant_breath_
+sound_eat						= monsters\boar\boar_eat_
+sound_aggressive				= monsters\giant\giant_aggressive_
+sound_attack_hit				= monsters\giant\giant_attack_
+sound_take_damage				= monsters\giant\giant_hurt_
+sound_die						= monsters\giant\giant_death_
+sound_die_in_anomaly			= monsters\giant\giant_death_
+sound_threaten					= monsters\giant\giant_threaten_
+sound_steal						= monsters\biting\def_
+sound_panic						= monsters\biting\def_
 
-;----------------------------------------------------------------------------------------
-; Sounds
-;----------------------------------------------------------------------------------------
-sound_idle				= monsters\giant\giant_breath_   ; giant_idle_
-sound_eat				= monsters\boar\boar_eat_
-sound_aggressive		= monsters\giant\giant_aggressive_
-sound_attack_hit		= monsters\giant\giant_attack_
-sound_take_damage		= monsters\giant\giant_hurt_
-sound_die				= monsters\giant\giant_death_
-sound_bkgnd				= monsters\biting\def_
-sound_threaten			= monsters\giant\giant_threaten_   ; boar\threaten_
-sound_landing			= monsters\boar\landing_
-sound_steal				= monsters\biting\def_
-sound_panic				= monsters\biting\def_
-sound_growling			= monsters\biting\def_
-sound_die_in_anomaly	= monsters\giant\giant_death_
+sound_threaten_hit				= device\door_stop
+sound_threaten_start			= monsters\giant\giant_attack_0
 
-sound_threaten_hit		= device\door_stop
-sound_threaten_start	= monsters\giant\giant_attack_0
----------------------------------------------------------------------------
-SoundThreshold		 = 0.1             ; range [0..1]
-max_hear_dist		 = 50
+killer_clsids					= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
 
-;-------------------------------------------------------------------------
+idle_sound_delay				= 85000
+eat_sound_delay					= 3000
+attack_sound_delay				= 14000
+
+distant_idle_sound_delay		= 80000
+distant_idle_sound_range		= 100.0
+
+SoundThreshold					= 0.1					;range [0..1]
+max_hear_dist					= 50
+
+;------------------------------------------------------------------------------
 ; Vision
-;-------------------------------------------------------------------------
-eye_fov				 = 100	;120
-eye_range			 = 40	;80
+;------------------------------------------------------------------------------
+eye_fov							= 100
+eye_range						= 40
 
-min_view_distance   		= 0.5				; коэффициент, который множится на eye_range, в зависимости от угла
-max_view_distance	 		= 1.0				; коэффициент, который множится на eye_range, в зависимости от угла
-visibility_threshold	 	= 100.0				; значение, при достижении суммой которого объект считается видимым
-always_visible_distance 	= 0.3
-time_quant					= 0.001
-decrease_value				= 0.01				; значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
-velocity_factor		     	= 0.5
-luminocity_factor			= 0.5 				; фактор освещения (только для Актёра)
-transparency_threshold		= 0.25
+DynamicObjectsCount				= 32					;количество видимых объектов, с которыми может справиться монстр
+
+min_view_distance				= 0.5					;коэффициент, который множится на eye_range, в зависимости от угла
+max_view_distance				= 1.0					;коэффициент, который множится на eye_range, в зависимости от угла
+visibility_threshold			= 100.0					;значение, при достижении суммой которого объект считается видимым
+always_visible_distance			= 0.3
+time_quant						= 0.001
+decrease_value					= 0.01					;значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
+velocity_factor					= 0.5
+luminocity_factor				= 0.5					;фактор освещения (только для Актёра)
+transparency_threshold			= 0.25
 
 
-killer_clsids			= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
 
 
-idle_sound_delay		= 85000
-eat_sound_delay			= 3000
-attack_sound_delay		= 14000
+;-----------------------------------------------------------------------
 
-sound_distant_idle			= monsters\giant\giant_breath_
-distant_idle_sound_delay	= 80000
-distant_idle_sound_range	= 100.0	
+selector_approach		= 20.0,1.0,1000.0,0.0,0.0, 1000.0,	10000.0,      
 
+terrain					= giant_terrain
 
 DamagedThreshold		= 0.0 ;0.05 ;0.2
 
 material				= creatures\large
-DynamicObjectsCount		= 32
 
-squad_attack_algorithm	= 1
-attack_effector			= m_giant_attack_effector
 
-attack_params			= m_gigant_attack_params
 step_params				= m_gigant_step_params
 damage					= m_giant_damage
 threaten_effector		= pseudogigant_threaten_effector
@@ -370,14 +369,14 @@ fire_wound_immunity  	= 0.05
 ; TODO: KILL THIS LATER
 ;---------------------------
 [m_gigant_normal]:m_gigant_e
-$spawn				= "monsters\old\gigant_normal_old"
+$spawn								= "monsters\old\gigant_normal_old"
 ;---------------------------
 rank				= 401
 spec_rank			= normal
 community			= pseudo_gigant
 
 [gigant_normal]:m_gigant_e
-$spawn				= "monsters\gigants\gigant_normal"
+$spawn								= "monsters\gigants\gigant_normal"
 visual				= monsters\psevdogigant\psevdogigant
 icon				= ui_npc_monster_psevdogigant
 rank				= 401
@@ -385,7 +384,7 @@ spec_rank			= normal
 community			= pseudo_gigant
 
 [gigant_strong]:m_gigant_e
-$spawn				= "monsters\gigants\gigant_strong"
+$spawn								= "monsters\gigants\gigant_strong"
 visual				= monsters\psevdogigant\psevdogigant_strong
 icon				= ui_npc_monster_psevdogigant
 rank				= 801

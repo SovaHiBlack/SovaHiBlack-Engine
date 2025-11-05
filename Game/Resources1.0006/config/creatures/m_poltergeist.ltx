@@ -1,10 +1,17 @@
-
 [m_poltergeist_e]:monster_base
-GroupControlSection	= spawn_group
-SpaceRestrictionSection = space_restrictor,zone_mosquito_bald,zone_radioactive
-$spawn               = "monsters\old\poltergeist"		; option for Level Editor
+GroupControlSection					= spawn_group
+SpaceRestrictionSection				= space_restrictor,zone_mosquito_bald,zone_radioactive
+$spawn								= "monsters\old\poltergeist"		; option for Level Editor
 $npc			     = on						; option for Level Editor
 ;$prefetch 			 = 16
+
+visual				 = monsters\poltergeist\poltergeist
+corpse_visual		 = monsters\poltergeist\poltergeyst_dead
+icon				 = ui_npc_monster_poltergeist
+
+;------------------------------------------------------------------------------
+; Offline Alife
+;------------------------------------------------------------------------------
 Scheduled		     = on						; option for ALife Simulator
 Human		     	 = off						; option for ALife Simulator
 Health			     = 250						; option for ALife Simulator
@@ -13,11 +20,9 @@ MaxSpeed		     = 1.5						; option for ALife Simulator
 going_speed          = 2.0                      ; option for ALife Simulator
 current_level_going_speed		= 1;2					; option for ALife Simulator
 search_speed         = .5                       ; option for ALife Simulator
-visual				 = monsters\poltergeist\poltergeist
-corpse_visual		 = monsters\poltergeist\poltergeyst_dead
-icon				 = ui_npc_monster_poltergeist
+
 MaxHealthValue		 = 150			; range [0..200]
-DynamicObjectsCount	 = 32
+
 smart_terrain_choose_interval	= 00:15:00
 
 cform                = skeleton					; collision class
@@ -38,36 +43,32 @@ weapon_usage		 = 0						; boolean
 
 type				= flamer
 
-;---------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Physics
-;---------------------------------------------------------------------
-ph_box0_center 		 = 0.0,  0.2,  0.0	;0.0,  0.9,  0.0
+;------------------------------------------------------------------------------
+ph_box0_center 		 = 0.0,  0.2,  0.0
 ph_box0_size 		 = 0.50, 0.4,  0.50
 ph_box1_center 		 = 0.0,  0.2,  0.0
 ph_box1_size 		 = 0.50, 0.4,  0.50
 ph_crash_speed_min			= 10
 ph_crash_speed_max			= 30
-ph_collision_damage_factor	= 0.1
 ph_mass 		     = 80						; also it's the food
+ph_collision_damage_factor	= 0.1
 
 destroyed_vis_name	 = physics\Dead_Body\trupik_crash
 
-;---------------------------------------------------------------------
 ph_skeleton_airr_lin_factor   = 2.0 ;550.0 (изменно из-за того, что убрано домножение коэффициент 0.002 из кода)
 ph_skeleton_airr_ang_factor   = 0.0 ;0.0 (изменно из-за того, что убрано домножение на коэффициент 0.3 из кода (0.0*0.3=0.0))
 ph_skeleton_hinger_factor1    = 1.0 ;1.0 (изменно из-за того, что убрано домножение на коэффициент 5.0 из кода)
 ph_skeleton_ddelay	     	  = 15.0 ;Время изменения значения трения в суставе с момента создания шелла, сек
-
 ph_skel_fatal_impulse_factor  = 6.0
 ph_after_death_velocity_factor= 0.75
 ph_skel_shot_up_factor        = 0.25
-;---------------------------------------------------------------------
 
-
-;----------------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
-;----------------------------------------------------------------------------
-; speed factors			linear | angular_real | angular_path | min |  max
+;------------------------------------------------------------------------------
+; speed factors				linear | angular_real | angular_path | min   |  max
 Velocity_Stand			= 0,		5.0,			5.0,		0.2,	0.5
 Velocity_WalkFwdNormal	= 1.7,		2.0,			2.0,		0.2,	2.0
 Velocity_WalkFwdDamaged	= 1.5,		3.0,			3.0,		0.8,	2.0
@@ -88,41 +89,42 @@ Accel_Aggressive		= 3.0
 ;------------------------------------------------------------------------------
 ; Attack parameters
 ;------------------------------------------------------------------------------
-MinAttackDist		= 0.5	;2.1
-MaxAttackDist		= 2.0
-as_min_dist				= 0.1
-as_step					= 0.3
+MinAttackDist					= 0.5
+MaxAttackDist					= 2.0
+as_min_dist						= 0.1
+as_step							= 0.3
 
-terrain				 = poltergeist_terrain
+hit_type						= strike
 
-hit_type = strike
+attack_params					= m_poltergeist_attack_params
+attack_effector					= m_poltergeist_attack_effector
 
 ;------------------------------------------------------------------------------
 ; Entity Conditions
 ;------------------------------------------------------------------------------
-satiety_v					= 0.0001				;скорость уменьшения сытости со временем [0...1]
-satiety_power_v				= 0.005					;увеличение силы при уменьшении сытости [0...1]
-satiety_health_v			= 0.001					;увеличение здоровья при уменьшении сытости [0...1]
-radiation_v					= 0.00001				;скорость уменьшения радиации [0...1]
-radiation_health_v			= 0.0001				;уменьшение здоровья при воздействии радиации [0...1]
-morale_v					= 0.1					;скорость восстановления морали [0...1]
-psy_health_v				= 0.1					;скорость восстановления psy-здоровья
-bleeding_v					= 0.0					;потеря крови при номинальной ране в секунду
-wound_incarnation_v			= 0.3					;крутизна кривой заживления (какой процент раны заживет в игровую секунду)
-min_wound_size				= 0.01					;минимальный размер раны, после которого она считается зажившей
-health_hit_part				= 1.0					;процент хита, уходящий на отнимание здоровья [0...1]
-power_hit_part				= 1.0					;процент хита, уходящий на отнимание силы [0...1]
+satiety_v						= 0.0001				;скорость уменьшения сытости со временем [0...1]
+satiety_power_v					= 0.005					;увеличение силы при уменьшении сытости [0...1]
+satiety_health_v				= 0.001					;увеличение здоровья при уменьшении сытости [0...1]
+radiation_v						= 0.00001				;скорость уменьшения радиации [0...1]
+radiation_health_v				= 0.0001				;уменьшение здоровья при воздействии радиации [0...1]
+morale_v						= 0.1					;скорость восстановления морали [0...1]
+psy_health_v					= 0.1					;скорость восстановления psy-здоровья
+bleeding_v						= 0.0					;потеря крови при номинальной ране в секунду
+wound_incarnation_v				= 0.3					;крутизна кривой заживления (какой процент раны заживет в игровую секунду)
+min_wound_size					= 0.01					;минимальный размер раны, после которого она считается зажившей
+health_hit_part					= 1.0					;процент хита, уходящий на отнимание здоровья [0...1]
+power_hit_part					= 1.0					;процент хита, уходящий на отнимание силы [0...1]
 
-immunities_sect				= poltergeist_immunities
+immunities_sect					= poltergeist_immunities
 
 ;------------------------------------------------------------------------------
 ; Eat settings
 ;------------------------------------------------------------------------------
-eat_freq					= 5.0					;частота укусов в сек
-eat_slice					= 0.01					;увеличение сытости при 1 укусе
-eat_slice_weight			= 10.0					;уменьшение еды у трупа
+eat_freq						= 5.0					;частота укусов в сек
+eat_slice						= 0.01					;увеличение сытости при 1 укусе
+eat_slice_weight				= 10.0					;уменьшение еды у трупа
 
-distance_to_corpse			= 1.8					;дистанция до трупа, при которой он переходит в состояние еды
+distance_to_corpse				= 1.8					;дистанция до трупа, при которой он переходит в состояние еды
 
 ;------------------------------------------------------------------------------
 ; Morale
@@ -134,55 +136,52 @@ Morale_Despondent_Speed			= 0.1
 Morale_Stable_Speed				= 0.3
 Morale_Despondent_Threashold	= 0.5
 
-
-;---------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Sounds and sound parameters
-;---------------------------------------------------------
-sound_idle				= monsters\biting\def_
-sound_eat				= monsters\biting\def_
-sound_aggressive		= monsters\biting\def_
-sound_attack_hit		= monsters\biting\def_
-sound_take_damage		= monsters\biting\def_
-sound_die				= monsters\biting\def_
-sound_threaten			= monsters\biting\def_
-sound_landing			= monsters\biting\def_
-sound_steal				= monsters\biting\def_
-sound_panic				= monsters\biting\def_
-sound_growling			= monsters\biting\def_
-sound_die_in_anomaly	= monsters\biting\def_
+;------------------------------------------------------------------------------
+sound_idle						= monsters\biting\def_
+sound_distant_idle				= monsters\biting\def_
+sound_eat						= monsters\biting\def_
+sound_aggressive				= monsters\biting\def_
+sound_attack_hit				= monsters\biting\def_
+sound_take_damage				= monsters\biting\def_
+sound_die						= monsters\biting\def_
+sound_die_in_anomaly			= monsters\biting\def_
+sound_threaten					= monsters\biting\def_
+sound_steal						= monsters\biting\def_
+sound_panic						= monsters\biting\def_
 
-killer_clsids			= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
+killer_clsids					= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
 
+idle_sound_delay				= 0
+eat_sound_delay					= 0
+attack_sound_delay				= 0
 
-idle_sound_delay		= 0
-eat_sound_delay			= 0
-attack_sound_delay		= 0
+distant_idle_sound_delay		= 80000
+distant_idle_sound_range		= 100.0
 
-sound_distant_idle			= monsters\biting\def_
-distant_idle_sound_delay	= 80000
-distant_idle_sound_range	= 100.0
+SoundThreshold					= 0.06					;range [0..1]
+max_hear_dist					= 60
 
-SoundThreshold		 = 0.06						; range [0..1]
-max_hear_dist		 = 60
-
-;-------------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Vision
-;-------------------------------------------------------------------------
+;------------------------------------------------------------------------------
+eye_fov							= 100
+eye_range						= 40
 
-eye_fov				 = 100	;120
-eye_range			 = 40 ;60
+DynamicObjectsCount				= 32					;количество видимых объектов, с которыми может справиться монстр
 
-DynamicObjectsCount		= 32
+min_view_distance				= 0.8					;коэффициент, который множится на eye_range, в зависимости от угла
+max_view_distance				= 1.0					;коэффициент, который множится на eye_range, в зависимости от угла
+visibility_threshold			= 100.0					;значение, при достижении суммой которого объект считается видимым
+always_visible_distance			= 0.5
+time_quant						= 0.001
+decrease_value					= 0.01					;значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
+velocity_factor					= 0.5
+luminocity_factor				= 0.5					;фактор освещения (только для Актёра)
+transparency_threshold			= 0.25
 
-min_view_distance   		= 0.8				; коэффициент, который множится на eye_range, в зависимости от угла
-max_view_distance	 		= 1.0				; коэффициент, который множится на eye_range, в зависимости от угла
-visibility_threshold	 	= 100.0				; значение, при достижении суммой которого объект считается видимым
-always_visible_distance 	= 0.5
-time_quant					= 0.001
-decrease_value				= 0.01				; значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
-velocity_factor		     	= 0.5
-luminocity_factor			= 0.5 				; фактор освещения (только для Актёра)
-transparency_threshold		= 0.25
+
 
 
 
@@ -193,11 +192,7 @@ DamagedThreshold		= 0.4
 
 material				= creatures\large	;objects\bullet
 
-
-squad_attack_algorithm	= 1
-attack_effector			= m_poltergeist_attack_effector
-
-attack_params			= m_poltergeist_attack_params
+terrain				 = poltergeist_terrain
 step_params				= m_poltergeist_step_params
 
 anger_hunger_threshold	= 0.1
@@ -319,7 +314,7 @@ fire_wound_immunity = 1.0
 
 
 [m_poltergeist_normal]:m_poltergeist_e
-$spawn               = "monsters\old\poltergeist_normal"
+$spawn								= "monsters\old\poltergeist_normal"
 spec_rank			= normal
 rank				= 401
 community			= poltergeist
@@ -329,7 +324,7 @@ community			= poltergeist
 ;===========================================================================
 
 [m_poltergeist_normal_tele]:m_poltergeist_normal
-$spawn               = "monsters\poltergeists\poltergeist_normal_tele"
+$spawn								= "monsters\poltergeists\poltergeist_normal_tele"
 
 type							= telekinetic
 
@@ -366,7 +361,7 @@ sound_tele_hold					= monsters\burer\burer_tele_hold
 sound_tele_throw				= monsters\burer\burer_tele_throw
 
 [m_poltergeist_tele_outdoor]:m_poltergeist_normal_tele
-$spawn               = "monsters\poltergeists\poltergeist_tele_outdoor"
+$spawn								= "monsters\poltergeists\poltergeist_tele_outdoor"
 
 Tele_Find_Radius				= 12 ;20
 
@@ -377,7 +372,7 @@ Tele_Find_Radius				= 12 ;20
 ;===========================================================================
 
 [m_poltergeist_normal_flame]:m_poltergeist_normal
-$spawn               = "monsters\poltergeists\poltergeist_normal_flame"
+$spawn								= "monsters\poltergeists\poltergeist_normal_flame"
 
 type					= flamer
 
@@ -435,7 +430,7 @@ time_release		= 0.85		; fade out
 
 
 [m_poltergeist_strong_flame]:m_poltergeist_normal_flame
-$spawn               = "monsters\poltergeists\poltergeist_strong_flame"
+$spawn								= "monsters\poltergeists\poltergeist_strong_flame"
 
 immunities_sect		= poltergeist_immunities_strong
 flame_hit_value			= 0.7

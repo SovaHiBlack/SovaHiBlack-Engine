@@ -159,26 +159,40 @@ void CPHDestroyable::Destroy(u16 source_id/*=u16(-1)*/,LPCSTR section/*="ph_skel
 	return;
 }
 
-void CPHDestroyable::Load(CInifile* ini,LPCSTR section)
+void CPHDestroyable::Load(CInifile* ini, LPCSTR section)
 {
-	m_flags.set(fl_destroyable,FALSE);
-	if(ini->line_exist(section,"destroyed_vis_name")){
-		m_flags.set(fl_destroyable,TRUE);
-		m_destroyed_obj_visual_names.push_back(ini->r_string(section,"destroyed_vis_name"));
-	}else{
-		CInifile::Sect& data		= ini->r_section(section);
-		if(data.Data.size()>0) m_flags.set(fl_destroyable,TRUE);
-		for (CInifile::SectCIt I=data.Data.begin(); I!=data.Data.end(); I++)
-			if(I->first.size())		m_destroyed_obj_visual_names.push_back(I->first);
+	m_flags.set(fl_destroyable, FALSE);
+	if (ini->line_exist(section, "destroyed_vis_name"))
+	{
+		m_flags.set(fl_destroyable, TRUE);
+		m_destroyed_obj_visual_names.push_back(ini->r_string(section, "destroyed_vis_name"));
+	}
+	else
+	{
+		CInifile::Sect& data = ini->r_section(section);
+		if (data.Data.size( ) > 0)
+		{
+			m_flags.set(fl_destroyable, TRUE);
+		}
+
+		for (CInifile::SectCIt I = data.Data.begin( ); I != data.Data.end( ); I++)
+		{
+			if (I->first.size( ))
+			{
+				m_destroyed_obj_visual_names.push_back(I->first);
+			}
+		}
 	}
 }
+
 void CPHDestroyable::Load(LPCSTR section)
 {
-	m_flags.set(fl_destroyable,FALSE);
+	m_flags.set(fl_destroyable, FALSE);
 
-	if(pSettings->line_exist(section,"destroyed_vis_name")){
-		m_flags.set								(fl_destroyable,TRUE);
-		m_destroyed_obj_visual_names.push_back	(pSettings->r_string(section,"destroyed_vis_name"));
+	if (pSettings->line_exist(section, "destroyed_vis_name"))
+	{
+		m_flags.set(fl_destroyable, TRUE);
+		m_destroyed_obj_visual_names.push_back(pSettings->r_string(section, "destroyed_vis_name"));
 	}
 }
 

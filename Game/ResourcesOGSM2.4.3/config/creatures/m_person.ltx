@@ -1,9 +1,6 @@
-;-----------------------------------------------------------------------------------
-; Trader
-;-----------------------------------------------------------------------------------
 [m_trader]
-GroupControlSection	= spawn_group
-$spawn						= "monsters\trader"		; option for Level Editor
+GroupControlSection					= spawn_group
+$spawn								= "monsters\trader"		; option for Level Editor
 $prefetch 					= 5
 cform						= skeleton
 class						= AI_TRD_S ;AI_TRADE
@@ -41,10 +38,6 @@ money				 = 1000000
 
 immunities_sect				= trader_immunities
 condition_sect				= trader_condition
-
-; attach params
-attachable_items		= 
-
 
 ;species of monster
 species				= human
@@ -96,9 +89,9 @@ front_right	= bip01_r_foot
 	panic_stand_run_forward		= 6.5
 
 [m_osoznanie]:stalker
-GroupControlSection	= spawn_group
-SpaceRestrictionSection = space_restrictor
-$spawn               = "stalkers\osoznanie"	; option for Level Editor
+GroupControlSection					= spawn_group
+SpaceRestrictionSection				= space_restrictor
+$spawn								= "stalkers\osoznanie"	; option for Level Editor
 $npc			     = on			; option for Level Editor
 $prefetch 		     = 32
 immunities_sect		 = osoznanie_immunities
@@ -117,9 +110,9 @@ fire_wound_immunity  		= 0.0
 
 
 [m_barman]:stalker
-GroupControlSection	= spawn_group
-SpaceRestrictionSection = space_restrictor
-$spawn               = "stalkers\barman"	; option for Level Editor
+GroupControlSection					= spawn_group
+SpaceRestrictionSection				= space_restrictor
+$spawn								= "stalkers\barman"	; option for Level Editor
 $npc			     = on			; option for Level Editor
 $prefetch 		     = 32
 money				 = 100000;
@@ -151,9 +144,9 @@ front_right	= bip01_r_foot
 
 
 [m_izgoy]:common_ph_friction_params_on_npc_death
-GroupControlSection	= spawn_group
-SpaceRestrictionSection = space_restrictor
-$spawn               = "stalkers\izgoy"	; option for Level Editor
+GroupControlSection					= spawn_group
+SpaceRestrictionSection				= space_restrictor
+$spawn								= "stalkers\izgoy"	; option for Level Editor
 $npc			     = on			; option for Level Editor
 $prefetch 		     = 32
 Scheduled		     = on			; option for ALife Simulator
@@ -170,9 +163,6 @@ going_item_detect_probability = 0.1
 search_item_detect_probability = 0.9
 max_item_mass		 = 40.0
 MaxHealthValue		 = 100			; range [0..200]
-
-; attach params
-attachable_items		=
 
 ; State                = 7
 ; 0 - бежать прямо на врага
@@ -286,7 +276,6 @@ sound_death			 = monsters\stalker\death\em1_killed
 sound_hit			 = monsters\human\combat\ukr\ukr1_damage,monsters\stalker\wound\wound
 sound_humming		 = monsters\stalker\humming\em1_humming,monsters\stalker\humming\em1_whistle
 sound_alarm			 = monsters\human\combat\ukr\alarm\ukr1_
-sound_attack		 = monsters\human\combat\ukr\attack\ukr1_attack
 sound_backup		 = monsters\human\combat\ukr\backup\ukr1_otstup
 sound_detour		 = monsters\human\combat\ukr\detour\ukr1_detour
 sound_search		 = monsters\human\combat\ukr\search\ukr1_finding

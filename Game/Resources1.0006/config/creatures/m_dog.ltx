@@ -1,9 +1,17 @@
 [m_dog_e]:monster_base
-GroupControlSection	= spawn_group
-SpaceRestrictionSection = space_restrictor,zone_mosquito_bald
-;$spawn               = "monsters\dog"				; option for Level Editor
+GroupControlSection					= spawn_group
+SpaceRestrictionSection				= space_restrictor,zone_mosquito_bald
+;$spawn								= "monsters\dog"				; option for Level Editor
 $npc			     = on						; option for Level Editor
 $prefetch 			 = 16
+
+visual				 = monsters\dog\dog
+corpse_visual		 = monsters\dog\dog_dead
+icon				 = ui_npc_monster_dog
+
+;------------------------------------------------------------------------------
+; Offline Alife
+;------------------------------------------------------------------------------
 Scheduled		     = on						; option for ALife Simulator
 Human		     	 = off						; option for ALife Simulator
 Health			     = 100						; option for ALife Simulator
@@ -12,11 +20,9 @@ MaxSpeed		     = 1.5						; option for ALife Simulator
 going_speed          = 2.0                      ; option for ALife Simulator
 current_level_going_speed		= 1;2					; option for ALife Simulator
 search_speed         = .5                       ; option for ALife Simulator
-visual				 = monsters\dog\dog
-corpse_visual		 = monsters\dog\dog_dead
-icon				 = ui_npc_monster_dog
+
 MaxHealthValue		     = 100			; range [0..200]
-DynamicObjectsCount	 = 32
+
 smart_terrain_choose_interval	= 00:15:00
 
 Spawn_Inventory_Item_Section = mutant_dog_tail
@@ -38,36 +44,34 @@ bone_head			 = bip01_head				; bone name
 bone_fire			 = bip01_head				; bone name
 weapon_usage		 = 0						; boolean
 
-;---------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Physics
-;---------------------------------------------------------------------
-ph_box0_center 		 = 0.0,  0.2,  0.0	;0.0,  0.9,  0.0
-ph_box0_size 		 = 0.35, 0.4,  0.35	;0.35, 0.9,  0.35
+;------------------------------------------------------------------------------
+ph_box0_center 		 = 0.0,  0.2,  0.0
+ph_box0_size 		 = 0.35, 0.4,  0.35
 ph_box1_center 		 = 0.0,  0.2,  0.0
 ph_box1_size 		 = 0.35, 0.4,  0.35
 ph_crash_speed_min			= 10
 ph_crash_speed_max			= 30
-ph_collision_damage_factor	= 0.1
 ph_mass 		     = 40	;70
-actor_restrictor	 = medium_monster ;medium_monster,stalker,none
+ph_collision_damage_factor	= 0.1
+
 destroyed_vis_name	 = physics\dead_body\skelet_crash_monster
 
-;---------------------------------------------------------------------
+actor_restrictor	 = medium_monster				;medium_monster,stalker,none
+
 ph_skeleton_airr_lin_factor   = 2.0 ;550.0 (изменно из-за того, что убрано домножение коэффициент 0.002 из кода)
 ph_skeleton_airr_ang_factor   = 0.0 ;0.0 (изменно из-за того, что убрано домножение на коэффициент 0.3 из кода (0.0*0.3=0.0))
 ph_skeleton_hinger_factor1    = 1.0 ;1.0 (изменно из-за того, что убрано домножение на коэффициент 5.0 из кода)
 ph_skeleton_ddelay	     	  = 15.0 ;Время изменения значения трения в суставе с момента создания шелла, сек
-
 ph_skel_fatal_impulse_factor  = 6.0
 ph_after_death_velocity_factor= 0.75
 ph_skel_shot_up_factor        = 0.25
-;---------------------------------------------------------------------
 
-
-;----------------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
-;----------------------------------------------------------------------------
-; speed factors			linear | angular_real | angular_path | min |  max
+;------------------------------------------------------------------------------
+; speed factors				linear | angular_real | angular_path | min   |  max
 Velocity_Stand			= 0,		2.0,			2.0,		1,		1
 Velocity_WalkFwdNormal	= 1.45,		3.0,			3.0,		0.2,	1.5
 Velocity_WalkFwdDamaged	= 1.3,		1.0,			1.0,		0.2,	1	
@@ -84,52 +88,44 @@ Accel_Aggressive		= 14.5
 ;------------------------------------------------------------------------------
 ; Attack parameters
 ;------------------------------------------------------------------------------
-MinAttackDist			= 1.9
-MaxAttackDist			= 2.4
-as_min_dist				= 1.2
-as_step					= 0.4
+MinAttackDist					= 1.9
+MaxAttackDist					= 2.4
+as_min_dist						= 1.2
+as_step							= 0.4
 
-hit_type				= wound
+hit_type						= wound
 
+Melee_Rotation_Factor			= 2.6
 
-
-Melee_Rotation_Factor	= 2.6
-;--------------------------------------------------------------------------
-; Jump parameters
-;--------------------------------------------------------------------------
-jump_factor				= 1.7
-jump_delay				= 4000	;6000	
-jump_min_dist			= 4.5;9.;3.0	;1.5	;4.0 
-jump_max_dist			= 3.0;8.;4.0	;3.0
-jump_max_angle			= 0.5	;1.0	;1.2
-jump_trace_dist			= 1.0
+attack_params					= m_dog_attack_params
+attack_effector					= m_dog_attack_effector
 
 ;------------------------------------------------------------------------------
 ; Entity Conditions
 ;------------------------------------------------------------------------------
-satiety_v					= 0.0001				;скорость уменьшения сытости со временем [0...1]
-satiety_power_v				= 0.005					;увеличение силы при уменьшении сытости [0...1]
-satiety_health_v			= 0.005					;увеличение здоровья при уменьшении сытости [0...1]
-radiation_v					= 0.00001				;скорость уменьшения радиации [0...1]
-radiation_health_v			= 0.01					;уменьшение здоровья при воздействии радиации [0...1]
-morale_v					= 0.01					;скорость восстановления морали [0...1]
-psy_health_v				= 0.1					;скорость восстановления psy-здоровья
-bleeding_v					= 0.04					;потеря крови при номинальной ране в секунду
-wound_incarnation_v			= 0.05					;крутизна кривой заживления (какой процент раны заживет в игровую секунду)
-min_wound_size				= 0.01					;минимальный размер раны, после которого она считается зажившей
-health_hit_part				= 1.0					;процент хита, уходящий на отнимание здоровья [0...1]
-power_hit_part				= 1.0					;процент хита, уходящий на отнимание силы [0...1]
+satiety_v						= 0.0001				;скорость уменьшения сытости со временем [0...1]
+satiety_power_v					= 0.005					;увеличение силы при уменьшении сытости [0...1]
+satiety_health_v				= 0.005					;увеличение здоровья при уменьшении сытости [0...1]
+radiation_v						= 0.00001				;скорость уменьшения радиации [0...1]
+radiation_health_v				= 0.01					;уменьшение здоровья при воздействии радиации [0...1]
+morale_v						= 0.01					;скорость восстановления морали [0...1]
+psy_health_v					= 0.1					;скорость восстановления psy-здоровья
+bleeding_v						= 0.04					;потеря крови при номинальной ране в секунду
+wound_incarnation_v				= 0.05					;крутизна кривой заживления (какой процент раны заживет в игровую секунду)
+min_wound_size					= 0.01					;минимальный размер раны, после которого она считается зажившей
+health_hit_part					= 1.0					;процент хита, уходящий на отнимание здоровья [0...1]
+power_hit_part					= 1.0					;процент хита, уходящий на отнимание силы [0...1]
 
-immunities_sect				= dog_immunities
+immunities_sect					= dog_immunities
 
 ;------------------------------------------------------------------------------
 ; Eat settings
 ;------------------------------------------------------------------------------
-eat_freq					= 5.0					;частота укусов в сек
-eat_slice					= 0.01					;увеличение сытости при 1 укусе
-eat_slice_weight			= 10.0					;уменьшение еды у трупа
+eat_freq						= 5.0					;частота укусов в сек
+eat_slice						= 0.01					;увеличение сытости при 1 укусе
+eat_slice_weight				= 10.0					;уменьшение еды у трупа
 
-distance_to_corpse			= 1.3					;дистанция до трупа, при которой он переходит в состояние еды
+distance_to_corpse				= 1.3					;дистанция до трупа, при которой он переходит в состояние еды
 
 ;------------------------------------------------------------------------------
 ; Morale
@@ -141,55 +137,50 @@ Morale_Despondent_Speed			= 0.1
 Morale_Stable_Speed				= 0.01
 Morale_Despondent_Threashold	= 0.4
 
-;---------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Sounds and sound parameters
-;---------------------------------------------------------
-sound_idle				= monsters\dog\bdog_idle_
-sound_eat				= monsters\dog\bdog_eat_
-sound_aggressive		= monsters\dog\bdog_attack_ ; издается, когда монстр преследует противника
-; sound_attack			= ; звук для неудачной попытки ударить или укусить (рык)
-sound_attack_hit		= monsters\dog\attack_hit_ ; звук для успешной попытки ударить или укусить (рык)
-sound_take_damage		= monsters\dog\bdog_hurt_
-sound_die				= monsters\dog\bdog_die_
-sound_bkgnd				= monsters\biting\def_
-sound_threaten			= monsters\dog\bdog_groan_
-sound_landing			= monsters\biting\def_
-sound_steal				= monsters\biting\def_
-sound_panic				= monsters\dog\bdog_panic_
-sound_growling			= monsters\biting\def_
-sound_die_in_anomaly	= monsters\dog\bdog_die_
-sound_distant_idle		= monsters\dog\bdog_distant_	; только для расстояний свыше 200м
+;------------------------------------------------------------------------------
+sound_idle						= monsters\dog\bdog_idle_
+sound_distant_idle				= monsters\dog\bdog_distant_	;только для расстояний свыше 200м
+sound_eat						= monsters\dog\bdog_eat_
+sound_aggressive				= monsters\dog\bdog_attack_		;издается, когда монстр преследует противника
+sound_attack_hit				= monsters\dog\attack_hit_		;звук для успешной попытки ударить или укусить (рык)
+sound_take_damage				= monsters\dog\bdog_hurt_
+sound_die						= monsters\dog\bdog_die_
+sound_die_in_anomaly			= monsters\dog\bdog_die_
+sound_threaten					= monsters\dog\bdog_groan_
+sound_steal						= monsters\biting\def_
+sound_panic						= monsters\dog\bdog_panic_
 
-killer_clsids				= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
+killer_clsids					= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
 
+idle_sound_delay				= 80000
+eat_sound_delay					= 2000
+attack_sound_delay				= 5000
 
+distant_idle_sound_delay		= 80000
+distant_idle_sound_range		= 30.0
 
-idle_sound_delay		= 80000;50000	;20000	;15000
-eat_sound_delay			= 2000	;3000
-attack_sound_delay		= 5000	;2000; 5000	;2000
+SoundThreshold					= 0.04					;range [0..1]
+max_hear_dist					= 60
 
-distant_idle_sound_delay = 80000
-distant_idle_sound_range = 30.0	
-
-
-
-SoundThreshold		 = 0.04             ; range [0..1]
-max_hear_dist		 = 60
-;-------------------------------------------------------------------------
+;------------------------------------------------------------------------------
 ; Vision
-;-------------------------------------------------------------------------
-eye_fov				 = 110	;140
-eye_range			 = 30	;50	;40;
+;------------------------------------------------------------------------------
+eye_fov							= 110
+eye_range						= 30
 
-min_view_distance   		= 0.7				; коэффициент, который множится на eye_range, в зависимости от угла
-max_view_distance	 		= 1.0				; коэффициент, который множится на eye_range, в зависимости от угла
-visibility_threshold	 	= 100.0				; значение, при достижении суммой которого объект считается видимым
-always_visible_distance 	= 0.4
-time_quant					= 0.001
-decrease_value				= 0.01				; значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
-velocity_factor		     	= 0.5
-luminocity_factor			= 0.5 				; фактор освещения (только для Актёра)
-transparency_threshold		= 0.25
+DynamicObjectsCount				= 32					;количество видимых объектов, с которыми может справиться монстр
+
+min_view_distance				= 0.7					;коэффициент, который множится на eye_range, в зависимости от угла
+max_view_distance				= 1.0					;коэффициент, который множится на eye_range, в зависимости от угла
+visibility_threshold			= 100.0					;значение, при достижении суммой которого объект считается видимым
+always_visible_distance			= 0.4
+time_quant						= 0.001
+decrease_value					= 0.01					;значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
+velocity_factor					= 0.5
+luminocity_factor				= 0.5					;фактор освещения (только для Актёра)
+transparency_threshold			= 0.25
 
 ;-------------------------------------------------------------------------
 ; Damages
@@ -212,16 +203,19 @@ critical_wound_bones_legs	= dog_critical_wound_bones_legs
 
 terrain				 = dogs_terrain
 
-
+;--------------------------------------------------------------------------
+; Jump parameters
+;--------------------------------------------------------------------------
+jump_factor				= 1.7
+jump_delay				= 4000	;6000	
+jump_min_dist			= 4.5;9.;3.0	;1.5	;4.0 
+jump_max_dist			= 3.0;8.;4.0	;3.0
+jump_max_angle			= 0.5	;1.0	;1.2
+jump_trace_dist			= 1.0
 
 material				= creatures\medium
-DynamicObjectsCount		= 32
 
-squad_attack_algorithm	= 1
 
-attack_effector			= m_dog_attack_effector
-
-attack_params			= m_dog_attack_params
 step_params			= m_dog_step_params
 
 LegsCount			= 4
@@ -364,7 +358,7 @@ bip01_l_thigh
 ; WEAK PROFILE
 ;*********************************************************************************
 [dog_weak]:m_dog_e
-$spawn				= "monsters\dogs\dog_01_weak"
+$spawn								= "monsters\dogs\dog_01_weak"
 visual				= monsters\dog\dog
 corpse_visual		= monsters\dog\dog_dead
 icon				= ui_npc_monster_dog
@@ -407,7 +401,7 @@ stand_attack_3 =	  	0.45,		0.10,	    50,        1.0, 0.1, 0.0,		 -0.5, 0.5, -1.0
 ; NORMAL PROFILE
 ;*********************************************************************************
 [dog_normal]:m_dog_e
-$spawn				= "monsters\dogs\dog_02_normal"
+$spawn								= "monsters\dogs\dog_02_normal"
 visual				= monsters\dog\dog_red
 corpse_visual		= monsters\dog\dog_red_dead
 icon				= ui_npc_monster_dog_red
@@ -445,7 +439,7 @@ stand_attack_3 =	  	0.45,		0.15,	    50,        1.0, 0.1, 0.0,		 -0.5, 0.5, -1.0
 ; STRONG PROFILE
 ;*********************************************************************************
 [dog_strong]:m_dog_e
-$spawn				= "monsters\dogs\dog_03_strong"
+$spawn								= "monsters\dogs\dog_03_strong"
 visual				= monsters\dog\dog_white
 corpse_visual		= monsters\dog\dog_white_dead
 icon				= ui_npc_monster_dog_white
