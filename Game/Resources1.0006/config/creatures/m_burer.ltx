@@ -2,9 +2,10 @@
 GroupControlSection					= spawn_group
 SpaceRestrictionSection				= space_restrictor,zone_mosquito_bald,zone_radioactive
 ;$spawn								= "monsters\old\burer"			; option for Level Editor
-$npc					= on						; option for Level Editor
-$prefetch 				 = 16
-visual					= monsters\burer\burer
+$npc								= on							; option for Level Editor
+$prefetch							= 16
+
+visual								= monsters\burer\burer
 corpse_visual			= monsters\burer\burer
 
 Spawn_Inventory_Item_Section = mutant_burer_hand
@@ -369,7 +370,7 @@ time_release		= 0.85		; fade out
 
 [burer_arena]:m_burer_e
 $spawn								= "monsters\arena\burer_arena"
-visual				= monsters\burer\burer_1
+visual								= monsters\burer\burer_1
 panic_threshold		= 0.05
 species				= arena_monstr
 spec_rank			= weak
@@ -406,7 +407,7 @@ Tele_Time_To_Hold	= 200
 
 [m_burer_normal_black]:m_burer_e
 $spawn								= "monsters\burers\burer_normal_black"
-visual				= monsters\burer\burer_1
+visual								= monsters\burer\burer_1
 monster_type		= indoor
 rank				= 0
 spec_rank			= weak

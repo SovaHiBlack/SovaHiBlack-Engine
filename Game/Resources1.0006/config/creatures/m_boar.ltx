@@ -1,10 +1,11 @@
 [m_boar_e]:monster_base
 GroupControlSection					= spawn_group
 SpaceRestrictionSection				= space_restrictor,zone_mosquito_bald
-;$spawn								= "monsters\boars\boar_base"		 ; option for Level Editor
-$npc					= on								 ; option for Level Editor
-$prefetch 				= 16
-visual					= monsters\mutant_boar\mutant_boar
+;$spawn								= "monsters\boars\boar_base"			; option for Level Editor
+$npc								= on									; option for Level Editor
+$prefetch							= 16
+
+visual								= monsters\mutant_boar\mutant_boar
 corpse_visual			= monsters\mutant_boar\mutant_boar_dead
 icon					= ui_npc_monster_mutant_boar
 
@@ -387,7 +388,7 @@ fire_wound_immunity		= 0.15
 
 [boar_weak]:m_boar_e
 $spawn								= "monsters\boars\boar_01_weak"
-visual				= monsters\mutant_boar\mutant_boar
+visual								= monsters\mutant_boar\mutant_boar
 icon				= ui_npc_monster_mutant_boar
 panic_threshold		= 0.5
 rank				= 0
@@ -426,7 +427,7 @@ stand_attack_run_0 =    0.50,		0.30,	      200,        0.0, 1.0, 2.0,	 -1.0, 1.0
 
 [boar_normal]:m_boar_e
 $spawn								= "monsters\boars\boar_02_normal"
-visual				= monsters\mutant_boar\mutant_boar
+visual								= monsters\mutant_boar\mutant_boar
 icon				= ui_npc_monster_mutant_boar
 panic_threshold		= 0.2
 rank				= 401
@@ -465,7 +466,7 @@ stand_attack_run_0 =    0.50,		0.50,	      200,        0.0, 1.0, 2.0,	 -1.0, 1.0
 
 [boar_strong]:m_boar_e
 $spawn								= "monsters\boars\boar_03_strong"
-visual				= monsters\mutant_boar\mutant_boar_strong
+visual								= monsters\mutant_boar\mutant_boar_strong
 icon				= ui_npc_monster_mutant_boar_strong
 panic_threshold		= 0.05
 rank				= 801
