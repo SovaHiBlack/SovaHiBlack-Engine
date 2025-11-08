@@ -1,13 +1,19 @@
 [m_crow]
-GroupControlSection				= spawn_group
-$spawn							= "monsters\crow"		; option for Level Editor
-$prefetch						= 50
+GroupControlSection					= spawn_group
+$spawn								= "monsters\crow"		; option for Level Editor
+$prefetch							= 50
+
+visual								= monsters\crow\crow
+corpse_visual						= monsters\crow\crow
+
+;species of monster
+species							= bird
+
 
 spawn 	                 = on	;
 cform                    = skeleton
 class                    = AI_CROW
-visual                   = monsters\crow\crow.ogf
-corpse_visual			 = monsters\crow\crow.ogf
+
 speed                    = 6.0	
 angular_speed            = 0.1	
 goal_change_delta        = 5.0
@@ -53,5 +59,4 @@ chemical_burn_immunity = 1.0
 explosion_immunity = 1.0
 fire_wound_immunity  = 1.0
 
-;species of monster
-species						= bird
+

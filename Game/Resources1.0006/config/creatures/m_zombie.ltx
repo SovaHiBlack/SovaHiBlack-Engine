@@ -5,8 +5,11 @@ SpaceRestrictionSection				= space_restrictor,zone_mosquito_bald,zone_witches_ga
 $npc								= on										; option for Level Editor
 $prefetch							= 16
 
-visual				 = monsters\zombi\zombi_1
-corpse_visual		 = monsters\zombi\zombi_1
+visual								= monsters\zombi\zombi_1
+corpse_visual						= monsters\zombi\zombi_1
+
+;species of monster
+species								= zombie
 
 
 MaxHealthValue		 = 100			; range [0..200]
@@ -205,8 +208,7 @@ step_params				= m_zombie_step_params
 
 damage					= m_zombie_damage
 
-;species of monster
-species					= zombie
+
 
 [m_zombie_damage]
 ;bone_name		 = <hit_scale>,-1,<wound_scale>
@@ -285,9 +287,13 @@ fire_wound_immunity		= 0.3
 	
 [zombie_weak]:m_zombie_e
 $spawn								= "monsters\zombies\zombie_01_weak"
-visual				= monsters\zombi\zombi_2
+
+visual								= monsters\zombi\zombi_2
+
+rank								= 0
+
 panic_threshold		= 0.5
-rank = 0
+
 spec_rank			= weak
 community			= zombie
 
@@ -325,9 +331,13 @@ stand_attack_3 =	  	0.30,		0.15,		    180,        0.0, 1.0, 0.0,		 -1.0, 0.3, -0
 
 [zombie_normal]:m_zombie_e
 $spawn								= "monsters\zombies\zombie_02_normal"
-visual				= monsters\zombi\zombi_1
+
+visual								= monsters\zombi\zombi_1
+
+rank								= 255
+
 panic_threshold		= 0.2
-rank = 255
+
 spec_rank			= normal
 community			= zombie
 
@@ -365,9 +375,13 @@ stand_attack_3 =	  	0.30,		0.35,		    180,        0.0, 1.0, 0.0,		 -1.0, 0.3, -0
 
 [zombie_strong]:m_zombie_e
 $spawn								= "monsters\zombies\zombie_03_strong"
-visual				= monsters\zombi\zombi_trup
+
+visual								= monsters\zombi\zombi_trup
+
+rank								= 255
+
 panic_threshold		= 0.05	
-rank = 255
+
 spec_rank			= strong
 community			= zombie
 
@@ -404,8 +418,6 @@ stand_attack_3 =	  	0.30,		0.50,		    180,        0.0, 1.0, 0.0,		 -1.0, 0.3, -0
 
 [zombie_immortal]:zombie_strong
 $spawn								= "monsters\zombies\zombie_immortal"
-visual				= monsters\zombi\zombi_trup
-panic_threshold		= 0.05	
 
-
-
+visual								= monsters\zombi\zombi_trup
+panic_threshold		= 0.05

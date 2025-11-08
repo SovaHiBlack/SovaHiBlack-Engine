@@ -167,12 +167,12 @@ typename void	CSINI_IdToIndex::InitInternal ()
 		VERIFY(section_name);
 		VERIFY(line_name);
 
-		LPCSTR	cfgRecord	= pSettings->r_string(section_name, line_name); VERIFY(cfgRecord);
+		LPCSTR	cfgRecord	= pSettings->r_string(section_name, line_name);
+		VERIFY(cfgRecord);
+
 		u32		count		= _GetItemCount(cfgRecord);
 		LoadItemData<ITEM_REC_NUM>(count, cfgRecord);
-
 	}
 }
-	
 
 #undef TEMPLATE_SPECIALIZATION

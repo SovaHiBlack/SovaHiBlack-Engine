@@ -2,6 +2,14 @@
 GroupControlSection					= spawn_group
 SpaceRestrictionSection				= space_restrictor,zone_mine_field
 attachable_items					= yad,device_torch,attachable_item,hand_radio,bread,vodka,energy_drink,kolbasa,guitar_a,harmonica_a,wpn_binoc,kruglov_flash
+$spawn								= "stalkers\stalker"			; option for Level Editor
+$npc								= on							; option for Level Editor
+$prefetch 							= 32
+
+visual								= actors\hero\stalker_novice	; option for Level Editor
+corpse_visual						= equipments\item_rukzak	;actors\hero\stalker_novice		; option for Level Editor
+
+species								= human
 
 class							= AI_STL_S						; Class identifier
 
@@ -11,19 +19,18 @@ can_select_items				= on
 ef_creature_type				= 17							; option for evaluation functions
 
 ;---LEVEL EDITOR------------------------------------------------------
-$spawn								= "stalkers\stalker"			; option for Level Editor
-$npc							= on							; option for Level Editor
-visual							= actors\hero\stalker_novice.ogf; option for Level Editor
-corpse_visual					= equipments\item_rukzak.ogf	;actors\hero\stalker_novice.ogf; option for Level Editor
+
+
+
 custom_data						= stalker_custom_data.ltx		; option for Level Editor
 character_profile				= default						; option for Level Editor
 use_single_item_rule			= off
 
 ;---GAME--------------------------------------------------------------
-$prefetch 						= 32							
+							
 cform							= skeleton						; collision class
 ;биолог вид существа
-species							= human
+
 
 ;---MATERIAL----------------------------------------------------------
 material						= creatures\human

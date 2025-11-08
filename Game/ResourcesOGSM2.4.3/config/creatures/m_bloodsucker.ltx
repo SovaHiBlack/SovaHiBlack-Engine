@@ -5,9 +5,15 @@ SpaceRestrictionSection				= space_restrictor,zone_mosquito_bald,zone_witches_ga
 $npc								= on													; option for Level Editor
 ;$prefetch							= 16
 
-visual						 = monsters\krovosos\krovosos
-corpse_visual				 = monsters\krovosos\krovosos_dead
-icon						 = ui_npc_monster_krovosos
+visual								= monsters\krovosos\krovosos
+corpse_visual						= monsters\krovosos\krovosos_dead
+icon								= ui_npc_monster_krovosos
+
+;species of monster
+species								= bloodsucker
+rank								= 0
+spec_rank						= weak
+community						= bloodsucker
 
 ef_creature_type			 = 13							; option for evaluation functions
 ef_weapon_type				 = 3
@@ -234,11 +240,7 @@ material						= creatures\medium
 step_params						= m_bloodsucker_step_params
 LegsCount						= 2
 
-;species of monster
-species							= bloodsucker
-rank							= 0
-spec_rank						= weak
-community						= bloodsucker
+
 
 ;-------------------------------------------------------------------------
 ; Invisible Ability
@@ -461,10 +463,14 @@ ce_power			= 3.0 ;0.7 ; power
 
 [bloodsucker_weak]:m_bloodsucker_e
 $spawn								= "monsters\bloodsuckers\bloodsucker_01_weak"
-visual				= monsters\krovosos\krovosos
-icon				= ui_npc_monster_krovosos
+
+visual								= monsters\krovosos\krovosos
+icon								= ui_npc_monster_krovosos
+
+rank								= 0
+
 panic_threshold		= 0.5
-rank				= 0
+
 immunities_sect		= bloodsucker_immunities_weak
 attack_params		= bloodsucker_attack_params_weak
 spec_rank			= weak
@@ -505,10 +511,14 @@ value2			= 0.60,		0.2,		    200,        0.0, 0.5, 1.50,		  -1.2, 1.2, -1.2, 1.2,
 
 [bloodsucker_normal]:m_bloodsucker_e
 $spawn								= "monsters\bloodsuckers\bloodsucker_02_normal"
-visual				= monsters\krovosos\krovosos
-icon				= ui_npc_monster_krovosos
+
+visual								= monsters\krovosos\krovosos
+icon								= ui_npc_monster_krovosos
+
+rank								= 401
+
 panic_threshold		= 0.2
-rank				= 401
+
 immunities_sect		= bloodsucker_immunities_normal
 attack_params		= bloodsucker_attack_params_normal
 spec_rank			= normal
@@ -550,11 +560,15 @@ value2			= 0.60,		0.4,		    300,        0.0, 0.5, 3.00,		  -1.2, 1.2, -1.2, 1.2,
 
 [bloodsucker_strong]:m_bloodsucker_e
 $spawn								= "monsters\bloodsuckers\bloodsucker_03_strong"
-visual				= monsters\krovosos\krovosos_strong
-icon				= ui_npc_monster_krovosos_strong
+
+visual								= monsters\krovosos\krovosos_strong
+icon								= ui_npc_monster_krovosos_strong
+
+rank								= 401
+
 Predator_Visual		= monsters\krovosos\krovosos_strong_xray
 panic_threshold		= 0.05
-rank				= 401
+
 immunities_sect		= bloodsucker_immunities_strong
 attack_params		= bloodsucker_attack_params_strong
 spec_rank			= strong
@@ -604,25 +618,35 @@ value2			= 0.60,		0.8,		    400,        0.0, 0.5, 4.50,		  -1.2, 1.2, -1.2, 1.2,
 ;-------------------------------------------------------------------------------------------
 [bloodsucker_arena]:bloodsucker_strong
 $spawn								= "monsters\bloodsuckers\arena\bloodsucker_arena"
-visual				= monsters\krovosos\krovosos
-icon				= ui_npc_monster_krovosos
+
+visual								= monsters\krovosos\krovosos
+icon								= ui_npc_monster_krovosos
+
+species								= arena_monstr
+
 panic_threshold		= 0.05
-species				= arena_monstr
+
 
 
 [bloodsucker_mil]:bloodsucker_strong
 $spawn								= "monsters\military\bloodsucker_mil"
-visual				= monsters\krovosos\krovosos
-icon				= ui_npc_monster_krovosos
+
+visual								= monsters\krovosos\krovosos
+icon								= ui_npc_monster_krovosos
+
 panic_threshold		= 0.05
 
 
 [arena_bloodsucker_1]:bloodsucker_strong
 $spawn								= "monsters\bloodsuckers\arena\bloodsucker_arena"
-visual				= monsters\krovosos\krovosos
-icon				= ui_npc_monster_krovosos
+
+visual								= monsters\krovosos\krovosos
+icon								= ui_npc_monster_krovosos
+
+species								= arena_monstr
+
 panic_threshold		= 0.05
-species				= arena_monstr
+
 immunities_sect		= bloodsucker_immunities_arena
 custom_data = scripts\arena_mob_1.ltx
 

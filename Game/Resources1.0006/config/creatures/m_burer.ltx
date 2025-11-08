@@ -6,7 +6,14 @@ $npc								= on							; option for Level Editor
 $prefetch							= 16
 
 visual								= monsters\burer\burer
-corpse_visual			= monsters\burer\burer
+corpse_visual						= monsters\burer\burer
+
+;species of monster
+species								= burer
+rank								= 0
+spec_rank				= weak
+community				= burer
+monster_type			= indoor
 
 Spawn_Inventory_Item_Section = mutant_burer_hand
 Spawn_Inventory_Item_Probability = 0.2
@@ -249,12 +256,7 @@ step_params				= m_burer_step_params
 LegsCount				= 2
 damage					= m_burer_damage
 
-;species of monster
-species					= burer
-rank					= 0
-spec_rank				= weak
-community				= burer
-monster_type			= indoor
+
 
 ;=================================================================================
 ; Burer Attack Params
@@ -370,11 +372,16 @@ time_release		= 0.85		; fade out
 
 [burer_arena]:m_burer_e
 $spawn								= "monsters\arena\burer_arena"
+
 visual								= monsters\burer\burer_1
+
+species								= arena_monstr
+rank								= 0
+
 panic_threshold		= 0.05
-species				= arena_monstr
+
 spec_rank			= weak
-rank				= 0
+
 community			= burer
 
 explosion_immunity		= 0.2
@@ -399,19 +406,24 @@ Tele_Find_Radius		 = 15	;7.0
 
 [m_burer_normal]:m_burer_e
 $spawn								= "monsters\burers\burer_normal"
-monster_type		= indoor
-rank				= 0
+
+rank								= 0
 spec_rank			= weak
 community			= burer
+
+monster_type		= indoor
 Tele_Time_To_Hold	= 200
 
 [m_burer_normal_black]:m_burer_e
 $spawn								= "monsters\burers\burer_normal_black"
+
 visual								= monsters\burer\burer_1
-monster_type		= indoor
+
 rank				= 0
 spec_rank			= weak
 community			= burer
+monster_type		= indoor
+
 Tele_Time_To_Hold	= 200
 
 [burer_indoor]:m_burer_normal

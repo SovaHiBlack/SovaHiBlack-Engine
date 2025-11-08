@@ -5,9 +5,15 @@ $spawn								= "monsters\fleshes\flesh_base"			; option for Level Editor
 $npc								= on									; option for Level Editor
 $prefetch							= 16
 
-visual				 = monsters\flesh\flesh
-corpse_visual		 = monsters\flesh\flesh_dead
-icon				 = ui_npc_monster_flesh
+visual								= monsters\flesh\flesh
+corpse_visual						= monsters\flesh\flesh_dead
+icon								= ui_npc_monster_flesh
+
+;species of monster
+species								= flesh
+rank								= 0
+spec_rank			= weak
+community			= flesh
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -206,11 +212,7 @@ step_params			= m_flesh_step_params
 LegsCount			= 4
 damage				= m_flesh_damage
 
-;species of monster
-species				= flesh
-rank				= 0
-spec_rank			= weak
-community			= flesh
+
 
 terrain				= flesh_terrain
 
@@ -318,11 +320,15 @@ stand_attack_3 =	  	0.40,		0.40,		    150,        0.0, 0.5, 1.0,		 -1.0, 1.0, -1
 
 [flesh_weak]:m_flesh_e
 $spawn								= "monsters\fleshes\flesh_01_weak"
-visual					= monsters\flesh\flesh
-corpse_visual			= monsters\flesh\flesh_dead
-icon					= ui_npc_monster_flesh
+
+visual								= monsters\flesh\flesh
+corpse_visual						= monsters\flesh\flesh_dead
+icon								= ui_npc_monster_flesh
+
+rank								= 0
+
 panic_threshold			= 0.2
-rank					= 0
+
 immunities_sect			= flesh_immunities_weak
 attack_params			= flesh_attack_params_weak
 spec_rank			= weak
@@ -356,11 +362,15 @@ stand_attack_3 =	  	0.40,		0.40,		    150,        0.0, 0.5, 1.0,		 -1.0, 1.0, -1
 
 [flesh_normal]:m_flesh_e
 $spawn								= "monsters\fleshes\flesh_02_normal"
-visual				= monsters\flesh\flesh
-corpse_visual		= monsters\flesh\flesh_dead
-icon				= ui_npc_monster_flesh
+
+visual								= monsters\flesh\flesh
+corpse_visual						= monsters\flesh\flesh_dead
+icon								= ui_npc_monster_flesh
+
+rank								= 401
+
 panic_threshold		= 0.2
-rank				= 401
+
 immunities_sect		= flesh_immunities_normal
 attack_params		= flesh_attack_params_normal
 spec_rank			= normal
@@ -396,10 +406,14 @@ stand_attack_3 =	  	0.40,		0.40,		    150,        0.0, 0.5, 1.0,		 -1.0, 1.0, -1
 
 [flesh_strong]:m_flesh_e
 $spawn								= "monsters\fleshes\flesh_03_strong"
-visual				= monsters\flesh\flesh_strong
-icon				= ui_npc_monster_flesh_strong
+
+visual								= monsters\flesh\flesh_strong
+icon								= ui_npc_monster_flesh_strong
+
+rank								= 801
+
 panic_threshold		= 0.05	
-rank				= 801
+
 immunities_sect		= flesh_immunities_strong
 attack_params		= flesh_attack_params_strong
 spec_rank			= strong
@@ -434,6 +448,7 @@ stand_attack_3 =	  	0.40,		0.40,		    150,        0.0, 0.5, 1.0,		 -1.0, 1.0, -1
 GroupControlSection					= spawn_group
 ;$spawn								= "monsters\flesh-group"			; option for Level Editor
 $npc								= on								; option for Level Editor
+
 Human		     	= off						; option for ALife Simulator
 class               = AI_FLE_G					; AI class
 monster_section		= m_flesh_e

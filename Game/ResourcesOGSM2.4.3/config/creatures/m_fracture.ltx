@@ -5,9 +5,15 @@ SpaceRestrictionSection				= space_restrictor,zone_mosquito_bald,zone_witches_ga
 $npc								= on								; option for Level Editor
 $prefetch							= 16
 
-visual				 = monsters\izlom\izlom.ogf
-corpse_visual		 = monsters\izlom\izlom.ogf
-icon = ui_npc_monster_fracture	
+visual								= monsters\izlom\izlom
+corpse_visual						= monsters\izlom\izlom.ogf
+icon								= ui_npc_monster_fracture
+
+;species of monster
+species								= fracture
+rank								= 0
+spec_rank				= weak
+community				= fracture
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -195,11 +201,7 @@ LegsCount				= 2
 step_params				= m_fracture_step_params
 damage					= m_Fracture_damage
 
-;species of monster
-species					= bloodsucker ;fracture
-rank					= 0
-spec_rank				= weak
-community				= fracture
+
 
 [m_Fracture_damage]
 ;bone_name		 = <hit_scale>,-1,<wound_scale>
@@ -247,16 +249,23 @@ fire_wound_immunity  = 0.3
 
 [fracture_weak]:m_fracture_e
 $spawn								= "monsters\fracture"				; option for Level Editor
+
+rank								= 0
+
+
 monster_type		= indoor
-rank				= 0
+
 spec_rank			= weak
 community			= fracture
 
 
 [arena_fracture_1]:m_fracture_e
 $spawn								= "monsters\fracture"				; option for Level Editor
+
+rank								= 0
+
 monster_type		= indoor
-rank				= 0
+
 spec_rank			= weak
 community			= fracture
 custom_data = scripts\arena_mob_2.ltx

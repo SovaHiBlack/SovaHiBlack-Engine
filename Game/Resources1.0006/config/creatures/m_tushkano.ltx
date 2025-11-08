@@ -5,11 +5,14 @@ $spawn								= "monsters\old\tushkano"				; option for Level Editor
 $npc								= on									; option for Level Editor
 $prefetch							= 16
 
-visual				 = monsters\tushkano\tushkano
-corpse_visual		 = monsters\tushkano\tushkano_dead
-icon				 = ui_npc_monster_tushkano
+visual								= monsters\tushkano\tushkano
+corpse_visual						= monsters\tushkano\tushkano_dead
+icon								= ui_npc_monster_tushkano
 
-
+;species of monster
+species								= tushkano
+spec_rank				= normal
+community				= tushkano
 
 MaxHealthValue		 = 100			; range [0..200]
 
@@ -198,10 +201,7 @@ LegsCount				= 2
 step_params				= m_tushkano_step_params
 damage					= m_tushkano_damage
 
-;species of monster
-species					= tushkano
-spec_rank				= normal
-community				= tushkano
+
 
 
 [m_tushkano_damage]
@@ -255,14 +255,15 @@ fire_wound_immunity		= 3
 ;---------------------------
 [m_tushkano_normal]:m_tushkano_e
 $spawn								= "monsters\tushkanos\tushkano_normal_old"
-;---------------------------
-rank = 401
+
+rank								= 401
 spec_rank			= normal
 community			= tushkano
 
 [tushkano_normal]:m_tushkano_e
 $spawn								= "monsters\tushkanos\tushkano_normal"
-rank = 401
+
+rank								= 401
 spec_rank			= normal
 community			= tushkano
 panic_threshold		= 0.05

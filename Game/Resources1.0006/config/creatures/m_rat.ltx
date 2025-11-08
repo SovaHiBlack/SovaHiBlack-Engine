@@ -4,8 +4,11 @@ $spawn								= "monsters\rat"				; option for Level Editor
 $npc								= on							; option for Level Editor
 $prefetch							= 128
 
-visual				 = monsters\rat\rat_1
-corpse_visual		 = monsters\rat\rat_1
+visual								= monsters\rat\rat_1
+corpse_visual						= monsters\rat\rat_1
+
+;species of monster
+species								= rat
 
 eye_fov				 = 170
 eye_range			 = 10
@@ -168,8 +171,7 @@ fire_wound_immunity  = 1.0
 
 material				= creatures\small
 
-;species of monster
-species						= rat
+
 
 [rats_terrain]
 	255,000,255,255 ;на всех уровнях, по графам без описания
@@ -186,6 +188,7 @@ species						= rat
 GroupControlSection					= spawn_group
 $spawn								= "monsters\rat-group"					; option for Level Editor
 $npc								= on									; option for Level Editor
+
 Human		     	 = off				; option for ALife Simulator
 class                = AI_RAT_G			; AI class
 monster_section      = m_rat_e

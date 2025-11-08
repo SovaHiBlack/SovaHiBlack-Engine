@@ -5,10 +5,16 @@ SpaceRestrictionSection				= space_restrictor,zone_mosquito_bald,zone_radioactiv
 $npc								= on									; option for Level Editor
 $prefetch							= 16
 
-visual					= monsters\burer\burer
-corpse_visual			= monsters\burer\burer
-icon = ui_npc_monster_burer	;
+visual								= monsters\burer\burer
+corpse_visual						= monsters\burer\burer
+icon								= ui_npc_monster_burer
 
+;species of monster
+species								= burer
+rank								= 0
+spec_rank				= weak
+community				= burer
+;monster_type			= indoor
 
 Spawn_Inventory_Item_Section = mutant_burer_hand
 Spawn_Inventory_Item_Probability = 0.5
@@ -256,12 +262,7 @@ step_params				= m_burer_step_params
 LegsCount				= 2
 damage					= m_burer_damage
 
-;species of monster
-species					= burer
-rank					= 0
-spec_rank				= weak
-community				= burer
-;monster_type			= indoor
+
 
 ;=================================================================================
 ; Burer Attack Params
@@ -377,20 +378,29 @@ time_release		= 0.85		; fade out
 
 [burer_weak]:m_burer_e
 $spawn								= "monsters\burers\burer_weak"
+
+rank								= 0
+
 monster_type		= indoor
-rank				= 0
+
 spec_rank			= weak
 community			= burer
 Tele_Time_To_Hold	= 200
 
 [burer_strong]:m_burer_e
 $spawn								= "monsters\burers\burer_strong"
-visual			= monsters\burer\burer_1
+
+visual								= monsters\burer\burer_1
+icon								= ui_npc_monster_burer_strong
+
+rank								= 901
+
+
 monster_type		= indoor
-rank				= 901
+
 spec_rank			= strong
 community			= burer
-icon = ui_npc_monster_burer_strong
+
 scan_radius				= 0.01
 Particle_Gravi_Wave		= ogsm\ogsm_burer_wave
 ;custom_data = scripts\psy_burer.ltx
@@ -398,10 +408,15 @@ Particle_Gravi_Wave		= ogsm\ogsm_burer_wave
 
 [arena_burer_1]:m_burer_e
 $spawn								= "monsters\burers\burer_normal"
-visual			= monsters\burer\burer_1
-icon = ui_npc_monster_burer_strong
+
+visual								= monsters\burer\burer_1
+icon								= ui_npc_monster_burer_strong
+
+rank								= 0
+
+
 monster_type		= indoor
-rank				= 0
+
 spec_rank			= weak
 community			= burer
 immunities_sect		= burer_immunities_arena

@@ -1,11 +1,18 @@
 [m_trader]
 GroupControlSection					= spawn_group
 $spawn								= "monsters\trader"		; option for Level Editor
-$prefetch 					= 5
+$prefetch 							= 5
+
+visual								= actors\trader\trader
+
+;species of monster
+species								= human
+rank								= 1
+
 cform						= skeleton
 class						= AI_TRD_S ;AI_TRADE
-visual						= actors\trader\trader
-rank						= 1
+
+
 script_binding		 			= bind_monster.bind
 ; format : section{,section},count,min_factor,max_factor, ...
 ;supplies					= m_bread,50,0.5,1.5, CANNED,30,0.5,1.5, MEDI_KIT,7,0,0.7, DETECTOR_SIMPLE,3,0,0.6, WPN_BINOC,1,0,0.70, WPN_FORT,WPN_PM,3,0.3,0.8, WPN_LR300,WPN_AK47,2,0.3,0.65, WPN_SVD,1,0,0.53, WPN_RPG7,1,0,0.53, grenade_f1,15,0,1.0, ammo_5.45x39_ap,ammo_5.45x39_fmj,50,0,1.0, ammo_5.56x45_ap,ammo_5.56õ45_ss190,50,0,1.0, ammo_9x19_fmj,50,0,1.0, ammo_7.62õ54_fmj,10,0,1.0, ammo_og-7b,10,0,1.0 
@@ -39,8 +46,7 @@ money				 = 1000000
 immunities_sect				= trader_immunities
 condition_sect				= trader_condition
 
-;species of monster
-species				= human
+
 
 [trader_foot_bones]
 front_left	= bip01_l_foot
@@ -92,8 +98,9 @@ front_right	= bip01_r_foot
 GroupControlSection					= spawn_group
 SpaceRestrictionSection				= space_restrictor
 $spawn								= "stalkers\osoznanie"	; option for Level Editor
-$npc			     = on			; option for Level Editor
-$prefetch 		     = 32
+$npc								= on			; option for Level Editor
+$prefetch							= 32
+
 immunities_sect		 = osoznanie_immunities
 need_osoznanie_mode  = true
 
@@ -113,11 +120,16 @@ fire_wound_immunity  		= 0.0
 GroupControlSection					= spawn_group
 SpaceRestrictionSection				= space_restrictor
 $spawn								= "stalkers\barman"	; option for Level Editor
-$npc			     = on			; option for Level Editor
-$prefetch 		     = 32
+$npc								= on				; option for Level Editor
+$prefetch							= 32
+
+visual								= actors\barman\barman
+
+species								= human
+
 money				 = 100000;
 
-visual				 = actors\barman\barman.ogf
+
 use_single_item_rule = false
 can_select_items	 = off
 
@@ -130,7 +142,7 @@ condition_sect				= trader_condition
 
 material				= creatures\human
 
-species					= human
+
 
 [izgoy_foot_bones]
 front_left	= bip01_l_foot
@@ -147,8 +159,14 @@ front_right	= bip01_r_foot
 GroupControlSection					= spawn_group
 SpaceRestrictionSection				= space_restrictor
 $spawn								= "stalkers\izgoy"	; option for Level Editor
-$npc			     = on			; option for Level Editor
-$prefetch 		     = 32
+$npc								= on				; option for Level Editor
+$prefetch							= 32
+
+visual								= actors\izgoy\izgoy
+
+species								= human
+rank								= 1
+
 Scheduled		     = on			; option for ALife Simulator
 Human		     	 = on			; option for ALife Simulator
 Health			     = 100			; option for ALife Simulator
@@ -156,7 +174,7 @@ MinSpeed		     = 1.0			; option for ALife Simulator
 MaxSpeed		     = 5.0			; option for ALife Simulator
 script_binding		 = bind_stalker.init
 money				 = 5000;
-rank				 = 1;
+
 going_speed          = 1.5                      ; option for ALife Simulator
 search_speed		 = 0.5
 going_item_detect_probability = 0.1
@@ -176,7 +194,7 @@ MaxHealthValue		 = 100			; range [0..200]
 cform                        = skeleton			; collision class
 class                        = AI_STL			; AI class
 
-visual			 = actors\izgoy\izgoy.ogf
+
 
 ph_box0_center 		 = 0.0,  0.9,  0.0
 ph_box0_size 		 = 0.35, 0.9,  0.35
@@ -300,7 +318,7 @@ disp_crouch_factor	 = 0.75
 disp_jump_factor	 = 3
 destroyed_vis_name	 = physics\Dead_Body\trupik_crash
 
-species				= human
+
 
 
 [trader_immunities]

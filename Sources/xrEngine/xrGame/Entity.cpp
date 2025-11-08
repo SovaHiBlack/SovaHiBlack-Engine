@@ -163,18 +163,24 @@ BOOL CEntity::net_Spawn		(CSE_Abstract* DC)
 	CSE_ALifeCreatureAbstract	*E	= smart_cast<CSE_ALifeCreatureAbstract*>(e);
 
 	// Initialize variables
-	if (E) {
+	if (E)
+	{
 		SetfHealth			(E->fHealth);
 		VERIFY				((E->m_killer_id == ALife::_OBJECT_ID(-1)) || !g_Alive());
 		m_killer_id			= E->m_killer_id;
-		if (m_killer_id == ID())
+		if (m_killer_id == ID( ))
+		{
 			m_killer_id		= ALife::_OBJECT_ID(-1);
+		}
 	}
 	else
+	{
 		SetfHealth			(1.0f);
+	}
 
 	// load damage params
-	if (!E) {
+	if (!E)
+	{
 		// Car or trader only!!!!
 		CSE_ALifeCar		*C	= smart_cast<CSE_ALifeCar*>(e);
 		CSE_ALifeTrader		*T	= smart_cast<CSE_ALifeTrader*>(e);
@@ -183,22 +189,27 @@ BOOL CEntity::net_Spawn		(CSE_Abstract* DC)
 		R_ASSERT2			(C||T||H,"Invalid entity (no inheritance from CSE_CreatureAbstract, CSE_ALifeItemCar and CSE_ALifeTrader and CSE_ALifeHelicopter)!");
 		id_Team				= id_Squad = id_Group = 0;
 	}
-	else {
+	else
+	{
 		id_Team				= E->g_team();
 		id_Squad			= E->g_squad();
 		id_Group			= E->g_group();
 
-		CSE_ALifeMonsterBase	*monster	= smart_cast<CSE_ALifeMonsterBase*>(E);
-		if (monster) {
+		CSE_ALifeMonsterBase* monster	= smart_cast<CSE_ALifeMonsterBase*>(E);
+		if (monster)
+		{
 			MONSTER_COMMUNITY		monster_community;
 			monster_community.set	(pSettings->r_string(*cNameSect(), "species"));
 
-			if(monster_community.team() != 255)
-				id_Team = monster_community.team();
+			if (monster_community.team( ) != 255)
+			{
+				id_Team				= monster_community.team( );
+			}
 		}
 	}
 
-	if (g_Alive() && IsGameTypeSingle()) {
+	if (g_Alive() && IsGameTypeSingle())
+	{
 		m_registered_member		= true;
 		Level().seniority_holder().team(g_Team()).squad(g_Squad()).group(g_Group()).register_member(this);
 		++Level().seniority_holder().team(g_Team()).squad(g_Squad()).group(g_Group()).m_dwAliveCount;

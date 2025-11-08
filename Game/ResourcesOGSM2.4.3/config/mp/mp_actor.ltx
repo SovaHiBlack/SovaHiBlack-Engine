@@ -2,15 +2,22 @@
 skin_path = actors\stalker_mp\
 
 [mp_actor]:common_ph_friction_params_on_npc_death
-GroupControlSection		= spawn_group
-$spawn 					= "mp_actor"
-$ed_icon				= ed\ed_actor
-$player 				= on
-$prefetch 				= 16
+GroupControlSection					= spawn_group
+$spawn								= "mp_actor"
+$ed_icon							= ed\ed_actor
+$player								= on
+$prefetch							= 16
+
+visual								= actors\hero\stalker_hood
+
+;species of monster
+species								= human
+rank								= 3
+
 cform                   = skeleton
 class                   = O_ACTOR
 money					= 200;
-rank					= 3;
+
 jump_speed              = 6
 crouch_coef 			=  0.4 ; 0.2
 climb_coef				= 0.7
@@ -22,7 +29,7 @@ run_back_coef			= 1.7
 walk_back_coef			=  0.7
 walk_strafe_coef		= 1.0
 run_strafe_coef			= 0.7
-visual					= actors\hero\stalker_hood.ogf
+
 destroyed_vis_name		= physics\Dead_Body\skelet_crash
 walk_accel              = 16 ;40 ;17  ;54 ;40
 texture_prefetch		= actors\stalker_mp\stalker_sv_balon_10,actors\stalker_mp\stalker_sv_hood_9,actors\stalker_mp\stalker_sv_rukzak_3,actors\stalker_mp\stalker_sv_rukzak_2,actors\stalker_mp\stalker_sv_exoskeleton,actors\stalker_mp\stalker_sci_svoboda,actors\stalker_mp\stalker_killer_head_1,actors\stalker_mp\stalker_killer_antigas,actors\stalker_mp\stalker_killer_head_3,actors\stalker_mp\stalker_killer_mask,actors\stalker_mp\stalker_killer_exoskeleton,actors\stalker_mp\stalker_sci_killer, actors\stalker_mp\stalker_sv_military, actors\stalker_mp\stalker_killer_military
@@ -120,8 +127,7 @@ velocity_factor		     	= 0.5
 luminocity_factor			= 0.5;0 			; фактор освещения (только для Актёра)
 transparency_threshold	 	= 0.4				; 0.25
 
-;species of monster
-species				= human
+
 
 ;autopickup
 AutoPickUp_AABB = 0.2, 0.1, 0.2;	AABB бокс автоподбора предметов

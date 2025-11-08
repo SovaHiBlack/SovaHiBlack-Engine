@@ -5,10 +5,15 @@ $spawn								= "monsters\old\gigant"			; option for Level Editor
 $npc								= on							; option for Level Editor
 $prefetch							= 16
 
-visual				 = monsters\psevdogigant\psevdogigant
-corpse_visual	     = monsters\psevdogigant\psevdogigant_dead
-icon				 = ui_npc_monster_psevdogigant
+visual								= monsters\psevdogigant\psevdogigant
+corpse_visual						= monsters\psevdogigant\psevdogigant_dead
+icon								= ui_npc_monster_psevdogigant
 
+;species of monster
+species								= giant
+rank								= 401
+spec_rank				= normal
+community				= pseudo_gigant
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -209,11 +214,7 @@ threaten_effector		= pseudogigant_threaten_effector
 
 LegsCount			= 2
 
-;species of monster
-species					= giant
-rank					= 401
-spec_rank				= normal
-community				= pseudo_gigant
+
 
 ;-----------------------------
 ; step effector
@@ -370,24 +371,27 @@ fire_wound_immunity  	= 0.05
 ;---------------------------
 [m_gigant_normal]:m_gigant_e
 $spawn								= "monsters\old\gigant_normal_old"
-;---------------------------
-rank				= 401
+
+rank								= 401
 spec_rank			= normal
 community			= pseudo_gigant
 
 [gigant_normal]:m_gigant_e
 $spawn								= "monsters\gigants\gigant_normal"
-visual				= monsters\psevdogigant\psevdogigant
-icon				= ui_npc_monster_psevdogigant
-rank				= 401
+
+visual								= monsters\psevdogigant\psevdogigant
+icon								= ui_npc_monster_psevdogigant
+
+rank								= 401
 spec_rank			= normal
 community			= pseudo_gigant
 
 [gigant_strong]:m_gigant_e
 $spawn								= "monsters\gigants\gigant_strong"
-visual				= monsters\psevdogigant\psevdogigant_strong
-icon				= ui_npc_monster_psevdogigant
-rank				= 801
+
+visual								= monsters\psevdogigant\psevdogigant_strong
+icon								= ui_npc_monster_psevdogigant
+
+rank								= 801
 spec_rank			= strong
 community			= pseudo_gigant
-

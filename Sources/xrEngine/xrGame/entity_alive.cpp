@@ -53,7 +53,6 @@ STR_VECTOR* CEntityAlive::m_pFireParticlesVector = NULL;
 /////////////////////////////////////////////
 CEntityAlive::CEntityAlive()
 {
-	
 	monster_community		= xr_new<MONSTER_COMMUNITY>	();
 
 	m_ef_weapon_type		= u32(-1);
@@ -64,7 +63,6 @@ CEntityAlive::CEntityAlive()
 
 CEntityAlive::~CEntityAlive()
 {
-
 	xr_delete				(monster_community);
 	xr_delete				(m_material_manager);
 }
@@ -78,11 +76,15 @@ void CEntityAlive::Load		(LPCSTR section)
 	m_fFood					= 100*pSettings->r_float	(section,"ph_mass");
 
 	//bloody wallmarks
-	if(0==m_pBloodMarksVector)
-		LoadBloodyWallmarks (BLOOD_MARKS_SECT);
+	if (0 == m_pBloodMarksVector)
+	{
+		LoadBloodyWallmarks(BLOOD_MARKS_SECT);
+	}
 
-	if(0==m_pFireParticlesVector)
-		LoadFireParticles	("entity_fire_particles");
+	if (0 == m_pFireParticlesVector)
+	{
+		LoadFireParticles("entity_fire_particles");
+	}
 
 	//биолог. вид к торому принадлежит монстр или персонаж
 	monster_community->set	(pSettings->r_string(section, "species"));

@@ -5,9 +5,15 @@ $spawn								= "monsters\old\poltergeist"			; option for Level Editor
 $npc								= on									; option for Level Editor
 ;$prefetch							= 16
 
-visual				 = monsters\poltergeist\poltergeist
-corpse_visual		 = monsters\poltergeist\poltergeyst_dead
-icon				 = ui_npc_monster_poltergeist
+visual								= monsters\poltergeist\poltergeist
+corpse_visual						= monsters\poltergeist\poltergeyst_dead
+icon								= ui_npc_monster_poltergeist
+
+;species of monster
+species								= poltergeist
+rank								= 401
+spec_rank				= normal
+community				= poltergeist
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -230,11 +236,7 @@ Delay_Scare_Aggressive	= 30001
 
 ;---------------------------
 
-;species of monster
-species					= poltergeist
-rank					= 401
-spec_rank				= normal
-community				= poltergeist
+
 
 critical_wound_threshold		= -1
 critical_wound_decrease_quant	= 0.
@@ -315,8 +317,11 @@ fire_wound_immunity = 1.0
 
 [m_poltergeist_normal]:m_poltergeist_e
 $spawn								= "monsters\old\poltergeist_normal"
+
+rank								= 401
+
 spec_rank			= normal
-rank				= 401
+
 community			= poltergeist
 
 ;===========================================================================

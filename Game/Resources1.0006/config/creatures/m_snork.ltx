@@ -5,9 +5,12 @@ SpaceRestrictionSection				= space_restrictor,zone_mosquito_bald
 $npc								= on									; option for Level Editor
 $prefetch							= 16
 
-visual					= monsters\snork\snork
-corpse_visual			= monsters\snork\snork_dead
-icon					= ui_npc_monster_snork
+visual								= monsters\snork\snork
+corpse_visual						= monsters\snork\snork_dead
+icon								= ui_npc_monster_snork
+
+;species of monster
+species								= snork
 
 Spawn_Inventory_Item_Section = mutant_snork_leg
 Spawn_Inventory_Item_Probability = 0.2
@@ -221,8 +224,7 @@ jump_max_distance			= 10.0
 jump_max_angle				= 0.6
 jump_max_height				= 3.5
 
-;species of monster
-species						= snork
+
 
 ;=================================================================================
 ; SNORK Damage
@@ -296,10 +298,14 @@ fire_wound_immunity		= 0.18
 ;*********************************************************************************
 [snork_weak]:m_snork_e
 $spawn								= "monsters\snorks\snork_01_weak"
-visual				= monsters\snork\snork
-icon				= ui_npc_monster_snork
+
+visual								= monsters\snork\snork
+icon								= ui_npc_monster_snork
+
+rank								= 0
+
 panic_threshold		= 0.5
-rank				= 0
+
 immunities_sect		= snork_immunities_weak
 attack_params		= snork_attack_params_weak
 spec_rank			= weak
@@ -335,10 +341,14 @@ stand_attack_2_1 =	  	0.30,		0.50,			70,        0.0, 1.0, 2.0,		-0.8, 0.8, -1.6,
 ;*********************************************************************************
 [snork_normal]:m_snork_e
 $spawn								= "monsters\snorks\snork_02_normal"
-visual				= monsters\snork\snork
-icon				= ui_npc_monster_snork
+
+visual								= monsters\snork\snork
+icon								= ui_npc_monster_snork
+
+rank								= 401
+
 panic_threshold		= 0.2
-rank				= 401
+
 immunities_sect		= snork_immunities_normal
 attack_params		= snork_attack_params_normal
 spec_rank			= normal
@@ -374,10 +384,14 @@ stand_attack_2_1 =	  	0.30,		0.70,			70,        0.0, 1.0, 2.0,		-0.8, 0.8, -1.6,
 ;*********************************************************************************
 [snork_strong]:m_snork_e
 $spawn								= "monsters\snorks\snork_03_strong"
-visual				= monsters\snork\snork
-icon				= ui_npc_monster_snork
+
+visual								= monsters\snork\snork
+icon								= ui_npc_monster_snork
+
+rank								= 801
+
 panic_threshold		= 0.05
-rank				= 801
+
 immunities_sect		= snork_immunities_strong
 attack_params		= snork_attack_params_strong
 spec_rank			= strong
@@ -422,8 +436,10 @@ stand_attack_2_1 =	  	0.30,		1.00,			70,        0.0, 1.0, 2.0,		-0.8, 0.8, -1.6,
 ;=======================================================================================
 [aes_snork]:snork_strong
 $spawn								= "monsters\snorks\aes_snork"
-visual				= monsters\snork\snork
-icon				= ui_npc_monster_snork
+
+visual								= monsters\snork\snork
+icon								= ui_npc_monster_snork
+
 panic_threshold		= 0.0
 
 ;=======================================================================================
@@ -432,10 +448,14 @@ panic_threshold		= 0.0
 
 [snork_arena]:snork_strong
 $spawn								= "monsters\arena\snork_arena"
-visual				= monsters\snork\snork
-icon				= ui_npc_monster_snork
+
+visual								= monsters\snork\snork
+icon								= ui_npc_monster_snork
+
+species								= arena_monstr
+
 panic_threshold		= 0.05
-species				= arena_monstr
+
 
 
 
