@@ -9,7 +9,7 @@ by Stohe (Диденко Руслан)
 local section_name = "respawn"
 local i,k,v = 0,0,0
 
--- Таблица ограничений на спаун: всего в симуляции не должно быть больше, чем указано.
+--' Таблица ограничений на спаун: всего в симуляции не должно быть больше, чем указано.
 local simMaxCount = {
 	stalker_novice = 43, stalker_regular = 48, stalker_veteran = 43, stalker_master = 20,
 	monolith_novice = 20, monolith_regular = 30, monolith_veteran = 35, monolith_master = 30,
@@ -37,7 +37,7 @@ local simMaxCount = {
 	burer_weak = 50,
 	fracture_weak = 50,
 	chimera_weak = 50,
-	bloodsucker_weak = 7, bloodsucker_normal = 40, bloodsucker_strong = 15	
+	bloodsucker_weak = 7, bloodsucker_normal = 40, bloodsucker_strong = 15
 }
 
 local idle_spawn_preset = {
@@ -95,11 +95,11 @@ function r_2nums( spawn_ini, section, line, def1, def2 )
 end
 
 function parse_names( s )
-    local t = {}
-    for name in string.gfind( s, "([%w_%-.\\]+)%p*" ) do
-        table.insert( t, name )
-    end
-    return t
+	local t = {}
+	for name in string.gfind( s, "([%w_%-.\\]+)%p*" ) do
+		table.insert( t, name )
+	end
+	return t
 end
 
 function r_spawns( spawn_ini, section, line, sectSpawnProps)
@@ -113,10 +113,10 @@ function r_spawns( spawn_ini, section, line, sectSpawnProps)
 		while k <= n do
 			local spawn = {}
 			spawn.section = t[k]
-			-- Проверяем что это не последняя запись
+			--' Проверяем что это не последняя запись
 			if t[k+1] ~= nil then
 				local p = tonumber(t[k+1])
-				-- проверяем что вторым числом задана вероятность, а не другая секция спавну
+				--' проверяем что вторым числом задана вероятность, а не другая секция спавну
 				if p then
 					-- забиваем число
 					spawn.prob = p
@@ -132,10 +132,9 @@ function r_spawns( spawn_ini, section, line, sectSpawnProps)
 			end
 			table.insert(ret_table, spawn)
 	
-			-- Вычитываем настройки секций респавна и кешируем их.
+			--' Вычитываем настройки секций респавна и кешируем их
 			if sectSpawnProps[spawn.section] == nil then
 				local respawn_ini = system_ini()
-
 				local community = r_str(respawn_ini, spawn.section, "community", "nil")
 				local rank = r_str(respawn_ini, spawn.section, "spec_rank", "nil")
 				local check = true
@@ -146,22 +145,24 @@ function r_spawns( spawn_ini, section, line, sectSpawnProps)
 						if custom_data_ltx:line_exist("smart_terrains", "none") then
 							if r_str(custom_data_ltx, "smart_terrains", "none") == "true" then
 								check = false
-							end	
+							end
 						end
-                        if custom_data_ltx:line_exist("smart_terrains", "respawn_check") then
-                            if r_str(custom_data_ltx, "smart_terrains", "respawn_check") == "false" then
-                                check = false
-                            end
-                        end                        
+
+						if custom_data_ltx:line_exist("smart_terrains", "respawn_check") then
+							if r_str(custom_data_ltx, "smart_terrains", "respawn_check") == "false" then
+								check = false
+							end
+						end
 					end
 				end
 				
 				sectSpawnProps[spawn.section] = {community = community, rank = rank, check = check}
 			end
-						
 		end
+
 		return ret_table
 	end
+
 	return nil
 end
 ----------------------------------------------------------------------------------------------------------------------
@@ -544,9 +545,7 @@ function stats()
 --	printf("***************")
 end
 
-
-
--- Сбор продвинутой статистики статистики по лимитам
+-- Сбор продвинутой статистики по лимитам
 function lstats()
 	local can_spawn = {}
 --	printf("***************** LIMITS STATISTIC *********************")

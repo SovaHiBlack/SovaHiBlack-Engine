@@ -92,11 +92,11 @@ function r_2nums( spawn_ini, section, line, def1, def2 )
 end
 
 function parse_names( s )
-    local t = {}
-    for name in string.gfind( s, "([%w_%-.\\]+)%p*" ) do
-        table.insert( t, name )
-    end
-    return t
+	local t = {}
+	for name in string.gfind( s, "([%w_%-.\\]+)%p*" ) do
+		table.insert( t, name )
+	end
+	return t
 end
 
 function r_spawns( spawn_ini, section, line, sectSpawnProps)
@@ -145,20 +145,21 @@ function r_spawns( spawn_ini, section, line, sectSpawnProps)
 								check = false
 							end	
 						end
-                        if custom_data_ltx:line_exist("smart_terrains", "respawn_check") then
-                            if r_str(custom_data_ltx, "smart_terrains", "respawn_check") == "false" then
-                                check = false
-                            end
-                        end                        
+						if custom_data_ltx:line_exist("smart_terrains", "respawn_check") then
+							if r_str(custom_data_ltx, "smart_terrains", "respawn_check") == "false" then
+								check = false
+							end
+						end
 					end
 				end
 				
 				sectSpawnProps[spawn.section] = {community = community, rank = rank, check = check}
 			end
-						
 		end
+
 		return ret_table
 	end
+
 	return nil
 end
 ----------------------------------------------------------------------------------------------------------------------
