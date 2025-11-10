@@ -12,8 +12,8 @@ icon								= ui_npc_monster_chimera
 ;species of monster
 species								= chimera
 rank								= 0
-spec_rank				= weak
-community				= chimera
+spec_rank							= weak
+community							= chimera
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -306,12 +306,12 @@ bip01_head 			= 8, -1, 0.50
 $spawn								= "monsters\chimera"			; option for Level Editor
 
 rank								= 0
+spec_rank							= weak
+community							= chimera
+monster_type						= indoor
 
 
-monster_type		= indoor
 
-spec_rank			= weak
-community			= chimera
 
 [chimera_strong]:m_chimera_e
 $spawn								= "monsters\chimera"			; option for Level Editor
@@ -320,11 +320,12 @@ visual								= monsters\chimera\chimera_strong
 icon								= ui_npc_monster_chimera_strong
 
 rank								= 901
+spec_rank							= strong
+community							= chimera
+monster_type						= indoor
 
-monster_type		= indoor
 
-spec_rank			= strong
-community			= chimera
+
 
 bones_particles = electro_chimera_particles
 immunities_sect	= electro_chimera_immunities
@@ -381,11 +382,12 @@ visual								= monsters\chimera\chimera_strong
 icon								= ui_npc_monster_chimera_strong
 
 rank								= 0
+spec_rank							= weak
+community							= chimera
+monster_type						= indoor
 
-monster_type		= indoor
 
-spec_rank			= weak
-community			= chimera
+
 immunities_sect		= chimera_immunities_arena
 custom_data = scripts\arena_mob_1.ltx
 

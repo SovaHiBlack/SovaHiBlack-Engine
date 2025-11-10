@@ -79,13 +79,17 @@ void	game_PlayerState::net_Export(NET_Packet& P, BOOL Full)
 {
 	P.w_u8			(Full ? 1 : 0);
 	if (Full)
-		P.w_stringZ		(	name	);
+	{
+		P.w_stringZ(name);
+	}
 
 	P.w_u8			(	team			);
+
 	P.w_s16			(	m_iRivalKills	);
 	P.w_s16			(	m_iSelfKills	);
 	P.w_s16			(	m_iTeamKills	);
 	P.w_s16			(	m_iDeaths		);
+
 	P.w_s32			(	money_for_round	);
 	P.w_float_q8	(	experience_D, -1.0f, 2.0f);
 	P.w_u8			(	rank		);
@@ -98,15 +102,16 @@ void	game_PlayerState::net_Export(NET_Packet& P, BOOL Full)
 	P.w_u8			(	m_bCurrentVoteAgreed	);
 
 	P.w_u32			(Device.dwTimeGlobal - DeathTime);
-};
+}
 
 void	game_PlayerState::net_Import(NET_Packet& P)
 {
 	BOOL	bFullUpdate = !!P.r_u8();
 
 	if (bFullUpdate)
-		P.r_stringZ		(name);
-
+	{
+		P.r_stringZ(name);
+	}
 
 	P.r_u8			(	team			);
 	
@@ -127,7 +132,7 @@ void	game_PlayerState::net_Import(NET_Packet& P)
 	P.r_u8			(	m_bCurrentVoteAgreed	);
 
 	DeathTime = P.r_u32();
-};
+}
 
 void	game_PlayerState::SetGameID				(u16 NewID)
 {

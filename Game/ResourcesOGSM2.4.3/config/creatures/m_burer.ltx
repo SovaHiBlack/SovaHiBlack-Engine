@@ -12,9 +12,9 @@ icon								= ui_npc_monster_burer
 ;species of monster
 species								= burer
 rank								= 0
-spec_rank				= weak
-community				= burer
-;monster_type			= indoor
+spec_rank							= weak
+community							= burer
+;monster_type						= indoor
 
 Spawn_Inventory_Item_Section = mutant_burer_hand
 Spawn_Inventory_Item_Probability = 0.5
@@ -380,11 +380,12 @@ time_release		= 0.85		; fade out
 $spawn								= "monsters\burers\burer_weak"
 
 rank								= 0
+spec_rank							= weak
+community							= burer
+monster_type						= indoor
 
-monster_type		= indoor
 
-spec_rank			= weak
-community			= burer
+
 Tele_Time_To_Hold	= 200
 
 [burer_strong]:m_burer_e
@@ -394,12 +395,12 @@ visual								= monsters\burer\burer_1
 icon								= ui_npc_monster_burer_strong
 
 rank								= 901
+spec_rank							= strong
+community							= burer
+monster_type						= indoor
 
 
-monster_type		= indoor
 
-spec_rank			= strong
-community			= burer
 
 scan_radius				= 0.01
 Particle_Gravi_Wave		= ogsm\ogsm_burer_wave
@@ -413,12 +414,12 @@ visual								= monsters\burer\burer_1
 icon								= ui_npc_monster_burer_strong
 
 rank								= 0
+spec_rank							= weak
+community							= burer
+monster_type						= indoor
 
 
-monster_type		= indoor
 
-spec_rank			= weak
-community			= burer
 immunities_sect		= burer_immunities_arena
 custom_data = scripts\arena_mob_1.ltx
 

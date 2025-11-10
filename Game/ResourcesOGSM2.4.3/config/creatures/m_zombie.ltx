@@ -12,8 +12,8 @@ icon								= ui_npc_monster_zombie
 ;species of monster
 species								= zombie
 rank 								= 0
-spec_rank				= weak
-community				= zombie
+spec_rank							= weak
+community							= zombie
 
 MaxHealthValue		 = 100			; range [0..200]
 
@@ -295,11 +295,13 @@ visual								= monsters\zombi\zombi_2
 icon								= ui_npc_monster_zombie_weak
 
 rank								= 0
+spec_rank							= weak
+community							= zombie
 
 panic_threshold		= 0.5
 
-spec_rank			= weak
-community			= zombie
+
+
 
 
 MaxHealthValue		 = 80
@@ -316,11 +318,13 @@ visual								= monsters\zombi\zombi_1
 icon								= ui_npc_monster_zombie_normal
 
 rank								= 255
+spec_rank							= normal
+community							= zombie
 
 panic_threshold		= 0.2
 
-spec_rank			= normal
-community			= zombie
+
+
 
 
 MaxHealthValue		 = 100
@@ -363,11 +367,13 @@ visual								= monsters\zombi\zombi_1_ghost
 icon								= ui_npc_monster_zombie_ghost
 
 rank								= 255
+spec_rank							= strong
+community							= zombie
 
 panic_threshold		= 0.05	
 
-spec_rank			= strong
-community			= zombie
+
+
 
 
 MaxHealthValue		 = 120
@@ -512,37 +518,44 @@ fire_wound_immunity		= 0.1
 
 [arena_zombie_1]:zombie_weak
 rank								= 255
+spec_rank							= normal
+community							= zombie
 
 panic_threshold		= 0.2
 
-spec_rank			= normal
-community			= zombie
+
+
 custom_data = scripts\arena_mob_3.ltx
 
 [arena_zombie_2]:zombie_normal
 rank								= 255
-
+spec_rank							= normal
+community							= zombie
 
 panic_threshold		= 0.2
 
-spec_rank			= normal
-community			= zombie
+
+
 custom_data = scripts\arena_mob_4.ltx
 
 [arena_zombie_3]:zombie_ghost
 rank								= 255
+spec_rank							= normal
+community							= zombie
 
 panic_threshold		= 0.2
 
-spec_rank			= normal
-community			= zombie
+
+
 custom_data = scripts\arena_mob_5.ltx
 
 [arena_zombie_4]:zombie_immortal
 rank								= 255
+spec_rank							= normal
+community							= zombie
 
 panic_threshold		= 0.2
 
-spec_rank			= normal
-community			= zombie
+
+
 custom_data = scripts\arena_mob_6.ltx

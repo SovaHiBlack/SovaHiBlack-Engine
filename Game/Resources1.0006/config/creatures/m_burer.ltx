@@ -11,9 +11,9 @@ corpse_visual						= monsters\burer\burer
 ;species of monster
 species								= burer
 rank								= 0
-spec_rank				= weak
-community				= burer
-monster_type			= indoor
+spec_rank							= weak
+community							= burer
+monster_type						= indoor
 
 Spawn_Inventory_Item_Section = mutant_burer_hand
 Spawn_Inventory_Item_Probability = 0.2
@@ -377,12 +377,14 @@ visual								= monsters\burer\burer_1
 
 species								= arena_monstr
 rank								= 0
+spec_rank							= weak
+community							= burer
 
 panic_threshold		= 0.05
 
-spec_rank			= weak
 
-community			= burer
+
+
 
 explosion_immunity		= 0.2
 fire_wound_immunity		= 0.1
@@ -408,10 +410,10 @@ Tele_Find_Radius		 = 15	;7.0
 $spawn								= "monsters\burers\burer_normal"
 
 rank								= 0
-spec_rank			= weak
-community			= burer
+spec_rank							= weak
+community							= burer
+monster_type						= indoor
 
-monster_type		= indoor
 Tele_Time_To_Hold	= 200
 
 [m_burer_normal_black]:m_burer_e
@@ -419,18 +421,21 @@ $spawn								= "monsters\burers\burer_normal_black"
 
 visual								= monsters\burer\burer_1
 
-rank				= 0
-spec_rank			= weak
-community			= burer
-monster_type		= indoor
+rank								= 0
+spec_rank							= weak
+community							= burer
+monster_type						= indoor
 
 Tele_Time_To_Hold	= 200
 
 [burer_indoor]:m_burer_normal
 $spawn								= "monsters\burers\burer_indoor"
-monster_type	= indoor
+
+monster_type						= indoor
+
 Tele_Time_To_Hold		 = 200
 
 [burer_outdoor]:m_burer_normal
 $spawn								= "monsters\burers\burer_outdoor"
-;monster_type	= outdoor
+
+;monster_type						= outdoor

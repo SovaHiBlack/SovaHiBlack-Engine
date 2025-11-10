@@ -12,8 +12,8 @@ icon								= ui_npc_monster_snork
 ;species of monster
 species								= snork
 rank								= 0
-spec_rank					= weak
-community					= snork
+spec_rank							= weak
+community							= snork
 
 Spawn_Inventory_Item_Section = mutant_snork_leg
 Spawn_Inventory_Item_Probability = 0.3
@@ -297,13 +297,15 @@ visual								= monsters\snork\snork
 icon								= ui_npc_monster_snork
 
 rank								= 0
+spec_rank							= weak
+community							= snork
 
 panic_threshold		= 0.5
 
 immunities_sect		= snork_immunities_weak
 attack_params		= snork_attack_params_weak
-spec_rank			= weak
-community			= snork
+
+
 
 
 [snork_immunities_weak]
@@ -340,13 +342,15 @@ visual								= monsters\snork\snork
 icon								= ui_npc_monster_snork
 
 rank								= 401
+spec_rank							= normal
+community							= snork
 
 panic_threshold		= 0.2
 
 immunities_sect		= snork_immunities_normal
 attack_params		= snork_attack_params_normal
-spec_rank			= normal
-community			= snork
+
+
 
 
 [snork_immunities_normal]
@@ -383,13 +387,15 @@ visual								= monsters\snork\snork
 icon								= ui_npc_monster_snork
 
 rank								= 801
+spec_rank							= strong
+community							= snork
 
 panic_threshold		= 0.05
 
 immunities_sect		= snork_immunities_strong
 attack_params		= snork_attack_params_strong
-spec_rank			= strong
-community			= snork
+
+
 
 
 [snork_immunities_strong]
@@ -455,18 +461,22 @@ panic_threshold		= 0.05
 
 [snork_indoor]:snork_weak
 $spawn								= "monsters\snorks\snork_indoor"
-monster_type	= indoor
+
+monster_type						= indoor
 
 jump_min_distance			= 2.5
 jump_max_angle				= 0.4
 
 [snork_outdoor]:snork_weak
 $spawn								= "monsters\snorks\snork_outdoor"
-monster_type	= outdoor
+
+monster_type						= outdoor
 
 [snork_jumper]:snork_weak
 $spawn								= "monsters\snorks\snork_jumper"
-monster_type	= outdoor
+
+monster_type						= outdoor
+
 panic_threshold		= 0.05
 
 ; jump parameters

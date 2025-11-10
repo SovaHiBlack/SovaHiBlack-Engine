@@ -2,10 +2,8 @@
 
 function getNpcType(npc)
 	local cls = npc:clsid()
-
 	if cls == clsid.script_stalker then
 		local community = npc:community()
-		
 		local rank = ranks.get_obj_rank_name(npc)
 		return community, rank
 	else
