@@ -14,10 +14,6 @@ species								= tushkano
 spec_rank							= normal
 community							= tushkano
 
-MaxHealthValue		 = 100			; range [0..200]
-
-smart_terrain_choose_interval	= 00:15:00
-
 ;---EVALUATION FUNCTIONS----------------------------------------------
 ef_creature_type	 = 2							; option for evaluation functions
 ef_weapon_type		 = 2
@@ -38,14 +34,18 @@ weapon_usage		 = 0						; boolean
 ;------------------------------------------------------------------------------
 ; Offline Alife
 ;------------------------------------------------------------------------------
-Scheduled		     = on						; option for ALife Simulator
-Human		     	 = off						; option for ALife Simulator
-Health			     = 400						; option for ALife Simulator
-MinSpeed		     = 1.0						; option for ALife Simulator
-MaxSpeed		     = 5.0						; option for ALife Simulator
-going_speed          = 3;4.5                      ; option for ALife Simulator
-current_level_going_speed		= 1;2					; option for ALife Simulator
-search_speed         = 1.5                       ; option for ALife Simulator
+Scheduled							= on				; option for ALife Simulator
+Human								= off				; option for ALife Simulator
+Health								= 400				; option for ALife Simulator
+MinSpeed							= 1.0				; option for ALife Simulator
+MaxSpeed							= 5.0				; option for ALife Simulator
+going_speed							= 3.0				; option for ALife Simulator
+current_level_going_speed			= 1.0				; option for ALife Simulator
+search_speed						= 1.5				; option for ALife Simulator
+
+MaxHealthValue						= 100				; range [0..200]
+
+smart_terrain_choose_interval	= 00:15:00
 
 ;------------------------------------------------------------------------------
 ; Physics

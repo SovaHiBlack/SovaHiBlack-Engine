@@ -15,21 +15,23 @@ spec_rank							= weak
 community							= burer
 monster_type						= indoor
 
+ef_creature_type					= 18							; option for evaluation functions
+
 Spawn_Inventory_Item_Section = mutant_burer_hand
 Spawn_Inventory_Item_Probability = 0.2
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
 ;------------------------------------------------------------------------------
-Scheduled				= on						; option for ALife Simulator
-Human		     		= off						; option for ALife Simulator
-Health					= 400						; option for ALife Simulator
-MinSpeed				= 1.0						; option for ALife Simulator
-MaxSpeed				= 5.0						; option for ALife Simulator
-going_speed				= 3;4.5                      	; option for ALife Simulator
-search_speed			= 1.5                       ; option for ALife Simulator
+Scheduled							= on				; option for ALife Simulator
+Human								= off				; option for ALife Simulator
+Health								= 400				; option for ALife Simulator
+MinSpeed							= 1.0				; option for ALife Simulator
+MaxSpeed							= 5.0				; option for ALife Simulator
+going_speed							= 3.0				; option for ALife Simulator
+search_speed						= 1.5				; option for ALife Simulator
 
-MaxHealthValue		    = 100						; range [0..200]
+MaxHealthValue						= 100				; range [0..200]
 
 smart_terrain_choose_interval	= 00:15:00
 
@@ -226,7 +228,7 @@ Particle_Shield			= anomaly2\burer_shield_01
 critical_wound_threshold		= -1
 critical_wound_decrease_quant	= 0.
 
-ef_creature_type		= 18							; option for evaluation functions
+
 ef_weapon_type			= 12
 ef_detector_type		= 1
 panic_threshold			= 0.1

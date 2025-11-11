@@ -12,7 +12,9 @@ icon								= ui_npc_monster_mutant_boar
 ;species of monster
 species								= boar
 
-MaxHealthValue		    = 200								 ; range [0..200]
+ef_creature_type					= 11						; option for evaluation functions
+
+
 
 smart_terrain_choose_interval	= 00:15:00
 
@@ -23,14 +25,16 @@ Spawn_Inventory_Item_Probability = 0.2
 ;------------------------------------------------------------------------------
 ; Offline Alife
 ;------------------------------------------------------------------------------
-Scheduled						= on					; option for ALife Simulator
-Human							= off					; option for ALife Simulator
-Health							= 400					; option for ALife Simulator
-MinSpeed						= 1.0					; option for ALife Simulator
-MaxSpeed						= 5.0					; option for ALife Simulator
-going_speed						= 2						; option for ALife Simulator
-current_level_going_speed		= 1						; option for ALife Simulator
-search_speed					= 1.5					; option for ALife Simulator
+Scheduled							= on				; option for ALife Simulator
+Human								= off				; option for ALife Simulator
+Health								= 400				; option for ALife Simulator
+MinSpeed							= 1.0				; option for ALife Simulator
+MaxSpeed							= 5.0				; option for ALife Simulator
+going_speed							= 2.0				; option for ALife Simulator
+current_level_going_speed			= 1.0				; option for ALife Simulator
+search_speed						= 1.5				; option for ALife Simulator
+
+MaxHealthValue						= 200				; range [0..200]
 
 ;------------------------------------------------------------------------------
 ; Physics
@@ -206,7 +210,7 @@ critical_wound_bones_legs	= boar_critical_wound_bones_legs
 ;------------------------------------------------------------------------
 
 
-ef_creature_type		= 11						; option for evaluation functions
+
 ef_weapon_type			= 2
 ef_detector_type		= 1
 panic_threshold			= 0.1

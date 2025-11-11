@@ -12,9 +12,7 @@ corpse_visual						= monsters\zombi\zombi_1
 species								= zombie
 
 
-MaxHealthValue		 = 100			; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
 
 ef_creature_type	 = 3				; option for evaluation functions
 ef_weapon_type		 = 1
@@ -38,13 +36,17 @@ weapon_usage		 = 0						; boolean
 ;------------------------------------------------------------------------------
 ; Offline Alife
 ;------------------------------------------------------------------------------
-Scheduled						= on					; option for ALife Simulator
-Human							= off					; option for ALife Simulator
-Health							= 400					; option for ALife Simulator
-MinSpeed						= 1.0					; option for ALife Simulator
-MaxSpeed						= 5.0					; option for ALife Simulator
-going_speed						= 2						; option for ALife Simulator
-search_speed					= 1.5					; option for ALife Simulator
+Scheduled							= on				; option for ALife Simulator
+Human								= off				; option for ALife Simulator
+Health								= 400				; option for ALife Simulator
+MinSpeed							= 1.0				; option for ALife Simulator
+MaxSpeed							= 5.0				; option for ALife Simulator
+going_speed							= 2.0				; option for ALife Simulator
+search_speed						= 1.5				; option for ALife Simulator
+
+MaxHealthValue						= 100				; range [0..200]
+
+smart_terrain_choose_interval	= 00:15:00
 
 ;------------------------------------------------------------------------------
 ; Physics
