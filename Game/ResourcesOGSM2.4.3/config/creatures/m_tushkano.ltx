@@ -9,22 +9,19 @@ visual								= monsters\tushkano\tushkano
 corpse_visual						= monsters\tushkano\tushkano_dead
 icon								= ui_npc_monster_tushkano
 
-;species of monster
 species								= tushkano
 rank								= 0
 spec_rank							= weak
 community							= tushkano
 
+ef_creature_type					= 2					; option for evaluation functions
+ef_weapon_type						= 2
+ef_detector_type					= 1
+panic_threshold						= 0.0
 
+cform								= skeleton			; collision class
+class								= SM_TUSHK ;AI_TUSH	; AI class
 
-;---EVALUATION FUNCTIONS----------------------------------------------
-ef_creature_type	 = 2							; option for evaluation functions
-ef_weapon_type		 = 2
-ef_detector_type	 = 1
-panic_threshold		= 0.0
-
-cform                = skeleton					; collision class
-class                = SM_TUSHK ;AI_TUSH					; AI class
 script_binding  	 = bind_monster.bind
 
 bone_torso			 = bip01_spine1 			; bone name
@@ -48,7 +45,7 @@ search_speed						= 1.5				; option for ALife Simulator
 
 MaxHealthValue						= 20				; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
+smart_terrain_choose_interval		= 00:15:00
 
 ;------------------------------------------------------------------------------
 ; Physics

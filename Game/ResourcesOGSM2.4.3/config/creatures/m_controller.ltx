@@ -15,6 +15,14 @@ rank								= 401
 spec_rank							= normal
 community							= controller
 
+ef_creature_type					= 12				; option for evaluation functions
+ef_weapon_type						= 11
+ef_detector_type					= 1
+panic_threshold						= 0.1
+
+cform								= skeleton			; collision class
+class								= SM_CONTR			; AI class
+
 ;------------------------------------------------------------------------------
 ; Offline Alife
 ;------------------------------------------------------------------------------
@@ -29,15 +37,11 @@ search_speed						= 1.5				; option for ALife Simulator
 
 MaxHealthValue						= 400				; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
+smart_terrain_choose_interval		= 00:15:00
 
-ef_creature_type	 = 12						; option for evaluation functions
-ef_weapon_type		 = 11
-ef_detector_type			 = 1
-panic_threshold		= 0.1
 
-cform                = skeleton					; collision class
-class                = SM_CONTR					; AI class
+
+
 
 script_binding  	= bind_monster.bind
 

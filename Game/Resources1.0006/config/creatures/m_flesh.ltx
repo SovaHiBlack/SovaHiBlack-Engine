@@ -9,10 +9,18 @@ visual								= monsters\flesh\flesh
 corpse_visual						= monsters\flesh\flesh_dead
 icon								= ui_npc_monster_flesh
 
-;species of monster
 species								= flesh
 
-ef_creature_type					= 7				; option for evaluation functions
+ef_creature_type					= 7					; option for evaluation functions
+ef_weapon_type						= 2
+ef_detector_type					= 1
+panic_threshold						= 0.1
+
+Spawn_Inventory_Item_Section		= mutant_flesh_eye
+Spawn_Inventory_Item_Probability	= 0.2
+
+cform								= skeleton			; collision class
+class								= SM_FLESH			; AI class
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -26,21 +34,16 @@ going_speed							= 2.0				; option for ALife Simulator
 current_level_going_speed			= 1.0				; option for ALife Simulator
 search_speed						= 0.5				; option for ALife Simulator
 
-MaxHealthValue						= 1.0				; range [0..200]
+MaxHealthValue						= 1					; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
-
-
-Spawn_Inventory_Item_Section = mutant_flesh_eye
-Spawn_Inventory_Item_Probability = 0.2
+smart_terrain_choose_interval		= 00:15:00
 
 
-ef_weapon_type		 = 2
-ef_detector_type			 = 1
-panic_threshold		= 0.1
 
-cform               = skeleton					; collision class
-class               = SM_FLESH					; AI class
+
+
+
+
 
 script_binding		= bind_monster.bind
 
@@ -328,7 +331,7 @@ rank								= 0
 spec_rank							= weak
 community							= flesh
 
-panic_threshold			= 0.2
+panic_threshold						= 0.2
 
 immunities_sect			= flesh_immunities_weak
 attack_params			= flesh_attack_params_weak
@@ -372,7 +375,7 @@ rank								= 401
 spec_rank							= normal
 community							= flesh
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 immunities_sect		= flesh_immunities_normal
 attack_params		= flesh_attack_params_normal
@@ -417,7 +420,7 @@ rank								= 801
 spec_rank							= strong
 community							= flesh
 
-panic_threshold		= 0.05	
+panic_threshold						= 0.05
 
 immunities_sect		= flesh_immunities_strong
 attack_params		= flesh_attack_params_strong
@@ -455,7 +458,8 @@ $npc								= on							; option for Level Editor
 
 Human								= off				; option for ALife Simulator
 
-class               = AI_FLE_G					; AI class
+class								= AI_FLE_G			; AI class
+
 monster_section		= m_flesh_e
 
 

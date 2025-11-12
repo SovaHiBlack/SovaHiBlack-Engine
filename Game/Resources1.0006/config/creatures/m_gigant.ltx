@@ -9,14 +9,19 @@ visual								= monsters\psevdogigant\psevdogigant
 corpse_visual						= monsters\psevdogigant\psevdogigant_dead
 icon								= ui_npc_monster_psevdogigant
 
-;species of monster
 species								= giant
 rank								= 401
 spec_rank							= normal
 community							= pseudo_gigant
 monster_type						= outdoor
 
-ef_creature_type					= 19							; option for evaluation functions
+ef_creature_type					= 19				; option for evaluation functions
+ef_weapon_type						= 3
+ef_detector_type					= 1
+panic_threshold						= 0.1
+
+cform								= skeleton			; collision class
+class								= SM_GIANT			; AI class
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -32,17 +37,14 @@ search_speed						= 1.5				; option for ALife Simulator
 
 MaxHealthValue						= 200				; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
+smart_terrain_choose_interval		= 00:15:00
 
 
 
 
-ef_weapon_type		= 3
-ef_detector_type			 = 1
-panic_threshold		= 0.1
 
-cform                = skeleton					; collision class
-class                = SM_GIANT					; AI class
+
+
 
 script_binding  	= bind_monster.bind
 

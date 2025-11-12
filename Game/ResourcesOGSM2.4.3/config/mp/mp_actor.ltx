@@ -10,12 +10,14 @@ $prefetch							= 16
 
 visual								= actors\hero\stalker_hood
 
-;species of monster
 species								= human
 rank								= 3
 
-cform                   = skeleton
-class                   = O_ACTOR
+ef_creature_type					= 17						; option for evaluation functions
+
+cform								= skeleton
+class								= O_ACTOR
+
 money					= 200;
 
 jump_speed              = 6
@@ -42,7 +44,7 @@ HeadShotParticle			= hit_fx\hit_flesh_headshot
 ;радиус в котром над предметами выводятся их названия
 pickup_info_radius		= 5	;3
 
-ef_creature_type		= 17						; option for evaluation functions
+
 
 ; attach params
 attachable_items		= mp_device_torch,attachable_item,hand_radio

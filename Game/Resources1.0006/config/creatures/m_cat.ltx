@@ -7,10 +7,15 @@ $npc								= on						; option for Level Editor
 visual								= monsters\cat\cat
 corpse_visual						= monsters\cat\cat
 
-;species of monster
 species								= cat
 
-ef_creature_type					= 2				; option for evaluation functions
+ef_creature_type					= 2					; option for evaluation functions
+ef_weapon_type						= 2
+ef_detector_type					= 1
+panic_threshold						= 0.1
+
+cform								= skeleton			; collision class
+class								= SM_CAT_S			; AI class
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -26,13 +31,9 @@ search_speed						= 0.5				; option for ALife Simulator
 MaxHealthValue						= 100				; range [0..200]
 
 
-cform                = skeleton					; collision class
-class                = SM_CAT_S					; AI class
 
 
-ef_weapon_type		 = 2
-ef_detector_type			 = 1
-panic_threshold			= 0.1
+
 
 bone_torso			 = bip01_spine1 			; bone name
 bone_head			 = bip01_head				; bone name

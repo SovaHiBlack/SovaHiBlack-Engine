@@ -8,17 +8,22 @@ $prefetch							= 16
 visual								= monsters\burer\burer
 corpse_visual						= monsters\burer\burer
 
-;species of monster
 species								= burer
 rank								= 0
 spec_rank							= weak
 community							= burer
 monster_type						= indoor
 
-ef_creature_type					= 18							; option for evaluation functions
+ef_creature_type					= 18				; option for evaluation functions
+ef_weapon_type						= 12
+ef_detector_type					= 1
+panic_threshold						= 0.1
 
-Spawn_Inventory_Item_Section = mutant_burer_hand
-Spawn_Inventory_Item_Probability = 0.2
+Spawn_Inventory_Item_Section		= mutant_burer_hand
+Spawn_Inventory_Item_Probability	= 0.2
+
+cform								= skeleton			; collision class
+class								= SM_BURER			; AI class
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -33,7 +38,7 @@ search_speed						= 1.5				; option for ALife Simulator
 
 MaxHealthValue						= 100				; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
+smart_terrain_choose_interval		= 00:15:00
 
 ;------------------------------------------------------------------------------
 ; Physics
@@ -229,12 +234,9 @@ critical_wound_threshold		= -1
 critical_wound_decrease_quant	= 0.
 
 
-ef_weapon_type			= 12
-ef_detector_type		= 1
-panic_threshold			= 0.1
 
-cform					= skeleton					; collision class
-class					= SM_BURER					; AI class
+
+
 
 script_binding  		= bind_monster.bind
 
@@ -382,7 +384,7 @@ rank								= 0
 spec_rank							= weak
 community							= burer
 
-panic_threshold		= 0.05
+panic_threshold						= 0.05
 
 
 

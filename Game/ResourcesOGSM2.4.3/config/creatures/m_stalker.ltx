@@ -11,12 +11,30 @@ corpse_visual						= equipments\item_rukzak	;actors\hero\stalker_novice		; optio
 
 species								= human
 
-class							= AI_STL_S						; Class identifier
+ef_creature_type					= 17				; option for evaluation functions
+panic_threshold						= 0.02
+
+cform								= skeleton			; collision class
+class								= AI_STL_S			; Class identifier
+
+;------------------------------------------------------------------------------
+; Offline Alife
+;------------------------------------------------------------------------------
+Health								= 100				; option for ALife Simulator
+going_speed							= 2.0				; option for ALife Simulator
+current_level_going_speed			= 1.0				; option for ALife Simulator
+search_speed						= 0.5				; option for ALife Simulator
+
+MaxHealthValue						= 100				; option for ALife Simulator, range [0..200]
+
+smart_terrain_choose_interval		= 00:15:00
+
+
 
 can_select_items				= on
 
 ;---EVALUATION FUNCTIONS----------------------------------------------
-ef_creature_type				= 17							; option for evaluation functions
+
 
 ;---LEVEL EDITOR------------------------------------------------------
 
@@ -28,7 +46,7 @@ use_single_item_rule			= off
 
 ;---GAME--------------------------------------------------------------
 							
-cform							= skeleton						; collision class
+
 ;биолог вид существа
 
 
@@ -45,16 +63,6 @@ script_binding					= bind_stalker.init
 damage							= stalker_damage
 immunities_sect					= stalker_immunities
 condition_sect					= stalker_condition
-
-;---OFFLINE ALIFE------------------------------------------------------------------
-Health								= 100				; option for ALife Simulator
-going_speed							= 2.0				; option for ALife Simulator
-current_level_going_speed			= 1.0				; option for ALife Simulator
-search_speed						= 0.5				; option for ALife Simulator
-
-MaxHealthValue						= 100				; option for ALife Simulator, range [0..200]
-
-smart_terrain_choose_interval	= 00:15:00
 
 max_item_mass					= 1000.0				; option for ALife Simulator
 inv_max_weight					= 1000.0				; Допустимый вес инвентори
@@ -92,7 +100,7 @@ DynamicHitCount					= 32
 
 ;---ENEMY------------------------------------------------------------
 ignore_monster_threshold		= 0.0	;0.6	;0.8
-panic_threshold					= 0.02
+
 max_ignore_distance				= 15.0
 
 ;---SOUND PLAYER------------------------------------------------------

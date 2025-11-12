@@ -8,12 +8,19 @@ visual								= monsters\cat\cat
 corpse_visual						= monsters\cat\cat
 icon								= ui_npc_monster_cat
 
-;species of monster
 species								= cat
 rank								= 0
 spec_rank							= weak
 community							= cat
 ;monster_type						= indoor
+
+ef_creature_type					= 2					; option for evaluation functions
+ef_weapon_type						= 2
+ef_detector_type					= 1
+panic_threshold						= 0.02
+
+cform								= skeleton			; collision class
+class								= SM_CAT_S			; AI class
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -28,15 +35,12 @@ search_speed						= 0.5				; option for ALife Simulator
 
 MaxHealthValue						= 100				; range [0..200]
 
+smart_terrain_choose_interval		= 00:15:00
 
-cform                = skeleton					; collision class
-class                = SM_CAT_S					; AI class
 
-ef_creature_type	 = 2				; option for evaluation functions
-ef_weapon_type		 = 2
-ef_detector_type			 = 1
 
-panic_threshold		= 0.02
+
+
 
 script_binding  		= bind_monster.bind
 
@@ -45,7 +49,6 @@ bone_head			 = bip01_head				; bone name
 bone_fire			 = bip01_head				; bone name
 weapon_usage		 = 0						; boolean
 
-smart_terrain_choose_interval	= 00:15:00
 
 critical_wound_threshold		= 0.4
 critical_wound_decrease_quant	= 0.
@@ -313,14 +316,15 @@ bip01_ponytail1 	= 1.0, -1, 1.5
 bip01_ponytail2		= 1.0, -1, 1.5
 
 
-[cat_weak]:m_cat_e	
+[cat_weak]:m_cat_e
 $spawn								= "monsters\cat"
 
 rank								= 0
 spec_rank							= weak
 community							= cat
 
-Health = 100
+Health								= 100
+
 immunities_sect = cat_immunities_weak
 
 

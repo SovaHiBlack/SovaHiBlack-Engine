@@ -9,11 +9,21 @@ visual								= monsters\dog\dog
 corpse_visual						= monsters\dog\dog_dead
 icon								= ui_npc_monster_dog
 
-;species of monster
 species								= dog
 rank								= 0
 spec_rank							= weak
 community							= dog
+
+ef_creature_type					= 6					; option for evaluation functions
+ef_weapon_type						= 2
+ef_detector_type					= 1
+panic_threshold						= 0.07
+
+Spawn_Inventory_Item_Section		= mutant_dog_tail
+Spawn_Inventory_Item_Probability	= 0.3
+
+cform								= skeleton			; collision class
+class								= SM_DOG_S			; AI class
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -29,18 +39,13 @@ search_speed						= 0.5				; option for ALife Simulator
 
 MaxHealthValue						= 100				; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
+smart_terrain_choose_interval		= 00:15:00
 
-Spawn_Inventory_Item_Section = mutant_dog_tail
-Spawn_Inventory_Item_Probability = 0.3
 
-cform                = skeleton					; collision class
-class                = SM_DOG_S					; AI class
 
-ef_creature_type	 = 6				; option for evaluation functions
-ef_weapon_type		 = 2
-ef_detector_type			 = 1
-panic_threshold		= 0.07
+
+
+
 
 
 script_binding  	= bind_monster.bind
@@ -368,7 +373,7 @@ rank								= 0
 spec_rank							= weak
 community							= dog
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 immunities_sect		= dog_immunities_weak
 attack_params		= dog_attack_params_weak
@@ -416,7 +421,7 @@ rank								= 401
 spec_rank							= normal
 community							= dog
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 immunities_sect		= dog_immunities_normal
 attack_params		= dog_attack_params_normal
@@ -460,7 +465,7 @@ rank								= 801
 spec_rank							= strong
 community							= dog
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 immunities_sect		= dog_immunities_strong
 attack_params		= dog_attack_params_strong
@@ -502,7 +507,7 @@ rank								= 401
 spec_rank							= normal
 community							= dog
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 immunities_sect		= dog_immunities_strong
 attack_params		= dog_attack_params_strong
@@ -521,7 +526,7 @@ rank								= 801
 spec_rank							= strong
 community							= dog
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 immunities_sect		= dog_immunities_strong
 attack_params		= dog_attack_params_strong
@@ -540,7 +545,7 @@ rank								= 0
 spec_rank							= weak
 community							= dog
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 immunities_sect		= dog_immunities_strong
 attack_params		= dog_attack_params_strong
@@ -559,7 +564,7 @@ rank								= 401
 spec_rank							= normal
 community							= dog
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 immunities_sect		= dog_immunities_strong
 attack_params		= dog_attack_params_strong

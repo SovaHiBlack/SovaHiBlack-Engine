@@ -9,11 +9,18 @@ visual								= monsters\snork\snork
 corpse_visual						= monsters\snork\snork_dead
 icon								= ui_npc_monster_snork
 
-;species of monster
 species								= snork
 
-Spawn_Inventory_Item_Section = mutant_snork_leg
-Spawn_Inventory_Item_Probability = 0.2
+ef_creature_type					= 11				; option for evaluation functions
+ef_weapon_type						= 2
+ef_detector_type					= 1
+panic_threshold						= 0.1
+
+Spawn_Inventory_Item_Section		= mutant_snork_leg
+Spawn_Inventory_Item_Probability	= 0.2
+
+cform								= skeleton			; collision class
+class								= SM_SNORK			; AI class
 
 
 
@@ -26,13 +33,9 @@ Spawn_Inventory_Item_Probability = 0.2
 
 script_binding       = bind_monster.bind
 
-ef_creature_type		= 11						; option for evaluation functions
-ef_weapon_type			= 2
-ef_detector_type		= 1
-panic_threshold		= 0.1
 
-cform					 = skeleton					; collision class
-class					 = SM_SNORK					; AI class
+
+
 
 bone_torso				= bip01_spine1 			; bone name
 bone_head				= bip01_head				; bone name
@@ -53,7 +56,7 @@ search_speed						= 1.5				; option for ALife Simulator
 
 MaxHealthValue						= 200				; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
+smart_terrain_choose_interval		= 00:15:00
 
 ;------------------------------------------------------------------------------
 ; Physics
@@ -307,7 +310,7 @@ rank								= 0
 spec_rank							= weak
 community							= snork
 
-panic_threshold		= 0.5
+panic_threshold						= 0.5
 
 immunities_sect		= snork_immunities_weak
 attack_params		= snork_attack_params_weak
@@ -352,7 +355,7 @@ rank								= 401
 spec_rank							= normal
 community							= snork
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 immunities_sect		= snork_immunities_normal
 attack_params		= snork_attack_params_normal
@@ -397,7 +400,7 @@ rank								= 801
 spec_rank							= strong
 community							= snork
 
-panic_threshold		= 0.05
+panic_threshold						= 0.05
 
 immunities_sect		= snork_immunities_strong
 attack_params		= snork_attack_params_strong
@@ -442,29 +445,26 @@ stand_attack_2_1 =	  	0.30,		1.00,			70,        0.0, 1.0, 2.0,		-0.8, 0.8, -1.6,
 ;*********************************************************************************
 ;=======================================================================================
 [aes_snork]:snork_strong
-$spawn								= "monsters\snorks\aes_snork"
+	$spawn								= "monsters\snorks\aes_snork"
 
-visual								= monsters\snork\snork
-icon								= ui_npc_monster_snork
+	visual								= monsters\snork\snork
+	icon								= ui_npc_monster_snork
 
-panic_threshold		= 0.0
+	panic_threshold						= 0.0
 
 ;=======================================================================================
 
 
 
 [snork_arena]:snork_strong
-$spawn								= "monsters\arena\snork_arena"
+	$spawn								= "monsters\arena\snork_arena"
 
-visual								= monsters\snork\snork
-icon								= ui_npc_monster_snork
+	visual								= monsters\snork\snork
+	icon								= ui_npc_monster_snork
 
-species								= arena_monstr
+	species								= arena_monstr
 
-panic_threshold		= 0.05
-
-
-
+	panic_threshold						= 0.05
 
 [snork_indoor]:snork_weak
 $spawn								= "monsters\snorks\snork_indoor"
@@ -484,10 +484,9 @@ $spawn								= "monsters\snorks\snork_jumper"
 
 monster_type						= outdoor
 
-panic_threshold		= 0.05
+panic_threshold						= 0.05
 
 ; jump parameters
-
 jump_factor					= 1.2
 jump_min_distance			= 3
 jump_max_distance			= 30

@@ -9,11 +9,21 @@ visual								= monsters\pseudodog\pseudodog
 corpse_visual						= monsters\pseudodog\pseudodog_dead
 icon								= ui_npc_monster_pseudodog
 
-;species of monster
 species								= pseudodog
 rank								= 0
 spec_rank							= weak
 community							= pseudodog
+
+ef_creature_type					= 21				; option for evaluation functions
+ef_weapon_type						= 3
+ef_detector_type					= 1
+panic_threshold						= 0.1
+
+Spawn_Inventory_Item_Section		= mutant_psevdodog_tail
+Spawn_Inventory_Item_Probability	= 0.2
+
+cform								= skeleton			; collision class
+class								= SM_P_DOG			; AI class
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -29,20 +39,15 @@ search_speed						= 0.5				; option for ALife Simulator
 
 MaxHealthValue						= 100				; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
+smart_terrain_choose_interval		= 00:15:00
 
 
 
-Spawn_Inventory_Item_Section = mutant_psevdodog_tail
-Spawn_Inventory_Item_Probability = 0.2
 
-ef_creature_type	 = 21							; option for evaluation functions
-ef_weapon_type		 = 3
-ef_detector_type	 = 1
-panic_threshold		= 0.1
 
-cform                = skeleton					; collision class
-class                = SM_P_DOG					; AI class
+
+
+
 
 script_binding       = bind_monster.bind
 
@@ -328,7 +333,7 @@ rank								= 0
 spec_rank							= weak
 community							= pseudodog
 
-panic_threshold		= 0.5
+panic_threshold						= 0.5
 
 immunities_sect		= pseudodog_immunities_weak
 attack_params		= pseudodog_attack_params_weak
@@ -369,7 +374,7 @@ rank								= 401
 spec_rank							= normal
 community							= pseudodog
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 immunities_sect		= pseudodog_immunities_normal
 attack_params		= pseudodog_attack_params_normal
@@ -412,7 +417,7 @@ rank								= 801
 spec_rank							= strong
 community							= pseudodog
 
-panic_threshold		= 0.05	
+panic_threshold						= 0.05
 
 immunities_sect		= pseudodog_immunities_strong
 attack_params		= pseudodog_attack_params_strong
@@ -449,16 +454,14 @@ run_jamp_1		=		0.55,		0.35,		    420,        0.0, 1.0, 4.0,		 -1.8, 1.8, -1.8, 1
 ;*********************************************************************************
 
 [pseudodog_arena]:pseudodog_strong
-$spawn								= "monsters\arena\pseudodog_arena"
+	$spawn								= "monsters\arena\pseudodog_arena"
 
-visual								= monsters\pseudodog\pseudodog_grey
-icon								= ui_npc_monster_pseudodog_grey
+	visual								= monsters\pseudodog\pseudodog_grey
+	icon								= ui_npc_monster_pseudodog_grey
 
-species								= arena_monstr
+	species								= arena_monstr
 
-panic_threshold		= 0.05
-
-
+	panic_threshold						= 0.05
 
 ;---------------------------------------------------------------------------------
 ;-- PSY DOG
@@ -482,7 +485,7 @@ $spawn								= "monsters\psy_dog\psy_dog"
 visual								= monsters\pseudodog\pseudodog_grey
 icon								= ui_npc_monster_pseudodog_grey
 
-class               = SM_DOG_P	
+class								= SM_DOG_P
 
 aura_effector		= psy_dog_aura_effector
 Max_Phantoms_Count	= 4
@@ -527,7 +530,7 @@ $spawn								= "monsters\psy_dog\psy_dog_phantom"
 visual								= monsters\pseudodog\pseudodog_grey
 icon								= ui_npc_monster_pseudodog_grey
 
-class               = SM_DOG_F
+class								= SM_DOG_F
 
 ;jump_delay					= 3000 ;3000
 ;jump_factor					= 3

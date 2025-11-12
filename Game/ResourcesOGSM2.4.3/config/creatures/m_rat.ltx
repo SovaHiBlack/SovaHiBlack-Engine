@@ -7,8 +7,18 @@ $prefetch							= 128
 visual								= monsters\rat\rat_1
 corpse_visual						= monsters\rat\rat_1
 
-;species of monster
 species								= rat
+
+ef_creature_type					= 1					; option for evaluation functions
+ef_weapon_type						= 1
+ef_detector_type					= 1
+panic_threshold						= 0.1
+
+cform								= skeleton			; collision class
+class								= AI_RAT			; AI class
+
+
+
 
 retreat_threshold	 = 0.2
 eye_fov				 = 170
@@ -32,17 +42,13 @@ going_speed							= 1.0				; option for ALife Simulator
 
 MaxHealthValue						= 15				; range [0..200]
 
-smart_terrain_choose_interval	= 20:00:00
+smart_terrain_choose_interval		= 20:00:00
 
 killer_clsids			= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
 
-ef_creature_type	 = 1				; option for evaluation functions
-ef_weapon_type		 = 1
-ef_detector_type	 = 1
-panic_threshold		= 0.1
 
-cform                        = skeleton			; collision class
-class                        = AI_RAT			; AI class
+
+
 
 ;------------------------------------------------------------------------------
 ; Physics
@@ -176,7 +182,8 @@ $npc								= on							; option for Level Editor
 
 Human								= off				; option for ALife Simulator
 
-class                = AI_RAT_G			; AI class
+class								= AI_RAT_G			; AI class
+
 monster_section      = m_rat_e
 
 [rats_terrain]

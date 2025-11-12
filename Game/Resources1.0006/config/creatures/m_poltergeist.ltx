@@ -9,11 +9,18 @@ visual								= monsters\poltergeist\poltergeist
 corpse_visual						= monsters\poltergeist\poltergeyst_dead
 icon								= ui_npc_monster_poltergeist
 
-;species of monster
 species								= poltergeist
 rank								= 401
 spec_rank							= normal
 community							= poltergeist
+
+ef_creature_type					= 5					; option for evaluation functions
+ef_weapon_type						= 12
+ef_detector_type					= 1
+panic_threshold						= 0.1
+
+cform								= skeleton			; collision class
+class								= SM_POLTR			; AI class
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -29,15 +36,12 @@ search_speed						= 0.5				; option for ALife Simulator
 
 MaxHealthValue						= 150				; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
+smart_terrain_choose_interval		= 00:15:00
 
-cform                = skeleton					; collision class
-class                = SM_POLTR					; AI class
 
-ef_creature_type	 = 5 	;10					; option for evaluation functions
-ef_weapon_type		 = 12	;3
-ef_detector_type	 = 1
-panic_threshold		= 0.1
+
+
+
 
 script_binding  	= bind_monster.bind
 

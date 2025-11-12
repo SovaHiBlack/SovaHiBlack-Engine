@@ -5,12 +5,14 @@ $prefetch							= 5
 
 visual								= actors\trader\trader
 
-;species of monster
 species								= human
 rank								= 1
 
-cform						= skeleton
-class						= AI_TRD_S ;AI_TRADE
+ef_creature_type					= 1					; option for evaluation functions
+ef_weapon_type						= 1
+
+cform								= skeleton
+class								= AI_TRD_S ;AI_TRADE
 
 
 script_binding		 			= bind_monster.bind
@@ -20,15 +22,19 @@ supplies					= grenade_f1,15,0,1.0, ammo_5.45x39_ap,ammo_5.45x39_fmj,50,0,1.0, a
 max_item_mass				= 10000.0
 
 ;---EVALUATION FUNCTIONS----------------------------------------------
-ef_creature_type			= 1							; option for evaluation functions
-ef_weapon_type				= 1
 
+;------------------------------------------------------------------------------
+; Offline Alife
+;------------------------------------------------------------------------------
 Scheduled							= on				; option for ALife Simulator
 Human								= off				; option for ALife Simulator
-Health								= 40				; option for ALife Simulator
+Health								= 100				; option for ALife Simulator
 MinSpeed							= 1.0				; option for ALife Simulator
 MaxSpeed							= 1.5				; option for ALife Simulator
 going_speed							= 1.0				; option for ALife Simulator
+
+
+
 
 ph_box0_center 		 = 0.0,  0.9,  0.0
 ph_box0_size 		 = 0.35, 0.9,  0.35
@@ -39,8 +45,6 @@ ph_crash_speed_max   = 16;30
 ph_mass 		     = 170.
 cost			     = 1
 
-
-Health				 = 100.0
 money				 = 1000000
 
 immunities_sect				= trader_immunities
@@ -167,6 +171,12 @@ visual								= actors\izgoy\izgoy
 species								= human
 rank								= 1
 
+cform								= skeleton			; collision class
+class								= AI_STL			; AI class
+
+;------------------------------------------------------------------------------
+; Offline Alife
+;------------------------------------------------------------------------------
 Scheduled							= on				; option for ALife Simulator
 Human								= on				; option for ALife Simulator
 Health								= 100				; option for ALife Simulator
@@ -191,8 +201,7 @@ money				 = 5000;
 ; 5 - прятаться от врага
 ; 6 - обходить врага
 
-cform                        = skeleton			; collision class
-class                        = AI_STL			; AI class
+
 
 
 

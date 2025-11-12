@@ -8,10 +8,15 @@ $prefetch							= 16
 visual								= monsters\chimera\chimera
 corpse_visual						= monsters\chimera\chimera
 
-;species of monster
 species								= chimera
 
-ef_creature_type					= 20							; option for evaluation functions
+ef_creature_type					= 20				; option for evaluation functions
+ef_weapon_type						= 3
+ef_detector_type					= 1
+panic_threshold						= 0.1
+
+cform								= skeleton			; collision class
+class								= SM_CHIMS			; AI class
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -28,12 +33,9 @@ MaxHealthValue						= 100				; range [0..200]
 
 
 
-ef_weapon_type		= 3
-ef_detector_type			 = 1
-panic_threshold			= 0.1
 
-cform                = skeleton					; collision class
-class                = SM_CHIMS					; AI class
+
+
 
 script_binding  	= bind_monster.bind
 

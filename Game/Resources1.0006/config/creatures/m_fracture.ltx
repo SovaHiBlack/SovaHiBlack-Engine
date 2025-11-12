@@ -8,10 +8,15 @@ $prefetch							= 16
 visual								= monsters\izlom\izlom
 corpse_visual						= monsters\izlom\izlom.ogf
 
-;species of monster
 species								= fracture
 
-ef_creature_type					= 21							; option for evaluation functions
+ef_creature_type					= 21				; option for evaluation functions
+ef_weapon_type						= 4
+ef_detector_type					= 1
+panic_threshold						= 0.1
+
+cform								= skeleton			; collision class
+class								= SM_IZLOM			; AI class
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -26,18 +31,15 @@ search_speed						= 1.5				; option for ALife Simulator
 
 MaxHealthValue						= 200				; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
+smart_terrain_choose_interval		= 00:15:00
 
 script_binding  = bind_monster.bind
 
 ;---EVALUATION FUNCTIONS----------------------------------------------
 
-ef_weapon_type		 = 4
-ef_detector_type			 = 1
-panic_threshold		= 0.1
 
-cform                = skeleton					; collision class
-class                = SM_IZLOM					; AI class
+
+
 
 bone_torso			 = bip01_spine1 			; bone name
 bone_head			 = bip01_head				; bone name

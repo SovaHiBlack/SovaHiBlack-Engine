@@ -9,19 +9,21 @@ visual								= monsters\krovosos\krovosos
 corpse_visual						= monsters\krovosos\krovosos_dead
 icon								= ui_npc_monster_krovosos
 
-;species of monster
 species								= bloodsucker
 rank								= 0
 spec_rank							= weak
 community							= bloodsucker
 
-ef_creature_type			 = 13							; option for evaluation functions
-ef_weapon_type				 = 3
-ef_detector_type			 = 1
-panic_threshold				 = 0.1
+ef_creature_type					= 13				; option for evaluation functions
+ef_weapon_type						= 3
+ef_detector_type					= 1
+panic_threshold						= 0.1
 
-cform               		 = skeleton						; collision class
-class                		 = SM_BLOOD						; AI class
+Spawn_Inventory_Item_Section		= mutant_krovosos_jaw
+Spawn_Inventory_Item_Probability	= 0.4
+
+cform								= skeleton			; collision class
+class								= SM_BLOOD			; AI class
 
 script_binding				= bind_monster.bind
 
@@ -29,8 +31,7 @@ bone_head					 = bip01_head					; bone name
 bone_fire					 = bip01_head
 weapon_usage				 = 0							; boolean
 
-Spawn_Inventory_Item_Section = mutant_krovosos_jaw
-Spawn_Inventory_Item_Probability = 0.4
+
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -46,7 +47,7 @@ search_speed						= 0.5				; option for ALife Simulator
 
 MaxHealthValue						= 200				; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
+smart_terrain_choose_interval		= 00:15:00
 
 ;------------------------------------------------------------------------------
 ; Physics
@@ -471,7 +472,7 @@ rank								= 0
 spec_rank							= weak
 community							= bloodsucker
 
-panic_threshold		= 0.5
+panic_threshold						= 0.5
 
 immunities_sect		= bloodsucker_immunities_weak
 attack_params		= bloodsucker_attack_params_weak
@@ -521,7 +522,7 @@ rank								= 401
 spec_rank							= normal
 community							= bloodsucker
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 immunities_sect		= bloodsucker_immunities_normal
 attack_params		= bloodsucker_attack_params_normal
@@ -566,14 +567,14 @@ value2			= 0.60,		0.4,		    300,        0.0, 0.5, 3.00,		  -1.2, 1.2, -1.2, 1.2,
 $spawn								= "monsters\bloodsuckers\bloodsucker_03_strong"
 
 visual								= monsters\krovosos\krovosos_strong
+Predator_Visual						= monsters\krovosos\krovosos_strong_xray
 icon								= ui_npc_monster_krovosos_strong
 
 rank								= 401
 spec_rank							= strong
 community							= bloodsucker
 
-Predator_Visual		= monsters\krovosos\krovosos_strong_xray
-panic_threshold		= 0.05
+panic_threshold						= 0.05
 
 immunities_sect		= bloodsucker_immunities_strong
 attack_params		= bloodsucker_attack_params_strong
@@ -623,24 +624,22 @@ value2			= 0.60,		0.8,		    400,        0.0, 0.5, 4.50,		  -1.2, 1.2, -1.2, 1.2,
 ;   - use custom immunities section to set custom immunity params
 ;-------------------------------------------------------------------------------------------
 [bloodsucker_arena]:bloodsucker_strong
-$spawn								= "monsters\bloodsuckers\arena\bloodsucker_arena"
+	$spawn								= "monsters\bloodsuckers\arena\bloodsucker_arena"
 
-visual								= monsters\krovosos\krovosos
-icon								= ui_npc_monster_krovosos
+	visual								= monsters\krovosos\krovosos
+	icon								= ui_npc_monster_krovosos
 
-species								= arena_monstr
+	species								= arena_monstr
 
-panic_threshold		= 0.05
-
-
+	panic_threshold						= 0.05
 
 [bloodsucker_mil]:bloodsucker_strong
-$spawn								= "monsters\military\bloodsucker_mil"
+	$spawn								= "monsters\military\bloodsucker_mil"
 
-visual								= monsters\krovosos\krovosos
-icon								= ui_npc_monster_krovosos
+	visual								= monsters\krovosos\krovosos
+	icon								= ui_npc_monster_krovosos
 
-panic_threshold		= 0.05
+	panic_threshold						= 0.05
 
 
 [arena_bloodsucker_1]:bloodsucker_strong
@@ -651,7 +650,7 @@ icon								= ui_npc_monster_krovosos
 
 species								= arena_monstr
 
-panic_threshold		= 0.05
+panic_threshold						= 0.05
 
 immunities_sect		= bloodsucker_immunities_arena
 custom_data = scripts\arena_mob_1.ltx

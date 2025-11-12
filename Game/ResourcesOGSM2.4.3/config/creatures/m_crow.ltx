@@ -6,13 +6,16 @@ $prefetch							= 50
 visual								= monsters\crow\crow
 corpse_visual						= monsters\crow\crow
 
-;species of monster
-species							= bird
+species								= bird
+
+ef_creature_type					= -1
+
+cform								= skeleton
+class								= AI_CROW
 
 
 spawn 	                 = on	;
-cform                    = skeleton
-class                    = AI_CROW
+
 
 speed                    = 6.0	
 angular_speed            = 0.1	
@@ -21,7 +24,7 @@ min_height	             = 35	;40	;20
 goal_variability		 = 10.0, 15.0, 200.0
 idle_sound_delta		 = 400.f;100.f
 
-ef_creature_type		 = -1
+
 
 ; movement params
 ph_box0_center 	         = 0.0,  0.025, 0.0

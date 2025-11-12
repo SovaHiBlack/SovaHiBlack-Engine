@@ -9,22 +9,21 @@ visual								= monsters\zombi\zombi_1
 corpse_visual						= monsters\zombi\zombi_1
 icon								= ui_npc_monster_zombie
 
-;species of monster
 species								= zombie
-rank 								= 0
+rank								= 0
 spec_rank							= weak
 community							= zombie
 
-ef_creature_type	 = 3				; option for evaluation functions
-ef_weapon_type		 = 1
-ef_detector_type	 = 1
-panic_threshold		= 0.1
+ef_creature_type					= 3					; option for evaluation functions
+ef_weapon_type						= 1
+ef_detector_type					= 1
+panic_threshold						= 0.1
 
-Spawn_Inventory_Item_Section = mutant_zombie_hand
-Spawn_Inventory_Item_Probability = 0.4
+Spawn_Inventory_Item_Section		= mutant_zombie_hand
+Spawn_Inventory_Item_Probability	= 0.4
 
-cform                = skeleton					; collision class
-class                = SM_ZOMBI					; AI class
+cform								= skeleton			; collision class
+class								= SM_ZOMBI			; AI class
 
 script_binding  	= bind_monster.bind
 
@@ -46,7 +45,7 @@ search_speed						= 1.5				; option for ALife Simulator
 
 MaxHealthValue						= 100				; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
+smart_terrain_choose_interval		= 00:15:00
 
 ;------------------------------------------------------------------------------
 ; Physics
@@ -298,10 +297,9 @@ rank								= 0
 spec_rank							= weak
 community							= zombie
 
+panic_threshold						= 0.5
+
 MaxHealthValue						= 80
-
-panic_threshold		= 0.5
-
 
 
 
@@ -323,11 +321,9 @@ rank								= 255
 spec_rank							= normal
 community							= zombie
 
+panic_threshold						= 0.2
+
 MaxHealthValue						= 100
-
-panic_threshold		= 0.2
-
-
 
 
 
@@ -374,11 +370,9 @@ rank								= 255
 spec_rank							= strong
 community							= zombie
 
+panic_threshold						= 0.05
+
 MaxHealthValue						= 120
-
-panic_threshold		= 0.05	
-
-
 
 
 
@@ -415,12 +409,12 @@ stand_attack_3 =	  	0.30,		0.50,		    180,        0.0, 1.0, 0.0,		 -1.0, 0.3, -0
 
 
 [zombie_immortal]:zombie_strong
-$spawn								= "monsters\zombies\zombie_03_strong"
+	$spawn								= "monsters\zombies\zombie_03_strong"
 
-visual								= monsters\zombi\zombi_trup_2
-icon								= ui_npc_monster_zombie_immortal
+	visual								= monsters\zombi\zombi_trup_2
+	icon								= ui_npc_monster_zombie_immortal
 
-panic_threshold		= 0.05
+	panic_threshold						= 0.05
 
 [zombie_ghost]:zombie_strong
 	$spawn								= "monsters\zombies\zombie_03_strong"
@@ -495,7 +489,7 @@ $spawn								= "monsters\zombies\zombie_02_normal"
 visual								= monsters\zombi\zombi_x3
 icon								= ui_npc_monster_zombie_plague
 
-Health			     = 60
+Health								= 60
 
 FakeDeathCount			= 1
 StartFakeDeathHealthThreshold	= 0.001
@@ -529,7 +523,7 @@ rank								= 255
 spec_rank							= normal
 community							= zombie
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 
 
@@ -551,7 +545,7 @@ rank								= 255
 spec_rank							= normal
 community							= zombie
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 
 
@@ -562,7 +556,7 @@ rank								= 255
 spec_rank							= normal
 community							= zombie
 
-panic_threshold		= 0.2
+panic_threshold						= 0.2
 
 
 

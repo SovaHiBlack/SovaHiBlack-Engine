@@ -9,11 +9,19 @@ visual								= monsters\chimera\chimera
 corpse_visual						= monsters\chimera\chimera
 icon								= ui_npc_monster_chimera
 
-;species of monster
 species								= chimera
 rank								= 0
 spec_rank							= weak
 community							= chimera
+
+ef_creature_type					= 20				; option for evaluation functions
+ef_weapon_type						= 3
+ef_detector_type					= 1
+panic_threshold						= 0.1
+
+cform								= skeleton			; collision class
+class								= SM_CHIMS			; AI class
+
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -28,14 +36,10 @@ search_speed						= 0.5				; option for ALife Simulator
 
 MaxHealthValue						= 400				; range [0..200]
 
+smart_terrain_choose_interval		= 00:15:00
 
-ef_creature_type	= 20							; option for evaluation functions
-ef_weapon_type		= 3
-ef_detector_type			 = 1
-panic_threshold			= 0.1
 
-cform                = skeleton					; collision class
-class                = SM_CHIMS					; AI class
+
 
 script_binding  	= bind_monster.bind
 
@@ -44,7 +48,7 @@ jump_max_height = 1.0
 
 critical_wound_threshold		= -1
 critical_wound_decrease_quant	= 0.
-smart_terrain_choose_interval	= 00:15:00
+
 
 bone_torso			 = bip01_spine1 			; bone name
 bone_head			 = bip01_head				; bone name
@@ -324,13 +328,13 @@ spec_rank							= strong
 community							= chimera
 monster_type						= indoor
 
-
+panic_threshold						= 0.00001
 
 
 bones_particles = electro_chimera_particles
 immunities_sect	= electro_chimera_immunities
 MinAttackDist		= 2.0
-panic_threshold			= 0.00001
+
 ;
 [electro_chimera_immunities]:chimera_immunities
 shock_immunity = 0.0
@@ -363,15 +367,15 @@ bone = bip01_r_hand
 stop_on_death = true
 ;
 [esc_electro_chimera]:chimera_strong
-panic_threshold			= 0.0
+panic_threshold						= 0.0
 custom_data = scripts\esc_electrochimera.ltx
 ;
 [ros_electro_chimera]:chimera_strong
-panic_threshold			= 0.0
+panic_threshold						= 0.0
 custom_data = scripts\ros_electrochimera.ltx
 ;
 [pri_electro_chimera]:chimera_strong
-panic_threshold			= 0.0
+panic_threshold						= 0.0
 custom_data = scripts\pri_electrochimera.ltx
 
 

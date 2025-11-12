@@ -9,19 +9,17 @@ visual								= monsters\tushkano\tushkano
 corpse_visual						= monsters\tushkano\tushkano_dead
 icon								= ui_npc_monster_tushkano
 
-;species of monster
 species								= tushkano
 spec_rank							= normal
 community							= tushkano
 
-;---EVALUATION FUNCTIONS----------------------------------------------
-ef_creature_type	 = 2							; option for evaluation functions
-ef_weapon_type		 = 2
-ef_detector_type	 = 1
-panic_threshold		= 0.1
+ef_creature_type					= 2					; option for evaluation functions
+ef_weapon_type						= 2
+ef_detector_type					= 1
+panic_threshold						= 0.1
 
-cform                = skeleton					; collision class
-class                = SM_TUSHK ;AI_TUSH					; AI class
+cform								= skeleton			; collision class
+class								= SM_TUSHK ;AI_TUSH	; AI class
 
 script_binding  	 = bind_monster.bind
 
@@ -45,7 +43,7 @@ search_speed						= 1.5				; option for ALife Simulator
 
 MaxHealthValue						= 100				; range [0..200]
 
-smart_terrain_choose_interval	= 00:15:00
+smart_terrain_choose_interval		= 00:15:00
 
 ;------------------------------------------------------------------------------
 ; Physics
@@ -254,16 +252,17 @@ fire_wound_immunity		= 3
 ; TODO: KILL THIS LATER
 ;---------------------------
 [m_tushkano_normal]:m_tushkano_e
-$spawn								= "monsters\tushkanos\tushkano_normal_old"
+	$spawn								= "monsters\tushkanos\tushkano_normal_old"
 
-rank								= 401
-spec_rank							= normal
-community							= tushkano
+	rank								= 401
+	spec_rank							= normal
+	community							= tushkano
 
 [tushkano_normal]:m_tushkano_e
-$spawn								= "monsters\tushkanos\tushkano_normal"
+	$spawn								= "monsters\tushkanos\tushkano_normal"
 
-rank								= 401
-spec_rank							= normal
-community							= tushkano
-panic_threshold		= 0.05
+	rank								= 401
+	spec_rank							= normal
+	community							= tushkano
+
+	panic_threshold						= 0.05
