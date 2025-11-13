@@ -37,7 +37,10 @@ void CControlMovementBase::load(LPCSTR section)
 void CControlMovementBase::load_velocity(LPCSTR section, LPCSTR line, u32 velocity_id)
 {
 	SVelocityParam velocity_param;
-	if(pSettings->line_exist(section,line)) velocity_param.Load(section,line);
+	if (pSettings->line_exist(section, line))
+	{
+		velocity_param.Load(section, line);
+	}
 	m_velocities.insert(mk_pair(velocity_id, velocity_param));
 
 	m_man->path_builder().detail().add_velocity(velocity_id, CDetailPathManager::STravelParams(velocity_param.velocity.linear,velocity_param.velocity.angular_path,velocity_param.velocity.angular_real));

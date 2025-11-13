@@ -25,6 +25,18 @@ Spawn_Inventory_Item_Probability	= 0.3
 cform								= skeleton			; collision class
 class								= SM_SNORK			; AI class
 
+script_binding						= bind_monster.bind
+
+bone_head							= bip01_head		; bone name
+bone_torso							= bip01_spine1		; bone name
+bone_fire							= bip01_head		; bone name
+
+weapon_usage						= 0					; boolean
+
+terrain								= snork_terrain
+
+material							= creatures\medium
+
 ;------------------------------------------------------------------------------
 ; Offline Alife
 ;------------------------------------------------------------------------------
@@ -41,60 +53,46 @@ MaxHealthValue						= 200				; range [0..200]
 
 smart_terrain_choose_interval		= 00:15:00
 
-
-
-
-script_binding       = bind_monster.bind
-
-
-
-
-
-bone_torso				= bip01_spine1 			; bone name
-bone_head				= bip01_head				; bone name
-bone_fire				= bip01_head				; bone name
-weapon_usage			= 0						; boolean
-
 ;------------------------------------------------------------------------------
 ; Physics
 ;------------------------------------------------------------------------------
-ph_box0_center					= 0.0,  0.9, 0.0
-ph_box0_size					= 0.35, 0.9, 0.35
-ph_box1_center					= 0.0,  0.6, 0.0
-ph_box1_size					= 0.40, 0.6, 0.40
-ph_crash_speed_min				= 100
-ph_crash_speed_max				= 300
-ph_mass							= 70
-ph_collision_damage_factor		= 0.1
+ph_box0_center						= 0.0,  0.9, 0.0
+ph_box0_size						= 0.35, 0.9, 0.35
+ph_box1_center						= 0.0,  0.6, 0.0
+ph_box1_size						= 0.4,  0.6, 0.4
+ph_crash_speed_min					= 100
+ph_crash_speed_max					= 300
+ph_collision_damage_factor			= 0.1
+ph_mass								= 70
 
-destroyed_vis_name				= physics\Dead_Body\trupik_crash
+destroyed_vis_name					= physics\Dead_Body\trupik_crash
 
-ph_skeleton_airr_lin_factor		= -0.4
-ph_skeleton_airr_ang_factor		= -0.2
-ph_skeleton_hinger_factor1		= 1.0
-ph_skeleton_ddelay				= 5.0
-ph_skel_fatal_impulse_factor	= 2.0
-ph_after_death_velocity_factor	= 0.75
-ph_skel_shot_up_factor			= 0.25
+ph_skeleton_airr_lin_factor			= -0.4
+ph_skeleton_airr_ang_factor			= -0.2
+ph_skeleton_hinger_factor1			= 1.0
+ph_skeleton_ddelay					= 5.0
+ph_skel_fatal_impulse_factor		= 2.0
+ph_after_death_velocity_factor		= 0.75
+ph_skel_shot_up_factor				= 0.25
 
 ;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
 ;------------------------------------------------------------------------------
-; speed factors					linear | angular_real | angular_path | min   |  max
-Velocity_Stand					= 0.0,		2.4,			2.4,		1,		1
-Velocity_WalkFwdNormal			= 1.05,		1.0,			1.0,		0.02,	2.0
-Velocity_WalkFwdDamaged			= 0.9,		1.0,			1.0,		0.02,	2.0
-Velocity_RunFwdNormal			= 3.2,		3.5,			3.5,		0.4,	1
-Velocity_RunFwdDamaged			= 1.7,		2.0,			2.0,		0.2,	1
-Velocity_Drag					= 1.0,		1.0,			1.0,		1,		1
-Velocity_Steal					= 1.5,		3.0,			3.0,		1,		1
-Velocity_JumpGround				= 9.0,		3.0,			0.01,		0.4,	1
-Velocity_Jump_Stand				= 9.0,		3.0,			0.01,		0.4,	1
+; speed factors						linear | angular_real | angular_path | min   |  max
+Velocity_Stand						= 0.0,		2.4,			2.4,		1.0,	1.0
+Velocity_WalkFwdNormal				= 1.05,		1.0,			1.0,		0.02,	2.0
+Velocity_WalkFwdDamaged				= 0.9,		1.0,			1.0,		0.02,	2.0
+Velocity_RunFwdNormal				= 3.2,		3.5,			3.5,		0.4,	1.0
+Velocity_RunFwdDamaged				= 1.7,		2.0,			2.0,		0.2,	1.0
+Velocity_Drag						= 1.0,		1.0,			1.0,		1.0,	1.0
+Velocity_Steal						= 1.5,		3.0,			3.0,		1.0,	1.0
+Velocity_JumpGround					= 9.0,		3.0,			0.01,		0.4,	1.0
+Velocity_Jump_Stand					= 9.0,		3.0,			0.01,		0.4,	1.0
 
 ; acceleration
-Accel_Generic					= 1.5
-Accel_Calm						= 2.5
-Accel_Aggressive				= 12.0
+Accel_Generic						= 1.5
+Accel_Calm							= 2.5
+Accel_Aggressive					= 12.0
 
 ;------------------------------------------------------------------------------
 ; Attack parameters
@@ -196,9 +194,9 @@ transparency_threshold			= 0.25
 -------------------------------------------------------------------------
 ; Other Stuff (refactoring needed)
 ;-------------------------------------------------------------------------
-material				= creatures\medium
 
-terrain					 = snork_terrain
+
+
 
 ;Health from which to play injured animation
 DamagedThreshold		= 0.2

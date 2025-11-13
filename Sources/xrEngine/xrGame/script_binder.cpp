@@ -74,48 +74,61 @@ void CScriptBinder::Load			(LPCSTR section)
 
 void CScriptBinder::reload			(LPCSTR section)
 {
+
 #ifdef DEBUG_MEMORY_MANAGER
 	u32									start = 0;
 	if (g_bMEMO)
-		start							= Memory.mem_usage();
+	{
+		start = Memory.mem_usage( );
+	}
 #endif // DEBUG_MEMORY_MANAGER
+
 #ifndef DBG_DISABLE_SCRIPTS
 	VERIFY					(!m_object);
-	if (!pSettings->line_exist(section,"script_binding"))
+	if (!pSettings->line_exist(section, "script_binding"))
+	{
 		return;
+	}
 	
 	luabind::functor<void>	lua_function;
-	if (!ai().script_engine().functor(pSettings->r_string(section,"script_binding"),lua_function)) {
-		ai().script_engine().script_log	(ScriptStorage::eLuaMessageTypeError,"function %s is not loaded!",pSettings->r_string(section,"script_binding"));
+	if (!ai().script_engine().functor(pSettings->r_string(section, "script_binding"), lua_function))
+	{
+		ai().script_engine().script_log	(ScriptStorage::eLuaMessageTypeError, "function %s is not loaded!", pSettings->r_string(section, "script_binding"));
 		return;
 	}
 	
-	CGameObject				*game_object = smart_cast<CGameObject*>(this);
+	CGameObject* game_object = smart_cast<CGameObject*>(this);
 
-	try {
+	try
+	{
 		lua_function		(game_object ? game_object->lua_game_object() : 0);
 	}
-	catch(...) {
+	catch(...)
+	{
 		clear				();
 		return;
 	}
 
-	if (m_object) {
-		try {
+	if (m_object)
+	{
+		try
+		{
 			m_object->reload(section);
 		}
-		catch(...) {
+		catch(...)
+		{
 			clear			();
 		}
 	}
 #endif
+
 #ifdef DEBUG_MEMORY_MANAGER
-	if (g_bMEMO) {
-//		lua_gc				(ai().script_engine().lua(),LUA_GCCOLLECT,0);
-//		lua_gc				(ai().script_engine().lua(),LUA_GCCOLLECT,0);
+	if (g_bMEMO)
+	{
 		Msg					("CScriptBinder::reload() : %d",Memory.mem_usage() - start);
 	}
 #endif // DEBUG_MEMORY_MANAGER
+
 }
 
 BOOL CScriptBinder::net_Spawn		(CSE_Abstract* DC)

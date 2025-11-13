@@ -96,14 +96,15 @@ struct SVelocityParam {
 	float	max_factor;
 
 	SVelocityParam() {
-		velocity.linear			= 0.f;
-		velocity.angular_real	= 0.f;
-		velocity.angular_path	= 0.f;
+		velocity.linear			= 0.0f;
+		velocity.angular_real	= 0.0f;
+		velocity.angular_path	= 0.0f;
 		min_factor				= 1.0f;
 		max_factor				= 1.0f;
 	}
 
-	void	Load (LPCSTR section, LPCSTR line) {
+	void	Load (LPCSTR section, LPCSTR line)
+	{
 		string32 buffer;
 		velocity.linear			= float(atof(_GetItem(pSettings->r_string(section,line),0,buffer)));
 		velocity.angular_real	= float(atof(_GetItem(pSettings->r_string(section,line),1,buffer)));

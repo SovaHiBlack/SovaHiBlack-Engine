@@ -22,6 +22,18 @@ Spawn_Inventory_Item_Probability	= 0.2
 cform								= skeleton			; collision class
 class								= SM_DOG_S			; AI class
 
+script_binding						= bind_monster.bind
+
+bone_head							= bip01_head		; bone name
+bone_torso							= bip01_spine1		; bone name
+bone_fire							= bip01_head		; bone name
+
+weapon_usage						= 0					; boolean
+
+terrain								= dogs_terrain
+
+material							= creatures\medium
+
 ;------------------------------------------------------------------------------
 ; Offline Alife
 ;------------------------------------------------------------------------------
@@ -38,44 +50,29 @@ MaxHealthValue						= 100				; range [0..200]
 
 smart_terrain_choose_interval		= 00:15:00
 
-
-
-
-
-
-
-
-
-script_binding  	= bind_monster.bind
-
-bone_torso			 = bip01_spine1 			; bone name
-bone_head			 = bip01_head				; bone name
-bone_fire			 = bip01_head				; bone name
-weapon_usage		 = 0						; boolean
-
 ;------------------------------------------------------------------------------
 ; Physics
 ;------------------------------------------------------------------------------
-ph_box0_center 		 = 0.0,  0.2,  0.0
-ph_box0_size 		 = 0.35, 0.4,  0.35
-ph_box1_center 		 = 0.0,  0.2,  0.0
-ph_box1_size 		 = 0.35, 0.4,  0.35
-ph_crash_speed_min			= 10
-ph_crash_speed_max			= 30
-ph_mass 		     = 40	;70
-ph_collision_damage_factor	= 0.1
+ph_box0_center						= 0.0,  0.2, 0.0
+ph_box0_size						= 0.35, 0.4, 0.35
+ph_box1_center						= 0.0,  0.2, 0.0
+ph_box1_size						= 0.35, 0.4, 0.35
+ph_crash_speed_min					= 10
+ph_crash_speed_max					= 30
+ph_collision_damage_factor			= 0.1
+ph_mass								= 40
 
-destroyed_vis_name	 = physics\dead_body\skelet_crash_monster
+destroyed_vis_name					= physics\dead_body\skelet_crash_monster
 
-actor_restrictor	 = medium_monster				;medium_monster,stalker,none
+actor_restrictor					= medium_monster	;medium_monster,stalker,none
 
-ph_skeleton_airr_lin_factor   = 2.0 ;550.0 (изменно из-за того, что убрано домножение коэффициент 0.002 из кода)
-ph_skeleton_airr_ang_factor   = 0.0 ;0.0 (изменно из-за того, что убрано домножение на коэффициент 0.3 из кода (0.0*0.3=0.0))
-ph_skeleton_hinger_factor1    = 1.0 ;1.0 (изменно из-за того, что убрано домножение на коэффициент 5.0 из кода)
-ph_skeleton_ddelay	     	  = 15.0 ;Время изменения значения трения в суставе с момента создания шелла, сек
-ph_skel_fatal_impulse_factor  = 6.0
-ph_after_death_velocity_factor= 0.75
-ph_skel_shot_up_factor        = 0.25
+ph_skeleton_airr_lin_factor			= 2.0
+ph_skeleton_airr_ang_factor			= 0.0
+ph_skeleton_hinger_factor1			= 1.0
+ph_skeleton_ddelay					= 15.0				;Время изменения значения трения в суставе с момента создания шелла, сек
+ph_skel_fatal_impulse_factor		= 6.0
+ph_after_death_velocity_factor		= 0.75
+ph_skel_shot_up_factor				= 0.25
 
 ;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
@@ -210,7 +207,7 @@ critical_wound_bones_torso	= dog_critical_wound_bones_torso
 critical_wound_anim_legs	= critical_hit_torso_0
 critical_wound_bones_legs	= dog_critical_wound_bones_legs
 
-terrain				 = dogs_terrain
+
 
 ;--------------------------------------------------------------------------
 ; Jump parameters
@@ -222,7 +219,7 @@ jump_max_dist			= 3.0;8.;4.0	;3.0
 jump_max_angle			= 0.5	;1.0	;1.2
 jump_trace_dist			= 1.0
 
-material				= creatures\medium
+
 
 
 step_params			= m_dog_step_params

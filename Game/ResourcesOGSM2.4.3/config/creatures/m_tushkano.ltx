@@ -22,14 +22,17 @@ panic_threshold						= 0.0
 cform								= skeleton			; collision class
 class								= SM_TUSHK ;AI_TUSH	; AI class
 
-script_binding  	 = bind_monster.bind
+script_binding						= bind_monster.bind
 
-bone_torso			 = bip01_spine1 			; bone name
-bone_head			 = bip01_head				; bone name
-bone_fire			 = bip01_head				; bone name
-weapon_usage		 = 0						; boolean
+bone_head							= bip01_head		; bone name
+bone_torso							= bip01_spine1		; bone name
+bone_fire							= bip01_head		; bone name
 
-terrain				 = tushkan_terrain
+weapon_usage						= 0					; boolean
+
+terrain								= tushkan_terrain
+
+material							= creatures\medium
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -50,24 +53,24 @@ smart_terrain_choose_interval		= 00:15:00
 ;------------------------------------------------------------------------------
 ; Physics
 ;------------------------------------------------------------------------------
-ph_box0_center 		 = 0.0,  0.9,  0.0
-ph_box0_size 		 = 0.35, 0.9,  0.35
-ph_box1_center 		 = 0.0,  0.6,  0.0
-ph_box1_size 		 = 0.40, 0.6,  0.40
-ph_crash_speed_min			= 10
-ph_crash_speed_max			= 30
-ph_mass 		     = 20
-ph_collision_damage_factor	= 0.1
+ph_box0_center						= 0.0,  0.9, 0.0
+ph_box0_size						= 0.35, 0.9, 0.35
+ph_box1_center						= 0.0,  0.6, 0.0
+ph_box1_size						= 0.4,  0.6, 0.4
+ph_crash_speed_min					= 10
+ph_crash_speed_max					= 30
+ph_collision_damage_factor			= 0.1
+ph_mass								= 20
 
-destroyed_vis_name	 = physics\dead_body\skelet_crash_monster
+destroyed_vis_name					= physics\dead_body\skelet_crash_monster
 
-ph_skeleton_airr_lin_factor   = -0.4
-ph_skeleton_airr_ang_factor   = -0.2
-ph_skeleton_hinger_factor1    = 1.0
-ph_skeleton_ddelay            = 5.0
-ph_skel_fatal_impulse_factor  = 2.0
-ph_after_death_velocity_factor= 0.75
-ph_skel_shot_up_factor        = 0.25
+ph_skeleton_airr_lin_factor			= -0.4
+ph_skeleton_airr_ang_factor			= -0.2
+ph_skeleton_hinger_factor1			= 1.0
+ph_skeleton_ddelay					= 5.0
+ph_skel_fatal_impulse_factor		= 2.0
+ph_after_death_velocity_factor		= 0.75
+ph_skel_shot_up_factor				= 0.25
 
 ;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
@@ -188,7 +191,7 @@ DamagedThreshold		= 0.4
 critical_wound_threshold		= -1
 critical_wound_decrease_quant	= 0.
 
-material				= creatures\medium
+
 
 LegsCount				= 2
 

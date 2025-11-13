@@ -17,6 +17,16 @@ panic_threshold						= 0.1
 cform								= skeleton			; collision class
 class								= SM_CAT_S			; AI class
 
+bone_head							= bip01_head		; bone name
+bone_torso							= bip01_spine1		; bone name
+bone_fire							= bip01_head		; bone name
+
+weapon_usage						= 0					; boolean
+
+terrain								= 255,255,255,255,30,40
+
+material							= creatures\small
+
 ;------------------------------------------------------------------------------
 ; Offline Alife
 ;------------------------------------------------------------------------------
@@ -30,37 +40,27 @@ search_speed						= 0.5				; option for ALife Simulator
 
 MaxHealthValue						= 100				; range [0..200]
 
-
-
-
-
-
-bone_torso			 = bip01_spine1 			; bone name
-bone_head			 = bip01_head				; bone name
-bone_fire			 = bip01_head				; bone name
-weapon_usage		 = 0						; boolean
-
 ;------------------------------------------------------------------------------
 ; Physics
 ;------------------------------------------------------------------------------
-ph_box0_center 		 = 0.0, 0.3, 0.0
-ph_box0_size 		 = 0.3, 0.3, 0.3
-ph_box1_center 		 = 0.0, 0.3, 0.0
-ph_box1_size 		 = 0.3, 0.3, 0.3
-ph_crash_speed_min			= 10
-ph_crash_speed_max			= 30
-ph_mass 		     = 50;30						; also it's the food
-ph_collision_damage_factor	= 0.1
+ph_box0_center						= 0.0, 0.3, 0.0
+ph_box0_size						= 0.3, 0.3, 0.3
+ph_box1_center						= 0.0, 0.3, 0.0
+ph_box1_size						= 0.3, 0.3, 0.3
+ph_crash_speed_min					= 10
+ph_crash_speed_max					= 30
+ph_collision_damage_factor			= 0.1
+ph_mass								= 50				; also it's the food
 
-destroyed_vis_name	 = physics\dead_body\skelet_crash_monster
+destroyed_vis_name					= physics\dead_body\skelet_crash_monster
 
-ph_skeleton_airr_lin_factor   = 2.0 ;550.0 (изменно из-за того, что убрано домножение коэффициент 0.002 из кода)
-ph_skeleton_airr_ang_factor   = 0.0 ;0.0 (изменно из-за того, что убрано домножение на коэффициент 0.3 из кода (0.0*0.3=0.0))
-ph_skeleton_hinger_factor1    = 1.0 ;1.0 (изменно из-за того, что убрано домножение на коэффициент 5.0 из кода)
-ph_skeleton_ddelay	     	  = 15.0 ;Время изменения значения трения в суставе с момента создания шелла, сек
-ph_skel_fatal_impulse_factor  = 6.0
-ph_after_death_velocity_factor= 0.75
-ph_skel_shot_up_factor        = 0.25
+ph_skeleton_airr_lin_factor			= 2.0
+ph_skeleton_airr_ang_factor			= 0.0
+ph_skeleton_hinger_factor1			= 1.0
+ph_skeleton_ddelay					= 15.0				;Время изменения значения трения в суставе с момента создания шелла, сек
+ph_skel_fatal_impulse_factor		= 6.0
+ph_after_death_velocity_factor		= 0.75
+ph_skel_shot_up_factor				= 0.25
 
 ;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
@@ -178,7 +178,7 @@ transparency_threshold			= 0.25
 
 DamagedThreshold		= 0.5
 
-material				= creatures\small
+
 
 ; jump parameters
 jump_delay					= 3000
@@ -213,7 +213,7 @@ selector_approach		=      20.0,            1.0,                1000.0,          
 selector_walk_around	=      20.0,            6.0,                 1000.0,             4.0,               5000.0,					8.0,				5000.0,      
 
 
-terrain				 = 255,255,255,255,30,40
+
 
 
 [m_cat_damage]

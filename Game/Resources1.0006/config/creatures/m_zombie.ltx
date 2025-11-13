@@ -21,13 +21,17 @@ Spawn_Inventory_Item_Probability	= 0.2
 cform								= skeleton			; collision class
 class								= SM_ZOMBI			; AI class
 
-script_binding  	= bind_monster.bind
+script_binding						= bind_monster.bind
 
-bone_torso			 = bip01_spine1 			; bone name
-bone_head			 = bip01_head				; bone name
-bone_fire			 = bip01_head				; bone name
-weapon_usage		 = 0						; boolean
+bone_head							= bip01_head		; bone name
+bone_torso							= bip01_spine1		; bone name
+bone_fire							= bip01_head		; bone name
 
+weapon_usage						= 0					; boolean
+
+terrain								= zombie_terrain
+
+material							= creatures\medium
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -47,41 +51,41 @@ smart_terrain_choose_interval		= 00:15:00
 ;------------------------------------------------------------------------------
 ; Physics
 ;------------------------------------------------------------------------------
-ph_box0_center					= 0.0,  0.9,  0.0
-ph_box0_size					= 0.35, 0.9,  0.35
-ph_box1_center					= 0.0,  0.6,  0.0
-ph_box1_size					= 0.4,  0.6,  0.40
-ph_crash_speed_min				= 10
-ph_crash_speed_max				= 30
-ph_mass							= 80
-ph_collision_damage_factor		= 0.1
+ph_box0_center						= 0.0,  0.9, 0.0
+ph_box0_size						= 0.35, 0.9, 0.35
+ph_box1_center						= 0.0,  0.6, 0.0
+ph_box1_size						= 0.4,  0.6, 0.4
+ph_crash_speed_min					= 10
+ph_crash_speed_max					= 30
+ph_collision_damage_factor			= 0.1
+ph_mass								= 80
 
-destroyed_vis_name				= physics\Dead_Body\trupik_crash
+destroyed_vis_name					= physics\Dead_Body\trupik_crash
 
-ph_skeleton_airr_lin_factor		= 1.1					;(изменно из-за того, что убрано домножение коэффициент 0.002 из кода)
-ph_skeleton_airr_ang_factor		= 0.0					;(изменно из-за того, что убрано домножение на коэффициент 0.3 из кода (0.0*0.3=0.0))
-ph_skeleton_hinger_factor1		= 5.0					;(изменно из-за того, что убрано домножение на коэффициент 5.0 из кода)
-ph_skeleton_ddelay				= 5.0					;Время изменения значения трения в суставе с момента создания шелла, сек
-ph_skel_fatal_impulse_factor	= 8.0
-ph_after_death_velocity_factor	= 0.75
-ph_skel_shot_up_factor			= 0.25
+ph_skeleton_airr_lin_factor			= 1.1
+ph_skeleton_airr_ang_factor			= 0.0
+ph_skeleton_hinger_factor1			= 5.0
+ph_skeleton_ddelay					= 5.0				;Время изменения значения трения в суставе с момента создания шелла, сек
+ph_skel_fatal_impulse_factor		= 8.0
+ph_after_death_velocity_factor		= 0.75
+ph_skel_shot_up_factor				= 0.25
 
 ;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
 ;------------------------------------------------------------------------------
-; speed factors				linear | angular_real | angular_path | min   |  max
-Velocity_Stand				= 0.0,		1.4,			1.4,		1.0,	1.0
-Velocity_WalkFwdNormal		= 0.9,		0.6,			0.6,		0.02,	2.0
-Velocity_RunFwdNormal		= 1.7,		3.0,			3.0,		0.4,	1.0
-Velocity_WalkFwdDamaged		= 0.7,		3.0,			0.8,		0.2,	2.0
-Velocity_RunFwdDamaged		= 1.5,		3.0,			3.0,		0.2,	1.0
-Velocity_Drag				= 1.0,		3.0,			3.0,		1.0,	1.0
-Velocity_Steal				= 1.5,		3.0,			3.0,		1.0,	1.0
+; speed factors						linear | angular_real | angular_path | min   |  max
+Velocity_Stand						= 0.0,		1.4,			1.4,		1.0,	1.0
+Velocity_WalkFwdNormal				= 0.9,		0.6,			0.6,		0.02,	2.0
+Velocity_RunFwdNormal				= 1.7,		3.0,			3.0,		0.4,	1.0
+Velocity_WalkFwdDamaged				= 0.7,		3.0,			0.8,		0.2,	2.0
+Velocity_RunFwdDamaged				= 1.5,		3.0,			3.0,		0.2,	1.0
+Velocity_Drag						= 1.0,		3.0,			3.0,		1.0,	1.0
+Velocity_Steal						= 1.5,		3.0,			3.0,		1.0,	1.0
 
 ; acceleration
-Accel_Generic				= 1.5
-Accel_Calm					= 2.5
-Accel_Aggressive			= 7.5
+Accel_Generic						= 1.5
+Accel_Calm							= 2.5
+Accel_Aggressive					= 7.5
 
 ;------------------------------------------------------------------------------
 ; Attack parameters
@@ -184,7 +188,7 @@ transparency_threshold			= 0.25
 
 
 
-terrain				 = zombie_terrain
+
 
 
 DamagedThreshold		= 0.5
@@ -196,7 +200,7 @@ StartFakeDeathHealthThreshold	= 0.6
 
 
 
-material				= creatures\medium
+
 
 
 LegsCount				= 2

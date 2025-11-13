@@ -26,6 +26,18 @@ Spawn_Inventory_Item_Probability	= 0.5
 cform								= skeleton			; collision class
 class								= SM_BURER			; AI class
 
+script_binding						= bind_monster.bind
+
+bone_head							= bip01_head		; bone name
+bone_torso							= bip01_spine1		; bone name
+bone_fire							= bip01_head		; bone name
+
+weapon_usage						= 0					; boolean
+
+terrain								= burer_terrain
+
+material							= creatures\large
+
 ;------------------------------------------------------------------------------
 ; Offline Alife
 ;------------------------------------------------------------------------------
@@ -44,26 +56,26 @@ smart_terrain_choose_interval		= 00:15:00
 ;------------------------------------------------------------------------------
 ; Physics
 ;------------------------------------------------------------------------------
-ph_box0_center 			= 0.0,  0.7,  0.0
-ph_box0_size 			= 0.35, 0.7,  0.35
-ph_box1_center 			= 0.0,  0.6,  0.0
-ph_box1_size 			= 0.35, 0.6,  0.35
-ph_crash_speed_min			= 10
-ph_crash_speed_max			= 30
-ph_mass 				= 70
-ph_collision_damage_factor	= 0.1
+ph_box0_center						= 0.0,  0.7, 0.0
+ph_box0_size						= 0.35, 0.7, 0.35
+ph_box1_center						= 0.0,  0.6, 0.0
+ph_box1_size						= 0.35, 0.6, 0.35
+ph_crash_speed_min					= 10
+ph_crash_speed_max					= 30
+ph_mass								= 70
+ph_collision_damage_factor			= 0.1
 
-destroyed_vis_name = physics\dead_body\skelet_crash_monster	;
+destroyed_vis_name					= physics\dead_body\skelet_crash_monster
 
-actor_restrictor		= medium_monster ;medium_monster,stalker,none
+actor_restrictor					= medium_monster ;medium_monster,stalker,none
 
-ph_skeleton_airr_lin_factor   = -0.4
-ph_skeleton_airr_ang_factor   = -0.2
-ph_skeleton_hinger_factor1    = 1.0
-ph_skeleton_ddelay            = 5.0
-ph_skel_fatal_impulse_factor  = 2.0
-ph_after_death_velocity_factor= 0.75
-ph_skel_shot_up_factor        = 0.25
+ph_skeleton_airr_lin_factor			= -0.4
+ph_skeleton_airr_ang_factor			= -0.2
+ph_skeleton_hinger_factor1			= 1.0
+ph_skeleton_ddelay					= 5.0
+ph_skel_fatal_impulse_factor		= 2.0
+ph_after_death_velocity_factor		= 0.75
+ph_skel_shot_up_factor				= 0.25
 
 ;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
@@ -243,24 +255,19 @@ critical_wound_decrease_quant	= 0.
 
 
 
-script_binding  		= bind_monster.bind
 
-bone_torso				= bip01_spine1 				; bone name
-bone_head				= bip01_head				; bone name
-bone_fire				= bip01_head				; bone name
-weapon_usage			= 0							; boolean
 
 
 
 
 
 selector_approach		=  20.0,            1.0,                 1000.0,             0.0,               0.0,              1000.0,				10000.0,      
-terrain					= burer_terrain
+
 
 
 DamagedThreshold		= 0.5
 
-material				= creatures\large
+
 step_params				= m_burer_step_params
 LegsCount				= 2
 damage					= m_burer_damage

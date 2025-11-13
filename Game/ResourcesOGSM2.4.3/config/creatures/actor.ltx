@@ -15,13 +15,44 @@ ef_creature_type					= 17				; option for evaluation functions
 cform								= skeleton
 class								= O_ACTOR
 
+script_binding						= bind_stalker.actor_init
+
+terrain								= actor_terrain
+
+material							= creatures\actor
+
+;------------------------------------------------------------------------------
+; Physics
+;------------------------------------------------------------------------------
+ph_box0_center						= 0.0,  0.9,  0.0
+ph_box0_size						= 0.35, 0.9,  0.35
+ph_box1_center						= 0.0,  0.75, 0.0
+ph_box1_size						= 0.35, 0.75, 0.35
+ph_box2_center						= 0.0,  0.6,  0.0
+ph_box2_size						= 0.35, 0.6,  0.35
+ph_crash_speed_min					= 14
+ph_crash_speed_max					= 30
+ph_collision_damage_factor			= 1.0
+ph_mass								= 80
+stalker_restrictor_radius			= 0.55
+stalker_small_restrictor_radius		= 0.55
+medium_monster_restrictor_radius	= 0.1
+
+destroyed_vis_name					= physics\Dead_Body\skelet_crash
+
+ph_skeleton_airr_lin_factor			= -0.4
+ph_skeleton_airr_ang_factor			= -0.2
+ph_skeleton_hinger_factor1			= 1.0
+ph_skeleton_ddelay					= 5.0
+ph_skel_fatal_impulse_factor		= 2.0
+ph_after_death_velocity_factor		= 0.75
+ph_skel_shot_up_factor				= 0.25
+
+
+
+
+
 money					= 40
-
-script_binding			= bind_stalker.actor_init
-
-destroyed_vis_name		= physics\Dead_Body\skelet_crash
-
-terrain					= actor_terrain
 
 max_item_mass			= 50.0
 jump_speed              = 6.0
@@ -40,27 +71,7 @@ pickup_info_radius		= 5
 ; attach params
 attachable_items		= device_torch,attachable_item,hand_radio
 
-ph_box0_center 						= 0.0,  0.9,  0.0
-ph_box0_size 						= 0.35, 0.9,  0.35
-ph_box1_center 						= 0.0,  0.75, 0.0
-ph_box1_size 						= 0.35, 0.75, 0.35
-ph_box2_center 						= 0.0,  0.6,  0.0
-ph_box2_size 						= 0.35, 0.6,  0.35
-stalker_restrictor_radius			= 0.55
-stalker_small_restrictor_radius		= 0.55
-medium_monster_restrictor_radius	= 0.1
-ph_crash_speed_min      			= 14
-ph_crash_speed_max      			= 30
-ph_collision_damage_factor			= 1.0
-ph_mass 							= 80
 
-ph_skeleton_airr_lin_factor   = -0.4
-ph_skeleton_airr_ang_factor   = -0.2
-ph_skeleton_hinger_factor1    = 1.0
-ph_skeleton_ddelay	          = 5.0
-ph_skel_fatal_impulse_factor  = 2.0
-ph_after_death_velocity_factor= 0.75
-ph_skel_shot_up_factor        = 0.25
 
 weapon_bone0				= bip01_r_finger1
 weapon_bone1				= bip01_l_finger1
@@ -81,7 +92,7 @@ condition_sect				= actor_condition
 heavy_breath_snd	= actor\breath_1		;звук тяжелого дыхания при усталости	
 heavy_blood_snd		= affects\heartbeat; heart\8
 
-material						= creatures\actor
+
 camera_height_factor			= 0.91
 
 

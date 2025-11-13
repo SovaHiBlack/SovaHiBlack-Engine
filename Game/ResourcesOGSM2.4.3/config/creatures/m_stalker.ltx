@@ -17,6 +17,18 @@ panic_threshold						= 0.02
 cform								= skeleton			; collision class
 class								= AI_STL_S			; Class identifier
 
+script_binding						= bind_stalker.init
+
+bone_head							= bip01_head
+bone_shoulder						= bip01_spine2
+bone_spin							= bip01_spine1
+bone_model							= bip01
+
+terrain								= 255,255,255,255,0,1
+;terrain							= stalker_terrain
+
+material							= creatures\human
+
 ;------------------------------------------------------------------------------
 ; Offline Alife
 ;------------------------------------------------------------------------------
@@ -29,35 +41,38 @@ MaxHealthValue						= 100				; option for ALife Simulator, range [0..200]
 
 smart_terrain_choose_interval		= 00:15:00
 
+;------------------------------------------------------------------------------
+; Physics
+;------------------------------------------------------------------------------
+ph_box0_center						= 0.0,  0.9,  0.0
+ph_box0_size						= 0.35, 0.9,  0.35
+ph_box1_center						= 0.0,  0.6,  0.0
+ph_box1_size						= 0.40, 0.6,  0.40
+ph_crash_speed_min					= 1000
+ph_crash_speed_max					= 3000
+ph_collision_damage_factor			= 0.1
+ph_mass								= 80
+
+destroyed_vis_name				= physics\Dead_Body\skelet_crash
+
+ph_skeleton_airr_lin_factor			= -0.4
+ph_skeleton_airr_ang_factor			= -0.2
+ph_skeleton_hinger_factor1			= 1.0
+ph_skeleton_ddelay					= 5.0
+ph_skel_fatal_impulse_factor		= 2.0
+ph_after_death_velocity_factor		= 0.75
+ph_skel_shot_up_factor				= 0.25
+
+ph_character_have_wounded_state		= true				; имеет ли персонаж состояние раненый
+
 
 
 can_select_items				= on
 
-;---EVALUATION FUNCTIONS----------------------------------------------
-
-
 ;---LEVEL EDITOR------------------------------------------------------
-
-
-
 custom_data						= stalker_custom_data.ltx		; option for Level Editor
 character_profile				= default						; option for Level Editor
 use_single_item_rule			= off
-
-;---GAME--------------------------------------------------------------
-							
-
-;биолог вид существа
-
-
-;---MATERIAL----------------------------------------------------------
-material						= creatures\human
-
-;---DEAD_VISUAL-------------------------------------------------------
-destroyed_vis_name				= physics\Dead_Body\skelet_crash
-
-;---SCRIPTS-----------------------------------------------------------
-script_binding					= bind_stalker.init
 
 ;---SECTIONS----------------------------------------------------------
 damage							= stalker_damage
@@ -72,10 +87,6 @@ money							= 5000					; option for ALife Simulator
 ;---ONLINE ALIFE-------------------------------------------------------------------
 time_to_search_for_artefacts	= 60000 ; in milliseconds
 distance_to_search_for_artefacts= 30.0	; in meters
-
-;---ONLINE-OFFLINE ALIFE-----------------------------------------------------------
-terrain							= 255,255,255,255,0,1
-;terrain							= stalker_terrain
 
 ;---SOUND-------------------------------------------------------------
 sound_threshold					= 0.08
@@ -149,12 +160,6 @@ weapon_bone0					= bip01_r_finger1
 weapon_bone1					= bip01_l_finger1
 weapon_bone2					= bip01_r_finger11
 
-;---ANIMATION BONES------------------------------------------------------------------
-bone_head						= bip01_head
-bone_shoulder					= bip01_spine2
-bone_spin						= bip01_spine1
-bone_model						= bip01
-
 ;---ANIMATION------------------------------------------------------------------------
 crouch_type						= 0 ; 0 - crouch a little, 1 - crouch full; -1 - random crouch
 
@@ -195,29 +200,7 @@ hit_power						= 10
 hit_type						= strike
 power_fx_factor					= 50.0
 
-;---PHYSICS-----------------------------------------------------------
-ph_box0_center 					= 0.0,  0.9,  0.0
-ph_box0_size 		 			= 0.35, 0.9,  0.35
-ph_box1_center 		 			= 0.0,  0.6,  0.0
-ph_box1_size 		 			= 0.40, 0.6,  0.40
-;---------------------------------------------------------------------
-ph_crash_speed_min			= 1000
-ph_crash_speed_max			= 3000
-ph_collision_damage_factor	= 0.1
-;---------------------------------------------------------------------
-ph_mass 				 		= 80
 
-ph_skeleton_airr_lin_factor   = -0.4
-ph_skeleton_airr_ang_factor   = -0.2
-ph_skeleton_hinger_factor1    = 1.0
-ph_skeleton_ddelay	      = 5.0
-ph_skel_fatal_impulse_factor  = 2.0
-ph_after_death_velocity_factor= 0.75
-ph_skel_shot_up_factor        = 0.25
-
-;---------------------------------------------------------------------
-ph_character_have_wounded_state = true; имеет ли персонаж состояние раненый
-;----------------------------------------------------------------------
 
 [stalker_foot_bones]
 front_left	= bip01_l_foot

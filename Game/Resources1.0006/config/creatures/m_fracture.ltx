@@ -18,6 +18,18 @@ panic_threshold						= 0.1
 cform								= skeleton			; collision class
 class								= SM_IZLOM			; AI class
 
+script_binding						= bind_monster.bind
+
+bone_head							= bip01_head		; bone name
+bone_torso							= bip01_spine1		; bone name
+bone_fire							= bip01_head		; bone name
+
+weapon_usage						= 0					; boolean
+
+terrain								= 255,255,255,255,30,40
+
+material							= creatures\medium
+
 ;------------------------------------------------------------------------------
 ; Offline Alife
 ;------------------------------------------------------------------------------
@@ -33,40 +45,27 @@ MaxHealthValue						= 200				; range [0..200]
 
 smart_terrain_choose_interval		= 00:15:00
 
-script_binding  = bind_monster.bind
-
-;---EVALUATION FUNCTIONS----------------------------------------------
-
-
-
-
-
-bone_torso			 = bip01_spine1 			; bone name
-bone_head			 = bip01_head				; bone name
-bone_fire			 = bip01_head				; bone name
-weapon_usage		 = 0						; boolean
-
 ;------------------------------------------------------------------------------
 ; Physics
 ;------------------------------------------------------------------------------
-ph_box0_center 		 = 0.0,  0.9,  0.0
-ph_box0_size 		 = 0.35, 0.9,  0.35
-ph_box1_center 		 = 0.0,  0.6,  0.0
-ph_box1_size 		 = 0.40, 0.6,  0.40
-ph_crash_speed_min			= 10
-ph_crash_speed_max			= 30
-ph_mass 		     = 170.
-ph_collision_damage_factor	= 0.1
+ph_box0_center						= 0.0,  0.9, 0.0
+ph_box0_size						= 0.35, 0.9, 0.35
+ph_box1_center						= 0.0,  0.6, 0.0
+ph_box1_size						= 0.4,  0.6, 0.4
+ph_crash_speed_min					= 10
+ph_crash_speed_max					= 30
+ph_collision_damage_factor			= 0.1
+ph_mass								= 170
 
-destroyed_vis_name	 = physics\Dead_Body\trupik_crash
+destroyed_vis_name					= physics\Dead_Body\trupik_crash
 
-ph_skeleton_airr_lin_factor   = 1.1 ;550.0 (изменно из-за того, что убрано домножение коэффициент 0.002 из кода)
-ph_skeleton_airr_ang_factor   = 0.0 ;0.0 (изменно из-за того, что убрано домножение на коэффициент 0.3 из кода (0.0*0.3=0.0))
-ph_skeleton_hinger_factor1    = 5.0 ;1.0 (изменно из-за того, что убрано домножение на коэффициент 5.0 из кода)
-ph_skeleton_ddelay	     	  = 5.0 ;Время изменения значения трения в суставе с момента создания шелла, сек
-ph_skel_fatal_impulse_factor  = 8.0
-ph_after_death_velocity_factor= 0.75
-ph_skel_shot_up_factor        = 0.25
+ph_skeleton_airr_lin_factor			= 1.1
+ph_skeleton_airr_ang_factor			= 0.0
+ph_skeleton_hinger_factor1			= 5.0
+ph_skeleton_ddelay					= 5.0				;Время изменения значения трения в суставе с момента создания шелла, сек
+ph_skel_fatal_impulse_factor		= 8.0
+ph_after_death_velocity_factor		= 0.75
+ph_skel_shot_up_factor				= 0.25
 
 ;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
@@ -182,12 +181,12 @@ luminocity_factor				= 1.5					;фактор освещения (только для Актёра)
 transparency_threshold			= 0.25
 
 
-terrain				 = 255,255,255,255,30,40
+
 
 
 DamagedThreshold		= 0.5
 
-material				= creatures\medium
+
 
 
 LegsCount				= 2

@@ -17,18 +17,14 @@ panic_threshold						= 0.1
 cform								= skeleton			; collision class
 class								= AI_RAT			; AI class
 
+bone_head							= bip01_head		; bone name
+bone_torso							= bip01_spine1		; bone name
 
+weapon_usage						= 0					; boolean
 
+terrain								= rats_terrain
 
-retreat_threshold	 = 0.2
-eye_fov				 = 170
-eye_range			 = 10
-
-hit_power			 = 5
-hit_type			 = wound
-transparency_threshold	 = 1.0
-DynamicObjectsCount	 = 32
-DynamicSoundsCount	 = 32
+material							= creatures\small
 
 ;------------------------------------------------------------------------------
 ; Offline Alife
@@ -44,23 +40,17 @@ MaxHealthValue						= 15				; range [0..200]
 
 smart_terrain_choose_interval		= 20:00:00
 
-killer_clsids			= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
-
-
-
-
-
 ;------------------------------------------------------------------------------
 ; Physics
 ;------------------------------------------------------------------------------
-ph_box0_center 		     =   0.0,   0.11, -0.22
-ph_box0_size 		     =   0.085, 0.11, 0.525
-ph_box1_center 		     =   0.0,   0.11, -0.22
-ph_box1_size 		     =   0.085, 0.11, 0.525
-ph_crash_speed_min			= 10
-ph_crash_speed_max			= 30
-ph_mass 				= 2
-ph_collision_damage_factor	= 0.1
+ph_box0_center						= 0.0,   0.11, -0.22
+ph_box0_size						= 0.085, 0.11, 0.525
+ph_box1_center						= 0.0,   0.11, -0.22
+ph_box1_size						= 0.085, 0.11, 0.525
+ph_crash_speed_min					= 10
+ph_crash_speed_max					= 30
+ph_mass								= 2
+ph_collision_damage_factor			= 0.1
 
 
 
@@ -71,9 +61,7 @@ cost					= 5
 
 
 
-bone_torso		     = bip01_spine1 		; bone name
-bone_head		     = bip01_head		; bone name
-weapon_usage		     = 0			; boolean
+
 
 EyeYShift		     = .15			; meters
 
@@ -118,10 +106,7 @@ ActionRefreshRate	     = 500			; milliseconds
 
 corp_mass				 = 500			;
 
-;terrain		             = 3,255,255,255,30,60, 4,255,255,255,30,60, 11,255,255,255,30,60, 12,255,255,255,30,60, 13,255,255,255,30,60, 14,255,255,255,30,60, 15,255,255,255,30,60
-;terrain		             = 1,255,255,255,30,60, 2,255,255,255,30,60, 3,255,255,255,30,60, 4,255,255,255,30,60
-;terrain				 = 255,255,255,255,30,40
-terrain				 = rats_terrain
+
 
 ;inventory item information
 cost			= 0
@@ -171,7 +156,17 @@ chemical_burn_immunity = 1.0
 explosion_immunity = 1.0
 fire_wound_immunity  = 1.0
 
-material				= creatures\small
+killer_clsids			= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
+
+retreat_threshold	 = 0.2
+eye_fov				 = 170
+eye_range			 = 10
+
+hit_power			 = 5
+hit_type			 = wound
+transparency_threshold	 = 1.0
+DynamicObjectsCount	 = 32
+DynamicSoundsCount	 = 32
 
 
 

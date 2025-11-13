@@ -11,6 +11,10 @@ ef_creature_type					= -1
 cform								= skeleton
 class								= AI_PHANT
 
+script_binding						= phantom_manager.bind
+
+material							= creatures\phantom
+
 spawn					= on						;
 
 
@@ -20,7 +24,7 @@ contact_hit				= 0.1
 
 
 
-script_binding			= phantom_manager.bind
+
 
 ; state BIRTH
 particles_birth			= monsters\phantom_birth
@@ -38,4 +42,4 @@ sound_contact			= monsters\poltergeist\hit_0
 particles_shoot			= monsters\phantom_death
 sound_shoot				= monsters\biting\def_0
 
-material				= creatures\phantom
+

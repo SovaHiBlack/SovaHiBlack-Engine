@@ -23,6 +23,18 @@ panic_threshold						= 0.1
 cform								= skeleton			; collision class
 class								= SM_GIANT			; AI class
 
+script_binding						= bind_monster.bind
+
+bone_head							= bip01_head		; bone name
+bone_torso							= bip01_spine1		; bone name
+bone_fire							= bip01_head		; bone name
+
+weapon_usage						= 0					; boolean
+
+terrain								= giant_terrain
+
+material							= creatures\large
+
 ;------------------------------------------------------------------------------
 ; Offline Alife
 ;------------------------------------------------------------------------------
@@ -39,38 +51,27 @@ MaxHealthValue						= 300				; range [0..200]
 
 smart_terrain_choose_interval		= 00:15:00
 
-
-
-
-
-script_binding  	= bind_monster.bind
-
-bone_torso			 = bip01_spine1 			; bone name
-bone_head			 = bip01_head				; bone name
-bone_fire			 = bip01_head				; bone name
-weapon_usage		 = 0						; boolean
-
 ;------------------------------------------------------------------------------
 ; Physics
 ;------------------------------------------------------------------------------
-ph_box0_center 		 = 0.0,  0.9,  0.0
-ph_box0_size 		 = 0.6, 0.9,  0.6
-ph_box1_center 		 = 0.0,  0.6,  0.0
-ph_box1_size 		 = 0.40, 0.6,  0.40
-ph_crash_speed_min			= 100
-ph_crash_speed_max			= 300
-ph_mass 		     = 1000
-ph_collision_damage_factor	= 0.1
+ph_box0_center						= 0.0, 0.9, 0.0
+ph_box0_size						= 0.6, 0.9, 0.6
+ph_box1_center						= 0.0, 0.6, 0.0
+ph_box1_size						= 0.4, 0.6, 0.4
+ph_crash_speed_min					= 100
+ph_crash_speed_max					= 300
+ph_collision_damage_factor			= 0.1
+ph_mass								= 1000
 
-destroyed_vis_name	 = physics\Dead_Body\skelet_crash_monster
+destroyed_vis_name					= physics\Dead_Body\skelet_crash_monster
 
-ph_skeleton_airr_lin_factor   = -0.4
-ph_skeleton_airr_ang_factor   = -0.2
-ph_skeleton_hinger_factor1    = 1.0
-ph_skeleton_ddelay            = 5.0
-ph_skel_fatal_impulse_factor  = 2.0
-ph_after_death_velocity_factor= 0.75
-ph_skel_shot_up_factor        = 0.25
+ph_skeleton_airr_lin_factor			= -0.4
+ph_skeleton_airr_ang_factor			= -0.2
+ph_skeleton_hinger_factor1			= 1.0
+ph_skeleton_ddelay					= 5.0
+ph_skel_fatal_impulse_factor		= 2.0
+ph_after_death_velocity_factor		= 0.75
+ph_skel_shot_up_factor				= 0.25
 
 ;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
@@ -201,7 +202,6 @@ transparency_threshold			= 0.25
 
 DamagedThreshold		= 0.2 ;0.05 ;0.2
 
-material				= creatures\large
 
 step_params				= m_gigant_step_params
 damage					= m_giant_damage
@@ -210,7 +210,7 @@ threaten_effector		= pseudogigant_threaten_effector
 
 selector_approach		= 20.0,1.0,1000.0,0.0,0.0, 1000.0,	10000.0,      
 
-terrain					= giant_terrain
+
 
 LegsCount			= 2
 
