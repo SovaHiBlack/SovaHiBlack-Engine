@@ -89,7 +89,7 @@ public:
 	}
 
 	IC ERP_Result intersect2(const _vector3<T>& S, const _vector3<T>& D, T& range) const	
-    {
+	{
 		_vector3<T> Q;	Q.sub(P,S);
 	
 		T R2	= R*R;

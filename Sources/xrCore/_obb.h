@@ -10,24 +10,24 @@ public:
 	typedef _vector3<T>	Tvector;
 	typedef _matrix<T>	Tmatrix;
 protected:
-    static bool		clip		(T fDenom, T fNumer, T& rfT0, T& rfT1)
-    {
-        // Return value is 'true' if line segment intersects the current test
-        // plane.  Otherwise 'false' is returned in which case the line segment
-        // is entirely clipped.
+	static bool		clip		(T fDenom, T fNumer, T& rfT0, T& rfT1)
+	{
+		// Return value is 'true' if line segment intersects the current test
+		// plane.  Otherwise 'false' is returned in which case the line segment
+		// is entirely clipped.
 
-        if ( fDenom > 0.0f ){
-            if ( fNumer > fDenom*rfT1 ) return false;
-            if ( fNumer > fDenom*rfT0 ) rfT0 = fNumer/fDenom;
-            return true;
-        }else if ( fDenom < 0.0f ){
-            if ( fNumer > fDenom*rfT0 ) return false;
-            if ( fNumer > fDenom*rfT1 ) rfT1 = fNumer/fDenom;
-            return true;
-        }else{
-            return fNumer <= 0.0f;
-        }
-    }
+		if ( fDenom > 0.0f ){
+			if ( fNumer > fDenom*rfT1 ) return false;
+			if ( fNumer > fDenom*rfT0 ) rfT0 = fNumer/fDenom;
+			return true;
+		}else if ( fDenom < 0.0f ){
+			if ( fNumer > fDenom*rfT0 ) return false;
+			if ( fNumer > fDenom*rfT1 ) rfT1 = fNumer/fDenom;
+			return true;
+		}else{
+			return fNumer <= 0.0f;
+		}
+	}
 	static bool 	intersect	(const Tvector& start, const Tvector& dir, const Tvector& extent, T& rfT0, T& rfT1)
 	{
 		T fSaveT0 = rfT0, fSaveT1 = rfT1;
@@ -88,29 +88,29 @@ public:
 		return *this;
 	}
 
-    IC bool 		intersect(const Tvector& start, const Tvector& dir, T& dist) const
-    {
-        // convert ray to box coordinates
-        Tvector kDiff; 
-        kDiff.sub(start,m_translate);
-        Tvector kOrigin;
-        kOrigin.set(kDiff.dotproduct(m_rotate.i), kDiff.dotproduct(m_rotate.j), kDiff.dotproduct(m_rotate.k));
-        Tvector kDirection;
-        kDirection.set(dir.dotproduct(m_rotate.i),dir.dotproduct(m_rotate.j),dir.dotproduct(m_rotate.k));
+	IC bool 		intersect(const Tvector& start, const Tvector& dir, T& dist) const
+	{
+		// convert ray to box coordinates
+		Tvector kDiff; 
+		kDiff.sub(start,m_translate);
+		Tvector kOrigin;
+		kOrigin.set(kDiff.dotproduct(m_rotate.i), kDiff.dotproduct(m_rotate.j), kDiff.dotproduct(m_rotate.k));
+		Tvector kDirection;
+		kDirection.set(dir.dotproduct(m_rotate.i),dir.dotproduct(m_rotate.j),dir.dotproduct(m_rotate.k));
 
-        T fT0 = 0.0f, fT1 = type_max(T);
-        if (intersect(kOrigin,kDirection,m_halfsize, fT0,fT1)){
-            bool bPick=false;
-            if ( fT0 > 0.0f ){
-                if (fT0<dist){ dist = fT0; bPick=true;}
-                if (fT1<dist){ dist = fT1; bPick=true;}
-            }else{
-                if (fT1<dist){ dist = fT1; bPick=true;}
-            }
-            return bPick;
-        }
-        return false;
-    }
+		T fT0 = 0.0f, fT1 = type_max(T);
+		if (intersect(kOrigin,kDirection,m_halfsize, fT0,fT1)){
+			bool bPick=false;
+			if ( fT0 > 0.0f ){
+				if (fT0<dist){ dist = fT0; bPick=true;}
+				if (fT1<dist){ dist = fT1; bPick=true;}
+			}else{
+				if (fT1<dist){ dist = fT1; bPick=true;}
+			}
+			return bPick;
+		}
+		return false;
+	}
 };
 
 typedef		_obb<float>		Fobb;

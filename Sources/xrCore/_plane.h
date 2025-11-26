@@ -18,10 +18,10 @@ public:
 		d		= P.d;
 		return *this;
 	}
-    IC	 BOOL 	similar (Self &P, T eps_n=EPS, T eps_d=EPS)
+	IC	 BOOL 	similar (Self &P, T eps_n=EPS, T eps_d=EPS)
 	{
-    	return (n.similar(P.n,eps_n)&&(_abs(d-P.d)<eps_d));
-    }
+		return (n.similar(P.n,eps_n)&&(_abs(d-P.d)<eps_d));
+	}
 	ICF	SelfRef	build	(const _vector3<T> &v1, const _vector3<T> &v2, const _vector3<T> &v3) 
 	{
 		_vector3<T> t1,t2;
@@ -85,14 +85,14 @@ public:
 
 		if (_abs(denom)<EPS_S) return FALSE; // normal is orthogonal to vector3, cant intersect
 		else {
-	        float dist	= -(numer / denom);
+			float dist	= -(numer / denom);
 			dest.mad	(P,D,dist);
 			return 		((dist>0.f)||fis_zero(dist));
 		}
 	}
 	IC	BOOL	intersect (
 		const _vector3<T>& u, const _vector3<T>& v,	// segment
-	    _vector3<T>&	isect)                  // intersection point
+		_vector3<T>&	isect)                  // intersection point
 	{
 		T		denom,dist;
 		_vector3<T>		t;
@@ -109,7 +109,7 @@ public:
 
 	IC	BOOL	intersect_2 (
 		const _vector3<T>& u, const _vector3<T>& v,				// segment
-	    _vector3<T>& isect)						// intersection point
+		_vector3<T>& isect)						// intersection point
 	{
 		T		dist1, dist2;
 		_vector3<T>		t;

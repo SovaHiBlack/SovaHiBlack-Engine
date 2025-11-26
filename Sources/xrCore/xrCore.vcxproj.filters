@@ -547,6 +547,12 @@
     <ClInclude Include="xrXMLParser\xrXMLParser.h">
       <Filter>XMLParser</Filter>
     </ClInclude>
+    <ClInclude Include="_limits.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="_constants.h">
+      <Filter>Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="xrCore.rc">

@@ -54,8 +54,6 @@ public:
 	IC	SelfRef	shrink(T x, T y)							{ lt.x+=x; lt.y+=y; rb.x-=x; rb.y-=y;	return *this;	};
 	IC	SelfRef	grow(T x, T y)								{ lt.x-=x; lt.y-=y; rb.x+=x; rb.y+=y;	return *this;	};
 
-
-
 	IC BOOL intersected(SelfCRef b1, SelfCRef b2) const {return !(b1.x1>b2.x2 || b1.x2<b2.x1 || b1.y1>b2.y2 ||  b1.y2<b2.y1);}
 	IC BOOL intersected(SelfCRef b) const {return intersected(*this,b);}
 
@@ -70,7 +68,6 @@ public:
 		y2	= _min(b1.y2,b2.y2);
 		return		(TRUE);
 	}
-
 };
 
 typedef _rect<float>	Frect;

@@ -63,7 +63,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Platform)'=='Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Sources\Externals\BugTrap\;$(SolutionDir)\Sources\Externals\DXSDK_Jun2010\Include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;$(SolutionDir)\Sources\Externals\BugTrap\;$(SolutionDir)\Sources\Externals\DXSDK_Jun2010\Include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)\Output\Libraries\;$(SolutionDir)\Sources\Externals\DXSDK_Jun2010\Lib\</AdditionalLibraryDirectories>
@@ -338,10 +338,12 @@
     <ClInclude Include="_bitwise.h" />
     <ClInclude Include="_color.h" />
     <ClInclude Include="_compressed_normal.h" />
+    <ClInclude Include="_constants.h" />
     <ClInclude Include="_cylinder.h" />
     <ClInclude Include="_fbox.h" />
     <ClInclude Include="_fbox2.h" />
     <ClInclude Include="_flags.h" />
+    <ClInclude Include="_limits.h" />
     <ClInclude Include="_math.h" />
     <ClInclude Include="_matrix.h" />
     <ClInclude Include="_matrix33.h" />

@@ -32,15 +32,15 @@ FS_Path::FS_Path	(LPCSTR _Root, LPCSTR _Add, LPCSTR _DefExt, LPCSTR _FilterCapti
 {
 //	VERIFY			(_Root&&_Root[0]);
 	string_path		temp;
-    strcpy_s		(temp,sizeof(temp),_Root); 
-    if (_Add) 		strcat(temp,_Add);
+	strcpy_s		(temp,sizeof(temp),_Root); 
+	if (_Add) 		strcat(temp,_Add);
 	if (temp[0] && temp[xr_strlen(temp)-1]!='\\') strcat(temp,"\\");
 	m_Path			= xr_strlwr(xr_strdup(temp));
 	m_DefExt		= _DefExt?xr_strlwr(xr_strdup(_DefExt)):0;
 	m_FilterCaption	= _FilterCaption?xr_strlwr(xr_strdup(_FilterCaption)):0;
 	m_Add			= _Add?xr_strlwr(xr_strdup(_Add)):0;
 	m_Root			= _Root?xr_strlwr(xr_strdup(_Root)):0;
-    m_Flags.assign	(flags);
+	m_Flags.assign	(flags);
 #ifdef _EDITOR
 	// Editor(s)/User(s) wants pathes already created in "real" file system :)
 	VerifyPath		(m_Path);
@@ -90,7 +90,7 @@ void	FS_Path::_set_root	(LPSTR root)
 LPCSTR FS_Path::_update(string_path& dest, LPCSTR src)const
 {
 	R_ASSERT			(dest);
-    R_ASSERT			(src);
+	R_ASSERT			(src);
 	string_path			temp;
 	strcpy_s			(temp, sizeof(temp), src);
 	strconcat			(sizeof(dest), dest, m_Path, temp);
@@ -99,14 +99,14 @@ LPCSTR FS_Path::_update(string_path& dest, LPCSTR src)const
 /*
 void FS_Path::_update(xr_string& dest, LPCSTR src)const
 {
-    R_ASSERT(src);
-    dest			= xr_string(m_Path)+src;
-    xr_strlwr		(dest);
+	R_ASSERT(src);
+	dest			= xr_string(m_Path)+src;
+	xr_strlwr		(dest);
 }*/
 void FS_Path::rescan_path_cb	()
 {
 	m_Flags.set(flNeedRescan,TRUE);
-    FS.m_Flags.set(CLocatorAPI::flNeedRescan,TRUE);
+	FS.m_Flags.set(CLocatorAPI::flNeedRescan,TRUE);
 }
 
 bool XRCORE_API PatternMatch(LPCSTR s, LPCSTR mask)

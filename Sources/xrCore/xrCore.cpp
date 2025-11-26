@@ -5,8 +5,7 @@
 
 #include <mmsystem.h>
 #include <objbase.h>
-#include "xrCore.h"
- 
+
 #pragma comment(lib,"winmm.lib")
 
 #ifdef DEBUG
@@ -49,21 +48,20 @@ void xrCore::_initialize	(LPCSTR _ApplicationName, LogCallback cb, BOOL init_fs,
 		string_path		fn,dr,di;
 
 		// application path
-        GetModuleFileName(GetModuleHandle(MODULE_NAME),fn,sizeof(fn));
-        _splitpath		(fn,dr,di,0,0);
-        strconcat		(sizeof(ApplicationPath),ApplicationPath,dr,di);
+		GetModuleFileName(GetModuleHandle(MODULE_NAME),fn,sizeof(fn));
+		_splitpath		(fn,dr,di,0,0);
+		strconcat		(sizeof(ApplicationPath),ApplicationPath,dr,di);
 #ifndef _EDITOR
 		strcpy_s		(g_application_path,sizeof(g_application_path),ApplicationPath);
 #endif
 
 		// working path
-        if( strstr(Params,"-wf") )
-        {
-            string_path				c_name;
-            sscanf					(strstr(Core.Params,"-wf ")+4,"%[^ ] ",c_name);
-            SetCurrentDirectory     (c_name);
-
-        }
+		if( strstr(Params,"-wf") )
+		{
+			string_path				c_name;
+			sscanf					(strstr(Core.Params,"-wf ")+4,"%[^ ] ",c_name);
+			SetCurrentDirectory     (c_name);
+		}
 		GetCurrentDirectory(sizeof(WorkingPath),WorkingPath);
 
 		// User/Comp Name
@@ -92,7 +90,8 @@ void xrCore::_initialize	(LPCSTR _ApplicationName, LogCallback cb, BOOL init_fs,
 		xr_EFS				= xr_new<EFS_Utils>		();
 //.		R_ASSERT			(co_res==S_OK);
 	}
-	if (init_fs){
+	if (init_fs)
+	{
 		u32 flags			= 0;
 		if (0!=strstr(Params,"-build"))	 flags |= CLocatorAPI::flBuildCopy;
 		if (0!=strstr(Params,"-ebuild")) flags |= CLocatorAPI::flBuildCopy|CLocatorAPI::flEBuildCopy;
@@ -114,10 +113,10 @@ void xrCore::_initialize	(LPCSTR _ApplicationName, LogCallback cb, BOOL init_fs,
 		Msg					("'%s' build %d, %s\n","X-Ray Engine",build_id, build_date);
 		EFS._initialize		();
 #ifdef DEBUG
-    #ifndef	_EDITOR
+	#ifndef	_EDITOR
 		Msg					("CRT heap 0x%08x",_get_heap_handle());
 		Msg					("Process heap 0x%08x",GetProcessHeap());
-    #endif
+	#endif
 #endif // DEBUG
 	}
 	SetLogCB				(cb);
@@ -182,6 +181,6 @@ void xrCore::_destroy		()
 #endif // USE_MEMORY_MONITOR
 		break;
 	}
-    return TRUE;
+	return TRUE;
 }
 #endif // XRCORE_STATIC

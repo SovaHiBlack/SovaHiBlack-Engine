@@ -36,17 +36,17 @@ public:
 public:
 	union {
 		struct {						// Direct definition
-            T _11, _12, _13, _14;
-            T _21, _22, _23, _24;
-            T _31, _32, _33, _34;
-            T _41, _42, _43, _44;
+			T _11, _12, _13, _14;
+			T _21, _22, _23, _24;
+			T _31, _32, _33, _34;
+			T _41, _42, _43, _44;
 		};
-    	struct{
-    		Tvector i;	T	_14_;
-    		Tvector j;	T	_24_;
-    		Tvector k;	T	_34_;
-    		Tvector c;	T	_44_;
-        };
+		struct{
+			Tvector i;	T	_14_;
+			Tvector j;	T	_24_;
+			Tvector k;	T	_34_;
+			Tvector c;	T	_44_;
+		};
 		T m[4][4];					// Array
 	};
 
@@ -131,9 +131,9 @@ public:
 	}
 	IC	SelfRef	mulA_44		( const Self &A )			// mul after 
 	{
-    	Self B; B.set( *this ); 	mul		( A, B );
+		Self B; B.set( *this ); 	mul		( A, B );
 		return *this;
-    };
+	};
 	IC	SelfRef	mulB_44		( const Self &B )			// mul before
 	{
 		Self A; A.set( *this ); 	mul		( A, B );
@@ -141,9 +141,9 @@ public:
 	};
 	ICF	SelfRef	mulA_43		( const Self &A )			// mul after (no projection)
 	{
-    	Self B; B.set( *this ); 	mul_43	( A, B );
+		Self B; B.set( *this ); 	mul_43	( A, B );
 		return *this;
-    };
+	};
 	ICF	SelfRef	mulB_43		( const Self &B )			// mul before (no projection)
 	{
 		Self A; A.set( *this ); 	mul_43	( A, B );
@@ -551,19 +551,19 @@ public:
 	}
 	ICF	SelfRef	setHPB	(T h, T p, T b)
 	{
-        T _ch, _cp, _cb, _sh, _sp, _sb, _cc, _cs, _sc, _ss;
+		T _ch, _cp, _cb, _sh, _sp, _sb, _cc, _cs, _sc, _ss;
 
-        _sh = _sin(h); _ch = _cos(h);
-        _sp = _sin(p); _cp = _cos(p);
-        _sb = _sin(b); _cb = _cos(b);
-        _cc = _ch*_cb; _cs = _ch*_sb; _sc = _sh*_cb; _ss = _sh*_sb;
+		_sh = _sin(h); _ch = _cos(h);
+		_sp = _sin(p); _cp = _cos(p);
+		_sb = _sin(b); _cb = _cos(b);
+		_cc = _ch*_cb; _cs = _ch*_sb; _sc = _sh*_cb; _ss = _sh*_sb;
 
-        i.set(_cc-_sp*_ss,	-_cp*_sb,	_sp*_cs+_sc	);	_14_=0;
-        j.set(_sp*_sc+_cs,	_cp*_cb, 	_ss-_sp*_cc	);	_24_=0;
-        k.set(-_cp*_sh,    	_sp,		_cp*_ch		);	_34_=0;
-        c.set(0,			0,			0			);  _44_=1;
+		i.set(_cc-_sp*_ss,	-_cp*_sb,	_sp*_cs+_sc	);	_14_=0;
+		j.set(_sp*_sc+_cs,	_cp*_cb, 	_ss-_sp*_cc	);	_24_=0;
+		k.set(-_cp*_sh,    	_sp,		_cp*_ch		);	_34_=0;
+		c.set(0,			0,			0			);  _44_=1;
 		return *this; 
-    }
+	}
 	IC	SelfRef	setXYZ	(T x, T y, T z)	{return setHPB(y,x,z);}
 	IC	SelfRef	setXYZ	(Tvector& xyz)	{return setHPB(xyz.y,xyz.x,xyz.z);}
 	IC	SelfRef	setXYZi	(T x, T y, T z)	{return setHPB(-y,-x,-z);}
@@ -571,17 +571,17 @@ public:
 	//
 	IC	void	getHPB	(T& h, T& p, T& b) const
 	{
-        T cy = _sqrt(j.y*j.y + i.y*i.y);
-        if (cy > 16.0f*type_epsilon(T)) {
-            h = (T) -atan2(k.x, k.z);
-            p = (T) -atan2(-k.y, cy);
-            b = (T) -atan2(i.y, j.y);
-        } else {
-            h = (T) -atan2(-i.z, i.x);
-            p = (T) -atan2(-k.y, cy);
-            b = 0;
-        }
-    }
+		T cy = _sqrt(j.y*j.y + i.y*i.y);
+		if (cy > 16.0f*type_epsilon(T)) {
+			h = (T) -atan2(k.x, k.z);
+			p = (T) -atan2(-k.y, cy);
+			b = (T) -atan2(i.y, j.y);
+		} else {
+			h = (T) -atan2(-i.z, i.x);
+			p = (T) -atan2(-k.y, cy);
+			b = 0;
+		}
+	}
 	IC	void	getHPB	(Tvector& hpb) const{getHPB(hpb.x,hpb.y,hpb.z);}
 	IC	void	getXYZ	(T& x, T& y, T& z) const{getHPB(y,x,z);}
 	IC	void	getXYZ	(Tvector& xyz) const{getXYZ(xyz.x,xyz.y,xyz.z);}

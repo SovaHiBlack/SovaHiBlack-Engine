@@ -30,7 +30,7 @@ public:
 	IC 	SelfRef	set			(const Tvector &_min, const Tvector &_max)	{ min.set(_min);	max.set(_max);		return *this;	};
 	IC	SelfRef	set			(T x1, T y1, T z1, T x2, T y2, T z2)		{ min.set(x1,y1,z1);max.set(x2,y2,z2);	return *this;	};
 	IC	SelfRef	set			(SelfCRef b)								{ min.set(b.min);	max.set(b.max);		return *this;	};
-    IC 	SelfRef	setb		(const Tvector& center, const Tvector& dim)	{ min.sub(center,dim);max.add(center,dim);return *this;	}
+	IC 	SelfRef	setb		(const Tvector& center, const Tvector& dim)	{ min.sub(center,dim);max.add(center,dim);return *this;	}
 
 	IC	SelfRef	null		()								{ min.set(0,0,0);	max.set(0,0,0);					return *this;	};
 	IC	SelfRef	identity	()								{ min.set(-0.5,-0.5,-0.5);	max.set(0.5,0.5,0.5);						return *this;	};
@@ -83,11 +83,11 @@ public:
 		return *this;
 	}
 	ICF	SelfRef	xform		(const Tmatrix &m)
-    {
+	{
 		Self b;
-        b.set(*this);
-        return xform(b,m);
-    }
+		b.set(*this);
+		return xform(b,m);
+	}
 
 	IC	void		getsize		(Tvector& R )	const 	{ R.sub( max, min ); };
 	IC	void		getradius	(Tvector& R )	const 	{ getsize(R); R.mul(0.5f); };

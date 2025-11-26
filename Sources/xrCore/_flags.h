@@ -11,12 +11,12 @@ public:
 public:
 	T 	flags;
 
-    IC	TYPE	get		()											{ return flags;}
-    IC	SelfRef	zero	()											{ flags=T(0);	return *this;	}
-    IC	SelfRef	one		()											{ flags=T(-1);	return *this;	}
-    IC	SelfRef	invert	()											{ flags	=	~flags;		return *this;	}
-    IC	SelfRef	invert	(const Self& f)								{ flags	=	~f.flags;	return *this;	}
-    IC	SelfRef	invert	(const T mask)								{ flags ^=	mask;		return *this;	}
+	IC	TYPE	get		()											{ return flags;}
+	IC	SelfRef	zero	()											{ flags=T(0);	return *this;	}
+	IC	SelfRef	one		()											{ flags=T(-1);	return *this;	}
+	IC	SelfRef	invert	()											{ flags	=	~flags;		return *this;	}
+	IC	SelfRef	invert	(const Self& f)								{ flags	=	~f.flags;	return *this;	}
+	IC	SelfRef	invert	(const T mask)								{ flags ^=	mask;		return *this;	}
 	IC	SelfRef	assign	(const Self& f)								{ flags =	f.flags;	return *this;	}
 	IC	SelfRef	assign	(const T mask)								{ flags	=	mask;		return *this;	}
 	IC	SelfRef	set		(const T mask,	BOOL value)					{ if (value) flags|=mask; else flags&=~mask; return *this; }

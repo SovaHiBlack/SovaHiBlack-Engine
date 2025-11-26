@@ -1,0 +1,7 @@
+﻿  "{0} -> {1} (частичный -> полный PDB)"
+  System.FormatException: Индекс (отсчитываемый от нуля) должен быть больше или равен нулю, но меньше размера списка аргументов.
+     в System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+     в System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+     в System.String.Format(String format, Object[] args)
+     в Microsoft.Build.Framework.LazyFormattedBuildEventArgs.FormatString(String unformatted, Object[] args)
+EXEC : fatal error CMF1106: 

@@ -82,7 +82,7 @@ public:
 	}
 
 	// Clamp vector3
-	IC	SelfRef	clamp(const Self &min, const Self max) 
+	IC	SelfRef	clamp(const Self &min, const Self &max) 
 	{
 		::clamp(x,min.x,max.x);
 		::clamp(y,min.y,max.y);
@@ -177,11 +177,11 @@ public:
 	{
 		VERIFY(square_magnitude() > std::numeric_limits<T>::min());
 		T len		= magnitude();
-        T inv_len 	= T(1)/len;
+		T inv_len 	= T(1)/len;
 		x *= inv_len;
 		y *= inv_len;
 		z *= inv_len;
-        return len;
+		return len;
 	}
 
 	ICF	SelfRef normalize(void) 
@@ -312,45 +312,45 @@ public:
 		return *this;	
 	}
 
-    IC SelfRef	mknormal_non_normalized	(const Self &p0, const Self & p1, const Self &p2 )
+	IC SelfRef	mknormal_non_normalized	(const Self &p0, const Self & p1, const Self &p2 )
 	{
-    	_vector3<T> v01,v12;
-    	v01.sub( p1, p0 );
-    	v12.sub( p2, p1 );
-    	crossproduct( v01, v12 );
+		_vector3<T> v01,v12;
+		v01.sub( p1, p0 );
+		v12.sub( p2, p1 );
+		crossproduct( v01, v12 );
 		return *this;	
-    };
-    IC SelfRef	mknormal( const Self &p0, const Self &p1, const Self &p2 )
+	};
+	IC SelfRef	mknormal( const Self &p0, const Self &p1, const Self &p2 )
 	{
 		mknormal_non_normalized(p0,p1,p2);
-    	normalize_safe();
+		normalize_safe();
 		return *this;	
-    };
+	};
 	IC	SelfRef	setHP	(T h, T p)
 	{
-        T _ch=_cos(h), _cp=_cos(p), _sh=_sin(h), _sp=_sin(p);
-        x = -_cp*_sh;
-        y = _sp;
-        z = _cp*_ch;
+		T _ch=_cos(h), _cp=_cos(p), _sh=_sin(h), _sp=_sin(p);
+		x = -_cp*_sh;
+		y = _sp;
+		z = _cp*_ch;
 		return *this;	
-    }
-    ICF	void	getHP	(T& h, T& p) const
-    {
-        float hyp;
+	}
+	ICF	void	getHP	(T& h, T& p) const
+	{
+		float hyp;
 
-        if (fis_zero(x)&& fis_zero(z)){
-            h = 0.0f;
-            if (!fis_zero(float(y)))	p = (y>0.0f)?PI_DIV_2:-PI_DIV_2;
-            else            			p = 0.0f;
-        }else{
-            if (fis_zero(z))			h = (x>0.0f)?-PI_DIV_2:PI_DIV_2;
-            else if (z<0.0f)			h = -(atanf(x/z)-PI);
-            else            			h = -atanf(x/z);
-            hyp = _sqrt(x*x+z*z);
-            if (fis_zero(float(hyp)))	p = (y>0.0f)?PI_DIV_2:-PI_DIV_2;
-            else						p = atanf(y/hyp);
-        }
-    }
+		if (fis_zero(x)&& fis_zero(z)){
+			h = 0.0f;
+			if (!fis_zero(float(y)))	p = (y>0.0f)?PI_DIV_2:-PI_DIV_2;
+			else            			p = 0.0f;
+		}else{
+			if (fis_zero(z))			h = (x>0.0f)?-PI_DIV_2:PI_DIV_2;
+			else if (z<0.0f)			h = -(atanf(x/z)-PI);
+			else            			h = -atanf(x/z);
+			hyp = _sqrt(x*x+z*z);
+			if (fis_zero(float(hyp)))	p = (y>0.0f)?PI_DIV_2:-PI_DIV_2;
+			else						p = atanf(y/hyp);
+		}
+	}
 	ICF float 	getH	() const
 	{
 		if (fis_zero(x)&& fis_zero(z)){
@@ -380,28 +380,28 @@ public:
 	{	// non normalized
 		return mad(dir,norm,-dir.dotproduct(norm));
 	}
-    IC static void generate_orthonormal_basis(const _vector3<T>& dir, _vector3<T>& up, _vector3<T>& right)
-    {
-        T fInvLength;
+	IC static void generate_orthonormal_basis(const _vector3<T>& dir, _vector3<T>& up, _vector3<T>& right)
+	{
+		T fInvLength;
 
-        if ( _abs(dir.x) >= _abs(dir.y) ){
-            // W.x or W.z is the largest magnitude component, swap them
-            fInvLength = 1.f/_sqrt(dir.x*dir.x+dir.z*dir.z);
-            up.x = -dir.z*fInvLength;
-            up.y = 0.0f;
-            up.z = +dir.x*fInvLength;
-        }
-        else
-        {
-            // W.y or W.z is the largest magnitude component, swap them
-            fInvLength = 1.f/_sqrt(dir.y*dir.y+dir.z*dir.z);
-            up.x = 0.0f;
-            up.y = +dir.z*fInvLength;
-            up.z = -dir.y*fInvLength;
-        }
+		if ( _abs(dir.x) >= _abs(dir.y) ){
+			// W.x or W.z is the largest magnitude component, swap them
+			fInvLength = 1.f/_sqrt(dir.x*dir.x+dir.z*dir.z);
+			up.x = -dir.z*fInvLength;
+			up.y = 0.0f;
+			up.z = +dir.x*fInvLength;
+		}
+		else
+		{
+			// W.y or W.z is the largest magnitude component, swap them
+			fInvLength = 1.f/_sqrt(dir.y*dir.y+dir.z*dir.z);
+			up.x = 0.0f;
+			up.y = +dir.z*fInvLength;
+			up.z = -dir.y*fInvLength;
+		}
 
-        right.crossproduct(up,dir); //. <->
-    }
+		right.crossproduct(up,dir); //. <->
+	}
 	IC static void generate_orthonormal_basis_normalized(_vector3<T>& dir, _vector3<T>& up, _vector3<T>& right)
 	{
 		T fInvLength;

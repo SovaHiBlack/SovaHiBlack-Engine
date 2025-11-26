@@ -74,9 +74,9 @@ public:
 	};
 
 	// Make's this box valid AABB
-    IC SelfRef sort()
+	IC SelfRef sort()
 	{
-    	T tmp;
+		T tmp;
 		if( min.x > max.x ) { tmp = min.x; min.x = max.x; max.x = tmp; }
 		if( min.y > max.y ) { tmp = min.y; min.y = max.y; max.y = tmp; }
 		return *this;	
