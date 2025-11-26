@@ -252,7 +252,8 @@ void CBaseMonster::settings_read(CInifile *ini, LPCSTR section, SMonsterSettings
 {
 	READ_SETTINGS(data.m_fSoundThreshold, "SoundThreshold", r_float, ini, section);
 
-	if (ability_run_attack()) {
+	if (ability_run_attack())
+	{
 		READ_SETTINGS(data.m_run_attack_path_dist,	"RunAttack_PathDistance",	r_float, ini, section);
 		READ_SETTINGS(data.m_run_attack_start_dist, "RunAttack_StartDistance",	r_float, ini, section);
 	}
@@ -280,8 +281,8 @@ void CBaseMonster::settings_read(CInifile *ini, LPCSTR section, SMonsterSettings
 	READ_SETTINGS(data.m_max_hear_dist,		"max_hear_dist",		r_float, ini, section);
 
 	// Load attack postprocess 
-	if (ini->line_exist(section,"attack_effector")) {
-
+	if (ini->line_exist(section,"attack_effector"))
+	{
 		LPCSTR ppi_section = ini->r_string(section, "attack_effector");
 
 		READ_SETTINGS(data.m_attack_effector.ppi.duality.h,			"duality_h",		r_float, ini, ppi_section);

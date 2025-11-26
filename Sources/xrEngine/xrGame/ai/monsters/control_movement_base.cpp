@@ -17,16 +17,16 @@ void CControlMovementBase::reinit()
 	m_man->capture		(this, ControlCom::eControlMovement);
 }
 
-void CControlMovementBase::load(LPCSTR section)
+void CControlMovementBase::load(pcstr section)
 {
-	load_velocity	(section, "Velocity_Stand",			eVelocityParameterStand);
-	load_velocity	(section, "Velocity_WalkFwdNormal",	eVelocityParameterWalkNormal);
-	load_velocity	(section, "Velocity_RunFwdNormal",	eVelocityParameterRunNormal);
-	load_velocity	(section, "Velocity_WalkFwdDamaged",eVelocityParameterWalkDamaged);
-	load_velocity	(section, "Velocity_RunFwdDamaged",	eVelocityParameterRunDamaged);
-	load_velocity	(section, "Velocity_Steal",			eVelocityParameterSteal);
-	load_velocity	(section, "Velocity_Drag",			eVelocityParameterDrag);
-	load_velocity	(section, "Velocity_RunAttack",		eVelocityParameterRunAttack);
+	load_velocity(section, "Velocity_Stand",			eVelocityParameterStand);
+	load_velocity(section, "Velocity_WalkFwdNormal",	eVelocityParameterWalkNormal);
+	load_velocity(section, "Velocity_RunFwdNormal",		eVelocityParameterRunNormal);
+	load_velocity(section, "Velocity_WalkFwdDamaged",	eVelocityParameterWalkDamaged);
+	load_velocity(section, "Velocity_RunFwdDamaged",	eVelocityParameterRunDamaged);
+	load_velocity(section, "Velocity_Steal",			eVelocityParameterSteal);
+	load_velocity(section, "Velocity_Drag",				eVelocityParameterDrag);
+	load_velocity(section, "Velocity_RunAttack",		eVelocityParameterRunAttack);
 
 	// add idle velocity
 	SVelocityParam velocity_param;

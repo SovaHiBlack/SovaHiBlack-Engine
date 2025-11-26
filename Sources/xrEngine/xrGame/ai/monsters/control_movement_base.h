@@ -13,7 +13,7 @@ class CControlMovementBase : public CControl_ComBase {
 	float				m_accel;
 
 public:
-	virtual void	load			(LPCSTR section);
+	virtual void	load			(pcstr section);
 
 	virtual void	reinit			();
 	virtual void	update_frame	();

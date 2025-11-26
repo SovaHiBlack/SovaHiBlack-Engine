@@ -541,16 +541,14 @@ void	CActor::Hit							(SHit* pHDS)
 			if (GodMode())//psActorFlags.test(AF_GODMODE))
 			{
 				HDS.power = 0.0f;
-//				inherited::Hit(0.f,dir,who,element,position_in_bone_space,impulse, hit_type);
 				inherited::Hit(&HDS);
 				return;
 			}
-			else 
+			else
 			{
-				//inherited::Hit		(hit_power,dir,who,element,position_in_bone_space, impulse, hit_type);
 				HDS.power = hit_power;
 				inherited::Hit(&HDS);
-			};
+			}
 		}
 		break;
 	default:
@@ -1180,8 +1178,6 @@ void CActor::shedule_Update	(u32 DT)
 		m_pVehicleWeLookingAt	= NULL;
 		m_pInvBoxWeLookingAt	= NULL;
 	}
-
-//	UpdateSleep									();
 
 	//для свойст артефактов, находящихся на поясе
 	UpdateArtefactsOnBelt						();

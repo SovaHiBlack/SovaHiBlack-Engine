@@ -75,29 +75,27 @@ ph_skel_shot_up_factor				= 0.25
 ;------------------------------------------------------------------------------
 ; Movement::Velocities & Acceleration
 ;------------------------------------------------------------------------------
-; speed factors				linear | angular_real | angular_path | min   |  max
-Velocity_Stand			= 0,		2.4,			2.4,		1,		1
-Velocity_WalkFwdNormal	= 1.05,		1.0,			1.0,		0.02,	2.0
-Velocity_WalkFwdDamaged	= 0.9,		1.0,			1.0,		0.02,	2.0			
-Velocity_RunFwdNormal	= 3.2,		3.5,			3.5,		0.4,	1	
-Velocity_RunFwdDamaged	= 1.7,		2.0,			2.0,		0.2,	1
-Velocity_Drag			= 1.0,		1.0,			1.0,		1,		1
-Velocity_Steal			= 1.5,		3.0,			3.0,		1,		1
-Velocity_JumpGround		= 9.0,		3.0,			0.01,		0.4,	1
-Velocity_Jump_Stand     = 9.0,		3.0,			0.01,		0.4,	1
+; speed factors						linear | angular_real | angular_path | min   |  max
+Velocity_Stand						= 0.0,		2.4,			2.4,		1.0,	1.0
+Velocity_WalkFwdNormal				= 1.05,		1.0,			1.0,		0.02,	2.0
+Velocity_RunFwdNormal				= 3.2,		3.5,			3.5,		0.4,	1.0
+Velocity_WalkFwdDamaged				= 0.9,		1.0,			1.0,		0.02,	2.0
+Velocity_RunFwdDamaged				= 1.7,		2.0,			2.0,		0.2,	1.0
+Velocity_Drag						= 1.0,		1.0,			1.0,		1.0,	1.0
+Velocity_Steal						= 1.5,		3.0,			3.0,		1.0,	1.0
+Velocity_JumpGround					= 9.0,		3.0,			0.01,		0.4,	1.0
 
 ; acceleration
-Accel_Generic			= 1.5
-Accel_Calm				= 2.5
-Accel_Aggressive		= 12.0
+Accel_Calm							= 2.5
+Accel_Aggressive					= 12.0
 
 ;------------------------------------------------------------------------------
 ; Attack parameters
 ;------------------------------------------------------------------------------
-MinAttackDist					= 1.9
-MaxAttackDist					= 2.9
-as_min_dist						= 1.5
-as_step							= 0.4
+MinAttackDist						= 1.9
+MaxAttackDist						= 2.9
+as_min_dist							= 1.5
+as_step								= 0.4
 
 hit_type						= wound				; type of attack
 

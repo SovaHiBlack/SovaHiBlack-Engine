@@ -193,16 +193,13 @@ public:
 	virtual bool						NeedToDestroyObject()  const;
 	virtual ALife::_TIME_ID				TimePassedAfterDeath() const;
 
-
 public:
-	//сон
-//			void		UpdateSleep			();
-
 	//свойства артефактов
 	virtual void		UpdateArtefactsOnBelt	();
 	virtual void		MoveArtefactBelt		(const CArtefact* artefact, bool on_belt);
 	virtual float		HitArtefactsOnBelt		(float hit_power, ALife::EHitType hit_type);
 	const xr_vector<const CArtefact*>& ArtefactsOnBelt() {return m_ArtefactsOnBelt;}
+
 protected:
 	//звук т€желого дыхани€
 	ref_sound			m_HeavyBreathSnd;

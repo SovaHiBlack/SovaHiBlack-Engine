@@ -252,13 +252,16 @@ void CPhantom::UpdateCL()
 	if (m_TgtState!=m_CurState)	SwitchToState_internal(m_TgtState);
 }
 //---------------------------------------------------------------------
-//void CPhantom::Hit	(float P, Fvector &dir, CObject* who, s16 element,Fvector p_in_object_space, float impulse, ALife::EHitType hit_type)
 void	CPhantom::Hit							(SHit* pHDS)
 {
-	if (m_TgtState==stFly)	SwitchToState(stShoot);
-	if (g_Alive()){
+	if (m_TgtState == stFly)
+	{
+		SwitchToState(stShoot);
+	}
+
+	if (g_Alive())
+	{
 		SetfHealth		(-1.f);
-//		inherited::Hit	(P,dir,who,element,p_in_object_space,impulse/100.f, hit_type);
 		inherited::Hit	(pHDS);
 	}
 }

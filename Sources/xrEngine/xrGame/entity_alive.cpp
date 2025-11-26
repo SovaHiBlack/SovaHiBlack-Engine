@@ -258,7 +258,6 @@ void CEntityAlive::HitImpulse	(float /**amount/**/, Fvector& /**vWorldDir/**/, F
 	//	m_PhysicMovementControl->vExternalImpulse.mad	(vWorldDir,Q);
 }
 
-//void CEntityAlive::Hit(float P, Fvector &dir,CObject* who, s16 element,Fvector position_in_object_space, float impulse, ALife::EHitType hit_type, float AP)
 void CEntityAlive::Hit(SHit* pHDS)
 {
 	SHit HDS = *pHDS;
@@ -271,14 +270,16 @@ void CEntityAlive::Hit(SHit* pHDS)
 	//изменить состояние, перед тем как родительский класс обработает хит
 	CWound* pWound = conditions().ConditionHit(&HDS);
 
-	if(pWound){
+	if(pWound)
+	{
 		if(ALife::eHitTypeBurn == HDS.hit_type)
 			StartFireParticles(pWound);
 		else if(ALife::eHitTypeWound == HDS.hit_type || ALife::eHitTypeFireWound == HDS.hit_type)
 			StartBloodDrops(pWound);
 	}
 
-	if (HDS.hit_type != ALife::eHitTypeTelepatic){
+	if (HDS.hit_type != ALife::eHitTypeTelepatic)
+	{
 		//добавить кровь на стены
 		if (!use_simplified_visual())
 			BloodyWallmarks (HDS.damage(), HDS.dir, HDS.bone(), HDS.p_in_bone_space);
@@ -297,7 +298,6 @@ void CEntityAlive::Hit(SHit* pHDS)
 			RELATION_REGISTRY().Action(EA, this, RELATION_REGISTRY::ATTACK);
 		}
 	}
-
 }
 
 void CEntityAlive::Die	(CObject* who)

@@ -318,14 +318,12 @@ void CBurer::StopTeleObjectParticle(CGameObject *pO)
 	PP->StopParticles(particle_tele_object, BI_NONE, true);
 }
 
-//void CBurer::Hit(float P,Fvector &dir,CObject*who,s16 element,Fvector p_in_object_space,float impulse, ALife::EHitType hit_type)
 void	CBurer::Hit								(SHit* pHDS)
 {
 	if (m_shield_active && (pHDS->hit_type == ALife::eHitTypeFireWound) && (Device.dwFrame != last_hit_frame)) {
 
 		// вычислить позицию и направленность партикла
-		Fmatrix pos; 
-		//CParticlesPlayer::MakeXFORM(this,element,Fvector().set(0.f,0.f,1.f),p_in_object_space,pos);
+		Fmatrix pos;
 		CParticlesPlayer::MakeXFORM(this,pHDS->bone(),pHDS->dir,pHDS->p_in_bone_space,pos);
 
 		// установить particles
@@ -334,9 +332,11 @@ void	CBurer::Hit								(SHit* pHDS)
 		ps->UpdateParent(pos,Fvector().set(0.f,0.f,0.f));
 		GamePersistent().ps_needtoplay.push_back(ps);
 
-	} else if (!m_shield_active)
-//				inherited::Hit(P,dir,who,element,p_in_object_space,impulse,hit_type);
-				inherited::Hit(pHDS);
+	}
+	else if (!m_shield_active)
+	{
+		inherited::Hit(pHDS);
+	}
 
 	last_hit_frame = Device.dwFrame;
 }

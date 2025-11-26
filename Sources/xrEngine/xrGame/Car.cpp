@@ -513,20 +513,10 @@ void	CCar::OnHUDDraw				(CCustomHUD* /**hud/**/)
 #endif
 }
 
-//void CCar::Hit(float P,Fvector &dir,CObject * who,s16 element,Fvector p_in_object_space, float impulse, ALife::EHitType hit_type)
 void	CCar::Hit							(SHit* pHDS)
 {
-
 	SHit	HDS = *pHDS;
-	//if(CDelayedActionFuse::isActive()||Initiator()==u16(-1)&&HDS.hit_type==ALife::eHitTypeStrike)
-	//{
-	//	HDS.power=0.f;
-	//}
 
-	//if(HDS.who->ID()!=ID())
-	//{
-	//	CExplosive::SetInitiator(HDS.who->ID());
-	//}
 	WheelHit(HDS.damage(),HDS.bone(),HDS.hit_type);
 	DoorHit(HDS.damage(),HDS.bone(),HDS.hit_type);
 	float hitScale=1.f,woundScale=1.f;
