@@ -69,7 +69,7 @@ IC			void			SetWndSize_inline							(const Fvector2& wnd_size);
 			void			IncCursorPos								();
 			void			DecCursorPos								();
 protected:
-			Ivector2		m_cursor_pos;
+			iVector2		m_cursor_pos;
 			void			UpdateCursor								();
 				// %c[255,255,255,255]
 		u32					GetColorFromText							(const xr_string& str)							const;

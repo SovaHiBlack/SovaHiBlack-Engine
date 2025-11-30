@@ -121,9 +121,9 @@ void CLevelFogOfWar::Open	(u32 row, u32 col, bool b)
 	m_cells.at(row*m_colNum+col)=b;
 }
 
-Ivector2 CLevelFogOfWar::ConvertRealToLocal(const Fvector2& src)
+iVector2 CLevelFogOfWar::ConvertRealToLocal(const Fvector2& src)
 {
-	Ivector2 res;
+	iVector2 res;
 	res.x = iFloor( (src.x - m_levelRect.lt.x)/FOG_CELL_SZ);
 	res.y = iFloor( (src.y - m_levelRect.lt.y)/FOG_CELL_SZ);
 
@@ -135,7 +135,7 @@ Irect CLevelFogOfWar::ConvertRealToLocal	(const Frect& src)
 	return Irect().set(ConvertRealToLocal(src.lt), ConvertRealToLocal(src.rb));
 }
 
-Fvector2 CLevelFogOfWar::ConvertLocalToReal(const Ivector2& src)
+Fvector2 CLevelFogOfWar::ConvertLocalToReal(const iVector2& src)
 {
 	return Fvector2().set(	m_levelRect.lt.x + src.x*FOG_CELL_SZ,
 							m_levelRect.lt.y + src.y*FOG_CELL_SZ) ;
@@ -185,7 +185,7 @@ void CLevelFogOfWar::Draw	()
 
 	realCellsPosLT.sub			(m_levelRect.lt).mul(m->GetCurrentZoom());
 	
-	Ivector2	drawLT;
+	iVector2	drawLT;
 	drawLT.set					((realCellsPosLT.x + map_abs_pos.x)*UI()->GetScaleX(), 
 								 (realCellsPosLT.y + map_abs_pos.y)*UI()->GetScaleY());
 	

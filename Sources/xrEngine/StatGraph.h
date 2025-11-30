@@ -42,8 +42,9 @@ protected:
 	
 	float			mn, mx;
 	u32				max_item_count;
-	Ivector2 		lt,rb;
-	Ivector2 		grid;
+	iVector2 		lt;
+	iVector2		rb;
+	iVector2 		grid;
 	Fvector2		grid_step;
 	u32				grid_color;
 	u32				base_color;

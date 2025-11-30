@@ -68,8 +68,8 @@ protected:
 	EffectVec			effects;
 	xr_vector<ref_sound>sounds;
 	Fvector2			sound_dist;
-	Ivector2			sound_period;
-	Ivector2			effect_period;
+	iVector2			sound_period;
+	iVector2			effect_period;
 public:
 	void				load				(const shared_str& section);
 	IC SEffect*			get_rnd_effect		(){return effects.empty()?0:&effects[Random.randI(effects.size())];}

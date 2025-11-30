@@ -4,156 +4,152 @@ template <class T>
 class _vector2
 {
 public:
-	using TYPE = T;
-	using Self = _vector2<T>;
-	using SelfRef = Self&;
-	using SelfCRef = const Self&;
+	using TYPE			= T;
+	using Self			= _vector2<T>;
+	using SelfRef		= Self&;
+	using SelfCRef		= const Self&;
 
-	TYPE x;
-	TYPE y;
+	TYPE				x;
+	TYPE				y;
 
 	IC SelfRef set(TYPE _u, TYPE _v)
 	{
-		x = TYPE(_u);
-		y = TYPE(_v);
+		x				= TYPE(_u);
+		y				= TYPE(_v);
 		return *this;
 	}
 
-	//IC SelfRef set(float _u, float _v)				{ x=T(_u); y=T(_v);				return *this;	}
-	//IC SelfRef set(double _u, double _v)			{ x=T(_u); y=T(_v);				return *this;	}
-	//IC SelfRef set(int _u, int _v)					{ x=T(_u); y=T(_v);				return *this;	}
-
 	IC SelfRef set(SelfCRef p)
 	{
-		x = p.x;
-		y = p.y;
+		x				= p.x;
+		y				= p.y;
 		return *this;
 	}
 
 	IC SelfRef abs(SelfCRef p)
 	{
-		x = _abs(p.x);
-		y = _abs(p.y);
+		x				= _abs(p.x);
+		y				= _abs(p.y);
 		return *this;
 	}
 
 	IC SelfRef min(SelfCRef p)
 	{
-		x = _min(x, p.x);
-		y = _min(y, p.y);
+		x				= _min(x, p.x);
+		y				= _min(y, p.y);
 		return *this;
 	}
 
 	IC SelfRef min(TYPE _x, TYPE _y)
 	{
-		x = _min(x, _x);
-		y = _min(y, _y);
+		x				= _min(x, _x);
+		y				= _min(y, _y);
 		return *this;
 	}
 
 	IC SelfRef max(SelfCRef p)
 	{
-		x = _max(x, p.x);
-		y = _max(y, p.y);
+		x				= _max(x, p.x);
+		y				= _max(y, p.y);
 		return *this;
 	}
 
 	IC SelfRef max(TYPE _x, TYPE _y)
 	{
-		x = _max(x, _x);
-		y = _max(y, _y);
+		x				= _max(x, _x);
+		y				= _max(y, _y);
 		return *this;
 	}
 
 	IC SelfRef sub(TYPE p)
 	{
-		x -= p;
-		y -= p;
+		x				-= p;
+		y				-= p;
 		return *this;
 	}
 
 	IC SelfRef sub(SelfCRef p)
 	{
-		x -= p.x;
-		y -= p.y;
+		x				-= p.x;
+		y				-= p.y;
 		return *this;
 	}
 
 	IC SelfRef sub(SelfCRef p1, SelfCRef p2)
 	{
-		x = p1.x - p2.x;
-		y = p1.y - p2.y;
+		x				= p1.x - p2.x;
+		y				= p1.y - p2.y;
 		return *this;
 	}
 
 	IC SelfRef sub(SelfCRef p, f32 d)
 	{
-		x = p.x - d;
-		y = p.y - d;
+		x				= p.x - d;
+		y				= p.y - d;
 		return *this;
 	}
 
 	IC SelfRef add(TYPE p)
 	{
-		x += p;
-		y += p;
+		x				+= p;
+		y				+= p;
 		return *this;
 	}
 
 	IC SelfRef add(SelfCRef p)
 	{
-		x += p.x;
-		y += p.y;
+		x				+= p.x;
+		y				+= p.y;
 		return *this;
 	}
 
 	IC SelfRef add(SelfCRef p1, SelfCRef p2)
 	{
-		x = p1.x + p2.x;
-		y = p1.y + p2.y;
+		x				= p1.x + p2.x;
+		y				= p1.y + p2.y;
 		return *this;
 	}
 
 	IC SelfRef add(SelfCRef p, f32 d)
 	{
-		x = p.x + d;
-		y = p.y + d;
+		x				= p.x + d;
+		y				= p.y + d;
 		return *this;
 	}
 
 	IC SelfRef mul(const TYPE s)
 	{
-		x *= s;
-		y *= s;
+		x				*= s;
+		y				*= s;
 		return *this;
 	}
 
 	IC SelfRef mul(SelfRef p)
 	{
-		x *= p.x;
-		y *= p.y;
+		x				*= p.x;
+		y				*= p.y;
 		return *this;
 	}
 
 	IC SelfRef div(const TYPE s)
 	{
-		x /= s;
-		y /= s;
+		x				/= s;
+		y				/= s;
 		return *this;
 	}
 
 	IC SelfRef rot90( )
 	{
-		f32 t = -x;
-		x = y;
-		y = t;
+		f32 t			= -x;
+		x				= y;
+		y				= t;
 		return *this;
 	}
 
 	IC SelfRef cross(SelfRef D)
 	{
-		x = D.y;
-		y = -D.x;
+		x				= D.y;
+		y				= -D.x;
 		return *this;
 	}
 
@@ -169,19 +165,19 @@ public:
 
 	IC SelfRef norm( )
 	{
-		f32 m = _sqrt(x * x + y * y);
-		x /= m;
-		y /= m;
+		f32 m			= _sqrt(x * x + y * y);
+		x				/= m;
+		y				/= m;
 		return *this;
 	}
 
 	IC SelfRef norm_safe( )
 	{
-		f32 m = _sqrt(x * x + y * y);
+		f32 m			= _sqrt(x * x + y * y);
 		if (m)
 		{
-			x /= m;
-			y /= m;
+			x			/= m;
+			y			/= m;
 		}
 
 		return *this;
@@ -204,8 +200,8 @@ public:
 
 	IC SelfRef mad(SelfCRef p, SelfCRef d, TYPE r)
 	{
-		x = p.x + d.x * r;
-		y = p.y + d.y * r;
+		x				= p.x + d.x * r;
+		y				= p.y + d.y * r;
 		return *this;
 	}
 
@@ -213,8 +209,8 @@ public:
 	{
 		// vector3 orthogonal to (x,y) is (y,-x)
 		Self kCross;
-		kCross.x = y;
-		kCross.y = -x;
+		kCross.x		= y;
+		kCross.y		= -x;
 		return kCross;
 	}
 
@@ -231,16 +227,16 @@ public:
 	// average arithmetic
 	IC SelfRef averageA(SelfRef p1, SelfRef p2)
 	{
-		x = (p1.x + p2.x) * 0.5f;
-		y = (p1.y + p2.y) * 0.5f;
+		x				= (p1.x + p2.x) * 0.5f;
+		y				= (p1.y + p2.y) * 0.5f;
 		return *this;
 	}
 
 	// average geometric
 	IC SelfRef averageG(SelfRef p1, SelfRef p2)
 	{
-		x = _sqrt(p1.x * p2.x);
-		y = _sqrt(p1.y * p2.y);
+		x				= _sqrt(p1.x * p2.x);
+		y				= _sqrt(p1.y * p2.y);
 		return *this;
 	}
 
@@ -262,19 +258,19 @@ public:
 
 	IC SelfRef normalize(SelfCRef v)
 	{
-		f32 m = _sqrt(v.x * v.x + v.y * v.y);
-		x = v.x / m;
-		y = v.y / m;
+		f32 m			= _sqrt(v.x * v.x + v.y * v.y);
+		x				= v.x / m;
+		y				= v.y / m;
 		return *this;
 	}
 
 	IC SelfRef normalize_safe(SelfCRef v)
 	{
-		f32 m = _sqrt(v.x * v.x + v.y * v.y);
+		f32 m			= _sqrt(v.x * v.x + v.y * v.y);
 		if (m)
 		{
-			x = v.x / m;
-			y = v.y / m;
+			x			= v.x / m;
+			y			= v.y / m;
 		}
 
 		return *this;
@@ -305,7 +301,7 @@ public:
 		}
 		else
 		{
-			if (y < 0.f)
+			if (y < 0.0f)
 			{
 				return (-(atanf(x / y) - PI));
 			}
@@ -317,12 +313,13 @@ public:
 	}
 };
 
+using iVector2 = _vector2<s32>;
+
 typedef _vector2<f32>		Fvector2;
 typedef _vector2<f64>	Dvector2;
-typedef _vector2<s32>		Ivector2;
 
 template <class T>
 BOOL	_valid(const _vector2<T>& v)
 {
-	return _valid((T)v.x) && _valid((T)v.y);
+	return (_valid((T)v.x) && _valid((T)v.y));
 }

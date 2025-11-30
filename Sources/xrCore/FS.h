@@ -62,7 +62,7 @@ public:
 	IC void			w_fvector2(const Fvector2 &v)	{	w(&v,sizeof(Fvector2));	}
 	IC void			w_ivector4(const Ivector4 &v)	{	w(&v,sizeof(Ivector4));	}
 	IC void			w_ivector3(const Ivector3 &v)	{	w(&v,sizeof(Ivector3));	}
-	IC void			w_ivector2(const Ivector2 &v)	{	w(&v,sizeof(Ivector2));	}
+	IC void			w_ivector2(const iVector2& v)	{	w(&v,sizeof(iVector2));	}
 
     // quant writing functions
 	IC void 		w_float_q16	(float a, float min, float max)
@@ -156,7 +156,7 @@ public:
 	IC void			r_fvector2	(Fvector2 &v){	r(&v,sizeof(Fvector2));	}
 	IC void			r_ivector4	(Ivector4 &v){	r(&v,sizeof(Ivector4));	}
 	IC void			r_ivector4	(Ivector3 &v){	r(&v,sizeof(Ivector3));	}
-	IC void			r_ivector4	(Ivector2 &v){	r(&v,sizeof(Ivector2));	}
+	IC void			r_ivector4	(iVector2& v){	r(&v,sizeof(iVector2));	}
 	IC void			r_fcolor	(Fcolor &v)	{	r(&v,sizeof(Fcolor));	}
 	
 	IC float		r_float_q16	(float min, float max)

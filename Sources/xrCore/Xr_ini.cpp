@@ -417,10 +417,10 @@ u32 CInifile::r_color( LPCSTR S, LPCSTR L )
 	return color_rgba(r,g,b,a);
 }
 
-Ivector2 CInifile::r_ivector2( LPCSTR S, LPCSTR L )
+iVector2 CInifile::r_ivector2( LPCSTR S, LPCSTR L )
 {
 	LPCSTR		C = r_string(S,L);
-	Ivector2	V={0,0};
+	iVector2	V={0,0};
 	sscanf		(C,"%d,%d",&V.x,&V.y);
 	return V;
 }
@@ -588,7 +588,7 @@ void	CInifile::w_color		( LPCSTR S, LPCSTR L, u32				V, LPCSTR comment )
 	w_string	(S,L,temp,comment);
 }
 
-void	CInifile::w_ivector2	( LPCSTR S, LPCSTR L, const Ivector2&	V, LPCSTR comment )
+void	CInifile::w_ivector2	( LPCSTR S, LPCSTR L, const iVector2&	V, LPCSTR comment )
 {
 	string128 temp; sprintf_s		(temp,sizeof(temp),"%d,%d", V.x, V.y);
 	w_string	(S,L,temp,comment);

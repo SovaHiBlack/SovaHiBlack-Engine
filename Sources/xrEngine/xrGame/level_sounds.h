@@ -6,9 +6,9 @@
 struct SStaticSound
 {
 	ref_sound		m_Source;
-	Ivector2		m_ActiveTime;
-	Ivector2		m_PlayTime;
-	Ivector2		m_PauseTime;
+	iVector2		m_ActiveTime;
+	iVector2		m_PlayTime;
+	iVector2		m_PauseTime;
 	u32				m_NextTime;
 	u32				m_StopTime;
 	Fvector			m_Position;
@@ -27,8 +27,8 @@ struct	SMusicTrack
 #endif
 	ref_sound		m_SourceLeft;
 	ref_sound		m_SourceRight;
-	Ivector2		m_ActiveTime;
-	Ivector2		m_PauseTime;
+	iVector2		m_ActiveTime;
+	iVector2		m_PauseTime;
 	float			m_Volume;
 public:
 	void			Load			(LPCSTR fn, LPCSTR params);

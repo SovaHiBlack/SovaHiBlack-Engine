@@ -4,25 +4,25 @@
 #include "xr_input.h"
 #include "iinputreceiver.h"
 
-void	IInputReceiver::IR_Capture						(void)
+void	IInputReceiver::IR_Capture						( )
 {
 	VERIFY(pInput);
 	pInput->iCapture(this);
 }
 
-void	IInputReceiver::IR_Release						(void)
+void	IInputReceiver::IR_Release						( )
 {
 	VERIFY(pInput);
 	pInput->iRelease(this);
 }
 
-void	IInputReceiver::IR_GetLastMouseDelta			(Ivector2& p)
+void	IInputReceiver::IR_GetLastMouseDelta			(iVector2& p)
 {
 	VERIFY(pInput);
 	pInput->iGetLastMouseDelta( p );
 }
 
-void IInputReceiver::IR_OnDeactivate					(void)
+void IInputReceiver::IR_OnDeactivate					( )
 {
 	int i;
 	for (i = 0; i < CInput::COUNT_KB_BUTTONS; i++ )
@@ -33,7 +33,7 @@ void IInputReceiver::IR_OnDeactivate					(void)
 	IR_OnMouseStop	( DIMOFS_Y, 0 );
 }
 
-void IInputReceiver::IR_OnActivate(void)
+void IInputReceiver::IR_OnActivate( )
 {
 }
 
@@ -49,22 +49,22 @@ BOOL IInputReceiver::IR_GetBtnState(int btn)
 	return pInput->iGetAsyncBtnState(btn);
 }
 
-void	IInputReceiver::IR_GetMousePosScreen			(Ivector2& p)
+void	IInputReceiver::IR_GetMousePosScreen			(iVector2& p)
 {
 	GetCursorPos((LPPOINT)&p);
 }
-void	IInputReceiver::IR_GetMousePosReal				(HWND hwnd, Ivector2 &p)
+void	IInputReceiver::IR_GetMousePosReal				(HWND hwnd, iVector2& p)
 {
 	IR_GetMousePosScreen(p);
 	if (hwnd) ScreenToClient(hwnd,(LPPOINT)&p);
 }
-void	IInputReceiver::IR_GetMousePosReal				(Ivector2 &p)
+void	IInputReceiver::IR_GetMousePosReal				(iVector2& p)
 {
 	IR_GetMousePosReal(Device.m_hWnd,p);
 }
 void	IInputReceiver::IR_GetMousePosIndependent		(Fvector2 &f)
 {
-	Ivector2 p;
+	iVector2 p;
 	IR_GetMousePosReal(p);
 	f.set(
 		2.f*float(p.x)/float(Device.dwWidth)-1.f,
