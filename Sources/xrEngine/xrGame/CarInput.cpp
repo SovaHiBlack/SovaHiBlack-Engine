@@ -51,7 +51,7 @@ bool CCar::bfAssignMovement(CScriptEntityAction *tpEntityAction)
 	if (!!(l_tInput & CScriptMovementAction::eInputKeyEngineOn))	StartEngine();
 	if (!!(l_tInput & CScriptMovementAction::eInputKeyEngineOff)) StopEngine();
 
-	//if (_abs(tpEntityAction->m_tMovementAction.m_fSpeed) > EPS_L)
+	//if (_abs(tpEntityAction->m_tMovementAction.m_fSpeed) > EPS_3)
 		//m_current_rpm = _abs(tpEntityAction->m_tMovementAction.m_fSpeed*m_current_gear_ratio);
 
 	return	(true);

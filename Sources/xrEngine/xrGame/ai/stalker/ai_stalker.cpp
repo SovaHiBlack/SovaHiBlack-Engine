@@ -656,7 +656,7 @@ void CAI_Stalker::UpdateCL()
 		}
 
 		if	(
-				(movement().speed(character_physics_support()->movement()) > EPS_L)
+				(movement().speed(character_physics_support()->movement()) > EPS_3)
 				&& 
 				(eMovementTypeStand != movement().movement_type())
 				&&

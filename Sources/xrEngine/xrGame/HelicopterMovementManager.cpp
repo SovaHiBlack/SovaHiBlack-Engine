@@ -174,7 +174,7 @@ void SHeliMovementState::getPathAltitude (Fvector& point, float base_altitude)
 	Fvector down_dir;
 	down_dir.set(0.0f, -1.0f, 0.0f);
 
-	point.y = boundingVolume.max.y+EPS_L;
+	point.y = boundingVolume.max.y+ EPS_3;
 	VERIFY( _valid(point) );
 
 	Level().ObjectSpace.RayPick(point, down_dir, boundSize.y+1.0f, collide::rqtStatic, cR, NULL);
@@ -184,7 +184,7 @@ void SHeliMovementState::getPathAltitude (Fvector& point, float base_altitude)
 	if( point.y+base_altitude < boundingVolume.max.y )
 		point.y += base_altitude;
 	else
-		point.y = boundingVolume.max.y-EPS_L;
+		point.y = boundingVolume.max.y- EPS_3;
 
 	VERIFY( _valid(point) );
 

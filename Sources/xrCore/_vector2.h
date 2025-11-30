@@ -1,54 +1,215 @@
-#ifndef __V2D__
-#define __V2D__
+#pragma once
 
 template <class T>
-struct _vector2 
+class _vector2
 {
 public:
-	typedef T			TYPE;
-	typedef _vector2<T>	Self;
-	typedef Self&		SelfRef;
-	typedef const Self&	SelfCRef;
-public:
-	T x,y;
+	using TYPE = T;
+	using Self = _vector2<T>;
+	using SelfRef = Self&;
+	using SelfCRef = const Self&;
 
-	IC SelfRef set(float _u, float _v)				{ x=T(_u); y=T(_v);				return *this;	}
-	IC SelfRef set(double _u, double _v)			{ x=T(_u); y=T(_v);				return *this;	}
-	IC SelfRef set(int _u, int _v)					{ x=T(_u); y=T(_v);				return *this;	}
-	IC SelfRef set(const Self &p)					{ x=p.x; y=p.y;					return *this;	}
-	IC SelfRef abs(const Self &p)					{ x=_abs(p.x); y=_abs(p.y);		return *this;	}
-	IC SelfRef min(const Self &p)					{ x=_min(x,p.x); y=_min(y,p.y);	return *this;	}
-	IC SelfRef min(T _x, T _y)						{ x=_min(x,_x);  y=_min(y,_y);	return *this;	}
-	IC SelfRef max(const Self &p)					{ x=_max(x,p.x); y=_max(y,p.y);	return *this;	}
-	IC SelfRef max(T _x, T _y)						{ x=_max(x,_x);  y=_max(y,_y);	return *this;	}
-	IC SelfRef sub(T p)								{ x-=p; y-=p;					return *this;	}
-	IC SelfRef sub(const Self &p)					{ x-=p.x; y-=p.y;				return *this;	}
-	IC SelfRef sub(const Self &p1, const Self &p2)	{ x=p1.x-p2.x; y=p1.y-p2.y;		return *this;	}
-	IC SelfRef sub(const Self &p, float d)			{ x=p.x-d; y=p.y-d;				return *this;	}
-	IC SelfRef add(T p)								{ x+=p; y+=p;					return *this;	}
-	IC SelfRef add(const Self &p)					{ x+=p.x; y+=p.y;				return *this;	}
-	IC SelfRef add(const Self &p1, const Self &p2)	{ x=p1.x+p2.x; y=p1.y+p2.y;		return *this;	}
-	IC SelfRef add(const Self &p, float d)			{ x=p.x+d; y=p.y+d;				return *this;	}
-	IC SelfRef mul(const T s)						{ x*=s; y*=s;					return *this;	}
-	IC SelfRef mul(Self &p)							{ x*=p.x; y*=p.y;				return *this;	}
-	IC SelfRef div(const T s)						{ x/=s; y/=s;					return *this;	}
-	IC SelfRef rot90(void)							{ float t=-x; x=y; y=t;			return *this;	}
-	IC SelfRef cross(Self &D)						{ x = D.y; y = -D.x;            return *this;	}
-	IC T dot(Self &p)								{ return x*p.x + y*p.y;			}
-	IC T dot(const Self &p) const					{ return x*p.x + y*p.y;			}
-	IC SelfRef norm(void)							{ float m=_sqrt(x*x+y*y); x/=m; y/=m;			return *this;	}
-	IC SelfRef norm_safe(void)						{ float m=_sqrt(x*x+y*y); if(m) {x/=m; y/=m;}	return *this;	}
-	IC T distance_to(const Self &p) const 			{ return _sqrt((x-p.x)*(x-p.x) + (y-p.y)*(y-p.y)); } 
-	IC T square_magnitude(void) const				{ return x*x + y*y; }
-	IC T magnitude(void) const						{ return _sqrt(square_magnitude());	}
+	TYPE x;
+	TYPE y;
 
-	IC SelfRef mad	(const Self &p, const Self& d, T r) 
+	IC SelfRef set(TYPE _u, TYPE _v)
 	{
-		x = p.x + d.x*r;
-		y = p.y + d.y*r;
-		return *this;	
+		x = TYPE(_u);
+		y = TYPE(_v);
+		return *this;
 	}
-	IC Self Cross()                   
+
+	//IC SelfRef set(float _u, float _v)				{ x=T(_u); y=T(_v);				return *this;	}
+	//IC SelfRef set(double _u, double _v)			{ x=T(_u); y=T(_v);				return *this;	}
+	//IC SelfRef set(int _u, int _v)					{ x=T(_u); y=T(_v);				return *this;	}
+
+	IC SelfRef set(SelfCRef p)
+	{
+		x = p.x;
+		y = p.y;
+		return *this;
+	}
+
+	IC SelfRef abs(SelfCRef p)
+	{
+		x = _abs(p.x);
+		y = _abs(p.y);
+		return *this;
+	}
+
+	IC SelfRef min(SelfCRef p)
+	{
+		x = _min(x, p.x);
+		y = _min(y, p.y);
+		return *this;
+	}
+
+	IC SelfRef min(TYPE _x, TYPE _y)
+	{
+		x = _min(x, _x);
+		y = _min(y, _y);
+		return *this;
+	}
+
+	IC SelfRef max(SelfCRef p)
+	{
+		x = _max(x, p.x);
+		y = _max(y, p.y);
+		return *this;
+	}
+
+	IC SelfRef max(TYPE _x, TYPE _y)
+	{
+		x = _max(x, _x);
+		y = _max(y, _y);
+		return *this;
+	}
+
+	IC SelfRef sub(TYPE p)
+	{
+		x -= p;
+		y -= p;
+		return *this;
+	}
+
+	IC SelfRef sub(SelfCRef p)
+	{
+		x -= p.x;
+		y -= p.y;
+		return *this;
+	}
+
+	IC SelfRef sub(SelfCRef p1, SelfCRef p2)
+	{
+		x = p1.x - p2.x;
+		y = p1.y - p2.y;
+		return *this;
+	}
+
+	IC SelfRef sub(SelfCRef p, f32 d)
+	{
+		x = p.x - d;
+		y = p.y - d;
+		return *this;
+	}
+
+	IC SelfRef add(TYPE p)
+	{
+		x += p;
+		y += p;
+		return *this;
+	}
+
+	IC SelfRef add(SelfCRef p)
+	{
+		x += p.x;
+		y += p.y;
+		return *this;
+	}
+
+	IC SelfRef add(SelfCRef p1, SelfCRef p2)
+	{
+		x = p1.x + p2.x;
+		y = p1.y + p2.y;
+		return *this;
+	}
+
+	IC SelfRef add(SelfCRef p, f32 d)
+	{
+		x = p.x + d;
+		y = p.y + d;
+		return *this;
+	}
+
+	IC SelfRef mul(const TYPE s)
+	{
+		x *= s;
+		y *= s;
+		return *this;
+	}
+
+	IC SelfRef mul(SelfRef p)
+	{
+		x *= p.x;
+		y *= p.y;
+		return *this;
+	}
+
+	IC SelfRef div(const TYPE s)
+	{
+		x /= s;
+		y /= s;
+		return *this;
+	}
+
+	IC SelfRef rot90( )
+	{
+		f32 t = -x;
+		x = y;
+		y = t;
+		return *this;
+	}
+
+	IC SelfRef cross(SelfRef D)
+	{
+		x = D.y;
+		y = -D.x;
+		return *this;
+	}
+
+	IC TYPE dot(SelfRef p)
+	{
+		return (x * p.x + y * p.y);
+	}
+
+	IC TYPE dot(SelfCRef p) const
+	{
+		return (x * p.x + y * p.y);
+	}
+
+	IC SelfRef norm( )
+	{
+		f32 m = _sqrt(x * x + y * y);
+		x /= m;
+		y /= m;
+		return *this;
+	}
+
+	IC SelfRef norm_safe( )
+	{
+		f32 m = _sqrt(x * x + y * y);
+		if (m)
+		{
+			x /= m;
+			y /= m;
+		}
+
+		return *this;
+	}
+
+	IC TYPE distance_to(SelfCRef p) const
+	{
+		return _sqrt((x - p.x) * (x - p.x) + (y - p.y) * (y - p.y));
+	}
+
+	IC TYPE square_magnitude( ) const
+	{
+		return (x * x + y * y);
+	}
+
+	IC TYPE magnitude( ) const
+	{
+		return _sqrt(square_magnitude( ));
+	}
+
+	IC SelfRef mad(SelfCRef p, SelfCRef d, TYPE r)
+	{
+		x = p.x + d.x * r;
+		y = p.y + d.y * r;
+		return *this;
+	}
+
+	IC Self Cross( )
 	{
 		// vector3 orthogonal to (x,y) is (y,-x)
 		Self kCross;
@@ -57,63 +218,111 @@ public:
 		return kCross;
 	}
 
-	IC bool similar(Self &p, T eu, T ev) const
-	{ 
-		return _abs(x-p.x)<eu && _abs(y-p.y)<ev;
+	IC bool similar(SelfRef p, TYPE eu, TYPE ev) const
+	{
+		return ((_abs(x - p.x) < eu) && (_abs(y - p.y) < ev));
 	}
-	
-	IC bool similar(const Self &p, float E=EPS_L) const
-	{ 
-		return _abs(x-p.x)<E && _abs(y-p.y)<E;
-	};
+
+	IC bool similar(SelfCRef p, f32 E = EPS_3) const
+	{
+		return ((_abs(x - p.x) < E) && (_abs(y - p.y) < E));
+	}
 
 	// average arithmetic
-	IC SelfRef averageA(Self &p1, Self &p2) 
+	IC SelfRef averageA(SelfRef p1, SelfRef p2)
 	{
-		x = (p1.x + p2.x)*.5f;
-		y = (p1.y + p2.y)*.5f;
-		return *this;	
-	}
-	// average geometric
-	IC SelfRef averageG(Self &p1, Self &p2) 
-	{
-		x = _sqrt(p1.x*p2.x);
-		y = _sqrt(p1.y*p2.y);
-		return *this;	
+		x = (p1.x + p2.x) * 0.5f;
+		y = (p1.y + p2.y) * 0.5f;
+		return *this;
 	}
 
-	T& operator[] (int i) const
+	// average geometric
+	IC SelfRef averageG(SelfRef p1, SelfRef p2)
+	{
+		x = _sqrt(p1.x * p2.x);
+		y = _sqrt(p1.y * p2.y);
+		return *this;
+	}
+
+	T& operator[] (s32 i) const
 	{
 		// assert:  0 <= i < 2; x and y are packed into 2*sizeof(float) bytes
-		return (T&) *(&x + i);
+		return (T&)*(&x + i);
 	}
 
-	IC SelfRef 	normalize		(void)					{ return norm();	 	}
-	IC SelfRef 	normalize_safe	(void)					{ return norm_safe();	}
-	IC SelfRef 	normalize		(const Self &v)			{ float m=_sqrt(v.x*v.x+v.y*v.y); x=v.x/m; y=v.y/m;			return *this; }
-	IC SelfRef 	normalize_safe	(const Self &v)			{ float m=_sqrt(v.x*v.x+v.y*v.y); if(m) {x=v.x/m; y=v.y/m;}	return *this; }
-	IC float 	dotproduct		(const Self &p) const	{ return dot(p);		}
-	IC float 	crossproduct	(const Self &p) const	{ return y*p.x - x*p.y; }
-	IC float 	getH			(void) const
+	IC SelfRef normalize( )
+	{
+		return norm( );
+	}
+
+	IC SelfRef normalize_safe( )
+	{
+		return norm_safe( );
+	}
+
+	IC SelfRef normalize(SelfCRef v)
+	{
+		f32 m = _sqrt(v.x * v.x + v.y * v.y);
+		x = v.x / m;
+		y = v.y / m;
+		return *this;
+	}
+
+	IC SelfRef normalize_safe(SelfCRef v)
+	{
+		f32 m = _sqrt(v.x * v.x + v.y * v.y);
+		if (m)
+		{
+			x = v.x / m;
+			y = v.y / m;
+		}
+
+		return *this;
+	}
+
+	IC f32 dotproduct(SelfCRef p) const
+	{
+		return dot(p);
+	}
+
+	IC f32 crossproduct(SelfCRef p) const
+	{
+		return (y * p.x - x * p.y);
+	}
+
+	IC f32 getH( ) const
 	{
 		if (fis_zero(y))
+		{
 			if (fis_zero(x))
-				return		(0.f);
+			{
+				return 0.0f;
+			}
 			else
-				return		((x > 0.0f) ? -PI_DIV_2 : PI_DIV_2);
+			{
+				return ((x > 0.0f) ? -PI_DIV_2 : PI_DIV_2);
+			}
+		}
 		else
+		{
 			if (y < 0.f)
-				return		(-(atanf(x/y) - PI));
+			{
+				return (-(atanf(x / y) - PI));
+			}
 			else
-				return		(-atanf(x/y));
+			{
+				return (-atanf(x / y));
+			}
+		}
 	}
 };
 
-typedef _vector2<float>		Fvector2;
-typedef _vector2<double>	Dvector2;
-typedef _vector2<int>		Ivector2;
+typedef _vector2<f32>		Fvector2;
+typedef _vector2<f64>	Dvector2;
+typedef _vector2<s32>		Ivector2;
 
 template <class T>
-BOOL	_valid			(const _vector2<T>& v)	{ return _valid((T)v.x) && _valid((T)v.y);	}
-
-#endif
+BOOL	_valid(const _vector2<T>& v)
+{
+	return _valid((T)v.x) && _valid((T)v.y);
+}

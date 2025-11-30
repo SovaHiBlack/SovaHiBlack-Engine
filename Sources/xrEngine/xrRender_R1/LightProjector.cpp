@@ -184,10 +184,10 @@ void CLightProjector::calculate	()
 		// calculate projection-matrix
 		Fmatrix		mProject;
 		float		p_R			=	R.O->renderable.visual->vis.sphere.R * 1.1f;
-		VERIFY2		(p_R>EPS_L,"Object has no physical size");
+		VERIFY2		(p_R> EPS_3,"Object has no physical size");
 		float		p_hat		=	p_R/P_cam_dist;
 		float		p_asp		=	1.f;
-		float		p_near		=	P_cam_dist-EPS_L;									
+		float		p_near		=	P_cam_dist- EPS_3;
 		float		p_far		=	P_cam_dist+p_R+P_cam_range;	
 		mProject.build_projection_HAT	(p_hat,p_asp,p_near,p_far);
 		RCache.set_xform_project		(mProject);

@@ -114,7 +114,7 @@ void CCustomMonster::Load		(LPCSTR section)
 	
 	character_physics_support()->movement()->Load			(section);
 
-	Position().y			+= EPS_L;
+	Position().y			+= EPS_3;
 
 	eye_fov					= pSettings->r_float(section,"eye_fov");
 	eye_range				= pSettings->r_float(section,"eye_range");
@@ -751,7 +751,7 @@ BOOL CCustomMonster::feel_touch_on_contact	(CObject *O)
 
 	Fsphere		sphere;
 	sphere.P	= Position();
-	sphere.R	= EPS_L;
+	sphere.R	= EPS_3;
 	if (custom_zone->inside(sphere))
 		return	(TRUE);
 
@@ -766,7 +766,7 @@ BOOL CCustomMonster::feel_touch_contact		(CObject *O)
 
 	Fsphere		sphere;
 	sphere.P	= Position();
-	sphere.R	= EPS_L;
+	sphere.R	= EPS_3;
 	if (custom_zone->inside(sphere))
 		return	(TRUE);
 
@@ -1020,7 +1020,7 @@ void CCustomMonster::OnRender()
 			for (u32 I=1; I<path.size(); ++I) {
 				const DetailPathManager::STravelPathPoint&	N1 = path[I-1];	Fvector	P1; P1.set(N1.position); P1.y+=0.1f;
 				const DetailPathManager::STravelPathPoint&	N2 = path[I];	Fvector	P2; P2.set(N2.position); P2.y+=0.1f;
-				if (!fis_zero(P1.distance_to_sqr(P2),EPS_L))
+				if (!fis_zero(P1.distance_to_sqr(P2), EPS_3))
 					Level().debug_renderer().draw_line			(Fidentity,P1,P2,color0);
 				if ((path.size() - 1) == I) // песледний box?
 					Level().debug_renderer().draw_aabb			(P1,radius0,radius0,radius0,color1);
@@ -1040,7 +1040,7 @@ void CCustomMonster::OnRender()
 				P2.set		(temp.position.x,ai().level_graph().vertex_plane_y(temp.vertex_id),temp.position.y);
 				P2.y		+= 0.1f;
 
-				if (!fis_zero(P1.distance_to_sqr(P2),EPS_L))
+				if (!fis_zero(P1.distance_to_sqr(P2), EPS_3))
 					Level().debug_renderer().draw_line		(Fidentity,P1,P2,color1);
 				Level().debug_renderer().draw_aabb			(P1,radius1,radius1,radius1,color3);
 			}

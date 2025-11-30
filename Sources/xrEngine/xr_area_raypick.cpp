@@ -233,9 +233,9 @@ BOOL CObjectSpace::_RayQuery3	(collide::rq_results& r_dest, const collide::ray_d
 				// update dynamic test range
 				d_rd.range		= s_res.range;
 				// set next static start & range
-				s_rd.range		-= (s_res.range+EPS_L);
-				s_rd.start.mad	(s_rd.dir,s_res.range+EPS_L);
-				s_res.range		= R.range-s_rd.range-EPS_L;
+				s_rd.range		-= (s_res.range+ EPS_3);
+				s_rd.start.mad	(s_rd.dir,s_res.range+ EPS_3);
+				s_res.range		= R.range-s_rd.range- EPS_3;
 				r_temp.append_result(s_res);
 			}else{
 				d_rd.range		= s_rd.range;
@@ -313,9 +313,9 @@ BOOL CObjectSpace::_RayQuery	(collide::rq_results& r_dest, const collide::ray_de
 				if (xrc.r_count()){	
 					if (s_res.set_if_less(xrc.r_begin())){
 						// set new static start & range
-						s_rd.range	-=	(s_res.range+EPS_L);
-						s_rd.start.mad	(s_rd.dir,s_res.range+EPS_L);
-						s_res.range	= R.range-s_rd.range-EPS_L;
+						s_rd.range	-=	(s_res.range+ EPS_3);
+						s_rd.start.mad	(s_rd.dir,s_res.range+ EPS_3);
+						s_res.range	= R.range-s_rd.range- EPS_3;
 #ifdef DEBUG
 						if (!(fis_zero(s_res.range,EPS) || s_res.range>=0.f))
 							Debug.fatal(DEBUG_INFO,"Invalid RayQuery static range: %f (%f). /#1/",s_res.range,s_rd.range);
@@ -351,9 +351,9 @@ BOOL CObjectSpace::_RayQuery	(collide::rq_results& r_dest, const collide::ray_de
 			if (r_temp.r_count()){
 				// set new dynamic start & range
 				rq_result& d_res = *r_temp.r_begin();
-				d_rd.range	-= (d_res.range+EPS_L);
-				d_rd.start.mad(d_rd.dir,d_res.range+EPS_L);
-				d_res.range	= R.range-d_rd.range-EPS_L;
+				d_rd.range	-= (d_res.range+ EPS_3);
+				d_rd.start.mad(d_rd.dir,d_res.range+ EPS_3);
+				d_res.range	= R.range-d_rd.range- EPS_3;
 #ifdef DEBUG
 				if (!(fis_zero(d_res.range,EPS) || d_res.range>=0.f))
 					Debug.fatal(DEBUG_INFO,"Invalid RayQuery dynamic range: %f (%f). /#3/",d_res.range,d_rd.range);

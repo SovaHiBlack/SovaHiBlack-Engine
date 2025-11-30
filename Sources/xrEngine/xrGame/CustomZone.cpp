@@ -960,7 +960,7 @@ void CCustomZone::UpdateBlowoutLight	()
 		clamp(m_fLightTimeLeft,0.0f,m_fLightTime);
 
 		float scale		= m_fLightTimeLeft/m_fLightTime;
-		scale			= powf(scale+EPS_L, 0.15f);
+		scale			= powf(scale+ EPS_3, 0.15f);
 		float r			= m_fLightRange*scale;
 		VERIFY(_valid(r));
 		m_pLight->set_color(m_LightColor.r*scale, 
@@ -1188,7 +1188,7 @@ void CCustomZone::SpawnArtefact()
 {
 	//вычислить согласно распределению вероятностей
 	//какой артефакт из списка ставить
-	float rnd = ::Random.randF(.0f,1.f-EPS_L);
+	float rnd = ::Random.randF(.0f,1.f- EPS_3);
 	float prob_threshold = 0.f;
 	
 	std::size_t i=0;

@@ -64,26 +64,10 @@
 #include "InventoryBox.h"
 #include "location_manager.h"
 
-const u32		patch_frames	= 50;
-const float		respawn_delay	= 1.f;
-const float		respawn_auto	= 7.f;
-
 static float IReceived = 0;
 static float ICoincidenced = 0;
 
-
-//skeleton
-
-
-
-static Fbox		bbStandBox;
-static Fbox		bbCrouchBox;
-static Fvector	vFootCenter;
-static Fvector	vFootExt;
-
 Flags32			psActorFlags={0};
-
-
 
 CActor::CActor() : CEntityAlive()
 {

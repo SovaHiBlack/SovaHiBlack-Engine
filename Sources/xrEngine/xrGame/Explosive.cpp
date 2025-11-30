@@ -290,7 +290,7 @@ float CExplosive::TestPassEffect(const	Fvector	&source_p,	const	Fvector	&dir,flo
 	float sq_ef_radius=ef_radius*ef_radius;
 	float dist_factor	=		sq_ef_radius/(range*range*(exp_dist_extinction_factor-1.f)+sq_ef_radius);
 	float shoot_factor=1.f;
-	if(range>EPS_L)
+	if(range> EPS_3)
 	{
 		VERIFY(!fis_zero(dir.square_magnitude()));
 		collide::ray_defs	RD		(source_p,dir,range,CDB::OPT_CULL,collide::rqtBoth);

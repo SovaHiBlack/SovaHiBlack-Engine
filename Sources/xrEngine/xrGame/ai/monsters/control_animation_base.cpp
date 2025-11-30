@@ -540,7 +540,7 @@ void parse_anim_params(LPCSTR val, SAAParam &anim)
 
 	anim.impulse_dir.normalize();
 
-	float clamp_val = PI_DIV_2 - EPS_L;
+	float clamp_val = PI_DIV_2 - EPS_3;
 	clamp(anim.foh.from_yaw,	-clamp_val, clamp_val);
 	clamp(anim.foh.to_yaw,		-clamp_val, clamp_val);
 	clamp(anim.foh.from_pitch,	-clamp_val, clamp_val);

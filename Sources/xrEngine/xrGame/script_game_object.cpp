@@ -419,7 +419,7 @@ bool CScriptGameObject::inside					(const Fvector &position, float epsilon) cons
 
 bool CScriptGameObject::inside					(const Fvector &position) const
 {
-	return				(inside(position,EPS_L));
+	return				(inside(position, EPS_3));
 }
 
 void CScriptGameObject::set_patrol_extrapolate_callback(const luabind::functor<bool> &functor)

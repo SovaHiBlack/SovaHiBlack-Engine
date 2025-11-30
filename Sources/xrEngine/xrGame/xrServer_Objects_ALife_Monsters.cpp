@@ -1269,7 +1269,7 @@ void CSE_ALifeMonsterAbstract::FillProps		(LPCSTR pref, PropItemVec& items)
 
 bool CSE_ALifeMonsterAbstract::need_update	(CSE_ALifeDynamicObject *object)
 {
-	return						(CSE_ALifeSchedulable::need_update(object) && (fHealth > EPS_L));
+	return						(CSE_ALifeSchedulable::need_update(object) && (fHealth > EPS_3));
 }
 
 ////////////////////////////////////////////////////////////////////////////

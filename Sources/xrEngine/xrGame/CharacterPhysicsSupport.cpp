@@ -848,7 +848,7 @@ void						CCharacterPhysicsSupport::FlyTo(const	Fvector &disp)
 {
 		VERIFY(m_pPhysicsShell);
 		float ammount=disp.magnitude();
-		if(fis_zero(ammount,EPS_L))	return;
+		if(fis_zero(ammount, EPS_3))	return;
 		ph_world->Freeze();
 		bool g=m_pPhysicsShell->get_ApplyByGravity();
 		m_pPhysicsShell->set_ApplyByGravity(false);

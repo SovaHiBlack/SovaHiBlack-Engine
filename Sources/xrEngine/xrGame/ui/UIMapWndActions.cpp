@@ -167,8 +167,8 @@ void CMapActionZoomControl::initialize	()
 void CMapActionZoomControl::init_internal()
 {
 	float dist					= m_object->GlobalMap()->CalcOpenRect(m_object->m_tgtCenter,m_desiredMapRect,m_targetZoom);
-	bool bMove					= !fis_zero(dist,EPS_L);
-	bool bZoom					= !fsimilar(m_targetZoom,m_object->GlobalMap()->GetCurrentZoom(),EPS_L);
+	bool bMove					= !fis_zero(dist, EPS_3);
+	bool bZoom					= !fsimilar(m_targetZoom,m_object->GlobalMap()->GetCurrentZoom(), EPS_3);
 	m_endMovingTime				= Device.fTimeGlobal;
 	if (bZoom&&bMove)			m_endMovingTime += _max(map_zoom_time,dist/map_resize_speed);
 	else if (bZoom)				m_endMovingTime += map_zoom_time;
@@ -281,7 +281,7 @@ bool CEvaluatorTargetMapShown::evaluate()
 bool CEvaluatorMapMinimized::evaluate	()
 {
 	if(m_storage->property(1)) return true;
-	bool res = !!fsimilar(m_object->GlobalMap()->GetCurrentZoom(),m_object->GlobalMap()->GetMinZoom(),EPS_L );
+	bool res = !!fsimilar(m_object->GlobalMap()->GetCurrentZoom(),m_object->GlobalMap()->GetMinZoom(), EPS_3);
 	return res;
 }
 

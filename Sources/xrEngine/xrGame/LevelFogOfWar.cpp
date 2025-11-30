@@ -178,7 +178,7 @@ void CLevelFogOfWar::Draw	()
 	tgt.set(float(vis_rect.x1), float(vis_rect.y1), float(vis_rect.x2), float(vis_rect.y2) ); 
 	tgt.div(m->GetCurrentZoom(), m->GetCurrentZoom());
 	tgt.add(m_levelRect.lt.x, m_levelRect.lt.y);
-	tgt.rb.add(Fvector2().set(FOG_CELL_SZ-EPS_L,FOG_CELL_SZ-EPS_L));
+	tgt.rb.add(Fvector2().set(FOG_CELL_SZ- EPS_3,FOG_CELL_SZ- EPS_3));
 	Irect		cells			= ConvertRealToLocal(tgt);
 
 	Fvector2	realCellsPosLT	= ConvertLocalToReal(cells.lt);

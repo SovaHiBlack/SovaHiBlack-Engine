@@ -230,8 +230,8 @@ public:
 			return lerp(c1,c2,t*2.f);
 		}
 	}
-	IC  BOOL	similar_rgba(SelfCRef v, T E=EPS_L) 	const	{ return _abs(r-v.r)<E && _abs(g-v.g)<E && _abs(b-v.b)<E && _abs(a-v.a)<E;};
-	IC  BOOL	similar_rgb	(SelfCRef v, T E=EPS_L) 	const	{ return _abs(r-v.r)<E && _abs(g-v.g)<E && _abs(b-v.b)<E;};
+	IC  BOOL	similar_rgba(SelfCRef v, T E= EPS_3) 	const	{ return _abs(r-v.r)<E && _abs(g-v.g)<E && _abs(b-v.b)<E && _abs(a-v.a)<E;};
+	IC  BOOL	similar_rgb	(SelfCRef v, T E= EPS_3) 	const	{ return _abs(r-v.r)<E && _abs(g-v.g)<E && _abs(b-v.b)<E;};
 };
 
 

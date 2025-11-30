@@ -73,7 +73,7 @@ void CLevelGraph::choose_point(const Fvector &start_point, const Fvector &finish
 		}
 		dwIntersect				= intersect(start_point.x,start_point.z,finish_point.x,finish_point.z,tCheckPoint1.x,tCheckPoint1.z,tCheckPoint2.x,tCheckPoint2.z,&tIntersectPoint.x,&tIntersectPoint.z);
 		if (dwIntersect == eLineIntersectionIntersect) {
-			if (finish_point.distance_to_xz(tIntersectPoint) < finish_point.distance_to_xz(temp_point) + EPS_L) {
+			if (finish_point.distance_to_xz(tIntersectPoint) < finish_point.distance_to_xz(temp_point) + EPS_3) {
 				temp_point = tIntersectPoint;
 				saved_index = node_id;
 			}
@@ -108,7 +108,7 @@ float CLevelGraph::check_position_in_direction(u32 start_vertex_id, const Fvecto
 	float					fCurDistance = 0.f, fDistance = start_position.distance_to_xz(finish_position);
 	u32						dwCurNode = start_vertex_id;
 
-	while (!inside(vertex(dwCurNode),finish_position) && (fCurDistance < (fDistance + EPS_L))) {
+	while (!inside(vertex(dwCurNode),finish_position) && (fCurDistance < (fDistance + EPS_3))) {
 		begin				(dwCurNode,I,E);
 		saved_index			= -1;
 		contour				(_contour,dwCurNode);
@@ -156,7 +156,7 @@ float CLevelGraph::mark_nodes_in_direction(u32 start_vertex_id, const Fvector &s
 	float					fDistance = start_point.distance_to(finish_point), fCurDistance = 0.f;
 	u32						dwCurNode = start_vertex_id;
 
-	while (!inside(vertex(dwCurNode),finish_point) && (fCurDistance < (fDistance + EPS_L))) {
+	while (!inside(vertex(dwCurNode),finish_point) && (fCurDistance < (fDistance + EPS_3))) {
 		begin				(dwCurNode,I,E);
 		saved_index			= -1;
 		contour				(_contour,dwCurNode);
@@ -191,7 +191,7 @@ float CLevelGraph::farthest_vertex_in_direction(u32 start_vertex_id, const Fvect
 	float					fDistance = start_point.distance_to(finish_point), fCurDistance = 0.f;
 	u32						dwCurNode = start_vertex_id;
 
-	while (!inside(vertex(dwCurNode),finish_point) && (fCurDistance < (fDistance + EPS_L))) {
+	while (!inside(vertex(dwCurNode),finish_point) && (fCurDistance < (fDistance + EPS_3))) {
 		begin				(dwCurNode,I,E);
 		saved_index			= -1;
 		contour				(_contour,dwCurNode);

@@ -142,7 +142,7 @@ void CObjectAnimator::DrawPath()
         Fvector 				T,r;
         u32 clr					= 0xffffffff;
         path_points.clear		();
-        for (float t=min_t; (t<max_t)||fsimilar(t,max_t,EPS_L); t+=1/30.f){
+        for (float t=min_t; (t<max_t)||fsimilar(t,max_t, EPS_3); t+=1/30.f){
             m_Current->_Evaluate(t,T,r);
             path_points.push_back(T);
         }

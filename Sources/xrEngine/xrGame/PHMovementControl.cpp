@@ -15,10 +15,6 @@
 #include "ElevatorState.h"
 #include "CalculateTriangle.h"
 #include "../SkeletonCustom.h"
-#define GROUND_FRICTION	10.0f
-#define AIR_FRICTION	0.01f
-#define WALL_FRICTION	3.0f
-//#define AIR_RESIST		0.001f
 
 #define def_X_SIZE_2	0.35f
 #define def_Y_SIZE_2	0.8f
@@ -42,24 +38,19 @@ CPHMovementControl::CPHMovementControl(CObject* parent)
 	m_capture			=NULL;
 	b_exect_position	=true;
 	m_start_index		=0;
-	eOldEnvironment =	peInAir;
-	eEnvironment =		peInAir;
+	eOldEnvironment		= peInAir;
+	eEnvironment		= peInAir;
 	aabb.set			(-def_X_SIZE_2,0,-def_Z_SIZE_2, def_X_SIZE_2, def_Y_SIZE_2*2, def_Z_SIZE_2);
-	///vFootCenter.set		(0,0,0);
-	//vFootExt.set		(0,0,0);
 	fMass				= 100;
 	fMinCrashSpeed		= 12.0f;
 	fMaxCrashSpeed		= 25.0f;
 	vVelocity.set		(0,0,0);
 	vPosition.set		(0,0,0);
 	vExternalImpulse.set(0,0,0);
-	bExernalImpulse		=false;
+	bExernalImpulse		= false;
 	fLastMotionMag		= 1.f;
 	SetPathDir			(Fvector().set(0,0,1));
-	//fAirFriction		= AIR_FRICTION;
-	//fWallFriction		= WALL_FRICTION;
-	//fGroundFriction		= GROUND_FRICTION;
-	//fFriction			= fAirFriction;
+
 	bIsAffectedByGravity= TRUE;
 	fActualVelocity		= 0;
 	m_fGroundDelayFactor= 1.f;
@@ -956,7 +947,7 @@ void CPHMovementControl::GetJumpParam(Fvector &velocity, JumpType &type,const Fv
 		return;
 	}
 	float rise_time=velosity.y/ph_world->Gravity();
-	if(_abs(rise_time-time)<EPS_L)
+	if(_abs(rise_time-time)< EPS_3)
 	{
 		type=jtHigh;
 	}

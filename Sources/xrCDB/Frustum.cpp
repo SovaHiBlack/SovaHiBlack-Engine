@@ -257,10 +257,10 @@ void CFrustum::CreateOccluder(Fvector* p, int count, Fvector& vBase, CFrustum& c
 
 		// test edges to see which lies directly on plane
 		for (j=0; j<count; j++) {
-			if (cls[j]<EPS_L)
+			if (cls[j]< EPS_3)
 			{
 				int next = j+1; if (next>=count) next=0;
-				if (cls[next]<EPS_L) {
+				if (cls[next]< EPS_3) {
 					// both points lies on plane - mark as 'open'
 					edge[j] = true;
 				}

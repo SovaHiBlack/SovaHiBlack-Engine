@@ -15,7 +15,7 @@ IC	bool CCustomMonster::angle_lerp_bounds(float &a, float b, float c, float d)
 IC void CCustomMonster::vfNormalizeSafe(Fvector& Vector)
 {
 	float fMagnitude = Vector.magnitude(); 
-	if (fMagnitude > EPS_L) {
+	if (fMagnitude > EPS_3) {
 		Vector.x /= fMagnitude;
 		Vector.y /= fMagnitude;
 		Vector.z /= fMagnitude;

@@ -202,7 +202,7 @@ BOOL COMotion::NormalizeKeys(float from_time, float to_time, float speed)
                 float dist	= 0;
                 Fvector PT,T,R;
                 _Evaluate	(t0, PT, R);
-                for (float tm=t0+1.f/fFPS; tm<=(*it)->time; tm+=EPS_L){
+                for (float tm=t0+1.f/fFPS; tm<=(*it)->time; tm+= EPS_3){
                     _Evaluate	(tm, T, R);
                     dist		+= PT.distance_to(T);
                     PT.set		(T);

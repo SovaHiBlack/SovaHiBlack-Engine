@@ -95,7 +95,7 @@ void CHM_Static::Update	()
 		Fbox				bb;
 		bb.min.set			(S->x*dhm_size,		view.y-limit_down,	S->z*dhm_size);
 		bb.max.set			(bb.min.x+dhm_size,	view.y+limit_up,	bb.min.z+dhm_size);
-		bb.grow				(EPS_L);
+		bb.grow				(EPS_3);
 		
 		// Select polygons
 		XRC.BBoxMode		(0); // BBOX_TRITEST

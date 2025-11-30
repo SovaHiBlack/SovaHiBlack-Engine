@@ -1,9 +1,7 @@
 #include "stdafx.h"
 #pragma hdrstop
 
-#include "xrdebug.h"
-
-#include "dxerr.h"
+#include <dxerr.h>
 
 int (WINAPIV* __vsnprintf)(char *, size_t, const char*, va_list) = _vsnprintf;
 
@@ -16,17 +14,17 @@ int (WINAPIV* __vsnprintf)(char *, size_t, const char*, va_list) = _vsnprintf;
 extern bool shared_str_initialized;
 
 #ifdef __BORLANDC__
-    #	include "d3d9.h"
-    #	include "d3dx9.h"
-    #	include "D3DX_Wrapper.h"
-    #	pragma comment(lib,"EToolsB.lib")
-    #	define DEBUG_INVOKE	DebugBreak()
-        static BOOL			bException	= TRUE;
-    #   define USE_BUG_TRAP
+	#	include "d3d9.h"
+	#	include "d3dx9.h"
+	#	include "D3DX_Wrapper.h"
+	#	pragma comment(lib,"EToolsB.lib")
+	#	define DEBUG_INVOKE	DebugBreak()
+		static BOOL			bException	= TRUE;
+	#   define USE_BUG_TRAP
 #else
-    #   define USE_BUG_TRAP
-    #	define DEBUG_INVOKE	__asm int 3
-        static BOOL			bException	= FALSE;
+	#   define USE_BUG_TRAP
+	#	define DEBUG_INVOKE	__asm int 3
+		static BOOL			bException	= FALSE;
 #endif
 
 #ifndef _M_AMD64
@@ -39,11 +37,11 @@ extern bool shared_str_initialized;
 
 #ifdef USE_BUG_TRAP
 #	include "bugtrap.h"						// for BugTrap functionality
-    #ifndef __BORLANDC__
-        #	pragma comment(lib,"BugTrap.lib")		// Link to ANSI DLL
-    #else
-        #	pragma comment(lib,"BugTrapB.lib")		// Link to ANSI DLL
-    #endif
+	#ifndef __BORLANDC__
+		#	pragma comment(lib,"BugTrap.lib")		// Link to ANSI DLL
+	#else
+		#	pragma comment(lib,"BugTrapB.lib")		// Link to ANSI DLL
+	#endif
 #endif // USE_BUG_TRAP
 
 #include <new.h>							// for _set_new_mode
@@ -143,18 +141,12 @@ void gather_info		(const char *expression, const char *description, const char *
 		buffer			+= sprintf(buffer,"%sFile          : %s%s",prefix,file,endline);
 		buffer			+= sprintf(buffer,"%sLine          : %d%s",prefix,line,endline);
 		
-		if (extended_description) {
+		if (extended_description)
+		{
 			buffer		+= sprintf(buffer,"%s%s%s",endline,description,endline);
-			if (argument0) {
-				if (argument1) {
-					buffer	+= sprintf(buffer,"%s%s",argument0,endline);
-					buffer	+= sprintf(buffer,"%s%s",argument1,endline);
-				}
-				else
-					buffer	+= sprintf(buffer,"%s%s",argument0,endline);
-			}
 		}
-		else {
+		else
+		{
 			buffer		+= sprintf(buffer,"%sDescription   : %s%s",prefix,description,endline);
 			if (argument0) {
 				if (argument1) {
@@ -514,12 +506,12 @@ void save_mini_dump			(_EXCEPTION_POINTERS *pExceptionInfo)
 				if (FS.path_exist("$logs$"))
 					FS.update_path	(szDumpPath,"$logs$",szDumpPath);
 			}
-            __except( EXCEPTION_EXECUTE_HANDLER ) {
+			__except( EXCEPTION_EXECUTE_HANDLER ) {
 				string_path	temp;
 				strcpy		(temp,szDumpPath);
 				strcpy		(szDumpPath,"logs/");
 				strcat		(szDumpPath,temp);
-            }
+			}
 
 			string_path	log_file_name;
 			strconcat	(sizeof(log_file_name), log_file_name, szDumpPath, ".log");
@@ -578,27 +570,27 @@ void save_mini_dump			(_EXCEPTION_POINTERS *pExceptionInfo)
 
 void format_message	(LPSTR buffer, const u32 &buffer_size)
 {
-    LPVOID		message;
-    DWORD		error_code = GetLastError(); 
+	LPVOID		message;
+	DWORD		error_code = GetLastError(); 
 
 	if (!error_code) {
 		*buffer	= 0;
 		return;
 	}
 
-    FormatMessage(
-        FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-        FORMAT_MESSAGE_FROM_SYSTEM,
-        NULL,
-        error_code,
-        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-        (LPSTR)&message,
-        0,
+	FormatMessage(
+		FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+		FORMAT_MESSAGE_FROM_SYSTEM,
+		NULL,
+		error_code,
+		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+		(LPSTR)&message,
+		0,
 		NULL
 	);
 
 	sprintf		(buffer,"[error][%8d]    : %s",error_code,message);
-    LocalFree	(message);
+	LocalFree	(message);
 }
 
 LONG WINAPI UnhandledFilter	(_EXCEPTION_POINTERS *pExceptionInfo)
@@ -675,20 +667,20 @@ LONG WINAPI UnhandledFilter	(_EXCEPTION_POINTERS *pExceptionInfo)
 	};
 
 	static void __cdecl def_new_handler() 
-    {
+	{
 		FATAL		("Out of memory.");
-    }
+	}
 
-    void	xrDebug::_initialize		(const bool &dedicated)
-    {
+	void	xrDebug::_initialize		(const bool &dedicated)
+	{
 		handler							= 0;
 		m_on_dialog						= 0;
-        std::set_new_handler			(def_new_handler);	// exception-handler for 'out of memory' condition
+		std::set_new_handler			(def_new_handler);	// exception-handler for 'out of memory' condition
 //		::SetUnhandledExceptionFilter	(UnhandledFilter);	// exception handler to all "unhandled" exceptions
-    }
+	}
 #else
-    typedef int		(__cdecl * _PNH)( size_t );
-    _CRTIMP int		__cdecl _set_new_mode( int );
+	typedef int		(__cdecl * _PNH)( size_t );
+	_CRTIMP int		__cdecl _set_new_mode( int );
 //  _CRTIMP _PNH	__cdecl _set_new_handler( _PNH );
 
 #ifndef USE_BUG_TRAP
@@ -861,8 +853,8 @@ LONG WINAPI UnhandledFilter	(_EXCEPTION_POINTERS *pExceptionInfo)
 		handler_base					("termination with exit code 3");
 	}
 
-    void	xrDebug::_initialize		(const bool &dedicated)
-    {
+	void	xrDebug::_initialize		(const bool &dedicated)
+	{
 		debug_on_thread_spawn			();
 
 		_set_abort_behavior				(0,_WRITE_ABORT_MSG | _CALL_REPORTFAULT);

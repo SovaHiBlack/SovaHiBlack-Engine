@@ -70,9 +70,9 @@ bool CControlAnimationBase::accel_chain_get(float cur_speed, EMotionAnim target_
 			float				from	= param->velocity.linear * param->min_factor;
 			float				to		= param->velocity.linear * param->max_factor;
 
-			if ( ((from <= cur_speed+EPS_L) && (cur_speed <= to + EPS_L))	|| 
+			if ( ((from <= cur_speed+ EPS_3) && (cur_speed <= to + EPS_3))	||
 				((cur_speed < from) && (IT == I->begin()))					|| 
-				((cur_speed + EPS_L >= to) &&	(IT+1 == I->end())) ) {
+				((cur_speed + EPS_3 >= to) &&	(IT+1 == I->end())) ) {
 					best_anim	= IT;
 					best_param	= &item_it->velocity;
 				}

@@ -21,7 +21,7 @@
 const float right_forward_angle			= PI_DIV_4;
 const float left_forward_angle			= PI_DIV_4;
 const float standing_turn_angle			= PI_DIV_6;
-const float epsilon						= EPS_L;
+const float epsilon						= EPS_3;
 
 const u32	direction_switch_interval 	= 500;
 
@@ -248,7 +248,7 @@ MotionID CStalkerAnimationManager::legs_no_move_animation	()
 	const SBoneRotation			&body_orientation = movement.body_orientation();
 	float						current = body_orientation.current.yaw;
 	float						target = body_orientation.target.yaw;
-	if (angle_difference(target,current) < EPS_L) {
+	if (angle_difference(target,current) < EPS_3) {
 
 		float					head_current = movement.head_orientation().current.yaw;
 		if ((movement.mental_state() != eMentalStateFree) || (!object().sight().turning_in_place() && (angle_difference(current,head_current) <= standing_turn_angle))) {

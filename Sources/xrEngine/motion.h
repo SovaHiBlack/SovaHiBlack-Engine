@@ -102,7 +102,7 @@ public:
 	void			ParseObjectMotion(LWItemID object);
 #endif
 #ifdef _EDITOR
-	void 			FindNearestKey	(float t, float& min_k, float& max_k, float eps=EPS_L);
+	void 			FindNearestKey	(float t, float& min_k, float& max_k, float eps= EPS_3);
 	void			CreateKey		(float t, const Fvector& P, const Fvector& R);
 	void			DeleteKey		(float t);
     void			NormalizeKeys	();

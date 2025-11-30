@@ -283,9 +283,9 @@ namespace CDB
 		VMscale.set		(bb.max.x-bb.min.x, bb.max.y-bb.min.y, bb.max.z-bb.min.z);
 		VMmin.set		(bb.min);
 		VMeps.set		(VMscale.x/clpMX/2,VMscale.y/clpMY/2,VMscale.z/clpMZ/2);
-		VMeps.x			= (VMeps.x<EPS_L)?VMeps.x:EPS_L;
-		VMeps.y			= (VMeps.y<EPS_L)?VMeps.y:EPS_L;
-		VMeps.z			= (VMeps.z<EPS_L)?VMeps.z:EPS_L;
+		VMeps.x			= (VMeps.x< EPS_3)?VMeps.x: EPS_3;
+		VMeps.y			= (VMeps.y< EPS_3)?VMeps.y: EPS_3;
+		VMeps.z			= (VMeps.z< EPS_3)?VMeps.z: EPS_3;
 
 		// Preallocate memory
 		verts.reserve	(apx_vertices);

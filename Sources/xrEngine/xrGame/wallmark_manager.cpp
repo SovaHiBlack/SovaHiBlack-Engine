@@ -152,7 +152,7 @@ void CWalmarkManager::StartWorkflow()
 			continue;
 		}
 */
-		float test					= dist-EPS_L;
+		float test					= dist- EPS_3;
 		
 		if(test>0.f)
 		{

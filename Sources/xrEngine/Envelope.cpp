@@ -52,7 +52,7 @@ void CEnvelope::InsertKey(float t, float val)
 {	
 	KeyIt k_it;
 	for (k_it=keys.begin(); k_it!=keys.end(); k_it++){
-    	if (fsimilar((*k_it)->time,t,EPS_L)){ 
+    	if (fsimilar((*k_it)->time,t, EPS_3)){
         	(*k_it)->value= val;
             return;
         }
@@ -72,7 +72,7 @@ void CEnvelope::InsertKey(float t, float val)
 void CEnvelope::DeleteKey(float t)
 {	
 	for (KeyIt k_it=keys.begin(); k_it!=keys.end(); k_it++){
-    	if (fsimilar((*k_it)->time,t,EPS_L)){ 
+    	if (fsimilar((*k_it)->time,t, EPS_3)){
         	xr_delete(*k_it);
             keys.erase(k_it);
             return;

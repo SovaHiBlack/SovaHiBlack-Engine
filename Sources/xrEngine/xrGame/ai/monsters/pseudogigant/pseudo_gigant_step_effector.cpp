@@ -27,7 +27,7 @@ BOOL CPseudogigantStepEffector::Process(Fvector &p, Fvector &d, Fvector &n, floa
 	Mdef.c.set			(p);
 
 	float period_all	= period_number * PI_MUL_2;		// макс. значение цикла
-	float k				= 1 - time_left_perc + EPS_L + (1 - power);
+	float k				= 1 - time_left_perc + EPS_3 + (1 - power);
 	float cur_amp		= max_amp * (PI / 180) / (10 * k * k);
 
 	Fvector dangle; 

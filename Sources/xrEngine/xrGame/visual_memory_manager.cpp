@@ -279,7 +279,7 @@ float CVisualMemoryManager::get_visible_value	(float distance, float object_dist
 {
 	float								always_visible_distance = current_state().m_always_visible_distance;
 
-	if (distance <= always_visible_distance + EPS_L)
+	if (distance <= always_visible_distance + EPS_3)
 		return							(current_state().m_visibility_threshold);
 
 	return								(
@@ -353,7 +353,7 @@ bool CVisualMemoryManager::visible				(const CGameObject *game_object, float tim
 		new_object.m_object			= game_object;
 		new_object.m_prev_time		= 0;
 		new_object.m_value			= get_visible_value(distance,object_distance,time_delta,get_object_velocity(game_object,new_object),object_luminocity(game_object));
-		clamp						(new_object.m_value,0.f,current_state().m_visibility_threshold + EPS_L);
+		clamp						(new_object.m_value,0.f,current_state().m_visibility_threshold + EPS_3);
 		new_object.m_update_time	= Device.dwTimeGlobal;
 		new_object.m_prev_time		= get_prev_time(game_object);
 		add_not_yet_visible_object	(new_object);
@@ -362,7 +362,7 @@ bool CVisualMemoryManager::visible				(const CGameObject *game_object, float tim
 
 	object->m_update_time		= Device.dwTimeGlobal;
 	object->m_value				+= get_visible_value(distance,object_distance,time_delta,get_object_velocity(game_object,*object),object_luminocity(game_object));
-	clamp						(object->m_value,0.f,current_state().m_visibility_threshold + EPS_L);
+	clamp						(object->m_value,0.f,current_state().m_visibility_threshold + EPS_3);
 	object->m_prev_time			= get_prev_time(game_object);
 
 	return						(object->m_value >= current_state().m_visibility_threshold);

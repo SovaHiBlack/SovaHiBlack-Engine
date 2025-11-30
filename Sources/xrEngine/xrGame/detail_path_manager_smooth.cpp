@@ -465,7 +465,7 @@ void CDetailPathManager::validate_vertex_position(STrajectoryPoint &point) const
 	center.mul				(.5f);
 	center.sub				(position);
 	center.normalize		();
-	center.mul				(EPS_L);
+	center.mul				(EPS_3);
 	position.add			(center);
 	point.position			= ai().level_graph().v2d(position);
 	VERIFY					(ai().level_graph().inside(point.vertex_id,point.position));
@@ -504,12 +504,12 @@ bool CDetailPathManager::init_build(
 	m_corrected_dest_position.y			= ai().level_graph().vertex_plane_y(dest.vertex_id,dest.position.x,dest.position.y);
 	m_corrected_dest_position.z			= dest.position.y;
 
-	if (start.direction.square_magnitude() < EPS_L)
+	if (start.direction.square_magnitude() < EPS_3)
 		start.direction.set				(0.f,1.f);
 	else
 		start.direction.normalize		();
 
-	if (dest.direction.square_magnitude() < EPS_L)
+	if (dest.direction.square_magnitude() < EPS_3)
 		dest.direction.set				(0.f,1.f);
 	else
 		dest.direction.normalize		();

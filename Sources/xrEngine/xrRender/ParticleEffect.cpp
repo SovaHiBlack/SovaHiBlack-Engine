@@ -136,7 +136,7 @@ void CParticleEffect::OnFrame(u32 frame_dt)
 		}
 	} else {
 		vis.box.set			(m_InitialPosition,m_InitialPosition);
-		vis.box.grow		(EPS_L);
+		vis.box.grow		(EPS_3);
 		vis.box.getsphere	(vis.sphere.P,vis.sphere.R);
 	}
 }

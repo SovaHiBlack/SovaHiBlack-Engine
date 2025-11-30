@@ -132,13 +132,13 @@ void	CEffect_Rain::OnFrame	()
 	switch (state)
 	{
 	case stIdle:		
-		if (factor<EPS_L)		return;
+		if (factor< EPS_3)		return;
 		state					= stWorking;
 		snd_Ambient.play		(0,sm_Looped);
 		snd_Ambient.set_range	(source_offset,source_offset*2.f);
 	break;
 	case stWorking:
-		if (factor<EPS_L){
+		if (factor< EPS_3){
 			state				= stIdle;
 			snd_Ambient.stop	();
 			return;
@@ -162,7 +162,7 @@ void	CEffect_Rain::Render	()
 	if (!g_pGameLevel)			return;
 #endif
 	float	factor				= g_pGamePersistent->Environment().CurrentEnv.rain_density;
-	if (factor<EPS_L)			return;
+	if (factor< EPS_3)			return;
 
 	u32 desired_items			= iFloor	(0.5f*(1.f+factor)*float(max_desired_items));
 	// visual

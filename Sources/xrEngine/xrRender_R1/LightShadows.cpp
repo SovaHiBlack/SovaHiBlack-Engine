@@ -185,7 +185,7 @@ void CLightShadows::calculate	()
 	int	slot_id		= 0;
 	int slot_line	= S_rt_size/S_size;
 	int slot_max	= slot_line*slot_line;
-	const float	eps = 2*EPS_L;
+	const float	eps = 2* EPS_3;
 	for (u32 o_it=0; o_it<casters.size(); o_it++)
 	{
 		caster&	C	= *casters	[o_it];
@@ -229,7 +229,7 @@ void CLightShadows::calculate	()
 				while		(true)	{
 					_dist	=	C.C.distance_to	(Lpos);
 					//Msg		("* o-dist: %f",	_dist);
-					if (_dist>EPS_L)		break;
+					if (_dist> EPS_3)		break;
 					Lpos.y					+=	.01f;	//. hack to avoid light-in-the-center-of-object
 				}
 				float		_R		=	C.O->renderable.visual->vis.sphere.R+0.1f;

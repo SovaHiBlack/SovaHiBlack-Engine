@@ -346,10 +346,10 @@ void CActor::g_Orientate	(u32 mstate_rl, float dt)
 		calc_yaw = -back_l_strafe_yaw;//-PI_DIV_4; 
 		break;
 	case mcLStrafe:
-		calc_yaw = +l_strafe_yaw;//+PI_DIV_3-EPS_L; 
+		calc_yaw = +l_strafe_yaw;//+PI_DIV_3-EPS_3; 
 		break;
 	case mcRStrafe:
-		calc_yaw = -r_strafe_yaw;//-PI_DIV_4+EPS_L; 
+		calc_yaw = -r_strafe_yaw;//-PI_DIV_4+EPS_3; 
 		break;
 	}
 
@@ -384,7 +384,7 @@ bool CActor::g_LadderOrient()
 	if(_abs(leader_norm.y)>M_SQRT1_2) return false;
 	//leader_norm.y=0.f;
 	float mag=leader_norm.magnitude();
-	if(mag<EPS_L) return false;
+	if(mag< EPS_3) return false;
 	leader_norm.div(mag);
 	leader_norm.invert();
 	Fmatrix M;M.set(Fidentity);
@@ -460,7 +460,7 @@ void CActor::g_cl_Orientate	(u32 mstate_rl, float dt)
 			// 
 			mstate_real	|= mcTurn;
 		}
-		if (_abs(r_model_yaw-r_model_yaw_dest)<EPS_L){
+		if (_abs(r_model_yaw-r_model_yaw_dest)< EPS_3){
 			mstate_real	&=~mcTurn;
 		}
 		if (mstate_rl&mcTurn){

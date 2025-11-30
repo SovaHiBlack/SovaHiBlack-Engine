@@ -1199,7 +1199,7 @@ void CPHSimpleCharacter::SafeAndLimitVelocity()
 		{
 			float sq_mag=m_acceleration.square_magnitude();
 			float ll_limit=m_ext_imulse.dotproduct(cast_fv(linear_velocity))*10.f/fixed_step;
-			if(sq_mag>EPS_L)
+			if(sq_mag> EPS_3)
 			{
 				Fvector acc;acc.set(Fvector().mul(m_acceleration,1.f/_sqrt(sq_mag)));
 				Fvector vll;vll.mul(cast_fv(linear_velocity),1.f/mag);
