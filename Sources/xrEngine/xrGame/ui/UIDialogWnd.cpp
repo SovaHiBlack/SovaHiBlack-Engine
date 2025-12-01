@@ -60,13 +60,14 @@ bool CUIDialogWnd::IR_OnKeyboardHold(int dik)
 bool CUIDialogWnd::IR_OnKeyboardPress(int dik)
 {
 	if(!IR_process()) return false;
+
 	//mouse click
 	if(dik==MOUSE_1 || dik==MOUSE_2 || dik==MOUSE_3)
 	{
-		Fvector2 cp = GetUICursor()->GetCursorPosition();
+		fVector2 cp = GetUICursor()->GetCursorPosition();
 		EUIMessages action = (dik==MOUSE_1)?WINDOW_LBUTTON_DOWN :(dik==MOUSE_2)?WINDOW_RBUTTON_DOWN:WINDOW_CBUTTON_DOWN;
 		if (OnMouse(cp.x,cp.y, action))
-            return true;
+			return true;
 	}
 
 	if (OnKeyboard(dik,	WINDOW_KEY_PRESSED))
@@ -91,10 +92,10 @@ bool CUIDialogWnd::IR_OnKeyboardRelease(int dik)
 	//mouse click
 	if(dik==MOUSE_1 || dik==MOUSE_2 || dik==MOUSE_3)
 	{
-		Fvector2 cp = GetUICursor()->GetCursorPosition();
+		fVector2 cp = GetUICursor()->GetCursorPosition();
 		EUIMessages action = (dik==MOUSE_1)?WINDOW_LBUTTON_UP :(dik==MOUSE_2)?WINDOW_RBUTTON_UP:WINDOW_CBUTTON_UP;
 		if (OnMouse(cp.x, cp.y, action))
-            return true;
+			return true;
 	}
 
 	if (OnKeyboard(dik,	WINDOW_KEY_RELEASED))
@@ -115,7 +116,8 @@ bool CUIDialogWnd::IR_OnKeyboardRelease(int dik)
 bool CUIDialogWnd::IR_OnMouseWheel (int direction)
 {
 	if(!IR_process()) return false;
-	Fvector2 pos = GetUICursor()->GetCursorPosition();
+
+	fVector2 pos = GetUICursor()->GetCursorPosition();
 
 	if(direction>0)
 		OnMouse(pos.x,pos.y,WINDOW_MOUSE_WHEEL_UP);
@@ -130,9 +132,9 @@ bool CUIDialogWnd::IR_OnMouseMove(int dx, int dy)
 	if(!IR_process()) return false;
 	
 	if (GetUICursor()->IsVisible())
-	{ 
+	{
 		GetUICursor()->UpdateCursorPosition();
-		Fvector2 cPos = GetUICursor()->GetCursorPosition();
+		fVector2 cPos = GetUICursor()->GetCursorPosition();
 
 		OnMouse(cPos.x, cPos.y , WINDOW_MOUSE_MOVE);
 	}

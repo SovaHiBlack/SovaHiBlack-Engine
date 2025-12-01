@@ -71,7 +71,7 @@ struct	vertHW_1W
 	u32			_T		;
 	u32			_B		;
 	s16			_tc		[2];
-	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, Fvector2& tc, int index)
+	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, fVector2& tc, int index)
 	{
 		N.normalize_safe();
 		T.normalize_safe();
@@ -114,7 +114,7 @@ struct	vertHW_2W
 	u32			_T		;
 	u32			_B		;
 	s16			_tc_i	[4];
-	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, Fvector2& tc, int index0, int index1, float w)
+	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, fVector2& tc, int index0, int index1, float w)
 	{
 		N.normalize_safe	();
 		T.normalize_safe	();
@@ -159,7 +159,7 @@ struct	vertHW_NW
 	u32			_weights;		// weights,				4*1		=	4b, 28b
 	s16			_tc		[2];	// qtc,					2*2		=	4b,	32b
 	//								*total*						=	32b
-	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, Fvector2& tc, int index0, int index1, float w)
+	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, fVector2& tc, int index0, int index1, float w)
 	{
 		N.normalize_safe	();
 		T.normalize_safe	();
@@ -498,7 +498,7 @@ void CSkeletonX::_FillVerticesSoft1W(const Fmatrix& view, CSkeletonWallmark& wm,
 		{
 			Fvector				UV;
 			for (u32 k=0; k<3; k++){
-				Fvector2& uv	= F.uv[k];
+				fVector2& uv	= F.uv[k];
 				view.transform_tiny(UV,p[k]);
 				uv.x			= (1+UV.x)*.5f;
 				uv.y			= (1-UV.y)*.5f;
@@ -534,7 +534,7 @@ void CSkeletonX::_FillVerticesSoft2W(const Fmatrix& view, CSkeletonWallmark& wm,
 		if (CDB::TestSphereTri(wm.ContactPoint(),size,p)){
 			Fvector				UV;
 			for (u32 k=0; k<3; k++){
-				Fvector2& uv	= F.uv[k];
+				fVector2& uv	= F.uv[k];
 				view.transform_tiny(UV,p[k]);
 				uv.x			= (1+UV.x)*.5f;
 				uv.y			= (1-UV.y)*.5f;

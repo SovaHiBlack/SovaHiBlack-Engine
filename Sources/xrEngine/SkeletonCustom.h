@@ -124,7 +124,7 @@ public:
 	Fsphere				m_LocalBounds;	// 16		model space
 	struct WMFace{
 		Fvector3		vert	[3];
-		Fvector2		uv		[3];
+		fVector2		uv		[3];
 		u16				bone_id	[3][2];
 		float			weight	[3];
 	};

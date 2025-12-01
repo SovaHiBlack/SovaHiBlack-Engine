@@ -131,7 +131,7 @@ void CUIStatic::InitTextureEx(LPCSTR tex_name, LPCSTR sh_name)
 	else
 		CUITextureMaster::InitTexture	(tex_name, sh_name, &m_UIStaticItem);
 
-	Fvector2 p						= GetWndPos();
+	fVector2 p						= GetWndPos();
 	m_UIStaticItem.SetPos			(p.x, p.y);
 	m_bAvailableTexture				= true;
 }
@@ -169,7 +169,7 @@ void CUIStatic::DrawText(){
 		if(IsHighlightText() && xr_strlen(m_pLines->GetText())>0 && m_bEnableTextHighlighting)
 			DrawHighlightedText();		
 		else{
-			Fvector2			p;
+			fVector2			p;
 			GetAbsolutePos		(p);
 			m_pLines->Draw		(p.x + m_TextOffset.x, p.y + m_TextOffset.y);
 		}
@@ -252,12 +252,12 @@ void CUIStatic::Update()
 			float _value		= (float)color_get_R(clr);
 			
 			float f_scale		= _value / 64.0f;
-			Fvector2 _sz;
+			fVector2 _sz;
 			_sz.set				(m_xxxRect.width()*f_scale, m_xxxRect.height()*f_scale );
 			SetWndSize			(_sz);
 		}else{
 			EnableHeading_int	( !!m_lanim_xform.m_lanimFlags.test(1<<4) );
-			SetWndSize			(Fvector2().set(m_xxxRect.width(),m_xxxRect.height()));
+			SetWndSize			(fVector2().set(m_xxxRect.width(),m_xxxRect.height()));
 		}
 	}
 }

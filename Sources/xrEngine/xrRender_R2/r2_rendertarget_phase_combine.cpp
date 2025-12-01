@@ -10,7 +10,8 @@ void	CRenderTarget::phase_combine	()
 	bool	_menu_pp	= g_pGamePersistent?g_pGamePersistent->OnRenderPPUI_query():false;
 
 	u32			Offset					= 0;
-	Fvector2	p0,p1;
+	fVector2	p0;
+	fVector2	p1;
 
 	//*** exposure-pipeline
 	u32			gpu_id	= Device.dwFrame%2;
@@ -47,7 +48,8 @@ void	CRenderTarget::phase_combine	()
 
 	// calc m-blur matrices
 	Fmatrix		m_previous, m_current;
-	Fvector2	m_blur_scale;
+	fVector2	m_blur_scale;
+
 	{
 		static Fmatrix		m_saved_viewproj;
 		
@@ -169,11 +171,11 @@ void	CRenderTarget::phase_combine	()
 		// 
 		struct v_aa	{
 			Fvector4	p;
-			Fvector2	uv0;
-			Fvector2	uv1;
-			Fvector2	uv2;
-			Fvector2	uv3;
-			Fvector2	uv4;
+			fVector2	uv0;
+			fVector2	uv1;
+			fVector2	uv2;
+			fVector2	uv3;
+			fVector2	uv4;
 			Fvector4	uv5;
 			Fvector4	uv6;
 		};

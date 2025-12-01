@@ -58,7 +58,7 @@ private:
 	float			m_max_zoom;
 public:
 
-	virtual Fvector2 ConvertRealToLocal		(const Fvector2& src);// pixels->pixels (relatively own left-top pos)
+	virtual fVector2 ConvertRealToLocal		(const fVector2& src);// pixels->pixels (relatively own left-top pos)
 
 					CUIGlobalMap			(CUIMapWnd*	pMapWnd);
 	virtual			~CUIGlobalMap			();
@@ -72,9 +72,9 @@ public:
 	virtual bool	OnMouse							(float x, float y, EUIMessages mouse_action);
 
 	CUIMapWnd*		MapWnd					() {return m_mapWnd;}
-	void			MoveWndDelta			(const Fvector2& d);
+	void			MoveWndDelta			(const fVector2& d);
 
-	float			CalcOpenRect			(const Fvector2& center_point, Frect& map_desired_rect, float tgt_zoom);
+	float			CalcOpenRect			(const fVector2& center_point, Frect& map_desired_rect, float tgt_zoom);
 
 	void			ClipByVisRect			();
 	virtual void	Update					();

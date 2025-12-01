@@ -42,7 +42,7 @@ void CUIDiaryWnd::Show(bool status)
 		Reload( (EDiaryFilter)m_FilterTab->GetActiveIndex() );
 }
 
-void RearrangeTabButtons(CUITabControl* pTab, xr_vector<Fvector2>& vec_sign_places);
+void RearrangeTabButtons(CUITabControl* pTab, xr_vector<fVector2>& vec_sign_places);
 
 void CUIDiaryWnd::Init()
 {
@@ -253,7 +253,7 @@ void CUIDiaryWnd::OnSrcListItemClicked	(CUIWindow* w,void* p)
 	}
 }
 
-void draw_sign(CUIStatic* s, Fvector2& pos);
+void draw_sign(CUIStatic* s, fVector2& pos);
 void CUIDiaryWnd::Draw()
 {
 	inherited::Draw	();
@@ -261,10 +261,10 @@ void CUIDiaryWnd::Draw()
 	m_updatedSectionImage->Update				();
 	m_oldSectionImage->Update					();
 
-	Fvector2									tab_pos;
+	fVector2									tab_pos;
 	m_FilterTab->GetAbsolutePos					(tab_pos);
 
-	Fvector2 pos;
+	fVector2 pos;
 
 	pos		= m_sign_places[eNews];
 	pos.add(tab_pos);

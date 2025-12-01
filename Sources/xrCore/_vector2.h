@@ -313,11 +313,8 @@ public:
 	}
 };
 
-using iVector2 = _vector2<s32>;
-using fVector2 = _vector2<f32>;
-
-typedef _vector2<f32>		Fvector2;
-typedef _vector2<f64>	Dvector2;
+using iVector2			= _vector2<s32>;
+using fVector2			= _vector2<f32>;
 
 template <class T>
 BOOL	_valid(const _vector2<T>& v)

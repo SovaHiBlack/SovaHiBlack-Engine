@@ -156,7 +156,7 @@ public:
 	*/
 	IC void					play					( CObject* O /*!< Object */,											u32 flags=0 /*!< Looping */, float delay=0.f /*!< Delay */);
 	IC void					play_at_pos				( CObject* O /*!< Object */,	const Fvector &pos /*!< 3D position */,	u32 flags=0 /*!< Looping */, float delay=0.f /*!< Delay */);
-	IC void					play_no_feedback		( CObject* O /*!< Object */,											u32 flags=0 /*!< Looping */, float delay=0.f /*!< Delay */, Fvector* pos=0, float* vol=0, float* freq=0, Fvector2* range=0);
+	IC void					play_no_feedback		( CObject* O /*!< Object */,											u32 flags=0 /*!< Looping */, float delay=0.f /*!< Delay */, Fvector* pos=0, float* vol=0, float* freq=0, fVector2* range=0);
 	//@}
 
 	//! Stops playing this source
@@ -293,7 +293,7 @@ public:
 
 	virtual void					play					( ref_sound& S, CObject* O,						u32 flags=0, float delay=0.f)			= 0;
 	virtual void					play_at_pos				( ref_sound& S, CObject* O,	const Fvector &pos,	u32 flags=0, float delay=0.f)			= 0;
-	virtual void					play_no_feedback		( ref_sound& S, CObject* O,						u32 flags=0, float delay=0.f, Fvector* pos=0, float* vol=0, float* freq=0, Fvector2* range=0)= 0;
+	virtual void					play_no_feedback		( ref_sound& S, CObject* O,						u32 flags=0, float delay=0.f, Fvector* pos=0, float* vol=0, float* freq=0, fVector2* range=0)= 0;
 
 	virtual void					set_master_volume		( float f=1.f )																			= 0;
 	virtual void					set_geometry_env		( IReader* I )																			= 0;

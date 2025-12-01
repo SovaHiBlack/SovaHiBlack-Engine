@@ -99,9 +99,9 @@ public:
 	virtual void		Draw()											= 0;
 	virtual void		Draw(float x, float y)							= 0;
 	virtual void		Update()										= 0;
-	virtual void		SetWndPos(const Fvector2& pos)					= 0;
+	virtual void		SetWndPos(const fVector2& pos)					= 0;
 	virtual void		SetWndPos(float x, float y)						= 0;
-	virtual void		SetWndSize(const Fvector2& size)				= 0;
+	virtual void		SetWndSize(const fVector2& size)				= 0;
 	virtual void		SetWndRect(const Frect& rect)					= 0;
 	virtual void		SetHeight(float height)							= 0;
 	virtual void		SetWidth(float width)							= 0;
@@ -116,11 +116,11 @@ class CUISimpleWindow : public IUISimpleWindow {
 public:
 							CUISimpleWindow()							{m_alignment=waNone; m_wndPos.set(0,0); m_wndSize.set(0,0);}
 	virtual void			Init(float x, float y, float width, float height)	{m_wndPos.set(x,y);m_wndSize.set(width, height);}
-	virtual void			SetWndPos(const Fvector2& pos)				{m_wndPos.set(pos.x,pos.y);}
+	virtual void			SetWndPos(const fVector2& pos)				{m_wndPos.set(pos.x,pos.y);}
 	virtual void			SetWndPos(float x, float y)					{m_wndPos.set(x,y);}
-	IC		Fvector2		GetWndPos()							const	{return m_wndPos;}
-	virtual void			SetWndSize(const Fvector2& size)			{m_wndSize = size;}
-	IC		Fvector2		GetWndSize()						const	{return m_wndSize;}
+	IC		fVector2		GetWndPos()							const	{return m_wndPos;}
+	virtual void			SetWndSize(const fVector2& size)			{m_wndSize = size;}
+	IC		fVector2		GetWndSize()						const	{return m_wndSize;}
 	virtual void			SetHeight(float height)						{m_wndSize.y = height;}
 	IC		float			GetHeight()							const	{return m_wndSize.y;}
 	virtual void			SetWidth(float width)						{m_wndSize.x = width;}
@@ -152,17 +152,20 @@ public:
 		};
 	}
 				void			MoveWndDelta		(float dx, float dy)				{m_wndPos.x+=dx;m_wndPos.y+=dy;}
-				void			MoveWndDelta		(const Fvector2& d)					{ MoveWndDelta(d.x, d.y);	};
+				void			MoveWndDelta		(const fVector2& d)					{ MoveWndDelta(d.x, d.y);	};
 
 protected:
 	bool					m_bShowMe;
-	Fvector2				m_wndPos;
-	Fvector2				m_wndSize;
+	fVector2				m_wndPos;
+	fVector2				m_wndSize;
 	EWindowAlignment		m_alignment;
 };
-class CUISelectable{
+
+class CUISelectable
+{
 protected:
 	bool m_bSelected;
+
 public:
 	CUISelectable():m_bSelected(false)		{}
 	bool			GetSelected	() const	{return m_bSelected;}

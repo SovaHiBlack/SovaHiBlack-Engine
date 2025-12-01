@@ -367,7 +367,7 @@ void CServerList::UpdateSizes()
 {
 	m_list[LST_SERVER].SetHeight	(m_bShowServerInfo? m_fListH[1]:m_fListH[0]);
 	m_frame[LST_SERVER].SetHeight	(m_bShowServerInfo? m_fListH[1]:m_fListH[0]);
-	Fvector2 pos					= m_edit_gs_filter.GetWndPos();
+	fVector2 pos					= m_edit_gs_filter.GetWndPos();
 	pos.y							= m_bShowServerInfo?m_fEditPos[1]:m_fEditPos[0];
 	m_edit_gs_filter.SetWndPos		(pos);
 }
@@ -497,8 +497,8 @@ void CServerList::ConnectToSelected()
 
 void CServerList::InitHeader()
 {
-	Fvector2				pos;
-	pos.set					(0,0);
+	fVector2				pos;
+	pos.set					(0.0f,0.0f);
 
 	m_header[0].SetWidth	(m_itemInfo.size.icon);
 	pos.x					+= m_itemInfo.size.icon;

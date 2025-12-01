@@ -198,30 +198,29 @@ void CUIWeaponCellItem::OnAfterChild()
 		InitAddon	(GetIcon(eLauncher), *object()->GetGrenadeLauncherName(),m_addon_offset[eLauncher]);
 }
 
-void CUIWeaponCellItem::InitAddon(CUIStatic* s, LPCSTR section, Fvector2 addon_offset)
+void CUIWeaponCellItem::InitAddon(CUIStatic* s, LPCSTR section, fVector2 addon_offset)
 {
-	
-		Frect					tex_rect;
-		Fvector2				base_scale;
-		base_scale.x			= GetWidth()/(INV_GRID_WIDTHF*m_grid_size.x);
-		base_scale.y			= GetHeight()/(INV_GRID_HEIGHTF*m_grid_size.y);
+	Frect					tex_rect;
+	fVector2				base_scale;
+	base_scale.x			= GetWidth()/(INV_GRID_WIDTHF*m_grid_size.x);
+	base_scale.y			= GetHeight()/(INV_GRID_HEIGHTF*m_grid_size.y);
 
-		Fvector2				cell_size;
-		cell_size.x				= pSettings->r_u32(section, "inv_grid_width")*INV_GRID_WIDTHF;
-		cell_size.y				= pSettings->r_u32(section, "inv_grid_height")*INV_GRID_HEIGHTF;
+	fVector2				cell_size;
+	cell_size.x				= pSettings->r_u32(section, "inv_grid_width")*INV_GRID_WIDTHF;
+	cell_size.y				= pSettings->r_u32(section, "inv_grid_height")*INV_GRID_HEIGHTF;
 
-		tex_rect.x1				= pSettings->r_u32(section, "inv_grid_x")*INV_GRID_WIDTHF;
-		tex_rect.y1				= pSettings->r_u32(section, "inv_grid_y")*INV_GRID_HEIGHTF;
+	tex_rect.x1				= pSettings->r_u32(section, "inv_grid_x")*INV_GRID_WIDTHF;
+	tex_rect.y1				= pSettings->r_u32(section, "inv_grid_y")*INV_GRID_HEIGHTF;
 
-		tex_rect.rb.add			(tex_rect.lt,cell_size);
+	tex_rect.rb.add			(tex_rect.lt,cell_size);
 
-		cell_size.mul			(base_scale);
-		addon_offset.mul		(base_scale);
+	cell_size.mul			(base_scale);
+	addon_offset.mul		(base_scale);
 
-		s->SetWndSize			(cell_size);
-		s->SetWndPos			(addon_offset);
-		s->SetOriginalRect		(tex_rect);
-		s->SetStretchTexture	(true);
+	s->SetWndSize			(cell_size);
+	s->SetWndPos			(addon_offset);
+	s->SetOriginalRect		(tex_rect);
+	s->SetStretchTexture	(true);
 }
 
 CUIDragItem* CUIWeaponCellItem::CreateDragItem()
@@ -280,7 +279,7 @@ CBuyItemCustomDrawCell::CBuyItemCustomDrawCell	(LPCSTR str, CGameFont* pFont)
 
 void CBuyItemCustomDrawCell::OnDraw(CUICellItem* cell)
 {
-	Fvector2							pos;
+	fVector2							pos;
 	cell->GetAbsolutePos				(pos);
 	UI()->ClientToScreenScaled			(pos, pos.x, pos.y);
 	m_pFont->Out						(pos.x, pos.y, m_string);

@@ -162,7 +162,7 @@ void ui_core::PushScissor(const Frect& r_tgt, bool overlapped)
 	result.rb.x 		= ClientToScreenScaledX(result.rb.x);
 	result.rb.y 		= ClientToScreenScaledY(result.rb.y);
 
-	Irect				r;
+	iRect				r;
 	r.x1 				= iFloor(result.x1);
 	r.x2 				= iFloor(result.x2+0.5f);
 	r.y1 				= iFloor(result.y1);
@@ -180,7 +180,7 @@ void ui_core::PopScissor()
 		RCache.set_Scissor(NULL);
 	else{
 		const Frect& top= m_Scissors.top();
-		Irect tgt;
+		iRect tgt;
 		tgt.lt.x 		= iFloor(ClientToScreenScaledX(top.lt.x));
 		tgt.lt.y 		= iFloor(ClientToScreenScaledY(top.lt.y));
 		tgt.rb.x 		= iFloor(ClientToScreenScaledX(top.rb.x));

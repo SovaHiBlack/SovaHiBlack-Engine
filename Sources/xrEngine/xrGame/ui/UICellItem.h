@@ -64,8 +64,9 @@ private:
 	typedef		CUIWindow	inherited;
 	CUIStatic				m_static;
 	CUICellItem*			m_pParent;
-	Fvector2				m_pos_offset;
+	fVector2				m_pos_offset;
 	CUIDragDropListEx*		m_back_list;
+
 public:
 							CUIDragItem(CUICellItem* parent);
 	virtual		void		Init(const ref_shader& sh, const Frect& rect, const Frect& text_rect);
@@ -78,5 +79,5 @@ public:
 		CUICellItem*		ParentItem				()							{return m_pParent;}
 				void		SetBackList				(CUIDragDropListEx*l);
 	CUIDragDropListEx*		BackList				()							{return m_back_list;}
-				Fvector2	GetPosition				();
+				fVector2	GetPosition				();
 };

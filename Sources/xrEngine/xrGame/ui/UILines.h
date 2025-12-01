@@ -53,7 +53,7 @@ public:
 	virtual void			Draw										();
 	virtual void			Draw										(float x, float y);
 	virtual void			Update										();
-IC			void			SetWndSize_inline							(const Fvector2& wnd_size);
+IC			void			SetWndSize_inline							(const fVector2& wnd_size);
 
 
     // CDeviceResetNotifier methods
@@ -128,6 +128,6 @@ public:
 	virtual void			SetTextPosY						(float y)						{m_textPos.y = y;}
 
 protected:
-	Fvector2				m_textPos;
+	fVector2				m_textPos;
 	CUILines				m_lines;
 };

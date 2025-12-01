@@ -37,11 +37,12 @@ class CUIFrameLine: public CUICustomItem
 
 protected:
 	float		iSize;
-	Fvector2	iPos;
+	fVector2	iPos;
 	u8			uFlags;
 	bool		bHorizontalOrientation;
 
 	void		UpdateSize		();
+
 public:
 				CUIFrameLine	();
 	void		Init			(LPCSTR base_name, float x, float y, float size, bool horizontal, DWORD align);

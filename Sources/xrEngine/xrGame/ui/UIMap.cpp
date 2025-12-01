@@ -63,22 +63,22 @@ void rotation_(float x, float y, const float angle, float& x_, float& y_)
 	y_= y*_sc-x*_sn;
 }
 
-Fvector2 CUICustomMap::ConvertLocalToReal(const Fvector2& src)
+fVector2 CUICustomMap::ConvertLocalToReal(const fVector2& src)
 {
-	Fvector2 res; 
+	fVector2 res;
 	res.x = m_BoundRect.lt.x + src.x/GetCurrentZoom();
 	res.y = m_BoundRect.height() + m_BoundRect.lt.y - src.y/GetCurrentZoom();
 
 	return res;
 }
 
-Fvector2 CUICustomMap::ConvertRealToLocal  (const Fvector2& src)// meters->pixels (relatively own left-top pos)
+fVector2 CUICustomMap::ConvertRealToLocal  (const fVector2& src)// meters->pixels (relatively own left-top pos)
 {
-	Fvector2 res;
+	fVector2 res;
 	if( !Heading() ){
 		return ConvertRealToLocalNoTransform(src);
 	}else{
-		Fvector2 heading_pivot = GetStaticItem()->GetHeadingPivot();
+		fVector2 heading_pivot = GetStaticItem()->GetHeadingPivot();
 	
 		res = ConvertRealToLocalNoTransform(src);
 		res.sub(heading_pivot);
@@ -114,18 +114,18 @@ bool CUICustomMap::GetPointerTo(const fVector2& src, float item_radius, fVector2
 	Fbox2 f_clip_rect_local;
 	f_clip_rect_local.set(rect.x1, rect.y1, rect.x2, rect.y2 );
 
-	Fvector2 f_center;
+	fVector2 f_center;
 	f_clip_rect_local.getcenter(f_center);
 
-	Fvector2 f_dir, f_src;
+	fVector2 f_dir;
+	fVector2 f_src;
 
 	f_src.set(src.x, src.y );
 	f_dir.sub(f_center, f_src );
 	f_dir.normalize_safe();
-	Fvector2 f_intersect_point;
+	fVector2 f_intersect_point;
 	res = f_clip_rect_local.Pick2(f_src,f_dir,f_intersect_point);
 	VERIFY(res);
-
 
 	heading = -f_dir.getH();
 
@@ -142,7 +142,6 @@ void CUICustomMap::FitToWidth	(float width)
 	float w			= width;
 	float h			= width/k;
 	SetWndRect		(0.0f,0.0f,w,h);
-	
 }
 
 void CUICustomMap::FitToHeight	(float height)
@@ -151,9 +150,7 @@ void CUICustomMap::FitToHeight	(float height)
 	float h			= height;
 	float w			= k*height;
 	SetWndRect		(0.0f,0.0f,w,h);
-	
 }
-
 
 void CUICustomMap::OptimalFit(const Frect& r)
 {
@@ -167,21 +164,21 @@ void CUICustomMap::OptimalFit(const Frect& r)
 // try to positioning clipRect center to vNewPoint
 void CUICustomMap::SetActivePoint(const Fvector &vNewPoint)
 {
-	Fvector2 pos;
+	fVector2 pos;
 	pos.set(vNewPoint.x,vNewPoint.z);
 	Frect bound = BoundRect();
 	if( FALSE==bound.in(pos) )return;
 
-	Fvector2	pos_on_map		= ConvertRealToLocalNoTransform(pos);
+	fVector2	pos_on_map		= ConvertRealToLocalNoTransform(pos);
 	Frect		map_abs_rect;
 	GetAbsoluteRect(map_abs_rect);
-	Fvector2	pos_abs;
+	fVector2	pos_abs;
 
 	pos_abs.set(map_abs_rect.lt);
 	pos_abs.add(pos_on_map);
 
 	Frect		clip_abs_rect	= GetClipperRect();
-	Fvector2	clip_center;
+	fVector2	clip_center;
 	clip_abs_rect.getcenter(clip_center);
 	clip_center.sub(pos_abs);
 	MoveWndDelta				(clip_center);
@@ -191,7 +188,7 @@ void CUICustomMap::SetActivePoint(const Fvector &vNewPoint)
 bool CUICustomMap::IsRectVisible(Frect r)
 {
 	Frect map_visible_rect = GetClipperRect();
-	Fvector2 pos;
+	fVector2 pos;
 	GetAbsolutePos(pos);
 	r.add(pos.x,pos.y);
 
@@ -202,7 +199,7 @@ bool CUICustomMap::NeedShowPointer(Frect r)
 {
 	Frect map_visible_rect = GetClipperRect();
 	map_visible_rect.shrink(5,5);
-	Fvector2 pos;
+	fVector2 pos;
 	GetAbsolutePos(pos);
 	r.add(pos.x,pos.y);
 
@@ -217,6 +214,7 @@ void	CUICustomMap::SendMessage			(CUIWindow* pWnd, s16 msg, void* pData)
 bool CUIGlobalMap::OnMouse	(float x, float y, EUIMessages mouse_action)
 {
 	if(inherited::OnMouse(x,y,mouse_action)) return true;
+
 	if(mouse_action==WINDOW_MOUSE_MOVE && (FALSE==pInput->iGetAsyncBtnState(0)))
 	{
 		if( MapWnd() )
@@ -225,6 +223,7 @@ bool CUIGlobalMap::OnMouse	(float x, float y, EUIMessages mouse_action)
 			return			true;
 		}
 	}
+
 	return false;
 }
 
@@ -262,7 +261,6 @@ void CUIGlobalMap::Update()
 	inherited::Update();
 }
 
-
 void CUIGlobalMap::ClipByVisRect()
 {
 	Frect r					= GetWndRect();
@@ -274,40 +272,40 @@ void CUIGlobalMap::ClipByVisRect()
 	SetWndPos				(r.x1,r.y1);
 }
 
-Fvector2 CUIGlobalMap::ConvertRealToLocal(const Fvector2& src)// pixels->pixels (relatively own left-top pos)
+fVector2 CUIGlobalMap::ConvertRealToLocal(const fVector2& src)// pixels->pixels (relatively own left-top pos)
 {
-	Fvector2 res;
+	fVector2 res;
 	res.x = (src.x-m_BoundRect.lt.x) * GetCurrentZoom();
 	res.y = (src.y-m_BoundRect.lt.y) * GetCurrentZoom();
 	return res;
 }
 
-void CUIGlobalMap::MoveWndDelta(const Fvector2& d)
+void CUIGlobalMap::MoveWndDelta(const fVector2& d)
 {
 	inherited::MoveWndDelta	(d);
 	ClipByVisRect			();
 	m_mapWnd->UpdateScroll	();
 }
 
-float CUIGlobalMap::CalcOpenRect(const Fvector2& center_point, Frect& map_desired_rect, float tgt_zoom)
+float CUIGlobalMap::CalcOpenRect(const fVector2& center_point, Frect& map_desired_rect, float tgt_zoom)
 {
-    Fvector2                    new_center_pt;
+	fVector2                    new_center_pt;
 	// calculate desired rect in new zoom
-    map_desired_rect.set		(0.0f,0.0f, BoundRect().width()*tgt_zoom,BoundRect().height()*tgt_zoom);
+	map_desired_rect.set		(0.0f,0.0f, BoundRect().width()*tgt_zoom,BoundRect().height()*tgt_zoom);
 	// calculate center point in new zoom (center_point is in identity global map space)
-    new_center_pt.set           (center_point.x*tgt_zoom,center_point.y*tgt_zoom);
+	new_center_pt.set           (center_point.x*tgt_zoom,center_point.y*tgt_zoom);
 	// get vis width & height
 	Frect vis_abs_rect			= m_mapWnd->ActiveMapRect();
 	float vis_w					= vis_abs_rect.width();
 	float vis_h					= vis_abs_rect.height();
 	// calculate center delta from vis rect
-	Fvector2 delta_pos;
+	fVector2 delta_pos;
 	delta_pos.set				(new_center_pt.x-vis_w*0.5f,new_center_pt.y-vis_h*0.5f);
 	// correct desired rect
 	map_desired_rect.sub		(delta_pos.x,delta_pos.y);
 	// clamp pos by vis rect
 	const Frect& r				= map_desired_rect;
-	Fvector2 np					= r.lt;
+	fVector2 np					= r.lt;
 	if (r.x2<vis_w)	np.x		+= vis_w-r.x2;
 	if (r.y2<vis_h)	np.y		+= vis_h-r.y2;
 	if (r.x1>0.0f)	np.x		= 0.0f;
@@ -321,7 +319,8 @@ float CUIGlobalMap::CalcOpenRect(const Fvector2& center_point, Frect& map_desire
 	s_rect.div					(GetWndRect(),GetCurrentZoom(),GetCurrentZoom());
 	t_rect.div					(map_desired_rect,tgt_zoom,tgt_zoom);
 
-	Fvector2 cpS,cpT;
+	fVector2 cpS;
+	fVector2 cpT;
 	s_rect.getcenter			(cpS);
 	t_rect.getcenter			(cpT);
 
@@ -350,7 +349,7 @@ void CUILevelMap::Draw()
 		{
 			CMapSpot* sp			= smart_cast<CMapSpot*>((*it));
 			if(sp&&sp->m_bScale){
-				Fvector2 sz			= sp->m_originSize;
+				fVector2 sz			= sp->m_originSize;
 				sz.mul				(MapWnd()->GlobalMap()->GetCurrentZoom());
 				sp->SetWndSize		(sz);
 			}
@@ -432,7 +431,7 @@ void CUILevelMap::Update()
 {
 	CUIGlobalMap*	w				= MapWnd()->GlobalMap();
 	Frect			rect;
-	Fvector2		tmp;
+	fVector2		tmp;
 
 	tmp								= w->ConvertRealToLocal(GlobalRect().lt);
 	rect.lt							= tmp;
@@ -451,10 +450,8 @@ void CUILevelMap::Update()
 				MapWnd()->ShowHint(this, *MapName());
 			else
 				MapWnd()->HideHint(this);
-
 		}
 	}
-
 }
 
 bool CUILevelMap::OnMouse	(float x, float y, EUIMessages mouse_action)

@@ -57,10 +57,10 @@ public:
 	virtual void		InitTextureEx				(LPCSTR tex_name, LPCSTR sh_name="hud\\default");
 	CUIStaticItem*		GetStaticItem				()							{return &m_UIStaticItem;}
 			void		SetOriginalRect				(float x, float y, float width, float height)	{m_UIStaticItem.SetOriginalRect(x,y,width,height);}
-			void		SetHeadingPivot				(const Fvector2& p)			{m_UIStaticItem.SetHeadingPivot(p);}
+			void		SetHeadingPivot				(const fVector2& p)			{m_UIStaticItem.SetHeadingPivot(p);}
 			void		SetMask						(CUIFrameWindow *pMask);
 	virtual void		SetTextureOffset			(float x, float y)			{ m_TextureOffset.set(x, y); }
-			Fvector2	GetTextureOffeset			() const					{ return m_TextureOffset; }
+	fVector2	GetTextureOffeset			() const					{ return m_TextureOffset; }
 			void		TextureOn					()							{ m_bTextureEnable = true; }
 			void		TextureOff					()							{ m_bTextureEnable = false; }
 			void		TextureAvailable			(bool value)				{ m_bAvailableTexture = value; }
@@ -181,15 +181,14 @@ protected:
 	bool m_bTextureEnable;
 	CUIStaticItem m_UIStaticItem;
 
-	
-	Fvector2		m_TextOffset;
+	fVector2		m_TextOffset;
 
 	bool			m_bHeading;
 	float			m_fHeading;
 
-    // Для вывода текстуры с обрезанием по маске используем CUIFrameWindow
+	// Для вывода текстуры с обрезанием по маске используем CUIFrameWindow
 	CUIFrameWindow	*m_pMask;
-	Fvector2		m_TextureOffset;
+	fVector2		m_TextureOffset;
 
 	// Обрезка надписи
 	EElipsisPosition	m_ElipsisPos;

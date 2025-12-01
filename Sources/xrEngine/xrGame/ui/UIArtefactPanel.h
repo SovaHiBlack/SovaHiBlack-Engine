@@ -19,7 +19,7 @@ public:
 
 protected:
 	float						m_fScale;
-	Fvector2					m_cell_size;
+	fVector2					m_cell_size;
 	xr_vector<Frect>            m_vRects;
 	CUIStaticItem               m_si;
 };

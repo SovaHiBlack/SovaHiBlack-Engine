@@ -130,9 +130,9 @@ iVector2 CLevelFogOfWar::ConvertRealToLocal(const fVector2& src)
 	return res;
 }
 
-Irect CLevelFogOfWar::ConvertRealToLocal	(const Frect& src)
+iRect CLevelFogOfWar::ConvertRealToLocal	(const Frect& src)
 {
-	return Irect().set(ConvertRealToLocal(src.lt), ConvertRealToLocal(src.rb));
+	return iRect().set(ConvertRealToLocal(src.lt), ConvertRealToLocal(src.rb));
 }
 
 fVector2 CLevelFogOfWar::ConvertLocalToReal(const iVector2& src)
@@ -179,7 +179,7 @@ void CLevelFogOfWar::Draw	()
 	tgt.div(m->GetCurrentZoom(), m->GetCurrentZoom());
 	tgt.add(m_levelRect.lt.x, m_levelRect.lt.y);
 	tgt.rb.add(fVector2().set(FOG_CELL_SZ- EPS_3,FOG_CELL_SZ- EPS_3));
-	Irect		cells			= ConvertRealToLocal(tgt);
+	iRect		cells			= ConvertRealToLocal(tgt);
 
 	fVector2	realCellsPosLT	= ConvertLocalToReal(cells.lt);
 

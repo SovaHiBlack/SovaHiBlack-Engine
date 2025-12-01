@@ -28,18 +28,21 @@ public:
 class CUIWeaponCellItem :public CUIInventoryCellItem
 {
 	typedef  CUIInventoryCellItem	inherited;
+
 public:
 	enum eAddonType{	eSilencer=0, eScope, eLauncher, eMaxAddon};
+
 protected:
 	CUIStatic*					m_addons					[eMaxAddon];
-	Fvector2					m_addon_offset				[eMaxAddon];
+	fVector2					m_addon_offset				[eMaxAddon];
 	void						CreateIcon					(eAddonType);
 	void						DestroyIcon					(eAddonType);
 	CUIStatic*					GetIcon						(eAddonType);
-	void						InitAddon					(CUIStatic* s, LPCSTR section, Fvector2 offset);
+	void						InitAddon					(CUIStatic* s, LPCSTR section, fVector2 offset);
 	bool						is_scope					();
 	bool						is_silencer					();
 	bool						is_launcher					();
+
 public:
 								CUIWeaponCellItem			(CWeapon* itm);
 				virtual			~CUIWeaponCellItem			();

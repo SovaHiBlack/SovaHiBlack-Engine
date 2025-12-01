@@ -27,7 +27,7 @@ void CUIListItemAdv::AddField(LPCSTR val, float width){
 }
 
 void CUIListItemAdv::AddWindow(CUIWindow* pWnd){
-	Fvector2 pos = pWnd->GetWndPos();
+	fVector2 pos = pWnd->GetWndPos();
 	pos.x = GetNextLeftPos();
 	pos.y = (GetHeight() - pWnd->GetHeight())/2;
     pWnd->SetWndPos(pos);

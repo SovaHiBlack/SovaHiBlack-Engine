@@ -73,10 +73,10 @@ private:
 //.	void						HighlightSpot			();
 	void						ResetActionPlanner		();
 
-
 public:
 	CUICustomMap*				m_tgtMap;
-	Fvector2					m_tgtCenter;
+	fVector2					m_tgtCenter;
+
 public:
 								CUIMapWnd				();
 	virtual						~CUIMapWnd				();
@@ -99,8 +99,8 @@ public:
 	virtual void				SendMessage				(CUIWindow* pWnd, s16 msg, void* pData = NULL);
 
 	void						SetTargetMap			(CUICustomMap* m, bool bZoomIn = false);
-	void						SetTargetMap			(CUICustomMap* m, const Fvector2& pos, bool bZoomIn = false);
-	void						SetTargetMap			(const shared_str& name, const Fvector2& pos, bool bZoomIn = false);
+	void						SetTargetMap			(CUICustomMap* m, const fVector2& pos, bool bZoomIn = false);
+	void						SetTargetMap			(const shared_str& name, const fVector2& pos, bool bZoomIn = false);
 	void						SetTargetMap			(const shared_str& name, bool bZoomIn = false);
 //.	void						AddUserSpot				(CUILevelMap*);
 //.	void						Select					(CMapLocation* ml);

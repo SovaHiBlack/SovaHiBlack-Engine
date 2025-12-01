@@ -1,0 +1,10 @@
+// Файлы указаний помогают среде IDE Visual Studio интерпретировать идентификаторы Visual C++
+// (например, имена функций и макросов).
+// Дополнительные сведения: https://go.microsoft.com/fwlink/?linkid=865984
+#define IC
+#define VERIFY(x) ASSERT(x)
+#define VERIFY(x) ((void)(x))
+#define VERIFY(a)
+#define VERIFY(expr) do {static bool ignore_always = false; if (!ignore_always && !(expr)) ::Debug.fail(#expr,DEBUG_INFO,ignore_always);} while(0)
+#define VERIFY(expr) do {} while (0)
+#define DECLARE_SCRIPT_REGISTER_FUNCTION public: static void script_register(lua_State *);

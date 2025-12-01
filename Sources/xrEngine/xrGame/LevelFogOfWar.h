@@ -31,7 +31,7 @@ public:
 	void				Init					(const shared_str& level);
 	void				GetTexUVLT				(fVector2& frame, u32 col, u32 row);
 	iVector2			ConvertRealToLocal		(const fVector2& src);
-	Irect				ConvertRealToLocal		(const Frect& src);
+	iRect				ConvertRealToLocal		(const Frect& src);
 	fVector2			ConvertLocalToReal		(const iVector2& src);
 
 	virtual void		save					(IWriter &stream);

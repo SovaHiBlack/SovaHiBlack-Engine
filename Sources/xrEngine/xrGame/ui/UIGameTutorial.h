@@ -94,14 +94,16 @@ class CUISequenceSimpleItem: public CUISequenceItem
 	};
 	DEFINE_VECTOR			(SSubItem,SubItemVec,SubItemVecIt);
 	SubItemVec				m_subitems;
+
 public:
 	CUIWindow*				m_UIWindow;
 	ref_sound				m_sound;
 	float					m_time_start;
 	float					m_time_length;
 	string64				m_pda_section;
-	Fvector2				m_desired_cursor_pos;
+	fVector2				m_desired_cursor_pos;
 	int						m_continue_dik_guard;
+
 public:
 							CUISequenceSimpleItem(CUISequencer* owner):CUISequenceItem(owner){}
 	virtual					~CUISequenceSimpleItem();

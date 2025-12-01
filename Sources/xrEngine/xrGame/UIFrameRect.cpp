@@ -61,7 +61,7 @@ void CUIFrameRect::InitTexture(const char* texture){
 		CUITextureMaster::InitTexture(strconcat(sizeof(buf),buf,texture,"_lt"),		&frame[CUIFrameRect::fmLT]);
 		CUITextureMaster::InitTexture(strconcat(sizeof(buf),buf,texture,"_rt"),		&frame[CUIFrameRect::fmRT]);
 		CUITextureMaster::InitTexture(strconcat(sizeof(buf),buf,texture,"_rb"),		&frame[CUIFrameRect::fmRB]);
-		CUITextureMaster::InitTexture(strconcat(sizeof(buf),buf,texture,"_lb"),		&frame[CUIFrameRect::fmLB]);		
+		CUITextureMaster::InitTexture(strconcat(sizeof(buf),buf,texture,"_lb"),		&frame[CUIFrameRect::fmLB]);
 	}
 }
 
@@ -69,11 +69,19 @@ void CUIFrameRect::UpdateSize()
 {
 	VERIFY(g_bRendering);
 	// texture size
-	Fvector2  ts;
+	fVector2 ts;
 	float rem_x, rem_y;
 	int tile_x, tile_y;
 
-	Fvector2 _bk, _lt,_lb,_rb,_rt, _l,_r,_t,_b;
+	fVector2 _bk;
+	fVector2 _lt;
+	fVector2 _lb;
+	fVector2 _rb;
+	fVector2 _rt;
+	fVector2 _l;
+	fVector2 _r;
+	fVector2 _t;
+	fVector2 _b;
 
 	_bk.set		(frame[fmBK].GetOriginalRect().width(),	frame[fmBK].GetOriginalRect().height());
 	_lt.set		(frame[fmLT].GetOriginalRect().width(), frame[fmLT].GetOriginalRect().height());
@@ -85,7 +93,7 @@ void CUIFrameRect::UpdateSize()
 	_t.set		(frame[fmT].GetOriginalRect().width(),	frame[fmT].GetOriginalRect().height());
 	_b.set		(frame[fmB].GetOriginalRect().width(),	frame[fmB].GetOriginalRect().height());
 
-	Fvector2 wnd_pos	= GetWndPos();
+	fVector2 wnd_pos	= GetWndPos();
 	frame[fmLT].SetPos	(wnd_pos.x,						wnd_pos.y);	
 	frame[fmRT].SetPos	(wnd_pos.x+m_wndSize.x-_rt.x,	wnd_pos.y);	
 	frame[fmLB].SetPos	(wnd_pos.x,						wnd_pos.y+m_wndSize.y-_lb.y);
@@ -151,15 +159,15 @@ void CUIFrameRect::Update(){
 
 void CUIFrameRect::SetWndPos(float x, float y)
 {
-	Fvector2 _old_pos = GetWndPos();
-	Fvector2 _new_pos = Fvector2().set(x,y);
+	fVector2 _old_pos = GetWndPos();
+	fVector2 _new_pos = fVector2().set(x,y);
 	if(_old_pos.similar(_new_pos,EPS,EPS))	return;
 
 	CUISimpleWindow::SetWndPos		(_new_pos);
 	uFlags.set						(flValidSize, false);
 }
 
-void CUIFrameRect::SetWndSize(const Fvector2& size){
+void CUIFrameRect::SetWndSize(const fVector2& size){
 	CUISimpleWindow::SetWndSize(size);
 	uFlags.set(flValidSize, false);
 }
@@ -169,7 +177,7 @@ void CUIFrameRect::SetWndRect(const Frect& rect){
 	uFlags.set(flValidSize, false);
 }
 
-void CUIFrameRect::SetWndPos(const Fvector2& pos){
+void CUIFrameRect::SetWndPos(const fVector2& pos){
 
 //.	fVector2 _old_pos = GetWndPos();
 //.	if(_old_pos.similar(pos,EPS,EPS))	return;
@@ -189,7 +197,7 @@ void CUIFrameRect::SetWidth(float width){
 }
 
 void CUIFrameRect::Draw(float x, float y){
-	Fvector2 p = GetWndPos	();
+	fVector2 p = GetWndPos	();
 	float dx = p.x - x;
 	float dy = p.y - y;
 	if ( !fis_zero(dx) || !fis_zero(dy))

@@ -161,7 +161,7 @@ bool CUIScrollBar::OnKeyboardHold(int dik)
 {
 	if(dik==MOUSE_1 && (last_hold_time+100)<Device.dwTimeContinual)
 	{
-		Fvector2 cursor_pos			= GetUICursor()->GetCursorPosition();
+		fVector2 cursor_pos			= GetUICursor()->GetCursorPosition();
 		Frect	dec_rect;
 		Frect	inc_rect;
 

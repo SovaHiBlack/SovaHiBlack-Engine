@@ -45,7 +45,7 @@ protected:
 	iVector2 		lt;
 	iVector2		rb;
 	iVector2 		grid;
-	Fvector2		grid_step;
+	fVector2		grid_step;
 	u32				grid_color;
 	u32				base_color;
 	u32				rect_color;

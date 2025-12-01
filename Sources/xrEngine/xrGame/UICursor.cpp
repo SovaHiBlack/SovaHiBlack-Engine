@@ -30,7 +30,7 @@ void CUICursor::InitInternal()
 	Frect						rect;
 	rect.set					(0.0f,0.0f,40.0f,40.0f);
 	m_static->SetOriginalRect	(rect);
-	Fvector2					sz;
+	fVector2					sz;
 	sz.set						(rect.rb);
 	if(UI()->is_16_9_mode())
 		sz.x					/= 1.2f;
@@ -55,7 +55,7 @@ void CUICursor::OnRender	()
 	F->SetHeightI		(0.02f);
 	F->OutSetI			(0.f,-0.9f);
 	F->SetColor			(0xffffffff);
-	Fvector2			pt = GetCursorPosition();
+	fVector2			pt = GetCursorPosition();
 	F->OutNext			("%f-%f",pt.x, pt.y);
 	}
 #endif
@@ -65,14 +65,14 @@ void CUICursor::OnRender	()
 	m_static->Draw		();
 }
 
-Fvector2 CUICursor::GetCursorPosition()
+fVector2 CUICursor::GetCursorPosition()
 {
 	return  vPos;
 }
 
-Fvector2 CUICursor::GetCursorPositionDelta()
+fVector2 CUICursor::GetCursorPositionDelta()
 {
-	Fvector2 res_delta;
+	fVector2 res_delta;
 
 	res_delta.x = vPos.x - vPrevPos.x;
 	res_delta.y = vPos.y - vPrevPos.y;
@@ -94,7 +94,7 @@ void CUICursor::UpdateCursorPosition()
 	clamp			(vPos.y, 0.f, UI_BASE_HEIGHT);
 }
 
-void CUICursor::SetUICursorPosition(Fvector2 pos)
+void CUICursor::SetUICursorPosition(fVector2 pos)
 {
 	vPos		= pos;
 	POINT		p;

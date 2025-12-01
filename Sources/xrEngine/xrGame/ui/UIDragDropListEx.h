@@ -79,7 +79,7 @@ public:
 			int				ScrollPos			();
 			void			ReinitScroll		();
 			void			GetClientArea		(Frect& r);
-			Fvector2		GetDragItemPosition	();
+			fVector2		GetDragItemPosition	();
 
 			void			SetAutoGrow			(bool b);
 			bool			IsAutoGrow			();
@@ -90,7 +90,7 @@ public:
 public:
 			// items management
 			virtual void	SetItem				(CUICellItem* itm); //auto
-			virtual void	SetItem				(CUICellItem* itm, Fvector2 abs_pos);  // start at cursor pos
+			virtual void	SetItem				(CUICellItem* itm, fVector2 abs_pos);  // start at cursor pos
 			virtual void	SetItem				(CUICellItem* itm, iVector2 cell_pos); // start at cell
 					bool	CanSetItem			(CUICellItem* itm);
 
@@ -128,9 +128,9 @@ protected:
 	iVector2					m_cellSize;					//pixels	(width, height)
 	UI_CELLS_VEC				m_cells;
 
-	void						GetTexUVLT			(Fvector2& uv, u32 col, u32 row);
+	void						GetTexUVLT			(fVector2& uv, u32 col, u32 row);
 	void						ReinitSize			();
-	u32							GetCellsInRange		(const Irect& rect, UI_CELLS_VEC& res);
+	u32							GetCellsInRange		(const iRect& rect, UI_CELLS_VEC& res);
 
 public:							
 								CUICellContainer	(CUIDragDropListEx* parent);
@@ -144,7 +144,7 @@ protected:
 				void			SetCellSize			(const iVector2& new_sz);
 				iVector2		TopVisibleCell		();
 				CUICell&		GetCellAt			(const iVector2& pos);
-				iVector2		PickCell			(const Fvector2& abs_pos);
+				iVector2		PickCell			(const fVector2& abs_pos);
 				iVector2		GetItemPos			(CUICellItem* itm);
 				iVector2		FindFreeCell		(const iVector2& size);
 				bool			HasFreeSpace		(const iVector2& size);
