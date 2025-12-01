@@ -438,10 +438,10 @@ Ivector4 CInifile::r_ivector4( LPCSTR S, LPCSTR L )
 	sscanf		(C,"%d,%d,%d,%d",&V.x,&V.y,&V.z,&V.w);
 	return V;
 }
-Fvector2 CInifile::r_fvector2( LPCSTR S, LPCSTR L )
+fVector2 CInifile::r_fvector2( LPCSTR S, LPCSTR L )
 {
 	LPCSTR		C = r_string(S,L);
-	Fvector2	V={0.f,0.f};
+	fVector2	V={0.0f,0.0f};
 	sscanf		(C,"%f,%f",&V.x,&V.y);
 	return V;
 }
@@ -605,7 +605,7 @@ void	CInifile::w_ivector4	( LPCSTR S, LPCSTR L, const Ivector4&	V, LPCSTR commen
 	string128 temp; sprintf_s		(temp,sizeof(temp),"%d,%d,%d,%d", V.x, V.y, V.z, V.w);
 	w_string	(S,L,temp,comment);
 }
-void	CInifile::w_fvector2	( LPCSTR S, LPCSTR L, const Fvector2&	V, LPCSTR comment )
+void	CInifile::w_fvector2	( LPCSTR S, LPCSTR L, const fVector2&	V, LPCSTR comment )
 {
 	string128 temp; sprintf_s		(temp,sizeof(temp),"%f,%f", V.x, V.y);
 	w_string	(S,L,temp,comment);

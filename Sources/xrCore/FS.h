@@ -59,7 +59,7 @@ public:
 	IC void			w_fcolor(const Fcolor &v)		{	w(&v,sizeof(Fcolor));	}
 	IC void			w_fvector4(const Fvector4 &v)	{	w(&v,sizeof(Fvector4));	}
 	IC void			w_fvector3(const Fvector3 &v)	{	w(&v,sizeof(Fvector3));	}
-	IC void			w_fvector2(const Fvector2 &v)	{	w(&v,sizeof(Fvector2));	}
+	IC void			w_fvector2(const fVector2& v)	{	w(&v,sizeof(fVector2));	}
 	IC void			w_ivector4(const Ivector4 &v)	{	w(&v,sizeof(Ivector4));	}
 	IC void			w_ivector3(const Ivector3 &v)	{	w(&v,sizeof(Ivector3));	}
 	IC void			w_ivector2(const iVector2& v)	{	w(&v,sizeof(iVector2));	}
@@ -153,10 +153,10 @@ public:
 	IC float		r_float		()			{	float tmp;	r(&tmp,sizeof(tmp)); return tmp;	};
 	IC void			r_fvector4	(Fvector4 &v){	r(&v,sizeof(Fvector4));	}
 	IC void			r_fvector3	(Fvector3 &v){	r(&v,sizeof(Fvector3));	}
-	IC void			r_fvector2	(Fvector2 &v){	r(&v,sizeof(Fvector2));	}
+	IC void			r_fvector2	(fVector2& v){	r(&v,sizeof(fVector2));	}
 	IC void			r_ivector4	(Ivector4 &v){	r(&v,sizeof(Ivector4));	}
-	IC void			r_ivector4	(Ivector3 &v){	r(&v,sizeof(Ivector3));	}
-	IC void			r_ivector4	(iVector2& v){	r(&v,sizeof(iVector2));	}
+	IC void			r_ivector3	(Ivector3 &v){	r(&v,sizeof(Ivector3));	}
+	IC void			r_ivector2	(iVector2& v){	r(&v,sizeof(iVector2));	}
 	IC void			r_fcolor	(Fcolor &v)	{	r(&v,sizeof(Fcolor));	}
 	
 	IC float		r_float_q16	(float min, float max)

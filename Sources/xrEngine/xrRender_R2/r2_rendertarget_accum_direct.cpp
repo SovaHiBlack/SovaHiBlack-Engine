@@ -19,7 +19,8 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
 	u32		C					= color_rgba	(255,255,255,255);
 	float	_w					= float			(Device.dwWidth);
 	float	_h					= float			(Device.dwHeight);
-	Fvector2					p0,p1;
+	fVector2					p0;
+	fVector2					p1;
 	p0.set						(.5f/_w, .5f/_h);
 	p1.set						((_w+.5f)/_w, (_h+.5f)/_h );
 	float	d_Z	= EPS_S, d_W = 1.f;
@@ -124,7 +125,8 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
 		}
 
 		// Make jitter texture
-		Fvector2					j0,j1;
+		fVector2					j0;
+		fVector2					j1;
 		float	scale_X				= float(Device.dwWidth)	/ float(TEX_jitter);
 		//float	scale_Y				= float(Device.dwHeight)/ float(TEX_jitter);
 		float	offset				= (.5f / float(TEX_jitter));
@@ -203,7 +205,8 @@ void CRenderTarget::accum_direct_blend	()
 		u32		C					= color_rgba	(255,255,255,255);
 		float	_w					= float			(Device.dwWidth);
 		float	_h					= float			(Device.dwHeight);
-		Fvector2					p0,p1;
+		fVector2					p0;
+		fVector2					p1;
 		p0.set						(.5f/_w, .5f/_h);
 		p1.set						((_w+.5f)/_w, (_h+.5f)/_h );
 		float	d_Z	= EPS_S, d_W = 1.f;
@@ -241,7 +244,8 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 	u32		C					= color_rgba	(255,255,255,255);
 	float	_w					= float			(Device.dwWidth);
 	float	_h					= float			(Device.dwHeight);
-	Fvector2					p0,p1;
+	fVector2					p0;
+	fVector2					p1;
 	p0.set						(.5f/_w, .5f/_h);
 	p1.set						((_w+.5f)/_w, (_h+.5f)/_h );
 	float	d_Z	= EPS_S, d_W = 1.f;
@@ -327,7 +331,8 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 		}
 
 		// Make jitter texture
-		Fvector2					j0,j1;
+		fVector2					j0;
+		fVector2					j1;
 		float	scale_X				= float(Device.dwWidth)	/ float(TEX_jitter);
 		//float	scale_Y				= float(Device.dwHeight)/ float(TEX_jitter);
 		float	offset				= (.5f / float(TEX_jitter));
@@ -368,7 +373,8 @@ void CRenderTarget::accum_direct_lum	()
 	// u32		C					= color_rgba	(255,255,255,255);
 	float	_w					= float			(Device.dwWidth);
 	float	_h					= float			(Device.dwHeight);
-	Fvector2					p0,p1;
+	fVector2					p0;
+	fVector2					p1;
 	p0.set						(.5f/_w, .5f/_h);
 	p1.set						((_w+.5f)/_w, (_h+.5f)/_h );
 	float	d_Z	= EPS_S;		//, d_W = 1.f;
@@ -395,7 +401,8 @@ void CRenderTarget::accum_direct_lum	()
 		RCache.set_ColorWriteEnable			();
 
 		// Make jitter texture
-		Fvector2					j0,j1;
+		fVector2					j0;
+		fVector2					j1;
 		float	scale_X				= float(Device.dwWidth)	/ float(TEX_jitter);
 //		float	scale_Y				= float(Device.dwHeight)/ float(TEX_jitter);
 		float	offset				= (.5f / float(TEX_jitter));
@@ -404,11 +411,11 @@ void CRenderTarget::accum_direct_lum	()
 
 		struct v_aa	{
 			Fvector4	p;
-			Fvector2	uv0;
-			Fvector2	uvJ;
-			Fvector2	uv1;
-			Fvector2	uv2;
-			Fvector2	uv3;
+			fVector2	uv0;
+			fVector2	uvJ;
+			fVector2	uv1;
+			fVector2	uv2;
+			fVector2	uv3;
 			Fvector4	uv4;
 			Fvector4	uv5;
 		};

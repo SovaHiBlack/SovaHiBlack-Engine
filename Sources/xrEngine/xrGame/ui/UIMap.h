@@ -20,11 +20,11 @@ public:
 	virtual void	SetActivePoint					(const Fvector &vNewPoint);
 
 	virtual void	Init							(shared_str name, CInifile& gameLtx, LPCSTR sh_name);
-	virtual Fvector2 ConvertRealToLocal				(const Fvector2& src);// meters->pixels (relatively own left-top pos)
-	Fvector2		ConvertLocalToReal				(const Fvector2& src);
-	Fvector2		ConvertRealToLocalNoTransform	(const Fvector2& src);// meters->pixels (relatively own left-top pos)
+	virtual fVector2 ConvertRealToLocal				(const fVector2& src);// meters->pixels (relatively own left-top pos)
+	fVector2		ConvertLocalToReal				(const fVector2& src);
+	fVector2		ConvertRealToLocalNoTransform	(const fVector2& src);// meters->pixels (relatively own left-top pos)
 
-	bool			GetPointerTo					(const Fvector2& src, float item_radius, Fvector2& pos, float& heading);//position and heading for drawing pointer to src pos
+	bool			GetPointerTo					(const fVector2& src, float item_radius, fVector2& pos, float& heading);//position and heading for drawing pointer to src pos
 
 	void			FitToWidth						(float width);
 	void			FitToHeight						(float height);

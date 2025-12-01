@@ -88,9 +88,9 @@ Fvector2 CUICustomMap::ConvertRealToLocal  (const Fvector2& src)// meters->pixel
 	};
 }
 
-Fvector2 CUICustomMap::ConvertRealToLocalNoTransform  (const Fvector2& src)// meters->pixels (relatively own left-top pos)
+fVector2 CUICustomMap::ConvertRealToLocalNoTransform  (const fVector2& src)// meters->pixels (relatively own left-top pos)
 {
-	Fvector2 res;
+	fVector2 res;
 	res.x = (src.x-m_BoundRect.lt.x) * GetCurrentZoom();
 	res.y = (m_BoundRect.height()-(src.y-m_BoundRect.lt.y)) * GetCurrentZoom();
 
@@ -98,7 +98,7 @@ Fvector2 CUICustomMap::ConvertRealToLocalNoTransform  (const Fvector2& src)// me
 }
 
 //position and heading for drawing pointer to src pos
-bool CUICustomMap::GetPointerTo(const Fvector2& src, float item_radius, Fvector2& pos, float& heading)
+bool CUICustomMap::GetPointerTo(const fVector2& src, float item_radius, fVector2& pos, float& heading)
 {
 	Frect		clip_rect_abs			= GetClipperRect(); //absolute rect coords
 	Frect		map_rect_abs;

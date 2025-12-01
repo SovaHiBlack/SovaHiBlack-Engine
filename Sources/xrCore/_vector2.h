@@ -240,10 +240,10 @@ public:
 		return *this;
 	}
 
-	T& operator[] (s32 i) const
+	TYPE& operator[] (s32 i) const
 	{
 		// assert:  0 <= i < 2; x and y are packed into 2*sizeof(float) bytes
-		return (T&)*(&x + i);
+		return (TYPE&)*(&x + i);
 	}
 
 	IC SelfRef normalize( )
@@ -314,6 +314,7 @@ public:
 };
 
 using iVector2 = _vector2<s32>;
+using fVector2 = _vector2<f32>;
 
 typedef _vector2<f32>		Fvector2;
 typedef _vector2<f64>	Dvector2;

@@ -235,7 +235,7 @@ void CHOM::Render		(CFrustum& base)
 	Device.Statistic->RenderCALC_HOM.End	();
 }
 
-ICF	BOOL	xform_b0	(Fvector2& min, Fvector2& max, float& minz, Fmatrix& X, float _x, float _y, float _z)
+ICF	BOOL	xform_b0	(fVector2& min, fVector2& max, float& minz, Fmatrix& X, float _x, float _y, float _z)
 {
 	float z		= _x*X._13 + _y*X._23 + _z*X._33 + X._43;			if (z<EPS) return TRUE;
 	float iw	= 1.f/(_x*X._14 + _y*X._24 + _z*X._34 + X._44);		
@@ -244,7 +244,7 @@ ICF	BOOL	xform_b0	(Fvector2& min, Fvector2& max, float& minz, Fmatrix& X, float 
 	minz		= 0.f+z*iw;
 	return FALSE;
 }
-ICF	BOOL	xform_b1	(Fvector2& min, Fvector2& max, float& minz, Fmatrix& X, float _x, float _y, float _z)
+ICF	BOOL	xform_b1	(fVector2& min, fVector2& max, float& minz, Fmatrix& X, float _x, float _y, float _z)
 {
 	float t;
 	float z		= _x*X._13 + _y*X._23 + _z*X._33 + X._43;		if (z<EPS)	return TRUE;
@@ -257,7 +257,8 @@ ICF	BOOL	xform_b1	(Fvector2& min, Fvector2& max, float& minz, Fmatrix& X, float 
 IC	BOOL	_visible	(Fbox& B, Fmatrix& m_xform_01)
 {
 	// Find min/max points of xformed-box
-	Fvector2	min,max;
+	fVector2	min;
+	fVector2	max;
 	float		z;
 	if (xform_b0(min,max,z,m_xform_01,B.min.x, B.min.y, B.min.z)) return TRUE;
 	if (xform_b1(min,max,z,m_xform_01,B.min.x, B.min.y, B.max.z)) return TRUE;
@@ -321,7 +322,8 @@ BOOL CHOM::visible		(sPoly& P)
 	if (!bEnabled)		return TRUE;
 
 	// Find min/max points of xformed-box
-	Fvector2	min,max;
+	fVector2	min;
+	fVector2	max;
 	float		z;
 	
 	if (xform_b0(min,max,z,m_xform_01,P.front().x,P.front().y,P.front().z)) return TRUE;

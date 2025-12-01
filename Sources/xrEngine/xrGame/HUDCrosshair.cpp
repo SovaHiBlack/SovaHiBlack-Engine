@@ -52,7 +52,7 @@ void CHUDCrosshair::SetDispersion	(float disp)
 	Fvector R			= { VIEWPORT_NEAR*_sin(disp), 0.f, VIEWPORT_NEAR };
 	Device.mProject.transform	(r,R);
 
-	Fvector2		scr_size;
+	fVector2		scr_size;
 	scr_size.set	(float(::Render->getTarget()->get_width()), float(::Render->getTarget()->get_height()));
 	float radius_pixels		= _abs(r.x)*scr_size.x/2.0f;
 	//	clamp(radius_pixels, min_radius, max_radius);
@@ -63,8 +63,8 @@ extern ENGINE_API BOOL g_bRendering;
 void CHUDCrosshair::OnRender ()
 {
 	VERIFY			(g_bRendering);
-	Fvector2		center;
-	Fvector2		scr_size;
+	fVector2		center;
+	fVector2		scr_size;
 	scr_size.set	(float(::Render->getTarget()->get_width()), float(::Render->getTarget()->get_height()));
 	center.set		(scr_size.x/2.0f, scr_size.y/2.0f);
 

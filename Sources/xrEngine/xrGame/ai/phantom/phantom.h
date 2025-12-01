@@ -46,7 +46,7 @@ private:
 
 	float				fSpeed;	
 	float				fASpeed;
-	Fvector2			vHP;
+	fVector2			vHP;
 
 	float				fContactHit;
 

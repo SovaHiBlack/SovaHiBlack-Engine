@@ -84,7 +84,7 @@ void CLevelFogOfWar::Init	(const shared_str& level)
 
 #define FOG_OPEN_RADIUS		(FOG_CELL_SZ/4)
 
-void CLevelFogOfWar::Open	(Fvector2 pos)
+void CLevelFogOfWar::Open	(fVector2 pos)
 {
 	if(!m_rowNum ||!m_rowNum) return; //invalid map
 	if(!(pos.x>=m_levelRect.lt.x && pos.y>=m_levelRect.lt.y && pos.x<=m_levelRect.rb.x && pos.y<=m_levelRect.rb.y)) return; //invalid position
@@ -121,7 +121,7 @@ void CLevelFogOfWar::Open	(u32 row, u32 col, bool b)
 	m_cells.at(row*m_colNum+col)=b;
 }
 
-iVector2 CLevelFogOfWar::ConvertRealToLocal(const Fvector2& src)
+iVector2 CLevelFogOfWar::ConvertRealToLocal(const fVector2& src)
 {
 	iVector2 res;
 	res.x = iFloor( (src.x - m_levelRect.lt.x)/FOG_CELL_SZ);
@@ -135,10 +135,9 @@ Irect CLevelFogOfWar::ConvertRealToLocal	(const Frect& src)
 	return Irect().set(ConvertRealToLocal(src.lt), ConvertRealToLocal(src.rb));
 }
 
-Fvector2 CLevelFogOfWar::ConvertLocalToReal(const iVector2& src)
+fVector2 CLevelFogOfWar::ConvertLocalToReal(const iVector2& src)
 {
-	return Fvector2().set(	m_levelRect.lt.x + src.x*FOG_CELL_SZ,
-							m_levelRect.lt.y + src.y*FOG_CELL_SZ) ;
+	return fVector2( ).set(m_levelRect.lt.x + src.x * FOG_CELL_SZ, m_levelRect.lt.y + src.y * FOG_CELL_SZ);
 }
 
 enum {
@@ -148,7 +147,7 @@ enum {
 	tfRB
 };
 
-void CLevelFogOfWar::GetTexUVLT(Fvector2& uv, u32 col, u32 row)
+void CLevelFogOfWar::GetTexUVLT(fVector2& uv, u32 col, u32 row)
 {
 	if (row>=m_rowNum || col>=m_colNum)				uv.set(0.5f,0.0f);
 	else{
@@ -167,7 +166,8 @@ void CLevelFogOfWar::Draw	()
 	Frect	_r;						m->GetAbsoluteRect(_r);
 	BOOL	intersected =			clip_rect.intersection(clip_rect,_r);
 	VERIFY							(intersected);
-	Fvector2	map_abs_pos; m->GetAbsolutePos(map_abs_pos);
+	fVector2	map_abs_pos;
+	m->GetAbsolutePos(map_abs_pos);
 
 	Frect	vis_rect;
 	vis_rect.set(	clip_rect.lt.x-map_abs_pos.x,
@@ -178,23 +178,20 @@ void CLevelFogOfWar::Draw	()
 	tgt.set(float(vis_rect.x1), float(vis_rect.y1), float(vis_rect.x2), float(vis_rect.y2) ); 
 	tgt.div(m->GetCurrentZoom(), m->GetCurrentZoom());
 	tgt.add(m_levelRect.lt.x, m_levelRect.lt.y);
-	tgt.rb.add(Fvector2().set(FOG_CELL_SZ- EPS_3,FOG_CELL_SZ- EPS_3));
+	tgt.rb.add(fVector2().set(FOG_CELL_SZ- EPS_3,FOG_CELL_SZ- EPS_3));
 	Irect		cells			= ConvertRealToLocal(tgt);
 
-	Fvector2	realCellsPosLT	= ConvertLocalToReal(cells.lt);
+	fVector2	realCellsPosLT	= ConvertLocalToReal(cells.lt);
 
 	realCellsPosLT.sub			(m_levelRect.lt).mul(m->GetCurrentZoom());
 	
 	iVector2	drawLT;
-	drawLT.set					((realCellsPosLT.x + map_abs_pos.x)*UI()->GetScaleX(), 
-								 (realCellsPosLT.y + map_abs_pos.y)*UI()->GetScaleY());
+	drawLT.set					((realCellsPosLT.x + map_abs_pos.x)*UI()->GetScaleX(), (realCellsPosLT.y + map_abs_pos.y)*UI()->GetScaleY());
 	
 
-	const Fvector2 pts[6] =		{{0.0f,0.0f},{1.0f,0.0f},{1.0f,1.0f},
-								 {0.0f,0.0f},{1.0f,1.0f},{0.0f,1.0f}};
+	const fVector2 pts[6] =		{{0.0f,0.0f},{1.0f,0.0f},{1.0f,1.0f},{0.0f,0.0f},{1.0f,1.0f},{0.0f,1.0f}};
 
-	const Fvector2 uvs[6] =		{{0.0f,0.0f},{0.5f,0.0f},{0.5f,1.0f},
-								 {0.0f,0.0f},{0.5f,1.0f},{0.0f,1.0f}};
+	const fVector2 uvs[6] =		{{0.0f,0.0f},{0.5f,0.0f},{0.5f,1.0f},{0.0f,0.0f},{0.5f,1.0f},{0.0f,1.0f}};
 
 	// calculate cell size in screen pixels
 	float		fw				= FOG_CELL_SZ*m->GetCurrentZoom()*UI()->GetScaleX();
@@ -206,11 +203,11 @@ void CLevelFogOfWar::Draw	()
 	FVF::TL* pv					= start_pv;
 	for (int x=0; x<cells.width(); ++x){
 		for (int y=0; y<cells.height(); ++y){
-			Fvector2			tp;
+			fVector2			tp;
 			GetTexUVLT			(tp,cells.x1+x,cells.y1+y);
 			for (u32 k=0; k<6; ++k,++pv){
-				const Fvector2& p	= pts[k];
-				const Fvector2& uv	= uvs[k];
+				const fVector2& p	= pts[k];
+				const fVector2& uv	= uvs[k];
 				pv->set			(iFloor(drawLT.x + p.x*(fw) +fw*x)-0.5f, 
 								 iFloor(drawLT.y + p.y*(fh) +fh*y)-0.5f, 
 								 0xFFFFFFFF,tp.x+uv.x,tp.y+uv.y);

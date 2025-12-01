@@ -345,7 +345,7 @@ IC float ThrowMinVelTime(const Fvector &transference,float gravity_accel)
 	return _sqrt(2.f*transference.magnitude()/gravity_accel);
 }
 //returns num result, tgA result tangents of throw angle 
-IC u8 TransferenceAndThrowVelToTgA(const Fvector &transference,float throw_vel,float gravity_accel,Fvector2& tgA,float &s)
+IC u8 TransferenceAndThrowVelToTgA(const Fvector &transference,float throw_vel,float gravity_accel, fVector2& tgA,float &s)
 {
 	float sqx=transference.x*transference.x+transference.z*transference.z;
 	float sqv=throw_vel*throw_vel;
@@ -362,7 +362,7 @@ IC u8 TransferenceAndThrowVelToTgA(const Fvector &transference,float throw_vel,f
 	tgA.x=mlt*(1.f-D4);tgA.y=mlt*(1.f+D4);
 	return 2;
 }
-IC u8 TransferenceAndThrowVelToTgA(const Fvector &transference,float throw_vel,float gravity_accel,Fvector2	&tgA)
+IC u8 TransferenceAndThrowVelToTgA(const Fvector &transference,float throw_vel,float gravity_accel, fVector2& tgA)
 {
 	float s;
 	return TransferenceAndThrowVelToTgA(transference,throw_vel,gravity_accel,tgA,s);
@@ -370,7 +370,7 @@ IC u8 TransferenceAndThrowVelToTgA(const Fvector &transference,float throw_vel,f
 IC u8 TransferenceAndThrowVelToThrowDir(const Fvector &transference,float throw_vel,float gravity_accel,Fvector	throw_dir[2])
 {
 	throw_dir[0]=throw_dir[1]=transference;
-	Fvector2 tgA;
+	fVector2 tgA;
 	float s;
 	u8 ret=TransferenceAndThrowVelToTgA(transference,throw_vel,gravity_accel,tgA,s);
 	switch(ret) {

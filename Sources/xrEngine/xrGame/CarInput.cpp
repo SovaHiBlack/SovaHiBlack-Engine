@@ -193,7 +193,7 @@ void CCar::Action(int id, u32 flags)
 {
 	if(m_car_weapon)m_car_weapon->Action(id,flags);
 }
-void CCar::SetParam(int id, Fvector2 val)
+void CCar::SetParam(int id, fVector2 val)
 {
 	if(m_car_weapon)m_car_weapon->SetParam(id,val);
 }

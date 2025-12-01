@@ -382,7 +382,8 @@ void CLightShadows::render	()
 		float		Le			=	S.L->color.intensity()*S.E;
 		int			s_x			=	S.slot%slot_line;
 		int			s_y			=	S.slot/slot_line;
-		Fvector2	t_scale, t_offset;
+		fVector2	t_scale;
+		fVector2	t_offset;
 		t_scale.set	(float(S_size)/float(S_rt_size),float(S_size)/float(S_rt_size));
 		t_scale.mul (.5f);
 		t_offset.set(float(s_x)/float(slot_line),float(s_y)/float(slot_line));

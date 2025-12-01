@@ -142,7 +142,7 @@ void CUICustomItem::Render(FVF::TL*& Pointer, const Fvector2& pos_ns, u32 color,
 	if (R&&R->size())
 		for (u32 k=0; k<R->size(); k++,Pointer++)
 		{
-//.			Fvector2 _pt;
+//.			fVector2 _pt;
 //.			UI()->ClientToScreenScaled			(_pt, (*R)[k].pt.x, (*R)[k].pt.y);
 //.			Pointer->set						(_pt.x, _pt.y,	color, (*R)[k].uv.x, (*R)[k].uv.y); 
 			Pointer->set						((*R)[k].pt.x, (*R)[k].pt.y,	color, (*R)[k].uv.x, (*R)[k].uv.y); 

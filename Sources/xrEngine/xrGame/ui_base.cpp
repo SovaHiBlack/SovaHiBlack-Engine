@@ -6,11 +6,11 @@
 
 CUICursor*	GetUICursor		()	{return UI()->GetUICursor();};
 ui_core*	UI				()	{return GamePersistent().m_pUI_core;};
-extern ENGINE_API Fvector2		g_current_font_scale;
+extern ENGINE_API fVector2		g_current_font_scale;
 
-void S2DVert::rotate_pt(const Fvector2& pivot, float cosA, float sinA, float kx)
+void S2DVert::rotate_pt(const fVector2& pivot, float cosA, float sinA, float kx)
 {
-	Fvector2 t		= pt;
+	fVector2 t		= pt;
 	t.sub			(pivot);
 	pt.x			= t.x*cosA+t.y*sinA;
 	pt.y			= t.y*cosA-t.x*sinA;
@@ -21,10 +21,10 @@ void C2DFrustum::CreateFromRect	(const Frect& rect)
 {
 	m_rect.set(float(rect.x1), float(rect.y1), float(rect.x2), float(rect.y2) );
 	planes.resize	(4);
-	planes[0].build	(rect.lt, Fvector2().set(-1, 0));
-	planes[1].build	(rect.lt, Fvector2().set( 0,-1));
-	planes[2].build	(rect.rb, Fvector2().set(+1, 0));
-	planes[3].build	(rect.rb, Fvector2().set( 0,+1));
+	planes[0].build	(rect.lt, fVector2().set(-1, 0));
+	planes[1].build	(rect.lt, fVector2().set( 0,-1));
+	planes[2].build	(rect.rb, fVector2().set(+1, 0));
+	planes[3].build	(rect.rb, fVector2().set( 0,+1));
 }
 
 sPoly2D* C2DFrustum::ClipPoly	(sPoly2D& S, sPoly2D& D) const
@@ -56,7 +56,9 @@ sPoly2D* C2DFrustum::ClipPoly	(sPoly2D& S, sPoly2D& D) const
 		// clip everything to this plane
 		cls[src->size()] = cls[0]	;
 		src->push_back((*src)[0])	;
-		Fvector2 dir_pt,dir_uv;		float denum,t;
+		fVector2 dir_pt;
+		fVector2 dir_uv;
+		float denum, t;
 		for (j=0; j<src->size()-1; j++)	{
 			if ((*src)[j].pt.similar((*src)[j+1].pt,EPS_S)) continue;
 			if (negative(cls[j]))	{
@@ -108,12 +110,12 @@ void ui_core::OnDeviceReset()
 												));
 }
 
-void ui_core::ClientToScreenScaled(Fvector2& dest, float left, float top)
+void ui_core::ClientToScreenScaled(fVector2& dest, float left, float top)
 {
 	dest.set(ClientToScreenScaledX(left),	ClientToScreenScaledY(top));
 }
 
-void ui_core::ClientToScreenScaled(Fvector2& src_and_dest)
+void ui_core::ClientToScreenScaled(fVector2& src_and_dest)
 {
 	src_and_dest.set(ClientToScreenScaledX(src_and_dest.x),	ClientToScreenScaledY(src_and_dest.y));
 }

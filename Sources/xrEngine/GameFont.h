@@ -25,14 +25,14 @@ private:
 		EAligment	align;
 	};
 protected:
-	Fvector2				vHalfPixel;
+	fVector2				vHalfPixel;
 	iVector2				vTS;
 
 	EAligment				eCurrentAlignment;
 	u32						dwCurrentColor;
 	float					fCurrentHeight;
 	float					fCurrentX, fCurrentY;
-	Fvector2				vInterval;
+	fVector2				vInterval;
 
 	Fvector 				*TCMap;
 	float					fHeight;
@@ -77,7 +77,7 @@ public:
 
 	IC float				GetHeight		(){return fCurrentHeight;};
 	IC void					SetInterval		(float x, float y) {vInterval.set(x,y);};
-	IC void					SetInterval		(const Fvector2& v) {vInterval.set(v);};
+	IC void					SetInterval		(const fVector2& v) {vInterval.set(v);};
 	IC void					SetAligment		(EAligment aligment){ eCurrentAlignment=aligment; }
 
 	float					SizeOf_			( LPCSTR s );

@@ -545,7 +545,8 @@ void	CRender::ApplyBlur4		(FVF::TL4uv* pv, u32 w, u32 h, float k)
 	float	_h					= float(h);
 	float	kw					= (1.f/_w)*k;
 	float	kh					= (1.f/_h)*k;
-	Fvector2					p0,p1;
+	fVector2					p0;
+	fVector2					p1;
 	p0.set						(.5f/_w, .5f/_h);
 	p1.set						((_w+.5f)/_w, (_h+.5f)/_h );
 	u32		_c					= 0xffffffff;

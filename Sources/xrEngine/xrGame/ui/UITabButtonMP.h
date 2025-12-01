@@ -15,9 +15,9 @@ public:
 	virtual bool 	IsEnabled				()					{ return true; }
 			void 	SetOrientation			(bool bVert)		{m_orientationVertical = bVert;};
 	u32				m_temp_index;
-		Fvector2	m_text_ident_pushed;
-		Fvector2	m_text_ident_cursor_over;
+	fVector2	m_text_ident_pushed;
+	fVector2	m_text_ident_cursor_over;
+
 private:
     bool			m_orientationVertical;
-
 };

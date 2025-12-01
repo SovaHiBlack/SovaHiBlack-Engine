@@ -1198,15 +1198,16 @@ void CApplication::load_draw_internal()
 //progress
 		float bw					= 1024.0f;
 		float bh					= 768.0f;
-		Fvector2					k; k.set(float(_w)/bw, float(_h)/bh);
+		fVector2					k;
+		k.set						(float(_w)/bw, float(_h)/bh);
 
 		RCache.set_Shader			(sh_progress);
 		CTexture*	T				= RCache.get_ActiveTexture(0);
-		Fvector2					tsz;
+		fVector2					tsz;
 		tsz.set						((float)T->get_Width(),(float)T->get_Height());
 		Frect						back_text_coords;
 		Frect						back_coords;
-		Fvector2					back_size;
+		fVector2					back_size;
 
 //progress background
 		static float offs			= -0.5f;
@@ -1273,7 +1274,7 @@ void CApplication::load_draw_internal()
 			r.lt.set					(257,369);
 			r.lt.x						+= offs;
 			r.lt.y						+= offs;
-			r.rb.add					(r.lt,Fvector2().set(512,256));
+			r.rb.add					(r.lt, fVector2().set(512.0f,256.0f));
 			r.lt.mul					(k);						
 			r.rb.mul					(k);						
 			pv							= (FVF::TL*) RCache.Vertex.Lock(4,ll_hGeom.stride(),Offset);

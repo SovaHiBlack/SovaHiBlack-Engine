@@ -62,7 +62,7 @@ void	IInputReceiver::IR_GetMousePosReal				(iVector2& p)
 {
 	IR_GetMousePosReal(Device.m_hWnd,p);
 }
-void	IInputReceiver::IR_GetMousePosIndependent		(Fvector2 &f)
+void	IInputReceiver::IR_GetMousePosIndependent		(fVector2& f)
 {
 	iVector2 p;
 	IR_GetMousePosReal(p);
@@ -71,7 +71,7 @@ void	IInputReceiver::IR_GetMousePosIndependent		(Fvector2 &f)
 		2.f*float(p.y)/float(Device.dwHeight)-1.f
 		);
 }
-void	IInputReceiver::IR_GetMousePosIndependentCrop	(Fvector2 &f)
+void	IInputReceiver::IR_GetMousePosIndependentCrop	(fVector2& f)
 {
 	IR_GetMousePosIndependent(f);
 	if (f.x<-1.f) f.x=-1.f;

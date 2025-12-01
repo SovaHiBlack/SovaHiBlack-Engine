@@ -16,7 +16,7 @@ namespace FVF {
 
 	struct V {
 		Fvector		p;
-		Fvector2	t;
+		fVector2	t;
 		IC void		set(const V& src) {*this = src;};
 		IC void		set(float x, float y, float z, float u, float v)	{ p.set(x,y,z); t.set(u,v);}
 		IC void		set(const Fvector& _p,float u, float v)				{ p.set(_p);	t.set(u,v);}
@@ -26,7 +26,7 @@ namespace FVF {
 	struct LIT {
 		Fvector		p;
 		u32			color;
-		Fvector2	t;
+		fVector2	t;
 		IC void		set(const LIT& src) {*this = src;};
 		IC void		set(float x, float y, float z, u32 C, float u, float v) { p.set(x,y,z); color=C; t.set(u,v);}
 		IC void		set(const Fvector& _p, u32 C, float u, float v) { p.set(_p); color=C; t.set(u,v);}
@@ -61,10 +61,10 @@ namespace FVF {
 	struct TL {
 		Fvector4	p;
 		u32			color;
-		Fvector2	uv;
+		fVector2	uv;
 		IC void	set	(const TL& src)
 		{	*this = src; };
-		IC void	set	(float x, float y, u32 c, Fvector2& t)
+		IC void	set	(float x, float y, u32 c, fVector2& t)
 		{	set	(x,y,.0001f,.9999f,c,t.x,t.y); };
 		IC void	set	(float x, float y, u32 c, float u, float v)
 		{	set	(x,y,.0001f,.9999f,c,u,v); };
@@ -89,12 +89,12 @@ namespace FVF {
 	struct TL2uv {
 		Fvector4	p;
 		u32			color;
-		Fvector2	uv[2];
+		fVector2	uv[2];
 		IC void	set	(const TL2uv& src)
 		{	*this = src; };
-		IC void	set	(float x, float y, u32 c, Fvector2& t0, Fvector2& t1)
+		IC void	set	(float x, float y, u32 c, fVector2& t0, fVector2& t1)
 		{	set	(x,y,.0001f,.9999f,c,t0.x,t0.y,t1.x,t1.y);	};
-		IC void	set	(float x, float y, float z, float w, u32 c, Fvector2& t0, Fvector2& t1)
+		IC void	set	(float x, float y, float z, float w, u32 c, fVector2& t0, fVector2& t1)
 		{	set	(x,y,z,w,c,t0.x,t0.y,t1.x,t1.y);			};
 		IC void	set	(float x, float y, u32 c, float u, float v, float u2, float v2)
 		{	set	(x,y,.0001f,.9999f,c,u,v,u2,v2); };
@@ -119,12 +119,12 @@ namespace FVF {
 	struct TL4uv {
 		Fvector4	p;
 		u32			color;
-		Fvector2	uv[4];
+		fVector2	uv[4];
 		IC void	set	(const TL4uv& src)
 		{	*this = src; };
-		IC void	set	(float x, float y, u32 c, Fvector2& t0, Fvector2& t1)
+		IC void	set	(float x, float y, u32 c, fVector2& t0, fVector2& t1)
 		{	set	(x,y,.0001f,.9999f,c,t0.x,t0.y,t1.x,t1.y);	};
-		IC void	set	(float x, float y, float z, float w, u32 c, Fvector2& t0, Fvector2& t1)
+		IC void	set	(float x, float y, float z, float w, u32 c, fVector2& t0, fVector2& t1)
 		{	set	(x,y,z,w,c,t0.x,t0.y,t1.x,t1.y);			};
 		IC void	set	(float x, float y, u32 c, float u, float v, float u2, float v2)
 		{	set	(x,y,.0001f,.9999f,c,u,v,u2,v2); };

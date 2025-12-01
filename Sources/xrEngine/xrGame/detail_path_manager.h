@@ -34,18 +34,18 @@ public:
 	};
 
 	struct STravelPoint {
-		Fvector2		position;
+		fVector2		position;
 		u32				vertex_id;
 	};
 
 	struct SPathPoint : public STravelParams, public STravelPoint {
-		Fvector2		direction;
+		fVector2		direction;
 	};
 
 	struct SCirclePoint {
-		Fvector2		center;
+		fVector2		center;
 		float			radius;
-		Fvector2		point;
+		fVector2		point;
 		float			angle;
 	};
 
@@ -128,7 +128,7 @@ private:
 	IC	STravelPoint compute_better_key_point	(const STravelPoint		&point0,	const STravelPoint					&point1,		const STravelPoint					&point2,				bool								reverse_order);
 	IC		bool	better_key_point			(const STravelPoint		&point0,	const STravelPoint					&point2,		const STravelPoint					&point10,			const STravelPoint					&point11);
 	IC		bool	check_mask					(u32					mask,			  u32							test) const;
-	IC		void	adjust_point				(const Fvector2			&source,		  float							yaw,				  float							magnitude,				  Fvector2						&dest) const;
+	IC		void	adjust_point				(const fVector2&		source,		  float							yaw,				  float							magnitude, fVector2& dest) const;
 	IC		void	assign_angle				(float					&angle,		const float							start_yaw,		const float							dest_yaw,			const bool							positive,			const EDirectionType				direction_type,				const bool				start = true) const;
 	IC		void	compute_circles				(STrajectoryPoint		&point,			  SCirclePoint					*circles);
 			bool	compute_tangent				(const STrajectoryPoint	&start,		const SCirclePoint					&start_circle,	const STrajectoryPoint				&dest,				const SCirclePoint					&dest_circle,		      SCirclePoint					*tangents,					const EDirectionType	direction_type);

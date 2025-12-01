@@ -171,7 +171,7 @@ void CUIFrameRect::SetWndRect(const Frect& rect){
 
 void CUIFrameRect::SetWndPos(const Fvector2& pos){
 
-//.	Fvector2 _old_pos = GetWndPos();
+//.	fVector2 _old_pos = GetWndPos();
 //.	if(_old_pos.similar(pos,EPS,EPS))	return;
 
 	CUISimpleWindow::SetWndPos(pos);

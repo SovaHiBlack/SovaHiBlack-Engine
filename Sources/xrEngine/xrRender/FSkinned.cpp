@@ -67,7 +67,7 @@ struct	vertHW_1W
 	u32			_T		;
 	u32			_B		;
 	s16			_tc		[2];
-	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, Fvector2& tc, int index)
+	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, fVector2& tc, int index)
 	{
 		N.normalize_safe();
 		T.normalize_safe();
@@ -110,7 +110,7 @@ struct	vertHW_2W
 	u32			_T		;
 	u32			_B		;
 	s16			_tc_i	[4];
-	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, Fvector2& tc, int index0, int index1, float w)
+	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, fVector2& tc, int index0, int index1, float w)
 	{
 		N.normalize_safe	();
 		T.normalize_safe	();
@@ -240,7 +240,8 @@ void CSkeletonX_ext::_Load_hw	(Fvisual& V, void *	_verts_)
 			vertHW_1W*		dst	= (vertHW_1W*)bytes;
 			vertBoned1W*	src = (vertBoned1W*)_verts_;
 			for (u32 it=0; it<V.vCount; it++)	{
-				Fvector2	uv; uv.set(src->u,src->v);
+				fVector2	uv;
+				uv.set(src->u,src->v);
 				dst->set	(src->P,src->N,src->T,src->B,uv,src->matrix*3);
 				dst++; src++;
 			}
@@ -260,7 +261,8 @@ void CSkeletonX_ext::_Load_hw	(Fvisual& V, void *	_verts_)
 			vertHW_2W*		dst	= (vertHW_2W*)bytes;
 			vertBoned2W*	src = (vertBoned2W*)_verts_;
 			for (u32 it=0; it<V.vCount; it++)	{
-				Fvector2	uv; uv.set(src->u,src->v);
+				fVector2	uv;
+				uv.set(src->u,src->v);
 				dst->set	(src->P,src->N,src->T,src->B,uv,int(src->matrix0)*3,int(src->matrix1)*3,src->w);
 				dst++;		src++;
 			}
@@ -469,7 +471,7 @@ void CSkeletonX_ext::_FillVerticesHW1W(const Fmatrix& view, CSkeletonWallmark& w
 		{
 			Fvector				UV;
 			for (u32 k=0; k<3; k++){
-				Fvector2& uv	= F.uv[k];
+				fVector2& uv	= F.uv[k];
 				view.transform_tiny(UV,p[k]);
 				uv.x			= (1+UV.x)*.5f;
 				uv.y			= (1-UV.y)*.5f;
@@ -507,7 +509,7 @@ void CSkeletonX_ext::_FillVerticesHW2W(const Fmatrix& view, CSkeletonWallmark& w
 		if (CDB::TestSphereTri(wm.ContactPoint(),size,p)){
 			Fvector				UV;
 			for (u32 k=0; k<3; k++){
-				Fvector2& uv	= F.uv[k];
+				fVector2& uv	= F.uv[k];
 				view.transform_tiny(UV,p[k]);
 				uv.x			= (1+UV.x)*.5f;
 				uv.y			= (1-UV.y)*.5f;

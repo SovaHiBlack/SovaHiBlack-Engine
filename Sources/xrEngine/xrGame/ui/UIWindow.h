@@ -150,7 +150,7 @@ public:
 	
 	//абсолютные координаты
 	IC void					GetAbsoluteRect		(Frect& r) ;
-	IC void					GetAbsolutePos		(Fvector2& p) 	{Frect abs; GetAbsoluteRect(abs); p.set(abs.x1,abs.y1);}
+	IC void					GetAbsolutePos		(fVector2& p) 	{Frect abs; GetAbsoluteRect(abs); p.set(abs.x1,abs.y1);}
 
 
 			void			SetWndRect_script(float x, float y, float width, float height)		{CUISimpleWindow::SetWndRect(x,y,width,height);}
@@ -222,7 +222,7 @@ protected:
 	CGameFont*				m_pFont;
 
 	// Последняя позиция мышки
-	Fvector2 cursor_pos;
+	fVector2 cursor_pos;
 
 	//время прошлого клика мышки
 	//для определения DoubleClick

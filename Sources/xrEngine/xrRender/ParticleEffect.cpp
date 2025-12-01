@@ -199,7 +199,7 @@ void CParticleEffect::OnDeviceDestroy()
 	}
 }
 //----------------------------------------------------
-IC void FillSprite	(FVF::LIT*& pv, const Fvector& T, const Fvector& R, const Fvector& pos, const Fvector2& lt, const Fvector2& rb, float r1, float r2, u32 clr, float angle)
+IC void FillSprite	(FVF::LIT*& pv, const Fvector& T, const Fvector& R, const Fvector& pos, const fVector2& lt, const fVector2& rb, float r1, float r2, u32 clr, float angle)
 {
 	float sa	= _sin(angle);  
 	float ca	= _cos(angle);  
@@ -222,7 +222,7 @@ IC void FillSprite	(FVF::LIT*& pv, const Fvector& T, const Fvector& R, const Fve
 	pv->set		(b.x+pos.x,b.y+pos.y,b.z+pos.z,	clr, rb.x,lt.y);	pv++;
 }
 
-IC void FillSprite	(FVF::LIT*& pv, const Fvector& pos, const Fvector& dir, const Fvector2& lt, const Fvector2& rb, float r1, float r2, u32 clr, float angle)
+IC void FillSprite	(FVF::LIT*& pv, const Fvector& pos, const Fvector& dir, const fVector2& lt, const fVector2& rb, float r1, float r2, u32 clr, float angle)
 {
 	float sa	= _sin(angle);  
 	float ca	= _cos(angle);  
@@ -262,7 +262,8 @@ void CParticleEffect::Render(float )
 			for(u32 i = 0; i < p_cnt; i++){
 				PAPI::Particle &m = particles[i];
 
-				Fvector2 lt,rb;
+				fVector2		lt;
+				fVector2		rb;
 				lt.set			(0.f,0.f);
 				rb.set			(1.f,1.f);
 				if (m_Def->m_Flags.is(CPEDef::dfFramed)) m_Def->m_Frame.CalculateTC(iFloor(float(m.frame)/255.f),lt,rb);

@@ -133,7 +133,7 @@ void CUITaskRootItem::SetGameTask(CGameTask* gt, u16 obj_idx)
 	if( m_remTimeStatic->IsShown() )
 	{
 		float _height	= GetWndSize().y;
-		Fvector2 _pos	= m_captionTime->GetWndPos();
+		fVector2 _pos	= m_captionTime->GetWndPos();
 		_pos.y			+= m_captionTime->GetWndSize().y;
 		_pos.x			= m_remTimeStatic->GetWndPos().x;
 

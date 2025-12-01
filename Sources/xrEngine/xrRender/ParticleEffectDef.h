@@ -30,8 +30,8 @@ namespace PS
 	class PFunction;
 	struct SFrame
 	{
-		Fvector2			m_fTexSize;
-		Fvector2			reserved; 
+		fVector2			m_fTexSize;
+		fVector2			reserved;
 		int     			m_iFrameDimX;
 		int 				m_iFrameCount;
 		float				m_fSpeed;
@@ -43,7 +43,7 @@ namespace PS
 			m_iFrameCount 	= 16;
 			m_fSpeed		= 24.f;
 		}
-		IC void       		CalculateTC(int frame, Fvector2& lt, Fvector2& rb)
+		IC void       		CalculateTC(int frame, fVector2& lt, fVector2& rb)
 		{
 			lt.x       	 	= (frame%m_iFrameDimX)*m_fTexSize.x;
 			lt.y        	= (frame/m_iFrameDimX)*m_fTexSize.y;

@@ -87,7 +87,7 @@ void CUITextBanner::Out(float x, float y, const char *fmt, ...)
 //	if(fontSize>0.0f)
 //		m_pFont->SetHeight(fontSize);
 
-	Fvector2 pos;
+	fVector2 pos;
 	UI()->ClientToScreenScaled(pos, x, y);
 	m_pFont->Out(pos.x, pos.y, "%s", buf.c_str());
 }

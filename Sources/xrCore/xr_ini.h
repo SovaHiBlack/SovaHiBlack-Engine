@@ -101,8 +101,8 @@ public:
 	Ivector3	r_ivector3		( const shared_str& S, LPCSTR L )				{ return r_ivector3(*S,L);		}
 	Ivector4	r_ivector4		( LPCSTR S, LPCSTR L );
 	Ivector4	r_ivector4		( const shared_str& S, LPCSTR L )				{ return r_ivector4(*S,L);		}
-	Fvector2	r_fvector2		( LPCSTR S, LPCSTR L );
-	Fvector2	r_fvector2		( const shared_str& S, LPCSTR L )				{ return r_fvector2(*S,L);		}
+	fVector2	r_fvector2		( LPCSTR S, LPCSTR L );
+	fVector2	r_fvector2		( const shared_str& S, LPCSTR L )				{ return r_fvector2(*S,L);		}
 	Fvector3	r_fvector3		( LPCSTR S, LPCSTR L );
 	Fvector3	r_fvector3		( const shared_str& S, LPCSTR L )				{ return r_fvector3(*S,L);		}
 	Fvector4	r_fvector4		( LPCSTR S, LPCSTR L );
@@ -126,7 +126,7 @@ public:
     void		w_ivector2		( LPCSTR S, LPCSTR L, const iVector2&	V, LPCSTR comment=0 );
 	void		w_ivector3		( LPCSTR S, LPCSTR L, const Ivector3&	V, LPCSTR comment=0 );
 	void		w_ivector4		( LPCSTR S, LPCSTR L, const Ivector4&	V, LPCSTR comment=0 );
-	void		w_fvector2		( LPCSTR S, LPCSTR L, const Fvector2&	V, LPCSTR comment=0 );
+	void		w_fvector2		( LPCSTR S, LPCSTR L, const fVector2&	V, LPCSTR comment=0 );
 	void		w_fvector3		( LPCSTR S, LPCSTR L, const Fvector3&	V, LPCSTR comment=0 );
 	void		w_fvector4		( LPCSTR S, LPCSTR L, const Fvector4&	V, LPCSTR comment=0 );
 	void		w_bool			( LPCSTR S, LPCSTR L, BOOL				V, LPCSTR comment=0 );

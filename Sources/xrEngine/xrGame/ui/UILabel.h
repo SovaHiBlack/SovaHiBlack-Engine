@@ -14,7 +14,7 @@ public:
 	virtual void SetWidth(float width);
 	virtual void SetHeight(float height);
 	virtual void SetFont(CGameFont* pFont);
-    // CUIFrameLineWnd
+	// CUIFrameLineWnd
 	virtual void			Init(float x, float y, float width, float height);
 	virtual void			Draw();
 	virtual void			Update			();
@@ -22,7 +22,4 @@ public:
 	// own
 	CUILabel();
 			void			SetLightAnim			(LPCSTR lanim);
-
-protected:
-//	Fvector2 m_textPos;
 };
