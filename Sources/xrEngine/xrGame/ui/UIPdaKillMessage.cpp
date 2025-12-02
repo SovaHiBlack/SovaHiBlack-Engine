@@ -98,7 +98,7 @@ float CUIPdaKillMessage::InitIcon(CUIStatic& refStatic, float x, IconInfo& info)
 	float		y = 0;
 	float		selfHeight = GetHeight();
 	float		scale = 0;
-	Frect		rect = info.m_rect;
+	fRect		rect = info.m_rect;
 
 	float width = rect.width();
 	float height = rect.height();

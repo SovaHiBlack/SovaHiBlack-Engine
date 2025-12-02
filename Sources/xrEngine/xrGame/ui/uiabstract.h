@@ -41,8 +41,8 @@ public:
 	virtual void		SetShader(const ref_shader& sh)									= 0;
 	virtual void		SetTextureColor(u32 color)										= 0;
 	virtual u32			GetTextureColor()										const	= 0;
-	virtual void		SetOriginalRect(const Frect& r)									= 0;
-	virtual void		SetOriginalRectEx(const Frect& r)								= 0;
+	virtual void		SetOriginalRect(const fRect& r)									= 0;
+	virtual void		SetOriginalRectEx(const fRect& r)								= 0;
 };
 
 class IUIMultiTextureOwner{
@@ -102,7 +102,7 @@ public:
 	virtual void		SetWndPos(const fVector2& pos)					= 0;
 	virtual void		SetWndPos(float x, float y)						= 0;
 	virtual void		SetWndSize(const fVector2& size)				= 0;
-	virtual void		SetWndRect(const Frect& rect)					= 0;
+	virtual void		SetWndRect(const fRect& rect)					= 0;
 	virtual void		SetHeight(float height)							= 0;
 	virtual void		SetWidth(float width)							= 0;
 /*
@@ -131,9 +131,9 @@ public:
 	virtual void			SetWndRect(float x, float y, float width, float height) {
 																						m_wndPos.set(x,y); 
 																						m_wndSize.set(width,height); }
-	virtual void			SetWndRect(const Frect& rect)				{SetWndRect(rect.lt.x, rect.lt.y, rect.width(), rect.height());}
-	IC		Frect			GetWndRect()						const	{Frect r; GetWndRect(r); return r;}
-	IC		void			GetWndRect(Frect& res)				const
+	virtual void			SetWndRect(const fRect& rect)				{SetWndRect(rect.lt.x, rect.lt.y, rect.width(), rect.height());}
+	IC		fRect			GetWndRect()						const	{		fRect r; GetWndRect(r); return r;}
+	IC		void			GetWndRect(fRect& res)				const
 	{
 		switch (m_alignment){
 			case waNone:

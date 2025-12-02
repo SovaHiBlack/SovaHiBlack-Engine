@@ -1205,8 +1205,8 @@ void CApplication::load_draw_internal()
 		CTexture*	T				= RCache.get_ActiveTexture(0);
 		fVector2					tsz;
 		tsz.set						((float)T->get_Width(),(float)T->get_Height());
-		Frect						back_text_coords;
-		Frect						back_coords;
+		fRect						back_text_coords;
+		fRect						back_coords;
 		fVector2					back_size;
 
 //progress background
@@ -1270,7 +1270,7 @@ void CApplication::load_draw_internal()
 
 //draw level-specific screenshot
 		if(hLevelLogo){
-			Frect						r;
+			fRect						r;
 			r.lt.set					(257,369);
 			r.lt.x						+= offs;
 			r.lt.y						+= offs;

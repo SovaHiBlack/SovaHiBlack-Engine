@@ -34,8 +34,8 @@ public:
 	virtual void	SetShader		(const ref_shader& sh);
 	virtual void	SetTextureColor	(u32 color)											{SetColor(color);}
 	virtual u32		GetTextureColor	()											const	{return GetColor();}
-	virtual	void	SetOriginalRect	(const Frect& r)									{iOriginalRect = r; uFlags|=flValidOriginalRect;}
-	virtual void	SetOriginalRectEx(const Frect& r)									{iOriginalRect = r; uFlags|=flValidOriginalRect; SetRect(0,0,r.width(),r.height());}
+	virtual	void	SetOriginalRect	(const fRect& r)									{iOriginalRect = r; uFlags|=flValidOriginalRect;}
+	virtual void	SetOriginalRectEx(const fRect& r)									{iOriginalRect = r; uFlags|=flValidOriginalRect; SetRect(0,0,r.width(),r.height());}
 
 
 	void			Init			(LPCSTR tex, LPCSTR sh, float left, float top, u32 align);

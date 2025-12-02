@@ -17,7 +17,7 @@ void S2DVert::rotate_pt(const fVector2& pivot, float cosA, float sinA, float kx)
 	pt.x			*= kx;
 	pt.add			(pivot);
 }
-void C2DFrustum::CreateFromRect	(const Frect& rect)
+void C2DFrustum::CreateFromRect	(const fRect& rect)
 {
 	m_rect.set(float(rect.x1), float(rect.y1), float(rect.x2), float(rect.y2) );
 	planes.resize	(4);
@@ -103,7 +103,7 @@ void ui_core::OnDeviceReset()
 {
 	m_scale_.set		( float(Device.dwWidth)/UI_BASE_WIDTH, float(Device.dwHeight)/UI_BASE_HEIGHT );
 
-	m_2DFrustum.CreateFromRect	(Frect().set(	0.0f,
+	m_2DFrustum.CreateFromRect	(fRect().set(	0.0f,
 												0.0f,
 												float(Device.dwWidth),
 												float(Device.dwHeight)
@@ -132,17 +132,17 @@ void ui_core::ClientToScreenScaledHeight(float& src_and_dest)
 	src_and_dest		/= m_current_scale->y;
 }
 
-Frect ui_core::ScreenRect()
+fRect ui_core::ScreenRect()
 {
-	static Frect R={0.0f, 0.0f, UI_BASE_WIDTH, UI_BASE_HEIGHT};
+	static fRect R={0.0f, 0.0f, UI_BASE_WIDTH, UI_BASE_HEIGHT};
 	return R;
 }
 
-void ui_core::PushScissor(const Frect& r_tgt, bool overlapped)
+void ui_core::PushScissor(const fRect& r_tgt, bool overlapped)
 {
 //.	return;
-	Frect r_top			= ScreenRect();
-	Frect result		= r_tgt;
+	fRect r_top			= ScreenRect();
+	fRect result		= r_tgt;
 	if (!m_Scissors.empty()&&!overlapped){
 		r_top			= m_Scissors.top();
 	}
@@ -179,7 +179,7 @@ void ui_core::PopScissor()
 	if(m_Scissors.empty())
 		RCache.set_Scissor(NULL);
 	else{
-		const Frect& top= m_Scissors.top();
+		const fRect& top= m_Scissors.top();
 		iRect tgt;
 		tgt.lt.x 		= iFloor(ClientToScreenScaledX(top.lt.x));
 		tgt.lt.y 		= iFloor(ClientToScreenScaledY(top.lt.y));
@@ -221,7 +221,7 @@ void ui_core::pp_start()
 	m_bPostprocess		= true;
 
 	m_pp_scale_.set	( float(::Render->getTarget()->get_width())/float(UI_BASE_WIDTH),	float(::Render->getTarget()->get_height())/float(UI_BASE_HEIGHT) );
-	m_2DFrustumPP.CreateFromRect(Frect().set(	0.0f,
+	m_2DFrustumPP.CreateFromRect(fRect().set(	0.0f,
 												0.0f,
 												float(::Render->getTarget()->get_width()),
 												float(::Render->getTarget()->get_height())

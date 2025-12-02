@@ -42,8 +42,7 @@ function check_antirad_supplies()
  препаратов\\n".."%c[default]Напоминаю: %c[255,230,0,0]
 Противорадиационные препараты отстутствуют! %c[default]
 Автоматический ввод препаратов невозможен.»
-						db.actor:give_game_news(news_text, "ui\\ui_iconsTotal", 
-Frect():set(0,188,83,47), 0, 3000)
+						db.actor:give_game_news(news_text, "ui\\ui_iconsTotal", fRect():set(0,188,83,47), 0, 3000)
 					end	
 					if use_sounds then
 						local snd_obj

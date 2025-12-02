@@ -27,7 +27,7 @@ poolSS< _12b, 128>	ui_allocator;
 	void dump_list_wnd(){}
 #endif
 
-xr_vector<Frect> g_wnds_rects;
+xr_vector<fRect> g_wnds_rects;
 ref_shader  dbg_draw_sh =0;
 ref_geom	dbg_draw_gm =0;
 
@@ -40,13 +40,12 @@ void clean_wnd_rects()
 	dbg_draw_gm.destroy();
 }
 
-void add_rect_to_draw(Frect r)
+void add_rect_to_draw(fRect r)
 {
 	g_wnds_rects.push_back(r);
 }
-void draw_rect(Frect& r, u32 color)
+void draw_rect(fRect& r, u32 color)
 {
-
 	if(!dbg_draw_sh){
 		dbg_draw_sh.create("hud\\default","ui\\ui_pop_up_active_back");
 		dbg_draw_gm.create(FVF::F_TL, RCache.Vertex.Buffer(), 0);
@@ -70,12 +69,12 @@ void draw_wnds_rects()
 {
 	if(0==g_wnds_rects.size())	return;
 
-	xr_vector<Frect>::iterator it = g_wnds_rects.begin();
-	xr_vector<Frect>::iterator it_e = g_wnds_rects.end();
+	xr_vector<fRect>::iterator it = g_wnds_rects.begin();
+	xr_vector<fRect>::iterator it_e = g_wnds_rects.end();
 
 	for(;it!=it_e;++it)
 	{
-		Frect& r = *it;
+		fRect& r = *it;
 		UI()->ClientToScreenScaled(r.lt, r.lt.x, r.lt.y);
 		UI()->ClientToScreenScaled(r.rb, r.rb.x, r.rb.y);
 		draw_rect				(r,color_rgba(255,0,0,255));
@@ -160,7 +159,7 @@ CUIWindow::~CUIWindow()
 }
 
 
-void CUIWindow::Init(Frect* pRect)
+void CUIWindow::Init(fRect* pRect)
 {
 	SetWndRect			(*pRect);
 }
@@ -173,7 +172,7 @@ void CUIWindow::Draw()
 	}
 #ifdef DEBUG
 	if(g_show_wnd_rect2){
-		Frect r;
+		fRect r;
 		GetAbsoluteRect(r);
 		add_rect_to_draw(r);
 	}
@@ -192,12 +191,12 @@ void CUIWindow::Update()
 		bool cursor_on_window;
 
 		fVector2			temp = GetUICursor()->GetCursorPosition();
-		Frect				r;
+		fRect				r;
 		GetAbsoluteRect		(r);
 		cursor_on_window	= !!r.in(temp);
 #ifndef NDEBUG
 		if(cursor_on_window&&g_show_wnd_rect){
-			Frect r;
+			fRect r;
 			GetAbsoluteRect(r);
 			add_rect_to_draw(r);
 		}
@@ -249,9 +248,9 @@ void CUIWindow::DetachAll()
 	}
 }
 
-void CUIWindow::GetAbsoluteRect(Frect& r) 
+void CUIWindow::GetAbsoluteRect(fRect& r)
 {
-//.	Frect rect;
+//.	fRect rect;
 
 	if(GetParent() == NULL){
 		GetWndRect		(r);
@@ -260,7 +259,7 @@ void CUIWindow::GetAbsoluteRect(Frect& r)
 //.	rect = GetParent()->GetAbsoluteRect();
 	GetParent()->GetAbsoluteRect(r);
 
-	Frect			rr;
+	fRect			rr;
 	GetWndRect		(rr);
 	r.left			+= rr.left;
 	r.top			+= rr.top;
@@ -277,7 +276,7 @@ void CUIWindow::GetAbsoluteRect(Frect& r)
 
 bool CUIWindow::OnMouse(float x, float y, EUIMessages mouse_action)
 {	
-	Frect	wndRect = GetWndRect();
+	fRect	wndRect = GetWndRect();
 
 	cursor_pos.x = x;
 	cursor_pos.y = y;
@@ -345,7 +344,7 @@ bool CUIWindow::OnMouse(float x, float y, EUIMessages mouse_action)
 	for(; it!=m_ChildWndList.rend(); ++it)
 	{
 		CUIWindow* w	= (*it);
-		Frect wndRect	= w->GetWndRect();
+		fRect wndRect	= w->GetWndRect();
 		if (wndRect.in(cursor_pos) )
 		{
 			if(w->IsEnabled())
@@ -372,7 +371,7 @@ bool CUIWindow::HasChildMouseHandler(){
 	{
 		if ((*it)->m_bClickable)
 		{
-			Frect wndRect = (*it)->GetWndRect();
+			fRect wndRect = (*it)->GetWndRect();
 			if (wndRect.in(cursor_pos) )
 				return true;
 		}
@@ -533,7 +532,7 @@ CUIWindow* CUIWindow::GetChildMouseHandler(){
 
 	for(; it!=m_ChildWndList.rend(); ++it)
 	{
-		Frect wndRect = (*it)->GetWndRect();
+		fRect wndRect = (*it)->GetWndRect();
 		// very strange code.... i can't understand difference between
 		// first and second condition. I Got It from OnMouse() method;
 		if (wndRect.in(cursor_pos) )

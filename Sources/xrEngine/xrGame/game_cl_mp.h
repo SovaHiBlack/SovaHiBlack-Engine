@@ -76,7 +76,7 @@ struct Bonus_Struct
 	shared_str	MoneyStr;
 	int			Money;	
 	ref_shader	IconShader;
-	xr_vector<Frect>	IconRects;
+	xr_vector<fRect>	IconRects;
 	Bonus_Struct()
 	{
 		BonusTypeName	= "";

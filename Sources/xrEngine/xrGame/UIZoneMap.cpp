@@ -108,7 +108,7 @@ void CUIZoneMap::SetupCurrentMap()
 
 	m_activeMap->Init				(Level().name(),*pLtx,"hud\\default");
 
-	Frect r;
+	fRect r;
 	m_clipFrame.GetAbsoluteRect		(r);
 	m_activeMap->SetClipRect		(r);
 	

@@ -69,9 +69,9 @@ CUIXmlInit::~CUIXmlInit()
 
 //////////////////////////////////////////////////////////////////////////
 
-Frect CUIXmlInit::GetFRect(CUIXml& xml_doc, const char* path, int index){
+fRect CUIXmlInit::GetFRect(CUIXml& xml_doc, const char* path, int index){
 	R_ASSERT3(xml_doc.NavigateToNode(path,index), "XML node not found", path);
-	Frect rect;
+	fRect rect;
 	rect.set(0,0,0,0);
 	rect.x1 = xml_doc.ReadAttribFlt(path, index, "x");
 	rect.y1	= xml_doc.ReadAttribFlt(path, index, "y");
@@ -989,7 +989,7 @@ bool CUIXmlInit::InitTexture(CUIXml& xml_doc, const char* path, int index, IUISi
 	InitTexture(xml_doc, path, index, (IUIMultiTextureOwner*)pWnd);
 	strconcat(sizeof(buf),buf, path, ":texture");
 
-	Frect rect;
+	fRect rect;
 
 	rect.x1			= xml_doc.ReadAttribFlt(buf, index, "x", 0);
 	rect.y1			= xml_doc.ReadAttribFlt(buf, index, "y", 0);

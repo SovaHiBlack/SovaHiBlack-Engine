@@ -24,7 +24,7 @@ protected:
 	};
 	typedef struct {
 		ref_shader	sh;
-		Frect		rect;
+		fRect		rect;
 	} TEX_INFO;
 
 

@@ -1214,7 +1214,7 @@ void game_cl_mp::LoadBonuses				()
 			{			
 				NewBonus.IconShader.create("hud\\default", pSettings->r_string("mp_bonus_icons", IconShader));
 			}
-			Frect IconRect;
+			fRect IconRect;
 			IconRect.x1 = READ_IF_EXISTS(pSettings, r_float, "mp_bonus_icons", IconX,0);
 			IconRect.y1 = READ_IF_EXISTS(pSettings, r_float, "mp_bonus_icons", IconY,0);
 			IconRect.x2 = READ_IF_EXISTS(pSettings, r_float, "mp_bonus_icons", IconW,0);
@@ -1226,7 +1226,7 @@ void game_cl_mp::LoadBonuses				()
 			LPCSTR IconShader = CUITextureMaster::GetTextureFileName("ui_hud_status_blue_01");			
 			NewBonus.IconShader.create("hud\\default", IconShader);
 
-			Frect IconRect;
+			fRect IconRect;
 			for (u32 r=1; r<=5; r++)
 			{
 				string256 rankstr;				

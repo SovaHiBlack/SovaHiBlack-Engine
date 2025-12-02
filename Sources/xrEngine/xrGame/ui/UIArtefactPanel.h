@@ -6,7 +6,7 @@ class CArtefact;
 
 class CUIArtefactPanel : public CUIWindow
 {
-	typedef xr_vector<Frect>::const_iterator ITr;
+	typedef xr_vector<fRect>::const_iterator ITr;
 	typedef xr_vector<CUIStaticItem*>::const_iterator ITsi;
 
 public:
@@ -20,6 +20,6 @@ public:
 protected:
 	float						m_fScale;
 	fVector2					m_cell_size;
-	xr_vector<Frect>            m_vRects;
+	xr_vector<fRect>            m_vRects;
 	CUIStaticItem               m_si;
 };

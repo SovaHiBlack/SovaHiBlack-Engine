@@ -360,7 +360,7 @@ void CUIListWnd::SendMessage(CUIWindow *pWnd, s16 msg, void *pData)
 
 //////////////////////////////////////////////////////////////////////////
 
-void CUIListWnd::DrawActiveBackFrame(const Frect& rect, CUIListItem * itm)
+void CUIListWnd::DrawActiveBackFrame(const FfRectrect& rect, CUIListItem * itm)
 {
 	fVector2		_pos;
 	_pos.set		(rect.left, rect.top+(itm->GetIndex()-m_iFirstShownIndex)*GetItemHeight());
@@ -382,7 +382,7 @@ void CUIListWnd::Draw()
 
 	if(m_iFocusedItem != -1 && IsActiveBackgroundEnabled() )
 	{
-		Frect rect;
+		fRect rect;
 		GetAbsoluteRect(rect);
 		for (it = m_ChildWndList.begin(); it != m_ChildWndList.end(); ++it)
 		{
@@ -400,7 +400,7 @@ void CUIListWnd::Draw()
 	
 	if(m_iSelectedItem != -1 && m_bShowSelectedItem)
 	{
-		Frect rect;
+		fRect rect;
 		GetAbsoluteRect	(rect);
 		for (it = m_ChildWndList.begin(); it != m_ChildWndList.end(); ++it)
 		{

@@ -172,7 +172,7 @@ void CUIFrameRect::SetWndSize(const fVector2& size){
 	uFlags.set(flValidSize, false);
 }
 
-void CUIFrameRect::SetWndRect(const Frect& rect){
+void CUIFrameRect::SetWndRect(const fRect& rect){
 	CUISimpleWindow::SetWndRect(rect);
 	uFlags.set(flValidSize, false);
 }

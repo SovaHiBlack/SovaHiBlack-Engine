@@ -30,9 +30,9 @@ void CUIFrameLineWnd::Init(LPCSTR base_name, float x, float y, float width, floa
 
 //////////////////////////////////////////////////////////////////////////
 
-void CUIFrameLineWnd::InitTexture(LPCSTR tex_name, bool horizontal){
-
-	Frect			rect;
+void CUIFrameLineWnd::InitTexture(LPCSTR tex_name, bool horizontal)
+{
+	fRect			rect;
 	GetAbsoluteRect	(rect);
 
 	bHorizontal = horizontal;

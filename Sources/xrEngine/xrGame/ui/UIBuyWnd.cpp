@@ -931,7 +931,7 @@ void CUIBuyWnd::ActivatePropertiesBox()
 	m_propertiesBox.BringAllToTop	();
 
 	fVector2						cursor_pos;
-	Frect							vis_rect;
+	fRect							vis_rect;
 
 	GetAbsoluteRect					(vis_rect);
 	cursor_pos						= GetUICursor()->GetCursorPosition();

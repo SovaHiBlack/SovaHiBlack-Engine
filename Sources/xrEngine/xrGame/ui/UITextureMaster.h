@@ -13,9 +13,9 @@ class IUISimpleTextureControl;
 
 struct TEX_INFO{
 	shared_str	file;
-	Frect		rect;
+	fRect		rect;
 	LPCSTR		get_file_name	()	{return *file;}
-	Frect		get_rect		()	{return rect;}
+	fRect		get_rect		()	{return rect;}
 };
 
 class CUITextureMaster{
@@ -27,7 +27,7 @@ public:
 	static void		InitTexture			(LPCSTR texture_name, const char* shader_name, IUISimpleTextureControl* tc);
 	static float	GetTextureHeight	(LPCSTR texture_name);
 	static float	GetTextureWidth		(LPCSTR texture_name);
-	static Frect	GetTextureRect		(LPCSTR texture_name);
+	static fRect	GetTextureRect		(LPCSTR texture_name);
 	static LPCSTR	GetTextureFileName	(LPCSTR texture_name);
 	static void		GetTextureShader	(LPCSTR texture_name, ref_shader& sh);
 	static TEX_INFO	FindItem			(LPCSTR texture_name, LPCSTR def_texture_name);
@@ -40,8 +40,8 @@ protected:
 
 //	typedef xr_string region_name;
 //	typedef xr_string shader_name;
-//	typedef xr_map<region_name, Frect>				regions;
-//	typedef xr_map<region_name, Frect>::iterator	regions_it;
+//	typedef xr_map<region_name, fRect>				regions;
+//	typedef xr_map<region_name, fRect>::iterator	regions_it;
 //	typedef xr_map<shader_name, regions>			shared_textures;
 //	typedef xr_map<shader_name, regions>::iterator	shared_textures_it;
 

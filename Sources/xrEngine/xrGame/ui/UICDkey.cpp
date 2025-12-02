@@ -25,7 +25,7 @@ void CUICDkey::OnFocusLost()
 
 void CUICDkey::Draw()
 {
-	Frect						rect;
+	fRect						rect;
 	GetAbsoluteRect				(rect);
 	fVector2					outXY;
 

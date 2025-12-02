@@ -51,7 +51,7 @@ int GetARGB(u16 a, u16 r, u16 g, u16 b)
 {return color_argb(a,r,g,b);}
 
 
-Frect	get_texture_rect(LPCSTR icon_name)
+fRect	get_texture_rect(LPCSTR icon_name)
 {
 	return CUITextureMaster::GetTextureRect(icon_name);
 }
@@ -102,10 +102,10 @@ void CUIWindow::script_register(lua_State *L)
 		.def("SetAutoDelete",			&CUIWindow::SetAutoDelete)
 		.def("IsAutoDelete",			&CUIWindow::IsAutoDelete)
 
-		.def("SetWndRect",				(void (CUIWindow::*)(Frect))					&CUIWindow::SetWndRect_script)
+		.def("SetWndRect",				(void (CUIWindow::*)(fRect))					&CUIWindow::SetWndRect_script)
 		.def("SetWndRect",				(void (CUIWindow::*)(float,float,float,float))   &CUIWindow::SetWndRect_script)
 		.def("Init",					(void (CUIWindow::*)(float,float,float,float))   &CUIWindow::Init)
-		.def("Init",					(void (CUIWindow::*)(Frect*))			 &CUIWindow::Init)
+		.def("Init",					(void (CUIWindow::*)(fRect*))			 &CUIWindow::Init)
 		.def("SetWndPos",				(void (CUIWindow::*)(float,float)) &CUIWindow::SetWndPos)
 		.def("SetWndSize",				(void (CUIWindow::*)(float,float)) &CUIWindow::SetWndSize)
 		.def("GetWidth",				&CUIWindow::GetWidth)

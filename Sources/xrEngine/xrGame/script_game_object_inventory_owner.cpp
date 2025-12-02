@@ -51,9 +51,9 @@ bool CScriptGameObject::DisableInfoPortion(LPCSTR info_id)
 	return true;
 }
 
-void _AddIconedTalkMessage(LPCSTR text, LPCSTR texture_name, const Frect& tex_rect, LPCSTR templ_name);
+void _AddIconedTalkMessage(LPCSTR text, LPCSTR texture_name, const fRect& tex_rect, LPCSTR templ_name);
 
-void  CScriptGameObject::AddIconedTalkMessage		(LPCSTR text, LPCSTR texture_name, Frect tex_rect, LPCSTR templ_name)
+void  CScriptGameObject::AddIconedTalkMessage		(LPCSTR text, LPCSTR texture_name, fRect tex_rect, LPCSTR templ_name)
 {
 	return _AddIconedTalkMessage	(text,
 									texture_name, 
@@ -61,7 +61,7 @@ void  CScriptGameObject::AddIconedTalkMessage		(LPCSTR text, LPCSTR texture_name
 									templ_name); 
 }
 
-void _AddIconedTalkMessage(LPCSTR text, LPCSTR texture_name, const Frect& tex_rect, LPCSTR templ_name)
+void _AddIconedTalkMessage(LPCSTR text, LPCSTR texture_name, const fRect& tex_rect, LPCSTR templ_name)
 {
 	CUIGameSP* pGameSP = smart_cast<CUIGameSP*>(HUD().GetUI()->UIGame());
 	if(!pGameSP) return;
@@ -69,9 +69,9 @@ void _AddIconedTalkMessage(LPCSTR text, LPCSTR texture_name, const Frect& tex_re
 	if(pGameSP->TalkMenu->IsShown())
 		pGameSP->TalkMenu->AddIconedMessage(text, texture_name, tex_rect, templ_name?templ_name:"iconed_answer_item" );
 }
-bool _give_news	(LPCSTR news, LPCSTR texture_name, const Frect& tex_rect, int delay, int show_time);
+bool _give_news	(LPCSTR news, LPCSTR texture_name, const fRect& tex_rect, int delay, int show_time);
 
-bool  CScriptGameObject::GiveGameNews		(LPCSTR news, LPCSTR texture_name, Frect tex_rect, int delay, int show_time)
+bool  CScriptGameObject::GiveGameNews		(LPCSTR news, LPCSTR texture_name, fRect tex_rect, int delay, int show_time)
 {
 	return _give_news				(news,
 									texture_name, 
@@ -79,7 +79,7 @@ bool  CScriptGameObject::GiveGameNews		(LPCSTR news, LPCSTR texture_name, Frect 
 									delay, 
 									show_time);
 }
-bool _give_news	(LPCSTR text, LPCSTR texture_name, const Frect& tex_rect, int delay, int show_time)
+bool _give_news	(LPCSTR text, LPCSTR texture_name, const fRect& tex_rect, int delay, int show_time)
 {
 	GAME_NEWS_DATA				news_data;
 	news_data.news_text			= text;

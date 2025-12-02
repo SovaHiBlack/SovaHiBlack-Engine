@@ -27,7 +27,7 @@ void CUICursor::InitInternal()
 {
 	m_static					= xr_new<CUIStatic>();
 	m_static->InitTextureEx		("ui\\ui_ani_cursor", "hud\\cursor");
-	Frect						rect;
+	fRect						rect;
 	rect.set					(0.0f,0.0f,40.0f,40.0f);
 	m_static->SetOriginalRect	(rect);
 	fVector2					sz;

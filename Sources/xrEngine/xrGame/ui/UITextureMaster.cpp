@@ -115,14 +115,14 @@ float CUITextureMaster::GetTextureHeight(const char* texture_name){
 	return 0;
 }
 
-Frect CUITextureMaster::GetTextureRect(const char* texture_name){
+fRect CUITextureMaster::GetTextureRect(const char* texture_name){
 	xr_map<shared_str, TEX_INFO>::iterator	it;
 	it = m_textures.find(texture_name);
 	if (it != m_textures.end())
 		return (*it).second.rect;
 
 	R_ASSERT3(false,"CUITextureMaster::GetTextureHeight Can't find texture", texture_name);
-	return Frect();
+	return fRect();
 }
 
 float CUITextureMaster::GetTextureWidth(const char* texture_name){

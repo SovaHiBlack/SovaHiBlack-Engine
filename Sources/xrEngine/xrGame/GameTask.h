@@ -59,7 +59,7 @@ public:
 	ETaskState				UpdateState			();
 
 	shared_str							icon_texture_name;
-	Frect								icon_rect;
+	fRect								icon_rect;
 	bool								def_location_enabled;
 //complete/fail stuff
 	xr_vector<shared_str>				m_completeInfos;

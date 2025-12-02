@@ -97,7 +97,7 @@ void CUIStaticItem::Render()
 	std::ptrdiff_t p_cnt		= (pv-start_pv)/3;						VERIFY((pv-start_pv)<=8*tile_x*tile_y);
 	RCache.Vertex.Unlock		(u32(pv-start_pv),hGeom_fan.stride());
 	// set scissor
-	Frect clip_rect				= {iPos.x,iPos.y,iPos.x+iVisRect.x2*iTileX+iRemX,iPos.y+iVisRect.y2*iTileY+iRemY};
+	fRect clip_rect				= {iPos.x,iPos.y,iPos.x+iVisRect.x2*iTileX+iRemX,iPos.y+iVisRect.y2*iTileY+iRemY};
 	UI()->PushScissor			(clip_rect);
 	// set geom
 	RCache.set_Geometry			(hGeom_fan);

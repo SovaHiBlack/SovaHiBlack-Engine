@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "../level.h"
-//.#include "../LevelFogOfWar.h"
 #include "../map_location.h"
 #include "../map_manager.h"
 #include "../map_spot.h"
@@ -100,11 +99,11 @@ fVector2 CUICustomMap::ConvertRealToLocalNoTransform  (const fVector2& src)// me
 //position and heading for drawing pointer to src pos
 bool CUICustomMap::GetPointerTo(const fVector2& src, float item_radius, fVector2& pos, float& heading)
 {
-	Frect		clip_rect_abs			= GetClipperRect(); //absolute rect coords
-	Frect		map_rect_abs;
+	fRect		clip_rect_abs			= GetClipperRect(); //absolute rect coords
+	fRect		map_rect_abs;
 	GetAbsoluteRect(map_rect_abs);
 
-	Frect		rect;
+	fRect		rect;
 	BOOL res = rect.intersection(clip_rect_abs, map_rect_abs);
 	if(!res) return false;
 	
@@ -152,7 +151,7 @@ void CUICustomMap::FitToHeight	(float height)
 	SetWndRect		(0.0f,0.0f,w,h);
 }
 
-void CUICustomMap::OptimalFit(const Frect& r)
+void CUICustomMap::OptimalFit(const fRect& r)
 {
 	if ((m_BoundRect.height()/r.height())<(m_BoundRect.width()/r.width()))
 		FitToHeight	(r.height());
@@ -166,18 +165,18 @@ void CUICustomMap::SetActivePoint(const Fvector &vNewPoint)
 {
 	fVector2 pos;
 	pos.set(vNewPoint.x,vNewPoint.z);
-	Frect bound = BoundRect();
+	fRect bound = BoundRect();
 	if( FALSE==bound.in(pos) )return;
 
 	fVector2	pos_on_map		= ConvertRealToLocalNoTransform(pos);
-	Frect		map_abs_rect;
+	fRect		map_abs_rect;
 	GetAbsoluteRect(map_abs_rect);
 	fVector2	pos_abs;
 
 	pos_abs.set(map_abs_rect.lt);
 	pos_abs.add(pos_on_map);
 
-	Frect		clip_abs_rect	= GetClipperRect();
+	fRect		clip_abs_rect	= GetClipperRect();
 	fVector2	clip_center;
 	clip_abs_rect.getcenter(clip_center);
 	clip_center.sub(pos_abs);
@@ -185,9 +184,9 @@ void CUICustomMap::SetActivePoint(const Fvector &vNewPoint)
 	SetHeadingPivot				(pos_on_map);
 }
 
-bool CUICustomMap::IsRectVisible(Frect r)
+bool CUICustomMap::IsRectVisible(fRect r)
 {
-	Frect map_visible_rect = GetClipperRect();
+	fRect map_visible_rect = GetClipperRect();
 	fVector2 pos;
 	GetAbsolutePos(pos);
 	r.add(pos.x,pos.y);
@@ -195,9 +194,9 @@ bool CUICustomMap::IsRectVisible(Frect r)
 	return !!map_visible_rect.intersected(r);
 }
 
-bool CUICustomMap::NeedShowPointer(Frect r)
+bool CUICustomMap::NeedShowPointer(fRect r)
 {
-	Frect map_visible_rect = GetClipperRect();
+	fRect map_visible_rect = GetClipperRect();
 	map_visible_rect.shrink(5,5);
 	fVector2 pos;
 	GetAbsolutePos(pos);
@@ -263,8 +262,8 @@ void CUIGlobalMap::Update()
 
 void CUIGlobalMap::ClipByVisRect()
 {
-	Frect r					= GetWndRect();
-	Frect clip				= GetClipperRect();
+	fRect r					= GetWndRect();
+	fRect clip				= GetClipperRect();
 	if (r.x2<clip.width())	r.x1 += clip.width()-r.x2;
 	if (r.y2<clip.height())	r.y1 += clip.height()-r.y2;
 	if (r.x1>0.0f)			r.x1 = 0.0f;
@@ -287,7 +286,7 @@ void CUIGlobalMap::MoveWndDelta(const fVector2& d)
 	m_mapWnd->UpdateScroll	();
 }
 
-float CUIGlobalMap::CalcOpenRect(const fVector2& center_point, Frect& map_desired_rect, float tgt_zoom)
+float CUIGlobalMap::CalcOpenRect(const fVector2& center_point, fRect& map_desired_rect, float tgt_zoom)
 {
 	fVector2                    new_center_pt;
 	// calculate desired rect in new zoom
@@ -295,7 +294,7 @@ float CUIGlobalMap::CalcOpenRect(const fVector2& center_point, Frect& map_desire
 	// calculate center point in new zoom (center_point is in identity global map space)
 	new_center_pt.set           (center_point.x*tgt_zoom,center_point.y*tgt_zoom);
 	// get vis width & height
-	Frect vis_abs_rect			= m_mapWnd->ActiveMapRect();
+	fRect vis_abs_rect			= m_mapWnd->ActiveMapRect();
 	float vis_w					= vis_abs_rect.width();
 	float vis_h					= vis_abs_rect.height();
 	// calculate center delta from vis rect
@@ -304,7 +303,7 @@ float CUIGlobalMap::CalcOpenRect(const fVector2& center_point, Frect& map_desire
 	// correct desired rect
 	map_desired_rect.sub		(delta_pos.x,delta_pos.y);
 	// clamp pos by vis rect
-	const Frect& r				= map_desired_rect;
+	const fRect& r				= map_desired_rect;
 	fVector2 np					= r.lt;
 	if (r.x2<vis_w)	np.x		+= vis_w-r.x2;
 	if (r.y2<vis_h)	np.y		+= vis_h-r.y2;
@@ -315,7 +314,8 @@ float CUIGlobalMap::CalcOpenRect(const fVector2& center_point, Frect& map_desire
 	// calculate max way dist
 	float dist					= 0.f;
 
-	Frect s_rect,t_rect;
+	fRect s_rect;
+	fRect t_rect;
 	s_rect.div					(GetWndRect(),GetCurrentZoom(),GetCurrentZoom());
 	t_rect.div					(map_desired_rect,tgt_zoom,tgt_zoom);
 
@@ -379,7 +379,7 @@ void CUILevelMap::Init	(shared_str name, CInifile& gameLtx, LPCSTR sh_name)
 	if(gameLtx.line_exist(MapName(),"anomalies_texture")){
 		LPCSTR texture						= gameLtx.r_string	(MapName(),"anomalies_texture");
 		Fvector4 tmp						= gameLtx.r_fvector4(MapName(),"anomalies_texture_rect"); //lt,wh
-		Frect rect; rect.set				(tmp.x,tmp.y,tmp.x+tmp.z,tmp.y+tmp.w);
+		fRect rect; rect.set				(tmp.x,tmp.y,tmp.x+tmp.z,tmp.y+tmp.w);
 		m_anomalies_map						= xr_new<CUIStatic>();
 		m_anomalies_map->Init				(texture,0.0f,0.0f,0.0f,0.0f);
 		m_anomalies_map->GetUIStaticItem().SetOriginalRect(rect);
@@ -395,7 +395,7 @@ void CUILevelMap::UpdateSpots		()
 {
 	DetachAll		();
 	if( fsimilar(MapWnd()->GlobalMap()->GetCurrentZoom(),MapWnd()->GlobalMap()->GetMinZoom(), EPS_3) ) return;
-	Frect _r;
+	fRect _r;
 	GetAbsoluteRect(_r);
 	if( FALSE==MapWnd()->ActiveMapRect().intersected(_r)) return;
 /*
@@ -415,9 +415,9 @@ void CUILevelMap::UpdateSpots		()
 	}
 }
 
-Frect CUILevelMap::CalcWndRectOnGlobal	()
+fRect CUILevelMap::CalcWndRectOnGlobal	()
 {
-	Frect res;
+	fRect res;
 	CUIGlobalMap* globalMap			= MapWnd()->GlobalMap();
 
 	res.lt							= globalMap->ConvertRealToLocal(GlobalRect().lt);
@@ -430,7 +430,7 @@ Frect CUILevelMap::CalcWndRectOnGlobal	()
 void CUILevelMap::Update()
 {
 	CUIGlobalMap*	w				= MapWnd()->GlobalMap();
-	Frect			rect;
+	fRect			rect;
 	fVector2		tmp;
 
 	tmp								= w->ConvertRealToLocal(GlobalRect().lt);

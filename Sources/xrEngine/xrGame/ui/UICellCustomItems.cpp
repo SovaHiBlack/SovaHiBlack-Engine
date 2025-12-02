@@ -13,7 +13,7 @@ CUIInventoryCellItem::CUIInventoryCellItem(CInventoryItem* itm)
 	inherited::SetShader							(InventoryUtilities::GetEquipmentIconsShader());
 
 	m_grid_size.set									(itm->GetGridWidth(),itm->GetGridHeight());
-	Frect rect; 
+	fRect rect;
 	rect.lt.set										(	INV_GRID_WIDTHF*itm->GetXPos(), 
 														INV_GRID_HEIGHTF*itm->GetYPos() );
 
@@ -200,7 +200,7 @@ void CUIWeaponCellItem::OnAfterChild()
 
 void CUIWeaponCellItem::InitAddon(CUIStatic* s, LPCSTR section, fVector2 addon_offset)
 {
-	Frect					tex_rect;
+	fRect					tex_rect;
 	fVector2				base_scale;
 	base_scale.x			= GetWidth()/(INV_GRID_WIDTHF*m_grid_size.x);
 	base_scale.y			= GetHeight()/(INV_GRID_HEIGHTF*m_grid_size.y);

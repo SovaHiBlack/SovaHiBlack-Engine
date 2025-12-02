@@ -83,7 +83,7 @@ void CUIProgressBar::Update()
 
 void CUIProgressBar::Draw()
 {
-	Frect					rect;
+	fRect					rect;
 	GetAbsoluteRect			(rect);
 
 	if(m_bBackgroundPresent){
@@ -92,7 +92,7 @@ void CUIProgressBar::Draw()
 		UI()->PopScissor	();
 	}
 
-	Frect progress_rect;
+	fRect progress_rect;
 
 	if(m_bIsHorizontal){
 		progress_rect.set	(0, 0, m_CurrentLength, GetHeight());

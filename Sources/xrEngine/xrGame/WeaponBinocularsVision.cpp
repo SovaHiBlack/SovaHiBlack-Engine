@@ -84,9 +84,9 @@ void SBinocVisibleObj::Update()
 		mx.x			= _max(mx.x,p.x);
 		mx.y			= _max(mx.y,p.y);
 	}
-	static Frect screen_rect={-1.0f, -1.0f, 1.0f, 1.0f};
+	static fRect screen_rect={-1.0f, -1.0f, 1.0f, 1.0f};
 
-	Frect				new_rect;
+	fRect				new_rect;
 	new_rect.lt			= mn;
 	new_rect.rb			= mx;
 

@@ -84,7 +84,7 @@ void CUIDragDropListEx::Init(float x, float y, float w, float h)
 /*
 //.	m_background->Init					(0,0,w,h);
 //.	m_background->Init					("ui\\ui_frame_02_back",0,0,w,h);
-//.	Frect rect; rect.set				(0,0,64,64);
+//.	fRect rect; rect.set				(0,0,64,64);
 //.	m_background->GetUIStaticItem().SetOriginalRect(rect);
 //.	m_background->SetStretchTexture		(true);
 */
@@ -198,7 +198,7 @@ void CUIDragDropListEx::OnItemRButtonClick(CUIWindow* w, void* pData)
 		m_f_item_rbutton_click(itm);
 }
 
-void CUIDragDropListEx::GetClientArea(Frect& r)
+void CUIDragDropListEx::GetClientArea(fRect& r)
 {
 	GetAbsoluteRect				(r);
 	if(m_vScrollBar->GetVisible())
@@ -251,7 +251,7 @@ void CUIDragDropListEx::Update()
 	inherited::Update			();
 
 	if( m_drag_item ){
-		Frect	wndRect;
+		fRect	wndRect;
 		GetAbsoluteRect(wndRect);
 		fVector2 cp			= GetUICursor()->GetCursorPosition();
 		if(wndRect.in(cp)){
@@ -664,7 +664,7 @@ iVector2 CUICellContainer::PickCell(const fVector2& abs_pos)
 
 void CUICellContainer::Draw()
 {
-	Frect clientArea;
+	fRect clientArea;
 	m_pParentDragDropList->GetClientArea(clientArea);
 
 	iVector2			cell_cnt = m_pParentDragDropList->CellsCapacity();

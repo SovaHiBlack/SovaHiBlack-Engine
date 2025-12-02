@@ -162,8 +162,8 @@ bool CUIScrollBar::OnKeyboardHold(int dik)
 	if(dik==MOUSE_1 && (last_hold_time+100)<Device.dwTimeContinual)
 	{
 		fVector2 cursor_pos			= GetUICursor()->GetCursorPosition();
-		Frect	dec_rect;
-		Frect	inc_rect;
+		fRect	dec_rect;
+		fRect	inc_rect;
 
 		m_DecButton->GetAbsoluteRect(dec_rect);
 		m_IncButton->GetAbsoluteRect(inc_rect);
@@ -321,7 +321,7 @@ void CUIScrollBar::Reset()
 void CUIScrollBar::Draw()
 {
 	//нарисовать фоновую подложку
-	Frect rect;
+	fRect rect;
 	GetAbsoluteRect(rect);
 	if(m_bIsHorizontal){
 		if (m_StaticBackground->GetOriginalRect().width()){

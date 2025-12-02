@@ -36,9 +36,9 @@ typedef svector<S2DVert,UI_FRUSTUM_SAFE>		sPoly2D;
 
 class C2DFrustum{//only rect form
 	svector<Fplane2,FRUSTUM_MAXPLANES> planes;
-	Frect						m_rect;
+	fRect						m_rect;
 public:
-	void		CreateFromRect	(const Frect& rect);
+	void		CreateFromRect	(const fRect& rect);
 	sPoly2D*	ClipPoly		(sPoly2D& S, sPoly2D& D) const;
 };
 
@@ -58,7 +58,7 @@ class ui_core: public CDeviceResetNotifier
 	IC float		ClientToScreenScaledX			(float left)				{return left * m_current_scale->x;};
 	IC float		ClientToScreenScaledY			(float top)					{return top * m_current_scale->y;};
 public:
-	xr_stack<Frect> m_Scissors;
+	xr_stack<fRect> m_Scissors;
 	
 					ui_core							();
 					~ui_core						();
@@ -70,9 +70,9 @@ public:
 	void			ClientToScreenScaledWidth		(float& src_and_dest);
 	void			ClientToScreenScaledHeight		(float& src_and_dest);
 
-	Frect			ScreenRect						();
+	fRect			ScreenRect						();
 	const C2DFrustum& ScreenFrustum					(){return (m_bPostprocess)?m_2DFrustumPP:m_2DFrustum;}
-	void			PushScissor						(const Frect& r, bool overlapped=false);
+	void			PushScissor						(const fRect& r, bool overlapped=false);
 	void			PopScissor						();
 
 	void			pp_start						();

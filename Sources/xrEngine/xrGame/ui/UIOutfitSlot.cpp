@@ -25,7 +25,7 @@ void CUIOutfitDragDropList::SetOutfit(CUICellItem* itm)
 {
 	/*
 	static fVector2 fNoOutfit			= pSettings->r_fvector2(m_default_outfit, "full_scale_icon");
-	Frect								r;
+	fRect								r;
 	r.x1								= fNoOutfit.x*ICON_GRID_WIDTH;
 	r.y1								= fNoOutfit.y*ICON_GRID_HEIGHT;
 	r.x2								= r.x1+CHAR_ICON_FULL_WIDTH*ICON_GRID_WIDTH;

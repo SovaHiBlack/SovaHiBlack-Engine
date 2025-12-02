@@ -2109,16 +2109,16 @@ function msg(text)
 		actor:has_info("aem_arny_spread_out") or
 		actor:has_info("aem_admin_spread_out") then
 		who = game.translate_string("aem_barman")
-		icon = Frect():set(332,235,84,45)
+		icon = fRect():set(332,235,84,45)
 	else
 		npc = sim:object(xr_logic.pstor_retrieve(actor, "aem_id"))
 		if npc ~= nil and npc:alive() == true then
 			if npc:profile_name() == "aem_arny" then
 				who = game.translate_string("bar_arny_name")
-				icon = Frect():set(332,141,84,45)
+				icon = fRect():set(332,141,84,45)
 			else
 				who = game.translate_string("aem_admin")
-				icon = Frect():set(83,329,84,45)
+				icon = fRect():set(83,329,84,45)
 			end
 		end
 	end

@@ -27,10 +27,10 @@ protected:
 
 	//прямоугольник(в пикселях) 
 	//геом. регион  на который натягикается текстура с текстурными координатами iOriginalRect
-	Frect			iVisRect;
+	fRect			iVisRect;
 
 	//фрейм текстуры в пикселях отн. 0/0
-	Frect			iOriginalRect;
+	fRect			iOriginalRect;
 
 	// точка, относительно которой применяем поворот
 	fVector2		iHeadingPivot;
@@ -43,12 +43,12 @@ public:
 					CUICustomItem			();
 	virtual			~CUICustomItem			();
 	IC void			SetRect					(float x1, float y1, float x2, float y2){iVisRect.set(x1,y1,x2,y2); uFlags|=flValidRect; }
-	IC void			SetRect					(const Frect& r){iVisRect.set(r); uFlags|=flValidRect; }
+	IC void			SetRect					(const fRect& r){iVisRect.set(r); uFlags|=flValidRect; }
 	  void			SetOriginalRect			(float x, float y, float width, float height);
 
-	IC Frect		GetRect					() {return iVisRect;}
-	   Frect		GetOriginalRect			() const;
-	   Frect		GetOriginalRectScaled	();
+	IC fRect		GetRect					() {return iVisRect;}
+	fRect		GetOriginalRect			() const;
+	fRect		GetOriginalRectScaled	();
 	
 	   void			SetHeadingPivot			(const fVector2& p)		{iHeadingPivot=p; uFlags|=flValidHeadingPivot;}
 	   fVector2		GetHeadingPivot			()						{return iHeadingPivot;}

@@ -306,7 +306,7 @@ bool is_trade_enabled(); // состояние возможности торговать
 
 void give_talk_message( string text, // текст сообшения 
                         string texture_name, // файл с текстурой иконок
-                        Frect tex_rect, // прямоугольник иконки в этом файле
+                        fRect tex_rect, // прямоугольник иконки в этом файле
                         string templ_name); // имя шаблона
 
 Шаблоны содержатся в XML файле "config\ui\talk.xml" или "config\ui\talk_16.xml" (второй видимо для широких мониторов)

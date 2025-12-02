@@ -76,7 +76,7 @@ public:
 
 	////////////////////////////////////
 	//инициализация
-	virtual void			Init				(Frect* pRect);
+	virtual void			Init				(fRect* pRect);
 
 	////////////////////////////////////
 	//работа с дочерними и родительскими окнами
@@ -149,12 +149,12 @@ public:
 			void			ShowChildren		(bool show);
 	
 	//абсолютные координаты
-	IC void					GetAbsoluteRect		(Frect& r) ;
-	IC void					GetAbsolutePos		(fVector2& p) 	{Frect abs; GetAbsoluteRect(abs); p.set(abs.x1,abs.y1);}
+	IC void					GetAbsoluteRect		(fRect& r) ;
+	IC void					GetAbsolutePos		(fVector2& p) 	{		fRect abs; GetAbsoluteRect(abs); p.set(abs.x1,abs.y1);}
 
 
 			void			SetWndRect_script(float x, float y, float width, float height)		{CUISimpleWindow::SetWndRect(x,y,width,height);}
-			void			SetWndRect_script(Frect rect)										{CUISimpleWindow::SetWndRect(rect);}
+			void			SetWndRect_script(fRect rect)										{CUISimpleWindow::SetWndRect(rect);}
 
 	//прорисовка окна
 	virtual void			Draw				();

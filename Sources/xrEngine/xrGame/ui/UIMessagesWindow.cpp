@@ -75,7 +75,7 @@ void CUIMessagesWindow::Init(float x, float y, float width, float height){
 
 }
 
-void CUIMessagesWindow::AddIconedPdaMessage(LPCSTR textureName, Frect originalRect, LPCSTR message, int iDelay){
+void CUIMessagesWindow::AddIconedPdaMessage(LPCSTR textureName, fRect originalRect, LPCSTR message, int iDelay){
 	
 	CUIPdaMsgListItem *pItem			= m_pGameLog->AddPdaMessage(message, float(iDelay));
 	pItem->SetTextComplexMode			(true);

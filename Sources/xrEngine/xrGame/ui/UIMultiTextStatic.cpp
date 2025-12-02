@@ -109,7 +109,7 @@ void CUIMultiTextStatic::SPh::SetText(const char *fmt, ...)
 		STRING s;
 		CUIStatic::SetText(*str, s);
 
-		Frect r;
+		fRect r;
 		r.left		= 0;
 		r.right		= maxWidth;
 		r.top		= 0;

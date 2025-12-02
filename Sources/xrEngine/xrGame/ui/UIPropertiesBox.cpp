@@ -72,7 +72,7 @@ void CUIPropertiesBox::RemoveAll()
 	m_UIListWnd.Clear();
 }
 
-void CUIPropertiesBox::Show(const Frect& parent_rect, const fVector2& point)
+void CUIPropertiesBox::Show(const fRect& parent_rect, const fVector2& point)
 {
 	fVector2						prop_pos;
 	fVector2 prop_size				= GetWndSize();

@@ -121,7 +121,7 @@ void	CUIGameDM::Init				()
 	pFragList->Init(xml_doc, "stats_wnd","frag_wnd_dm");
 	pPlayerList->Init(xml_doc,"players_wnd","frag_wnd_dm");
 
-	Frect FrameRect = pFragList->GetWndRect();
+	fRect FrameRect = pFragList->GetWndRect();
 	float FrameW	= FrameRect.right - FrameRect.left;
 	float FrameH	= FrameRect.bottom - FrameRect.top;
 	pFragList->SetWndPos((ScreenW-FrameW)/2.0f, (ScreenH - FrameH)/2.0f);

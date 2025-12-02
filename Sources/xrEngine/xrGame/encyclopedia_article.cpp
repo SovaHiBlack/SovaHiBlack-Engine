@@ -95,7 +95,7 @@ void CEncyclopediaArticle::load_shared	(LPCSTR)
 	}
 
 	if(data()->image.TextureAvailable() ){
-		Frect r = data()->image.GetUIStaticItem().GetOriginalRect();
+		fRect r = data()->image.GetUIStaticItem().GetOriginalRect();
 		data()->image.SetAutoDelete(false);
 
 		const int minSize = 65;

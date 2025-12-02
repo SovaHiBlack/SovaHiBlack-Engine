@@ -18,7 +18,7 @@ public:
 
 	virtual void	Init						(LPCSTR base_name, float x, float y, float width, float height);
 	virtual void	Init						(float x, float y, float width, float height);
-	virtual void	Init						(LPCSTR base_name, Frect* pRect);
+	virtual void	Init						(LPCSTR base_name, fRect* pRect);
 
 	virtual void	InitTexture					(const char* texture);
 			void	SetTextureColor				(u32 color)										{m_UIWndFrame.SetTextureColor(color);}
@@ -40,9 +40,9 @@ protected:
 
 	CUIFrameRect	m_UIWndFrame;
 
-	void			FrameClip					(const Frect parentAbsR);
+	void			FrameClip					(const fRect parentAbsR);
 	
 private:
-	inline void		ClampMax_Zero				(Frect &r);
+	inline void		ClampMax_Zero				(fRect& r);
 
 };

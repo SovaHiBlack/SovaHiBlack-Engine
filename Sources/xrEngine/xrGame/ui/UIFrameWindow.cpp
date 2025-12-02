@@ -25,7 +25,7 @@ void CUIFrameWindow::Init(float x, float y, float width, float height)
 	UITitleText->Init	(0,0, width, 50);
 }
 
-void CUIFrameWindow::Init(LPCSTR base_name, Frect* pRect)
+void CUIFrameWindow::Init(LPCSTR base_name, fRect* pRect)
 {
 	Init(base_name, pRect->left, pRect->top, 
 				pRect->right - pRect->left, 
@@ -41,7 +41,7 @@ void CUIFrameWindow::Draw()
 {
 	if (m_bTextureVisible)
 	{
-		Frect			rect;
+		fRect			rect;
 		GetAbsoluteRect	(rect);
 		fVector2 v		= rect.lt;
 		m_UIWndFrame.SetWndPos(v);
@@ -72,7 +72,7 @@ void CUIFrameWindow::SetColor(u32 cl)
 	m_UIWndFrame.SetTextureColor(cl);
 }
 
-void CUIFrameWindow::FrameClip(const Frect parentAbsR)
+void CUIFrameWindow::FrameClip(const fRect parentAbsR)
 {
 	using std::min;
 	using std::max;
@@ -81,14 +81,15 @@ void CUIFrameWindow::FrameClip(const Frect parentAbsR)
 	// Если нет границ клиппанья, то скипаем
 	if (!GetParent()) return;
 
-	Frect		ourAbsR;
+	fRect		ourAbsR;
 	GetAbsoluteRect(ourAbsR);
 	CTexture	*T;
 	fVector2	ts;
 	int			tile_x, tile_y;
 	float		rem_x, rem_y;
 	float			size_x, size_y;
-	Frect		r, null;
+	fRect		r;
+	fRect		null;
 	null.set(0.0f, 0.0f, 0.0f, 0.0f);
 
 	m_UIWndFrame.UpdateSize();
@@ -282,7 +283,7 @@ void CUIFrameWindow::FrameClip(const Frect parentAbsR)
 	}
 }
 
-inline void CUIFrameWindow::ClampMax_Zero(Frect &r)
+inline void CUIFrameWindow::ClampMax_Zero(fRect& r)
 {
 	clamp(r.x1, 0.0f, abs(r.x1));
 	clamp(r.x2, 0.0f, abs(r.x2));

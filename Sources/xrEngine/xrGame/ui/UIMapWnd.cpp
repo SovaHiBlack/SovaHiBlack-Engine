@@ -72,7 +72,7 @@ void CUIMapWnd::Init(LPCSTR xml_name, LPCSTR start_from)
 	xml_init.InitWindow				(uiXml, pth, 0, m_UILevelFrame);
 	m_UIMainFrame->AttachChild		(m_UILevelFrame);
 
-	Frect r							= m_UILevelFrame->GetWndRect();
+	fRect r							= m_UILevelFrame->GetWndRect();
 
 	m_UIMainScrollH					= xr_new<CUIScrollBar>(); m_UIMainScrollH->SetAutoDelete(true);
 	m_UIMainScrollH->Init			(r.left, r.bottom + SCROLLBARS_SHIFT, r.right - r.left, true, "pda");
@@ -312,7 +312,7 @@ void CUIMapWnd::SetTargetMap			(CUICustomMap* m, bool bZoomIn)
 {
 	m_tgtMap							= m;
 	fVector2							pos;
-	Frect r								= m->BoundRect();
+	fRect r								= m->BoundRect();
 	r.getcenter							(pos);
 	SetTargetMap						(m, pos, bZoomIn);
 }
@@ -325,7 +325,7 @@ void CUIMapWnd::SetTargetMap			(CUICustomMap* m, const fVector2& pos, bool bZoom
 	{
 		CUIGlobalMap* gm				= GlobalMap();
 		SetZoom							(gm->GetMinZoom());
-		Frect vis_rect					= ActiveMapRect		();
+		fRect vis_rect					= ActiveMapRect		();
 		vis_rect.getcenter				(m_tgtCenter);
 		fVector2	_p;gm->GetAbsolutePos(_p);
 		m_tgtCenter.sub					(_p);
@@ -567,7 +567,7 @@ void CUIMapWnd::ResetActionPlanner()
 		m_ActionPlanner->m_storage.set_property(2,false);
 		m_ActionPlanner->m_storage.set_property(3,false);
 	}else{
-		Frect m_desiredMapRect;
+		fRect m_desiredMapRect;
 		GlobalMap()->CalcOpenRect	(m_tgtCenter,m_desiredMapRect,GetZoom());
 		GlobalMap()->SetWndRect		(m_desiredMapRect);
 		UpdateScroll				();
@@ -719,7 +719,7 @@ void CUIMapWnd::AddUserSpot			(CUILevelMap* lm)
 	m_ToolBar[eAddSpot]->SetButtonMode(CUIButton::BUTTON_NORMAL);
 }*/
 
-bool is_in(const Frect& b1, const Frect& b2){
+bool is_in(const fRect& b1, const fRect& b2){
 	return (b1.x1<b2.x1)&&(b1.x2>b2.x2)&&(b1.y1<b2.y1)&&(b1.y2>b2.y2);
 }
 
@@ -728,14 +728,14 @@ void CUIMapWnd::ShowHint					(CUIWindow* parent, LPCSTR text)
 	if(m_hint->GetOwner())	return;
 	if(!text)				return;
 	fVector2 c_pos			= GetUICursor()->GetCursorPosition();
-	Frect vis_rect			= ActiveMapRect				();
+	fRect vis_rect			= ActiveMapRect				();
 	if(FALSE==vis_rect.in(c_pos)) return;
 
 	m_hint->SetOwner		(parent);
 	m_hint->SetText			(text);
 
 	//select appropriate position
-	Frect r;
+	fRect r;
 	r.set					(0.0f, 0.0f, m_hint->GetWidth(), m_hint->GetHeight());
 	r.add					(c_pos.x, c_pos.y);
 

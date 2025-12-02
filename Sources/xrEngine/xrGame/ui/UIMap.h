@@ -9,12 +9,12 @@ class CUICustomMap : public CUIStatic, public CUIWndCallback
 {
 protected:	
 	shared_str		m_name;
-	Frect			m_BoundRect;// real map size (meters)
+	fRect			m_BoundRect;// real map size (meters)
 	Flags16			m_flags;
 	enum EFlags{	eLocked	=(1<<0),};
 	float			m_pointer_dist;
 public:
-	Frect			m_prevRect;
+	fRect			m_prevRect;
 					CUICustomMap					();
 	virtual			~CUICustomMap					();
 	virtual void	SetActivePoint					(const Fvector &vNewPoint);
@@ -29,16 +29,16 @@ public:
 	void			FitToWidth						(float width);
 	void			FitToHeight						(float height);
 	float			GetCurrentZoom					(){return GetWndRect().width()/m_BoundRect.width();}
-	const Frect&    BoundRect						()const					{return m_BoundRect;};
-	virtual void	OptimalFit						(const Frect& r);
+	const fRect&    BoundRect						()const					{return m_BoundRect;};
+	virtual void	OptimalFit						(const fRect& r);
 
 	shared_str		MapName							() {return m_name;}
 	virtual CUIGlobalMapSpot*	GlobalMapSpot		() {return NULL;}
 
 	virtual void	Update							();
 	virtual void	SendMessage						(CUIWindow* pWnd, s16 msg, void* pData);
-			bool	IsRectVisible					(Frect r);
-			bool	NeedShowPointer					(Frect r);
+			bool	IsRectVisible					(fRect r);
+			bool	NeedShowPointer					(fRect r);
 			bool	Locked							()				{return !!m_flags.test(eLocked);}
 			void	SetLocked						(bool b)		{m_flags.set(eLocked,b);}
 			void	SetPointerDistance				(float d)		{m_pointer_dist=d;};
@@ -74,7 +74,7 @@ public:
 	CUIMapWnd*		MapWnd					() {return m_mapWnd;}
 	void			MoveWndDelta			(const fVector2& d);
 
-	float			CalcOpenRect			(const fVector2& center_point, Frect& map_desired_rect, float tgt_zoom);
+	float			CalcOpenRect			(const fVector2& center_point, fRect& map_desired_rect, float tgt_zoom);
 
 	void			ClipByVisRect			();
 	virtual void	Update					();
@@ -83,7 +83,7 @@ public:
 class CUILevelMap: public CUICustomMap{
 	typedef  CUICustomMap inherited;
 	CUIMapWnd*					m_mapWnd;
-	Frect						m_GlobalRect;			// virtual map size (meters)
+	fRect						m_GlobalRect;			// virtual map size (meters)
 //	CUIStatic*					m_anomalies_map;
 private:
 								CUILevelMap			(const CUILevelMap &obj) {}
@@ -93,13 +93,13 @@ public:
 								CUILevelMap			(CUIMapWnd*);
 	virtual						~CUILevelMap		();
 	virtual void				Init				(shared_str name, CInifile& gameLtx, LPCSTR sh_name);
-	const Frect&				GlobalRect			() const								{return m_GlobalRect;}
+	const fRect&				GlobalRect			() const								{return m_GlobalRect;}
 	virtual void				Draw				();
 	virtual void				Update				();
 	virtual bool				OnMouse				(float x, float y, EUIMessages mouse_action);
 	virtual void				SendMessage			(CUIWindow* pWnd, s16 msg, void* pData);
 	
-	Frect						CalcWndRectOnGlobal	();
+	fRect						CalcWndRectOnGlobal	();
 	CUIMapWnd*					MapWnd				() {return m_mapWnd;}
 
 	virtual		void			OnFocusLost			();

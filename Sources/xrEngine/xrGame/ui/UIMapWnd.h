@@ -105,7 +105,7 @@ public:
 //.	void						AddUserSpot				(CUILevelMap*);
 //.	void						Select					(CMapLocation* ml);
 
-	Frect						ActiveMapRect			()		{Frect r; m_UILevelFrame->GetAbsoluteRect(r); return r;};
+	fRect						ActiveMapRect			()		{		fRect r; m_UILevelFrame->GetAbsoluteRect(r); return r;};
 	void						AddMapToRender			(CUICustomMap*);
 	void						RemoveMapToRender		(CUICustomMap*);
 	CUIGlobalMap*				GlobalMap				()		{return m_GlobalMap;};

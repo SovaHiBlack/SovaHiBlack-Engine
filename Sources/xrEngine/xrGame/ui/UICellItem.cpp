@@ -72,7 +72,7 @@ CUIDragItem* CUICellItem::CreateDragItem()
 {
 	CUIDragItem* tmp;
 	tmp = xr_new<CUIDragItem>(this);
-	Frect r;
+	fRect r;
 	GetAbsoluteRect(r);
 	tmp->Init(GetShader(),r,GetUIStaticItem().GetOriginalRect());
 	return tmp;
@@ -150,7 +150,7 @@ CUIDragItem::~CUIDragItem()
 	Device.seqFrame.Remove			(this);
 }
 
-void CUIDragItem::Init(const ref_shader& sh, const Frect& rect, const Frect& text_rect)
+void CUIDragItem::Init(const ref_shader& sh, const fRect& rect, const fRect& text_rect)
 {
 	SetWndRect						(rect);
 	m_static.SetShader				(sh);

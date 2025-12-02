@@ -279,7 +279,7 @@ void CUIMMShniaga::Update(){
 bool CUIMMShniaga::OnMouse(float x, float y, EUIMessages mouse_action){
 	
 	fVector2 pos = UI()->GetUICursor()->GetCursorPosition();
-	Frect r;
+	fRect r;
 	m_magnifier->GetAbsoluteRect(r);
 	if (WINDOW_LBUTTON_DOWN == mouse_action && r.in(pos.x, pos.y))
 	{

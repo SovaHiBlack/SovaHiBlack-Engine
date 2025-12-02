@@ -25,7 +25,7 @@ public:
 	virtual void		SetWndPos		(float x, float y);
 	virtual void		SetWndPos		(const fVector2& pos);
 	virtual void		SetWndSize		(const fVector2& size);
-	virtual void		SetWndRect		(const Frect& rect);
+	virtual void		SetWndRect		(const fRect& rect);
 	virtual void		SetWidth		(float width);
 	virtual void		SetHeight		(float height);
 	virtual void		Update			();

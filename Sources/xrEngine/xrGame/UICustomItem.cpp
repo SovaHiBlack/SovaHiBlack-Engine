@@ -153,9 +153,9 @@ void CUICustomItem::Render(FVF::TL*& Pointer, const fVector2& pos_ns, u32 color,
 		}
 }
 
-Frect CUICustomItem::GetOriginalRectScaled()
+fRect CUICustomItem::GetOriginalRectScaled()
 {
-	Frect rect = iOriginalRect;
+	fRect rect = iOriginalRect;
 
 	rect.x2		= rect.x1 + rect.width();
 	rect.y2		= rect.y1 + rect.height();
@@ -163,7 +163,7 @@ Frect CUICustomItem::GetOriginalRectScaled()
 	return rect;
 }
 
-Frect CUICustomItem::GetOriginalRect() const
+fRect CUICustomItem::GetOriginalRect() const
 {
 	return iOriginalRect;
 }

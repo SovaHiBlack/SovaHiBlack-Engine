@@ -13,7 +13,7 @@ struct PlayerInfo{
 };
 
 struct IconInfo{
-	Frect		m_rect;
+	fRect		m_rect;
 	ref_shader	m_shader;
 };
 
