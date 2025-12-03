@@ -42,12 +42,12 @@ protected:
 
 	ALife::EHitType		m_eHitType_1;
 	//float				fHitPower_1;
-	Fvector4			fvHitPower_1;
+	fVector4			fvHitPower_1;
 	float				fHitImpulse_1;
 
 	ALife::EHitType		m_eHitType_2;
 	//float				fHitPower_2;
-	Fvector4			fvHitPower_2;
+	fVector4			fvHitPower_2;
 	float				fCurrentHit;
 	float				fHitImpulse_2;
 protected:

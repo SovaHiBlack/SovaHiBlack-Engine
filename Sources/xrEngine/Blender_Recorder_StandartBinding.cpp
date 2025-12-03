@@ -27,13 +27,13 @@ BIND_DECLARE(wvp);
 // fog
 class cl_fog_plane	: public R_constant_setup {
 	u32			marker;
-	Fvector4	result;
+	fVector4	result;
 	virtual void setup(R_constant* C)
 	{
 		if (marker!=Device.dwFrame)
 		{
 			// Plane
-			Fvector4		plane;
+			fVector4		plane;
 			Fmatrix&	M	= Device.mFullTransform;
 			plane.x			= -(M._14 + M._13);
 			plane.y			= -(M._24 + M._23);
@@ -56,7 +56,7 @@ static cl_fog_plane		binder_fog_plane;
 // fog-params
 class cl_fog_params	: public R_constant_setup {
 	u32			marker;
-	Fvector4	result;
+	fVector4	result;
 	virtual void setup(R_constant* C)
 	{
 		if (marker!=Device.dwFrame)
@@ -74,7 +74,7 @@ class cl_fog_params	: public R_constant_setup {
 // fog-color
 class cl_fog_color	: public R_constant_setup {
 	u32			marker;
-	Fvector4	result;
+	fVector4	result;
 	virtual void setup	(R_constant* C)	{
 		if (marker!=Device.dwFrame)	{
 			CEnvDescriptor&	desc	= g_pGamePersistent->Environment().CurrentEnv;
@@ -127,7 +127,7 @@ static cl_eye_N		binder_eye_N;
 // D-Light0
 class cl_sun0_color	: public R_constant_setup {
 	u32			marker;
-	Fvector4	result;
+	fVector4	result;
 	virtual void setup	(R_constant* C)	{
 		if (marker!=Device.dwFrame)	{
 			CEnvDescriptor&	desc	= g_pGamePersistent->Environment().CurrentEnv;
@@ -138,7 +138,7 @@ class cl_sun0_color	: public R_constant_setup {
 };	static cl_sun0_color		binder_sun0_color;
 class cl_sun0_dir_w	: public R_constant_setup {
 	u32			marker;
-	Fvector4	result;
+	fVector4	result;
 	virtual void setup	(R_constant* C)	{
 		if (marker!=Device.dwFrame)	{
 			CEnvDescriptor&	desc	= g_pGamePersistent->Environment().CurrentEnv;
@@ -149,7 +149,7 @@ class cl_sun0_dir_w	: public R_constant_setup {
 };	static cl_sun0_dir_w		binder_sun0_dir_w;
 class cl_sun0_dir_e	: public R_constant_setup {
 	u32			marker;
-	Fvector4	result;
+	fVector4	result;
 	virtual void setup	(R_constant* C)	{
 		if (marker!=Device.dwFrame)	{
 			Fvector D;
@@ -165,7 +165,7 @@ class cl_sun0_dir_e	: public R_constant_setup {
 //
 class cl_amb_color	: public R_constant_setup {
 	u32			marker;
-	Fvector4	result;
+	fVector4	result;
 	virtual void setup	(R_constant* C)	{
 		if (marker!=Device.dwFrame)	{
 			CEnvDescriptorMixer&	desc	= g_pGamePersistent->Environment().CurrentEnv;
@@ -176,7 +176,7 @@ class cl_amb_color	: public R_constant_setup {
 };	static cl_amb_color		binder_amb_color;
 class cl_hemi_color	: public R_constant_setup {
 	u32			marker;
-	Fvector4	result;
+	fVector4	result;
 	virtual void setup	(R_constant* C)	{
 		if (marker!=Device.dwFrame)	{
 			CEnvDescriptor&	desc	= g_pGamePersistent->Environment().CurrentEnv;

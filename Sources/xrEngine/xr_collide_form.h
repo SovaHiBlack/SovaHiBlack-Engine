@@ -28,7 +28,7 @@ struct clQueryCollision
 	xr_vector<CObject*>		objects;		// affected objects
 	xr_vector<clQueryTri>	tris;			// triangles		(if queried)
 	xr_vector<Fobb>			boxes;			// boxes/ellipsoids	(if queried)
-	xr_vector<Fvector4>		spheres;		// spheres			(if queried)
+	xr_vector<fVector4>		spheres;		// spheres			(if queried)
 	
 	IC void				Clear	()
 	{

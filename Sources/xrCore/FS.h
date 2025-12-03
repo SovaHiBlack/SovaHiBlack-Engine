@@ -57,10 +57,10 @@ public:
 	IC void			w_stringZ(shared_str& p)		{	w(*p?*p:"",p.size());w_u8(0);		}
 	IC void			w_stringZ(const xr_string& p)	{	w(p.c_str()?p.c_str():"",(u32)p.size());w_u8(0);	}
 	IC void			w_fcolor(const Fcolor &v)		{	w(&v,sizeof(Fcolor));	}
-	IC void			w_fvector4(const Fvector4 &v)	{	w(&v,sizeof(Fvector4));	}
+	IC void			w_fvector4(const fVector4& v)	{	w(&v,sizeof(fVector4));	}
 	IC void			w_fvector3(const Fvector3 &v)	{	w(&v,sizeof(Fvector3));	}
 	IC void			w_fvector2(const fVector2& v)	{	w(&v,sizeof(fVector2));	}
-	IC void			w_ivector4(const Ivector4 &v)	{	w(&v,sizeof(Ivector4));	}
+	IC void			w_ivector4(const iVector4& v)	{	w(&v,sizeof(iVector4));	}
 	IC void			w_ivector3(const Ivector3 &v)	{	w(&v,sizeof(Ivector3));	}
 	IC void			w_ivector2(const iVector2& v)	{	w(&v,sizeof(iVector2));	}
 
@@ -141,7 +141,7 @@ public:
 	IC void			r			(void *p,int cnt) {impl().r(p,cnt);}
 
 	IC Fvector		r_vec3		()			{Fvector tmp;r(&tmp,3*sizeof(float));return tmp;	};
-	IC Fvector4		r_vec4		()			{Fvector4 tmp;r(&tmp,4*sizeof(float));return tmp;	};
+	IC fVector4		r_vec4		()			{		fVector4 tmp;r(&tmp,4*sizeof(float));return tmp;	};
 	IC u64			r_u64		()			{	u64 tmp;	r(&tmp,sizeof(tmp)); return tmp;	};
 	IC u32			r_u32		()			{	u32 tmp;	r(&tmp,sizeof(tmp)); return tmp;	};
 	IC u16			r_u16		()			{	u16 tmp;	r(&tmp,sizeof(tmp)); return tmp;	};
@@ -151,10 +151,10 @@ public:
 	IC s16			r_s16		()			{	s16 tmp;	r(&tmp,sizeof(tmp)); return tmp;	};
 	IC s8			r_s8		()			{	s8 tmp;		r(&tmp,sizeof(tmp)); return tmp;	};
 	IC float		r_float		()			{	float tmp;	r(&tmp,sizeof(tmp)); return tmp;	};
-	IC void			r_fvector4	(Fvector4 &v){	r(&v,sizeof(Fvector4));	}
+	IC void			r_fvector4	(fVector4& v){	r(&v,sizeof(fVector4));	}
 	IC void			r_fvector3	(Fvector3 &v){	r(&v,sizeof(Fvector3));	}
 	IC void			r_fvector2	(fVector2& v){	r(&v,sizeof(fVector2));	}
-	IC void			r_ivector4	(Ivector4 &v){	r(&v,sizeof(Ivector4));	}
+	IC void			r_ivector4	(iVector4& v){	r(&v,sizeof(iVector4));	}
 	IC void			r_ivector3	(Ivector3 &v){	r(&v,sizeof(Ivector3));	}
 	IC void			r_ivector2	(iVector2& v){	r(&v,sizeof(iVector2));	}
 	IC void			r_fcolor	(Fcolor &v)	{	r(&v,sizeof(Fcolor));	}

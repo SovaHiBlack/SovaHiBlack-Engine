@@ -39,7 +39,7 @@ void CUICustomMap::Init	(shared_str name, CInifile& gameLtx, LPCSTR sh_name)
 
 	m_name				= name;
 	LPCSTR tex;
-	Fvector4 tmp;
+	fVector4 tmp;
 	if( gameLtx.line_exist(m_name,"texture") ){
 		tex			= gameLtx.r_string(m_name,"texture");
 		tmp		= gameLtx.r_fvector4(m_name,"bound_rect");
@@ -362,7 +362,7 @@ void CUILevelMap::Draw()
 void CUILevelMap::Init	(shared_str name, CInifile& gameLtx, LPCSTR sh_name)
 {
 	inherited::Init(name, gameLtx, sh_name);
-	Fvector4 tmp = gameLtx.r_fvector4(MapName(),"global_rect");
+	fVector4 tmp = gameLtx.r_fvector4(MapName(),"global_rect");
 	m_GlobalRect.set(tmp.x, tmp.y, tmp.z, tmp.w);
 
 #ifdef DEBUG
@@ -378,7 +378,7 @@ void CUILevelMap::Init	(shared_str name, CInifile& gameLtx, LPCSTR sh_name)
 /*	
 	if(gameLtx.line_exist(MapName(),"anomalies_texture")){
 		LPCSTR texture						= gameLtx.r_string	(MapName(),"anomalies_texture");
-		Fvector4 tmp						= gameLtx.r_fvector4(MapName(),"anomalies_texture_rect"); //lt,wh
+		fVector4 tmp						= gameLtx.r_fvector4(MapName(),"anomalies_texture_rect"); //lt,wh
 		fRect rect; rect.set				(tmp.x,tmp.y,tmp.x+tmp.z,tmp.y+tmp.w);
 		m_anomalies_map						= xr_new<CUIStatic>();
 		m_anomalies_map->Init				(texture,0.0f,0.0f,0.0f,0.0f);

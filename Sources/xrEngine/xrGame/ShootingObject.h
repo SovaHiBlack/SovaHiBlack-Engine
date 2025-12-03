@@ -59,7 +59,7 @@ protected:
 	bool					bWorking;
 
 	float					fTimeToFire;
-	Fvector4				fvHitPower;
+	fVector4				fvHitPower;
 	//float					fHitPower;
 	float					fHitImpulse;
 

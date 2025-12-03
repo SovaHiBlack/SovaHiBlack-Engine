@@ -255,7 +255,7 @@ void CSpaceRestrictor::OnRender	()
 		Fmatrix		res;
 		res.mul		(Device.mFullTransform, XFORM());
 
-		Fvector4	v_res;
+		fVector4	v_res;
 
 		float		delta_height = 0.f;
 

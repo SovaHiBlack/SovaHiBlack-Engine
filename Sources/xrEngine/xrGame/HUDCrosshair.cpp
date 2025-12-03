@@ -48,7 +48,7 @@ void CHUDCrosshair::Load		()
 //выставляет radius от min_radius до max_radius
 void CHUDCrosshair::SetDispersion	(float disp)
 { 
-	Fvector4 r;
+	fVector4 r;
 	Fvector R			= { VIEWPORT_NEAR*_sin(disp), 0.f, VIEWPORT_NEAR };
 	Device.mProject.transform	(r,R);
 

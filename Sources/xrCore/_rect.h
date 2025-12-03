@@ -232,11 +232,8 @@ public:
 using iRect				= _rect<s32>;
 using fRect				= _rect<f32>;
 
-typedef _rect<float>	Frect;
-typedef _rect<double>	Drect;
-
 template <class T>
-BOOL	_valid(const _rect<T>& m)
+BOOL _valid(const _rect<T>& m)
 {
 	return (lt._valid( ) && rb._valid( ));
 }

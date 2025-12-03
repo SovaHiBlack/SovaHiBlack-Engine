@@ -94,7 +94,7 @@ public:
 	ref_texture			sky_texture_env	;
 	ref_texture			clouds_texture	;
 
-	Fvector4			clouds_color	;
+	fVector4			clouds_color	;
 	Fvector3			sky_color		;
 	float				sky_rotation	;
 
@@ -110,17 +110,17 @@ public:
 	float				bolt_period;
 	float				bolt_duration;
 
-    float				wind_velocity;
-    float				wind_direction;  
-    
+	float				wind_velocity;
+	float				wind_direction;  
+	
 	Fvector3			ambient		;
-	Fvector4			hemi_color	;	// w = R2 correction
+	fVector4			hemi_color	;	// w = R2 correction
 	Fvector3			sun_color	;
 	Fvector3			sun_dir		;
 
-    int					lens_flare_id;
+	int					lens_flare_id;
 	int					tb_id;
-    
+	
 	CEnvAmbient*		env_ambient;
 
 #ifdef DEBUG
@@ -198,9 +198,9 @@ public:
 	bool					bWFX;
 	float					wfx_time;
 	CEnvDescriptor*			WFX_end_desc[2];
-    
-    EnvVec*					CurrentWeather;
-    shared_str				CurrentWeatherName;
+	
+	EnvVec*					CurrentWeather;
+	shared_str				CurrentWeatherName;
 	shared_str				CurrentCycleName;
 
 	EnvsMap					WeatherCycles;
@@ -222,7 +222,7 @@ public:
 	ref_texture				tonemap;
 	ref_texture				tsky0,tsky1;
 
-    void					SelectEnvs			(float gt);
+	void					SelectEnvs			(float gt);
 
 	void					UpdateAmbient		();
 	CEnvAmbient*			AppendEnvAmb		(const shared_str& sect);
@@ -233,7 +233,7 @@ public:
 							~CEnvironment		();
 
 	void					load				();
-    void					unload				();
+	void					unload				();
 
 	void					mods_load			();
 	void					mods_unload			();
@@ -247,8 +247,8 @@ public:
 
 	bool					SetWeatherFX		(shared_str name);
 	bool					IsWFXPlaying		(){return bWFX;}
-    void					SetWeather			(shared_str name, bool forced=false);
-    shared_str				GetWeather			()					{ return CurrentWeatherName;}
+	void					SetWeather			(shared_str name, bool forced=false);
+	shared_str				GetWeather			()					{ return CurrentWeatherName;}
 	void					SetGameTime			(float game_time, float time_factor);
 
 	void					OnDeviceCreate		();
@@ -260,8 +260,8 @@ public:
 	float					ed_from_time		;
 	float					ed_to_time			;
 public:
-    void					ED_Reload			();
-    float					GetGameTime			(){return fGameTime;}
+	void					ED_Reload			();
+	float					GetGameTime			(){return fGameTime;}
 #endif
 };
 

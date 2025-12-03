@@ -34,7 +34,7 @@ namespace FVF {
 	const u32 F_LIT	= D3DFVF_XYZ | D3DFVF_DIFFUSE | D3DFVF_TEX1;
 
 	struct TL0uv {
-		Fvector4	p;
+		fVector4	p;
 		u32			color;
 		IC void	set	(const TL0uv& src)
 		{	*this = src; };
@@ -59,7 +59,7 @@ namespace FVF {
 	const u32 F_TL0uv	= D3DFVF_XYZRHW | D3DFVF_DIFFUSE;
 
 	struct TL {
-		Fvector4	p;
+		fVector4	p;
 		u32			color;
 		fVector2	uv;
 		IC void	set	(const TL& src)
@@ -87,7 +87,7 @@ namespace FVF {
 	const u32 F_TL	= D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1;
 
 	struct TL2uv {
-		Fvector4	p;
+		fVector4	p;
 		u32			color;
 		fVector2	uv[2];
 		IC void	set	(const TL2uv& src)
@@ -117,7 +117,7 @@ namespace FVF {
 	const u32 F_TL2uv	= D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX2;
 
 	struct TL4uv {
-		Fvector4	p;
+		fVector4	p;
 		u32			color;
 		fVector2	uv[4];
 		IC void	set	(const TL4uv& src)

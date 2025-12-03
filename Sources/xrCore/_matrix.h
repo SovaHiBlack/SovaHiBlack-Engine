@@ -516,7 +516,7 @@ public:
 		dest.y = v.x*_12 + v.y*_22 + v.z*_32;
 		dest.z = v.x*_13 + v.y*_23 + v.z*_33;
 	}
-	IC	void	transform			(Fvector4 &dest, const Tvector &v)	const 	// preferred to use
+	IC	void	transform			(fVector4& dest, const Tvector &v)	const 	// preferred to use
 	{
 		dest.w = v.x*_14 + v.y*_24 + v.z*_34 + _44;
 		dest.x = (v.x*_11 + v.y*_21 + v.z*_31 + _41)/dest.w;

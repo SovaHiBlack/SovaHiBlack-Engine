@@ -226,7 +226,7 @@ void CActor::PickupInfoDraw(CObject* object)
 
 	Fmatrix			res;
 	res.mul			(Device.mFullTransform,object->XFORM());
-	Fvector4		v_res;
+	fVector4		v_res;
 	Fvector			shift;
 
 	draw_str = item->Name/*Complex*/();

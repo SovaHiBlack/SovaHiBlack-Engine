@@ -317,7 +317,7 @@ using iVector2			= _vector2<s32>;
 using fVector2			= _vector2<f32>;
 
 template <class T>
-BOOL	_valid(const _vector2<T>& v)
+BOOL _valid(const _vector2<T>& v)
 {
 	return (_valid((T)v.x) && _valid((T)v.y));
 }

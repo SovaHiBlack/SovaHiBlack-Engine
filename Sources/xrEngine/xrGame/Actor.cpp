@@ -1322,7 +1322,7 @@ void CActor::RenderText				(LPCSTR Text, Fvector dpos, float* pdup, u32 color)
 	//------------------------------------------------
 	M.c.y += dpos.y;
 
-	Fvector4 v_res;	
+	fVector4 v_res;
 	Device.mFullTransform.transform(v_res,M.c);
 
 	if (v_res.z < 0 || v_res.w < 0)	return;
