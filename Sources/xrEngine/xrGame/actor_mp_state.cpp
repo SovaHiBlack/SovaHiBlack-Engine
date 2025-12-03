@@ -46,7 +46,7 @@ static const float min_linear_velocity_component	= -32.f;
 static const float max_linear_velocity_component	= 32.f;
 
 #ifdef USE_DIFFERENCES
-IC	bool is_similar						(const Fvector &_0, const Fvector &_1)
+IC	bool is_similar						(const fVector3& _0, const fVector3& _1)
 {
 	return		(
 		fsimilar(_0.x,_1.x,EPS) &&

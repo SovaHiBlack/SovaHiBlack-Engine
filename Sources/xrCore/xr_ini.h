@@ -29,7 +29,7 @@ public:
 	typedef xr_vector<Item>				Items;
 	typedef Items::const_iterator		SectCIt;
 	typedef Items::iterator				SectIt_;
-    struct XRCORE_API	Sect {
+	struct XRCORE_API	Sect {
 		shared_str		Name;
 		Items			Data;
 
@@ -37,7 +37,7 @@ public:
 //.		IC SectCIt		end()		{ return Data.end();	}
 //.		IC size_t		size()		{ return Data.size();	}
 //.		IC void			clear()		{ Data.clear();			}
-	    BOOL			line_exist	(LPCSTR L, LPCSTR* val=0);
+		BOOL			line_exist	(LPCSTR L, LPCSTR* val=0);
 	};
 	typedef	xr_vector<Sect*>		Root;
 	typedef Root::iterator			RootIt;
@@ -45,19 +45,19 @@ public:
 	// factorisation
 	static CInifile*	Create		( LPCSTR szFileName, BOOL ReadOnly=TRUE);
 	static void			Destroy		( CInifile*);
-    static IC BOOL		IsBOOL		( LPCSTR B)	{ return (xr_strcmp(B,"on")==0 || xr_strcmp(B,"yes")==0 || xr_strcmp(B,"true")==0 || xr_strcmp(B,"1")==0);}
+	static IC BOOL		IsBOOL		( LPCSTR B)	{ return (xr_strcmp(B,"on")==0 || xr_strcmp(B,"yes")==0 || xr_strcmp(B,"true")==0 || xr_strcmp(B,"1")==0);}
 private:
 	LPSTR		fName;
 	Root		DATA;
 	BOOL		bReadOnly;
 	void		Load			(IReader* F, LPCSTR path);
 public:
-    BOOL		bSaveAtEnd;
+	BOOL		bSaveAtEnd;
 public:
 				CInifile		( IReader* F, LPCSTR path=0 );
 				CInifile		( LPCSTR szFileName, BOOL ReadOnly=TRUE, BOOL bLoadAtStart=TRUE, BOOL SaveAtEnd=TRUE);
 	virtual 	~CInifile		( );
-    bool		save_as         ( LPCSTR new_fname=0 );
+	bool		save_as         ( LPCSTR new_fname=0 );
 
 	LPCSTR		fname			( ) { return fName; };
 
@@ -97,14 +97,14 @@ public:
 	u32			r_color			( const shared_str& S, LPCSTR L )				{ return r_color(*S,L);			}
 	iVector2	r_ivector2		( LPCSTR S, LPCSTR L );
 	iVector2	r_ivector2		( const shared_str& S, LPCSTR L )				{ return r_ivector2(*S,L);		}
-	Ivector3	r_ivector3		( LPCSTR S, LPCSTR L );
-	Ivector3	r_ivector3		( const shared_str& S, LPCSTR L )				{ return r_ivector3(*S,L);		}
+	iVector3	r_ivector3		( LPCSTR S, LPCSTR L );
+	iVector3	r_ivector3		( const shared_str& S, LPCSTR L )				{ return r_ivector3(*S,L);		}
 	iVector4	r_ivector4		( LPCSTR S, LPCSTR L );
 	iVector4	r_ivector4		( const shared_str& S, LPCSTR L )				{ return r_ivector4(*S,L);		}
 	fVector2	r_fvector2		( LPCSTR S, LPCSTR L );
 	fVector2	r_fvector2		( const shared_str& S, LPCSTR L )				{ return r_fvector2(*S,L);		}
-	Fvector3	r_fvector3		( LPCSTR S, LPCSTR L );
-	Fvector3	r_fvector3		( const shared_str& S, LPCSTR L )				{ return r_fvector3(*S,L);		}
+	fVector3	r_fvector3		( LPCSTR S, LPCSTR L );
+	fVector3	r_fvector3		( const shared_str& S, LPCSTR L )				{ return r_fvector3(*S,L);		}
 	fVector4	r_fvector4		( LPCSTR S, LPCSTR L );
 	fVector4	r_fvector4		( const shared_str& S, LPCSTR L )				{ return r_fvector4(*S,L);		}
 	BOOL		r_bool			( LPCSTR S, LPCSTR L );
@@ -113,25 +113,25 @@ public:
 	BOOL		r_line			( LPCSTR S, int L,	LPCSTR* N, LPCSTR* V );
 	BOOL		r_line			( const shared_str& S, int L,	LPCSTR* N, LPCSTR* V );
 
-    void		w_string		( LPCSTR S, LPCSTR L, LPCSTR			V, LPCSTR comment=0 );
+	void		w_string		( LPCSTR S, LPCSTR L, LPCSTR			V, LPCSTR comment=0 );
 	void		w_u8			( LPCSTR S, LPCSTR L, u8				V, LPCSTR comment=0 );
 	void		w_u16			( LPCSTR S, LPCSTR L, u16				V, LPCSTR comment=0 );
 	void		w_u32			( LPCSTR S, LPCSTR L, u32				V, LPCSTR comment=0 );
-    void		w_s8			( LPCSTR S, LPCSTR L, s8				V, LPCSTR comment=0 );
+	void		w_s8			( LPCSTR S, LPCSTR L, s8				V, LPCSTR comment=0 );
 	void		w_s16			( LPCSTR S, LPCSTR L, s16				V, LPCSTR comment=0 );
 	void		w_s32			( LPCSTR S, LPCSTR L, s32				V, LPCSTR comment=0 );
 	void		w_float			( LPCSTR S, LPCSTR L, float				V, LPCSTR comment=0 );
-    void		w_fcolor		( LPCSTR S, LPCSTR L, const Fcolor&		V, LPCSTR comment=0 );
-    void		w_color			( LPCSTR S, LPCSTR L, u32				V, LPCSTR comment=0 );
-    void		w_ivector2		( LPCSTR S, LPCSTR L, const iVector2&	V, LPCSTR comment=0 );
-	void		w_ivector3		( LPCSTR S, LPCSTR L, const Ivector3&	V, LPCSTR comment=0 );
+	void		w_fcolor		( LPCSTR S, LPCSTR L, const Fcolor&		V, LPCSTR comment=0 );
+	void		w_color			( LPCSTR S, LPCSTR L, u32				V, LPCSTR comment=0 );
+	void		w_ivector2		( LPCSTR S, LPCSTR L, const iVector2&	V, LPCSTR comment=0 );
+	void		w_ivector3		( LPCSTR S, LPCSTR L, const iVector3&	V, LPCSTR comment=0 );
 	void		w_ivector4		( LPCSTR S, LPCSTR L, const iVector4&	V, LPCSTR comment=0 );
 	void		w_fvector2		( LPCSTR S, LPCSTR L, const fVector2&	V, LPCSTR comment=0 );
-	void		w_fvector3		( LPCSTR S, LPCSTR L, const Fvector3&	V, LPCSTR comment=0 );
+	void		w_fvector3		( LPCSTR S, LPCSTR L, const fVector3&	V, LPCSTR comment=0 );
 	void		w_fvector4		( LPCSTR S, LPCSTR L, const fVector4&	V, LPCSTR comment=0 );
 	void		w_bool			( LPCSTR S, LPCSTR L, BOOL				V, LPCSTR comment=0 );
 
-    void		remove_line		( LPCSTR S, LPCSTR L );
+	void		remove_line		( LPCSTR S, LPCSTR L );
 };
 
 // Main configuration file

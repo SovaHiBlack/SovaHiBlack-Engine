@@ -108,14 +108,14 @@ BOOL CRenderTarget::enable_scissor		(light* L)		// true if intersects near plane
 		b_pp.max.y			= (1-b_pp.max.y) * 2 - 1;
 
 		// 2. construct scissor rectangle in post-projection space
-		Fvector3	s_points_pp			[4];
+		fVector3	s_points_pp			[4];
 		s_points_pp[0].set	(bb.min.x,bb.min.y,bb.depth);	// LT
 		s_points_pp[1].set	(bb.max.x,bb.min.y,bb.depth);	// RT
 		s_points_pp[2].set	(bb.max.x,bb.max.y,bb.depth);	// RB
 		s_points_pp[3].set	(bb.min.x,bb.max.y,bb.depth);	// LB
 
 		// 3. convert it into world space
-		Fvector3	s_points			[4];
+		fVector3	s_points			[4];
 		Fmatrix&	iVP					= Device.mInvFullTransform;
 		iVP.transform	(s_points[0],s_points_pp[0]);
 		iVP.transform	(s_points[1],s_points_pp[1]);

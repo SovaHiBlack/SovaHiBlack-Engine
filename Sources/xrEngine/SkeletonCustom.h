@@ -115,7 +115,7 @@ class ENGINE_API CSkeletonWallmark : public intrusive_base // 4+4+4+12+4+16+16 =
 	CKinematics*		m_Parent;		// 4
 	const Fmatrix*		m_XForm;		// 4
 	ref_shader			m_Shader;		// 4
-	Fvector3			m_ContactPoint;	// 12		model space
+	fVector3			m_ContactPoint;	// 12		model space
 	float				m_fTimeStart;	// 4
 public:
 #ifdef DEBUG
@@ -123,7 +123,7 @@ public:
 #endif
 	Fsphere				m_LocalBounds;	// 16		model space
 	struct WMFace{
-		Fvector3		vert	[3];
+		fVector3		vert	[3];
 		fVector2		uv		[3];
 		u16				bone_id	[3][2];
 		float			weight	[3];
@@ -153,7 +153,7 @@ public:
 	IC bool				Similar				(ref_shader& sh, const Fvector& cp, float eps){return (m_Shader==sh)&&m_ContactPoint.similar(cp,eps);}
 	IC float			TimeStart			(){return m_fTimeStart;}
 	IC const Fmatrix*	XFORM				(){return m_XForm;}
-	IC const Fvector3&	ContactPoint		(){return m_ContactPoint;}
+	IC const fVector3&	ContactPoint		(){return m_ContactPoint;}
 	IC ref_shader		Shader				(){return m_Shader;}
 };
 DEFINE_VECTOR(intrusive_ptr<CSkeletonWallmark>,SkeletonWMVec,SkeletonWMVecIt);
@@ -222,7 +222,7 @@ public:
 	void*						Update_Callback_Param;
 public:
 	// wallmarks
-	void						AddWallmark			(const Fmatrix* parent, const Fvector3& start, const Fvector3& dir, ref_shader shader, float size);
+	void						AddWallmark			(const Fmatrix* parent, const fVector3& start, const fVector3& dir, ref_shader shader, float size);
 	void						CalculateWallmarks	();
 	void						RenderWallmark		(intrusive_ptr<CSkeletonWallmark> wm, FVF::LIT* &verts);
 	void						ClearWallmarks		();

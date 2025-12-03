@@ -10,8 +10,7 @@ class	ENGINE_API C3DSound;
 class	ENGINE_API CMotionDef;
 class	ENGINE_API CKinematics;
 class	ENGINE_API CBoneInstance;
-class	CWeaponList;
-class   CPHMovementControl;
+class	CPHMovementControl;
 class	CHudItem;
 
 class CEntity : 
@@ -30,8 +29,8 @@ protected:
 	virtual	CEntityConditionSimple	*create_entity_condition	(CEntityConditionSimple* ec);
 
 public:
-	/*virtual*/IC float			GetfHealth			() const			{ return m_entity_condition->GetHealth(); }
-	/*virtual*/IC float			SetfHealth			(float value)		{m_entity_condition->health()=value; return value;}
+	IC float					GetfHealth			() const			{ return m_entity_condition->GetHealth(); }
+	IC float					SetfHealth			(float value)		{m_entity_condition->health()=value; return value;}
 	float						m_fMorale;
 	// Team params
 	int							id_Team;
@@ -71,11 +70,10 @@ public:
 	bool					IsFocused			()const;
 	bool					IsMyCamera			()const;
 
-//	virtual float			g_Health			()const	{ return GetfHealth();}
-/*	virtual*/ IC float			GetMaxHealth		()const	{ return m_entity_condition->max_health();	}
-/*	virtual*/ IC void			SetMaxHealth		(float v)	{ m_entity_condition->max_health()=v;}
+	IC float				GetMaxHealth		()const	{ return m_entity_condition->max_health();	}
+	IC void					SetMaxHealth		(float v)	{ m_entity_condition->max_health()=v;}
 
-	/*virtual*/ IC BOOL		g_Alive				()const	{ return GetfHealth()>0; }
+	IC BOOL					g_Alive				()const	{ return GetfHealth()>0; }
 	virtual BOOL			g_State				(SEntityState&) const	{return FALSE;}
 	
 			bool			AlreadyDie			()			{return  0!=GetLevelDeathTime()?true:false;}

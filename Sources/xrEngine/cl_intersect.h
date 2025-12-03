@@ -635,7 +635,7 @@ namespace CDB
 	{
 		// Test for intersection in the coordinate system of the box by
 		// transforming the sphere into that coordinate system.
-		Fvector3 kCDiff;
+		fVector3 kCDiff;
 		kCDiff.sub(rkSphere.P,rkBox.m_translate);
 
 		float fAx = _abs(kCDiff.dotproduct(rkBox.m_rotate.i));
@@ -692,11 +692,11 @@ namespace CDB
 		}
 	}
 	//----------------------------------------------------------------------------
-	IC bool TestRayOBB (const Fvector3& origin, const Fvector3& direction, const Fobb& rkBox)
+	IC bool TestRayOBB (const fVector3& origin, const fVector3& direction, const Fobb& rkBox)
 	{
 		float			fWdU[3], fAWdU[3], fDdU[3], fADdU[3], fAWxDdU[3], fRhs;
 
-		Fvector3		kDiff;
+		fVector3		kDiff;
 		kDiff.sub		(origin,rkBox.m_translate);
 
 		fWdU[0]			= direction.dotproduct(rkBox.m_rotate.i);
@@ -720,7 +720,7 @@ namespace CDB
 		if ( fADdU[2] > rkBox.m_halfsize[2] && fDdU[2]*fWdU[2] >= (float)0.0 )
 			return false;
 
-		Fvector3		kWxD;
+		fVector3		kWxD;
 		kWxD.crossproduct(direction,kDiff);
 
 		fAWxDdU[0]		= _abs(kWxD.dotproduct(rkBox.m_rotate.i));

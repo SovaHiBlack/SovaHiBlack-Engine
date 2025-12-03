@@ -123,7 +123,6 @@ void CActor::IR_OnKeyboardPress(int cmd)
 	case kWPN_5:	
 	case kWPN_6:	
 	case kWPN_RELOAD:
-		//Weapons->ActivateWeaponID	(cmd-kWPN_1);			
 		break;
 	case kUSE:
 		ActorUse();

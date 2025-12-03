@@ -472,8 +472,6 @@ void CEntityAlive::UpdateFireParticles()
 {
 	if(m_ParticleWounds.empty()) return;
 	
-//	WOUND_VECTOR_IT last_it;
-
 	for(WOUND_VECTOR_IT it = m_ParticleWounds.begin(); 
 					  it != m_ParticleWounds.end();)
 	{
@@ -540,8 +538,6 @@ void CEntityAlive::UpdateBloodDrops()
 		return;
 	}
 
-//	WOUND_VECTOR_IT last_it;
-
 	for(WOUND_VECTOR_IT it = m_BloodWounds.begin(); 
 		it != m_BloodWounds.end();)
 	{
@@ -604,38 +600,16 @@ CEntityConditionSimple* CEntityAlive::create_entity_condition	(CEntityConditionS
 	return		(inherited::create_entity_condition(m_entity_condition));
 }
 
-/*
-float CEntityAlive::GetfHealth	() const
-{
-	return conditions().health()*100.f;
-}
-
-float CEntityAlive::SetfHealth	(float value)
-{
-	conditions().health() = value/100.f;
-	return value;
-}
-*/
 float CEntityAlive::SetfRadiation		(float value)
 {
 	conditions().radiation() = value/100.f;
 	return value;
 }
-/*
-float CEntityAlive::g_Health	() const
-{
-	return conditions().GetHealth()*100.f;
-}
-float CEntityAlive::g_MaxHealth	() const
-{
-	return conditions().GetMaxHealth()*100.f;
-}
-*/
+
 float CEntityAlive::g_Radiation	()	const
 {
 	return conditions().GetRadiation()*100.f;
 }
-
 
 DLL_Pure *CEntityAlive::_construct	()
 {

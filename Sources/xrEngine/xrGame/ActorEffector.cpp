@@ -139,7 +139,7 @@ BOOL CAnimatorCamEffector::Valid()
 	return			inherited::Valid();
 }
 
-BOOL CAnimatorCamEffector::Process (Fvector &p, Fvector &d, Fvector &n, float& fFov, float& fFar, float& fAspect)
+BOOL CAnimatorCamEffector::Process (fVector3& p, fVector3& d, fVector3& n, float& fFov, float& fFar, float& fAspect)
 {
 	if(!inherited::Process(p,d,n,fFov,fFar,fAspect))	return FALSE;
 
@@ -167,7 +167,7 @@ BOOL CAnimatorCamEffector::Process (Fvector &p, Fvector &d, Fvector &n, float& f
 	return						TRUE;
 }
 
-BOOL CAnimatorCamLerpEffector::Process(Fvector &p, Fvector &d, Fvector &n, float& fFov, float& fFar, float& fAspect)
+BOOL CAnimatorCamLerpEffector::Process(fVector3& p, fVector3& d, fVector3& n, float& fFov, float& fFar, float& fAspect)
 {
 	if(!inherited::inherited::Process(p,d,n,fFov,fFar,fAspect))	return FALSE;
 
@@ -307,7 +307,7 @@ void SndShockEffector::Update()
 #define DELTA_ANGLE_Z	0.5f * PI / 180
 #define ANGLE_SPEED		1.5f	
 
-CControllerPsyHitCamEffector::CControllerPsyHitCamEffector(ECamEffectorType type, const Fvector &src_pos, const Fvector &target_pos, float time)
+CControllerPsyHitCamEffector::CControllerPsyHitCamEffector(ECamEffectorType type, const fVector3& src_pos, const fVector3& target_pos, float time)
 	:inherited(eCEControllerPsyHit, flt_max)
 {
 	m_time_total			= time;
@@ -324,7 +324,7 @@ const float	_base_fov		= 170.f;
 const float	_max_fov_add	= 160.f;
 
 
-BOOL CControllerPsyHitCamEffector::Process(Fvector &p, Fvector &d, Fvector &n, float& fFov, float& fFar, float& fAspect)
+BOOL CControllerPsyHitCamEffector::Process(fVector3& p, fVector3& d, fVector3& n, float& fFov, float& fFar, float& fAspect)
 {
 	Fmatrix	Mdef;
 	Mdef.identity		();

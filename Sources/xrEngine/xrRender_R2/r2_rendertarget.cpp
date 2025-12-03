@@ -113,10 +113,10 @@ Fvector	vunpack			(s32 x, s32 y, s32 z)	{
 	pck.z	= -float(z)/255.f;
 	return	pck;
 }
-Fvector	vunpack			(Ivector src)			{
+Fvector	vunpack			(iVector3 src)			{
 	return	vunpack	(src.x,src.y,src.z);
 }
-Ivector	vpack			(Fvector src)
+iVector3	vpack			(Fvector src)
 {
 	Fvector			_v;
 	int	bx			= fpack	(src.x);
@@ -145,7 +145,8 @@ Ivector	vpack			(Fvector src)
 			r=x,g=y,b=z;
 		}
 	}
-	Ivector		ipck;
+
+	iVector3		ipck;
 	ipck.set	(r,g,b);
 	return		ipck;
 }

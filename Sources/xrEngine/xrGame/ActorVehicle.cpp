@@ -82,39 +82,51 @@ void CActor::detach_Vehicle()
 	V->PlayCycle		(m_anims->m_normal.m_torso_idle);
 	m_holderID=u16(-1);
 
-//.	SetWeaponHideState(whs_CAR, FALSE);
 	SetWeaponHideState(INV_STATE_CAR, false);
 }
 
 bool CActor::use_Vehicle(CHolderCustom* object)
 {
-	
-//	CHolderCustom* vehicle=smart_cast<CHolderCustom*>(object);
-	CHolderCustom* vehicle=object;
-	Fvector center;
+	CHolderCustom* vehicle = object;
+	fVector3 center;
 	Center(center);
-	if(m_holder){
-		if(!vehicle&& m_holder->Use(Device.vCameraPosition, Device.vCameraDirection,center)) detach_Vehicle();
-		else{ 
-			if(m_holder==vehicle)
-				if(m_holder->Use(Device.vCameraPosition, Device.vCameraDirection,center))detach_Vehicle();
-		}
-		return true;
-	}else{
-		if(vehicle)
+	if (m_holder)
+	{
+		if (!vehicle && m_holder->Use(Device.vCameraPosition, Device.vCameraDirection, center))
 		{
-			if( vehicle->Use(Device.vCameraPosition, Device.vCameraDirection,center))
+			detach_Vehicle( );
+		}
+		else
+		{
+			if (m_holder == vehicle)
+			{
+				if (m_holder->Use(Device.vCameraPosition, Device.vCameraDirection, center))
+				{
+					detach_Vehicle( );
+				}
+			}
+		}
+
+		return true;
+	}
+	else
+	{
+		if (vehicle)
+		{
+			if (vehicle->Use(Device.vCameraPosition, Device.vCameraDirection, center))
 			{
 				if (pCamBobbing)
 				{
-					Cameras().RemoveCamEffector(eCEBobbing);
+					Cameras( ).RemoveCamEffector(eCEBobbing);
 					pCamBobbing = NULL;
 				}
 
 				attach_Vehicle(vehicle);
 			}
+
 			return true;
 		}
+
 		return false;
 	}
 }

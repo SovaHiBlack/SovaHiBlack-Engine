@@ -40,15 +40,15 @@ s16	q_tc	(float v)
 	return	s16	(_v);
 }
 #ifdef _DEBUG
-float errN	(Fvector3 v, u8* qv)
+float errN	(fVector3 v, u8* qv)
 {
-	Fvector3	uv;	
+	fVector3	uv;
 	uv.set		(float(qv[0]),float(qv[1]),float(qv[2])).div(255.f).mul(2.f).sub(1.f);
 	uv.normalize();
 	return		v.dotproduct(uv);
 }
 #else
-float errN	(Fvector3 v, u8* qv)	{ return 0; }
+float errN	(fVector3 v, u8* qv)	{ return 0; }
 #endif
 
 static	D3DVERTEXELEMENT9 dwDecl_01W	[] =	// 24bytes
@@ -67,7 +67,7 @@ struct	vertHW_1W
 	u32			_T		;
 	u32			_B		;
 	s16			_tc		[2];
-	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, fVector2& tc, int index)
+	void set	(fVector3& P, fVector3 N, fVector3 T, fVector3 B, fVector2& tc, int index)
 	{
 		N.normalize_safe();
 		T.normalize_safe();
@@ -110,7 +110,7 @@ struct	vertHW_2W
 	u32			_T		;
 	u32			_B		;
 	s16			_tc_i	[4];
-	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, fVector2& tc, int index0, int index1, float w)
+	void set	(fVector3& P, fVector3 N, fVector3 T, fVector3 B, fVector2& tc, int index0, int index1, float w)
 	{
 		N.normalize_safe	();
 		T.normalize_safe	();

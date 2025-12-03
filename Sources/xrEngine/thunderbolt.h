@@ -56,7 +56,7 @@ protected:
 	SThunderboltDesc*			current;
 private:
 	Fmatrix				  		current_xform;
-	Fvector3					current_direction;
+	fVector3					current_direction;
 
 	ref_geom			  		hGeom_model;
 	// states

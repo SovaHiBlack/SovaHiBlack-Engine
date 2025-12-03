@@ -16,12 +16,12 @@ public:
 	// access operators
 	ICF TYPE& operator[] (int i)
 	{
-		return *((TYPE*) this + i);
+		return *((TYPE*)this + i);
 	}
 
 	ICF TYPE& operator[] (int i) const
 	{
-		return *((TYPE*) this + i);
+		return *((TYPE*)this + i);
 	}
 
 	ICF SelfRef set(TYPE _x, TYPE _y, TYPE _z)
@@ -449,7 +449,7 @@ public:
 	}
 
 	// Safe-Normalize
-	ICF	SelfRef	normalize_safe(SelfCRef v)
+	ICF SelfRef	normalize_safe(SelfCRef v)
 	{
 		TYPE magnitude = v.x * v.x + v.y * v.y + v.z * v.z;
 		if (magnitude > std::numeric_limits<TYPE>::min( ))
@@ -459,11 +459,12 @@ public:
 			y = v.y * magnitude;
 			z = v.z * magnitude;
 		}
+
 		return *this;
 	}
-	IC SelfRef	random_dir(CRandom& R = ::Random)
+
+	IC SelfRef random_dir(CRandom& R = ::Random)
 	{
-		//z	= R.randF(-1,1);
 		z = _cos(R.randF(PI));
 		TYPE a = R.randF(PI_MUL_2);
 		TYPE r = _sqrt(1 - z * z);
@@ -473,22 +474,25 @@ public:
 		y = r * sa;
 		return *this;
 	}
-	IC SelfRef	random_dir(SelfCRef ConeAxis, f32 ConeAngle, CRandom& R = ::Random)
+
+	IC SelfRef random_dir(SelfCRef ConeAxis, f32 ConeAngle, CRandom& R = ::Random)
 	{
-		Self				rnd;
+		Self rnd;
 		rnd.random_dir(R);
 		mad(ConeAxis, rnd, R.randF(tanf(ConeAngle)));
 		normalize( );
 		return *this;
 	}
-	IC SelfRef	random_point(SelfCRef BoxSize, CRandom& R = ::Random)
+
+	IC SelfRef random_point(SelfCRef BoxSize, CRandom& R = ::Random)
 	{
 		x = R.randFs(BoxSize.x);
 		y = R.randFs(BoxSize.y);
 		z = R.randFs(BoxSize.z);
 		return *this;
 	}
-	IC SelfRef	random_point(TYPE r, CRandom& R = ::Random)
+
+	IC SelfRef random_point(TYPE r, CRandom& R = ::Random)
 	{
 		random_dir(R);
 		mul(R.randF(r));
@@ -496,13 +500,13 @@ public:
 	}
 
 	// DotProduct
-	ICF	TYPE		dotproduct(SelfCRef v) const		   // v1*v2
+	ICF TYPE dotproduct(SelfCRef v) const					// v1*v2
 	{
 		return x * v.x + y * v.y + z * v.z;
 	}
 
 	// CrossProduct
-	ICF	SelfRef	crossproduct(SelfCRef v1, SelfCRef v2) // (v1,v2) -> this
+	ICF SelfRef crossproduct(SelfCRef v1, SelfCRef v2)		// (v1,v2) -> this
 	{
 		x = v1.y * v2.z - v1.z * v2.y;
 		y = v1.z * v2.x - v1.x * v2.z;
@@ -511,42 +515,44 @@ public:
 	}
 
 	// Distance calculation
-	IC	TYPE		distance_to_xz(SelfCRef& v) const
+	IC TYPE distance_to_xz(SelfCRef& v) const
 	{
 		return _sqrt((x - v.x) * (x - v.x) + (z - v.z) * (z - v.z));
 	}
-	IC	TYPE		distance_to_xz_sqr(SelfCRef v) const
+
+	IC TYPE distance_to_xz_sqr(SelfCRef v) const
 	{
-		return (x - v.x) * (x - v.x) + (z - v.z) * (z - v.z);
+		return ((x - v.x) * (x - v.x) + (z - v.z) * (z - v.z));
 	}
 
 	// Distance calculation
-	ICF	TYPE		distance_to_sqr(SelfCRef v) const
+	ICF TYPE distance_to_sqr(SelfCRef v) const
 	{
-		return (x - v.x) * (x - v.x) + (y - v.y) * (y - v.y) + (z - v.z) * (z - v.z);
+		return ((x - v.x) * (x - v.x) + (y - v.y) * (y - v.y) + (z - v.z) * (z - v.z));
 	}
 
 	// Distance calculation
-	ICF	TYPE		distance_to(SelfCRef v) const
+	ICF TYPE distance_to(SelfCRef v) const
 	{
 		return _sqrt(distance_to_sqr(v));
 	}
 
 	// Barycentric coords
-	IC	SelfRef	from_bary(SelfCRef V1, SelfCRef V2, SelfCRef V3, TYPE u, TYPE v, TYPE w)
+	IC SelfRef from_bary(SelfCRef V1, SelfCRef V2, SelfCRef V3, TYPE u, TYPE v, TYPE w)
 	{
 		x = V1.x * u + V2.x * v + V3.x * w;
 		y = V1.y * u + V2.y * v + V3.y * w;
 		z = V1.z * u + V2.z * v + V3.z * w;
 		return *this;
 	}
-	IC	SelfRef	from_bary(SelfCRef V1, SelfCRef V2, SelfCRef V3, SelfCRef B)
+
+	IC SelfRef from_bary(SelfCRef V1, SelfCRef V2, SelfCRef V3, SelfCRef B)
 	{
 		from_bary(V1, V2, V3, B.x, B.y, B.z);
 		return *this;
 	}
 
-	IC	SelfRef	from_bary4(SelfCRef V1, SelfCRef V2, SelfCRef V3, SelfCRef V4, TYPE u, TYPE v, TYPE w, TYPE t)
+	IC SelfRef from_bary4(SelfCRef V1, SelfCRef V2, SelfCRef V3, SelfCRef V4, TYPE u, TYPE v, TYPE w, TYPE t)
 	{
 		x = V1.x * u + V2.x * v + V3.x * w + V4.x * t;
 		y = V1.y * u + V2.y * v + V3.y * w + V4.y * t;
@@ -554,7 +560,7 @@ public:
 		return *this;
 	}
 
-	IC SelfRef	mknormal_non_normalized(SelfCRef p0, SelfCRef p1, SelfCRef p2)
+	IC SelfRef mknormal_non_normalized(SelfCRef p0, SelfCRef p1, SelfCRef p2)
 	{
 		_vector3<TYPE> v01;
 		_vector3<TYPE> v12;
@@ -563,13 +569,15 @@ public:
 		crossproduct(v01, v12);
 		return *this;
 	}
-	IC SelfRef	mknormal(SelfCRef p0, SelfCRef p1, SelfCRef p2)
+
+	IC SelfRef mknormal(SelfCRef p0, SelfCRef p1, SelfCRef p2)
 	{
 		mknormal_non_normalized(p0, p1, p2);
 		normalize_safe( );
 		return *this;
 	}
-	IC	SelfRef	setHP(TYPE h, TYPE p)
+
+	IC SelfRef setHP(TYPE h, TYPE p)
 	{
 		TYPE _ch = _cos(h);
 		TYPE _cp = _cos(p);
@@ -580,27 +588,51 @@ public:
 		z = _cp * _ch;
 		return *this;
 	}
-	ICF	void	getHP(TYPE& h, TYPE& p) const
+
+	ICF void getHP(TYPE& h, TYPE& p) const
 	{
-		float hyp;
+		f32 hyp;
 
 		if (fis_zero(x) && fis_zero(z))
 		{
 			h = 0.0f;
-			if (!fis_zero(float(y)))	p = (y > 0.0f) ? PI_DIV_2 : -PI_DIV_2;
-			else            			p = 0.0f;
+			if (!fis_zero(f32(y)))
+			{
+				p = (y > 0.0f) ? PI_DIV_2 : -PI_DIV_2;
+			}
+			else
+			{
+				p = 0.0f;
+			}
 		}
 		else
 		{
-			if (fis_zero(z))			h = (x > 0.0f) ? -PI_DIV_2 : PI_DIV_2;
-			else if (z < 0.0f)			h = -(atanf(x / z) - PI);
-			else            			h = -atanf(x / z);
+			if (fis_zero(z))
+			{
+				h = (x > 0.0f) ? -PI_DIV_2 : PI_DIV_2;
+			}
+			else if (z < 0.0f)
+			{
+				h = -(atanf(x / z) - PI);
+			}
+			else
+			{
+				h = -atanf(x / z);
+			}
+
 			hyp = _sqrt(x * x + z * z);
-			if (fis_zero(float(hyp)))	p = (y > 0.0f) ? PI_DIV_2 : -PI_DIV_2;
-			else						p = atanf(y / hyp);
+			if (fis_zero(f32(hyp)))
+			{
+				p = (y > 0.0f) ? PI_DIV_2 : -PI_DIV_2;
+			}
+			else
+			{
+				p = atanf(y / hyp);
+			}
 		}
 	}
-	ICF float 	getH( ) const
+
+	ICF float getH( ) const
 	{
 		if (fis_zero(x) && fis_zero(z))
 		{
@@ -608,34 +640,59 @@ public:
 		}
 		else
 		{
-			if (fis_zero(z))			return (x > 0.0f) ? -PI_DIV_2 : PI_DIV_2;
-			else if (z < 0.0f)			return -(atanf(x / z) - PI);
-			else            			return -atanf(x / z);
+			if (fis_zero(z))
+			{
+				return ((x > 0.0f) ? -PI_DIV_2 : PI_DIV_2);
+			}
+			else if (z < 0.0f)
+			{
+				return -(atanf(x / z) - PI);
+			}
+			else
+			{
+				return -atanf(x / z);
+			}
 		}
 	}
-	ICF float 	getP( ) const
+
+	ICF f32 getP( ) const
 	{
 		if (fis_zero(x) && fis_zero(z))
 		{
-			if (!fis_zero(float(y)))	return (y > 0.0f) ? PI_DIV_2 : -PI_DIV_2;
-			else            			return 0.0f;
+			if (!fis_zero(f32(y)))
+			{
+				return (y > 0.0f) ? PI_DIV_2 : -PI_DIV_2;
+			}
+			else
+			{
+				return 0.0f;
+			}
 		}
 		else
 		{
-			float hyp = _sqrt(x * x + z * z);
-			if (fis_zero(float(hyp)))	return (y > 0.0f) ? PI_DIV_2 : -PI_DIV_2;
-			else						return atanf(y / hyp);
+			f32 hyp = _sqrt(x * x + z * z);
+			if (fis_zero(f32(hyp)))
+			{
+				return ((y > 0.0f) ? PI_DIV_2 : -PI_DIV_2);
+			}
+			else
+			{
+				return atanf(y / hyp);
+			}
 		}
 	}
-	IC	SelfRef	reflect(SelfCRef dir, SelfCRef norm)
+
+	IC SelfRef reflect(SelfCRef dir, SelfCRef norm)
 	{
 		return mad(dir, norm, -2 * dir.dotproduct(norm));
 	}
-	IC	SelfRef	slide(SelfCRef dir, SelfCRef norm)
+
+	IC SelfRef slide(SelfCRef dir, SelfCRef norm)
 	{
 		// non normalized
 		return mad(dir, norm, -dir.dotproduct(norm));
 	}
+
 	IC static void generate_orthonormal_basis(const _vector3<TYPE>& dir, _vector3<TYPE>& up, _vector3<TYPE>& right)
 	{
 		TYPE fInvLength;
@@ -659,6 +716,7 @@ public:
 
 		right.crossproduct(up, dir); //. <->
 	}
+
 	IC static void generate_orthonormal_basis_normalized(_vector3<TYPE>& dir, _vector3<TYPE>& up, _vector3<TYPE>& right)
 	{
 		TYPE fInvLength;
@@ -692,39 +750,45 @@ public:
 	}
 };
 
+using iVector3 = _vector3<s32>;
+using fVector3 = _vector3<f32>;
+
 typedef _vector3<float>		Fvector;
-typedef _vector3<float>		Fvector3;
-typedef _vector3<double>	Dvector;
-typedef _vector3<double>	Dvector3;
-typedef _vector3<s32>		Ivector;
-typedef _vector3<s32>		Ivector3;
 
 template <class T>
-BOOL	_valid(const _vector3<T>& v)
+BOOL _valid(const _vector3<T>& v)
 {
-	return _valid((T) v.x) && _valid((T) v.y) && _valid((T) v.z);
+	return (_valid((T)v.x) && _valid((T)v.y) && _valid((T)v.z));
 }
 
 //////////////////////////////////////////////////////////////////////////
 #pragma warning(push)
 #pragma warning(disable:4244)
-ICF		double	rsqrt(double v)
+ICF f64 rsqrt(f64 v)
 {
-	return 1.0 / _sqrt(v);
+	return (1.0 / _sqrt(v));
 }
-IC		BOOL	exact_normalize(float* a)
+
+IC BOOL exact_normalize(f32* a)
 {
-	double	sqr_magnitude = a[0] * a[0] + a[1] * a[1] + a[2] * a[2];
-	double	epsilon = 1.192092896e-05F;
+	f64 sqr_magnitude = a[0] * a[0] + a[1] * a[1] + a[2] * a[2];
+	f64 epsilon = 1.192092896e-05;
 	if (sqr_magnitude > epsilon)
 	{
-		double	l = rsqrt(sqr_magnitude);
+		f64 l = rsqrt(sqr_magnitude);
 		a[0] *= l;
 		a[1] *= l;
 		a[2] *= l;
-		return		TRUE;
+		return TRUE;
 	}
-	double a0, a1, a2, aa0, aa1, aa2, l;
+
+	f64 a0;
+	f64 a1;
+	f64 a2;
+	f64 aa0;
+	f64 aa1;
+	f64 aa2;
+	f64 l;
 	a0 = a[0];
 	a1 = a[1];
 	a2 = a[2];
@@ -738,12 +802,13 @@ IC		BOOL	exact_normalize(float* a)
 			goto aa2_largest;
 		}
 		else
-		{		// aa1 is largest
+		{
+			// aa1 is largest
 			a0 /= aa1;
 			a2 /= aa1;
 			l = rsqrt(a0 * a0 + a2 * a2 + 1);
 			a[0] = a0 * l;
-			a[1] = (double) _copysign(l, a1);
+			a[1] = (f64)_copysign(l, a1);
 			a[2] = a2 * l;
 		}
 	}
@@ -757,29 +822,32 @@ aa2_largest:	// aa2 is largest
 			l = rsqrt(a0 * a0 + a1 * a1 + 1);
 			a[0] = a0 * l;
 			a[1] = a1 * l;
-			a[2] = (double) _copysign(l, a2);
+			a[2] = (f64)_copysign(l, a2);
 		}
 		else
-		{		// aa0 is largest
+		{	// aa0 is largest
 			if (aa0 <= 0)
 			{
 				// dDEBUGMSG ("vector has zero size"); ... this messace is annoying
 				a[0] = 0;	// if all a's are zero, this is where we'll end up.
 				a[1] = 1;	// return a default unit length vector.
 				a[2] = 0;
-				return	FALSE;
+				return FALSE;
 			}
+
 			a1 /= aa0;
 			a2 /= aa0;
 			l = rsqrt(a1 * a1 + a2 * a2 + 1);
-			a[0] = (double) _copysign(l, a0);
+			a[0] = (f64)_copysign(l, a0);
 			a[1] = a1 * l;
 			a[2] = a2 * l;
 		}
 	}
-	return	TRUE;
+
+	return TRUE;
 }
-IC BOOL	exact_normalize(Fvector3& a)
+
+IC BOOL exact_normalize(fVector3& a)
 {
 	return exact_normalize(&a.x);
 }

@@ -89,7 +89,7 @@ void CActor::cam_UnsetLadder()
 }
 float CActor::CameraHeight()
 {
-	Fvector						R;
+	fVector3						R;
 	character_physics_support()->movement()->Box().getsize		(R);
 	return						m_fCamHeightFactor*R.y;
 }
@@ -102,16 +102,16 @@ IC float viewport_near(float& w, float& h)
 	return	_max(_max(VIEWPORT_NEAR,_max(w,h)),c);
 }
 
-ICF void calc_point(Fvector& pt, float radius, float depth, float alpha)
+ICF void calc_point(fVector3& pt, float radius, float depth, float alpha)
 {
 	pt.x	= radius*_sin(alpha);
 	pt.y	= radius+radius*_cos(alpha);
 	pt.z	= depth;
 }
 
-ICF BOOL test_point(xrXRC& xrc, const Fmatrix& xform, const Fmatrix33& mat, const Fvector& ext, float radius, float angle)
+ICF BOOL test_point(xrXRC& xrc, const Fmatrix& xform, const Fmatrix33& mat, const fVector3& ext, float radius, float angle)
 {
-	Fvector				pt;
+	fVector3				pt;
 	calc_point			(pt,radius,VIEWPORT_NEAR/2,angle);
 	xform.transform_tiny(pt);
 
@@ -136,8 +136,8 @@ void CActor::cam_Update(float dt, float fFOV)
 	if(mstate_real & mcClimb&&cam_active!=eacFreeLook)
 		camUpdateLadder(dt);
 
-	Fvector point={0,CameraHeight(),0}, dangle={0,0,0};
-	
+	fVector3 point = {0.0f,CameraHeight( ),0.0f};
+	fVector3 dangle = {0.0f,0.0f,0.0f};
 
 	Fmatrix				xform,xformR;
 	xform.setXYZ		(0,r_torso.yaw,0);
@@ -147,7 +147,8 @@ void CActor::cam_Update(float dt, float fFOV)
 	if (this == Level().CurrentControlEntity())
 	{
 		if (!fis_zero(r_torso_tgt_roll)){
-			Fvector src_pt,tgt_pt;
+			fVector3 src_pt;
+			fVector3 tgt_pt;
 			float radius		= point.y*0.5f;
 			float alpha			= r_torso_tgt_roll/2.f;
 			float dZ			= ((PI_DIV_2-((PI+alpha)/2)));
@@ -172,7 +173,8 @@ void CActor::cam_Update(float dt, float fFOV)
 			box.grow			(c);
 
 			// query
-			Fvector				bc,bd		;
+			fVector3			bc;
+			fVector3			bd;
 			Fbox				xf			; 
 			xf.xform			(box,xform)	;
 			xf.get_CD			(bc,bd)		;
@@ -184,7 +186,7 @@ void CActor::cam_Update(float dt, float fFOV)
 			if (tri_count)		{
 				float da		= 0.f;
 				BOOL bIntersect	= FALSE;
-				Fvector	ext		= {w,h,VIEWPORT_NEAR/2};
+				fVector3 ext	= {w,h,VIEWPORT_NEAR/2};
 				if (test_point(xrc,xform,mat,ext,radius,alpha)){
 					da			= PI/1000.f;
 					if (!fis_zero(r_torso.roll))
@@ -232,11 +234,9 @@ void CActor::cam_Update(float dt, float fFOV)
 
 	if(eacFirstEye == cam_active)
 	{
-//		CCameraBase* C				= cameras[eacFirstEye];
-	
 		xrXRC						xrc			;
 		xrc.box_options				(0)			;
-		xrc.box_query				(Level().ObjectSpace.GetStaticModel(), point, Fvector().set(VIEWPORT_NEAR,VIEWPORT_NEAR,VIEWPORT_NEAR) );
+		xrc.box_query				(Level().ObjectSpace.GetStaticModel(), point, fVector3().set(VIEWPORT_NEAR,VIEWPORT_NEAR,VIEWPORT_NEAR) );
 		u32 tri_count				= xrc.r_count();
 		if (tri_count)
 		{
@@ -245,7 +245,7 @@ void CActor::cam_Update(float dt, float fFOV)
 		else
 		{
 			xr_vector<ISpatial*> ISpatialResult;
-			g_SpatialSpacePhysic->q_box(ISpatialResult, 0, STYPE_PHYSIC, point, Fvector().set(VIEWPORT_NEAR,VIEWPORT_NEAR,VIEWPORT_NEAR));
+			g_SpatialSpacePhysic->q_box(ISpatialResult, 0, STYPE_PHYSIC, point, fVector3().set(VIEWPORT_NEAR,VIEWPORT_NEAR,VIEWPORT_NEAR));
 			for (u32 o_it=0; o_it<ISpatialResult.size(); o_it++)
 			{
 				CPHShell*		pCPHS= smart_cast<CPHShell*>(ISpatialResult[o_it]);
@@ -257,42 +257,7 @@ void CActor::cam_Update(float dt, float fFOV)
 			}
 		}
 	}
-/*
-	{
-		CCameraBase* C				= cameras[eacFirstEye];
-		float oobox_size			= 2*VIEWPORT_NEAR;
 
-
-		Fmatrix						_rot;
-		_rot.k						= C->vDirection;
-		_rot.c						= C->vPosition;
-		_rot.i.crossproduct			(C->vNormal,	_rot.k);
-		_rot.j.crossproduct			(_rot.k,		_rot.i);
-
-		
-		Fvector						vbox; 
-		vbox.set					(oobox_size, oobox_size, oobox_size);
-
-
-		Level().debug_renderer().draw_aabb  (C->vPosition, 0.05f, 0.051f, 0.05f, D3DCOLOR_XRGB(0,255,0));
-		Level().debug_renderer().draw_obb  (_rot, Fvector().div(vbox,2.0f), D3DCOLOR_XRGB(255,0,0));
-
-		dMatrix3					d_rot;
-		PHDynamicData::FMXtoDMX		(_rot, d_rot);
-
-		CPHActivationShape			activation_shape;
-		activation_shape.Create		(point, vbox, this);
-
-		dBodySetRotation			(activation_shape.ODEBody(), d_rot);
-
-		CPHCollideValidator::SetDynamicNotCollide(activation_shape);
-		activation_shape.Activate	(vbox,1,1.f,0.0F);
-
-		point.set					(activation_shape.Position());
-		
-		activation_shape.Destroy	();
-	}
-*/
 	C->Update						(point,dangle);
 	C->f_fov						= fFOV;
 	if(eacFirstEye != cam_active)
@@ -346,7 +311,7 @@ void CActor::update_camera (CCameraShotEffector* effector)
 
 
 #ifdef DEBUG
-void dbg_draw_frustum (float FOV, float _FAR, float A, Fvector &P, Fvector &D, Fvector &U);
+void dbg_draw_frustum (float FOV, float _FAR, float A, fVector3& P, fVector3& D, fVector3& U);
 extern	Flags32	dbg_net_Draw_Flags;
 
 void CActor::OnRender	()
@@ -361,32 +326,6 @@ void CActor::OnRender	()
 	inherited::OnRender();
 }
 #endif
-/*
-void CActor::LoadShootingEffector (LPCSTR section)
-{
-
-	if(!m_pShootingEffector) 
-		m_pShootingEffector = xr_new<SShootingEffector>();
-
-
-	m_pShootingEffector->ppi.duality.h		= pSettings->r_float(section,"duality_h");
-	m_pShootingEffector->ppi.duality.v		= pSettings->r_float(section,"duality_v");
-	m_pShootingEffector->ppi.gray				= pSettings->r_float(section,"gray");
-	m_pShootingEffector->ppi.blur				= pSettings->r_float(section,"blur");
-	m_pShootingEffector->ppi.noise.intensity	= pSettings->r_float(section,"noise_intensity");
-	m_pShootingEffector->ppi.noise.grain		= pSettings->r_float(section,"noise_grain");
-	m_pShootingEffector->ppi.noise.fps		= pSettings->r_float(section,"noise_fps");
-	VERIFY(!fis_zero(m_pShootingEffector->ppi.noise.fps));
-
-	sscanf(pSettings->r_string(section,"color_base"),	"%f,%f,%f", &m_pShootingEffector->ppi.color_base.r, &m_pShootingEffector->ppi.color_base.g, &m_pShootingEffector->ppi.color_base.b);
-	sscanf(pSettings->r_string(section,"color_gray"),	"%f,%f,%f", &m_pShootingEffector->ppi.color_gray.r, &m_pShootingEffector->ppi.color_gray.g, &m_pShootingEffector->ppi.color_gray.b);
-	sscanf(pSettings->r_string(section,"color_add"),	"%f,%f,%f", &m_pShootingEffector->ppi.color_add.r,  &m_pShootingEffector->ppi.color_add.g,	&m_pShootingEffector->ppi.color_add.b);
-
-	m_pShootingEffector->time				= pSettings->r_float(section,"time");
-	m_pShootingEffector->time_attack		= pSettings->r_float(section,"time_attack");
-	m_pShootingEffector->time_release		= pSettings->r_float(section,"time_release");
-
-}*/
 
 void CActor::LoadSleepEffector	(LPCSTR section)
 {

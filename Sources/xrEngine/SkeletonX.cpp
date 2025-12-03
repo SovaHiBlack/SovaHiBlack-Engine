@@ -9,9 +9,7 @@
 #include <d3dx9.h>
 #pragma warning(default:4995)
 
-#ifndef _EDITOR
-    #include	"Render.h"
-#endif
+#include "Render.h"
 #include "SkeletonX.h"
 #include "SkeletonCustom.h"
 #include "fmesh.h"
@@ -23,183 +21,13 @@
 shared_str	s_bones_array_const;
 
 #pragma pack(push,1)
-/*
-float u_P	(s16 v)
-{
-	return	float(v)/(32767.f/12.f);
-}
-s16	q_P		(float v)
-{
-	int		_v	= clampr(iFloor(v*(32767.f/12.f)), -32768, 32767);
-	return	s16	(_v);
-}
-u8	q_N		(float v)
-{
-	int		_v	= clampr(iFloor((v+1.f)*127.5f), 0, 255);
-	return	u8	(_v);
-}
-s16	q_tc	(float v)
-{
-	int		_v	= clampr(iFloor(v*(32767.f/16.f)), -32768, 32767);
-	return	s16	(_v);
-}
-#ifdef _DEBUG
-float errN	(Fvector3 v, u8* qv)
-{
-	Fvector3	uv;	
-	uv.set		(float(qv[0]),float(qv[1]),float(qv[2])).div(255.f).mul(2.f).sub(1.f);
-	uv.normalize();
-	return		v.dotproduct(uv);
-}
-#else
-float errN	(Fvector3 v, u8* qv)	{ return 0; }
-#endif
-
-static	D3DVERTEXELEMENT9 dwDecl_01W	[] =	// 24bytes
-{
-	{ 0, 0,		D3DDECLTYPE_SHORT4,		D3DDECLMETHOD_DEFAULT, 	D3DDECLUSAGE_POSITION,		0 },	// : P						: 2	: -12..+12
-	{ 0, 8,		D3DDECLTYPE_D3DCOLOR,	D3DDECLMETHOD_DEFAULT, 	D3DDECLUSAGE_NORMAL,		0 },	// : N, w=index(RC, 0..1)	: 1	:  -1..+1
-	{ 0, 12,	D3DDECLTYPE_D3DCOLOR,	D3DDECLMETHOD_DEFAULT, 	D3DDECLUSAGE_TANGENT,		0 },	// : T						: 1	:  -1..+1
-	{ 0, 16,	D3DDECLTYPE_D3DCOLOR,	D3DDECLMETHOD_DEFAULT, 	D3DDECLUSAGE_BINORMAL,		0 },	// : B						: 1	:  -1..+1
-	{ 0, 20,	D3DDECLTYPE_SHORT2,		D3DDECLMETHOD_DEFAULT, 	D3DDECLUSAGE_TEXCOORD,		0 },	// : tc						: 1	: -16..+16
-	D3DDECL_END()
-};
-struct	vertHW_1W
-{
-	s16			_P		[4];
-	u32			_N_I	;
-	u32			_T		;
-	u32			_B		;
-	s16			_tc		[2];
-	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, fVector2& tc, int index)
-	{
-		N.normalize_safe();
-		T.normalize_safe();
-		B.normalize_safe();
-		_P[0]		= q_P(P.x);
-		_P[1]		= q_P(P.y);
-		_P[2]		= q_P(P.z);
-		_P[3]		= q_P(1);
-		_N_I		= color_rgba(q_N(N.x), q_N(N.y), q_N(N.z), u8(index));
-		_T			= color_rgba(q_N(T.x), q_N(T.y), q_N(T.z), 0);
-		_B			= color_rgba(q_N(B.x), q_N(B.y), q_N(B.z), 0);
-		_tc[0]		= q_tc(tc.x);
-		_tc[1]		= q_tc(tc.y);
-	}
-	u16 get_bone()
-	{
-		return	u16((u16)color_get_A(_N_I)/3);
-	}
-	void get_pos(Fvector& p)
-	{
-		p.x			= u_P(_P[0]);
-		p.y			= u_P(_P[1]);
-		p.z			= u_P(_P[2]);
-	}
-};
-
-static	D3DVERTEXELEMENT9 dwDecl_2W	[] =	// 28bytes
-{
-	{ 0, 0,		D3DDECLTYPE_SHORT4,		D3DDECLMETHOD_DEFAULT, 	D3DDECLUSAGE_POSITION,		0 },	// : p					: 2	: -12..+12
-	{ 0, 8,		D3DDECLTYPE_D3DCOLOR,	D3DDECLMETHOD_DEFAULT, 	D3DDECLUSAGE_NORMAL,		0 },	// : n.xyz, w = weight	: 1	:  -1..+1, w=0..1
-	{ 0, 12,	D3DDECLTYPE_D3DCOLOR,	D3DDECLMETHOD_DEFAULT, 	D3DDECLUSAGE_TANGENT,		0 },	// : T						: 1	:  -1..+1
-	{ 0, 16,	D3DDECLTYPE_D3DCOLOR,	D3DDECLMETHOD_DEFAULT, 	D3DDECLUSAGE_BINORMAL,		0 },	// : B						: 1	:  -1..+1
-	{ 0, 20,	D3DDECLTYPE_SHORT4,		D3DDECLMETHOD_DEFAULT, 	D3DDECLUSAGE_TEXCOORD,		0 },	// : xy(tc), zw(indices): 2	: -16..+16, zw[0..32767]
-	D3DDECL_END()
-};
-struct	vertHW_2W
-{
-	s16			_P		[4];
-	u32			_N_w	;
-	u32			_T		;
-	u32			_B		;
-	s16			_tc_i	[4];
-	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, fVector2& tc, int index0, int index1, float w)
-	{
-		N.normalize_safe	();
-		T.normalize_safe	();
-		B.normalize_safe	();
-		_P[0]		= q_P	(P.x);
-		_P[1]		= q_P	(P.y);
-		_P[2]		= q_P	(P.z);
-		_P[3]		= 1;
-		_N_w		= color_rgba(q_N(N.x), q_N(N.y), q_N(N.z), u8(clampr(iFloor(w*255.f+.5f),0,255)));
-		_T			= color_rgba(q_N(T.x), q_N(T.y), q_N(T.z), 0);
-		_B			= color_rgba(q_N(B.x), q_N(B.y), q_N(B.z), 0);
-		_tc_i[0]	= q_tc	(tc.x);
-		_tc_i[1]	= q_tc	(tc.y);
-		_tc_i[2]	= s16	(index0);
-		_tc_i[3]	= s16	(index1);
-	}
-	float get_weight()
-	{
-		return	float(color_get_A(_N_w))/255.f;
-	}
-	u16 get_bone(u16 w)
-	{
-		return	u16((u16)_tc_i[w+2]/3);
-	}
-	void get_pos(Fvector& p)
-	{
-		p.x			= u_P(_P[0]);
-		p.y			= u_P(_P[1]);
-		p.z			= u_P(_P[2]);
-	}
-};
-#pragma pack(pop)
-
-/*
-struct	vertHW_NW
-{
-	s16			_P_cnt	[4];	// position x,y,z,cnt,	4*2		=	8b
-	u32			_N		;		// normal	x,y,z,0,	4*1		=	4b,	12b
-	u32			_T		;		// tangent	x,y,z,0,	4*1		=	4b,	16b
-	u32			_B		;		// binormal	x,y,z,0,	4*1		=	4b,	20b
-	u32			_bones	;		// bone ids,			4*1		=	4b,	24b
-	u32			_weights;		// weights,				4*1		=	4b, 28b
-	s16			_tc		[2];	// qtc,					2*2		=	4b,	32b
-	//								*total*						=	32b
-	void set	(Fvector3& P, Fvector3 N, Fvector3 T, Fvector3 B, fVector2& tc, int index0, int index1, float w)
-	{
-		N.normalize_safe	();
-		T.normalize_safe	();
-		B.normalize_safe	();
-		_P[0]		= q_P	(P.x);
-		_P[1]		= q_P	(P.y);
-		_P[2]		= q_P	(P.z);
-		_P[3]		= 1;
-		_N_w		= color_rgba(q_N(N.x), q_N(N.y), q_N(N.z), u8(clampr(iFloor(w*255.f+.5f),0,255)));
-		_T			= color_rgba(q_N(T.x), q_N(T.y), q_N(T.z), 0);
-		_B			= color_rgba(q_N(B.x), q_N(B.y), q_N(B.z), 0);
-		_tc_i[0]	= q_tc	(tc.x);
-		_tc_i[1]	= q_tc	(tc.y);
-		_tc_i[2]	= s16	(index0);
-		_tc_i[3]	= s16	(index1);
-	}
-	float get_weight()
-	{
-		return	float(color_get_A(_N_w))/255.f;
-	}
-	u16 get_bone(u16 w)
-	{
-		return	u16((u16)_tc_i[w+2]/3);
-	}
-	void get_pos(Fvector& p)
-	{
-		p.x			= u_P(_P[0]);
-		p.y			= u_P(_P[1]);
-		p.z			= u_P(_P[2]);
-	}
-};
-*/
-
 //////////////////////////////////////////////////////////////////////
 // Body Part
 //////////////////////////////////////////////////////////////////////
 void CSkeletonX::AfterLoad	(CKinematics* parent, u16 child_idx)
 {
 	SetParent				(parent);
-    ChildIDX				= child_idx;
+	ChildIDX				= child_idx;
 }
 void CSkeletonX::_Copy		(CSkeletonX *B)
 {
@@ -308,10 +136,6 @@ void CSkeletonX::_Load	(const char* N, IReader *data, u32& dwVertCount)
 			
 	u16			hw_bones	= u16((HW.Caps.geometry.dwRegisters-22)/3);
 	u16			sw_bones	= 0;
-#ifdef _EDITOR
-	hw_bones	= 0;
-#endif
-
 	u32			dwVertType,size,it,crc;
 	dwVertType	= data->r_u32(); 
 	dwVertCount	= data->r_u32();
@@ -329,11 +153,7 @@ void CSkeletonX::_Load	(const char* N, IReader *data, u32& dwVertCount)
 				if		(bids.end() == std::find(bids.begin(),bids.end(),mid))	bids.push_back(mid);
 				if		(mid>sw_bones)	sw_bones = mid;
 			}
-#ifdef _EDITOR
-			// software
-			crc					= crc32	(data->pointer(),size);
-			Vertices1W.create	(crc,dwVertCount,(vertBoned1W*)data->pointer());
-#else
+
 			if	(1==bids.size())	{
 				// HW- single bone
 				RenderMode						= RM_SINGLE;
@@ -350,7 +170,6 @@ void CSkeletonX::_Load	(const char* N, IReader *data, u32& dwVertCount)
 				Vertices1W.create	(crc,dwVertCount,(vertBoned1W*)data->pointer());
 				Render->shader_option_skinning	(-1);
 			}
-#endif        
 		}
 		break;
 	case OGF_VERTEXFORMAT_FVF_2L: // 2-Link
@@ -380,12 +199,9 @@ void CSkeletonX::_Load	(const char* N, IReader *data, u32& dwVertCount)
 		Debug.fatal	(DEBUG_INFO,"Invalid vertex type in skinned model '%s'",N);
 		break;
 	}
-#ifdef _EDITOR
-	if (bids.size()>0)	
-#else
+
 	if (bids.size()>1)	
-#endif
-    {
+	{
 		crc					= crc32(&*bids.begin(),bids.size()*sizeof(u16)); 
 		BonesUsed.create	(crc,bids.size(),&*bids.begin());
 	}
@@ -418,8 +234,6 @@ BOOL	CSkeletonX::has_visible_bones		()
 	// Msg		("* has_visible_bones: non-visible");
 	return	FALSE;
 }
-
-
 
 //-----------------------------------------------------------------------------------------------------
 // Wallmarks
@@ -507,6 +321,7 @@ void CSkeletonX::_FillVerticesSoft1W(const Fmatrix& view, CSkeletonWallmark& wm,
 		}
 	}
 }
+
 void CSkeletonX::_FillVerticesSoft2W(const Fmatrix& view, CSkeletonWallmark& wm, const Fvector& normal, float size, u16* indices, CBoneData::FacesVec& faces)
 {
 	VERIFY				(*Vertices2W);
@@ -543,6 +358,3 @@ void CSkeletonX::_FillVerticesSoft2W(const Fmatrix& view, CSkeletonWallmark& wm,
 		}
 	}
 }
-
-
-

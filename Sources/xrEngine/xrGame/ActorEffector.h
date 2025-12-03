@@ -42,7 +42,7 @@ public:
 						CAnimatorCamEffector	();
 	virtual				~CAnimatorCamEffector	();
 			void		Start					(LPCSTR fn);
-	virtual	BOOL		Process					(Fvector &p, Fvector &d, Fvector &n, float& fFov, float& fFar, float& fAspect);
+	virtual	BOOL		Process					(fVector3& p, fVector3& d, fVector3& n, float& fFov, float& fFar, float& fAspect);
 			void		SetCyclic				(bool b)				{m_bCyclic=b;}
 	virtual	BOOL		Valid					();
 			float		GetAnimatorLength		()						{return fLifeTime;};
@@ -57,7 +57,7 @@ public:
 	CAnimatorCamEffectorScriptCB	(LPCSTR _cb){cb_name =_cb;};
 	virtual	BOOL		Valid					();
 	virtual BOOL		AllowProcessingIfInvalid()	{return m_bAbsolutePositioning;}
-	virtual	void		ProcessIfInvalid		(Fvector &p, Fvector &d, Fvector &n, float& fFov, float& fFar, float& fAspect);
+	virtual	void		ProcessIfInvalid		(fVector3& p, fVector3& d, fVector3& n, float& fFov, float& fFar, float& fAspect);
 };
 
 class CAnimatorCamLerpEffector :public CAnimatorCamEffector
@@ -67,7 +67,7 @@ protected:
 	GET_KOEFF_FUNC									m_func;
 public:
 			void		SetFactorFunc				(GET_KOEFF_FUNC f)	{m_func=f;}
-	virtual	BOOL		Process						(Fvector &p, Fvector &d, Fvector &n, float& fFov, float& fFar, float& fAspect);
+	virtual	BOOL		Process						(fVector3& p, fVector3& d, fVector3& n, float& fFov, float& fFar, float& fAspect);
 };
 
 class CAnimatorCamLerpEffectorConst :public CAnimatorCamLerpEffector
@@ -117,14 +117,14 @@ class CControllerPsyHitCamEffector :public CEffectorCam {
 	
 	float				m_time_total;
 	float				m_time_current;
-	Fvector				m_dangle_target;
-	Fvector				m_dangle_current;
-	Fvector				m_position_source;
-	Fvector				m_direction;
+	fVector3				m_dangle_target;
+	fVector3				m_dangle_current;
+	fVector3				m_position_source;
+	fVector3				m_direction;
 	float				m_distance;
 
 public:
-						CControllerPsyHitCamEffector	(ECamEffectorType type, const Fvector &src_pos, const Fvector &target_pos, float time);
-	virtual	BOOL		Process							(Fvector &p, Fvector &d, Fvector &n, float& fFov, float& fFar, float& fAspect);
+						CControllerPsyHitCamEffector	(ECamEffectorType type, const fVector3& src_pos, const fVector3& target_pos, float time);
+	virtual	BOOL		Process							(fVector3& p, fVector3& d, fVector3& n, float& fFov, float& fFar, float& fAspect);
 };
 //////////////////////////////////////////////////////////////////////////

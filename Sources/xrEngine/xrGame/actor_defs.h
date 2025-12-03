@@ -96,9 +96,9 @@ struct				net_update
 	u32					dwTimeStamp;			// server(game) timestamp
 	float				o_model;				// model yaw
 	SRotation			o_torso;				// torso in world coords
-	Fvector				p_pos;					// in world coords
-	Fvector				p_accel;				// in world coords
-	Fvector				p_velocity;				// in world coords
+	fVector3				p_pos;					// in world coords
+	fVector3				p_accel;				// in world coords
+	fVector3				p_velocity;				// in world coords
 	u32					mstate;
 	int					weapon;
 	float				fHealth;
@@ -128,8 +128,8 @@ struct					net_update_A
 // данные дл€ интерпол€ции
 struct					InterpData
 {
-	Fvector				Pos;
-	Fvector				Vel;
+	fVector3				Pos;
+	fVector3				Vel;
 	float				o_model;				// model yaw
 	SRotation			o_torso;				// torso in world coords
 };

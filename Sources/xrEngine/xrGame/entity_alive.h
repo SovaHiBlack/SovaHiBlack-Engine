@@ -56,12 +56,6 @@ public:
 	virtual void			Die						(CObject* who);
 	virtual void			g_WeaponBones			(int &L, int &R1, int &R2)										= 0;
 	
-//	virtual float			GetfHealth				() const;
-//	virtual float			SetfHealth				(float value);
-
-//	virtual float			g_Health				()	const;
-//	virtual float			g_MaxHealth				()	const;
-
 	virtual float			g_Radiation				()	const;
 	virtual	float			SetfRadiation			(float value);
 

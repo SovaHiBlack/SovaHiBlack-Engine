@@ -38,19 +38,19 @@ public:
 class ENGINE_API	CEnvModifier
 {
 public:
-	Fvector3			position;
+	fVector3			position;
 	float				radius;
 	float				power;
 
 	float				far_plane;
-	Fvector3			fog_color;
+	fVector3			fog_color;
 	float				fog_density;
-	Fvector3			ambient;
-	Fvector3			sky_color;		
-	Fvector3			hemi_color;
+	fVector3			ambient;
+	fVector3			sky_color;
+	fVector3			hemi_color;
 
 	void				load		(IReader*		fs);
-	float				sum			(CEnvModifier&	_another, Fvector3& view);
+	float				sum			(CEnvModifier&	_another, fVector3& view);
 };
 
 class ENGINE_API	CEnvAmbient{
@@ -95,17 +95,17 @@ public:
 	ref_texture			clouds_texture	;
 
 	fVector4			clouds_color	;
-	Fvector3			sky_color		;
+	fVector3			sky_color		;
 	float				sky_rotation	;
 
 	float				far_plane;
 
-	Fvector3			fog_color;
+	fVector3			fog_color;
 	float				fog_density;
 	float				fog_distance;
 
 	float				rain_density;
-	Fvector3			rain_color;
+	fVector3			rain_color;
 
 	float				bolt_period;
 	float				bolt_duration;
@@ -113,10 +113,10 @@ public:
 	float				wind_velocity;
 	float				wind_direction;  
 	
-	Fvector3			ambient		;
+	fVector3			ambient		;
 	fVector4			hemi_color	;	// w = R2 correction
-	Fvector3			sun_color	;
-	Fvector3			sun_dir		;
+	fVector3			sun_color	;
+	fVector3			sun_dir		;
 
 	int					lens_flare_id;
 	int					tb_id;

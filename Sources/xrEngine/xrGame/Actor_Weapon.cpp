@@ -58,7 +58,7 @@ float CActor::GetWeaponAccuracy() const
 }
 
 
-void CActor::g_fireParams	(const CHudItem* pHudItem, Fvector &fire_pos, Fvector &fire_dir)
+void CActor::g_fireParams	(const CHudItem* pHudItem, fVector3& fire_pos, fVector3& fire_dir)
 {
 //	VERIFY			(inventory().ActiveItem());
 
@@ -68,7 +68,7 @@ void CActor::g_fireParams	(const CHudItem* pHudItem, Fvector &fire_pos, Fvector 
 	const CMissile	*pMissile = smart_cast <const CMissile*> (pHudItem);
 	if (pMissile)
 	{
-		Fvector offset;
+		fVector3 offset;
 		XFORM().transform_dir(offset, m_vMissileOffset);
 		fire_pos.add(offset);
 	}

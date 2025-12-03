@@ -60,7 +60,7 @@ public:
 class ENGINE_API CPerlinNoise3D: public CPerlinNoiseCustom
 {
 private:
-	float	noise				(const Fvector3& vec);
+	float	noise				(const fVector3& vec);
 	void	normalize			(float v[3]);
 
 	float	g3					[SAMPLE_SIZE + SAMPLE_SIZE + 2][3];

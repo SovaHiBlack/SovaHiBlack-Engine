@@ -10,7 +10,8 @@
 #	define _MM_ALIGN16		__declspec(align(16))
 #endif // _MM_ALIGN16
 
-struct	_MM_ALIGN16		vec_t	: public Fvector3	{ 
+struct	_MM_ALIGN16		vec_t	: public fVector3
+{
 	float		pad; 
 };
 vec_t	vec_c	( float _x, float _y, float _z)	{ vec_t v; v.x=_x;v.y=_y;v.z=_z;v.pad=0; return v; }

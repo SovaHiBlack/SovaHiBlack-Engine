@@ -11,7 +11,7 @@ float			OLES_SUN_LIMIT_27_01_07			= 180.f		;
 //////////////////////////////////////////////////////////////////////////
 // tables to calculate view-frustum bounds in world space
 // note: D3D uses [0..1] range for Z
-static Fvector3		corners [8]			= {
+static fVector3		corners [8]			= {
 	{ -1, -1,  0 },		{ -1, -1, +1},
 	{ -1, +1, +1 },		{ -1, +1,  0},
 	{ +1, +1, +1 },		{ +1, +1,  0},
@@ -192,9 +192,9 @@ public:
 	struct	_poly
 	{
 		xr_vector<int>	points;
-		Fvector3		planeN;
+		fVector3		planeN;
 		float			planeD;
-		float			classify	(Fvector3& p)	{	return planeN.dotproduct(p)+planeD; 	}
+		float			classify	(fVector3& p)	{	return planeN.dotproduct(p)+planeD; 	}
 	};
 	struct	_edge
 	{
@@ -204,7 +204,7 @@ public:
 		bool			equal		(_edge& E)												{ return p0==E.p0 && p1==E.p1;	}
 	};
 public:
-	xr_vector<Fvector3>		points;
+	xr_vector<fVector3>		points;
 	xr_vector<_poly>		polys;
 	xr_vector<_edge>		edges;
 public:
@@ -213,7 +213,8 @@ public:
 		for (int it=0; it<int(polys.size()); it++)
 		{
 			_poly&			P	=	polys[it];
-			Fvector3		t1,t2;
+			fVector3		t1;
+			fVector3		t2;
 			t1.sub					(points[P.points[0]], points[P.points[1]]);
 			t2.sub					(points[P.points[0]], points[P.points[2]]);
 			P.planeN.crossproduct	(t1,t2).normalize();
@@ -234,12 +235,12 @@ public:
 			}
 		}
 	}
-	void				compute_caster_model	(xr_vector<Fplane>& dest, Fvector3 direction)
+	void				compute_caster_model	(xr_vector<Fplane>& dest, fVector3 direction)
 	{
 		CRenderTarget&	T	= *RImplementation.Target;
 
 		// COG
-		Fvector3	cog	= {0,0,0};
+		fVector3	cog	= {0.0f,0.0f,0.0f};
 		for			(int it=0; it<int(points.size()); it++)	cog.add	(points[it]);
 		cog.div		(float(points.size()));
 
@@ -286,7 +287,7 @@ public:
 			if	(edges[e].counter != 0)	continue;
 			_edge&		E		= edges[e];
 			if		(_debug)	T.dbg_addline(points[E.p0],points[E.p1],color_rgba(255,255,255,255));
-			Fvector3	point;
+			fVector3	point;
 			points.push_back	(point.sub(points[E.p0],direction));
 			points.push_back	(point.sub(points[E.p1],direction));
 			polys.push_back		(_poly());
@@ -320,7 +321,7 @@ public:
 };
 
 //////////////////////////////////////////////////////////////////////////
-Fvector3		wform	(Fmatrix& m, Fvector3& v)
+fVector3		wform	(Fmatrix& m, fVector3& v)
 {
 	fVector4	r;
 	r.x			= v.x*m._11 + v.y*m._21 + v.z*m._31 + m._41;
@@ -328,7 +329,7 @@ Fvector3		wform	(Fmatrix& m, Fvector3& v)
 	r.z			= v.x*m._13 + v.y*m._23 + v.z*m._33 + m._43;
 	r.w			= v.x*m._14 + v.y*m._24 + v.z*m._34 + m._44;
 	// VERIFY		(r.w>0.f);
-	Fvector3	r3 = { r.x/r.w, r.y/r.w, r.z/r.w };
+	fVector3	r3 = { r.x/r.w, r.y/r.w, r.z/r.w };
 	return		r3;
 }
 
@@ -427,7 +428,7 @@ D3DXVECTOR2 BuildTSMProjectionMatrix_caster_depth_bounds(D3DXMATRIX& lightSpaceB
 	Fmatrix&	minmax_xform = *((Fmatrix*)&minmax_xf);
 	for		(u32 c=0; c<s_casters.size(); c++)
 	{
-		Fvector3	pt;
+		fVector3	pt;
 		for			(int e=0; e<8; e++)	{
 			s_casters[c].getpoint	(e,pt);
 			pt		= wform			(minmax_xform, pt);
@@ -456,7 +457,7 @@ void CRender::render_sun				()
 	// Also compute virtual light position and sector it is inside
 	CFrustum					cull_frustum	;
 	xr_vector<Fplane>			cull_planes		;
-	Fvector3					cull_COP		;
+	fVector3					cull_COP		;
 	CSector*					cull_sector		;
 	Fmatrix						cull_xform		;
 	{
@@ -467,7 +468,7 @@ void CRender::render_sun				()
 		{
 			hull.points.reserve		(8);
 			for						(int p=0; p<8; p++)	{
-				Fvector3				xf	= wform		(fullxform_inv,corners[p]);
+				fVector3				xf	= wform		(fullxform_inv,corners[p]);
 				hull.points.push_back	(xf);
 			}
 			for (int plane=0; plane<6; plane++)	{
@@ -781,7 +782,7 @@ void CRender::render_sun				()
 
 		// 
 		Fbox3		b_casters, b_receivers;
-		Fvector3	pt			;
+		fVector3	pt			;
 
 		// casters
 		b_casters.invalidate	();
@@ -904,7 +905,7 @@ void CRender::render_sun_near	()
 	// Also compute virtual light position and sector it is inside
 	CFrustum					cull_frustum;
 	xr_vector<Fplane>			cull_planes;
-	Fvector3					cull_COP;
+	fVector3					cull_COP;
 	CSector*					cull_sector;
 	Fmatrix						cull_xform;
 	{
@@ -920,7 +921,7 @@ void CRender::render_sun_near	()
 		{
 			hull.points.reserve		(9);
 			for	(int p=0; p<8; p++)	{
-				Fvector3				xf	= wform		(fullxform_inv,corners[p]);
+				fVector3				xf	= wform		(fullxform_inv,corners[p]);
 				hull.points.push_back	(xf);
 			}
 			for (int plane=0; plane<6; plane++)	{

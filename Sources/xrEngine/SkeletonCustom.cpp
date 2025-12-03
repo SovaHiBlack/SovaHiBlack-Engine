@@ -593,7 +593,7 @@ bool	CKinematics::	PickBone			(const Fmatrix &parent_xform,  Fvector& normal, fl
 	return false;
 }
 
-void CKinematics::AddWallmark(const Fmatrix* parent_xform, const Fvector3& start, const Fvector3& dir, ref_shader shader, float size)
+void CKinematics::AddWallmark(const Fmatrix* parent_xform, const fVector3& start, const fVector3& dir, ref_shader shader, float size)
 {
 	Fvector S,D,normal		= {0,0,0};
 	// transform ray from world to model

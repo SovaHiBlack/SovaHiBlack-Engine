@@ -58,10 +58,10 @@ public:
 	IC void			w_stringZ(const xr_string& p)	{	w(p.c_str()?p.c_str():"",(u32)p.size());w_u8(0);	}
 	IC void			w_fcolor(const Fcolor &v)		{	w(&v,sizeof(Fcolor));	}
 	IC void			w_fvector4(const fVector4& v)	{	w(&v,sizeof(fVector4));	}
-	IC void			w_fvector3(const Fvector3 &v)	{	w(&v,sizeof(Fvector3));	}
+	IC void			w_fvector3(const fVector3&v)	{	w(&v,sizeof(fVector3));	}
 	IC void			w_fvector2(const fVector2& v)	{	w(&v,sizeof(fVector2));	}
 	IC void			w_ivector4(const iVector4& v)	{	w(&v,sizeof(iVector4));	}
-	IC void			w_ivector3(const Ivector3 &v)	{	w(&v,sizeof(Ivector3));	}
+	IC void			w_ivector3(const iVector3& v)	{	w(&v,sizeof(iVector3));	}
 	IC void			w_ivector2(const iVector2& v)	{	w(&v,sizeof(iVector2));	}
 
     // quant writing functions
@@ -152,10 +152,10 @@ public:
 	IC s8			r_s8		()			{	s8 tmp;		r(&tmp,sizeof(tmp)); return tmp;	};
 	IC float		r_float		()			{	float tmp;	r(&tmp,sizeof(tmp)); return tmp;	};
 	IC void			r_fvector4	(fVector4& v){	r(&v,sizeof(fVector4));	}
-	IC void			r_fvector3	(Fvector3 &v){	r(&v,sizeof(Fvector3));	}
+	IC void			r_fvector3	(fVector3&v){	r(&v,sizeof(fVector3));	}
 	IC void			r_fvector2	(fVector2& v){	r(&v,sizeof(fVector2));	}
 	IC void			r_ivector4	(iVector4& v){	r(&v,sizeof(iVector4));	}
-	IC void			r_ivector3	(Ivector3 &v){	r(&v,sizeof(Ivector3));	}
+	IC void			r_ivector3	(iVector3&v){	r(&v,sizeof(iVector3));	}
 	IC void			r_ivector2	(iVector2& v){	r(&v,sizeof(iVector2));	}
 	IC void			r_fcolor	(Fcolor &v)	{	r(&v,sizeof(Fcolor));	}
 	

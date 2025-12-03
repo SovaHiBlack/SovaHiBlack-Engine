@@ -26,7 +26,7 @@ static const float	s_fJumpTime			= 0.3f;
 static const float	s_fJumpGroundTime	= 0.1f;	// для снятия флажка Jump если на земле
 	   const float	s_fFallTime			= 0.2f;
 
-IC static void generate_orthonormal_basis1(const Fvector& dir,Fvector& updir, Fvector& right)
+IC static void generate_orthonormal_basis1(const fVector3& dir, fVector3& updir, fVector3& right)
 {
 
 	right.crossproduct(dir,updir); //. <->
@@ -136,7 +136,7 @@ void CActor::g_cl_ValidateMState(float dt, u32 mstate_wf)
 	};
 };
 
-void CActor::g_cl_CheckControls(u32 mstate_wf, Fvector &vControlAccel, float &Jump, float dt)
+void CActor::g_cl_CheckControls(u32 mstate_wf, fVector3& vControlAccel, float &Jump, float dt)
 {
 	mstate_old = mstate_real;
 	vControlAccel.set	(0,0,0);
@@ -379,7 +379,7 @@ void CActor::g_Orientate	(u32 mstate_rl, float dt)
 }
 bool CActor::g_LadderOrient()
 {
-	Fvector leader_norm;
+	fVector3 leader_norm;
 	character_physics_support()->movement()->GroundNormal(leader_norm);
 	if(_abs(leader_norm.y)>M_SQRT1_2) return false;
 	//leader_norm.y=0.f;
@@ -411,7 +411,7 @@ bool CActor::g_LadderOrient()
 	////angle_lerp(angles3.z,angles1.z,angles2.z,dt);
 	//angle_lerp(angles3.x,angles1.x,angles2.x,dt);
 	//XFORM().setHPB(angles3.x,angles3.y,angles3.z);
-	Fvector position;
+	fVector3 position;
 	position.set(Position());
 	//XFORM().rotation(q3);
 	VERIFY2(_valid(M),"Invalide matrix in g_LadderOrient");
@@ -443,7 +443,7 @@ void CActor::g_cl_Orientate	(u32 mstate_rl, float dt)
 		inventory().ItemFromSlot(inventory().GetActiveSlot())/*inventory().m_slots[inventory().GetActiveSlot()].m_pIItem*/ : NULL);
 	if (pWM && pWM->GetCurrentFireMode() == 1 && eacFirstEye != cam_active)
 	{
-		Fvector dangle = weapon_recoil_last_delta();
+		fVector3 dangle = weapon_recoil_last_delta();
 		r_torso.yaw		=	unaffected_r_torso.yaw + dangle.y;
 		r_torso.pitch	=	unaffected_r_torso.pitch + dangle.x;
 	}
@@ -486,7 +486,7 @@ void CActor::g_sv_Orientate(u32 /**mstate_rl/**/, float /**dt/**/)
 		inventory().ItemFromSlot(inventory().GetActiveSlot())/*inventory().m_slots[inventory().GetActiveSlot()].m_pIItem*/ : NULL);
 	if (pWM && pWM->GetCurrentFireMode() == 1/* && eacFirstEye != cam_active*/)
 	{
-		Fvector dangle = weapon_recoil_last_delta();
+		fVector3 dangle = weapon_recoil_last_delta();
 		r_torso.yaw		+=	dangle.y;
 		r_torso.pitch	+=	dangle.x;
 		r_torso.roll	+=	dangle.z;

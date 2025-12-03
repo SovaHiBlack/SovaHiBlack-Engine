@@ -32,9 +32,9 @@ BOOL CActorMemory::feel_vision_isRelevant	(CObject* O)
 }
 
 void CActorMemory::camera					(
-		Fvector &position,
-		Fvector &direction,
-		Fvector &normal,
+	fVector3& position,
+	fVector3& direction,
+	fVector3& normal,
 		float &field_of_view,
 		float &aspect_ratio,
 		float &near_plane,

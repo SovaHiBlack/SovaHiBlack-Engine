@@ -73,12 +73,8 @@
 #define CLSID_OBJECT_W_FORT			MK_CLSID('W','_','F','O','R','T',' ',' ')
 #define CLSID_OBJECT_W_BINOCULAR	MK_CLSID('W','_','B','I','N','O','C',' ')
 #define CLSID_OBJECT_W_SHOTGUN		MK_CLSID('W','_','S','H','O','T','G','N')
-//  [8/15/2006]
 #define CLSID_OBJECT_W_MAGAZINED	MK_CLSID('W','_','W','M','A','G','A','Z')
-//  [8/15/2006]
-//  [8/17/2006]
 #define CLSID_OBJECT_W_MAGAZWGL		MK_CLSID('W','_','W','M','A','G','G','L')
-//  [8/17/2006]
 #define CLSID_OBJECT_W_SVD			MK_CLSID('W','_','S','V','D',' ',' ',' ')
 #define CLSID_OBJECT_W_SVU			MK_CLSID('W','_','S','V','U',' ',' ',' ')
 #define CLSID_OBJECT_W_RPG7			MK_CLSID('W','_','R','P','G','7',' ',' ')
@@ -94,12 +90,7 @@
 #define CLSID_OBJECT_W_MOUNTED		MK_CLSID('W','_','M','O','U','N','T','D')
 #define	CLSID_OBJECT_W_STATMGUN		MK_CLSID('W','_','S','T','M','G','U','N')
 // Weapons Ammo
-//#define CLSID_OBJECT_A_FN2000		MK_CLSID('A','_','F','N','2','0','0','0')
-//#define CLSID_OBJECT_A_AK74			MK_CLSID('A','_','A','K','7','4',' ',' ')
-//#define CLSID_OBJECT_A_LR300		MK_CLSID('A','_','L','R','3','0','0',' ')
-//#define CLSID_OBJECT_A_HPSA			MK_CLSID('A','_','H','P','S','A',' ',' ')
 #define CLSID_OBJECT_AMMO			MK_CLSID('A','M','M','O',' ',' ',' ',' ')
-//#define CLSID_OBJECT_A_FORT			MK_CLSID('A','_','F','O','R','T',' ',' ')
 //-----------------------------------------------------------------------------
 #define CLSID_OBJECT_A_VOG25		MK_CLSID('A','_','V','O','G','2','5',' ')
 #define CLSID_OBJECT_A_OG7B			MK_CLSID('A','_','O','G','7','B',' ',' ')
