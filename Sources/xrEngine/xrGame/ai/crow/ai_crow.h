@@ -43,7 +43,7 @@ class CAI_Crow : public CEntity
 		SoundSVec		m_Sounds;
 		ref_sound&		GetRandom		()	{return m_Sounds[Random.randI(0,m_Sounds.size())];}
 		void			Load			(LPCSTR prefix);
-		void			SetPosition		(const Fvector& pos);
+		void			SetPosition		(const fVector3& pos);
 		void			Unload			();
 	};
 public:
@@ -65,12 +65,12 @@ protected:
 	};
 	SCrowSounds		m_Sounds;
 
-	Fvector			vOldPosition;
+	fVector3			vOldPosition;
 	ECrowStates		st_current, st_target;
 	// parameters block
-	Fvector			vGoalDir;
-	Fvector			vCurrentDir;
-	Fvector			vHPB;
+	fVector3			vGoalDir;
+	fVector3			vCurrentDir;
+	fVector3			vHPB;
 	float			fDHeading;
 
 	// constants
@@ -78,7 +78,7 @@ protected:
 	float			fSpeed;
 	float			fASpeed;
 	float			fMinHeight;
-	Fvector			vVarGoal;
+	fVector3			vVarGoal;
 	float			fIdleSoundDelta;
 
 	// variables
@@ -103,6 +103,7 @@ protected:
 public:						
 	u32				o_workload_frame	;
 	u32				o_workload_rframe	;
+
 public:
 					CAI_Crow();
 	virtual			~CAI_Crow();
@@ -121,15 +122,15 @@ public:
 	virtual void	net_Export					(NET_Packet& P);
 	virtual void	net_Import					(NET_Packet& P);
 
-	virtual void	g_fireParams				(const CHudItem* /**pHudItem/**/, Fvector& /**P/**/, Fvector& /**D/**/)	{};
+	virtual void	g_fireParams				(const CHudItem* /**pHudItem/**/, fVector3& /**P/**/, fVector3& /**D/**/)	{};
 	virtual void	g_WeaponBones				(int &/**L/**/, int &/**R1/**/, int &/**R2/**/)	{};
 
-	virtual void	HitSignal					(float	HitAmount,	Fvector& local_dir, CObject* who, s16 element);
-	virtual void	HitImpulse					(float	amount,		Fvector& vWorldDir, Fvector& vLocalDir);
+	virtual void	HitSignal					(float	HitAmount, fVector3& local_dir, CObject* who, s16 element);
+	virtual void	HitImpulse					(float	amount, fVector3& vWorldDir, fVector3& vLocalDir);
 	virtual	void	Hit							(SHit* pHDS);
 	virtual void	Die							(CObject* who);
-	virtual	float	ffGetFov					() const {return 150.f;	}
-	virtual	float	ffGetRange					() const {return 30.f;	}
+	virtual	float	ffGetFov					() const {return 150.0f;	}
+	virtual	float	ffGetRange					() const {return 30.0f;	}
 
 	virtual BOOL	IsVisibleForHUD	()			{ return FALSE;		}
 	virtual bool	IsVisibleForZones()			{ return false;		}

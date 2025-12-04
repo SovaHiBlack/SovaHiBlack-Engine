@@ -1258,20 +1258,11 @@
     <Filter Include="Core\Client\Effectors\Actor">
       <UniqueIdentifier>{62b151d8-4980-4081-819a-6a3a253c9e5a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Client\Effectors\monsters_%3f%3f%3f">
-      <UniqueIdentifier>{68aad49c-b346-4fd6-b467-7464465949cc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Client\Effectors\Postprocess">
       <UniqueIdentifier>{00bdb3e4-8452-4863-abde-9581bae5cbe5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Client\Effectors\Weapon">
       <UniqueIdentifier>{16ce1eab-8a02-447a-8d9a-6d60998ffcf8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Effects">
-      <UniqueIdentifier>{ac55e5b9-f161-498d-8753-93eb695e301c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Effects\Core">
-      <UniqueIdentifier>{18767deb-37fc-45b3-b89e-796d52c641e7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Client\Game Materials">
       <UniqueIdentifier>{9fb37e5a-dbbe-4bc8-8e14-8f48d463494c}</UniqueIdentifier>
@@ -2083,12 +2074,6 @@
     <Filter Include="UI\Common\OutfitInfo">
       <UniqueIdentifier>{a597e90c-e505-4019-9f50-b7331b9ca633}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\Common\TimeWnd">
-      <UniqueIdentifier>{b6ddfba9-5279-4c2a-88f7-9173f802553f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\Common\SleepWnd">
-      <UniqueIdentifier>{0243e683-41e7-4685-b0dd-1f2684ce829c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UI\Common\InventoryUtilities">
       <UniqueIdentifier>{efb15e9f-859d-4db9-aa37-6b4fa2fa5086}</UniqueIdentifier>
     </Filter>
@@ -2278,15 +2263,15 @@
     <Filter Include="UI\Tutorial">
       <UniqueIdentifier>{2955a80c-d93e-45a5-9560-cd775358dba2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Client\Effectors\monsters">
+      <UniqueIdentifier>{68aad49c-b346-4fd6-b467-7464465949cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mt_config.h">
       <Filter>AI</Filter>
     </ClInclude>
     <ClInclude Include="damage_manager.h">
-      <Filter>AI\AComponents\DamageManager</Filter>
-    </ClInclude>
-    <ClInclude Include="damage_manager_inline.h">
       <Filter>AI\AComponents\DamageManager</Filter>
     </ClInclude>
     <ClInclude Include="DamageSource.h">
@@ -2326,9 +2311,6 @@
       <Filter>AI\AComponents\DecisionManagement\ActionManagement\ActionPlanner</Filter>
     </ClInclude>
     <ClInclude Include="script_action_planner_wrapper.h">
-      <Filter>AI\AComponents\DecisionManagement\ActionManagement\ActionPlanner\ScriptActionPlannerWrapper</Filter>
-    </ClInclude>
-    <ClInclude Include="script_action_planner_wrapper_inline.h">
       <Filter>AI\AComponents\DecisionManagement\ActionManagement\ActionPlanner\ScriptActionPlannerWrapper</Filter>
     </ClInclude>
     <ClInclude Include="action_planner_script.h">
@@ -2464,9 +2446,6 @@
       <Filter>AI\AComponents\MemoryManager\raw_data_managers\VisualMemoryManager\vision_client</Filter>
     </ClInclude>
     <ClInclude Include="movement_manager.h">
-      <Filter>AI\AComponents\MovementManager</Filter>
-    </ClInclude>
-    <ClInclude Include="movement_manager_impl.h">
       <Filter>AI\AComponents\MovementManager</Filter>
     </ClInclude>
     <ClInclude Include="movement_manager_inline.h">
@@ -2844,22 +2823,13 @@
     <ClInclude Include="alife_simulator.h">
       <Filter>AI\ALife</Filter>
     </ClInclude>
-    <ClInclude Include="alife_simulator_inline.h">
-      <Filter>AI\ALife</Filter>
-    </ClInclude>
     <ClInclude Include="alife_space.h">
       <Filter>AI\ALife</Filter>
     </ClInclude>
     <ClInclude Include="alife_interaction_manager.h">
       <Filter>AI\ALife\interaction_manager</Filter>
     </ClInclude>
-    <ClInclude Include="alife_interaction_manager_inline.h">
-      <Filter>AI\ALife\interaction_manager</Filter>
-    </ClInclude>
     <ClInclude Include="alife_communication_manager.h">
-      <Filter>AI\ALife\interaction_manager\communication_manager</Filter>
-    </ClInclude>
-    <ClInclude Include="alife_communication_manager_inline.h">
       <Filter>AI\ALife\interaction_manager\communication_manager</Filter>
     </ClInclude>
     <ClInclude Include="alife_communication_space.h">
@@ -4380,9 +4350,6 @@
     <ClInclude Include="script_export_space.h">
       <Filter>AI\AScript</Filter>
     </ClInclude>
-    <ClInclude Include="script_space.h">
-      <Filter>AI\AScript</Filter>
-    </ClInclude>
     <ClInclude Include="script_space_forward.h">
       <Filter>AI\AScript</Filter>
     </ClInclude>
@@ -4690,13 +4657,13 @@
       <Filter>Core\Client\Effectors\Actor</Filter>
     </ClInclude>
     <ClInclude Include="ai\Monsters\ai_monster_effector.h">
-      <Filter>Core\Client\Effectors\monsters_%3f%3f%3f</Filter>
+      <Filter>Core\Client\Effectors\monsters</Filter>
     </ClInclude>
     <ClInclude Include="pp_effector_custom.h">
-      <Filter>Core\Client\Effectors\monsters_%3f%3f%3f</Filter>
+      <Filter>Core\Client\Effectors\monsters</Filter>
     </ClInclude>
     <ClInclude Include="pp_effector_distance.h">
-      <Filter>Core\Client\Effectors\monsters_%3f%3f%3f</Filter>
+      <Filter>Core\Client\Effectors\monsters</Filter>
     </ClInclude>
     <ClInclude Include="PostprocessAnimator.h">
       <Filter>Core\Client\Effectors\Postprocess</Filter>
@@ -4712,9 +4679,6 @@
     </ClInclude>
     <ClInclude Include="EffectorZoomInertion.h">
       <Filter>Core\Client\Effectors\Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="DynamicHeightMap.h">
-      <Filter>Core\Client\Effects\Core</Filter>
     </ClInclude>
     <ClInclude Include="GameMtlLib.h">
       <Filter>Core\Client\Game Materials</Filter>
@@ -6111,9 +6075,6 @@
     <ClInclude Include="ui\UIPdaMsgListItem.h">
       <Filter>UI\Common\MainIngame</Filter>
     </ClInclude>
-    <ClInclude Include="ui\UIPointerGage.h">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClInclude>
     <ClInclude Include="UIZoneMap.h">
       <Filter>UI\Common\MainIngame</Filter>
     </ClInclude>
@@ -6176,12 +6137,6 @@
     </ClInclude>
     <ClInclude Include="ui\UIOutfitInfo.h">
       <Filter>UI\Common\OutfitInfo</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UITimeWnd.h">
-      <Filter>UI\Common\TimeWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UISleepWnd.h">
-      <Filter>UI\Common\SleepWnd</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIInventoryUtilities.h">
       <Filter>UI\Common\InventoryUtilities</Filter>
@@ -7800,13 +7755,13 @@
       <Filter>Core\Client\Effectors\Actor</Filter>
     </ClCompile>
     <ClCompile Include="ai\Monsters\ai_monster_effector.cpp">
-      <Filter>Core\Client\Effectors\monsters_%3f%3f%3f</Filter>
+      <Filter>Core\Client\Effectors\monsters</Filter>
     </ClCompile>
     <ClCompile Include="pp_effector_custom.cpp">
-      <Filter>Core\Client\Effectors\monsters_%3f%3f%3f</Filter>
+      <Filter>Core\Client\Effectors\monsters</Filter>
     </ClCompile>
     <ClCompile Include="pp_effector_distance.cpp">
-      <Filter>Core\Client\Effectors\monsters_%3f%3f%3f</Filter>
+      <Filter>Core\Client\Effectors\monsters</Filter>
     </ClCompile>
     <ClCompile Include="PostprocessAnimator.cpp">
       <Filter>Core\Client\Effectors\Postprocess</Filter>
@@ -7822,9 +7777,6 @@
     </ClCompile>
     <ClCompile Include="EffectorZoomInertion.cpp">
       <Filter>Core\Client\Effectors\Weapon</Filter>
-    </ClCompile>
-    <ClCompile Include="DynamicHeightMap.cpp">
-      <Filter>Core\Client\Effects\Core</Filter>
     </ClCompile>
     <ClCompile Include="GameMtlLib.cpp">
       <Filter>Core\Client\Game Materials</Filter>
@@ -7845,9 +7797,6 @@
       <Filter>Core\Client\Level</Filter>
     </ClCompile>
     <ClCompile Include="Level_load.cpp">
-      <Filter>Core\Client\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="level_map_locations.cpp">
       <Filter>Core\Client\Level</Filter>
     </ClCompile>
     <ClCompile Include="Level_network.cpp">
@@ -9218,9 +9167,6 @@
     <ClCompile Include="ui\UIPdaMsgListItem.cpp">
       <Filter>UI\Common\MainIngame</Filter>
     </ClCompile>
-    <ClCompile Include="ui\UIPointerGage.cpp">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClCompile>
     <ClCompile Include="UIZoneMap.cpp">
       <Filter>UI\Common\MainIngame</Filter>
     </ClCompile>
@@ -9283,12 +9229,6 @@
     </ClCompile>
     <ClCompile Include="ui\UIOutfitInfo.cpp">
       <Filter>UI\Common\OutfitInfo</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UITimeWnd.cpp">
-      <Filter>UI\Common\TimeWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UISleepWnd.cpp">
-      <Filter>UI\Common\SleepWnd</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIInventoryUtilities.cpp">
       <Filter>UI\Common\InventoryUtilities</Filter>

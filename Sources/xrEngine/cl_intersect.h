@@ -12,9 +12,9 @@ namespace CDB
 	//         sR - radius of sphere
 	// Notes : Normalized directional vectors expected
 	// -----------------------------------------------------------------------
-	IC bool IntersectRaySphere(const Fvector& rO, const Fvector& rV, const Fvector& sO, float sR)
+	IC bool IntersectRaySphere(const fVector3& rO, const fVector3& rV, const fVector3& sO, float sR)
 	{
-		Fvector Q;
+		fVector3 Q;
 		Q.sub(sO,rO);
 
 		float c = Q.magnitude();
@@ -26,9 +26,13 @@ namespace CDB
 	}
 
 	//-- Ray-Triangle : 2nd level of indirection --------------------------------
-	IC bool TestRayTri(const Fvector& C, const Fvector& D, Fvector** p, float& u, float& v, float& range, bool bCull)
+	IC bool TestRayTri(const fVector3& C, const fVector3& D, fVector3** p, float& u, float& v, float& range, bool bCull)
 	{
-		Fvector edge1, edge2, tvec, pvec, qvec;
+		fVector3 edge1;
+		fVector3 edge2;
+		fVector3 tvec;
+		fVector3 pvec;
+		fVector3 qvec;
 		float det,inv_det;
 		// find vectors for two edges sharing vert0
 		edge1.sub(*p[1], *p[0]);
@@ -64,9 +68,13 @@ namespace CDB
 		return true;
 	}
 	//-- Ray-Triangle : 1st level of indirection --------------------------------
-	IC bool TestRayTri(const Fvector& C, const Fvector& D, Fvector* p, float& u, float& v, float& range, bool bCull)
+	IC bool TestRayTri(const fVector3& C, const fVector3& D, fVector3* p, float& u, float& v, float& range, bool bCull)
 	{
-		Fvector edge1, edge2, tvec, pvec, qvec;
+		fVector3 edge1;
+		fVector3 edge2;
+		fVector3 tvec;
+		fVector3 pvec;
+		fVector3 qvec;
 		float det,inv_det;
 		// find vectors for two edges sharing vert0
 		edge1.sub(p[1], p[0]);
@@ -103,9 +111,13 @@ namespace CDB
 	}
 
 	//-- Ray-Triangle(always return range) : 1st level of indirection --------------------------------
-	IC bool TestRayTri2(const Fvector& C, const Fvector& D, Fvector* p, float& range)
+	IC bool TestRayTri2(const fVector3& C, const fVector3& D, fVector3* p, float& range)
 	{
-		Fvector edge1, edge2, tvec, pvec, qvec;
+		fVector3 edge1;
+		fVector3 edge2;
+		fVector3 tvec;
+		fVector3 pvec;
+		fVector3 qvec;
 		float det,inv_det,u,v;
 
 		// find vectors for two edges sharing vert0
@@ -127,9 +139,13 @@ namespace CDB
 		if (v < 0.0f || u + v > 1.0f) return false;
 		return true;
 	}
-	IC bool TestRayTri2(const Fvector& C, const Fvector& D, Fvector** p, float& range)
+	IC bool TestRayTri2(const fVector3& C, const fVector3& D, fVector3** p, float& range)
 	{
-		Fvector edge1, edge2, tvec, pvec, qvec;
+		fVector3 edge1;
+		fVector3 edge2;
+		fVector3 tvec;
+		fVector3 pvec;
+		fVector3 qvec;
 		float det,inv_det,u,v;
 
 		// find vectors for two edges sharing vert0
@@ -207,9 +223,11 @@ namespace CDB
 	}
 	//---------------------------------------------------------------------------
 
-	IC bool TestBBoxTri(const Fmatrix33& A, const Fvector& T, const Fvector& extA, Fvector** p, BOOL bCulling){
+	IC bool TestBBoxTri(const Fmatrix33& A, const fVector3& T, const fVector3& extA, fVector3** p, BOOL bCulling){
 		// construct triangle normal, difference of center and vertex (18 ops)
-		Fvector D, E[2], N;
+		fVector3 D;
+		fVector3 E[2];
+		fVector3 N;
 		E[0].sub(*p[1],*p[0]);
 		E[1].sub(*p[2],*p[0]);
 		N.crossproduct(E[0],E[1]);

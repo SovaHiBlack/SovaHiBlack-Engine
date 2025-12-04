@@ -75,7 +75,9 @@ void try_change_current_entity()
 		if (!current)					continue;
 		if (Level().CurrentEntity()==current) continue;
 
-		Fvector							A, B, tmp; 
+		fVector3						A;
+		fVector3						B;
+		fVector3						tmp;
 		current->Center					(A);
 
 		tmp.sub							(A, actor->cam_Active()->vPosition);
@@ -804,7 +806,9 @@ void CAI_Stalker::OnHUDDraw				(CCustomHUD *hud)
 void CAI_Stalker::OnRender			()
 {
 	if (inventory().ActiveItem()) {
-		Fvector					position, direction, temp;
+		fVector3				position;
+		fVector3				direction;
+		fVector3				temp;
 		g_fireParams			(0,position,direction);
 		temp					= direction;
 		temp.mul				(1.f);
@@ -822,7 +826,7 @@ void CAI_Stalker::OnRender			()
 		xr_vector<CObject*>		objects;
 		feel_vision_get			(objects);
 		if (std::find(objects.begin(),objects.end(),memory().enemy().selected()) != objects.end()) {
-			Fvector				position = feel_vision_get_vispoint(const_cast<CEntityAlive*>(memory().enemy().selected()));
+			fVector3				position = feel_vision_get_vispoint(const_cast<CEntityAlive*>(memory().enemy().selected()));
 			Level().debug_renderer().draw_aabb	(position,.05f,.05f,.05f,D3DCOLOR_XRGB(0*255,255,0*255));
 			return;
 		}
@@ -833,59 +837,62 @@ void CAI_Stalker::OnRender			()
 	inherited::OnRender		();
 
 	{
-		Fvector					c0 = Position(),c1,t0 = Position(),t1;
-		c0.y					+= 2.f;
+		fVector3				c0 = Position( );
+		fVector3				c1;
+		fVector3				t0 = Position( );
+		fVector3				t1;
+		c0.y					+= 2.0f;
 		c1.setHP				(-movement().m_body.current.yaw,-movement().m_body.current.pitch);
 		c1.add					(c0);
 		Level().debug_renderer().draw_line		(Fidentity,c0,c1,D3DCOLOR_XRGB(0,255,0));
 		
-		t0.y					+= 2.f;
+		t0.y					+= 2.0f;
 		t1.setHP				(-movement().m_body.target.yaw,-movement().m_body.target.pitch);
 		t1.add					(t0);
 		Level().debug_renderer().draw_line		(Fidentity,t0,t1,D3DCOLOR_XRGB(255,0,0));
 	}
 
 	if (memory().danger().selected() && ai().level_graph().valid_vertex_position(memory().danger().selected()->position())) {
-		Fvector						position = memory().danger().selected()->position();
+		fVector3						position = memory().danger().selected()->position();
 		u32							level_vertex_id = ai().level_graph().vertex_id(position);
 		float						half_size = ai().level_graph().header().cell_size()*.5f;
-		position.y					+= 1.f;
-		Level().debug_renderer().draw_aabb	(position,half_size - .01f,1.f,ai().level_graph().header().cell_size()*.5f-.01f,D3DCOLOR_XRGB(0*255,255,0*255));
+		position.y					+= 1.0f;
+		Level().debug_renderer().draw_aabb	(position,half_size - 0.01f,1.0f,ai().level_graph().header().cell_size()*0.5f-0.01f,D3DCOLOR_XRGB(0*255,255,0*255));
 
 		if (ai().level_graph().valid_vertex_id(level_vertex_id)) {
 			LevelGraph::CVertex			*v = ai().level_graph().vertex(level_vertex_id);
-			Fvector						direction;
-			float						best_value = -1.f;
+			fVector3						direction;
+			float						best_value = -1.0f;
 
 			for (u32 i=0, j = 0; i<36; ++i) {
-				float				value = ai().level_graph().cover_in_direction(float(10*i)/180.f*PI,v);
-				direction.setHP		(float(10*i)/180.f*PI,0);
+				float				value = ai().level_graph().cover_in_direction(float(10*i)/180.0f*PI,v);
+				direction.setHP		(float(10*i)/180.0f*PI,0);
 				direction.normalize	();
 				direction.mul		(value*half_size);
 				direction.add		(position);
 				direction.y			= position.y;
 				Level().debug_renderer().draw_line	(Fidentity,position,direction,D3DCOLOR_XRGB(0,0,255));
-				value				= ai().level_graph().compute_square(float(10*i)/180.f*PI,PI/2.f,v);
+				value				= ai().level_graph().compute_square(float(10*i)/180.0f*PI,PI/2.0f,v);
 				if (value > best_value) {
 					best_value		= value;
 					j				= i;
 				}
 			}
 
-			direction.set		(position.x - half_size*float(v->cover(0))/15.f,position.y,position.z);
+			direction.set		(position.x - half_size*float(v->cover(0))/15.0f,position.y,position.z);
 			Level().debug_renderer().draw_line(Fidentity,position,direction,D3DCOLOR_XRGB(255,0,0));
 
-			direction.set		(position.x,position.y,position.z + half_size*float(v->cover(1))/15.f);
+			direction.set		(position.x,position.y,position.z + half_size*float(v->cover(1))/15.0f);
 			Level().debug_renderer().draw_line(Fidentity,position,direction,D3DCOLOR_XRGB(255,0,0));
 
-			direction.set		(position.x + half_size*float(v->cover(2))/15.f,position.y,position.z);
+			direction.set		(position.x + half_size*float(v->cover(2))/15.0f,position.y,position.z);
 			Level().debug_renderer().draw_line(Fidentity,position,direction,D3DCOLOR_XRGB(255,0,0));
 
-			direction.set		(position.x,position.y,position.z - half_size*float(v->cover(3))/15.f);
+			direction.set		(position.x,position.y,position.z - half_size*float(v->cover(3))/15.0f);
 			Level().debug_renderer().draw_line(Fidentity,position,direction,D3DCOLOR_XRGB(255,0,0));
 
-			float				value = ai().level_graph().cover_in_direction(float(10*j)/180.f*PI,v);
-			direction.setHP		(float(10*j)/180.f*PI,0);
+			float				value = ai().level_graph().cover_in_direction(float(10*j)/180.0f*PI,v);
+			direction.setHP		(float(10*j)/180.0f*PI,0);
 			direction.normalize	();
 			direction.mul		(value*half_size);
 			direction.add		(position);
@@ -902,8 +909,8 @@ void CAI_Stalker::dbg_draw_vision	()
 	if (!smart_cast<CGameObject*>(Level().CurrentEntity()))
 		return;
 
-	Fvector						shift;
-	shift.set					(0.f,2.5f,0.f);
+	fVector3					shift;
+	shift.set					(0.0f,2.5f,0.0f);
 
 	Fmatrix						res;
 	res.mul						(Device.mFullTransform,XFORM());
@@ -912,14 +919,14 @@ void CAI_Stalker::dbg_draw_vision	()
 
 	res.transform				(v_res,shift);
 
-	if (v_res.z < 0 || v_res.w < 0)
+	if (v_res.z < 0.0f || v_res.w < 0.0f)
 		return;
 
-	if (v_res.x < -1.f || v_res.x > 1.f || v_res.y<-1.f || v_res.y>1.f)
+	if (v_res.x < -1.0f || v_res.x > 1.0f || v_res.y < -1.0f || v_res.y > 1.0f)
 		return;
 
-	float						x = (1.f + v_res.x)/2.f * (Device.dwWidth);
-	float						y = (1.f - v_res.y)/2.f * (Device.dwHeight);
+	float						x = (1.0f + v_res.x)/2.0f * (Device.dwWidth);
+	float						y = (1.0f - v_res.y)/2.0f * (Device.dwHeight);
 
 	CNotYetVisibleObject		*object = memory().visual().not_yet_visible_object(smart_cast<CGameObject*>(Level().CurrentEntity()));
 	string64					out_text;
@@ -930,7 +937,7 @@ void CAI_Stalker::dbg_draw_vision	()
 	HUD().Font().pFontMedium->OutNext	(out_text);
 }
 
-typedef xr_vector<Fvector>	COLLIDE_POINTS;
+typedef xr_vector<fVector3>	COLLIDE_POINTS;
 
 class ray_query_param	{
 public:
@@ -938,12 +945,12 @@ public:
 	float					m_power;
 	float					m_power_threshold;
 	float					m_pick_distance;
-	Fvector					m_start_position;
-	Fvector					m_direction;
+	fVector3					m_start_position;
+	fVector3					m_direction;
 	COLLIDE_POINTS			*m_points;
 
 public:
-	IC				ray_query_param		(CCustomMonster *holder, float power_threshold, float distance, const Fvector &start_position, const Fvector &direction, COLLIDE_POINTS &points)
+	IC				ray_query_param		(CCustomMonster *holder, float power_threshold, float distance, const fVector3& start_position, const fVector3& direction, COLLIDE_POINTS &points)
 	{
 		m_holder			= holder;
 		m_power				= 1.f;
@@ -958,13 +965,7 @@ public:
 BOOL _ray_query_callback	(collide::rq_result& result, LPVOID params)
 {
 	ray_query_param						*param = (ray_query_param*)params;
-	param->m_points->push_back			(
-		Fvector().mad(
-			param->m_start_position,
-			param->m_direction,
-			result.range
-		)
-	);
+	param->m_points->push_back			(fVector3().mad(param->m_start_position,	param->m_direction,	result.range));
 	
 	float								power = param->m_holder->feel_vision_mtl_transp(result.O,result.element);
 	param->m_power						*= power;
@@ -975,7 +976,7 @@ BOOL _ray_query_callback	(collide::rq_result& result, LPVOID params)
 	return								(false);
 }
 
-void fill_points			(CCustomMonster *self, const Fvector &position, const Fvector &direction, float distance, collide::rq_results& rq_storage, COLLIDE_POINTS &points, float &pick_distance)
+void fill_points			(CCustomMonster *self, const fVector3& position, const fVector3& direction, float distance, collide::rq_results& rq_storage, COLLIDE_POINTS &points, float &pick_distance)
 {
 	VERIFY							(!fis_zero(direction.square_magnitude()));
 
@@ -1009,9 +1010,9 @@ void draw_visiblity_rays	(CCustomMonster *self, const CObject *object, collide::
 	if (!item)
 		return;
 
-	Fvector					start_position = self->eye_matrix.c;
-	Fvector					dest_position = item->cp_LAST;
-	Fvector					direction = Fvector().sub(dest_position,start_position);
+	fVector3					start_position = self->eye_matrix.c;
+	fVector3					dest_position = item->cp_LAST;
+	fVector3					direction = fVector3().sub(dest_position,start_position);
 	float					distance = direction.magnitude();
 	direction.normalize		();
 	float					pick_distance = flt_max;
@@ -1034,7 +1035,7 @@ void draw_visiblity_rays	(CCustomMonster *self, const CObject *object, collide::
 
 	VERIFY					(points.size() > 1);
 	
-	Fvector					size = Fvector().set(.05f,.05f,.05f);
+	fVector3					size = fVector3().set(0.05f,0.05f,0.05f);
 	Level().debug_renderer().draw_aabb	(points.front(),size.x,size.y,size.z,D3DCOLOR_XRGB(0,0,255));
 
 	{

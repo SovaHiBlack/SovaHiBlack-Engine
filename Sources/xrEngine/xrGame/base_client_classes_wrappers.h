@@ -55,86 +55,6 @@ public:
 
 typedef DLL_PureWrapper<DLL_Pure,luabind::wrap_base> CDLL_PureWrapper;
 
-/*	
-template <typename base, typename luabind_base = Loki::EmptyType>
-class ISpatialWrapper : public heritage<base,luabind_base>::result {
-public:
-	IC						ISpatialWrapper				() {};
-	virtual					~ISpatialWrapper			() {};
-	virtual	void			spatial_register			()
-	{
-		call_member<void>(this,"spatial_register");
-	}
-
-	static	void			spatial_register_static		(base *self)
-	{
-		self->base::spatial_register();
-	}
-
-	virtual	void			spatial_unregister			()
-	{
-		call_member<void>(this,"spatial_unregister");
-	}
-	
-	static	void			spatial_unregister_static	(base *self)
-	{
-		self->base::spatial_unregister();
-	}
-
-	virtual	void			spatial_move				()
-	{
-		call_member<void>(this,"spatial_move");
-	}
-
-	static	void			spatial_move_static			(base *self)
-	{
-		self->base::spatial_move();
-	}
-
-	virtual	Fvector			spatial_sector_point		()
-	{
-		return	(call_member<Fvector>(this,"spatial_sector_point"));
-	}
-
-	static	Fvector			spatial_sector_point_static	(base *self)
-	{
-		return	(self->base::spatial_sector_point());
-	}
-	
-	virtual	CObject*		dcast_CObject				()
-	{
-		return	(call_member<CObject*>(this,"dcast_CObject"));
-	}
-
-	static	CObject*		dcast_CObject_static		(base *self)
-	{
-		return	(self->base::dcast_CObject());
-	}
-
-	virtual	Feel::Sound*	dcast_FeelSound				()
-	{
-		return	(call_member<Feel::Sound*>(this,"dcast_FeelSound"));
-	}
-
-	static	Feel::Sound*	dcast_FeelSound_static		(base *self)
-	{
-		return	(self->base::dcast_FeelSound());
-	}
-
-	virtual	IRenderable*	dcast_Renderable			()
-	{
-		return	(call_member<IRenderable*>(this,"dcast_Renderable"));
-	}
-
-	static	IRenderable*	dcast_Renderable_static		(base *self)
-	{
-		return	(self->base::dcast_Renderable());
-	}
-};
-
-typedef ISpatialWrapper<ISpatial,luabind::wrap_base> CISpatialWrapper;
-*/
-
 template <typename base, typename luabind_base = Loki::EmptyType>
 class ISheduledWrapper : public heritage<base,luabind_base>::result {
 public:
@@ -209,45 +129,7 @@ public:
 
 typedef IRenderableWrapper<IRenderable,luabind::wrap_base> CIRenderableWrapper;
 
-//typedef DLL_PureWrapper<CObject,luabind::wrap_base> CObjectDLL_Pure;
-//typedef ISpatialWrapper<CObjectDLL_Pure>			CObjectISpatial;
-//typedef ISheduledWrapper<CObjectDLL_Pure>			CObjectISheduled;
-//typedef IRenderableWrapper<CObjectISheduled>		CObjectIRenderable;
-
-//class CObjectWrapper : public CObjectIRenderable {
-//public:
-//	IC						CObjectWrapper		() {};
-//	virtual					~CObjectWrapper		() {};
-///**
-//	virtual BOOL			Ready				();
-//	virtual CObject*		H_SetParent			(CObject* O);
-//	virtual void			Center				(Fvector& C) const;
-//	virtual float			Radius				() const;
-//	virtual const Fbox&		BoundingBox			() const;
-//	virtual void			Load				(LPCSTR section);
-//	virtual void			UpdateCL			();
-//	virtual BOOL			net_Spawn			(CSE_Abstract* data);
-//	virtual void			net_Destroy			();
-//	virtual void			net_Export			(NET_Packet& P);
-//	virtual void			net_Import			(NET_Packet& P);
-//	virtual	void			net_ImportInput		(NET_Packet& P);
-//	virtual BOOL			net_Relevant		();
-//	virtual void			net_MigrateInactive	(NET_Packet& P);
-//	virtual void			net_MigrateActive	(NET_Packet& P);
-//	virtual void			net_Relcase			(CObject* O);
-//	virtual	SavedPosition	ps_Element			(u32 ID) const;
-//	virtual void			ForceTransform		(const Fmatrix& m);
-//	virtual void			OnHUDDraw			(CCustomHUD* hud);
-//	virtual void			OnH_B_Chield		();
-//	virtual void			OnH_B_Independent	(bool just_before_destroy);
-//	virtual void			OnH_A_Chield		();
-//	virtual void			OnH_A_Independent	();
-///**/
-//};
-
-
 typedef DLL_PureWrapper<CGameObject,luabind::wrap_base> CGameObjectDLL_Pure;
-//typedef ISpatialWrapper<CGameObjectDLL_Pure>				CGameObjectISpatial;
 typedef ISheduledWrapper<CGameObjectDLL_Pure>				CGameObjectISheduled;
 typedef IRenderableWrapper<CGameObjectISheduled>			CGameObjectIRenderable;
 
@@ -302,22 +184,22 @@ public:
 	IC						CEntityWrapper		() {}
 	virtual					~CEntityWrapper		() {}
 
-	virtual void			HitSignal			(float P, Fvector &local_dir,	CObject* who, s16 element)
+	virtual void			HitSignal			(float P, fVector3& local_dir,	CObject* who, s16 element)
 	{
 		luabind::call_member<void>(this,"HitSignal",P,local_dir,who,element);
 	}
 
-	static	void			HitSignal_static	(CEntity *self, float P, Fvector &local_dir,	CObject* who, s16 element)
+	static	void			HitSignal_static	(CEntity *self, float P, fVector3& local_dir,	CObject* who, s16 element)
 	{
 		ai().script_engine().script_log(eLuaMessageTypeError,"You are trying to call a pure virtual function CEntity::HitSignal!");
 	}
 
-	virtual void			HitImpulse			(float P, Fvector &vWorldDir, 	Fvector& vLocalDir)
+	virtual void			HitImpulse			(float P, fVector3& vWorldDir, fVector3& vLocalDir)
 	{
 		luabind::call_member<void>(this,"HitImpulse",P,vWorldDir,vLocalDir);
 	}
 
-	static	void			HitImpulse_static	(float P, Fvector &vWorldDir, 	Fvector& vLocalDir)
+	static	void			HitImpulse_static	(float P, fVector3& vWorldDir, fVector3& vLocalDir)
 	{
 		ai().script_engine().script_log(eLuaMessageTypeError,"You are trying to call a pure virtual function CEntity::HitImpulse!");
 	}

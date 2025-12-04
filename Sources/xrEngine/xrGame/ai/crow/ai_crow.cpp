@@ -44,7 +44,7 @@ void CAI_Crow::SSound::Load	(LPCSTR prefix)
 	R_ASSERT(m_Sounds.size());
 }
 
-void CAI_Crow::SSound::SetPosition	(const Fvector& pos)
+void CAI_Crow::SSound::SetPosition	(const fVector3& pos)
 {
 	for (int i=0; i<(int)m_Sounds.size(); ++i)
 		if (m_Sounds[i]._feedback())
@@ -173,7 +173,7 @@ void CAI_Crow::switch2_DeathDead()
 }
 void CAI_Crow::switch2_DeathFall()
 {
-	Fvector V;
+	fVector3 V;
 	V.mul(XFORM().k,fSpeed);
 //	m_PhysicMovementControl->SetVelocity(V);
 	smart_cast<CKinematicsAnimated*>(Visual())->PlayCycle	(m_Anims.m_death.GetRandom(),TRUE,cb_OnHitEndPlaying,this);
@@ -183,10 +183,10 @@ void CAI_Crow::state_Flying		(float fdt)
 {
 	// Update position and orientation of the planes
 	float fAT = fASpeed * fdt		;
-	Fvector& vDirection = XFORM().k	;
+	fVector3& vDirection = XFORM().k	;
 
 	// Tweak orientation based on last position and goal
-	Fvector vOffset;
+	fVector3 vOffset;
 	vOffset.sub(vGoalDir,Position());
 
 	// First, tweak the pitch
@@ -224,14 +224,14 @@ void CAI_Crow::state_Flying		(float fdt)
 	Position().mad	(vOldPosition,vDirection,fSpeed*fdt);
 }
 
-static Fvector vV={0,0,0};
+static fVector3 vV={0.0f,0.0f,0.0f};
 void CAI_Crow::state_DeathFall()
 {
-	Fvector tAcceleration	;
-	tAcceleration.set		(0,-10.f,0);
+	fVector3 tAcceleration	;
+	tAcceleration.set		(0.0f,-10.0f,0.0f);
 	if (m_pPhysicsShell)
 	{
-		Fvector velocity;
+		fVector3 velocity;
 		m_pPhysicsShell->get_LinearVel(velocity);
 		if(velocity.y>-0.001f) st_target = eDeathDead;
 	}
@@ -303,7 +303,7 @@ void CAI_Crow::shedule_Update		(u32 DT)
 		// At random times, change the direction (goal) of the plane
 		if(fGoalChangeTime<=0)	{
 			fGoalChangeTime += fGoalChangeDelta+fGoalChangeDelta*Random.randF(-0.5f,0.5f);
-			Fvector vP;
+			fVector3 vP;
 			vP.set(Device.vCameraPosition.x,Device.vCameraPosition.y+fMinHeight,Device.vCameraPosition.z);
 			vGoalDir.x		= vP.x+vVarGoal.x*Random.randF(-0.5f,0.5f); 
 			vGoalDir.y		= vP.y+vVarGoal.y*Random.randF(-0.5f,0.5f);
@@ -386,7 +386,7 @@ void CAI_Crow::net_Import	(NET_Packet& P)
 	XFORM().setHPB		(yaw,pitch,bank);
 }
 //---------------------------------------------------------------------
-void CAI_Crow::HitSignal	(float /**HitAmount/**/, Fvector& /**local_dir/**/, CObject* who, s16 /**element/**/)
+void CAI_Crow::HitSignal	(float /**HitAmount/**/, fVector3& /**local_dir/**/, CObject* who, s16 /**element/**/)
 {
 	//bool				first_time = !!g_Alive(); 
 //	bool				first_time = !PPhysicsShell(); 
@@ -400,7 +400,7 @@ void CAI_Crow::HitSignal	(float /**HitAmount/**/, Fvector& /**local_dir/**/, COb
 	else smart_cast<CKinematicsAnimated*>(Visual())->PlayCycle(m_Anims.m_death_dead.GetRandom());
 }
 //---------------------------------------------------------------------
-void CAI_Crow::HitImpulse	(float	/**amount/**/,		Fvector& /**vWorldDir/**/, Fvector& /**vLocalDir/**/)
+void CAI_Crow::HitImpulse	(float	/**amount/**/, fVector3& /**vWorldDir/**/, fVector3& /**vLocalDir/**/)
 {
 }
 //---------------------------------------------------------------------

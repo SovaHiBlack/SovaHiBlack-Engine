@@ -72,8 +72,8 @@ void CBastArtefact::BastCollision(CEntityAlive* pEntityAlive)
 		}
 
 		m_bStrike = true;
-		Fvector vel;
-		vel.set(0,0,0);
+		fVector3 vel;
+		vel.set(0.0f,0.0f,0.0f);
 	//	this->m_pPhysicsShell->set_LinearVel(vel);
 	//	this->m_pPhysicsShell->set_AngularVel(vel);
 
@@ -122,7 +122,7 @@ void CBastArtefact::shedule_Update(u32 dt)
 {
 	inherited::shedule_Update(dt);
 
-	Fvector	P; 
+	fVector3	P;
 	P.set(Position());
 	feel_touch_update(P,m_fRadius);
 }
@@ -165,7 +165,7 @@ void CBastArtefact::UpdateCLChild()
 				m_fEnergy -= m_fStrikeImpulse;
 
 				//бросить артефакт на выбранную цель
-				Fvector dir;
+				fVector3 dir;
 				m_AttakingEntity->Center(dir);
 				dir.sub(this->Position()); 
 				dir.y += ::Random.randF(-0.05f, 0.5f);
@@ -189,7 +189,7 @@ void CBastArtefact::UpdateCLChild()
 			pStaticPG = CParticlesObject::Create(*m_sParticleName,TRUE);
 			Fmatrix pos; 
 			pos.set(XFORM()); 
-			Fvector vel; 
+			fVector3 vel;
 			//vel.sub(Position(),ps_Element(0).vPosition); 
 			//vel.div((Level().timeServer()-ps_Element(0).dwTime)/1000.f);
 			vel.set(0,0,0);

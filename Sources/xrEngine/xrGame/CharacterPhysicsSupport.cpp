@@ -335,7 +335,8 @@ IC bool cmp(const Fmatrix &f0, const Fmatrix &f1 )
 	Fmatrix if0;if0.invert(f0);
 	Fmatrix cm;cm.mul_43(if0,f1);
 	
-	Fvector ax;float ang;
+	fVector3 ax;
+	float ang;
 	Fquaternion q;
 	q.set(cm);
 	q.get_axis_angle(ax,ang);
@@ -347,7 +348,8 @@ bool is_similar(const Fmatrix &m0,const Fmatrix &m1,float param)
 {
 	Fmatrix tmp1;tmp1.invert(m0);
 	Fmatrix tmp2;tmp2.mul(tmp1,m1);
-	Fvector ax;float ang;
+	fVector3 ax;
+	float ang;
 	Fquaternion q;
 	q.set(tmp2);
 	q.get_axis_angle(ax,ang);
@@ -404,7 +406,7 @@ void CCharacterPhysicsSupport::KillHit(CObject *who, ALife::EHitType hit_type, f
 		m_flags.set(fl_block_hit,TRUE);
 }
 
-void CCharacterPhysicsSupport::in_Hit(float P,Fvector &dir, CObject *who,s16 element,Fvector p_in_object_space, float impulse,ALife::EHitType hit_type ,bool is_killing)
+void CCharacterPhysicsSupport::in_Hit(float P, fVector3& dir, CObject *who,s16 element, fVector3 p_in_object_space, float impulse,ALife::EHitType hit_type ,bool is_killing)
 {
 	if(m_EntityAlife.use_simplified_visual	())	return;
 	if(m_flags.test(fl_block_hit))
@@ -503,7 +505,7 @@ void CCharacterPhysicsSupport::in_UpdateCL( )
 		Fmatrix &me	 = K->LL_GetTransform(eb);
 		Fmatrix &mn	 = K->LL_GetTransform(nb);
 		float d = DET(mh);
-		if(Fvector().sub(mh.c,mp.c).magnitude() < 0.3f||d<0.7 )//|| Fvector().sub(me.c,mn.c) < 0.5
+		if(fVector3().sub(mh.c,mp.c).magnitude() < 0.3f||d<0.7 )//|| fVector3().sub(me.c,mn.c) < 0.5
 		{
 			
 			K->CalculateBones_Invalidate();
@@ -542,7 +544,7 @@ void CCharacterPhysicsSupport::CreateSkeleton(CPhysicsShell* &pShell)
 void CCharacterPhysicsSupport::CreateSkeleton()
 {
 	if(m_pPhysicsShell) return;
-	Fvector velocity;
+	fVector3 velocity;
 	m_PhysicMovementControl->GetCharacterVelocity(velocity);
 	m_PhysicMovementControl->GetDeathPosition	(m_EntityAlife.Position());
 	m_PhysicMovementControl->DestroyCharacter();
@@ -576,14 +578,16 @@ bool CCharacterPhysicsSupport::DoCharacterShellCollide()
 	}
 	return true;
 }
-void CCharacterPhysicsSupport::CollisionCorrectObjPos(const Fvector& start_from,bool	character_create/*=false*/)
+void CCharacterPhysicsSupport::CollisionCorrectObjPos(const fVector3& start_from,bool	character_create/*=false*/)
 {
-	Fvector shift;shift.sub(start_from,m_EntityAlife.Position());
+	fVector3 shift;
+	shift.sub(start_from,m_EntityAlife.Position());
 
 	Fbox box;
 	if(character_create)box.set(movement()->Box());
 	else	box.set(m_EntityAlife.BoundingBox());
-	Fvector vbox;Fvector activation_pos;
+	fVector3 vbox;
+	fVector3 activation_pos;
 	box.get_CD(activation_pos,vbox);shift.add(activation_pos);vbox.mul(2.f);
 	activation_pos.add(shift,m_EntityAlife.Position());
 	CPHActivationShape activation_shape;
@@ -597,7 +601,7 @@ void CCharacterPhysicsSupport::CollisionCorrectObjPos(const Fvector& start_from,
 	activation_shape.Destroy();
 }
 
-void CCharacterPhysicsSupport::set_movement_position( const Fvector &pos )
+void CCharacterPhysicsSupport::set_movement_position( const fVector3& pos )
 {
 	VERIFY( movement() );
 
@@ -658,10 +662,12 @@ void CCharacterPhysicsSupport::ActivateShell			( CObject* who )
 	K->CalculateBones	();
 ////////////////////////////////////////////////////////////////////////////
 	if( m_pPhysicsShell ) return;
-	Fvector velocity;
+	fVector3 velocity;
 	m_PhysicMovementControl->GetCharacterVelocity		( velocity );
 	velocity.mul( 1.3f );
-	Fvector dp, start;start.set( m_EntityAlife.Position( ) );
+	fVector3 dp;
+	fVector3 start;
+	start.set(m_EntityAlife.Position( ));
 	if( !m_PhysicMovementControl->CharacterExist( ) )
 		dp.set( m_EntityAlife.Position( ) );
 	else m_PhysicMovementControl->GetDeathPosition( dp );
@@ -713,7 +719,7 @@ void CCharacterPhysicsSupport::ActivateShell			( CObject* who )
 
 
 	//fly back after correction
-	FlyTo(Fvector().sub(start,m_EntityAlife.Position()));
+	FlyTo(fVector3().sub(start,m_EntityAlife.Position()));
 	//
 
 	//actualize
@@ -737,7 +743,6 @@ void CCharacterPhysicsSupport::ActivateShell			( CObject* who )
 }
 void CCharacterPhysicsSupport::in_ChangeVisual()
 {
-	
 	if(!m_physics_skeleton&&!m_pPhysicsShell) return;
 
 	if(m_pPhysicsShell)
@@ -773,7 +778,7 @@ bool CCharacterPhysicsSupport::CanRemoveObject()
 	}
 }
 
-void CCharacterPhysicsSupport::PHGetLinearVell(Fvector &velocity)
+void CCharacterPhysicsSupport::PHGetLinearVell(fVector3& velocity)
 {
 	if(m_pPhysicsShell&&m_pPhysicsShell->isActive())
 	{
@@ -799,7 +804,7 @@ void CCharacterPhysicsSupport::DestroyIKController()
 	xr_delete(m_ik_controller);
 }
 
-void		 CCharacterPhysicsSupport::in_NetRelcase(CObject* O)																													
+void		 CCharacterPhysicsSupport::in_NetRelcase(CObject* O)
 {
 	CPHCapture* c=m_PhysicMovementControl->PHCapture();
 	if(c)
@@ -844,7 +849,7 @@ void	StaticEnvironmentCB (bool& do_colide,bool bo1,dContact& c,SGameMtl* materia
 	do_colide=false;
 }
 
-void						CCharacterPhysicsSupport::FlyTo(const	Fvector &disp)
+void						CCharacterPhysicsSupport::FlyTo(const	fVector3& disp)
 {
 		VERIFY(m_pPhysicsShell);
 		float ammount=disp.magnitude();
@@ -856,11 +861,11 @@ void						CCharacterPhysicsSupport::FlyTo(const	Fvector &disp)
 		void*	cd=m_pPhysicsShell->get_CallbackData();
 		m_pPhysicsShell->set_CallbackData(m_pPhysicsShell->PIsland());
 		m_pPhysicsShell->UnFreeze();
-		Fvector vel;vel.set(disp);
+		fVector3 vel;
+		vel.set(disp);
 		const	u16	steps_num=10;
 		const	float	fsteps_num=steps_num;
 		vel.mul(1.f/fsteps_num/fixed_step);
-
 
 		for(u16	i=0;steps_num>i;++i)
 		{
@@ -890,7 +895,7 @@ void CCharacterPhysicsSupport::TestForWounded()
 	
 	xrXRC						xrc;
 	xrc.ray_options				(0);
-	xrc.ray_query(Level().ObjectSpace.GetStaticModel(),position_matrix.c,Fvector().set(0.0f,-1.0f,0.0f),pelvis_factor_low_pose_detect);
+	xrc.ray_query(Level().ObjectSpace.GetStaticModel(),position_matrix.c, fVector3().set(0.0f,-1.0f,0.0f),pelvis_factor_low_pose_detect);
 		
 	if (xrc.r_count())
 	{
@@ -905,18 +910,16 @@ void CCharacterPhysicsSupport::UpdateFrictionAndJointResistanse()
 	if(skel_remain_time!=0)
 	{
 		skel_remain_time-=m_time_delta;
-	};
+	}
+
 	if (skel_remain_time<0)
 	{
 		skel_remain_time=0;
-	};
-			
+	}
+
 	float curr_joint_resistance=hinge_force_factor1-
 		(skel_remain_time*hinge_force_factor1)/skel_ddelay;
 	m_pPhysicsShell->set_JointResistance(curr_joint_resistance);
-
-
-
 
 	if(skeleton_skin_remain_time!=0)
 	{
@@ -930,11 +933,11 @@ void CCharacterPhysicsSupport::UpdateFrictionAndJointResistanse()
 	if(skeleton_skin_remain_time_after_wound!=0)
 	{
 		skeleton_skin_remain_time_after_wound-=m_time_delta;
-	};
+	}
 	if (skeleton_skin_remain_time_after_wound<0)
 	{
 		skeleton_skin_remain_time_after_wound=0;
-	};
+	}
 
 	float ddelay,remain;
 	if (m_was_wounded)
@@ -950,8 +953,6 @@ void CCharacterPhysicsSupport::UpdateFrictionAndJointResistanse()
 
 	m_curr_skin_friction_in_death=skeleton_skin_friction_end+
 		(remain/ddelay)*(skeleton_skin_friction_start-skeleton_skin_friction_end);	
-
-	
 };
 
 void CCharacterPhysicsSupport::CalculateTimeDelta()

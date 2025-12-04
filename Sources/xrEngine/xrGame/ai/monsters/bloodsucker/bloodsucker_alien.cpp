@@ -79,8 +79,8 @@ class CAlienEffector : public CEffectorCam {
 	typedef CEffectorCam inherited;	
 
 	float	m_time_total;
-	Fvector	dangle_target;
-	Fvector dangle_current;
+	fVector3	dangle_target;
+	fVector3 dangle_current;
 
 	CAI_Bloodsucker *monster;
 
@@ -90,37 +90,35 @@ class CAlienEffector : public CEffectorCam {
 
 public:
 					CAlienEffector	(ECamEffectorType type, CAI_Bloodsucker *obj);
-	virtual	BOOL	Process			(Fvector &p, Fvector &d, Fvector &n, float& fFov, float& fFar, float& fAspect);
+	virtual	BOOL	Process			(fVector3& p, fVector3& d, fVector3& n, float& fFov, float& fFar, float& fAspect);
 };
-
 
 #define DELTA_ANGLE_X		10 * PI / 180
 #define DELTA_ANGLE_Y		10 * PI / 180
 #define DELTA_ANGLE_Z		10 * PI / 180
 #define ANGLE_SPEED			0.2f	
 
-#define MIN_FOV				70.f
-#define	MAX_FOV				175.f
-#define FOV_SPEED			80.f
+#define MIN_FOV				70.0f
+#define	MAX_FOV				175.0f
+#define FOV_SPEED			80.0f
 #define	MAX_CAMERA_DIST		3.5f
-
 
 CAlienEffector::CAlienEffector(ECamEffectorType type, CAI_Bloodsucker *obj) :
 	inherited(type, flt_max)
 {
 	dangle_target.set		(angle_normalize(Random.randFs(DELTA_ANGLE_X)),angle_normalize(Random.randFs(DELTA_ANGLE_Y)),angle_normalize(Random.randFs(DELTA_ANGLE_Z)));
-	dangle_current.set		(0.f, 0.f, 0.f);
+	dangle_current.set		(0.0f, 0.0f, 0.0f);
 
 	monster					= obj;
 	
 	m_prev_eye_matrix.c		= get_head_position(monster);
 	m_prev_eye_matrix.k		= monster->Direction();
-	Fvector::generate_orthonormal_basis(m_prev_eye_matrix.k,m_prev_eye_matrix.j,m_prev_eye_matrix.i);
+	fVector3::generate_orthonormal_basis(m_prev_eye_matrix.k,m_prev_eye_matrix.j,m_prev_eye_matrix.i);
 	m_inertion				= 1.f;
 	m_current_fov			= MIN_FOV;
 }
 
-BOOL CAlienEffector::Process(Fvector &p, Fvector &d, Fvector &n, float& fFov, float& fFar, float& fAspect)
+BOOL CAlienEffector::Process(fVector3& p, fVector3& d, fVector3& n, float& fFov, float& fFar, float& fAspect)
 {
 	// Инициализация
 	Fmatrix	Mdef;
@@ -157,7 +155,7 @@ BOOL CAlienEffector::Process(Fvector &p, Fvector &d, Fvector &n, float& fFov, fl
 	// set pos and dir with inertion
 	m_prev_eye_matrix.c.inertion(cur_matrix.c, m_inertion);
 	m_prev_eye_matrix.k.inertion(cur_matrix.k, m_inertion);
-	Fvector::generate_orthonormal_basis_normalized(m_prev_eye_matrix.k,m_prev_eye_matrix.j,m_prev_eye_matrix.i);	
+	fVector3::generate_orthonormal_basis_normalized(m_prev_eye_matrix.k,m_prev_eye_matrix.j,m_prev_eye_matrix.i);
 
 	// apply position and direction
 	Mdef = m_prev_eye_matrix;

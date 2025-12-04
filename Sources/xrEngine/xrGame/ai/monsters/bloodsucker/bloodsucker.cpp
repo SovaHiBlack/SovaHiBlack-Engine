@@ -238,7 +238,7 @@ void CAI_Bloodsucker::vfAssignBones()
 
 //#define MAX_BONE_ANGLE PI_DIV_4
 
-void CAI_Bloodsucker::LookDirection(Fvector to_dir, float bone_turn_speed)
+void CAI_Bloodsucker::LookDirection(fVector3 to_dir, float bone_turn_speed)
 {
 	//// получаем вектор направления к источнику звука и его мировые углы
 	//float		yaw,pitch;
@@ -369,7 +369,7 @@ void CAI_Bloodsucker::predator_start()
 
 	control().animation().restart	();
 	
-	CParticlesPlayer::StartParticles(invisible_particle_name,Fvector().set(0.0f,0.1f,0.0f),ID());		
+	CParticlesPlayer::StartParticles(invisible_particle_name, fVector3().set(0.0f,0.1f,0.0f),ID());
 	sound().play					(CAI_Bloodsucker::eChangeVisibility);
 
 	m_predator						= true;
@@ -387,7 +387,7 @@ void CAI_Bloodsucker::predator_stop()
 
 	control().animation().restart	();
 	
-	CParticlesPlayer::StartParticles(invisible_particle_name,Fvector().set(0.0f,0.1f,0.0f),ID());		
+	CParticlesPlayer::StartParticles(invisible_particle_name, fVector3().set(0.0f,0.1f,0.0f),ID());
 	sound().play					(CAI_Bloodsucker::eChangeVisibility);
 	m_predator						= false;
 }
@@ -411,7 +411,7 @@ void CAI_Bloodsucker::move_actor_cam()
 	}
 }
 
-void CAI_Bloodsucker::HitEntity(const CEntity *pEntity, float fDamage, float impulse, Fvector &dir)
+void CAI_Bloodsucker::HitEntity(const CEntity *pEntity, float fDamage, float impulse, fVector3& dir)
 {
 	inherited::HitEntity(pEntity,fDamage,impulse,dir);
 

@@ -11,11 +11,9 @@ private:
 
 	CUIStatic			UIStaticCarHealth;
 	CUIProgressBar		UICarHealthBar;
-//	CUIPointerGage		UISpeedometer;
-//	CUIPointerGage		UITachometer;
-public: 
 
-	// Установить 
+public:
+	// Установить
 	void				SetCarHealth	(float value);
 	void				SetSpeed		(float speed);
 	void				SetRPM			(float rmp);

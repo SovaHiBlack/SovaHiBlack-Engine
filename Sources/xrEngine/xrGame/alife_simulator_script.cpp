@@ -159,13 +159,13 @@ CSE_ALifeDynamicObject *CALifeSimulator__create	(CALifeSimulator *self, ALife::_
 	return								(object);
 }
 
-CSE_Abstract *CALifeSimulator__spawn_item		(CALifeSimulator *self, LPCSTR section, const Fvector &position, u32 level_vertex_id, GameGraph::_GRAPH_ID game_vertex_id)
+CSE_Abstract *CALifeSimulator__spawn_item		(CALifeSimulator *self, LPCSTR section, const fVector3& position, u32 level_vertex_id, GameGraph::_GRAPH_ID game_vertex_id)
 {
 	THROW								(self);
 	return								(self->spawn_item(section,position,level_vertex_id,game_vertex_id,ALife::_OBJECT_ID(-1)));
 }
 
-CSE_Abstract *CALifeSimulator__spawn_item2		(CALifeSimulator *self, LPCSTR section, const Fvector &position, u32 level_vertex_id, GameGraph::_GRAPH_ID game_vertex_id, ALife::_OBJECT_ID id_parent)
+CSE_Abstract *CALifeSimulator__spawn_item2		(CALifeSimulator *self, LPCSTR section, const fVector3& position, u32 level_vertex_id, GameGraph::_GRAPH_ID game_vertex_id, ALife::_OBJECT_ID id_parent)
 {
 	if (id_parent == ALife::_OBJECT_ID(-1))
 		return							(self->spawn_item(section,position,level_vertex_id,game_vertex_id,id_parent));
@@ -197,7 +197,7 @@ CSE_Abstract *CALifeSimulator__spawn_item2		(CALifeSimulator *self, LPCSTR secti
 	return								(self->server().Process_spawn(packet,clientID));
 }
 
-CSE_Abstract *CALifeSimulator__spawn_ammo		(CALifeSimulator *self, LPCSTR section, const Fvector &position, u32 level_vertex_id, GameGraph::_GRAPH_ID game_vertex_id, ALife::_OBJECT_ID id_parent, int ammo_to_spawn)
+CSE_Abstract *CALifeSimulator__spawn_ammo		(CALifeSimulator *self, LPCSTR section, const fVector3& position, u32 level_vertex_id, GameGraph::_GRAPH_ID game_vertex_id, ALife::_OBJECT_ID id_parent, int ammo_to_spawn)
 {
 //	if (id_parent == ALife::_OBJECT_ID(-1))
 //		return							(self->spawn_item(section,position,level_vertex_id,game_vertex_id,id_parent));

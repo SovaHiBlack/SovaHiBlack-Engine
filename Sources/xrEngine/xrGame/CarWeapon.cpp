@@ -160,7 +160,7 @@ void CCarWeapon::UpdateBarrelDir()
 	m_allow_fire		= true;
 	Fmatrix XFi;
 	XFi.invert			(m_object->XFORM());
-	Fvector dep;
+	fVector3 dep;
 	XFi.transform_dir	(dep,m_destEnemyDir);
 	{// x angle
 		m_i_bind_x_xform.transform_dir(dep); dep.normalize();
@@ -193,13 +193,14 @@ bool CCarWeapon::AllowFire()
 
 float CCarWeapon::FireDirDiff()
 {
-	Fvector d1,d2;
+	fVector3 d1;
+	fVector3 d2;
 	d1.set(m_cur_x_rot,m_cur_y_rot,0).normalize_safe();
 	d2.set(m_tgt_x_rot,m_tgt_y_rot,0).normalize_safe();
 	return rad2deg( acos(d1.dotproduct(d2)) );
 }
 
-const Fvector&	CCarWeapon::get_CurrentFirePoint()
+const fVector3&	CCarWeapon::get_CurrentFirePoint()
 {
 	return m_fire_pos;
 }
@@ -269,7 +270,7 @@ void CCarWeapon::SetParam			(int id, fVector2 val)
 	}
 }
 
-void CCarWeapon::SetParam			(int id, Fvector val)
+void CCarWeapon::SetParam			(int id, fVector3 val)
 {
 	switch (id){
 		case eWpnDesiredPos:
@@ -277,17 +278,17 @@ void CCarWeapon::SetParam			(int id, Fvector val)
 		break;
 	}
 }
-const Fvector&	CCarWeapon::ViewCameraPos()
+const fVector3&	CCarWeapon::ViewCameraPos()
 {
 	return m_fire_pos;
 }
 
-const Fvector&	CCarWeapon::ViewCameraDir()
+const fVector3&	CCarWeapon::ViewCameraDir()
 {
 	return m_fire_dir;
 }
 
-const Fvector&	CCarWeapon::ViewCameraNorm()
+const fVector3&	CCarWeapon::ViewCameraNorm()
 {
 	return m_fire_norm;
 }

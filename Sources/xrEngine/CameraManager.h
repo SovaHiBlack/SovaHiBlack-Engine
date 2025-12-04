@@ -91,10 +91,10 @@ DEFINE_VECTOR				(CEffectorPP*,EffectorPPVec,EffectorPPIt);
 
 class ENGINE_API CCameraManager
 {
-	Fvector					vPosition;
-	Fvector					vDirection;
-	Fvector					vNormal;
-	Fvector					vRight;
+	fVector3					vPosition;
+	fVector3					vDirection;
+	fVector3					vNormal;
+	fVector3					vRight;
 
 	EffectorCamVec			m_EffectorsCam;
 	EffectorCamVec			m_EffectorsCam_added_deffered;
@@ -121,13 +121,13 @@ public:
 	CEffectorPP*			AddPPEffector			(CEffectorPP*		ef);
 	void					RemovePPEffector		(EEffectorPPType	type);
 
-	IC Fvector				Pos					()	const { return vPosition;	}
-	IC Fvector				Dir					()	const { return vDirection;}
-	IC Fvector				Up					()	const { return vNormal;	}
-	IC Fvector				Right				()	const { return vRight;	}
+	IC fVector3				Pos					()	const { return vPosition;	}
+	IC fVector3				Dir					()	const { return vDirection;}
+	IC fVector3				Up					()	const { return vNormal;	}
+	IC fVector3				Right				()	const { return vRight;	}
 	
 	IC void					camera_Matrix		(Fmatrix& M){M.set(vRight,vNormal,vDirection,vPosition);}
-	void					Update				(const Fvector& P, const Fvector& D, const Fvector& N, float fFOV_Dest, float fASPECT_Dest, float fFAR_Dest, u32 flags=0);
+	void					Update				(const fVector3& P, const fVector3& D, const fVector3& N, float fFOV_Dest, float fASPECT_Dest, float fFAR_Dest, u32 flags=0);
 	void					Update				(const CCameraBase* C);
 	void					ApplyDevice			(float _viewport_near);
 	static void				ResetPP				();

@@ -24,7 +24,7 @@ CCameraLook::~CCameraLook()
 {
 }
 
-void CCameraLook::Update(Fvector& point, Fvector& /**noise_dangle/**/)
+void CCameraLook::Update(fVector3& point, fVector3& /**noise_dangle/**/)
 {
 	vPosition.set		(point);
 	Fmatrix mR;
@@ -37,7 +37,8 @@ void CCameraLook::Update(Fvector& point, Fvector& /**noise_dangle/**/)
 		parent->XFORM().transform_dir(vDirection);
 		parent->XFORM().transform_dir(vNormal);
 	}
-	Fvector				vDir;
+
+	fVector3				vDir;
 	collide::rq_result	R;
 
 	float				covariance = VIEWPORT_NEAR*6.f;
@@ -84,7 +85,7 @@ void CCameraLook::OnActivate( CCameraBase* old_cam )
 
 int cam_dik = DIK_LSHIFT;
 
-Fvector CCameraLook2::m_cam_offset;
+fVector3 CCameraLook2::m_cam_offset;
 void CCameraLook2::OnActivate( CCameraBase* old_cam )
 {
 	CCameraLook::OnActivate( old_cam );
@@ -98,7 +99,7 @@ void CCameraLook2::OnActivate( CCameraBase* old_cam )
 	}
 }
 
-void CCameraLook2::Update(Fvector& point, Fvector&)
+void CCameraLook2::Update(fVector3& point, fVector3&)
 {
 	if(!m_locked_enemy)
 	{//autoaim
@@ -149,26 +150,26 @@ void CCameraLook2::Update(Fvector& point, Fvector&)
 	Fmatrix							a_xform;
 	a_xform.setXYZ					(0, -yaw, 0);
 	a_xform.translate_over			(point);
-	Fvector _off					= m_cam_offset;
+	fVector3 _off					= m_cam_offset;
 	a_xform.transform_tiny			(_off);
 	vPosition.set					(_off);
 }
 
 void CCameraLook2::UpdateAutoAim()
 {
-	Fvector								_dest_point;
+	fVector3								_dest_point;
 	m_locked_enemy->Center				(_dest_point);
 	_dest_point.y						+= 0.2f;
 
-	Fvector								_dest_dir;
+	fVector3								_dest_dir;
 	_dest_dir.sub						(_dest_point, vPosition);
 	
 	Fmatrix								_m;
 	_m.identity							();
 	_m.k.normalize_safe					(_dest_dir);
-	Fvector::generate_orthonormal_basis	(_m.k, _m.j, _m.i);
+	fVector3::generate_orthonormal_basis	(_m.k, _m.j, _m.i);
 
-	Fvector								xyz;
+	fVector3								xyz;
 	_m.getXYZi							(xyz);
 
 	yaw				= angle_inertion_var(	yaw,xyz.y,

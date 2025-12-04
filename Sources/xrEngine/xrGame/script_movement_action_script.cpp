@@ -80,7 +80,7 @@ void CScriptMovementAction::script_register(lua_State *L)
 			.def(								constructor<MonsterSpace::EBodyState,MonsterSpace::EMovementType,DetailPathManager::EDetailPathType,const CPatrolPathParams &,float>())
 			.def(								constructor<MonsterSpace::EBodyState,MonsterSpace::EMovementType,DetailPathManager::EDetailPathType,const Fvector &>())
 			.def(								constructor<MonsterSpace::EBodyState,MonsterSpace::EMovementType,DetailPathManager::EDetailPathType,const Fvector &,float>())
-			.def(								constructor<const Fvector &,float>())
+			.def(								constructor<const fVector3&,float>())
 			
 			// Monsters 
 			.def(								constructor<MonsterSpace::EScriptMonsterMoveAction,Fvector &>())

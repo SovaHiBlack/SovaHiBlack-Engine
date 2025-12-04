@@ -293,13 +293,13 @@ typedef struct {
 	TTime		time_from;			// диапазон времени когда можно наносить hit (от)
 	TTime		time_to;		    // диапазон времени когда можно наносить hit (до)
 
-	Fvector		trace_from;			// направление трассировки (относительно центра)
-	Fvector		trace_to;
+	fVector3		trace_from;			// направление трассировки (относительно центра)
+	fVector3		trace_to;
 
 	u32			flags;				// специальные флаги
 
 	float		damage;				// урон при данной атаке
-	Fvector		hit_dir;			// угол направления приложения силы к объекту
+	fVector3		hit_dir;			// угол направления приложения силы к объекту
 
 	//-----------------------------------------
 	// temp 
@@ -317,7 +317,7 @@ struct SAAParam {
 	float		time;
 	float		hit_power;		// damage
 	float		impulse;
-	Fvector		impulse_dir;
+	fVector3		impulse_dir;
 
 	// field of hit
 	struct {
@@ -370,7 +370,6 @@ enum EHitSide {
 	eSideRight
 };
 
-
 DEFINE_VECTOR	(SAnimItem*,		ANIM_ITEM_VECTOR,		ANIM_ITEM_VECTOR_IT);
 DEFINE_VECTOR	(STransition,		TRANSITION_ANIM_VECTOR, TRANSITION_ANIM_VECTOR_IT);
 DEFINE_MAP		(EAction,			SMotionItem,			MOTION_ITEM_MAP,			MOTION_ITEM_MAP_IT);
@@ -378,14 +377,13 @@ DEFINE_VECTOR	(EMotionAnim,		SEQ_VECTOR,				SEQ_VECTOR_IT);
 DEFINE_VECTOR	(SAttackAnimation,	ATTACK_ANIM,			ATTACK_ANIM_IT);
 DEFINE_VECTOR	(SReplacedAnim,		REPLACED_ANIM,			REPLACED_ANIM_IT);
 
-DEFINE_MAP		(u16,				t_fx_index,				FX_MAP_U16,					FX_MAP_U16_IT);	
-DEFINE_MAP		(shared_str,			t_fx_index,				FX_MAP_STRING,				FX_MAP_STRING_IT);
-
+DEFINE_MAP		(u16,				t_fx_index,				FX_MAP_U16,					FX_MAP_U16_IT);
+DEFINE_MAP		(shared_str,		t_fx_index,				FX_MAP_STRING,				FX_MAP_STRING_IT);
 
 DEFINE_VECTOR	(SEQ_VECTOR, VELOCITY_CHAIN_VEC, VELOCITY_CHAIN_VEC_IT);
 
-
-struct SVelocity {
+struct SVelocity
+{
 	float	current;
 	float	target;
 	
@@ -408,9 +406,7 @@ enum EAccelValue {
 	eAV_Braking
 };
 
-
 #define deg(x) (x * PI / 180)
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // State Management
@@ -423,17 +419,14 @@ enum EAccelValue {
 #define DO_IN_TIME_INTERVAL_END()								}
 ///////////////////////////////////////////////////////////////////////////////
 
-
 #define PATH_NEED_REBUILD() m_object->IsPathEnd(2,0.5f)
-
 
 // тип монстра (по количеству ног)
 #define QUADRUPEDAL		4
 #define BIPEDAL			2
 
-
 struct SMonsterEnemy {
-	Fvector position;
+	fVector3 position;
 	u32		vertex;
 	TTime	time;
 	float	danger;
@@ -444,20 +437,18 @@ class CEntityAlive;
 DEFINE_MAP(const CEntityAlive *,SMonsterEnemy,ENEMIES_MAP, ENEMIES_MAP_IT);
 
 struct SMonsterCorpse {
-	Fvector position;
+	fVector3 position;
 	u32		vertex;
 	TTime	time;
 };
 
 DEFINE_MAP(const CEntityAlive *,SMonsterCorpse,CORPSE_MAP, CORPSE_MAP_IT);
 
-
-
 struct SMonsterHit {
 	CObject		*object;
 	TTime		time;
 	EHitSide	side;
-	Fvector		position;
+	fVector3		position;
 
 	bool	operator==(const CObject *obj) {
 		return (object == obj);

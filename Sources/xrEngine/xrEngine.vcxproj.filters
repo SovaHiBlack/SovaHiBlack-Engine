@@ -231,9 +231,6 @@
     <ClInclude Include="CameraBase.h">
       <Filter>Game API\Cameras</Filter>
     </ClInclude>
-    <ClInclude Include="CameraDebug.h">
-      <Filter>Game API\Cameras</Filter>
-    </ClInclude>
     <ClInclude Include="CameraDefs.h">
       <Filter>Game API\Cameras</Filter>
     </ClInclude>

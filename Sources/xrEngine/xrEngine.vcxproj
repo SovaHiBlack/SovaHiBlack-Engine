@@ -398,7 +398,6 @@
     <ClInclude Include="thunderbolt.h" />
     <ClInclude Include="xr_efflensflare.h" />
     <ClInclude Include="CameraBase.h" />
-    <ClInclude Include="CameraDebug.h" />
     <ClInclude Include="CameraDefs.h" />
     <ClInclude Include="CameraManager.h" />
     <ClInclude Include="Effector.h" />

@@ -173,7 +173,7 @@ void	CBaseMonster::Hit							(SHit* pHDS)
 	inherited::Hit(pHDS);
 }
 
-void CBaseMonster::PHHit(float P,Fvector &dir, CObject *who,s16 element,Fvector p_in_object_space, float impulse, ALife::EHitType hit_type /*=ALife::eHitTypeWound*/)
+void CBaseMonster::PHHit(float P, fVector3& dir, CObject *who,s16 element, fVector3 p_in_object_space, float impulse, ALife::EHitType hit_type /*=ALife::eHitTypeWound*/)
 {
 	m_pPhysics_support->in_Hit(P,dir,who,element,p_in_object_space,impulse,hit_type);
 }
@@ -441,7 +441,7 @@ void CBaseMonster::set_action(EAction action)
 	anim().m_tAction		= action;
 }
 
-CParticlesObject* CBaseMonster::PlayParticles(const shared_str& name, const Fvector &position, const Fvector &dir, BOOL auto_remove, BOOL xformed)
+CParticlesObject* CBaseMonster::PlayParticles(const shared_str& name, const fVector3& position, const fVector3& dir, BOOL auto_remove, BOOL xformed)
 {
 	CParticlesObject* ps = CParticlesObject::Create(name.c_str(),auto_remove);
 	
@@ -450,7 +450,7 @@ CParticlesObject* CBaseMonster::PlayParticles(const shared_str& name, const Fvec
 
 	matrix.identity			();
 	matrix.k.set			(dir);
-	Fvector::generate_orthonormal_basis_normalized(matrix.k,matrix.j,matrix.i);
+	fVector3::generate_orthonormal_basis_normalized(matrix.k,matrix.j,matrix.i);
 	matrix.translate_over	(position);
 	
 	(xformed) ?				ps->SetXFORM (matrix) : ps->UpdateParent(matrix,zero_vel); 

@@ -190,7 +190,6 @@
   <ItemGroup>
     <ClInclude Include="mt_config.h" />
     <ClInclude Include="damage_manager.h" />
-    <ClInclude Include="damage_manager_inline.h" />
     <ClInclude Include="DamageSource.h" />
     <ClInclude Include="wrapper_abstract.h" />
     <ClInclude Include="wrapper_abstract_inline.h" />
@@ -204,7 +203,6 @@
     <ClInclude Include="action_planner.h" />
     <ClInclude Include="action_planner_inline.h" />
     <ClInclude Include="script_action_planner_wrapper.h" />
-    <ClInclude Include="script_action_planner_wrapper_inline.h" />
     <ClInclude Include="action_planner_script.h" />
     <ClInclude Include="action_planner_script_inline.h" />
     <ClInclude Include="action_planner_action.h" />
@@ -250,7 +248,6 @@
     <ClInclude Include="vision_client.h" />
     <ClInclude Include="vision_client_inline.h" />
     <ClInclude Include="movement_manager.h" />
-    <ClInclude Include="movement_manager_impl.h" />
     <ClInclude Include="movement_manager_inline.h" />
     <ClInclude Include="movement_manager_space.h" />
     <ClInclude Include="location_manager.h" />
@@ -376,12 +373,9 @@
     <ClInclude Include="agent_manager_properties.h" />
     <ClInclude Include="agent_manager_properties_inline.h" />
     <ClInclude Include="alife_simulator.h" />
-    <ClInclude Include="alife_simulator_inline.h" />
     <ClInclude Include="alife_space.h" />
     <ClInclude Include="alife_interaction_manager.h" />
-    <ClInclude Include="alife_interaction_manager_inline.h" />
     <ClInclude Include="alife_communication_manager.h" />
-    <ClInclude Include="alife_communication_manager_inline.h" />
     <ClInclude Include="alife_communication_space.h" />
     <ClInclude Include="alife_combat_manager.h" />
     <ClInclude Include="alife_combat_manager_inline.h" />
@@ -890,7 +884,6 @@
     <ClInclude Include="patrol_point_inline.h" />
     <ClInclude Include="script_export_macroses.h" />
     <ClInclude Include="script_export_space.h" />
-    <ClInclude Include="script_space.h" />
     <ClInclude Include="script_space_forward.h" />
     <ClInclude Include="script_bind_macroses.h" />
     <ClInclude Include="script_abstract_action.h" />
@@ -1001,7 +994,6 @@
     <ClInclude Include="EffectorShot.h" />
     <ClInclude Include="EffectorShotX.h" />
     <ClInclude Include="EffectorZoomInertion.h" />
-    <ClInclude Include="DynamicHeightMap.h" />
     <ClInclude Include="GameMtlLib.h" />
     <ClInclude Include="GamePersistent.h" />
     <ClInclude Include="Level.h" />
@@ -1471,7 +1463,6 @@
     <ClInclude Include="ui\UIMoneyIndicator.h" />
     <ClInclude Include="ui\UIMotionIcon.h" />
     <ClInclude Include="ui\UIPdaMsgListItem.h" />
-    <ClInclude Include="ui\UIPointerGage.h" />
     <ClInclude Include="UIZoneMap.h" />
     <ClInclude Include="ui\UIColorAnimatorWrapper.h" />
     <ClInclude Include="ui\UIActorInfo.h" />
@@ -1493,8 +1484,6 @@
     <ClInclude Include="ui\UIItemInfo.h" />
     <ClInclude Include="ui\UIWpnParams.h" />
     <ClInclude Include="ui\UIOutfitInfo.h" />
-    <ClInclude Include="ui\UITimeWnd.h" />
-    <ClInclude Include="ui\UISleepWnd.h" />
     <ClInclude Include="ui\UIInventoryUtilities.h" />
     <ClInclude Include="callback_info.h" />
     <ClInclude Include="ui\uiabstract.h" />
@@ -3067,11 +3056,6 @@
     <ClCompile Include="EffectorShot.cpp" />
     <ClCompile Include="EffectorShotX.cpp" />
     <ClCompile Include="EffectorZoomInertion.cpp" />
-    <ClCompile Include="DynamicHeightMap.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="GameMtlLib.cpp" />
     <ClCompile Include="GameMtlLib_Engine.cpp" />
     <ClCompile Include="GamePersistent.cpp">
@@ -3093,9 +3077,6 @@
     <ClCompile Include="Level_GameSpy_Funcs.cpp" />
     <ClCompile Include="Level_input.cpp" />
     <ClCompile Include="Level_load.cpp" />
-    <ClCompile Include="level_map_locations.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="Level_network.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">pch_script.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)$(ProjectName)_script.pch</PrecompiledHeaderOutputFile>
@@ -4343,11 +4324,6 @@
     <ClCompile Include="ui\UIMoneyIndicator.cpp" />
     <ClCompile Include="ui\UIMotionIcon.cpp" />
     <ClCompile Include="ui\UIPdaMsgListItem.cpp" />
-    <ClCompile Include="ui\UIPointerGage.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="UIZoneMap.cpp" />
     <ClCompile Include="ui\UIColorAnimatorWrapper.cpp" />
     <ClCompile Include="ui\UIActorInfo.cpp" />
@@ -4399,16 +4375,6 @@
     <ClCompile Include="ui\ui_af_params.cpp" />
     <ClCompile Include="ui\UIItemInfo.cpp" />
     <ClCompile Include="ui\UIOutfitInfo.cpp" />
-    <ClCompile Include="ui\UITimeWnd.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="ui\UISleepWnd.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="ui\UIInventoryUtilities.cpp" />
     <ClCompile Include="ui\UIBtnHint.cpp" />
     <ClCompile Include="ui\UIWndCallback.cpp">

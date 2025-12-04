@@ -48,7 +48,7 @@ BOOL CVampirePPEffector::Process(SPPInfo& pp)
 #define DELTA_ANGLE_Z	DELTA_ANGLE_X
 #define ANGLE_SPEED		0.2f	
 #define BEST_DISTANCE	0.3f
-CVampireCameraEffector::CVampireCameraEffector(float time, const Fvector &src, const Fvector &tgt) :
+CVampireCameraEffector::CVampireCameraEffector(float time, const fVector3& src, const fVector3& tgt) :
 	inherited(eCEVampire, time)
 {
 	fLifeTime				= time;
@@ -70,7 +70,7 @@ CVampireCameraEffector::CVampireCameraEffector(float time, const Fvector &src, c
 	dangle_current.set	(0.f, 0.f, 0.f);
 }
 
-BOOL CVampireCameraEffector::Process(Fvector &p, Fvector &d, Fvector &n, float& fFov, float& fFar, float& fAspect)
+BOOL CVampireCameraEffector::Process(fVector3& p, fVector3& d, fVector3& n, float& fFov, float& fFar, float& fAspect)
 {
 	fLifeTime -= Device.fTimeDelta; if(fLifeTime<0) return FALSE;
 

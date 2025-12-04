@@ -71,10 +71,10 @@ public:
 	
 	virtual	BOOL			renderable_ShadowReceive		()	{ return TRUE;	}  
 	virtual void			Die								(CObject* who);
-	virtual void			HitSignal						(float amount, Fvector& vLocalDir, CObject* who, s16 element);
+	virtual void			HitSignal						(float amount, fVector3& vLocalDir, CObject* who, s16 element);
 	virtual	void			Hit								(SHit* pHDS);
-	virtual	void			PHHit							(float P,Fvector &dir, CObject *who,s16 element,Fvector p_in_object_space, float impulse, ALife::EHitType hit_type = ALife::eHitTypeWound);
-	virtual void			SelectAnimation					(const Fvector& _view, const Fvector& _move, float speed );
+	virtual	void			PHHit							(float P, fVector3& dir, CObject *who,s16 element, fVector3 p_in_object_space, float impulse, ALife::EHitType hit_type = ALife::eHitTypeWound);
+	virtual void			SelectAnimation					(const fVector3& _view, const fVector3& _move, float speed );
 
 	virtual void			Load							(LPCSTR section);
 	virtual DLL_Pure		*_construct						();
@@ -102,7 +102,7 @@ public:
 
 	virtual void			init							() {}
 
-	virtual void			feel_sound_new					(CObject* who, int eType, CSound_UserDataPtr user_data, const Fvector &Position, float power);
+	virtual void			feel_sound_new					(CObject* who, int eType, CSound_UserDataPtr user_data, const fVector3& Position, float power);
 	virtual BOOL			feel_vision_isRelevant			(CObject* O);
 	virtual BOOL			feel_touch_on_contact			(CObject* O);
 	virtual BOOL			feel_touch_contact				(CObject *);
@@ -132,7 +132,7 @@ public:
 
 	virtual bool			IsTalkEnabled					() {return false;}
 
-	virtual void			HitEntity						(const CEntity *pEntity, float fDamage, float impulse, Fvector &dir);
+	virtual void			HitEntity						(const CEntity *pEntity, float fDamage, float impulse, fVector3& dir);
 	virtual	void			HitEntityInJump					(const CEntity *pEntity) {}
 
 	virtual	void			on_before_sell					(CInventoryItem *item);
@@ -164,7 +164,7 @@ public:
 	bool					m_script_state_must_execute;
 
 
-	virtual void			jump							(const Fvector &position, float factor) {}
+	virtual void			jump							(const fVector3& position, float factor) {}
 
 	bool					m_skip_transfer_enemy;			
 	IC		void			skip_transfer_enemy				(bool value){m_skip_transfer_enemy = value;}
@@ -178,7 +178,7 @@ public:
 	// установка специфических анимаций 
 	virtual	void			CheckSpecParams					(u32 /**spec_params/**/) {}
 	virtual void			ForceFinalAnimation				() {}
-	virtual void			LookPosition					(Fvector to_point, float angular_speed = PI_DIV_3);		// каждый монстр может по-разному реализвать эту функ (e.g. кровосос с поворотом головы и т.п.)
+	virtual void			LookPosition					(fVector3 to_point, float angular_speed = PI_DIV_3);		// каждый монстр может по-разному реализвать эту функ (e.g. кровосос с поворотом головы и т.п.)
 
 	// Team	
 	virtual void			ChangeTeam						(int team, int squad, int group);
@@ -205,18 +205,15 @@ public:
 			void			UpdateMemory					();
 			
 	// Cover
-			bool			GetCorpseCover					(Fvector &position, u32 &vertex_id);
-			bool			GetCoverFromEnemy				(const Fvector &enemy_pos, Fvector &position, u32 &vertex_id);
-			bool			GetCoverFromPoint				(const Fvector &pos, Fvector &position, u32 &vertex_id, float min_dist, float max_dist, float radius);
-			bool			GetCoverCloseToPoint			(const Fvector &dest_pos, float min_dist, float max_dist, float deviation, float radius ,Fvector &position, u32 &vertex_id);
-
-
-
-
+			bool			GetCorpseCover					(fVector3& position, u32 &vertex_id);
+			bool			GetCoverFromEnemy				(const fVector3& enemy_pos, fVector3& position, u32 &vertex_id);
+			bool			GetCoverFromPoint				(const fVector3& pos, fVector3& position, u32 &vertex_id, float min_dist, float max_dist, float radius);
+			bool			GetCoverCloseToPoint			(const fVector3& dest_pos, float min_dist, float max_dist, float deviation, float radius , fVector3& position, u32 &vertex_id);
 
 	// Movement Manager
 protected:
 	CControlPathBuilder			*m_movement_manager;
+
 protected:
 	virtual CMovementManager	*create_movement_manager();
 
@@ -326,8 +323,8 @@ public:
 		
 	void				on_kill_enemy				(const CEntity *obj);
 	void				Hit_Psy						(CObject *object, float value);
-	void				Hit_Wound					(CObject *object, float value, const Fvector &dir, float impulse);
-	CParticlesObject	*PlayParticles				(const shared_str& name, const Fvector &position, const Fvector &dir, BOOL auto_remove = TRUE, BOOL xformed = TRUE);
+	void				Hit_Wound					(CObject *object, float value, const fVector3& dir, float impulse);
+	CParticlesObject	*PlayParticles				(const shared_str& name, const fVector3& position, const fVector3& dir, BOOL auto_remove = TRUE, BOOL xformed = TRUE);
 	void				load_effector				(LPCSTR section, LPCSTR line, SAttackEffector &effector);
 
 	// --------------------------------------------------------------------------------------

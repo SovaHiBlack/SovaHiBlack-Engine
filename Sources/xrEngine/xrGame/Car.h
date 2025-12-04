@@ -100,12 +100,11 @@ protected:
 		ectChase,
 		ectFree
 	};
+
 public:
-
-
 	bool rsp,lsp,fwp,bkp,brp;
 	Fmatrix m_root_transform;
-	Fvector m_exit_position;
+	fVector3 m_exit_position;
 
 	enum eStateDrive
 	{
@@ -235,7 +234,7 @@ virtual void ApplyDamage			(u16 level);
 	{
 		u16					bone_id;
 		Fmatrix				transform;
-		//Fvector				velocity;
+		//fVector3				velocity;
 		CParticlesObject*	p_pgobject;
 		CPhysicsElement*	pelement;
 		CCar*				pcar;
@@ -277,11 +276,11 @@ virtual void ApplyDamage			(u16 level);
 				 SDoorway	();
 			void SPass		();
 			void Init		(SDoor	*adoor);
-			void Trace		(const Fvector &point,const Fvector &dir);
+			void Trace		(const fVector3& point,const fVector3& dir);
 		};
 		fVector2		door_plane_ext;
 		_vector2<int>	door_plane_axes;
-		Fvector			door_dir_in_door;
+		fVector3			door_dir_in_door;
 		Fmatrix			closed_door_form_in_object;
 		void Use();
 		void Switch();
@@ -292,13 +291,13 @@ virtual void ApplyDamage			(u16 level);
 virtual void ApplyDamage(u16 level);
 		void Update();
 		float GetAngle();
-		bool CanEnter(const Fvector& pos,const Fvector& dir,const Fvector& foot_pos);
-		bool IsInArea(const Fvector& pos,const Fvector& dir);
-		bool IsFront (const Fvector& pos,const Fvector& dir);
-		bool CanExit(const Fvector& pos,const Fvector& dir);
-		bool TestPass(const Fvector& pos,const Fvector& dir);
-		//bool TestPass1(const Fvector& pos,const Fvector& dir);
-		void GetExitPosition(Fvector& pos);
+		bool CanEnter(const fVector3& pos,const fVector3& dir,const fVector3& foot_pos);
+		bool IsInArea(const fVector3& pos,const fVector3& dir);
+		bool IsFront (const fVector3& pos,const fVector3& dir);
+		bool CanExit(const fVector3& pos,const fVector3& dir);
+		bool TestPass(const fVector3& pos,const fVector3& dir);
+		//bool TestPass1(const fVector3& pos,const fVector3& dir);
+		void GetExitPosition(fVector3& pos);
 		void ApplyOpenTorque();
 		void ApplyTorque(float atorque,float aa_vel);
 		void ApplyCloseTorque();
@@ -364,7 +363,7 @@ virtual void ApplyDamage(u16 level);
 
 				SCarSound			(CCar* car)					;
 				~SCarSound			()							;
-		Fvector	relative_pos									;
+				fVector3	relative_pos									;
 		float	volume											;
 		u32		engine_start_delay								;//snd_engine starts after engine_start_delay ms by snd_engine_start
 		u32		time_state_start								;
@@ -381,7 +380,7 @@ private:
 	CCameraBase*			camera[3];
 	CCameraBase*			active_camera;
 
-	Fvector					m_camera_position;
+	fVector3					m_camera_position;
 
 	////////////////////////////////////////////////////
 	friend struct SWheel;
@@ -395,7 +394,7 @@ private:
 	shared_str				m_exhaust_particles;
 	xr_map	  <u16,SDoor>	m_doors;
 	xr_vector <SDoor*>		m_doors_update;
-	xr_vector <Fvector>		m_gear_ratious;
+	xr_vector <fVector3>		m_gear_ratious;
 	xr_vector <Fmatrix>		m_sits_transforms;// m_sits_transforms[0] - driver_place
 	float					m_current_gear_ratio;
 
@@ -514,15 +513,15 @@ IC	size_t				CurrentTransmission					(){return m_current_transmission_num;}
 	static void				cb_Steer					(CBoneInstance* B);
 	virtual	void			Hit							(SHit* pHDS);
 	virtual void			Die							(CObject* who);
-	virtual void PHHit									(float P,Fvector &dir, CObject *who,s16 element,Fvector p_in_object_space, float impulse, ALife::EHitType hit_type/* =ALife::eHitTypeWound */);
+	virtual void PHHit									(float P, fVector3& dir, CObject *who,s16 element, fVector3 p_in_object_space, float impulse, ALife::EHitType hit_type/* =ALife::eHitTypeWound */);
 			bool WheelHit								(float P,s16 element,ALife::EHitType hit_type);
 			bool DoorHit								(float P,s16 element,ALife::EHitType hit_type);
 public:
 	virtual bool			allowWeapon					() const		{return true;};
 	virtual bool			HUDView						() const;
-	virtual Fvector			ExitPosition				(){return m_exit_position;}
-	virtual Fvector			ExitVelocity				();
-	void					GetVelocity					(Fvector& vel)	{m_pPhysicsShell->get_LinearVel(vel);}
+	virtual fVector3			ExitPosition				(){return m_exit_position;}
+	virtual fVector3			ExitVelocity				();
+	void					GetVelocity					(fVector3& vel)	{m_pPhysicsShell->get_LinearVel(vel);}
 	void					cam_Update					(float dt, float fov);
 	void					detach_Actor				();
 	bool					attach_Actor				(CGameObject* actor);
@@ -532,9 +531,9 @@ public:
 	bool					DoorClose					(u16 id);
 	bool					DoorUse						(u16 id);
 	bool					DoorSwitch					(u16 id);
-	bool					Enter						(const Fvector& pos,const Fvector& dir,const Fvector& foot_pos);
-	bool					Exit						(const Fvector& pos,const Fvector& dir);
-	bool					Use							(const Fvector& pos,const Fvector& dir,const Fvector& foot_pos);
+	bool					Enter						(const fVector3& pos,const fVector3& dir,const fVector3& foot_pos);
+	bool					Exit						(const fVector3& pos,const fVector3& dir);
+	bool					Use							(const fVector3& pos,const fVector3& dir,const fVector3& foot_pos);
 	u16						DriverAnimationType 		();
 	// Core events
 	virtual DLL_Pure		*_construct					();
@@ -564,25 +563,25 @@ public:
 	virtual void			OnEvent						( NET_Packet& P, u16 type);
 	virtual void			OnAfterExplosion			();
 	virtual void			OnBeforeExplosion			();
-	virtual void			GetRayExplosionSourcePos	(Fvector &pos);
-	virtual void			ActivateExplosionBox		(const Fvector &size,Fvector &in_out_pos){};
+	virtual void			GetRayExplosionSourcePos	(fVector3& pos);
+	virtual void			ActivateExplosionBox		(const fVector3& size, fVector3& in_out_pos){};
 	virtual void			ResetScriptData				(void *P=0);
 
 	virtual void			Action						(int id, u32 flags);
 	virtual void			SetParam					(int id, fVector2 val);
-	virtual void			SetParam					(int id, Fvector val);
+	virtual void			SetParam					(int id, fVector3 val);
 			bool			HasWeapon					();
 			bool			WpnCanHit					();
 			float			FireDirDiff					();
 			bool			isObjectVisible				(CScriptGameObject* O);
-			Fvector			CurrentVel					();
+			fVector3			CurrentVel					();
 	virtual float			GetfHealth					() const		{return CEntity::GetfHealth();};
 	virtual float			SetfHealth					(float value)	{return CEntity::SetfHealth(value);};
 
 	// Hits
-	virtual void			HitSignal					(float /**HitAmount/**/,	Fvector& /**local_dir/**/, CObject* /**who/**/, s16 /**element/**/)	{};
-	virtual void			HitImpulse					(float /**amount/**/,		Fvector& /**vWorldDir/**/, Fvector& /**vLocalDir/**/)			{};
-	virtual void			g_fireParams				(const CHudItem* /**pHudItem/**/, Fvector& /**P/**/, Fvector& /**D/**/)											{};
+	virtual void			HitSignal					(float /**HitAmount/**/, fVector3& /**local_dir/**/, CObject* /**who/**/, s16 /**element/**/)	{};
+	virtual void			HitImpulse					(float /**amount/**/, fVector3& /**vWorldDir/**/, fVector3& /**vLocalDir/**/)			{};
+	virtual void			g_fireParams				(const CHudItem* /**pHudItem/**/, fVector3& /**P/**/, fVector3& /**D/**/)											{};
 	virtual u16				Initiator					();
 	// HUD
 	virtual void			OnHUDDraw					(CCustomHUD* hud);

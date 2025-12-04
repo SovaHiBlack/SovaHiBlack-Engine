@@ -110,7 +110,7 @@ struct ECORE_API SJointIKData
 		break_force		= 0.f;
 		break_torque	= 0.f;
 	}
-	void				clamp_by_limits(Fvector& dest_xyz);
+	void				clamp_by_limits(fVector3& dest_xyz);
 	void				Export(IWriter& F)
 	{
 		F.w_u32			(type);
@@ -158,12 +158,12 @@ class ECORE_API CBone
 	shared_str			name;
 	shared_str			parent_name;
 	shared_str			wmap;
-	Fvector			    rest_offset;
-	Fvector			    rest_rotate;    // XYZ format (Game format)
+	fVector3			    rest_offset;
+	fVector3			    rest_rotate;    // XYZ format (Game format)
 	float			    rest_length;
 
-	Fvector			    mot_offset;
-	Fvector			    mot_rotate;		// XYZ format (Game format)
+	fVector3			    mot_offset;
+	fVector3			    mot_rotate;		// XYZ format (Game format)
 	float			    mot_length;
 
 	Fmatrix			    mot_transform;
@@ -189,7 +189,8 @@ public:
 	SBoneShape		    shape;
 
 	float			    mass;
-	Fvector			    center_of_mass;
+	fVector3			    center_of_mass;
+
 public:
 						CBone			();
 	virtual			    ~CBone			();
@@ -197,7 +198,7 @@ public:
 	void			    SetName			(const char* p){name		= p; xr_strlwr(name);		}
 	void			    SetParentName	(const char* p){parent_name	= p; xr_strlwr(parent_name);}
 	void			    SetWMap			(const char* p){wmap		= p;}
-	void			    SetRestParams	(float length, const Fvector& offset, const Fvector& rotate){rest_offset.set(offset);rest_rotate.set(rotate);rest_length=length;};
+	void			    SetRestParams	(float length, const fVector3& offset, const fVector3& rotate){rest_offset.set(offset);rest_rotate.set(rotate);rest_length=length;};
 
 	shared_str		    Name			(){return name;}
 	shared_str		    ParentName		(){return parent_name;}
@@ -206,18 +207,18 @@ public:
 	IC BOOL			    IsRoot			(){return (parent==0);}
 
 	// transformation
-	const Fvector&      _Offset			(){return mot_offset;}
-	const Fvector&      _Rotate			(){return mot_rotate;}
+	const fVector3&      _Offset			(){return mot_offset;}
+	const fVector3&      _Rotate			(){return mot_rotate;}
 	float			    _Length			(){return mot_length;}
 	IC Fmatrix&		    _RTransform		(){return rest_transform;}
 	IC Fmatrix&		    _RITransform	(){return rest_i_transform;}
 	IC Fmatrix&		    _MTransform		(){return mot_transform;}
 	IC Fmatrix&		    _LTransform		(){return last_transform;}
 	IC Fmatrix&		    _RenderTransform(){return render_transform;}
-	IC Fvector&			_RestOffset		(){return rest_offset;}
-	IC Fvector&		    _RestRotate		(){return rest_rotate;}
+	IC fVector3&			_RestOffset		(){return rest_offset;}
+	IC fVector3&		    _RestRotate		(){return rest_rotate;}
 	
-	void			    _Update			(const Fvector& T, const Fvector& R){mot_offset.set(T); mot_rotate.set(R); mot_length=rest_length;}
+	void			    _Update			(const fVector3& T, const fVector3& R){mot_offset.set(T); mot_rotate.set(R); mot_length=rest_length;}
 	void			    Reset			(){mot_offset.set(rest_offset); mot_rotate.set(rest_rotate); mot_length=rest_length;}
 
 	// IO
@@ -233,25 +234,6 @@ public:
 	void			    LoadData		(IReader& F);
 	void			    ResetData		();
 	void			    CopyData		(CBone* bone);
-	
-#ifdef _EDITOR
-	void			    ShapeScale		(const Fvector& amount);
-	void			    ShapeRotate		(const Fvector& amount);
-	void			    ShapeMove		(const Fvector& amount);
-	void			    BindRotate		(const Fvector& amount);
-	void			    BindMove		(const Fvector& amount);
-	void			    BoneMove		(const Fvector& amount);
-	void			    BoneRotate		(const Fvector& axis, float angle);
-
-	bool 			    Pick			(float& dist, const Fvector& S, const Fvector& D, const Fmatrix& parent);
-
-	void			    Select			(BOOL flag)	{ flags.set(flSelected,flag); }
-	bool			    Selected		(){return flags.is(flSelected);}
-
-	void			    ClampByLimits	();
-
-	bool 			    ExportOGF		(IWriter& F);
-#endif
 };
 
 #endif
