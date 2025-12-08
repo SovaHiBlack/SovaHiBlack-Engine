@@ -3,10 +3,6 @@
 
 #pragma once
 
-#ifdef _EDITOR
-	#include "..\editors\ECore\stdafx.h"
-#else
-
 #include "../xrCore/xrCore.h"
 
 #ifdef _DEBUG
@@ -33,19 +29,13 @@
 	#define DLL_API
 #endif // NO_ENGINE_API
 
-#define ECORE_API
-
 // Our headers
 #include "engine.h"
 #include "defines.h"
-#ifndef NO_XRLOG
 #include "log.h"
-#endif
 #include "device.h"
 #include "fs.h"
-
 #include "xrXRC.h"
-
 #include "../xrSound/sound.h"
 
 extern ENGINE_API CInifile *pGameIni;
@@ -74,5 +64,5 @@ extern ENGINE_API CInifile *pGameIni;
 #endif
 #define LUABIND_DONT_COPY_STRINGS
 
-#endif // !M_BORLAND
+
 #endif // !defined STDAFX_3DA

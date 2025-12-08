@@ -8,13 +8,8 @@
 #include "SkeletonCustom.h"
 #include "cl_intersect.h"
 
-#ifdef _EDITOR
-    #include "ui_toolscustom.h"
-    #include "ui_main.h"
-#else
-	#include "xr_object.h"
-	#include "igame_level.h"
-#endif
+#include "xr_object.h"
+#include "igame_level.h"
 
 #define FAR_DIST g_pGamePersistent->Environment().CurrentEnv.far_plane
 

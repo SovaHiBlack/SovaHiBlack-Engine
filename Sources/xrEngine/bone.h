@@ -2,11 +2,6 @@
 #ifndef BoneH
 #define BoneH
 
-#ifdef _LW_EXPORT
-#include <lwrender.h>
-#include <lwhost.h>
-#endif
-
 // refs
 class CBone;
 
@@ -26,7 +21,7 @@ enum EJointType
 	jtForceU32 = u32(-1)
 };
 
-struct ECORE_API SJointLimit
+struct SJointLimit
 {
 	fVector2		limit;
 	float 			spring_factor;
@@ -40,7 +35,7 @@ struct ECORE_API SJointLimit
 	}
 };
 
-struct ECORE_API SBoneShape
+struct SBoneShape
 {
 	enum EShapeType
 	{
@@ -81,7 +76,7 @@ struct ECORE_API SBoneShape
 	}
 };
 
-struct ECORE_API SJointIKData
+struct SJointIKData
 {
 	// IK
 	EJointType		type;
@@ -153,7 +148,7 @@ struct ECORE_API SJointIKData
 class CBone;
 DEFINE_VECTOR		    (CBone*,BoneVec,BoneIt);
 
-class ECORE_API CBone
+class CBone
 {
 	shared_str			name;
 	shared_str			parent_name;
@@ -225,10 +220,6 @@ public:
 	void			    Save			(IWriter& F);
 	void			    Load_0			(IReader& F);
 	void			    Load_1			(IReader& F);
-
-#ifdef _LW_EXPORT
-	void			    ParseBone		(LWItemID bone);
-#endif
 
 	void			    SaveData		(IWriter& F);
 	void			    LoadData		(IReader& F);

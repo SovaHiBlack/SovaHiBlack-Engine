@@ -7,45 +7,40 @@
 #include "ParticleEffect.h"
 #include "ParticleGroup.h"
 
-class ECORE_API CPSLibrary	{
-    PS::PEDVec			m_PEDs;
-    PS::PGDVec			m_PGDs;
-
-#ifdef _EDITOR    
-    AnsiString			m_CurrentParticles;
-public:
-	void __stdcall	 	FindByName		(LPCSTR new_name, bool& res);
-#endif
+class CPSLibrary	{
+	PS::PEDVec			m_PEDs;
+	PS::PGDVec			m_PGDs;
 
 public:
-    bool 				Load			(LPCSTR nm);
-    bool				Save			(LPCSTR nm);
+	bool 				Load			(LPCSTR nm);
+	bool				Save			(LPCSTR nm);
+
 public:
 						CPSLibrary		(){;}
-    		 			~CPSLibrary		(){;}
+						~CPSLibrary		(){;}
 
-    void				OnCreate		();
-    void				OnDestroy		();
+	void				OnCreate		();
+	void				OnDestroy		();
 
-    PS::CPEDef*			FindPED			(LPCSTR name);
-    PS::PEDIt			FindPEDIt		(LPCSTR name);
-    PS::CPGDef*			FindPGD			(LPCSTR name);
-    PS::PGDIt			FindPGDIt		(LPCSTR name);
+	PS::CPEDef*			FindPED			(LPCSTR name);
+	PS::PEDIt			FindPEDIt		(LPCSTR name);
+	PS::CPGDef*			FindPGD			(LPCSTR name);
+	PS::PGDIt			FindPGDIt		(LPCSTR name);
 
-    // get object properties methods
-    IC PS::PEDIt		FirstPED		()	{return m_PEDs.begin();}
-    IC PS::PEDIt		LastPED			()	{return m_PEDs.end();}
-    IC PS::PGDIt		FirstPGD		()	{return m_PGDs.begin();}
-    IC PS::PGDIt		LastPGD			()	{return m_PGDs.end();}
+	// get object properties methods
+	IC PS::PEDIt		FirstPED		()	{return m_PEDs.begin();}
+	IC PS::PEDIt		LastPED			()	{return m_PEDs.end();}
+	IC PS::PGDIt		FirstPGD		()	{return m_PGDs.begin();}
+	IC PS::PGDIt		LastPGD			()	{return m_PGDs.end();}
 
-    PS::CPEDef*			AppendPED		(PS::CPEDef* src=0);
-    PS::CPGDef*			AppendPGD		(PS::CPGDef* src=0);
-    void				Remove			(LPCSTR name);
-    void				RenamePED		(PS::CPEDef* src, LPCSTR new_name);
-    void				RenamePGD		(PS::CPGDef* src, LPCSTR new_name);
+	PS::CPEDef*			AppendPED		(PS::CPEDef* src=0);
+	PS::CPGDef*			AppendPGD		(PS::CPGDef* src=0);
+	void				Remove			(LPCSTR name);
+	void				RenamePED		(PS::CPEDef* src, LPCSTR new_name);
+	void				RenamePGD		(PS::CPGDef* src, LPCSTR new_name);
 
-    void				Reload			();
-    bool				Save			();
+	void				Reload			();
+	bool				Save			();
 };
 
 #define PSLIB_FILENAME 			"particles.xr"

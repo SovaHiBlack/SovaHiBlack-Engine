@@ -10,14 +10,8 @@
 #include "HW.h"
 #include "xr_IOconsole.h"
 
-#ifndef _EDITOR
 	void	fill_vid_mode_list			(CHW* _hw);
 	void	free_vid_mode_list			();
-#else
-	void	fill_vid_mode_list			(CHW* _hw)	{};
-	void	free_vid_mode_list			()			{};
-#endif
-
 	void	free_vid_mode_list			();
 
 ENGINE_API CHW			HW;
@@ -34,7 +28,6 @@ void CHW::Reset		(HWND hwnd)
 	_RELEASE			(pBaseZB);
 	_RELEASE			(pBaseRT);
 
-#ifndef _EDITOR
 #ifndef DEDICATED_SERVER
 	BOOL	bWindowed		= !psDeviceFlags.is	(rsFullscreen);
 #else
@@ -48,7 +41,6 @@ void CHW::Reset		(HWND hwnd)
 	DevPP.PresentationInterval	= D3DPRESENT_INTERVAL_IMMEDIATE;
 	if( !bWindowed )		DevPP.FullScreen_RefreshRateInHz	= selectRefresh	(DevPP.BackBufferWidth,DevPP.BackBufferHeight,Caps.fTarget);
 	else					DevPP.FullScreen_RefreshRateInHz	= D3DPRESENT_RATE_DEFAULT;
-#endif
 
 	while	(TRUE)	{
 		HRESULT _hr							= HW.pDevice->Reset	(&DevPP);
@@ -61,9 +53,8 @@ void CHW::Reset		(HWND hwnd)
 #ifdef DEBUG
 	R_CHK				(pDevice->CreateStateBlock			(D3DSBT_ALL,&dwDebugSB));
 #endif
-#ifndef _EDITOR
+
 	updateWindowProps	(hwnd);
-#endif
 }
 
 xr_token*				vid_mode_token = NULL;
@@ -78,16 +69,16 @@ void CHW::CreateD3D	()
 
 	hD3D9            			= LoadLibrary(_name);
 	R_ASSERT2	           	 	(hD3D9,"Can't find 'd3d9.dll'\nPlease install latest version of DirectX before running this program");
-    typedef IDirect3D9 * WINAPI _Direct3DCreate9(UINT SDKVersion);
+	typedef IDirect3D9 * WINAPI _Direct3DCreate9(UINT SDKVersion);
 	_Direct3DCreate9* createD3D	= (_Direct3DCreate9*)GetProcAddress(hD3D9,"Direct3DCreate9");	R_ASSERT(createD3D);
-    this->pD3D 					= createD3D( D3D_SDK_VERSION );
-    R_ASSERT2					(this->pD3D,"Please install DirectX 9.0c");
+	this->pD3D 					= createD3D( D3D_SDK_VERSION );
+	R_ASSERT2					(this->pD3D,"Please install DirectX 9.0c");
 }
 
 void CHW::DestroyD3D()
 {
 	_RELEASE					(this->pD3D);
-    FreeLibrary					(hD3D9);
+	FreeLibrary					(hD3D9);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -111,12 +102,12 @@ D3DFORMAT CHW::selectDepthStencil	(D3DFORMAT fTarget)
 			DevAdapter,DevT,fTarget,
 			D3DUSAGE_DEPTHSTENCIL,D3DRTYPE_SURFACE,fDS_Try[it])))
 		{
-            if( SUCCEEDED( pD3D->CheckDepthStencilMatch(
+			if( SUCCEEDED( pD3D->CheckDepthStencilMatch(
 				DevAdapter,DevT,
-                fTarget, fTarget, fDS_Try[it]) ) )
-            {
+				fTarget, fTarget, fDS_Try[it]) ) )
+			{
 				return fDS_Try[it];
-            }
+			}
 		}
 	}
 	return D3DFMT_UNKNOWN;
@@ -129,21 +120,18 @@ void	CHW::DestroyDevice	()
 
 	_SHOW_REF				("refCount:pBaseRT",pBaseRT);
 	_RELEASE				(pBaseRT);
+
 #ifdef DEBUG
 	_SHOW_REF				("refCount:dwDebugSB",dwDebugSB);
 	_RELEASE				(dwDebugSB);
 #endif
-#ifdef _EDITOR
-	_RELEASE				(HW.pDevice);
-#else
+
 	_SHOW_REF				("DeviceREF:",HW.pDevice);
 	_RELEASE				(HW.pDevice);
-#endif    
+
 	DestroyD3D				();
 	
-#ifndef _EDITOR
 	free_vid_mode_list		();
-#endif
 }
 void	CHW::selectResolution	(u32 &dwWidth, u32 &dwHeight, BOOL bWindowed)
 {
@@ -158,7 +146,6 @@ void	CHW::selectResolution	(u32 &dwWidth, u32 &dwHeight, BOOL bWindowed)
 		dwHeight	= psCurrentVidMode[1];
 	}else //check
 	{
-#ifndef _EDITOR
 		string64					buff;
 		sprintf_s					(buff,sizeof(buff),"%dx%d",psCurrentVidMode[0],psCurrentVidMode[1]);
 		
@@ -170,7 +157,6 @@ void	CHW::selectResolution	(u32 &dwWidth, u32 &dwHeight, BOOL bWindowed)
 
 		dwWidth						= psCurrentVidMode[0];
 		dwHeight					= psCurrentVidMode[1];
-#endif
 	}
 #endif
 
@@ -271,13 +257,12 @@ void		CHW::CreateDevice		(HWND m_hWnd)
 	}
 
 
-    // Set up the presentation parameters
+	// Set up the presentation parameters
 	D3DPRESENT_PARAMETERS&	P	= DevPP;
-    ZeroMemory				( &P, sizeof(P) );
+	ZeroMemory				( &P, sizeof(P) );
 
-#ifndef _EDITOR
 	selectResolution	(P.BackBufferWidth, P.BackBufferHeight, bWindowed);
-#endif
+
 // Back buffer
 //.	P.BackBufferWidth		= dwWidth;
 //. P.BackBufferHeight		= dwHeight;
@@ -285,25 +270,25 @@ void		CHW::CreateDevice		(HWND m_hWnd)
 	P.BackBufferCount		= 1;
 
 	// Multisample
-    P.MultiSampleType		= D3DMULTISAMPLE_NONE;
+	P.MultiSampleType		= D3DMULTISAMPLE_NONE;
 	P.MultiSampleQuality	= 0;
 
 	// Windoze
-    P.SwapEffect			= bWindowed?D3DSWAPEFFECT_COPY:D3DSWAPEFFECT_DISCARD;
+	P.SwapEffect			= bWindowed?D3DSWAPEFFECT_COPY:D3DSWAPEFFECT_DISCARD;
 	P.hDeviceWindow			= m_hWnd;
-    P.Windowed				= bWindowed;
+	P.Windowed				= bWindowed;
 
 	// Depth/stencil
 	P.EnableAutoDepthStencil= TRUE;
-    P.AutoDepthStencilFormat= fDepth;
+	P.AutoDepthStencilFormat= fDepth;
 	P.Flags					= 0;	//. D3DPRESENTFLAG_DISCARD_DEPTHSTENCIL;
 
 	// Refresh rate
 	P.PresentationInterval	= D3DPRESENT_INTERVAL_IMMEDIATE;
-    if( !bWindowed )		P.FullScreen_RefreshRateInHz	= selectRefresh	(P.BackBufferWidth, P.BackBufferHeight,fTarget);
-    else					P.FullScreen_RefreshRateInHz	= D3DPRESENT_RATE_DEFAULT;
+	if( !bWindowed )		P.FullScreen_RefreshRateInHz	= selectRefresh	(P.BackBufferWidth, P.BackBufferHeight,fTarget);
+	else					P.FullScreen_RefreshRateInHz	= D3DPRESENT_RATE_DEFAULT;
 
-    // Create the device
+	// Create the device
 	u32 GPU		= selectGPU();	
 	HRESULT R	= HW.pD3D->CreateDevice(DevAdapter,
 										DevT,
@@ -355,10 +340,9 @@ void		CHW::CreateDevice		(HWND m_hWnd)
 	u32	memory									= pDevice->GetAvailableTextureMem	();
 	Msg		("*     Texture memory: %d M",		memory/(1024*1024));
 	Msg		("*          DDI-level: %2.1f",		float(D3DXGetDriverLevel(pDevice))/100.f);
-#ifndef _EDITOR
+
 	updateWindowProps							(m_hWnd);
 	fill_vid_mode_list							(this);
-#endif
 }
 
 u32	CHW::selectPresentInterval	()
@@ -383,7 +367,7 @@ u32 CHW::selectGPU ()
 	D3DCAPS9	caps;
 	pD3D->GetDeviceCaps(DevAdapter,DevT,&caps);
 
-    if(caps.DevCaps&D3DDEVCAPS_HWTRANSFORMANDLIGHT)
+	if(caps.DevCaps&D3DDEVCAPS_HWTRANSFORMANDLIGHT)
 	{
 		if (Caps.bForceGPU_NonPure)	return D3DCREATE_HARDWARE_VERTEXPROCESSING;
 		else {
@@ -498,7 +482,6 @@ struct _uniq_mode
 	bool operator() (LPCSTR _other) {return !stricmp(_val,_other);}
 };
 
-#ifndef _EDITOR
 void free_vid_mode_list()
 {
 	for( int i=0; vid_mode_token[i].name; i++ )
@@ -515,7 +498,7 @@ void	fill_vid_mode_list			(CHW* _hw)
 	xr_vector<LPCSTR>	_tmp;
 	u32 cnt = _hw->pD3D->GetAdapterModeCount	(_hw->DevAdapter, _hw->Caps.fTarget);
 
-    u32 i;
+	u32 i;
 	for(i=0; i<cnt;++i)
 	{
 		D3DDISPLAYMODE	Mode;
@@ -552,5 +535,3 @@ void	fill_vid_mode_list			(CHW* _hw)
 #endif // DEBUG
 	}
 }
-#endif
-

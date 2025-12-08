@@ -33,8 +33,8 @@ enum ERPGameType{		// [0..255]
 	rpgtGameTeamDeathmatch				= 2,
 	rpgtGameArtefactHunt				= 3,
 };
-extern ECORE_API xr_token rpoint_type[];
-extern ECORE_API xr_token rpoint_game_type[];
+extern xr_token rpoint_type[];
+extern xr_token rpoint_game_type[];
 
 // BASE offset
 #define WAY_BASE					0x1000
@@ -119,9 +119,6 @@ class CCustomGamePoint {
 public:
 	virtual void Save		(IReader&)							= 0;
 	virtual void Load		(IWriter&)							= 0;
-#ifdef _EDITOR
-	virtual void FillProp	(LPCSTR pref, PropItemVec& values)	= 0;
-#endif
 };
 
 class CNPC_Point : public CCustomGamePoint {
@@ -182,9 +179,6 @@ public:
 		fs.r_stringZ				(tmp_caRouteGraphPoints,sizeof(tmp_caRouteGraphPoints));
 		caRouteGraphPoints			= tmp_caRouteGraphPoints;
 	}
-#ifdef _EDITOR
-	virtual void FillProp	(LPCSTR pref, PropItemVec& values);
-#endif
 };
 
 //---------------------------------------------------------------------------

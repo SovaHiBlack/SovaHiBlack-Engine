@@ -348,11 +348,7 @@ void __cdecl xrDebug::fatal(const char *file, int line, const char *function, co
 int out_of_memory_handler	(size_t size)
 {
 	Memory.mem_compact		();
-#ifndef _EDITOR
 	u32						crt_heap		= mem_usage_impl((HANDLE)_get_heap_handle(),0,0);
-#else // _EDITOR
-	u32						crt_heap		= 0;
-#endif // _EDITOR
 	u32						process_heap	= mem_usage_impl(GetProcessHeap(),0,0);
 	int						eco_strings		= (int)g_pStringContainer->stat_economy			();
 	int						eco_smem		= (int)g_pSharedMemoryContainer->stat_economy	();
@@ -419,26 +415,10 @@ please Submit Bug or save report and email it manually (button More...).\
 	BT_SetFlags				(BTF_DETAILEDMODE | /**BTF_EDIETMAIL | /**/BTF_ATTACHREPORT /**| BTF_LISTPROCESSES /**| BTF_SHOWADVANCEDUI /**| BTF_SCREENCAPTURE/**/);
 	BT_SetDumpType			(
 		MiniDumpWithDataSegs |
-//		MiniDumpWithFullMemory |
-//		MiniDumpWithHandleData |
-//		MiniDumpFilterMemory |
-//		MiniDumpScanMemory |
-//		MiniDumpWithUnloadedModules |
-#ifndef _EDITOR
 		MiniDumpWithIndirectlyReferencedMemory |
-#endif // _EDITOR
-//		MiniDumpFilterModulePaths |
-//		MiniDumpWithProcessThreadData |
-//		MiniDumpWithPrivateReadWriteMemory |
-//		MiniDumpWithoutOptionalData |
-//		MiniDumpWithFullMemoryInfo |
-//		MiniDumpWithThreadInfo |
-//		MiniDumpWithCodeSegs |
 		0
 	);
 	BT_SetSupportEMail		("crash-report@stalker-game.com");
-//	BT_SetSupportServer		("localhost", 9999);
-//	BT_SetSupportURL		("www.gsc-game.com");
 }
 #endif // USE_BUG_TRAP
 
@@ -696,6 +676,7 @@ LONG WINAPI UnhandledFilter	(_EXCEPTION_POINTERS *pExceptionInfo)
 			"Unexpected application termination",
 			0,
 			0,
+
 	#ifdef _ANONYMOUS_BUILD
 			"",
 			0,
@@ -703,11 +684,8 @@ LONG WINAPI UnhandledFilter	(_EXCEPTION_POINTERS *pExceptionInfo)
 			__FILE__,
 			__LINE__,
 	#endif
-	#ifndef _EDITOR
+
 			__FUNCTION__,
-	#else // _EDITOR
-			"",
-	#endif // _EDITOR
 			assertion_info
 		);
 		

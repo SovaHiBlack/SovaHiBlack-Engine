@@ -8,11 +8,8 @@
 
 #include	"FVisual.h"
 #include	"FProgressive.h"
-#ifdef _EDITOR
-#	include	"SkeletonX.h"
-#else
-#	include	"..\SkeletonX.h"
-#endif
+#include	"..\SkeletonX.h"
+
 struct	SEnumVerticesCallback;
 class		CSkeletonX_ext	: public CSkeletonX	// shared code for SkeletonX derivates
 {
@@ -27,7 +24,6 @@ protected:
 	virtual BOOL			_PickBoneHW1W		(Fvector& normal, float& range, const Fvector& S, const Fvector& D, Fvisual* V, u16* indices, CBoneData::FacesVec& faces);
 	virtual BOOL			_PickBoneHW2W		(Fvector& normal, float& range, const Fvector& S, const Fvector& D, Fvisual* V, u16* indices, CBoneData::FacesVec& faces);
 	virtual BOOL			_PickBone			(Fvector& normal, float& range, const Fvector& S, const Fvector& D, Fvisual* V, u16 bone_id, u32 iBase, u32 iCount);
-public:
 };
 
 class CSkeletonX_ST			: public Fvisual, public CSkeletonX_ext

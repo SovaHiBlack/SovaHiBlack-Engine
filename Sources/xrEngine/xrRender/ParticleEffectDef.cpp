@@ -2,10 +2,7 @@
 #pragma hdrstop
 
 #include "ParticleEffectDef.h"
-#ifdef _EDITOR
-	#include "UI_ToolsCustom.h"
-	#include "ParticleEffectActions.h"
-#endif
+
 //---------------------------------------------------------------------------
 using namespace PAPI;
 using namespace PS;
@@ -15,40 +12,36 @@ using namespace PS;
 //------------------------------------------------------------------------------
 CPEDef::CPEDef()
 {                                          
-    m_Frame.InitDefault	();
-    m_MaxParticles		= 0;
+	m_Frame.InitDefault	();
+	m_MaxParticles		= 0;
 	m_CachedShader		= 0;
 	m_fTimeLimit		= 0.f;
-    // collision
-    m_fCollideOneMinusFriction 	= 1.f;
-    m_fCollideResilience		= 0.f;
-    m_fCollideSqrCutoff			= 0.f;
-    // velocity scale
-    m_VelocityScale.set			(0.f,0.f,0.f);
-    // align to path
-    m_APDefaultRotation.set		(-PI_DIV_2,0.f,0.f);
+	// collision
+	m_fCollideOneMinusFriction 	= 1.f;
+	m_fCollideResilience		= 0.f;
+	m_fCollideSqrCutoff			= 0.f;
+	// velocity scale
+	m_VelocityScale.set			(0.f,0.f,0.f);
+	// align to path
+	m_APDefaultRotation.set		(-PI_DIV_2,0.f,0.f);
 	// flags
-    m_Flags.zero		();
+	m_Flags.zero		();
 }
 
 CPEDef::~CPEDef()
-{
-#ifdef _EDITOR
-	for (EPAVecIt it=m_EActionList.begin(); it!=m_EActionList.end(); it++) xr_delete(*it);
-#endif
-}
+{ }
 void CPEDef::CreateShader()
 {
-    if (*m_ShaderName&&*m_TextureName)	
-        m_CachedShader.create(*m_ShaderName,*m_TextureName);
+	if (*m_ShaderName&&*m_TextureName)	
+		m_CachedShader.create(*m_ShaderName,*m_TextureName);
 }
 void CPEDef::DestroyShader()
 {
-    m_CachedShader.destroy();
+	m_CachedShader.destroy();
 }
 void CPEDef::SetName(LPCSTR name)
 {
-    m_Name				= name;
+	m_Name				= name;
 }
 
 /*
@@ -123,11 +116,8 @@ void CPEDef::ExecuteCollision(PAPI::Particle* particles, u32 p_cnt, float dt, CP
 			float dist 	= dir.magnitude();
 			if (dist>=EPS){
 				dir.div	(dist);
-#ifdef _EDITOR                
-				if (Tools->RayPick(m.posB,dir,dist,&pt,&n)){
-#else
 				collide::rq_result	RQ;
-                collide::rq_target	RT = m_Flags.is(dfCollisionDyn)?collide::rqtBoth:collide::rqtStatic;
+				collide::rq_target	RT = m_Flags.is(dfCollisionDyn)?collide::rqtBoth:collide::rqtStatic;
 				if (g_pGameLevel->ObjectSpace.RayPick(m.posB,dir,dist,RT,RQ,NULL)){	
 					pt.mad	(m.posB,dir,RQ.range);
 					if (RQ.O){
@@ -137,11 +127,11 @@ void CPEDef::ExecuteCollision(PAPI::Particle* particles, u32 p_cnt, float dt, CP
 						Fvector*	verts	=	g_pGameLevel->ObjectSpace.GetStaticVerts();
 						n.mknormal(verts[T->verts[0]],verts[T->verts[1]],verts[T->verts[2]]);
 					}
-#endif
+
 					pick_cnt++;
 					if (cb&&(pick_cnt==1)) if (!cb(owner,m,pt,n)) break;
 					if (m_Flags.is(dfCollisionDel)){ 
-	                   	ParticleManager()->RemoveParticle(owner->m_HandleEffect,i);
+						ParticleManager()->RemoveParticle(owner->m_HandleEffect,i);
 					}else{
 						// Compute tangential and normal components of velocity
 						float nmag = m.vel * n;
@@ -222,24 +212,6 @@ BOOL CPEDef::Load(IReader& F)
 		}
 	}
 
-#ifdef _EDITOR
-	if (F.find_chunk(PED_CHUNK_OWNER)){
-		AnsiString tmp;
-		F.r_stringZ	(m_OwnerName);
-		F.r_stringZ	(m_ModifName);
-		F.r			(&m_CreateTime,sizeof(m_CreateTime));
-		F.r			(&m_ModifTime,sizeof(m_ModifTime));
-	}
-    if (pCreateEAction&&F.find_chunk(PED_CHUNK_EDATA)){
-        m_EActionList.resize(F.r_u32());
-        for (EPAVecIt it=m_EActionList.begin(); it!=m_EActionList.end(); it++){
-            PAPI::PActionEnum type = (PAPI::PActionEnum)F.r_u32();
-            (*it)	= pCreateEAction(type);
-            (*it)->Load		(F);
-        }
-    } 
-#endif
-
 	return TRUE;
 }
 
@@ -301,22 +273,4 @@ void CPEDef::Save(IWriter& F)
 		F.w_fvector3	(m_APDefaultRotation);
 		F.close_chunk	();
 	}
-#ifdef _EDITOR
-	F.open_chunk	(PED_CHUNK_OWNER);
-	F.w_stringZ		(m_OwnerName);
-	F.w_stringZ		(m_ModifName);
-	F.w				(&m_CreateTime,sizeof(m_CreateTime));
-	F.w				(&m_ModifTime,sizeof(m_ModifTime));
-	F.close_chunk	();
-
-	F.open_chunk	(PED_CHUNK_EDATA);
-    F.w_u32			(m_EActionList.size());
-    for (EPAVecIt it=m_EActionList.begin(); it!=m_EActionList.end(); it++){
-        F.w_u32		((*it)->type);
-    	(*it)->Save	(F);
-    }
-	F.close_chunk	();
-#endif
 }
-
-

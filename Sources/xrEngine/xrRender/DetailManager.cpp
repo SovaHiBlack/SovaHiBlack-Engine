@@ -6,18 +6,9 @@
 #pragma hdrstop
 
 #include "DetailManager.h"
-#include "cl_intersect.h"
-
-#ifdef _EDITOR
-#	include "ESceneClassList.h"
-#	include "Scene.h"
-#	include "SceneObject.h"
-#	include "igame_persistent.h"
-#	include "environment.h"
-#else
-#	include "..\igame_persistent.h"
-#	include "..\environment.h"
-#endif
+#include "..\cl_intersect.h"
+#include "..\igame_persistent.h"
+#include "..\environment.h"
 
 const float dbgOffset			= 0.f;
 const int	dbgItems			= 128;
@@ -84,22 +75,8 @@ CDetailManager::CDetailManager	()
 }
 
 CDetailManager::~CDetailManager	()
-{
+{ }
 
-}
-/*
-*/
-#ifndef _EDITOR
-
-/*
-void dump	(CDetailManager::vis_list& lst)
-{
-	for (int i=0; i<lst.size(); i++)
-	{
-		Msg("%8x / %8x / %8x",	lst[i]._M_start, lst[i]._M_finish, lst[i]._M_end_of_storage._M_data);
-	}
-}
-*/
 void CDetailManager::Load		()
 {
 	// Open file stream
@@ -160,7 +137,7 @@ void CDetailManager::Load		()
 	swing_desc[1].rot2	= pSettings->r_float("details","swing_fast_rot2");
 	swing_desc[1].speed	= pSettings->r_float("details","swing_fast_speed");
 }
-#endif
+
 void CDetailManager::Unload		()
 {
 	if (UseVS())	hw_Unload	();
@@ -177,7 +154,7 @@ void CDetailManager::Unload		()
 	FS.r_close			(dtFS);
 }
 
-extern ECORE_API float r_ssaDISCARD;
+extern float r_ssaDISCARD;
 
 void CDetailManager::UpdateVisibleM()
 {
@@ -215,9 +192,9 @@ void CDetailManager::UpdateVisibleM()
 					u32 _res	= View.testSAABB			(S.vis.sphere.P,S.vis.sphere.R,S.vis.box.data(),_mask);
 					if (fcvNone==_res)						continue;	// invisible-view frustum
 				}
-#ifndef _EDITOR
+
 				if (!RImplementation.HOM.visible(S.vis))	continue;	// invisible-occlusion
-#endif
+
 				// Add to visibility structures
 				if (Device.dwFrame>S.frame){
 					// Calc fade factor	(per slot)
@@ -269,10 +246,8 @@ void CDetailManager::UpdateVisibleM()
 
 void CDetailManager::Render	()
 {
-#ifndef _EDITOR
 	if (0==dtFS)						return;
 	if (!psDeviceFlags.is(rsDetails))	return;
-#endif
 
 	// MT
 	MT_SYNC					();
@@ -293,11 +268,9 @@ void CDetailManager::Render	()
 
 void __stdcall	CDetailManager::MT_CALC		()
 {
-#ifndef _EDITOR
 	if (0==RImplementation.Details)		return;	// possibly deleted
 	if (0==dtFS)						return;
 	if (!psDeviceFlags.is(rsDetails))	return;
-#endif    
 
 	MT.Enter					();
 	if (m_frame_calc!=Device.dwFrame)	
