@@ -64,8 +64,8 @@
 #include "InventoryBox.h"
 #include "location_manager.h"
 
-static float IReceived = 0;
-static float ICoincidenced = 0;
+static f32 IReceived = 0;
+static f32 ICoincidenced = 0;
 
 Flags32			psActorFlags={0};
 
@@ -259,27 +259,30 @@ void CActor::Load	(LPCSTR section )
 	fVector3	vBOX_center;
 	fVector3	vBOX_size;
 	// m_PhysicMovementControl: BOX
-	vBOX_center= pSettings->r_fvector3	(section,"ph_box2_center"	);
-	vBOX_size	= pSettings->r_fvector3	(section,"ph_box2_size"		);
-	bb.set	(vBOX_center,vBOX_center); bb.grow(vBOX_size);
+	vBOX_center		= pSettings->r_fvector3	(section,"ph_box2_center"		);
+	vBOX_size		= pSettings->r_fvector3	(section,"ph_box2_size"			);
+	bb.set	(vBOX_center,vBOX_center);
+	bb.grow(vBOX_size);
 	character_physics_support()->movement()->SetBox		(2,bb);
 
 	// m_PhysicMovementControl: BOX
-	vBOX_center= pSettings->r_fvector3	(section,"ph_box1_center"	);
-	vBOX_size	= pSettings->r_fvector3	(section,"ph_box1_size"		);
-	bb.set	(vBOX_center,vBOX_center); bb.grow(vBOX_size);
+	vBOX_center		= pSettings->r_fvector3	(section,"ph_box1_center"		);
+	vBOX_size		= pSettings->r_fvector3	(section,"ph_box1_size"			);
+	bb.set	(vBOX_center,vBOX_center);
+	bb.grow(vBOX_size);
 	character_physics_support()->movement()->SetBox		(1,bb);
 
 	// m_PhysicMovementControl: BOX
-	vBOX_center= pSettings->r_fvector3	(section,"ph_box0_center"	);
-	vBOX_size	= pSettings->r_fvector3	(section,"ph_box0_size"		);
-	bb.set	(vBOX_center,vBOX_center); bb.grow(vBOX_size);
+	vBOX_center		= pSettings->r_fvector3	(section,"ph_box0_center"		);
+	vBOX_size		= pSettings->r_fvector3	(section,"ph_box0_size"			);
+	bb.set	(vBOX_center,vBOX_center);
+	bb.grow(vBOX_size);
 	character_physics_support()->movement()->SetBox		(0,bb);
 
 	// m_PhysicMovementControl: Crash speed and mass
-	float	cs_min		= pSettings->r_float	(section,"ph_crash_speed_min"	);
-	float	cs_max		= pSettings->r_float	(section,"ph_crash_speed_max"	);
-	float	mass		= pSettings->r_float	(section,"ph_mass"				);
+	f32	cs_min		= pSettings->r_float	(section,"ph_crash_speed_min"	);
+	f32	cs_max		= pSettings->r_float	(section,"ph_crash_speed_max"	);
+	f32	mass		= pSettings->r_float	(section,"ph_mass"				);
 	character_physics_support()->movement()->SetCrashSpeeds	(cs_min,cs_max);
 	character_physics_support()->movement()->SetMass		(mass);
 	if(pSettings->line_exist(section,"stalker_restrictor_radius"))
@@ -290,9 +293,7 @@ void CActor::Load	(LPCSTR section )
 		character_physics_support()->movement()->SetActorRestrictorRadius(CPHCharacter::rtMonsterMedium,pSettings->r_float(section,"medium_monster_restrictor_radius"));
 	character_physics_support()->movement()->Load(section);
 
-	
-
-	m_fWalkAccel				= pSettings->r_float(section,"walk_accel");	
+	m_fWalkAccel				= pSettings->r_float(section,"walk_accel");
 	m_fJumpSpeed				= pSettings->r_float(section,"jump_speed");
 	m_fRunFactor				= pSettings->r_float(section,"run_coef");
 	m_fRunBackFactor			= pSettings->r_float(section,"run_back_coef");
@@ -304,10 +305,9 @@ void CActor::Load	(LPCSTR section )
 	m_fWalk_StrafeFactor		= READ_IF_EXISTS(pSettings, r_float, section, "walk_strafe_coef", 1.0f);
 	m_fRun_StrafeFactor			= READ_IF_EXISTS(pSettings, r_float, section, "run_strafe_coef", 1.0f);
 
-
 	m_fCamHeightFactor			= pSettings->r_float(section,"camera_height_factor");
 	character_physics_support()->movement()		->SetJumpUpVelocity(m_fJumpSpeed);
-	float AirControlParam		= pSettings->r_float	(section,"air_control_param"	);
+	f32 AirControlParam		= pSettings->r_float	(section,"air_control_param"	);
 	character_physics_support()->movement()		->SetAirControlParam(AirControlParam);
 
 	m_fPickupInfoRadius	= pSettings->r_float(section,"pickup_info_radius");
@@ -388,7 +388,7 @@ if(!g_dedicated_server)
 
 }
 
-void CActor::PHHit(float P, fVector3& dir, CObject *who,s16 element, fVector3 p_in_object_space, float impulse, ALife::EHitType hit_type /* = ALife::eHitTypeWound */)
+void CActor::PHHit(f32 P, fVector3& dir, CObject *who,s16 element, fVector3 p_in_object_space, f32 impulse, ALife::EHitType hit_type /* = ALife::eHitTypeWound */)
 {
 	m_pPhysics_support->in_Hit(P,dir,who,element,p_in_object_space,impulse,hit_type,!g_Alive());
 }
@@ -472,7 +472,7 @@ void	CActor::Hit							(SHit* pHDS)
 				S.set_volume(10.0f);
 				if(!m_sndShockEffector){
 					m_sndShockEffector = xr_new<SndShockEffector>();
-					m_sndShockEffector->Start(this, float(S._handle()->length_ms()), HDS.damage() );
+					m_sndShockEffector->Start(this, f32(S._handle()->length_ms()), HDS.damage() );
 				}
 			}
 			else
@@ -520,7 +520,7 @@ void	CActor::Hit							(SHit* pHDS)
 	{
 	case GAME_SINGLE:		
 		{
-			float hit_power	= HitArtefactsOnBelt(HDS.damage(), HDS.hit_type);
+		f32 hit_power	= HitArtefactsOnBelt(HDS.damage(), HDS.hit_type);
 
 			if (GodMode())//psActorFlags.test(AF_GODMODE))
 			{
@@ -548,7 +548,7 @@ void	CActor::Hit							(SHit* pHDS)
 				vLocalDir.invert		();
 
 				fVector3 a	= {0.0f,0.0f,1.0};
-				float res = a.dotproduct(vLocalDir);
+				f32 res = a.dotproduct(vLocalDir);
 				if (res < -0.707)
 				{
 					game_PlayerState* ps = Game().GetPlayerByGameID(ID());
@@ -557,7 +557,7 @@ void	CActor::Hit							(SHit* pHDS)
 				}
 			};
 			
-			float hit_power = 0;
+			f32 hit_power = 0.0f;
 
 			if (m_bWasBackStabbed) hit_power = (HDS.damage() == 0) ? 0 : 100000.0f;
 			else hit_power	= HitArtefactsOnBelt(HDS.damage(), HDS.hit_type);
@@ -575,12 +575,12 @@ void	CActor::Hit							(SHit* pHDS)
 	}
 }
 
-void CActor::HitMark	(float P, 
+void CActor::HitMark	(f32 P,
 						 fVector3 dir,
 						 CObject* who, 
 						 s16 element, 
 						 fVector3 position_in_bone_space,
-						 float impulse,  
+						 f32 impulse,
 						 ALife::EHitType hit_type)
 {
 	// hit marker
@@ -600,7 +600,7 @@ void CActor::HitMark	(float P,
 			cam_dir.normalize_safe		();
 			dir.normalize_safe			();
 
-			float ang_diff				= angle_difference	(cam_dir.getH(), dir.getH());
+			f32 ang_diff				= angle_difference	(cam_dir.getH(), dir.getH());
 			fVector3					cp;
 			cp.crossproduct				(cam_dir,dir);
 			bool bUp					=(cp.y>0.0f);
@@ -609,10 +609,10 @@ void CActor::HitMark	(float P,
 			cross.crossproduct			(cam_dir, dir);
 			VERIFY						(ang_diff>=0.0f && ang_diff<=PI);
 
-			float _s1 = PI_DIV_8;
-			float _s2 = _s1+PI_DIV_4;
-			float _s3 = _s2+PI_DIV_4;
-			float _s4 = _s3+PI_DIV_4;
+			f32 _s1 = PI_DIV_8;
+			f32 _s2 = _s1+PI_DIV_4;
+			f32 _s3 = _s2+PI_DIV_4;
+			f32 _s4 = _s3+PI_DIV_4;
 
 			if(ang_diff<=_s1){
 				id = 2;
@@ -641,7 +641,7 @@ void CActor::HitMark	(float P,
 
 }
 
-void CActor::HitSignal(float perc, fVector3& vLocalDir, CObject* who, s16 element)
+void CActor::HitSignal(f32 perc, fVector3& vLocalDir, CObject* who, s16 element)
 {
 	if (g_Alive()) 
 	{
@@ -658,13 +658,15 @@ void CActor::HitSignal(float perc, fVector3& vLocalDir, CObject* who, s16 elemen
 		fVector3 D;
 		XFORM().transform_dir(D,vLocalDir);
 
-		float	yaw, pitch;
+		f32 yaw;
+		f32 pitch;
 		D.getHP(yaw,pitch);
 		CKinematicsAnimated *tpKinematics = smart_cast<CKinematicsAnimated*>(Visual());
 		VERIFY(tpKinematics);
 #pragma todo("Dima to Dima : forward-back bone impulse direction has been determined incorrectly!")
 		MotionID motion_ID = m_anims->m_normal.m_damage[iFloor(tpKinematics->LL_GetBoneInstance(element).get_param(1) + (angle_difference(r_model_yaw + r_model_yaw_delta,yaw) <= PI_DIV_2 ? 0 : 1))];
-		float power_factor = perc/100.f; clamp(power_factor,0.f,1.f);
+		f32 power_factor = perc/100.0f;
+		clamp(power_factor,0.0f,1.0f);
 		VERIFY(motion_ID.valid());
 		tpKinematics->PlayFX(motion_ID,power_factor);
 	}
@@ -771,7 +773,7 @@ void	CActor::SwitchOutBorder(bool new_border_state)
 	m_bOutBorder=new_border_state;
 }
 
-void CActor::g_Physics(fVector3& _accel, float jump, float dt)
+void CActor::g_Physics(fVector3& _accel, f32 jump, f32 dt)
 {
 	// Correct accel
 	fVector3						accel;
@@ -819,9 +821,9 @@ void CActor::g_Physics(fVector3& _accel, float jump, float dt)
 		}
 	}
 }
-float g_fov = 67.5f;
+f32 g_fov = 67.5f;
 
-float CActor::currentFOV()
+f32 CActor::currentFOV()
 {
 	CWeapon* pWeapon = smart_cast<CWeapon*>(inventory().ActiveItem());	
 
@@ -866,7 +868,7 @@ void CActor::UpdateCL	()
 	CWeapon* pWeapon = smart_cast<CWeapon*>(inventory().ActiveItem());	
 
 	Device.Statistic->TEST1.Begin		();
-	cam_Update(float(Device.dwTimeDelta)/1000.0f, currentFOV());
+	cam_Update(f32(Device.dwTimeDelta)/1000.0f, currentFOV());
 	Device.Statistic->TEST1.End		();
 
 	if(Level().CurrentEntity() && this->ID()==Level().CurrentEntity()->ID() )
@@ -878,7 +880,7 @@ void CActor::UpdateCL	()
 	{
 		if(pWeapon->IsZoomed())
 		{
-			float full_fire_disp = pWeapon->GetFireDispersion(true);
+			f32 full_fire_disp = pWeapon->GetFireDispersion(true);
 
 			CEffectorZoomInertion* S = smart_cast<CEffectorZoomInertion*>	(Cameras().GetCamEffector(eCEZoom));
 			if(S) S->SetParams(full_fire_disp);
@@ -888,7 +890,7 @@ void CActor::UpdateCL	()
 
 		if(Level().CurrentEntity() && this->ID()==Level().CurrentEntity()->ID() )
 		{
-			float fire_disp_full = pWeapon->GetFireDispersion(true);
+			f32 fire_disp_full = pWeapon->GetFireDispersion(true);
 
 			HUD().SetCrosshairDisp(fire_disp_full, 0.02f);
 			HUD().ShowCrosshair(pWeapon->use_crosshair());
@@ -928,7 +930,7 @@ void CActor::UpdateCL	()
 	}
 }
 
-float	NET_Jump = 0;
+f32	NET_Jump = 0.0f;
 void CActor::shedule_Update	(u32 DT)
 {
 	setSVU(OnServer());
@@ -958,7 +960,7 @@ void CActor::shedule_Update	(u32 DT)
 
 	// 
 	clamp					(DT,0u,100u);
-	float	dt	 			=  float(DT)/1000.f;
+	f32	dt	 			= f32(DT)/1000.0f;
 
 	// Check controls, create accel, prelimitary setup "mstate_real"
 	
@@ -990,7 +992,7 @@ void CActor::shedule_Update	(u32 DT)
 		
 		// Check for game-contacts
 		fVector3 C;
-		float R;
+		f32 R;
 		//m_PhysicMovementControl->GetBoundingSphere	(C,R);
 		
 		Center(C);
@@ -1083,7 +1085,7 @@ void CActor::shedule_Update	(u32 DT)
 			m_HeavyBreathSnd.stop		();
 		}
 
-		float bs = conditions().BleedingSpeed();
+		f32 bs = conditions().BleedingSpeed();
 		if(bs>0.6f)
 		{
 			fVector3 snd_pos;
@@ -1093,7 +1095,7 @@ void CActor::shedule_Update	(u32 DT)
 			else
 				m_BloodSnd.set_position(snd_pos);
 
-			float v = bs+0.25f;
+			f32 v = bs+0.25f;
 
 			m_BloodSnd.set_volume	(v);
 		}else{
@@ -1238,7 +1240,7 @@ void CActor::OnHUDDraw	(CCustomHUD* /**hud/**/)
 
 		if (IReceived != 0)
 		{
-			float Size = 0;
+			f32 Size = 0;
 			Size = HUD().Font().pFontStat->GetSize();
 			HUD().Font().pFontStat->SetSize(Size*2);
 			HUD().Font().pFontStat->SetColor	(0xffff0000);
@@ -1249,7 +1251,7 @@ void CActor::OnHUDDraw	(CCustomHUD* /**hud/**/)
 #endif
 }
 
-void CActor::RenderIndicator			(fVector3 dpos, float r1, float r2, ref_shader IndShader)
+void CActor::RenderIndicator			(fVector3 dpos, f32 r1, f32 r2, ref_shader IndShader)
 {
 	if (!g_Alive()) return;
 
@@ -1297,10 +1299,10 @@ void CActor::RenderIndicator			(fVector3 dpos, float r1, float r2, ref_shader In
 	RCache.Render	   			(D3DPT_TRIANGLESTRIP,dwOffset,0, dwCount, 0, 2);
 };
 
-static float mid_size = 0.097f;
-static float fontsize = 15.0f;
-static float upsize	= 0.33f;
-void CActor::RenderText				(LPCSTR Text, fVector3 dpos, float* pdup, u32 color)
+static f32 mid_size = 0.097f;
+static f32 fontsize = 15.0f;
+static f32 upsize	= 0.33f;
+void CActor::RenderText				(LPCSTR Text, fVector3 dpos, f32* pdup, u32 color)
 {
 	if (!g_Alive()) return;
 	
@@ -1319,16 +1321,16 @@ void CActor::RenderText				(LPCSTR Text, fVector3 dpos, float* pdup, u32 color)
 	fVector3 v1r;
 	Device.mFullTransform.transform(v0r,v0);
 	Device.mFullTransform.transform(v1r,v1);
-	float size = v1r.distance_to(v0r);
+	f32 size = v1r.distance_to(v0r);
 	CGameFont* pFont = HUD().Font().pFontArial14;
 	if (!pFont) return;
-//	float OldFontSize = pFont->GetHeight	();	
-	float delta_up = 0.0f;
+//	f32 OldFontSize = pFont->GetHeight	();	
+	f32 delta_up = 0.0f;
 	if (size < mid_size) delta_up = upsize;
 	else delta_up = upsize*(mid_size/size);
 	dpos.y += delta_up;
 	if (size > mid_size) size = mid_size;
-//	float NewFontSize = size/mid_size * fontsize;
+//	f32 NewFontSize = size/mid_size * fontsize;
 	//------------------------------------------------
 	M.c.y += dpos.y;
 
@@ -1338,8 +1340,8 @@ void CActor::RenderText				(LPCSTR Text, fVector3 dpos, float* pdup, u32 color)
 	if (v_res.z < 0 || v_res.w < 0)	return;
 	if (v_res.x < -1.f || v_res.x > 1.f || v_res.y<-1.f || v_res.y>1.f) return;
 
-	float x = (1.f + v_res.x)/2.f * (Device.dwWidth);
-	float y = (1.f - v_res.y)/2.f * (Device.dwHeight);
+	f32 x = (1.0f + v_res.x)/2.0f * (Device.dwWidth);
+	f32 y = (1.0f - v_res.y)/2.0f * (Device.dwHeight);
 
 	pFont->SetAligment	(CGameFont::alCenter);
 	pFont->SetColor		(color);
@@ -1367,10 +1369,10 @@ void CActor::ForceTransform(const Fmatrix& m)
 	character_physics_support()->movement()->SetVelocity		(0,0,0);
 }
 
-ENGINE_API extern float		psHUD_FOV;
-float CActor::Radius()const
+ENGINE_API extern f32		psHUD_FOV;
+f32 CActor::Radius()const
 { 
-	float R		= inherited::Radius();
+	f32 R		= inherited::Radius();
 	CWeapon* W	= smart_cast<CWeapon*>(inventory().ActiveItem());
 	if (W) R	+= W->Radius();
 	//	if (HUDview()) R *= 1.f/psHUD_FOV;
@@ -1473,9 +1475,9 @@ void CActor::MoveArtefactBelt(const CArtefact* artefact, bool on_belt)
 
 void CActor::UpdateArtefactsOnBelt()
 {
-	static float update_time = 0;
+	static f32 update_time = 0.0f;
 
-	float f_update_time = 0;
+	f32 f_update_time = 0.0f;
 
 	if(update_time<ARTEFACTS_UPDATE_TIME)
 	{
@@ -1503,10 +1505,10 @@ void CActor::UpdateArtefactsOnBelt()
 	}
 }
 
-float	CActor::HitArtefactsOnBelt		(float hit_power, ALife::EHitType hit_type)
+f32	CActor::HitArtefactsOnBelt		(f32 hit_power, ALife::EHitType hit_type)
 {
-	float res_hit_power_k		= 1.0f;
-	float _af_count				= 0.0f;
+	f32 res_hit_power_k		= 1.0f;
+	f32 _af_count				= 0.0f;
 	for(TIItemContainer::iterator it = inventory().m_belt.begin(); 
 		inventory().m_belt.end() != it; ++it) 
 	{
@@ -1521,19 +1523,17 @@ float	CActor::HitArtefactsOnBelt		(float hit_power, ALife::EHitType hit_type)
 	return					res_hit_power_k * hit_power;
 }
 
-
-
 void	CActor::SetZoomRndSeed		(s32 Seed)
 {
 	if (0 != Seed) m_ZoomRndSeed = Seed;
 	else m_ZoomRndSeed = s32(Level().timeServer_Async());
-};
+}
 
 void	CActor::SetShotRndSeed		(s32 Seed)
 {
 	if (0 != Seed) m_ShotRndSeed = Seed;
 	else m_ShotRndSeed = s32(Level().timeServer_Async());
-};
+}
 
 fVector3 CActor::GetMissileOffset	() const
 {
@@ -1551,14 +1551,13 @@ void CActor::spawn_supplies			()
 	CInventoryOwner::spawn_supplies	();
 }
 
-
 void CActor::AnimTorsoPlayCallBack(CBlend* B)
 {
 	CActor* actor		= (CActor*)B->CallbackParam;
 	actor->m_bAnimTorsoPlayed = FALSE;
 }
 
-void CActor::SetActorVisibility(u16 who, float value)
+void CActor::SetActorVisibility(u16 who, f32 value)
 {
 	CUIMotionIcon		&motion_icon	= HUD().GetUI()->UIMainIngameWnd->MotionIcon();
 	motion_icon.SetActorVisibility		(who, value);
@@ -1631,8 +1630,6 @@ bool CActor::use_center_to_aim			() const
 	return							(!(mstate_real&mcCrouch));
 }
 
-
-
 bool CActor::can_attach			(const CInventoryItem *inventory_item) const
 {
 	const CAttachableItem	*item = smart_cast<const CAttachableItem*>(inventory_item);
@@ -1668,7 +1665,7 @@ CVisualMemoryManager	*CActor::visual_memory	() const
 	return							(&memory().visual());
 }
 
-float		CActor::GetMass				()
+f32		CActor::GetMass				()
 {
 	return g_Alive()?character_physics_support()->movement()->GetMass():m_pPhysicsShell?m_pPhysicsShell->getMass():0; 
 }

@@ -10,12 +10,13 @@
 class XRCORE_API EFS_Utils {
 	DEFINE_MAP	(xr_string,void*,HANDLEMap,HANDLEPairIt);
 
-    HANDLEMap 	m_LockFiles;
+	HANDLEMap 	m_LockFiles;
+
 public:
 				EFS_Utils		();
 	virtual 	~EFS_Utils		();
 	void 		_initialize		(){}
-    void 		_destroy		(){}
+	void 		_destroy		(){}
 
 	LPCSTR		GenerateName	(LPCSTR base_path, LPCSTR base_name, LPCSTR def_ext, LPSTR out_name);
 
@@ -36,15 +37,14 @@ public:
 	BOOL		UnlockFile		(LPCSTR fn, bool bLog=true);
 	BOOL		CheckLocking	(LPCSTR fn, bool bOnlySelf, bool bMsg);//, shared_str* owner=0);
 	void 		WriteAccessLog	(LPCSTR fn, LPCSTR start_msg);
-//.	shared_str 	GetLockOwner	(LPCSTR initial, LPCSTR fn);
 
-    xr_string	ChangeFileExt	(LPCSTR src, LPCSTR ext);
-    xr_string	ChangeFileExt	(const xr_string& src, LPCSTR ext);
+	xr_string	ChangeFileExt	(LPCSTR src, LPCSTR ext);
+	xr_string	ChangeFileExt	(const xr_string& src, LPCSTR ext);
 
-    xr_string	ExtractFileName		(LPCSTR src);
-    xr_string	ExtractFilePath		(LPCSTR src);
-    xr_string	ExtractFileExt		(LPCSTR src);
-    xr_string	ExcludeBasePath		(LPCSTR full_path, LPCSTR excl_path);
+	xr_string	ExtractFileName		(LPCSTR src);
+	xr_string	ExtractFilePath		(LPCSTR src);
+	xr_string	ExtractFileExt		(LPCSTR src);
+	xr_string	ExcludeBasePath		(LPCSTR full_path, LPCSTR excl_path);
 };
 extern XRCORE_API	EFS_Utils*	xr_EFS;
 #define EFS (*xr_EFS)

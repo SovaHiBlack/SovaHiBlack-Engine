@@ -108,9 +108,6 @@
     <ClCompile Include="FileSystem.cpp">
       <Filter>FS</Filter>
     </ClCompile>
-    <ClCompile Include="FileSystem_borland.cpp">
-      <Filter>FS</Filter>
-    </ClCompile>
     <ClCompile Include="FS.cpp">
       <Filter>FS</Filter>
     </ClCompile>
@@ -121,9 +118,6 @@
       <Filter>FS</Filter>
     </ClCompile>
     <ClCompile Include="LocatorAPI_defs.cpp">
-      <Filter>FS</Filter>
-    </ClCompile>
-    <ClCompile Include="LocatorAPI_Notifications.cpp">
       <Filter>FS</Filter>
     </ClCompile>
     <ClCompile Include="log.cpp">
@@ -170,9 +164,6 @@
     </ClCompile>
     <ClCompile Include="xrMemory_subst_msvc.cpp">
       <Filter>Memory manager</Filter>
-    </ClCompile>
-    <ClCompile Include="xrDebug.cpp">
-      <Filter>Debug core</Filter>
     </ClCompile>
     <ClCompile Include="xrDebugNew.cpp">
       <Filter>Debug core</Filter>
@@ -561,9 +552,6 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuildStep Include="FileSystem.h">
-      <Filter>FS</Filter>
-    </CustomBuildStep>
-    <CustomBuildStep Include="LocatorAPI_Notifications.h">
       <Filter>FS</Filter>
     </CustomBuildStep>
   </ItemGroup>

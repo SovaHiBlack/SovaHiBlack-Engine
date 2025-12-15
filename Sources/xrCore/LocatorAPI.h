@@ -65,16 +65,16 @@ private:
 	void						ProcessArchive	(LPCSTR path, LPCSTR base_path=NULL);
 	void						ProcessOne		(LPCSTR path, void* F);
 	bool						Recurse			(LPCSTR path);	
-//	bool						CheckExistance	(LPCSTR path);
 
 	files_it					file_find_it	(LPCSTR n);
+
 public:
 	enum{
 		flNeedRescan			= (1<<0),
 		flBuildCopy				= (1<<1),
 		flReady					= (1<<2),
 		flEBuildCopy			= (1<<3),
-		flEventNotificator      = (1<<4),
+		flEventNotificator		= (1<<4),
 		flTargetFolderOnly		= (1<<5),
 		flCacheFiles			= (1<<6),
 		flScanAppRoot			= (1<<7),

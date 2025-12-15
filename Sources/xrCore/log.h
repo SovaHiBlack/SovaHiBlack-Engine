@@ -5,7 +5,6 @@
 
 void 	XRCORE_API	__cdecl		Msg			(LPCSTR format, ...);
 void 	XRCORE_API		Log			(LPCSTR msg);
-void 	XRCORE_API		Log			(LPCSTR msg);
 void 	XRCORE_API		Log			(LPCSTR msg, LPCSTR			dop);
 void 	XRCORE_API		Log			(LPCSTR msg, u32			dop);
 void 	XRCORE_API		Log			(LPCSTR msg, int  			dop);

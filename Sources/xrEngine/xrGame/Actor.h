@@ -129,12 +129,12 @@ public:
 	// Render
 	virtual void						renderable_Render( );
 	virtual BOOL						renderable_ShadowGenerate( );
-	virtual	void						feel_sound_new(CObject* who, int type, CSound_UserDataPtr user_data, const fVector3& Position, float power);
+	virtual	void						feel_sound_new(CObject* who, int type, CSound_UserDataPtr user_data, const fVector3& Position, f32 power);
 	virtual	Feel::Sound* dcast_FeelSound( )
 	{
 		return this;
 	}
-	float						m_snd_noise;
+	f32						m_snd_noise;
 #ifdef DEBUG
 	virtual void						OnRender( );
 #endif
@@ -220,13 +220,13 @@ public:
 
 	virtual void						Die(CObject* who);
 	virtual	void						Hit(SHit* pHDS);
-	virtual	void						PHHit(float P, fVector3& dir, CObject* who, s16 element, fVector3 p_in_object_space, float impulse, ALife::EHitType hit_type /* = ALife::eHitTypeWound */);
-	virtual void						HitSignal(float P, fVector3& vLocalDir, CObject* who, s16 element);
+	virtual	void						PHHit(f32 P, fVector3& dir, CObject* who, s16 element, fVector3 p_in_object_space, f32 impulse, ALife::EHitType hit_type /* = ALife::eHitTypeWound */);
+	virtual void						HitSignal(f32 P, fVector3& vLocalDir, CObject* who, s16 element);
 	void						HitSector(CObject* who, CObject* weapon);
-	void						HitMark(float P, fVector3 dir, CObject* who, s16 element, fVector3 position_in_bone_space, float impulse, ALife::EHitType hit_type);
+	void						HitMark(f32 P, fVector3 dir, CObject* who, s16 element, fVector3 position_in_bone_space, f32 impulse, ALife::EHitType hit_type);
 
-	virtual float						GetMass( );
-	virtual float						Radius( ) const;
+	virtual f32						GetMass( );
+	virtual f32						Radius( ) const;
 	virtual void						g_PerformDrop( );
 
 
@@ -237,7 +237,7 @@ public:
 	//свойства артефактов
 	virtual void		UpdateArtefactsOnBelt( );
 	virtual void		MoveArtefactBelt(const CArtefact* artefact, bool on_belt);
-	virtual float		HitArtefactsOnBelt(float hit_power, ALife::EHitType hit_type);
+	virtual f32		HitArtefactsOnBelt(f32 hit_power, ALife::EHitType hit_type);
 	const xr_vector<const CArtefact*>& ArtefactsOnBelt( )
 	{
 		return m_ArtefactsOnBelt;
@@ -254,16 +254,16 @@ protected:
 	//Sleep params
 	//время когда актера надо разбудить
 	ALife::_TIME_ID			m_dwWakeUpTime;
-	float					m_fOldTimeFactor;
-	float					m_fOldOnlineRadius;
-	float					m_fSleepTimeFactor;
+	f32					m_fOldTimeFactor;
+	f32					m_fOldOnlineRadius;
+	f32					m_fSleepTimeFactor;
 
 	/////////////////////////////////////////////////////////////////
 	// misc properties
 protected:
 	// Death
-	float					hit_slowmo;
-	float					hit_probability;
+	f32					hit_slowmo;
+	f32					hit_probability;
 
 	// media
 	SndShockEffector* m_sndShockEffector;
@@ -271,14 +271,14 @@ protected:
 	ref_sound				sndDie[SND_DIE_COUNT];
 
 
-	float					m_fLandingTime;
-	float					m_fJumpTime;
-	float					m_fFallTime;
-	float					m_fCamHeightFactor;
+	f32					m_fLandingTime;
+	f32					m_fJumpTime;
+	f32					m_fFallTime;
+	f32					m_fCamHeightFactor;
 
 	// Dropping
 	BOOL					b_DropActivated;
-	float					f_DropPower;
+	f32					f_DropPower;
 
 	//random seed для Zoom mode
 	s32						m_ZoomRndSeed;

@@ -377,7 +377,7 @@ void CLocatorAPI::ProcessArchive(LPCSTR _path, LPCSTR base_path)
 		g_temporary_stuff		= g_temporary_stuff_subst;
 }
 
-void CLocatorAPI::ProcessOne	(const char* path, void* _F)
+void CLocatorAPI::ProcessOne	(LPCSTR path, void* _F)
 {
 	_finddata_t& F	= *((_finddata_t*)_F);
 
@@ -430,7 +430,7 @@ bool ignore_path(const char* _path){
 		return true;
 }
 
-bool CLocatorAPI::Recurse		(const char* path)
+bool CLocatorAPI::Recurse		(LPCSTR path)
 {
 	_finddata_t		sFile;
 	intptr_t		hFile;
@@ -711,13 +711,13 @@ void CLocatorAPI::_destroy		()
 	archives.clear	();
 }
 
-const CLocatorAPI::file* CLocatorAPI::exist			(const char* fn)
+const CLocatorAPI::file* CLocatorAPI::exist			(LPCSTR fn)
 {
 	files_it it		= file_find_it(fn);
 	return (it!=files.end())?&(*it):0;
 }
 
-const CLocatorAPI::file* CLocatorAPI::exist			(const char* path, const char* name)
+const CLocatorAPI::file* CLocatorAPI::exist			(LPCSTR path, LPCSTR name)
 {
 	string_path		temp;       
 	update_path		(temp,path,name);
@@ -738,7 +738,7 @@ const CLocatorAPI::file* CLocatorAPI::exist			(string_path& fn, LPCSTR path, LPC
 	return			exist(fn);
 }
 
-xr_vector<char*>* CLocatorAPI::file_list_open			(const char* initial, const char* folder, u32 flags)
+xr_vector<char*>* CLocatorAPI::file_list_open			(LPCSTR initial, LPCSTR folder, u32 flags)
 {
 	string_path		N;
 	R_ASSERT		(initial&&initial[0]);
@@ -746,7 +746,7 @@ xr_vector<char*>* CLocatorAPI::file_list_open			(const char* initial, const char
 	return			file_list_open(N,flags);
 }
 
-xr_vector<char*>* CLocatorAPI::file_list_open			(const char* _path, u32 flags)
+xr_vector<char*>* CLocatorAPI::file_list_open			(LPCSTR _path, u32 flags)
 {
 	R_ASSERT		(_path);
 	VERIFY			(flags);
