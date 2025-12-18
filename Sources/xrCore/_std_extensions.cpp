@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #pragma hdrstop
 
-#include <time.h>
-
 #ifdef BREAK_AT_STRCMP
 int								xr_strcmp				( const char* S1, const char* S2 )
 {

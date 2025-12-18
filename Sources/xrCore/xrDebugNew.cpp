@@ -13,24 +13,13 @@ int (WINAPIV* __vsnprintf)(char *, size_t, const char*, va_list) = _vsnprintf;
 
 extern bool shared_str_initialized;
 
-#ifdef __BORLANDC__
-	#	include "d3d9.h"
-	#	include "d3dx9.h"
-	#	include "D3DX_Wrapper.h"
-	#	pragma comment(lib,"EToolsB.lib")
-	#	define DEBUG_INVOKE	DebugBreak()
-		static BOOL			bException	= TRUE;
-	#   define USE_BUG_TRAP
-#else
-	#   define USE_BUG_TRAP
-	#	define DEBUG_INVOKE	__asm int 3
-		static BOOL			bException	= FALSE;
-#endif
+#define USE_BUG_TRAP
+#define DEBUG_INVOKE	__asm int 3
+static BOOL			bException	= FALSE;
+
 
 #ifndef _M_AMD64
-#	ifndef __BORLANDC__
-#		pragma comment(lib,"dxerr.lib")
-#	endif
+#	pragma comment(lib,"dxerr.lib")
 #endif
 
 #include <dbghelp.h>						// MiniDump flags

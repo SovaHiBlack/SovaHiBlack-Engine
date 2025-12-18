@@ -1,5 +1,3 @@
-#ifndef xrCoreH
-#define xrCoreH
 #pragma once
 
 #pragma warning(disable:4996)
@@ -31,28 +29,13 @@
 
 #	include "xrCore_platform.h"
 
-/*
-// stl-config
-// *** disable exceptions for both STLport and VC7.1 STL
-// #define _STLP_NO_EXCEPTIONS	1
-// #if XRAY_EXCEPTIONS
-	#define _HAS_EXCEPTIONS		1	// force STL again
-// #endif
-*/
-
 // *** try to minimize code bloat of STLport
-#ifdef __BORLANDC__
+#ifdef XRCORE_EXPORTS				// no exceptions, export allocator and common stuff
+#	define _STLP_DESIGNATED_DLL	1
+#	define _STLP_USE_DECLSPEC		1
 #else
-	#ifdef XRCORE_EXPORTS				// no exceptions, export allocator and common stuff
-	#define _STLP_DESIGNATED_DLL	1
-	#define _STLP_USE_DECLSPEC		1
-	#else
-	#define _STLP_USE_DECLSPEC		1	// no exceptions, import allocator and common stuff
-	#endif
+#	define _STLP_USE_DECLSPEC		1	// no exceptions, import allocator and common stuff
 #endif
-
-// #include <exception>
-// using std::exception;
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -61,9 +44,6 @@
 #include <string.h>
 
 #include <typeinfo>
-//#include <typeinfo.h>
-
-//#include <process.h>
 
 #ifndef DEBUG
 	#ifdef _DEBUG
@@ -86,9 +66,7 @@
 #ifndef DEBUG
 	#pragma inline_depth	( 254 )
 	#pragma inline_recursion( on )
-	#ifndef __BORLANDC__
-		#pragma intrinsic	(abs, fabs, fmod, sin, cos, tan, asin, acos, atan, sqrt, exp, log, log10, strcpy, strcat)
-	#endif
+	#pragma intrinsic	(abs, fabs, fmod, sin, cos, tan, asin, acos, atan, sqrt, exp, log, log10, strcpy, strcat)
 #endif
 
 #include <time.h>
@@ -128,14 +106,10 @@
 #pragma warning (disable : 4100 )		// unreferenced formal parameter
 
 // Our headers
-#ifdef XRCORE_STATIC
-#	define XRCORE_API
+#ifdef XRCORE_EXPORTS
+#	define XRCORE_API __declspec(dllexport)
 #else
-#	ifdef XRCORE_EXPORTS
-#		define XRCORE_API __declspec(dllexport)
-#	else
-#		define XRCORE_API __declspec(dllimport)
-#	endif
+#	define XRCORE_API __declspec(dllimport)
 #endif
 
 #include "_types.h"
@@ -224,5 +198,3 @@ public:
 	void		_destroy	();
 };
 extern XRCORE_API xrCore Core;
-
-#endif

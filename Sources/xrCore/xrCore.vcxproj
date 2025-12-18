@@ -181,7 +181,6 @@
       <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">AssemblyAndSourceCode</AssemblerOutput>
       <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AssemblyAndSourceCode</AssemblerOutput>
     </ClCompile>
-    <ClCompile Include="xrMemory_subst_borland.cpp" />
     <ClCompile Include="xrMemory_subst_msvc.cpp" />
     <ClCompile Include="xrDebugNew.cpp" />
     <ClCompile Include="blackbox\BlackBoxUI.cpp">
@@ -320,7 +319,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FTimer.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="xrCore.h" />
     <ClInclude Include="xrCore_platform.h" />
@@ -377,7 +375,6 @@
     <ClInclude Include="xrMEMORY_POOL.h" />
     <ClInclude Include="xrMemory_pso.h" />
     <ClInclude Include="xrMemory_pure.h" />
-    <ClInclude Include="xrMemory_subst_borland.h" />
     <ClInclude Include="xrMemory_subst_msvc.h" />
     <ClInclude Include="xrDebug.h" />
     <ClInclude Include="xrDebug_macros.h" />
@@ -404,7 +401,7 @@
     <ClInclude Include="compression_ppmd_stream.h" />
     <ClInclude Include="compression_ppmd_stream_inline.h" />
     <ClInclude Include="rt_compressor.h" />
-    <ClInclude Include="lzhuf.h" />
+    <ClInclude Include="LzHuf.h" />
     <ClInclude Include="rt_config1x.h" />
     <ClInclude Include="rt_lzo1x.h" />
     <ClInclude Include="rt_lzo_conf.h" />
@@ -417,7 +414,12 @@
     <ClInclude Include="xrSyncronize.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="xrCore.rc" />
+    <None Include="rt_lzo1x_c.ch" />
+    <None Include="rt_lzo1x_d.ch" />
+    <None Include="rt_lzo1_d.ch" />
+    <None Include="rt_lzo_dll.ch" />
+    <None Include="rt_lzo_mchw.ch" />
+    <None Include="rt_lzo_swd.ch" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
