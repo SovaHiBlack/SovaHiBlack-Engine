@@ -36,15 +36,14 @@ class CControlDirection : public CControl_ComPure<SControlDirectionData> {
 	} m_heading, m_pitch;
 
 public:
-
 	virtual void	reinit				();
 	virtual void	update_frame		();
 	
 	// services
-			bool	is_face_target		(const Fvector &position,	float eps_angle);
+			bool	is_face_target		(const fVector3& position,	float eps_angle);
 			bool	is_face_target		(const CObject *obj,		float eps_angle);
 
-			bool	is_from_right		(const Fvector &position);
+			bool	is_from_right		(const fVector3& position);
 			bool	is_from_right		(float yaw);
 
 			bool	is_turning			(float eps_angle = EPS);
@@ -52,7 +51,8 @@ public:
 			void	get_heading			(float &current, float &target);
 			float	get_heading_current	();	
 
-			float	angle_to_target		(const Fvector &position);	
+			float	angle_to_target		(const fVector3& position);
+
 private:				
 			void	pitch_correction	();
 };

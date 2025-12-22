@@ -53,7 +53,7 @@ IC	bool CCoverManager::inertia									(float radius, _evaluator_type &evaluator
 }
 
 template <typename _evaluator_type, typename _restrictor_type>
-IC	const CCoverPoint *CCoverManager::best_cover				(const Fvector &position, float radius, _evaluator_type &evaluator, const _restrictor_type &restrictor) const
+IC	const CCoverPoint *CCoverManager::best_cover				(const fVector3& position, float radius, _evaluator_type &evaluator, const _restrictor_type &restrictor) const
 {
 	START_PROFILE("Covers/best_cover")
 
@@ -104,7 +104,7 @@ IC	const CCoverPoint *CCoverManager::best_cover				(const Fvector &position, flo
 }
 
 template <typename _evaluator_type>
-IC	const CCoverPoint *CCoverManager::best_cover				(const Fvector &position, float radius, _evaluator_type &evaluator) const
+IC	const CCoverPoint *CCoverManager::best_cover				(const fVector3& position, float radius, _evaluator_type &evaluator) const
 {
 	return					(best_cover<_evaluator_type,CCoverManager>(position,radius,evaluator,*this));
 }

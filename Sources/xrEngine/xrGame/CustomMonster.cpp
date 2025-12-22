@@ -168,7 +168,7 @@ void CCustomMonster::reload		(LPCSTR section)
 	m_panic_threshold			= pSettings->r_float(section,"panic_threshold");
 }
 
-void CCustomMonster::mk_orientation(Fvector &dir, Fmatrix& mR)
+void CCustomMonster::mk_orientation(fVector3& dir, Fmatrix& mR)
 {
 	// orient only in XZ plane
 	dir.y		= 0;
@@ -178,7 +178,8 @@ void CCustomMonster::mk_orientation(Fvector &dir, Fmatrix& mR)
 		// normalize
 		dir.x /= len;
 		dir.z /= len;
-		Fvector up;	up.set(0,1,0);
+		fVector3 up;
+		up.set(0.0f,1.0f,0.0f);
 		mR.rotation	(dir,up);
 	}
 }

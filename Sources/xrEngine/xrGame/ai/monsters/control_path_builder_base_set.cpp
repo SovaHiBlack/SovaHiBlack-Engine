@@ -11,7 +11,7 @@
 void CControlPathBuilderBase::prepare_builder() 
 {
 	m_time						= 0;
-	m_distance_to_path_end		= 1.f;
+	m_distance_to_path_end		= 1.0f;
 	m_failed					= false;
 	m_cover_info.use_covers		= false;
 
@@ -34,7 +34,7 @@ void CControlPathBuilderBase::prepare_builder()
 // Desc: just set desirable position and update actuality 
 // all checkings will be made on update stage
 //////////////////////////////////////////////////////////////////////////
-void CControlPathBuilderBase::set_target_point(const Fvector &position, u32 node)
+void CControlPathBuilderBase::set_target_point(const fVector3& position, u32 node)
 {
 	// обновить актуальность
 	m_target_actual = m_target_actual && (m_target_set.position.similar(position) && (m_target_set.node == node));
@@ -53,17 +53,16 @@ void CControlPathBuilderBase::set_target_point(u32 node)
 	set_target_point(ai().level_graph().vertex_position(node),node);
 }
 
-void CControlPathBuilderBase::set_retreat_from_point(const Fvector &position)
+void CControlPathBuilderBase::set_retreat_from_point(const fVector3& position)
 {
 	// обновить актуальность
 	m_target_actual = m_target_actual && (m_target_set.position.similar(position));
 
 	// установить позицию
-	m_target_set.set	(position,u32(-1));	
+	m_target_set.set	(position,u32(-1));
 
 	// установить глобальные параметры передвижения
 	m_target_type		= eRetreatFromTarget;
 
 	set_level_path_type	();
 }
-

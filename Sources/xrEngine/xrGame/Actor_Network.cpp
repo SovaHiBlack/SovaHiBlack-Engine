@@ -499,12 +499,12 @@ BOOL CActor::net_Spawn		(CSE_Abstract* DC)
 	m_feel_touch_characters = 0;
 	m_snd_noise			= 0.0f;
 	m_sndShockEffector	= NULL;
-/*	m_followers			= NULL;*/
 	if (m_pPhysicsShell)
 	{
 		m_pPhysicsShell->Deactivate();
 		xr_delete(m_pPhysicsShell);
-	};
+	}
+
 	//force actor to be local on server client
 	CSE_Abstract			*e	= (CSE_Abstract*)(DC);
 	CSE_ALifeCreatureActor	*E	= smart_cast<CSE_ALifeCreatureActor*>(e);	

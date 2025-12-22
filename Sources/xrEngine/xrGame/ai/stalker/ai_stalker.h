@@ -216,13 +216,11 @@ public:
 	virtual bool						useful								(const CEnemyManager *manager, const CEntityAlive *object) const;
 	
 	// PDA && Dialogs
-//	virtual void						ReceivePdaMessage					(u16 who, EPdaMsg msg, shared_str info_id);
 	virtual void						UpdateAvailableDialogs				(CPhraseDialogManager* partner);
 
 	// scripts
 	virtual CWeapon						*GetCurrentWeapon		() const;
 	virtual u32							GetWeaponAmmo			() const;
-//	virtual CInventoryItem				*GetCurrentEquipment	() const; <- moved to InventoryOwner::GetCurrentOutfit
 	virtual CInventoryItem				*GetMedikit				() const;
 	virtual CInventoryItem				*GetFood				() const;
 	virtual	bool						bfAssignMovement		(CScriptEntityAction			*tpEntityAction);

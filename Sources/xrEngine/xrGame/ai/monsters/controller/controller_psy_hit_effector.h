@@ -30,10 +30,10 @@
 //	typedef CEffector inherited;	
 //
 //	float	m_time_total;
-//	Fvector	dangle_target;
-//	Fvector dangle_current;
+//	fVector3	dangle_target;
+//	fVector3 dangle_current;
 //
 //public:
 //					CPsyHitEffectorCam	(EEffectorType type);
-//	virtual	BOOL	Process				(Fvector &p, Fvector &d, Fvector &n, float& fFov, float& fFar, float& fAspect);
+//	virtual	BOOL	Process				(fVector3 &p, fVector3 &d, fVector3 &n, float& fFov, float& fFar, float& fAspect);
 //};

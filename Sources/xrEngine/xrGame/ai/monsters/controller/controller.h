@@ -173,7 +173,8 @@ private:
 #ifdef _DEBUG	
 		virtual void	debug_on_key		(int key);
 
-		Fvector			P1,P2;
+		fVector3 P1;
+		fVector3 P2;
 #endif
 
 

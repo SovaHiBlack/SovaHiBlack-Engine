@@ -43,9 +43,8 @@ class   CArtefact;
 
 struct SActorMotions;
 struct SActorVehicleAnims;
-class  CActorCondition;
+class CActorCondition;
 class SndShockEffector;
-class CActorFollowerMngr;
 class CGameTaskManager;
 
 class CCameraShotEffector;
@@ -117,8 +116,8 @@ public:
 	{
 		return m_holder;
 	}
-public:
 
+public:
 	virtual void						Load(LPCSTR section);
 
 	virtual void						shedule_Update(u32 T);
@@ -139,7 +138,6 @@ public:
 	virtual void						OnRender( );
 #endif
 
-
 	/////////////////////////////////////////////////////////////////
 	// Inventory Owner 
 
@@ -147,15 +145,14 @@ public:
 	//information receive & dialogs
 	virtual bool OnReceiveInfo(shared_str info_id) const;
 	virtual void OnDisableInfo(shared_str info_id) const;
-//	virtual void ReceivePdaMessage	(u16 who, EPdaMsg msg, shared_str info_id);
 
-	virtual void	 NewPdaContact(CInventoryOwner*);
-	virtual void	 LostPdaContact(CInventoryOwner*);
+	virtual void NewPdaContact(CInventoryOwner*);
+	virtual void LostPdaContact(CInventoryOwner*);
 
 protected:
-//	virtual void AddMapLocationsFromInfo (const CInfoPortion* info_portion) const;
 	virtual void AddEncyclopediaArticle(const CInfoPortion* info_portion) const;
 	virtual void AddGameTask(const CInfoPortion* info_portion) const;
+
 protected:
 	struct SDefNewsMsg
 	{
@@ -168,12 +165,15 @@ protected:
 	};
 	xr_vector<SDefNewsMsg> m_defferedMessages;
 	void UpdateDefferedMessages( );
+
 public:
 	void			AddGameNews_deffered(GAME_NEWS_DATA& news_data, u32 delay);
 	virtual void	AddGameNews(GAME_NEWS_DATA& news_data);
+
 protected:
 	CGameTaskManager* m_game_task_manager;
 	CActorStatisticMgr* m_statistic_manager;
+
 public:
 	virtual void StartTalk(CInventoryOwner* talk_partner);
 	virtual	void RunTalkDialog(CInventoryOwner* talk_partner);
@@ -202,7 +202,6 @@ public:
 	bool OnDialogSoundHandlerStart(CInventoryOwner* inv_owner, LPCSTR phrase);
 	bool OnDialogSoundHandlerStop(CInventoryOwner* inv_owner);
 
-
 	virtual void reinit( );
 	virtual void reload(LPCSTR section);
 	virtual bool use_bolts( ) const;
@@ -217,7 +216,6 @@ public:
 
 	virtual	void OnPlayHeadShotParticle(NET_Packet P);
 
-
 	virtual void						Die(CObject* who);
 	virtual	void						Hit(SHit* pHDS);
 	virtual	void						PHHit(f32 P, fVector3& dir, CObject* who, s16 element, fVector3 p_in_object_space, f32 impulse, ALife::EHitType hit_type /* = ALife::eHitTypeWound */);
@@ -228,7 +226,6 @@ public:
 	virtual f32						GetMass( );
 	virtual f32						Radius( ) const;
 	virtual void						g_PerformDrop( );
-
 
 	virtual bool						NeedToDestroyObject( )  const;
 	virtual ALife::_TIME_ID				TimePassedAfterDeath( ) const;
@@ -270,7 +267,6 @@ protected:
 	xr_vector<ref_sound>	sndHit[ALife::eHitTypeMax];
 	ref_sound				sndDie[SND_DIE_COUNT];
 
-
 	f32					m_fLandingTime;
 	f32					m_fJumpTime;
 	f32					m_fFallTime;
@@ -293,29 +289,30 @@ protected:
 	//устанавливается в game
 private:
 	void					SwitchOutBorder(bool new_border_state);
+
 public:
 	bool					m_bAllowDeathRemove;
-//	u32						m_u32RespawnTime;
 
 	////////////////////////////////////////////////////////
 	void					SetZoomRndSeed(s32 Seed = 0);
 	s32						GetZoomRndSeed( )
 	{
 		return m_ZoomRndSeed;
-	};
+	}
 ////////////////////////////////////////////////////////
 	void					SetShotRndSeed(s32 Seed = 0);
 	s32						GetShotRndSeed( )
 	{
 		return m_ShotRndSeed;
-	};
+	}
 
 public:
 	void					detach_Vehicle( );
-	void					steer_Vehicle(float angle);
+	void					steer_Vehicle(f32 angle);
 	void					attach_Vehicle(CHolderCustom* vehicle);
 
 	virtual bool			can_attach(const CInventoryItem* inventory_item) const;
+
 protected:
 	CHolderCustom* m_holder;
 	u16						m_holderID;
@@ -324,7 +321,6 @@ protected:
 	bool					use_Vehicle(CHolderCustom* object);
 	bool					use_MountedWeapon(CHolderCustom* object);
 	void					ActorUse( );
-
 
 	/////////////////////////////////////////////////////////
 	// actor model & animations
@@ -335,15 +331,14 @@ protected:
 
 	// Rotation
 	SRotation				r_torso;
-	float					r_torso_tgt_roll;
+	f32					r_torso_tgt_roll;
 	//положение торса без воздействия эффекта отдачи оружия
 	SRotation				unaffected_r_torso;
 
 	//ориентация модели
-	float					r_model_yaw_dest;
-	float					r_model_yaw;			// orientation of model
-	float					r_model_yaw_delta;		// effect on multiple "strafe"+"something"
-
+	f32					r_model_yaw_dest;
+	f32					r_model_yaw;			// orientation of model
+	f32					r_model_yaw_delta;		// effect on multiple "strafe"+"something"
 
 public:
 	SActorMotions* m_anims;
@@ -368,11 +363,11 @@ public:
 	virtual const SRotation	Orientation( )	const
 	{
 		return r_torso;
-	};
+	}
 	SRotation& Orientation( )
 	{
 		return r_torso;
-	};
+	}
 
 	void					g_SetAnimation(u32 mstate_rl);
 	void					g_SetSprintAnimation(u32 mstate_rl, MotionID& head, MotionID& torso, MotionID& legs);
@@ -384,15 +379,14 @@ public:
 	BOOL			HUDview( )const;
 
 //visiblity 
-	virtual	float			ffGetFov( )	const
+	virtual	f32			ffGetFov( ) const
 	{
-		return 90.f;
+		return 90.0f;
 	}
-	virtual	float			ffGetRange( )	const
+	virtual	f32			ffGetRange( ) const
 	{
-		return 500.f;
+		return 500.0f;
 	}
-
 
 //////////////////////////////////////////////////////////////////////////
 // Cameras and effectors
@@ -400,7 +394,8 @@ public:
 public:
 	CCameraManager& Cameras( )
 	{
-		VERIFY(m_pActorEffector); return *m_pActorEffector;
+		VERIFY(m_pActorEffector);
+		return *m_pActorEffector;
 	}
 	IC CCameraBase* cam_Active( )
 	{
@@ -413,18 +408,18 @@ public:
 
 protected:
 	void					cam_Set(EActorCameras style);
-	void					cam_Update(float dt, float fFOV);
-	void					camUpdateLadder(float dt);
+	void					cam_Update(f32 dt, f32 fFOV);
+	void					camUpdateLadder(f32 dt);
 	void					cam_SetLadder( );
 	void					cam_UnsetLadder( );
-	float					currentFOV( );
+	f32					currentFOV( );
 
 	// Cameras
 	CCameraBase* cameras[eacMaxCam];
 	EActorCameras			cam_active;
-	float					fPrevCamPos;
+	f32					fPrevCamPos;
 	fVector3					vPrevCamDir;
-	float					fCurAVelocity;
+	f32					fCurAVelocity;
 	CEffectorBobbing* pCamBobbing;
 
 	void					LoadSleepEffector(LPCSTR section);
@@ -433,7 +428,7 @@ protected:
 
 	//менеджер эффекторов, есть у каждого актрера
 	CCameraManager* m_pActorEffector;
-	static float			f_Ladder_cam_limit;
+	static f32			f_Ladder_cam_limit;
 	////////////////////////////////////////////
 	// для взаимодействия с другими персонажами 
 	// или предметами
@@ -456,13 +451,8 @@ public:
 	{
 		return *m_sDefaultObjAction;
 	}
-//.	void					AddFollower					(u16 id);
-//.	void					RemoveFollower				(u16 id);
-//.	void					SendCmdToFollowers			(int cmd);
+
 protected:
-//.	void					DestroyFollowerInternal();//hack
-//.	CActorFollowerMngr&		Followers	();
-//.	CActorFollowerMngr*		m_followers;
 	CUsableScriptObject* m_pUsableObject;
 	// Person we're looking at
 	CInventoryOwner* m_pPersonWeLookingAt;
@@ -492,8 +482,6 @@ public:
 	void					PickupModeOn( );
 	void					PickupModeOff( );
 
-
-
 	//////////////////////////////////////////////////////////////////////////
 	// Motions (передвижения актрера)
 	//////////////////////////////////////////////////////////////////////////
@@ -517,9 +505,10 @@ public:
 	bool					AnyAction( )
 	{
 		return (mstate_real & mcAnyAction) != 0;
-	};
+	}
 
 	bool					is_jump( );
+
 protected:
 	u32						mstate_wishful;
 	u32						mstate_old;
@@ -581,6 +570,7 @@ protected:
 	float								m_fDispCrouchNoAccelFactor;
 	//смещение firepoint относительно default firepoint для бросания болтов и гранат
 	fVector3								m_vMissileOffset;
+
 public:
 	// Получение, и запись смещения для гранат
 	fVector3								GetMissileOffset( ) const;
@@ -600,12 +590,11 @@ protected:
 	int									m_spine;
 	int									m_neck;
 
-
-
 	//////////////////////////////////////////////////////////////////////////
 	// Network
 	//////////////////////////////////////////////////////////////////////////
 	void						ConvState(u32 mstate_rl, string128* buf);
+
 public:
 	virtual BOOL						net_Spawn(CSE_Abstract* DC);
 	virtual void						net_Export(NET_Packet& P);				// export to server
@@ -619,6 +608,7 @@ public:
 	virtual void						load(IReader& input_packet);
 	virtual void						net_Save(NET_Packet& P);
 	virtual	BOOL						net_SaveRelevant( );
+
 protected:
 	xr_deque<net_update>	NET;
 	fVector3					NET_SavedAccel;
@@ -632,9 +622,7 @@ protected:
 	void					net_Import_Base_proceed( );
 	void					net_Import_Physic_proceed( );
 	//---------------------------------------------
-
-
-
+	// 
 ////////////////////////////////////////////////////////////////////////////
 	virtual	bool				can_validate_position_on_spawn( )
 	{
@@ -660,7 +648,6 @@ protected:
 	VIS_POSITION	LastPosH;
 	VIS_POSITION	LastPosL;
 #endif
-
 
 	SPHNetState				LastState;
 	SPHNetState				RecalculatedState;
@@ -716,15 +703,15 @@ public:
 	virtual	shared_str			GetDefaultVisualOutfit( ) const
 	{
 		return m_DefaultVisualOutfit;
-	};
+	}
 	virtual	void			SetDefaultVisualOutfit(shared_str DefaultOutfit)
 	{
 		m_DefaultVisualOutfit = DefaultOutfit;
-	};
+	}
 	virtual void			UpdateAnimation( )
 	{
 		g_SetAnimation(mstate_real);
-	};
+	}
 
 	virtual void			ChangeVisual(shared_str NewVisual);
 	virtual void			OnChangeVisual( );
@@ -803,6 +790,7 @@ protected:
 	bool						m_bWasBackStabbed;
 
 	virtual		bool			Check_for_BackStab_Bone(u16 element);
+
 public:
 	virtual void				SetHitInfo(CObject* who, CObject* weapon, s16 element, fVector3 Pos, fVector3 Dir);
 
@@ -834,8 +822,9 @@ public:
 	void				SetActorVisibility(u16 who, float value);
 	IC		CActorMemory& memory( ) const
 	{
-		VERIFY(m_memory); return(*m_memory);
-	};
+		VERIFY(m_memory);
+		return(*m_memory);
+	}
 
 	void						OnDifficultyChanged( );
 
