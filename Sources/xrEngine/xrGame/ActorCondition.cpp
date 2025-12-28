@@ -117,13 +117,13 @@ void CActorCondition::UpdateCondition()
 	
 	if( IsGameTypeSingle() ){
 
-		float k_max_power = 1.0f;
+		f32 k_max_power = 1.0f;
 
 		if( true )
 		{
-			float weight = object().inventory().TotalWeight();
+			f32 weight = object().inventory().TotalWeight();
 
-			float base_w = object().MaxCarryWeight();
+			f32 base_w = object().MaxCarryWeight();
 /*
 			CCustomOutfit* outfit	= m_object->GetOutfit();
 			if(outfit)
@@ -190,7 +190,7 @@ void CActorCondition::UpdateSatiety()
 {
 	if (!IsGameTypeSingle()) return;
 
-	float k = 1.0f;
+	f32 k = 1.0f;
 	if(m_fSatiety>0.0f)
 	{
 		m_fSatiety -=	m_fV_Satiety*
@@ -209,8 +209,8 @@ void CActorCondition::UpdateSatiety()
 	}
 
 	//коэффициенты уменьшения восстановления силы от сытоти и радиации
-	float radiation_power_k		= 1.f;
-	float satiety_power_k		= 1.f;
+	f32 radiation_power_k		= 1.0f;
+	f32 satiety_power_k		= 1.0f;
 			
 	m_fDeltaPower += m_fV_SatietyPower*
 				radiation_power_k*
@@ -226,23 +226,23 @@ CWound* CActorCondition::ConditionHit(SHit* pHDS)
 }
 
 //weight - "удельный" вес от 0..1
-void CActorCondition::ConditionJump(float weight)
+void CActorCondition::ConditionJump(f32 weight)
 {
-	float power			=	m_fJumpPower;
+	f32 power			=	m_fJumpPower;
 	power				+=	m_fJumpWeightPower*weight*(weight>1.f?m_fOverweightJumpK:1.f);
 	m_fPower			-=	HitPowerEffect(power);
 }
-void CActorCondition::ConditionWalk(float weight, bool accel, bool sprint)
+void CActorCondition::ConditionWalk(f32 weight, bool accel, bool sprint)
 {	
-	float power			=	m_fWalkPower;
+	f32 power			=	m_fWalkPower;
 	power				+=	m_fWalkWeightPower*weight*(weight>1.f?m_fOverweightWalkK:1.f);
 	power				*=	m_fDeltaTime*(accel?(sprint?m_fSprintK:m_fAccelK):1.f);
 	m_fPower			-=	HitPowerEffect(power);
 }
 
-void CActorCondition::ConditionStand(float weight)
+void CActorCondition::ConditionStand(f32 weight)
 {	
-	float power			= m_fStandPower;
+	f32 power			= m_fStandPower;
 	power				*= m_fDeltaTime;
 	m_fPower			-= power;
 }
@@ -263,7 +263,7 @@ bool CActorCondition::IsCantWalkWeight()
 {
 	if(IsGameTypeSingle() && !GodMode())
 	{
-		float max_w				= m_MaxWalkWeight;
+		f32 max_w				= m_MaxWalkWeight;
 
 		CCustomOutfit* outfit	= m_object->GetOutfit();
 		if(outfit)
@@ -321,12 +321,12 @@ void CActorCondition::reinit	()
 	m_fSatiety					= 1.0f;
 }
 
-void CActorCondition::ChangeAlcohol	(float value)
+void CActorCondition::ChangeAlcohol	(f32 value)
 {
 	m_fAlcohol += value;
 }
 
-void CActorCondition::ChangeSatiety(float value)
+void CActorCondition::ChangeSatiety(f32 value)
 {
 	m_fSatiety += value;
 	clamp		(m_fSatiety, 0.0f, 1.0f);
@@ -335,15 +335,13 @@ void CActorCondition::ChangeSatiety(float value)
 void CActorCondition::UpdateTutorialThresholds()
 {
 	string256						cb_name;
-	static float _cPowerThr			= pSettings->r_float("tutorial_conditions_thresholds","power");
-	static float _cPowerMaxThr		= pSettings->r_float("tutorial_conditions_thresholds","max_power");
-	static float _cBleeding			= pSettings->r_float("tutorial_conditions_thresholds","bleeding");
-	static float _cSatiety			= pSettings->r_float("tutorial_conditions_thresholds","satiety");
-	static float _cRadiation		= pSettings->r_float("tutorial_conditions_thresholds","radiation");
-	static float _cWpnCondition		= pSettings->r_float("tutorial_conditions_thresholds","weapon_jammed");
-	static float _cPsyHealthThr		= pSettings->r_float("tutorial_conditions_thresholds","psy_health");
-
-
+	static f32 _cPowerThr			= pSettings->r_float("tutorial_conditions_thresholds","power");
+	static f32 _cPowerMaxThr		= pSettings->r_float("tutorial_conditions_thresholds","max_power");
+	static f32 _cBleeding			= pSettings->r_float("tutorial_conditions_thresholds","bleeding");
+	static f32 _cSatiety			= pSettings->r_float("tutorial_conditions_thresholds","satiety");
+	static f32 _cRadiation			= pSettings->r_float("tutorial_conditions_thresholds","radiation");
+	static f32 _cWpnCondition		= pSettings->r_float("tutorial_conditions_thresholds","weapon_jammed");
+	static f32 _cPsyHealthThr		= pSettings->r_float("tutorial_conditions_thresholds","psy_health");
 
 	bool b = true;
 	if(b && !m_condition_flags.test(eCriticalPowerReached) && GetPower()<_cPowerThr){

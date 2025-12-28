@@ -42,8 +42,8 @@ enum {
 	physics_state_enabled_bits			= u32(1),
 };
 
-static const float min_linear_velocity_component	= -32.f;
-static const float max_linear_velocity_component	= 32.f;
+static const f32 min_linear_velocity_component	= -32.0f;
+static const f32 max_linear_velocity_component	= 32.0f;
 
 #ifdef USE_DIFFERENCES
 IC	bool is_similar						(const fVector3& _0, const fVector3& _1)
@@ -55,7 +55,7 @@ IC	bool is_similar						(const fVector3& _0, const fVector3& _1)
 	);
 }
 
-IC	bool is_similar						(const float &_0, const float &_1)
+IC	bool is_similar						(const f32& _0, const f32&_1)
 {
 	return		(!!fsimilar(_0,_1,EPS));
 }
@@ -95,19 +95,19 @@ IC	u32 read							(const u32 &bit_count, u32 &current, const u32 &output)
 	return		(result);
 }
 
-IC	float unpack						(const u32 &packed_value, const u32 bit_count)
+IC	f32 unpack						(const u32 &packed_value, const u32 bit_count)
 {
 	u32			max_value = (u32(1) << bit_count) - 1;
-	float		result = float(packed_value) / (float(max_value) + .0001f);
+	f32		result = f32(packed_value) / (f32(max_value) + .0001f);
 	return		(result);
 }
 
-IC	u32 pack							(const float &unpacked_value, const u32 bit_count)
+IC	u32 pack							(const f32& unpacked_value, const u32 bit_count)
 {
-	float inValue = unpacked_value;
+	f32 inValue = unpacked_value;
 	clamp(inValue, 0.f, 1.f);
 	u32			max_value = (u32(1) << bit_count) - 1;
-	u32			result = iFloor(float(max_value)*inValue + .5f);
+	u32			result = iFloor(f32(max_value)*inValue + .5f);
 	
 	if (bit_count>1)
 		if (result == 0 && unpacked_value != 0) 

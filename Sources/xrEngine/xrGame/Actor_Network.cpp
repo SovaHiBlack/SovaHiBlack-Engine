@@ -197,7 +197,7 @@ static void r_qt_q8(NET_Packet& P,Fquaternion& q)
 	//P.r_float_q8(q.x,-1.f,1.f);
 	//P.r_float_q8(q.y,-1.f,1.f);
 	//P.r_float_q8(q.z,-1.f,1.f);
-	//float w2=1.f-q.x*q.x-q.y*q.y-q.z*q.z;
+	//f32 w2=1.f-q.x*q.x-q.y*q.y-q.z*q.z;
 	//w2=w2<0.f ? 0.f : w2;
 	//q.w=_sqrt(w2);
 	/////////////////////////////////////////////////////
@@ -300,7 +300,7 @@ void		CActor::net_Import_Base				( NET_Packet& P)
 	u16					tmp;
 
 	//CSE_ALifeCreatureAbstract
-	float health;
+	f32 health;
 	P.r_float			(health);
 	//----------- for E3 -----------------------------
 	if (OnClient())SetfHealth(health);
@@ -345,7 +345,7 @@ void		CActor::net_Import_Base				( NET_Packet& P)
 	P.r_u16				(tmp			); N.mstate = u32(tmp);
 	P.r_sdir			(N.p_accel		);
 	P.r_sdir			(N.p_velocity	);
-	float				fRRadiation;
+	f32				fRRadiation;
 	P.r_float			(fRRadiation);
 	//----------- for E3 -----------------------------
 	if (OnClient())		
@@ -595,7 +595,6 @@ BOOL CActor::net_Spawn		(CSE_Abstract* DC)
 	//----------------------------------
 	m_bAllowDeathRemove = false;
 
-//	m_bHasUpdate = false;
 	m_bInInterpolation = false;
 	m_bInterpolate = false;
 
@@ -863,9 +862,9 @@ void	CActor::ChangeVisual			( shared_str NewVisual )
 	Visual()->dcast_PKinematics()->CalculateBones();
 };
 
-void ACTOR_DEFS::net_update::lerp(ACTOR_DEFS::net_update& A, ACTOR_DEFS::net_update& B, float f)
+void ACTOR_DEFS::net_update::lerp(ACTOR_DEFS::net_update& A, ACTOR_DEFS::net_update& B, f32 f)
 {
-//	float invf		= 1.f-f;
+//	f32 invf		= 1.f-f;
 //	// 
 //	o_model			= angle_lerp	(A.o_model,B.o_model,		f);
 //	o_torso.yaw		= angle_lerp	(A.o_torso.yaw,B.o_torso.yaw,f);
@@ -888,7 +887,7 @@ InterpData				IEndT;
 void CActor::PH_B_CrPr		()	// actions & operations before physic correction-prediction steps
 {
 	//just set last update data for now
-//	if (!m_bHasUpdate) return;	
+
 	if (CrPr_IsActivated()) return;
 	if (CrPr_GetActivationStep() > ph_world->m_steps_num) return;
 
@@ -974,7 +973,7 @@ void CActor::PH_B_CrPr		()	// actions & operations before physic correction-pred
 void CActor::PH_I_CrPr		()		// actions & operations between two phisic prediction steps
 {
 	//store recalculated data, then we able to restore it after small future prediction
-//	if (!m_bHasUpdate) return;
+
 	if (!CrPr_IsActivated()) return;
 	if (g_Alive())
 	{
@@ -991,8 +990,7 @@ void CActor::PH_I_CrPr		()		// actions & operations between two phisic predictio
 void CActor::PH_A_CrPr		()
 {
 	//restore recalculated data and get data for interpolation	
-//	if (!m_bHasUpdate) return;
-//	m_bHasUpdate = false;
+
 	if (!CrPr_IsActivated()) return;
 	if (!g_Alive()) return;
 	////////////////////////////////////
@@ -1009,7 +1007,7 @@ void CActor::PH_A_CrPr		()
 	mstate_wishful = mstate_real = NET_Last.mstate;
 	CalculateInterpolationParams();
 };
-extern	float		g_cl_lvInterp;
+extern	f32		g_cl_lvInterp;
 
 void	CActor::CalculateInterpolationParams()
 {	
@@ -1060,10 +1058,10 @@ void	CActor::CalculateInterpolationParams()
 	if (m_bInInterpolation)
 	{
 		u32 CurTime = Level().timeServer();
-		float factor	= float(CurTime - m_dwIStartTime)/(m_dwIEndTime - m_dwIStartTime);
+		f32 factor	= f32(CurTime - m_dwIStartTime)/(m_dwIEndTime - m_dwIStartTime);
 		if (factor > 1.0f) factor = 1.0f;
 
-		float c = factor;
+		f32 c = factor;
 		for (u32 k=0; k<3; k++)
 		{
 			SP0[k] = c*(c*(c*SCoeff[k][0]+SCoeff[k][1])+SCoeff[k][2])+SCoeff[k][3];
@@ -1100,7 +1098,7 @@ void	CActor::CalculateInterpolationParams()
 	fVector3 d1;
 	d0.sub(SP1, SP0);
 	d1.sub(SP3, SP0);
-	float res = d0.dotproduct(d1);
+	f32 res = d0.dotproduct(d1);
 	if (res < 0)
 	{
 	Msg ("! %f", res);
@@ -1112,13 +1110,13 @@ void	CActor::CalculateInterpolationParams()
 	/////////////////////////////////////////////////////////////////////////////
 	fVector3 TotalPath;
 	TotalPath.sub(SP3, SP0);
-	float TotalLen = TotalPath.magnitude();
+	f32 TotalLen = TotalPath.magnitude();
 
 	SPHNetState	State0 = (NET_A.back()).State;
 	SPHNetState	State1 = PredictedState;
 
-	float lV0 = State0.linear_vel.magnitude();
-	float lV1 = State1.linear_vel.magnitude();
+	f32 lV0 = State0.linear_vel.magnitude();
+	f32 lV1 = State1.linear_vel.magnitude();
 
 	u32		ConstTime = u32((fixed_step - ph_world->m_frame_time)*1000)+ Level().GetInterpolationSteps()*u32(fixed_step*1000);
 
@@ -1201,10 +1199,10 @@ void CActor::make_Interpolation	()
 		}
 		else
 		{			
-			float factor = 0.0f;
+			f32 factor = 0.0f;
 
 			if (m_dwIEndTime != m_dwIStartTime)
-				factor = float(CurTime - m_dwIStartTime)/(m_dwIEndTime - m_dwIStartTime);
+				factor = f32(CurTime - m_dwIStartTime)/(m_dwIEndTime - m_dwIStartTime);
 			
 			fVector3 NewPos;
 			NewPos.lerp(IStart.Pos, IEnd.Pos, factor);
@@ -1231,7 +1229,7 @@ void CActor::make_Interpolation	()
 				{
 					ResPosition.set(IPosL);
 					SpeedVector.sub(IEnd.Pos, IStart.Pos);
-					SpeedVector.div(float(m_dwIEndTime - m_dwIStartTime)/1000.0f);
+					SpeedVector.div(f32(m_dwIEndTime - m_dwIStartTime)/1000.0f);
 				}break;
 			case 1: 
 				{
@@ -1289,9 +1287,8 @@ void CActor::load(IReader &input_packet)
 #ifdef DEBUG
 
 extern	Flags32	dbg_net_Draw_Flags;
-void dbg_draw_piramid (fVector3 pos, fVector3 dir, float size, float xdir, u32 color)
+void dbg_draw_piramid (fVector3 pos, fVector3 dir, f32 size, f32 xdir, u32 color)
 {
-	
 	fVector3 p0, p1, p2, p3, p4;
 	p0.set(size, size, 0.0f);
 	p1.set(-size, size, 0.0f);
@@ -1354,7 +1351,7 @@ void	CActor::OnRender_Network()
 	RCache.OnFrameEnd();
 
 	//-----------------------------------------------------------------------------------------------------
-	float size = 0.2f;
+	f32 size = 0.2f;
 	
 //	dbg_draw_piramid(Position(), m_PhysicMovementControl->GetVelocity(), size/2, -r_model_yaw, color_rgba(255, 255, 255, 255));
 	//-----------------------------------------------------------------------------------------------------
@@ -1450,10 +1447,10 @@ void	CActor::OnRender_Network()
 		}
 
 		//drawing path trajectory
-		float c = 0;
+		f32 c = 0.0f;
 		for (int i=0; i<11; i++)
 		{
-			c = float(i) * 0.1f;
+			c = f32(i) * 0.1f;
 			for (u32 k=0; k<3; k++)
 			{
 				point1S[k] = c*(c*(c*SCoeff[k][0]+SCoeff[k][1])+SCoeff[k][2])+SCoeff[k][3];
@@ -1472,7 +1469,7 @@ void	CActor::OnRender_Network()
 		//drawing speed vectors
 		for (i=0; i<2; i++)
 		{
-			c = float(i);
+			c = f32(i);
 			for (u32 k=0; k<3; k++)
 			{
 				point1S[k] = c*(c*(c*SCoeff[k][0]+SCoeff[k][1])+SCoeff[k][2])+SCoeff[k][3];
@@ -1736,11 +1733,11 @@ void				CActor::SetHitInfo				(CObject* who, CObject* weapon, s16 element, fVect
 	m_vLastHitPos = Pos;
 };
 
-void				CActor::OnHitHealthLoss					(float NewHealth)
+void				CActor::OnHitHealthLoss					(f32 NewHealth)
 {
 	if (!m_bWasHitted) return;
 	if (GameID() == GAME_SINGLE || !OnServer()) return;
-	float fNewHealth = NewHealth;
+	f32 fNewHealth = NewHealth;
 	m_bWasHitted = false;
 	
 	if (m_iLastHitterID != u16(-1))
@@ -1764,13 +1761,12 @@ void				CActor::OnCriticalHitHealthLoss			()
 	CObject* pLastHittingWeapon = Level().Objects.net_Find(m_iLastHittingWeaponID);
 
 #ifdef DEBUG
-	
-	
 	Msg("%s killed by hit from %s %s", 
 		*cName(),
 		(pLastHitter ? *(pLastHitter->cName()) : ""), 
 		((pLastHittingWeapon && pLastHittingWeapon != pLastHitter) ? *(pLastHittingWeapon->cName()) : ""));
 #endif
+
 	//-------------------------------------------------------------------
 	if (m_iLastHitterID != u16(-1))
 	{

@@ -41,8 +41,8 @@ public:
 	virtual CWound*		ConditionHit				(SHit* pHDS);
 	virtual void		UpdateCondition				();
 
-	virtual void 		ChangeAlcohol				(float value);
-	virtual void 		ChangeSatiety				(float value);
+	virtual void 		ChangeAlcohol				(f32 value);
+	virtual void 		ChangeSatiety				(f32 value);
 
 	// хромание при потере сил и здоровья
 	virtual	bool		IsLimping					() const;
@@ -50,13 +50,13 @@ public:
 	virtual bool		IsCantWalkWeight			();
 	virtual bool		IsCantSprint				() const;
 
-			void		ConditionJump				(float weight);
-			void		ConditionWalk				(float weight, bool accel, bool sprint);
-			void		ConditionStand				(float weight);
+			void		ConditionJump				(f32 weight);
+			void		ConditionWalk				(f32 weight, bool accel, bool sprint);
+			void		ConditionStand				(f32 weight);
 			
-			float	xr_stdcall	GetAlcohol			()	{return m_fAlcohol;}
-			float	xr_stdcall	GetPsy				()	{return 1.0f-GetPsyHealth();}
-			float				GetSatiety			()  {return m_fSatiety;}
+			f32	xr_stdcall	GetAlcohol			()	{return m_fAlcohol;}
+			f32	xr_stdcall	GetPsy				()	{return 1.0f-GetPsyHealth();}
+			f32				GetSatiety			()  {return m_fSatiety;}
 
 public:
 	IC		CActor		&object						() const
@@ -68,41 +68,41 @@ public:
 	virtual void			load					(IReader &input_packet);
 
 protected:
-	float m_fAlcohol;
-	float m_fV_Alcohol;
+	f32 m_fAlcohol;
+	f32 m_fV_Alcohol;
 //--
-	float m_fSatiety;
-	float m_fV_Satiety;
-	float m_fV_SatietyPower;
-	float m_fV_SatietyHealth;
+	f32 m_fSatiety;
+	f32 m_fV_Satiety;
+	f32 m_fV_SatietyPower;
+	f32 m_fV_SatietyHealth;
 //--
-	float m_fPowerLeakSpeed;
+	f32 m_fPowerLeakSpeed;
 
-	float m_fJumpPower;
-	float m_fStandPower;
-	float m_fWalkPower;
-	float m_fJumpWeightPower;
-	float m_fWalkWeightPower;
-	float m_fOverweightWalkK;
-	float m_fOverweightJumpK;
-	float m_fAccelK;
-	float m_fSprintK;
+	f32 m_fJumpPower;
+	f32 m_fStandPower;
+	f32 m_fWalkPower;
+	f32 m_fJumpWeightPower;
+	f32 m_fWalkWeightPower;
+	f32 m_fOverweightWalkK;
+	f32 m_fOverweightJumpK;
+	f32 m_fAccelK;
+	f32 m_fSprintK;
 	
-	float	m_MaxWalkWeight;
+	f32	m_MaxWalkWeight;
 
 	mutable bool m_bLimping;
 	mutable bool m_bCantWalk;
 	mutable bool m_bCantSprint;
 
 	//порог силы и здоровья меньше которого актер начинает хромать
-	float m_fLimpingPowerBegin;
-	float m_fLimpingPowerEnd;
-	float m_fCantWalkPowerBegin;
-	float m_fCantWalkPowerEnd;
+	f32 m_fLimpingPowerBegin;
+	f32 m_fLimpingPowerEnd;
+	f32 m_fCantWalkPowerBegin;
+	f32 m_fCantWalkPowerEnd;
 
-	float m_fCantSprintPowerBegin;
-	float m_fCantSprintPowerEnd;
+	f32 m_fCantSprintPowerBegin;
+	f32 m_fCantSprintPowerEnd;
 
-	float m_fLimpingHealthBegin;
-	float m_fLimpingHealthEnd;
+	f32 m_fLimpingHealthBegin;
+	f32 m_fLimpingHealthEnd;
 };

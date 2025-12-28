@@ -472,7 +472,7 @@ protected:
 	//режим подбирания предметов
 	bool					m_bPickupMode;
 	//расстояние подсветки предметов
-	float					m_fPickupInfoRadius;
+	f32					m_fPickupInfoRadius;
 
 	void					PickupModeUpdate( );
 	void					PickupInfoDraw(CObject* object);
@@ -486,18 +486,18 @@ public:
 	// Motions (передвижения актрера)
 	//////////////////////////////////////////////////////////////////////////
 public:
-	void					g_cl_CheckControls(u32 mstate_wf, fVector3& vControlAccel, float& Jump, float dt);
-	void					g_cl_ValidateMState(float dt, u32 mstate_wf);
-	void					g_cl_Orientate(u32 mstate_rl, float dt);
-	void					g_sv_Orientate(u32 mstate_rl, float dt);
-	void					g_Orientate(u32 mstate_rl, float dt);
+	void					g_cl_CheckControls(u32 mstate_wf, fVector3& vControlAccel, f32& Jump, f32 dt);
+	void					g_cl_ValidateMState(f32 dt, u32 mstate_wf);
+	void					g_cl_Orientate(u32 mstate_rl, f32 dt);
+	void					g_sv_Orientate(u32 mstate_rl, f32 dt);
+	void					g_Orientate(u32 mstate_rl, f32 dt);
 	bool					g_LadderOrient( );
 	void					UpdateMotionIcon(u32 mstate_rl);
 
 	bool					CanAccelerate( );
 	bool					CanJump( );
 	bool					CanMove( );
-	float					CameraHeight( );
+	f32					CameraHeight( );
 	bool					CanSprint( );
 	bool					CanRun( );
 	void					StopAnyMove( );
@@ -516,17 +516,17 @@ protected:
 
 	BOOL					m_bJumpKeyPressed;
 
-	float					m_fWalkAccel;
-	float					m_fJumpSpeed;
-	float					m_fRunFactor;
-	float					m_fRunBackFactor;
-	float					m_fWalkBackFactor;
-	float					m_fCrouchFactor;
-	float					m_fClimbFactor;
-	float					m_fSprintFactor;
+	f32					m_fWalkAccel;
+	f32					m_fJumpSpeed;
+	f32					m_fRunFactor;
+	f32					m_fRunBackFactor;
+	f32					m_fWalkBackFactor;
+	f32					m_fCrouchFactor;
+	f32					m_fClimbFactor;
+	f32					m_fSprintFactor;
 
-	float					m_fWalk_StrafeFactor;
-	float					m_fRun_StrafeFactor;
+	f32					m_fWalk_StrafeFactor;
+	f32					m_fRun_StrafeFactor;
 	//////////////////////////////////////////////////////////////////////////
 	// User input/output
 	//////////////////////////////////////////////////////////////////////////
@@ -536,7 +536,7 @@ public:
 	virtual void			IR_OnKeyboardRelease(int dik);
 	virtual void			IR_OnKeyboardHold(int dik);
 	virtual void			IR_OnMouseWheel(int direction);
-	virtual	float			GetLookFactor( );
+	virtual	f32			GetLookFactor( );
 
 	//////////////////////////////////////////////////////////////////////////
 	// Weapon fire control (оружие актрера)
@@ -545,7 +545,7 @@ public:
 	virtual void						g_WeaponBones(int& L, int& R1, int& R2);
 	virtual void						g_fireParams(const CHudItem* pHudItem, fVector3& P, fVector3& D);
 	virtual BOOL						g_State(SEntityState& state) const;
-	virtual	float						GetWeaponAccuracy( ) const;
+	virtual	f32						GetWeaponAccuracy( ) const;
 	bool						IsZoomAimingMode( ) const
 	{
 		return m_bZoomAimingMode;
@@ -557,17 +557,17 @@ protected:
 
 	//настройки аккуратности стрельбы
 	//базовая дисперсия (когда игрок стоит на месте)
-	float								m_fDispBase;
-	float								m_fDispAim;
+	f32								m_fDispBase;
+	f32								m_fDispAim;
 	//коэффициенты на сколько процентов увеличится базовая дисперсия
 	//учитывает скорость актера 
-	float								m_fDispVelFactor;
+	f32								m_fDispVelFactor;
 	//если актер бежит
-	float								m_fDispAccelFactor;
+	f32								m_fDispAccelFactor;
 	//если актер сидит
-	float								m_fDispCrouchFactor;
+	f32								m_fDispCrouchFactor;
 	//crouch+no acceleration
-	float								m_fDispCrouchNoAccelFactor;
+	f32								m_fDispCrouchNoAccelFactor;
 	//смещение firepoint относительно default firepoint для бросания болтов и гранат
 	fVector3								m_vMissileOffset;
 
@@ -633,10 +633,9 @@ protected:
 	xr_deque<net_update_A>	NET_A;
 
 	//---------------------------------------------
-//	bool					m_bHasUpdate;	
 	/// spline coeff /////////////////////
-	float			SCoeff[3][4];			//коэффициэнты для сплайна Бизье
-	float			HCoeff[3][4];			//коэффициэнты для сплайна Эрмита
+	f32			SCoeff[3][4];			//коэффициэнты для сплайна Бизье
+	f32			HCoeff[3][4];			//коэффициэнты для сплайна Эрмита
 	fVector3		IPosS;					//положение актера после интерполяции Бизье
 	fVector3		IPosH;					// -*- Эрмита
 	fVector3		IPosL;					// -*- линейной
@@ -683,7 +682,7 @@ protected:
 	// Actor physics
 	//////////////////////////////////////////////////////////////////////////
 public:
-	void			g_Physics(fVector3& accel, float jump, float dt);
+	void			g_Physics(fVector3& accel, f32 jump, f32 dt);
 	virtual void			ForceTransform(const Fmatrix& m);
 	void			SetPhPosition(const Fmatrix& pos);
 	virtual void			PH_B_CrPr( ); // actions & operations before physic correction-prediction steps
@@ -716,8 +715,8 @@ public:
 	virtual void			ChangeVisual(shared_str NewVisual);
 	virtual void			OnChangeVisual( );
 
-	virtual void			RenderIndicator(fVector3 dpos, float r1, float r2, ref_shader IndShader);
-	virtual void			RenderText(LPCSTR Text, fVector3 dpos, float* pdup, u32 color);
+	virtual void			RenderIndicator(fVector3 dpos, f32 r1, f32 r2, ref_shader IndShader);
+	virtual void			RenderText(LPCSTR Text, fVector3 dpos, f32* pdup, u32 color);
 
 	//////////////////////////////////////////////////////////////////////////
 	// Controlled Routines
@@ -785,7 +784,7 @@ protected:
 	s16							m_s16LastHittedElement;
 	fVector3						m_vLastHitDir;
 	fVector3						m_vLastHitPos;
-	float						m_fLastHealth;
+	f32						m_fLastHealth;
 	bool						m_bWasHitted;
 	bool						m_bWasBackStabbed;
 
@@ -794,7 +793,7 @@ protected:
 public:
 	virtual void				SetHitInfo(CObject* who, CObject* weapon, s16 element, fVector3 Pos, fVector3 Dir);
 
-	virtual	void				OnHitHealthLoss(float NewHealth);
+	virtual	void				OnHitHealthLoss(f32 NewHealth);
 	virtual	void				OnCriticalHitHealthLoss( );
 	virtual	void				OnCriticalWoundHealthLoss( );
 	virtual void				OnCriticalRadiationHealthLoss( );
@@ -819,7 +818,7 @@ private:
 	CActorMemory* m_memory;
 
 public:
-	void				SetActorVisibility(u16 who, float value);
+	void				SetActorVisibility(u16 who, f32 value);
 	IC		CActorMemory& memory( ) const
 	{
 		VERIFY(m_memory);
@@ -828,7 +827,7 @@ public:
 
 	void						OnDifficultyChanged( );
 
-	IC float					HitProbability( )
+	IC f32					HitProbability( )
 	{
 		return hit_probability;
 	}
@@ -871,4 +870,4 @@ IC	CActorCondition& CActor::conditions( ) const
 
 extern CActor* g_actor;
 CActor* Actor( );
-extern const float	s_fFallTime;
+extern const f32	s_fFallTime;

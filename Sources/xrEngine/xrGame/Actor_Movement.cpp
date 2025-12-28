@@ -20,22 +20,21 @@
 #ifdef DEBUG
 #include "phdebug.h"
 #endif
-static const float	s_fLandingTime1		= 0.1f;// через сколько снять флаг Landing1 (т.е. включить следующую анимацию)
-static const float	s_fLandingTime2		= 0.3f;// через сколько снять флаг Landing2 (т.е. включить следующую анимацию)
-static const float	s_fJumpTime			= 0.3f;
-static const float	s_fJumpGroundTime	= 0.1f;	// для снятия флажка Jump если на земле
-	   const float	s_fFallTime			= 0.2f;
+static const f32	s_fLandingTime1		= 0.1f;// через сколько снять флаг Landing1 (т.е. включить следующую анимацию)
+static const f32	s_fLandingTime2		= 0.3f;// через сколько снять флаг Landing2 (т.е. включить следующую анимацию)
+static const f32	s_fJumpTime			= 0.3f;
+static const f32	s_fJumpGroundTime	= 0.1f;	// для снятия флажка Jump если на земле
+	   const f32	s_fFallTime			= 0.2f;
 
 IC static void generate_orthonormal_basis1(const fVector3& dir, fVector3& updir, fVector3& right)
 {
-
 	right.crossproduct(dir,updir); //. <->
 	right.normalize();
 	updir.crossproduct(right,dir);
 }
 
 
-void CActor::g_cl_ValidateMState(float dt, u32 mstate_wf)
+void CActor::g_cl_ValidateMState(f32 dt, u32 mstate_wf)
 {
 	// Lookout
 	if (mstate_wf&mcLookout)	mstate_real		|= mstate_wf&mcLookout;
@@ -136,7 +135,7 @@ void CActor::g_cl_ValidateMState(float dt, u32 mstate_wf)
 	};
 };
 
-void CActor::g_cl_CheckControls(u32 mstate_wf, fVector3& vControlAccel, float &Jump, float dt)
+void CActor::g_cl_CheckControls(u32 mstate_wf, fVector3& vControlAccel, f32& Jump, f32 dt)
 {
 	mstate_old = mstate_real;
 	vControlAccel.set	(0,0,0);
@@ -259,7 +258,7 @@ void CActor::g_cl_CheckControls(u32 mstate_wf, fVector3& vControlAccel, float &J
 			if (_abs(vControlAccel.x)<EPS)	mstate_real &= ~(mcLStrafe+mcRStrafe);
 
 			// normalize and analyze crouch and run
-			float	scale				= vControlAccel.magnitude();
+			f32	scale				= vControlAccel.magnitude();
 			if (scale>EPS)	{
 				scale	=	m_fWalkAccel/scale;
 				if (bAccelerated)
@@ -315,18 +314,18 @@ void CActor::g_cl_CheckControls(u32 mstate_wf, fVector3& vControlAccel, float &J
 
 #define ACTOR_ANIM_SECT "actor_animation"
 
-void CActor::g_Orientate	(u32 mstate_rl, float dt)
+void CActor::g_Orientate	(u32 mstate_rl, f32 dt)
 {
-	static float fwd_l_strafe_yaw	= deg2rad(pSettings->r_float(ACTOR_ANIM_SECT,	"fwd_l_strafe_yaw"));
-	static float back_l_strafe_yaw	= deg2rad(pSettings->r_float(ACTOR_ANIM_SECT,	"back_l_strafe_yaw"));
-	static float fwd_r_strafe_yaw	= deg2rad(pSettings->r_float(ACTOR_ANIM_SECT,	"fwd_r_strafe_yaw"));
-	static float back_r_strafe_yaw	= deg2rad(pSettings->r_float(ACTOR_ANIM_SECT,	"back_r_strafe_yaw"));
-	static float l_strafe_yaw		= deg2rad(pSettings->r_float(ACTOR_ANIM_SECT,	"l_strafe_yaw"));
-	static float r_strafe_yaw		= deg2rad(pSettings->r_float(ACTOR_ANIM_SECT,	"r_strafe_yaw"));
+	static f32 fwd_l_strafe_yaw	= deg2rad(pSettings->r_float(ACTOR_ANIM_SECT,	"fwd_l_strafe_yaw"));
+	static f32 back_l_strafe_yaw	= deg2rad(pSettings->r_float(ACTOR_ANIM_SECT,	"back_l_strafe_yaw"));
+	static f32 fwd_r_strafe_yaw	= deg2rad(pSettings->r_float(ACTOR_ANIM_SECT,	"fwd_r_strafe_yaw"));
+	static f32 back_r_strafe_yaw	= deg2rad(pSettings->r_float(ACTOR_ANIM_SECT,	"back_r_strafe_yaw"));
+	static f32 l_strafe_yaw		= deg2rad(pSettings->r_float(ACTOR_ANIM_SECT,	"l_strafe_yaw"));
+	static f32 r_strafe_yaw		= deg2rad(pSettings->r_float(ACTOR_ANIM_SECT,	"r_strafe_yaw"));
 
 	if(!g_Alive())return;
 	// visual effect of "fwd+strafe" like motion
-	float calc_yaw = 0;
+	f32 calc_yaw = 0;
 	if(mstate_real&mcClimb)
 	{
 		if(g_LadderOrient()) return;
@@ -364,7 +363,7 @@ void CActor::g_Orientate	(u32 mstate_rl, float dt)
 
 	//-------------------------------------------------
 
-	float tgt_roll		=	0.f;
+	f32 tgt_roll		=	0.0f;
 	if (mstate_rl&mcLookout)
 	{
 		tgt_roll		=	(mstate_rl&mcLLookout)?-ACTOR_LOOKOUT_ANGLE:ACTOR_LOOKOUT_ANGLE;
@@ -383,7 +382,7 @@ bool CActor::g_LadderOrient()
 	character_physics_support()->movement()->GroundNormal(leader_norm);
 	if(_abs(leader_norm.y)>M_SQRT1_2) return false;
 	//leader_norm.y=0.f;
-	float mag=leader_norm.magnitude();
+	f32 mag=leader_norm.magnitude();
 	if(mag< EPS_3) return false;
 	leader_norm.div(mag);
 	leader_norm.invert();
@@ -421,7 +420,7 @@ bool CActor::g_LadderOrient()
 	return true;
 }
 // ****************************** Update actor orientation according to camera orientation
-void CActor::g_cl_Orientate	(u32 mstate_rl, float dt)
+void CActor::g_cl_Orientate	(u32 mstate_rl, f32 dt)
 {
 	// capture camera into torso (only for FirstEye & LookAt cameras)
 	if (eacFreeLook!=cam_active)
@@ -454,7 +453,7 @@ void CActor::g_cl_Orientate	(u32 mstate_rl, float dt)
 		mstate_real		&=~mcTurn;
 	} else {
 		// if camera rotated more than 45 degrees - align model with it
-		float ty = angle_normalize(r_torso.yaw);
+		f32 ty = angle_normalize(r_torso.yaw);
 		if (_abs(r_model_yaw-ty)>PI_DIV_4)	{
 			r_model_yaw_dest = ty;
 			// 
@@ -469,7 +468,7 @@ void CActor::g_cl_Orientate	(u32 mstate_rl, float dt)
 	}
 }
 
-void CActor::g_sv_Orientate(u32 /**mstate_rl/**/, float /**dt/**/)
+void CActor::g_sv_Orientate(u32 /**mstate_rl/**/, f32 /**dt/**/)
 {
 	// rotation
 	r_model_yaw		= NET_Last.o_model;

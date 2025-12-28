@@ -80,9 +80,9 @@ struct					net_input
 	u32					mstate_wishful;	
 
 	u8					cam_mode;
-	float				cam_yaw;
-	float				cam_pitch;
-	float				cam_roll;
+	f32				cam_yaw;
+	f32				cam_pitch;
+	f32				cam_roll;
 
 	bool operator < (const u32 Time)
 	{
@@ -94,15 +94,15 @@ struct					net_input
 struct				net_update 		
 {
 	u32					dwTimeStamp;			// server(game) timestamp
-	float				o_model;				// model yaw
+	f32				o_model;				// model yaw
 	SRotation			o_torso;				// torso in world coords
 	fVector3				p_pos;					// in world coords
 	fVector3				p_accel;				// in world coords
 	fVector3				p_velocity;				// in world coords
 	u32					mstate;
 	int					weapon;
-	float				fHealth;
-//	float				fArmor;
+	f32				fHealth;
+//	f32				fArmor;
 
 	net_update()	{
 		dwTimeStamp		= 0;
@@ -111,7 +111,7 @@ struct				net_update
 		p_velocity.set	(0,0,0);
 	}
 
-	void	lerp		(net_update& A,net_update& B, float f);
+	void	lerp		(net_update& A,net_update& B, f32 f);
 };
 
 ///////////////////////////////////////////////////////
@@ -130,7 +130,7 @@ struct					InterpData
 {
 	fVector3				Pos;
 	fVector3				Vel;
-	float				o_model;				// model yaw
+	f32				o_model;				// model yaw
 	SRotation			o_torso;				// torso in world coords
 };
 

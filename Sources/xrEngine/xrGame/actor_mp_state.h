@@ -13,15 +13,15 @@ struct actor_mp_state {
 	fVector3			position;						// should be removed in future(?)
 	fVector3			logic_acceleration;
 
-	float			model_yaw;
-	float			camera_yaw;						// should be removed in future
-	float			camera_pitch;					// should be removed in future
-	float			camera_roll;					// should be removed in future
+	f32			model_yaw;
+	f32			camera_yaw;						// should be removed in future
+	f32			camera_pitch;					// should be removed in future
+	f32			camera_roll;					// should be removed in future
 
 	u32				time;							// should be removed
 
-	float			health;
-	float			radiation;
+	f32			health;
+	f32			radiation;
 
 	u32				inventory_active_slot			: 4;
 	u32				body_state_flags				: 15;

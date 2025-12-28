@@ -24,6 +24,7 @@
 #include "UI/UIStatic.h"
 #include "CharacterPhysicsSupport.h"
 #include "InventoryBox.h"
+#include "HudItem.h"
 
 bool g_bAutoClearCrouch = true;
 
@@ -214,7 +215,7 @@ void CActor::IR_OnKeyboardHold(int cmd)
 		return;
 	}
 
-	float LookFactor = GetLookFactor();
+	f32 LookFactor = GetLookFactor();
 	switch(cmd)
 	{
 	case kUP:
@@ -251,20 +252,20 @@ void CActor::IR_OnMouseMove(int dx, int dy)
 		return;
 	}
 
-	float LookFactor = GetLookFactor();
+	f32 LookFactor = GetLookFactor();
 
 	CCameraBase* C	= cameras	[cam_active];
-	float scale		= (C->f_fov/g_fov)*psMouseSens * psMouseSensScale/50.f  / LookFactor;
+	f32 scale		= (C->f_fov/g_fov)*psMouseSens * psMouseSensScale/50.f  / LookFactor;
 	if (dx){
-		float d = float(dx)*scale;
+		f32 d = f32(dx)*scale;
 		cam_Active()->Move((d<0)?kLEFT:kRIGHT, _abs(d));
 	}
 	if (dy){
-		float d = ((psMouseInvert.test(1))?-1:1)*float(dy)*scale*3.f/4.f;
+		f32 d = ((psMouseInvert.test(1))?-1:1)* f32(dy)*scale*3.0f/4.0f;
 		cam_Active()->Move((d>0)?kUP:kDOWN, _abs(d));
 	}
 }
-#include "HudItem.h"
+
 bool CActor::use_Holder				(CHolderCustom* holder)
 {
 
@@ -476,13 +477,12 @@ void	CActor::OnPrevWeaponSlot()
 	}
 };
 
-float	CActor::GetLookFactor()
+f32	CActor::GetLookFactor()
 {
 	if (m_input_external_handler) 
 		return m_input_external_handler->mouse_scale_factor();
 
-	
-	float factor	= 1.f;
+	f32 factor	= 1.0f;
 
 	PIItem pItem	= inventory().ActiveItem();
 
