@@ -43,7 +43,7 @@ void CEffectorBobbing::SetState(u32 mstate, bool limping, bool ZoomMode){
 }
 
 
-BOOL CEffectorBobbing::Process		(Fvector &p, Fvector &d, Fvector &n, float& /**fFov/**/, float& /**fFar/**/, float& /**fAspect/**/)
+BOOL CEffectorBobbing::Process		(fVector3& p, fVector3& d, fVector3& n, float& /**fFov/**/, float& /**fFar/**/, float& /**fAspect/**/)
 {
 	fTime			+= Device.fTimeDelta;
 	if (dwMState&ACTOR_DEFS::mcAnyMove){
@@ -62,7 +62,7 @@ BOOL CEffectorBobbing::Process		(Fvector &p, Fvector &d, Fvector &n, float& /**f
 		M.c.set		(p);
 		
 		// apply footstep bobbing effect
-		Fvector dangle;
+		fVector3 dangle;
 		float k		= ((dwMState& ACTOR_DEFS::mcCrouch)?CROUCH_FACTOR:1.f);
 
 		float A, ST;

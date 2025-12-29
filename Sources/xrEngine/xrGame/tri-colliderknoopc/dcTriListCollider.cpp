@@ -33,7 +33,7 @@ int dCollideBP (const dxGeom* o1, const dxGeom* o2, int flags, dContactGeom *con
 
 int dcTriListCollider::CollideBox(dxGeom* Box, int Flags, dContactGeom* Contacts, int Stride)
 {
-	Fvector AABB;
+	fVector3 AABB;
 	dVector3 BoxSides;
 	dGeomBoxGetLengths(Box,BoxSides);
 	dReal* R=const_cast<dReal*>(dGeomGetRotation(Box));
@@ -64,40 +64,37 @@ int dcTriListCollider::CollideBox(dxGeom* Box, int Flags, dContactGeom* Contacts
 
 
 
-int dcTriListCollider::CollideCylinder(dxGeom* Cylinder, int Flags, dContactGeom* Contacts, int Stride){
+int dcTriListCollider::CollideCylinder(dxGeom* Cylinder, int Flags, dContactGeom* Contacts, int Stride)
+{
+	fVector3 AABB;
+	dReal CylinderRadius, CylinderLength;
 
+	dGeomCylinderGetParams(Cylinder, &CylinderRadius, &CylinderLength);
 
+	dReal* R = const_cast<dReal*>(dGeomGetRotation(Cylinder));
 
-	Fvector AABB;
-	dReal CylinderRadius,CylinderLength;
+	AABB.x = REAL(0.5) * dFabs(R[1] * CylinderLength) + (_sqrt(R[0] * R[0] + R[2] * R[2]) * CylinderRadius);
 
+	AABB.y = REAL(0.5) * dFabs(R[5] * CylinderLength) + (_sqrt(R[4] * R[4] + R[6] * R[6]) * CylinderRadius);
 
-	dGeomCylinderGetParams (Cylinder, &CylinderRadius,&CylinderLength);
+	AABB.z = REAL(0.5) * dFabs(R[9] * CylinderLength) + (_sqrt(R[8] * R[8] + R[10] * R[10]) * CylinderRadius);
 
-	dReal* R=const_cast<dReal*>(dGeomGetRotation(Cylinder));
-
-	AABB.x =  REAL(0.5) * dFabs (R[1] * CylinderLength) + (_sqrt(R[0]*R[0]+R[2]*R[2]) * CylinderRadius);
-
-	AABB.y =  REAL(0.5) * dFabs (R[5] * CylinderLength) + (_sqrt(R[4]*R[4]+R[6]*R[6]) * CylinderRadius);
-
-	AABB.z =  REAL(0.5) * dFabs (R[9] * CylinderLength) + (_sqrt(R[8]*R[8]+R[10]*R[10]) * CylinderRadius);
-
-	const dReal*velocity=dBodyGetLinearVel(dGeomGetBody(Cylinder));
-	AABB.x+=dFabs(velocity[0])*0.04f;
-	AABB.y+=dFabs(velocity[1])*0.04f;
-	AABB.z+=dFabs(velocity[2])*0.04f;
+	const dReal* velocity = dBodyGetLinearVel(dGeomGetBody(Cylinder));
+	AABB.x += dFabs(velocity[0]) * 0.04f;
+	AABB.y += dFabs(velocity[1]) * 0.04f;
+	AABB.z += dFabs(velocity[2]) * 0.04f;
 
 	CylTri	ct(*this);
 	return dSortTriPrimitiveCollide
-		(
+	(
 		ct,
 		Cylinder,
 		Geometry,
 		Flags,
-		Contacts,   
+		Contacts,
 		Stride,
 		AABB
-		);
+	);
 
 }
 
@@ -108,7 +105,7 @@ int dcTriListCollider::CollideCylinder(dxGeom* Cylinder, int Flags, dContactGeom
  int dcTriListCollider::CollideSphere(dxGeom* Sphere, int Flags, dContactGeom* Contacts, int Stride){
 
 						 const float SphereRadius = dGeomSphereGetRadius(Sphere);
-						 Fvector AABB;
+						 fVector3 AABB;
 
 
 						 // Make AABB 

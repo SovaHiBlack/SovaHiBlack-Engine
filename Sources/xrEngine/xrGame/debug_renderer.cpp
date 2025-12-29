@@ -19,7 +19,7 @@ CDebugRenderer::CDebugRenderer		()
 		*I							= i;
 }
 
-void CDebugRenderer::add_lines		(const Fvector *vertices, const u16 *pairs, const int &pair_count, const u32 &color)
+void CDebugRenderer::add_lines		(const fVector3* vertices, const u16 *pairs, const int &pair_count, const u32 &color)
 {
 	if ((m_line_vertices.size() + 2*pair_count) >= line_vertex_limit)
 		render						();
@@ -39,22 +39,22 @@ void CDebugRenderer::add_lines		(const Fvector *vertices, const u16 *pairs, cons
 	}
 }
 
-void CDebugRenderer::draw_obb		(const Fmatrix &matrix, const Fvector &half_size, const u32 &color)
+void CDebugRenderer::draw_obb		(const Fmatrix &matrix, const fVector3& half_size, const u32 &color)
 {
 	Fmatrix							mL2W_Transform,mScaleTransform;
 
 	mScaleTransform.scale			(half_size);
 	mL2W_Transform.mul_43			(matrix,mScaleTransform);
 
-	Fvector							aabb[8];
-	mL2W_Transform.transform_tiny	(aabb[0],Fvector().set( -1, -1, -1)); // 0
-	mL2W_Transform.transform_tiny	(aabb[1],Fvector().set( -1, +1, -1)); // 1
-	mL2W_Transform.transform_tiny	(aabb[2],Fvector().set( +1, +1, -1)); // 2
-	mL2W_Transform.transform_tiny	(aabb[3],Fvector().set( +1, -1, -1)); // 3
-	mL2W_Transform.transform_tiny	(aabb[4],Fvector().set( -1, -1, +1)); // 4
-	mL2W_Transform.transform_tiny	(aabb[5],Fvector().set( -1, +1, +1)); // 5
-	mL2W_Transform.transform_tiny	(aabb[6],Fvector().set( +1, +1, +1)); // 6
-	mL2W_Transform.transform_tiny	(aabb[7],Fvector().set( +1, -1, +1)); // 7
+	fVector3							aabb[8];
+	mL2W_Transform.transform_tiny	(aabb[0], fVector3().set( -1.0f, -1.0f, -1.0f)); // 0
+	mL2W_Transform.transform_tiny	(aabb[1], fVector3().set( -1.0f, +1.0f, -1.0f)); // 1
+	mL2W_Transform.transform_tiny	(aabb[2], fVector3().set( +1.0f, +1.0f, -1.0f)); // 2
+	mL2W_Transform.transform_tiny	(aabb[3], fVector3().set( +1.0f, -1.0f, -1.0f)); // 3
+	mL2W_Transform.transform_tiny	(aabb[4], fVector3().set( -1.0f, -1.0f, +1.0f)); // 4
+	mL2W_Transform.transform_tiny	(aabb[5], fVector3().set( -1.0f, +1.0f, +1.0f)); // 5
+	mL2W_Transform.transform_tiny	(aabb[6], fVector3().set( +1.0f, +1.0f, +1.0f)); // 6
+	mL2W_Transform.transform_tiny	(aabb[7], fVector3().set( +1.0f, -1.0f, +1.0f)); // 7
 
 	u16								aabb_id[12*2] = {
 		0,1,  1,2,  2,3,  3,0,  4,5,  5,6,  6,7,  7,4,  1,5,  2,6,  3,7,  0,4
@@ -149,11 +149,11 @@ void CDebugRenderer::draw_ellipse	(const Fmatrix &matrix, const u32 &color)
 	};
 
 	int			count	= sizeof(vertices)/(sizeof(float));
-	Fvector		*I = (Fvector*)vertices;
-	Fvector		*E = (Fvector*)(vertices + count);
+	fVector3* I = (fVector3*)vertices;
+	fVector3* E = (fVector3*)(vertices + count);
 	for ( ; I != E; ++I)
-		matrix.transform_tiny	(*I,Fvector().set(*I));
+		matrix.transform_tiny	(*I, fVector3().set(*I));
 
-	add_lines	((Fvector*)&vertices[0],&pairs[0],sizeof(pairs)/sizeof(float),color);
+	add_lines	((fVector3*)&vertices[0],&pairs[0],sizeof(pairs)/sizeof(float),color);
 }
 #endif

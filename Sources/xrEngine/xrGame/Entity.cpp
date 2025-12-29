@@ -98,12 +98,11 @@ float CEntity::CalcCondition(float hit)
 
 void	CEntity::Hit		(SHit* pHDS)
 {
-
 	if (bDebug)				Log("Process HIT: ", *cName());
 
 	// *** process hit calculations
 	// Calc impulse
-	Fvector					vLocalDir;
+	fVector3					vLocalDir;
 	float					m = pHDS->dir.magnitude();
 	VERIFY					(m>EPS);
 	

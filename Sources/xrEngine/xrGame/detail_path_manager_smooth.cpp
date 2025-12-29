@@ -189,7 +189,7 @@ bool CDetailPathManager::build_circle_trajectory(
 		return			(true);
 	}
 	fVector2			direction;
-	Fvector				curr_pos;
+	fVector3				curr_pos;
 	u32					curr_vertex_id;
 	direction.sub		(position.position,position.center);
 	curr_pos.set		(position.position.x,0.f,position.position.y);
@@ -458,7 +458,8 @@ void CDetailPathManager::validate_vertex_position(STrajectoryPoint &point) const
 		return;
 
 	CLevelGraph::SContour	contour;
-	Fvector					position, center;
+	fVector3				position;
+	fVector3				center;
 	ai().level_graph().contour(contour,point.vertex_id);
 	ai().level_graph().nearest(position,ai().level_graph().v3d(point.position),contour);
 	center.add				(contour.v1,contour.v3);
@@ -807,7 +808,7 @@ void CDetailPathManager::add_patrol_point()
 	m_last_patrol_point					= m_path.size() - 1;
 	if ((m_path.size() > 1) && m_state_patrol_path && !fis_zero(extrapolate_length())) {
 		STravelPathPoint				t;
-		Fvector							v;
+		fVector3						v;
 		v.sub							(m_path.back().position,m_path[m_last_patrol_point - 1].position);
 		v.y								= 0.f;
 		if (v.magnitude() > EPS_S)
@@ -848,7 +849,7 @@ void CDetailPathManager::build_smooth_path		(
 
 	if (m_restricted_object) {
 #ifdef DEBUG
-		Fvector							start_pos = ai().level_graph().v3d(start.position);
+		fVector3						start_pos = ai().level_graph().v3d(start.position);
 		start_pos.y						= ai().level_graph().vertex_plane_y(start.vertex_id,start_pos.x,start_pos.z);
 		bool							alvi = m_restricted_object->accessible(start.vertex_id);
 		bool							asp = m_restricted_object->accessible(start_pos);

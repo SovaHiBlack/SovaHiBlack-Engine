@@ -36,9 +36,9 @@ public:
 private:
 	virtual void 				Explode();
 public:
-	virtual void 				ExplodeParams	(const Fvector& pos, const Fvector& dir);
+	virtual void 				ExplodeParams	(const fVector3& pos, const fVector3& dir);
 
-	static float 				ExplosionEffect	(collide::rq_results& storage,CExplosive*exp_obj,CPhysicsShellHolder*blasted_obj,  const Fvector &expl_centre, const float expl_radius);
+	static float 				ExplosionEffect	(collide::rq_results& storage,CExplosive*exp_obj,CPhysicsShellHolder*blasted_obj,  const fVector3& expl_centre, const float expl_radius);
 
 
 	virtual void 				OnEvent (NET_Packet& P, u16 type) ;//{inherited::OnEvent( P, type);}
@@ -51,29 +51,29 @@ public:
 	virtual	u16					Initiator();
 
 	virtual void				UpdateExplosionPos(){}
-	virtual void				GetExplVelocity(Fvector	&v);
-	virtual void				GetExplPosition(Fvector &p) ;
-	virtual void				GetExplDirection(Fvector &d);
-	virtual void 				GenExplodeEvent (const Fvector& pos, const Fvector& normal);
-	virtual void 				FindNormal(Fvector& normal);
+	virtual void				GetExplVelocity(fVector3& v);
+	virtual void				GetExplPosition(fVector3& p) ;
+	virtual void				GetExplDirection(fVector3& d);
+	virtual void 				GenExplodeEvent (const fVector3& pos, const fVector3& normal);
+	virtual void 				FindNormal(fVector3& normal);
 	virtual CGameObject			*cast_game_object()=0;
 	virtual CExplosive*			cast_explosive(){return this;}
 	virtual IDamageSource*		cast_IDamageSource()	{return this;}
-	virtual void				GetRayExplosionSourcePos(Fvector &pos);
-	virtual	void				GetExplosionBox			(Fvector &size);
-	virtual void				ActivateExplosionBox	(const Fvector &size,Fvector &in_out_pos);
-			void				SetExplosionSize		(const Fvector &new_size);
+	virtual void				GetRayExplosionSourcePos(fVector3& pos);
+	virtual	void				GetExplosionBox			(fVector3& size);
+	virtual void				ActivateExplosionBox	(const fVector3& size, fVector3& in_out_pos);
+			void				SetExplosionSize		(const fVector3& new_size);
 	virtual bool				Useful					() const;
 protected:
 			bool				IsSoundPlaying			(){return !!sndExplode._feedback();}
 			bool				IsExploded				(){return !!m_explosion_flags.test(flExploded);}
 private:
 			void				PositionUpdate			();
-static		void				GetRaySourcePos			(CExplosive	*exp_obj,const Fvector &expl_centre,Fvector	&p);
+static		void				GetRaySourcePos			(CExplosive	*exp_obj,const fVector3& expl_centre, fVector3& p);
 
 			void				ExplodeWaveProcessObject(collide::rq_results& storage,CPhysicsShellHolder*sh);
 			void				ExplodeWaveProcess		();
-static		float				TestPassEffect			(const	Fvector	&source_p,	const	Fvector	&dir,float range,float ef_radius,collide::rq_results& storage, CObject* blasted_obj);
+static		float				TestPassEffect			(const	fVector3& source_p,	const	fVector3& dir,float range,float ef_radius,collide::rq_results& storage, CObject* blasted_obj);
 			void				LightCreate				();
 			void				LightDestroy			();
 protected:
@@ -83,9 +83,9 @@ protected:
 	u16							m_iCurrentParentID;
 	
 	//bool						m_bReadyToExplode;
-	Fvector						m_vExplodePos;
-	Fvector 					m_vExplodeSize;
-	Fvector 					m_vExplodeDir;
+	fVector3						m_vExplodePos;
+	fVector3 					m_vExplodeSize;
+	fVector3 					m_vExplodeDir;
 
 	//параметры взрыва
 	float 						m_fBlastHit;
@@ -172,10 +172,12 @@ add_to_type_list(CExplosive)
 #undef script_type_list
 #define script_type_list save_type_list(CExplosive)
 
-IC void random_point_in_object_box(Fvector &out_pos,CObject* obj)
+IC void random_point_in_object_box(fVector3& out_pos,CObject* obj)
 {
 	const Fbox &l_b1 = obj->BoundingBox();
-	Fvector l_c, l_d;l_b1.get_CD(l_c,l_d);
+	fVector3 l_c;
+	fVector3 l_d;
+	l_b1.get_CD(l_c, l_d);
 	out_pos.random_point(l_d);
 	obj->XFORM().transform_tiny(out_pos);
 	out_pos.add(l_c);

@@ -92,10 +92,10 @@ public:
 	u32										dwTimeContinual;
 
 	// Cameras & projection
-	Fvector									vCameraPosition;
-	Fvector									vCameraDirection;
-	Fvector									vCameraTop;
-	Fvector									vCameraRight;
+	fVector3								vCameraPosition;
+	fVector3								vCameraDirection;
+	fVector3								vCameraTop;
+	fVector3								vCameraRight;
 	Fmatrix									mView;
 	Fmatrix									mProject;
 	Fmatrix									mFullTransform;

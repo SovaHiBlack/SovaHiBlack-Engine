@@ -30,7 +30,7 @@ static SEnertionState m_etable[CElevatorState::clbNoState][CElevatorState::clbNo
 
 CClimableObject	*m_ladder;	
 CPHCharacter	*m_character;
-Fvector			m_start_position;//for depart state
+fVector3			m_start_position;//for depart state
 u32				m_start_time;
 public: 
 						CElevatorState					();
@@ -38,9 +38,9 @@ public:
 			void		SetCharacter					(CPHCharacter *character);
 			void		SetElevator						(CClimableObject* climable);
 			void		EvaluateState					();
-			bool		GetControlDir					(Fvector& dir);
-			void		GetJumpDir						(const Fvector& accel,Fvector& dir);
-			void		GetLeaderNormal					(Fvector& dir);
+			bool		GetControlDir					(fVector3& dir);
+			void		GetJumpDir						(const fVector3& accel, fVector3& dir);
+			void		GetLeaderNormal					(fVector3& dir);
 			bool		Active							(){return m_ladder && m_state!=clbNone;}
 			bool		NearDown						(){return m_state == clbNearDown;}
 			bool		NearState						(){return m_state==clbNearUp || m_state == clbNearDown;}
@@ -61,7 +61,7 @@ private:
 			void		UpdateStNearDown				();
 			void		UpdateStClimbingUp				();
 			void		UpdateStClimbingDown			();
-			void		UpdateClimbingCommon			(const Fvector	&d_to_ax,float to_ax,const Fvector& control_accel,float ca);
+			void		UpdateClimbingCommon			(const fVector3& d_to_ax,float to_ax,const fVector3& control_accel,float ca);
 			void		UpdateDepart					();
 
 			
