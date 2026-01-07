@@ -1,8 +1,7 @@
-//---------------------------------------------------------------------------
 #ifndef SkeletonMotionsH
 #define SkeletonMotionsH
 
-#include		"skeletoncustom.h"
+#include "skeletoncustom.h"
 
 // refs
 class CKinematicsAnimated;
@@ -20,8 +19,8 @@ const	f32		KEY_QuantI			=	1.f/KEY_Quant;
 
 //*** Key frame definition ************************************************************************
 enum{
-    flTKeyPresent 	= (1<<0),
-    flRKeyAbsent 	= (1<<1),
+	flTKeyPresent 	= (1<<0),
+	flRKeyAbsent 	= (1<<1),
 };
 #pragma pack(push,2)
 struct ENGINE_API CKey
@@ -43,21 +42,23 @@ struct ENGINE_API CKeyQT
 class ENGINE_API		CMotion
 {
 	struct{
-    	u32				_flags	: 8;
+		u32				_flags	: 8;
 		u32				_count 	: 24;
-    };
-public:
-    ref_smem<CKeyQR>	_keysR;
-    ref_smem<CKeyQT>	_keysT;
-	Fvector				_initT;
-    Fvector				_sizeT;
-public:    
-    void				set_flags			(u8 val)			{_flags=val;}
-    void				set_flag			(u8 mask, u8 val)	{if (val)_flags|=mask; else _flags&=~mask;}
-    BOOL				test_flag			(u8 mask) const		{return BOOL(_flags&mask);}
+	};
 
-    void				set_count			(u32 cnt){VERIFY(cnt); _count=cnt;}
-    u32					get_count			() const {return (u32(_count)&0x00FFFFFF);}
+public:
+	ref_smem<CKeyQR>	_keysR;
+	ref_smem<CKeyQT>	_keysT;
+	Fvector				_initT;
+	Fvector				_sizeT;
+
+public:
+	void				set_flags			(u8 val)			{_flags=val;}
+	void				set_flag			(u8 mask, u8 val)	{if (val)_flags|=mask; else _flags&=~mask;}
+	BOOL				test_flag			(u8 mask) const		{return BOOL(_flags&mask);}
+
+	void				set_count			(u32 cnt){VERIFY(cnt); _count=cnt;}
+	u32					get_count			() const {return (u32(_count)&0x00FFFFFF);}
 
 	float				GetLength			(){ return float(_count)*SAMPLE_SPF; }
 
@@ -73,38 +74,32 @@ class ENGINE_API motion_marks
 {
 public:
 	typedef					std::pair<  float, float > 				interval;
-#ifdef _EDITOR
-public:
-#else
+
 private:
-#endif
 	typedef xr_vector< interval >									STORAGE;
 	typedef STORAGE::iterator										ITERATOR;
 	typedef STORAGE::const_iterator									C_ITERATOR;
 
 	STORAGE			intervals;	
+
 public:
 	shared_str		name;
 	void			Load			(IReader*);
 
-#ifdef _EDITOR
-	void			Save			(IWriter*);
-#endif
 	bool			pick_mark		(const float& t) const;
 };
-
 
 const float	fQuantizerRangeExt	= 1.5f;
 class ENGINE_API		CMotionDef
 {
 public:
-    u16						bone_or_part;
+	u16						bone_or_part;
 	u16						motion;
 	u16						speed;				// quantized: 0..10
 	u16						power;				// quantized: 0..10
 	u16						accrue;				// quantized: 0..10
 	u16						falloff;			// quantized: 0..10
-    u16						flags;
+	u16						flags;
 	xr_vector<motion_marks>	marks;
 
 	IC float				Dequantize			(u16 V)		{	return  float(V)/655.35f; }
@@ -113,11 +108,11 @@ public:
 	void					Load				(IReader* MP, u32 fl, u16 vers);
 	u32						mem_usage			(){ return sizeof(*this);}
 
-    ICF float				Accrue				(){return fQuantizerRangeExt*Dequantize(accrue);}
-    ICF float				Falloff				(){return fQuantizerRangeExt*Dequantize(falloff);}
-    ICF float				Speed				(){return Dequantize(speed);}
-    ICF float				Power				(){return Dequantize(power);}
-    bool					StopAtEnd			();
+	ICF float				Accrue				(){return fQuantizerRangeExt*Dequantize(accrue);}
+	ICF float				Falloff				(){return fQuantizerRangeExt*Dequantize(falloff);}
+	ICF float				Speed				(){return Dequantize(speed);}
+	ICF float				Power				(){return Dequantize(power);}
+	bool					StopAtEnd			();
 };
 struct accel_str_pred 	{	
 	IC bool operator()(const shared_str& x, const shared_str& y) const	{	return xr_strcmp(x,y)<0;	}
@@ -157,7 +152,7 @@ struct ENGINE_API		motions_value
 	CPartition			m_partition;		// partition
 	u32					m_dwReference;
 	BoneMotionMap		m_motions;
-    MotionDefVec		m_mdefs;
+	MotionDefVec		m_mdefs;
 
 	shared_str			m_id;
 
@@ -167,7 +162,7 @@ struct ENGINE_API		motions_value
 
 	u32					mem_usage			(){ 
 		u32 sz			=	sizeof(*this)+m_motion_map.size()*6+m_partition.mem_usage();
-        for (MotionDefVecIt it=m_mdefs.begin(); it!=m_mdefs.end(); it++)
+		for (MotionDefVecIt it=m_mdefs.begin(); it!=m_mdefs.end(); it++)
 			sz			+=	it->mem_usage();
 		for (BoneMotionMapIt bm_it=m_motions.begin(); bm_it!=m_motions.end(); bm_it++)
 			for (MotionVecIt m_it=bm_it->second.begin(); m_it!=bm_it->second.end(); m_it++)
@@ -217,8 +212,8 @@ public:
 	accel_map*			cycle			()							{	VERIFY(p_); return &p_->m_cycle;				}
 	accel_map*			fx				()							{	VERIFY(p_); return &p_->m_fx;					}
 	CPartition*			partition		()							{	VERIFY(p_); return &p_->m_partition;			}
-    MotionDefVec*		motion_defs		()							{	VERIFY(p_); return &p_->m_mdefs;				}
-    CMotionDef*			motion_def		(u16 idx)					{	VERIFY(p_); return &p_->m_mdefs[idx];			}
+	MotionDefVec*		motion_defs		()							{	VERIFY(p_); return &p_->m_mdefs;				}
+	CMotionDef*			motion_def		(u16 idx)					{	VERIFY(p_); return &p_->m_mdefs[idx];			}
 
 	const shared_str	&id				() const					{	VERIFY(p_); return p_->m_id;					}
 

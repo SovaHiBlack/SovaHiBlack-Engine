@@ -79,8 +79,8 @@ public:
 	}
 	IC void 		w_angle16	(float a)		    {	w_float_q16	(angle_normalize(a),0,PI_MUL_2);}
 	IC void 		w_angle8	(float a)		    {	w_float_q8	(angle_normalize(a),0,PI_MUL_2);}
-	IC void 		w_dir		(const Fvector& D) 	{	w_u16(pvCompress(D));	}
-	void 			w_sdir		(const Fvector& D);
+	IC void 		w_dir		(const fVector3& D) 	{	w_u16(pvCompress(D));	}
+	void 			w_sdir		(const fVector3& D);
 	void	__cdecl	w_printf	(const char* format, ...);
 
 	// generalized chunking
@@ -140,8 +140,8 @@ public:
 	
 	IC void			r			(void *p,int cnt) {impl().r(p,cnt);}
 
-	IC Fvector		r_vec3		()			{Fvector tmp;r(&tmp,3*sizeof(float));return tmp;	};
-	IC fVector4		r_vec4		()			{		fVector4 tmp;r(&tmp,4*sizeof(float));return tmp;	};
+	IC fVector3		r_vec3		()			{	fVector3 tmp;r(&tmp,3*sizeof(float));return tmp;	};
+	IC fVector4		r_vec4		()			{	fVector4 tmp;r(&tmp,4*sizeof(float));return tmp;	};
 	IC u64			r_u64		()			{	u64 tmp;	r(&tmp,sizeof(tmp)); return tmp;	};
 	IC u32			r_u32		()			{	u32 tmp;	r(&tmp,sizeof(tmp)); return tmp;	};
 	IC u16			r_u16		()			{	u16 tmp;	r(&tmp,sizeof(tmp)); return tmp;	};
@@ -175,8 +175,8 @@ public:
 	}
 	IC float		r_angle16	()			{ return r_float_q16(0,PI_MUL_2);	}
 	IC float		r_angle8	()			{ return r_float_q8	(0,PI_MUL_2);	}
-	IC void			r_dir		(Fvector& A){ u16 t=r_u16(); pvDecompress(A,t); }
-	IC void			r_sdir		(Fvector& A)
+	IC void			r_dir		(fVector3& A){ u16 t=r_u16(); pvDecompress(A,t); }
+	IC void			r_sdir		(fVector3& A)
 	{
 		u16	t		= r_u16();
 		float s		= r_float();

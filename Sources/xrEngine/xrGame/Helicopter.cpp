@@ -288,7 +288,8 @@ float GetCurrAcc(float V0, float V1, float dist, float a0, float a1);
 
 void CHelicopter::MoveStep()
 {
-	Fvector dir, pathDir;
+	fVector3 dir;
+	fVector3 pathDir;
 	float desired_H = m_movement.currPathH;
 	float desired_P;
 	if(m_movement.type != eMovNone){
@@ -346,7 +347,7 @@ void CHelicopter::MoveStep()
 	};
 
 	if(	m_body.b_looking_at_point){
-		Fvector desired_dir;
+		fVector3 desired_dir;
 		desired_dir.sub(m_body.looking_point, m_movement.currP ).normalize_safe();
 
 		float center_desired_H,tmp_P;
@@ -356,21 +357,18 @@ void CHelicopter::MoveStep()
 		angle_lerp			(m_body.currBodyHPB.x, m_movement.currPathH, m_movement.GetAngSpeedHeading(m_movement.curLinearSpeed), STEP);
 	}
 
-
 	float needBodyP = -m_body.model_pitch_k*m_movement.curLinearSpeed;
 	if(m_movement.curLinearAcc < 0) needBodyP*=-1;
 	angle_lerp	(m_body.currBodyHPB.y, needBodyP, m_body.model_angSpeedPitch, STEP);
 
-
 	float sign;
-	Fvector cp;
+	fVector3 cp;
 	cp.crossproduct (pathDir,dir);
 	(cp.y>0.0)?sign=1.0f:sign=-1.0f;
 	float ang_diff = angle_difference (m_movement.currPathH, desired_H);
 	
 	float needBodyB = -ang_diff*sign*m_body.model_bank_k*m_movement.curLinearSpeed;
 	angle_lerp	(m_body.currBodyHPB.z, needBodyB, m_body.model_angSpeedBank, STEP);
-	
 
 	XFORM().setHPB(m_body.currBodyHPB.x,m_body.currBodyHPB.y,m_body.currBodyHPB.z);
 
@@ -455,12 +453,12 @@ void CHelicopter::goPatrolByPatrolPath (LPCSTR path_name, int start_idx)
 }
 
 
-void CHelicopter::goByRoundPath(Fvector center, float radius, bool clockwise)
+void CHelicopter::goByRoundPath(fVector3 center, float radius, bool clockwise)
 {
 	m_movement.goByRoundPath(center, radius, clockwise);
 }
 
-void CHelicopter::LookAtPoint(Fvector point, bool do_it)
+void CHelicopter::LookAtPoint(fVector3 point, bool do_it)
 {
 	m_body.LookAtPoint(point,do_it);
 }

@@ -100,7 +100,8 @@ ICF static BOOL pick_trace_callback(collide::rq_result& result, LPVOID params)
 
 void CHUDTarget::CursorOnFrame ()
 {
-	Fvector				p1,dir;
+	fVector3			p1;
+	fVector3			dir;
 
 	p1					= Device.vCameraPosition;
 	dir					= Device.vCameraDirection;
@@ -130,14 +131,14 @@ void CHUDTarget::Render()
 	CEntity*	E		= smart_cast<CEntity*>(O);
 	if (0==E)	return;
 
-	Fvector p1				= Device.vCameraPosition;
-	Fvector dir				= Device.vCameraDirection;
+	fVector3 p1				= Device.vCameraPosition;
+	fVector3 dir				= Device.vCameraDirection;
 	
 	// Render cursor
 	u32 C				= C_DEFAULT;
 	
 	FVF::TL				PT;
-	Fvector				p2;
+	fVector3				p2;
 	p2.mad				(p1,dir,RQ.range);
 	PT.transform		(p2,Device.mFullTransform);
 	float				di_size = C_SIZE/powf(PT.p.w,.2f);

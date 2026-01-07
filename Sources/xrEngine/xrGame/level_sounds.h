@@ -11,9 +11,10 @@ struct SStaticSound
 	iVector2		m_PauseTime;
 	u32				m_NextTime;
 	u32				m_StopTime;
-	Fvector			m_Position;
+	fVector3			m_Position;
 	float			m_Volume;
 	float			m_Freq;
+
 public:
 	void 			Load			(IReader& F);
 	void 			Update			(u32 gt, u32 rt);

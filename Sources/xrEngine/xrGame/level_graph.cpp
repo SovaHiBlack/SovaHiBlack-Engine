@@ -12,22 +12,16 @@
 
 LPCSTR LEVEL_GRAPH_NAME = "level.ai";
 
-#ifdef AI_COMPILER
-CLevelGraph::CLevelGraph		(LPCSTR filename)
-#else
 CLevelGraph::CLevelGraph		()
-#endif
 {
-#ifndef AI_COMPILER
+
 #ifdef DEBUG
 	sh_debug.create				("debug\\ai_nodes","$null");
 #endif
+
 	string_path					file_name;
 	FS.update_path				(file_name,"$level$",LEVEL_GRAPH_NAME);
-#else
-	string256					file_name;
-	strconcat					(file_name,filename,LEVEL_GRAPH_NAME);
-#endif
+
 	m_reader					= FS.r_open	(file_name);
 
 	// m_header & data
@@ -41,12 +35,10 @@ CLevelGraph::CLevelGraph		()
 	unpack_xz					(vertex_position(header().box().max),m_max_x,m_max_z);
 
 #ifdef DEBUG
-#	ifndef AI_COMPILER
-		m_current_level_id		= -1;
-		m_current_actual		= false;
-		m_current_center		= Fvector().set(flt_max,flt_max,flt_max);
-		m_current_radius		= Fvector().set(flt_max,flt_max,flt_max);
-#	endif
+	m_current_level_id		= -1;
+	m_current_actual		= false;
+	m_current_center		= fVector3().set(flt_max,flt_max,flt_max);
+	m_current_radius		= fVector3().set(flt_max,flt_max,flt_max);
 #endif
 }
 
@@ -55,7 +47,7 @@ CLevelGraph::~CLevelGraph		()
 	FS.r_close					(m_reader);
 }
 
-u32	CLevelGraph::vertex		(const Fvector &position) const
+u32	CLevelGraph::vertex		(const fVector3& position) const
 {
 	CLevelGraph::CPosition	_node_position;
 	vertex_position			(_node_position,position);
@@ -74,12 +66,11 @@ u32	CLevelGraph::vertex		(const Fvector &position) const
 	return					(selected);
 }
 
-u32 CLevelGraph::vertex		(u32 current_node_id, const Fvector& position) const
+u32 CLevelGraph::vertex		(u32 current_node_id, const fVector3& position) const
 {
 	START_PROFILE("Level_Graph::find vertex")
-#ifndef AI_COMPILER
+
 	Device.Statistic->AI_Node.Begin	();
-#endif
 
 	u32						id;
 
@@ -87,9 +78,9 @@ u32 CLevelGraph::vertex		(u32 current_node_id, const Fvector& position) const
 		// so, our position is inside the level graph bounding box
 		if (valid_vertex_id(current_node_id) && inside(vertex(current_node_id),position)) {
 			// so, our node corresponds to the position
-#ifndef AI_COMPILER
+
 			Device.Statistic->AI_Node.End();
-#endif
+
 			return				(current_node_id);
 		}
 
@@ -127,9 +118,8 @@ u32 CLevelGraph::vertex		(u32 current_node_id, const Fvector& position) const
 				}
 			}
 			if (ok) {
-#ifndef AI_COMPILER
 				Device.Statistic->AI_Node.End();
-#endif
+
 				return			(_vertex_id);
 			}
 		}
@@ -140,9 +130,9 @@ u32 CLevelGraph::vertex		(u32 current_node_id, const Fvector& position) const
 		// performing very slow full search
 		id					= vertex(position);
 		VERIFY				(valid_vertex_id(id));
-#ifndef AI_COMPILER
+
 		Device.Statistic->AI_Node.End();
-#endif
+
 		return				(id);
 	}
 
@@ -151,7 +141,7 @@ u32 CLevelGraph::vertex		(u32 current_node_id, const Fvector& position) const
 	// there is no node for the current position
 	// try to search the nearest one iteratively
 	SContour			_contour;
-	Fvector				point;
+	fVector3			point;
 	u32					best_vertex_id = current_node_id;
 	contour				(_contour,current_node_id);
 	nearest				(point,position,_contour);
@@ -172,15 +162,14 @@ u32 CLevelGraph::vertex		(u32 current_node_id, const Fvector& position) const
 		}
 	}
 
-#ifndef AI_COMPILER
 	Device.Statistic->AI_Node.End();
-#endif
+
 	return					(best_vertex_id);
 
 	STOP_PROFILE
 }
 
-u32	CLevelGraph::vertex_id				(const Fvector &position) const
+u32	CLevelGraph::vertex_id				(const fVector3& position) const
 {
 	CPosition			_vertex_position = vertex_position(position);
 	CVertex				*B = m_nodes;

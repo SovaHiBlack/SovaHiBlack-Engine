@@ -3,7 +3,7 @@
 #pragma once
 
 // refs
-class XRSOUND_EDITOR_API		CSoundRender_Environment		: public CSound_environment
+class CSoundRender_Environment : public CSound_environment
 {
 public:
 	u32				version;
@@ -33,12 +33,14 @@ public:
 	void			save			            (IWriter* fs);
 };
 
-class XRSOUND_EDITOR_API		SoundEnvironment_LIB
+class SoundEnvironment_LIB
 {
 public:
 	DEFINE_VECTOR				(CSoundRender_Environment*,SE_VEC,SE_IT);
+
 private:
 	SE_VEC						library;
+
 public:
 	void						Load	(LPCSTR name);
 	bool						Save	(LPCSTR name);

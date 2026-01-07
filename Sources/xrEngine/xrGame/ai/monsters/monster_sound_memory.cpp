@@ -73,7 +73,7 @@ void CMonsterSoundMemory::HearSound(const SoundElem &s)
 
 }
 
-void CMonsterSoundMemory::HearSound(const CObject* who, int eType, const Fvector &Position, float power, TTime time)
+void CMonsterSoundMemory::HearSound(const CObject* who, int eType, const fVector3& Position, float power, TTime time)
 {
 	SoundElem s;
 	s.SetConvert(who,eType,Position,power,time);
@@ -101,7 +101,6 @@ SoundElem &CMonsterSoundMemory::GetSound()
 	return (*it);
 }
 
-
 struct pred_remove_nonactual_sounds {
 	TTime new_time;
 
@@ -124,7 +123,6 @@ struct pred_remove_nonactual_sounds {
 		return false;
 	}
 };
-
 
 void CMonsterSoundMemory::UpdateHearing()
 {
@@ -210,4 +208,3 @@ void CMonsterSoundMemory::check_help_sound(int eType, u32 node)
 	m_time_help_sound	= time();
 	m_help_node			= node;
 }
-

@@ -2,23 +2,23 @@
 #define MATH_UTILS_H
 
 
-IC  float* cast_fp(Fvector& fv)
+IC  float* cast_fp(fVector3& fv)
 {
 	return (float*) (&fv);
 }
 
-IC const float* cast_fp(const Fvector& fv)
+IC const float* cast_fp(const fVector3& fv)
 {
 	return (const float*) (&fv);
 }
-IC Fvector &cast_fv(float* fp)
+IC fVector3& cast_fv(float* fp)
 {
-	return *((Fvector*)fp);
+	return *((fVector3*)fp);
 }
 
-IC const Fvector &cast_fv(const float* fp)
+IC const fVector3& cast_fv(const float* fp)
 {
-	return *((const Fvector*)fp);
+	return *((const fVector3*)fp);
 }
 
 ICF void	accurate_normalize(float* a)
@@ -86,7 +86,7 @@ IC  float	dXZMag(const float* v)
 {
 	return _sqrt(v[0]*v[0]+v[2]*v[2]);
 }
-IC float	dXZMag(const Fvector &v)
+IC float	dXZMag(const fVector3& v)
 {
 	return dXZMag(cast_fp(v));
 }
@@ -94,7 +94,7 @@ IC	float	dXZDot(const float* v0,const float* v1)
 {
 	return v0[0]*v1[0]+v0[2]*v1[2];
 }
-IC	float	dXZDotNormalized(const Fvector& v0,const Fvector& v1)
+IC	float	dXZDotNormalized(const fVector3& v0,const fVector3& v1)
 {
 	return (v0.x*v1.x+v0.z*v1.z)/_sqrt((v0.x*v0.x+v0.z*v0.z)*(v1.x*v1.x+v1.z*v1.z));
 }
@@ -102,7 +102,7 @@ IC	float	dXZDotNormalized(const float* v0,const float* v1)
 {
 	return dXZDotNormalized(cast_fv(v0),cast_fv(v1));
 }
-IC	float	dXZDot(const Fvector& v0,const Fvector& v1)
+IC	float	dXZDot(const fVector3& v0,const fVector3& v1)
 {
 	return v0.x*v1.x+v0.z*v1.z;
 }
@@ -225,14 +225,15 @@ IC	void	dMatrixSmallDeviationAdd(const dReal* matrix33_from,const dReal* matrix3
 	vector_dev[2]+=matrix33_from[4]-matrix33_to[4];
 }
 
-IC	void twoq_2w(const Fquaternion& q1,const Fquaternion& q2,float dt,Fvector& w)
+IC	void twoq_2w(const Fquaternion& q1,const Fquaternion& q2,float dt, fVector3& w)
 {
 //	
 //	w=	2/dt*arccos(q1.w*q2.w+ q1.v.dotproduct(q2.v))
 //		*1/sqr(1-(q1.w*q2.w+ q1.v.dotproduct(q2.v))^2)
 //		[q1.w*q2.v-q2.w*q1.v-q1.v.crossproduct(q2.v)]
 	
-	Fvector v1,v2;
+	fVector3 v1;
+	fVector3 v2;
 	v1.set(q1.x,q1.y,q1.z);
 	v2.set(q2.x,q2.y,q2.z);
 	float cosinus=q1.w*q2.w+v1.dotproduct(v2);//q1.w*q2.w+ q1.v.dotproduct(q2.v)
@@ -247,7 +248,7 @@ IC	void twoq_2w(const Fquaternion& q1,const Fquaternion& q2,float dt,Fvector& w)
 	w.mul(k);
 }
 
-IC float	to_mag_and_dir(const Fvector &in_v,Fvector &out_v)
+IC float	to_mag_and_dir(const fVector3& in_v, fVector3& out_v)
 {
 	float mag=in_v.magnitude();
 	if(!fis_zero(mag))
@@ -257,17 +258,17 @@ IC float	to_mag_and_dir(const Fvector &in_v,Fvector &out_v)
 	return mag;
 }
 
-IC float	to_mag_and_dir(Fvector &in_out_v)
+IC float	to_mag_and_dir(fVector3& in_out_v)
 {
 	return to_mag_and_dir(in_out_v,in_out_v);
 }
 
-IC void to_vector(Fvector &v,float mag,const Fvector dir)
+IC void to_vector(fVector3& v,float mag,const fVector3 dir)
 {
 	v.mul(dir,mag);
 }
 
-IC void		prg_pos_on_axis(const Fvector	&in_ax_p,const Fvector &in_ax_d,Fvector &in_out_pos)
+IC void		prg_pos_on_axis(const fVector3& in_ax_p,const fVector3& in_ax_d, fVector3& in_out_pos)
 {
 	in_out_pos.sub(in_ax_p);
 	float ax_mag=in_ax_d.magnitude();
@@ -276,25 +277,30 @@ IC void		prg_pos_on_axis(const Fvector	&in_ax_p,const Fvector &in_ax_d,Fvector &
 	in_out_pos.mul(prg/ax_mag);
 	in_out_pos.add(in_ax_p);
 }
-IC float		prg_pos_on_plane(const Fvector	&in_norm,float d,const Fvector &in_pos,Fvector &out_pos)
+IC float		prg_pos_on_plane(const fVector3& in_norm,float d,const fVector3& in_pos, fVector3& out_pos)
 {
 	float prg=d-in_pos.dotproduct(in_norm);
-	Fvector diff;diff.set(in_norm);diff.mul(prg);
+	fVector3 diff;
+	diff.set(in_norm);
+	diff.mul(prg);
 	out_pos.add(in_pos,diff);
 	return prg;
 }
 
-IC void		prg_dir_on_plane(const Fvector	&in_norm,const Fvector &in_dir,Fvector &out_dir)
+IC void		prg_dir_on_plane(const fVector3& in_norm,const fVector3& in_dir, fVector3& out_dir)
 {
 	float prg=-in_dir.dotproduct(in_norm);
-	Fvector diff;diff.set(in_norm);diff.mul(prg);
+	fVector3 diff;
+	diff.set(in_norm);
+	diff.mul(prg);
 	out_dir.add(in_dir,diff);
 	return;
 }
 
-IC void		restrict_vector_in_dir(Fvector& V,const Fvector& dir)
+IC void		restrict_vector_in_dir(fVector3& V,const fVector3& dir)
 {
-	Fvector sub;sub.set(dir);
+	fVector3 sub;
+	sub.set(dir);
 	float dotpr =dir.dotproduct(V);
 	if(dotpr>0.f)
 	{
@@ -308,7 +314,6 @@ IC bool check_obb_sise(Fobb& obb)
 		!fis_zero(obb.m_halfsize.y, EPS_3)||
 		!fis_zero(obb.m_halfsize.z, EPS_3)
 		);
-
 }
 
 IC float fsignum(float val)
@@ -335,17 +340,17 @@ IC void limit_below(float& val,float limit)
 	if(val<limit)val=limit;
 }
 
-IC void TransferenceToThrowVel(Fvector &in_transference_out_vel,float time,float gravity_accel)
+IC void TransferenceToThrowVel(fVector3& in_transference_out_vel,float time,float gravity_accel)
 {
 	in_transference_out_vel.mul(1.f/time);
 	in_transference_out_vel.y+=time*gravity_accel/2.f;
 }
-IC float ThrowMinVelTime(const Fvector &transference,float gravity_accel)
+IC float ThrowMinVelTime(const fVector3& transference,float gravity_accel)
 {
 	return _sqrt(2.f*transference.magnitude()/gravity_accel);
 }
 //returns num result, tgA result tangents of throw angle 
-IC u8 TransferenceAndThrowVelToTgA(const Fvector &transference,float throw_vel,float gravity_accel, fVector2& tgA,float &s)
+IC u8 TransferenceAndThrowVelToTgA(const fVector3& transference,float throw_vel,float gravity_accel, fVector2& tgA,float &s)
 {
 	float sqx=transference.x*transference.x+transference.z*transference.z;
 	float sqv=throw_vel*throw_vel;
@@ -362,12 +367,12 @@ IC u8 TransferenceAndThrowVelToTgA(const Fvector &transference,float throw_vel,f
 	tgA.x=mlt*(1.f-D4);tgA.y=mlt*(1.f+D4);
 	return 2;
 }
-IC u8 TransferenceAndThrowVelToTgA(const Fvector &transference,float throw_vel,float gravity_accel, fVector2& tgA)
+IC u8 TransferenceAndThrowVelToTgA(const fVector3& transference,float throw_vel,float gravity_accel, fVector2& tgA)
 {
 	float s;
 	return TransferenceAndThrowVelToTgA(transference,throw_vel,gravity_accel,tgA,s);
 }
-IC u8 TransferenceAndThrowVelToThrowDir(const Fvector &transference,float throw_vel,float gravity_accel,Fvector	throw_dir[2])
+IC u8 TransferenceAndThrowVelToThrowDir(const fVector3& transference,float throw_vel,float gravity_accel, fVector3 throw_dir[2])
 {
 	throw_dir[0]=throw_dir[1]=transference;
 	fVector2 tgA;
@@ -451,7 +456,7 @@ IC float DET(const Fmatrix &a){
 		a._13 * ( a._21 * a._32 - a._22 * a._31 ) ));
 }
 
-IC bool valid_pos(const Fvector &P,const Fbox &B){
+IC bool valid_pos(const fVector3& P,const Fbox &B){
 	Fbox BB=B;BB.grow(100000);
 	return !!BB.contains(P) ;
 }

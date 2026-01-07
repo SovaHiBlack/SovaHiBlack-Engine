@@ -216,7 +216,7 @@ void game_cl_ArtefactHunt::TranslateGameMessage	(u32 msg, NET_Packet& P)
 				Color_Artefact);
 			CommonMessageOut(Text);
 
-//			pMessageSounds[0].play_at_pos(NULL, Fvector().set(0,0,0), sm_2D, 0);
+//			pMessageSounds[0].play_at_pos(NULL, fVector3().set(0,0,0), sm_2D, 0);
 			PlaySndMessage(ID_AF_LOST);
 		}break;
 	case GAME_EVENT_ARTEFACT_ONBASE: //ahunt

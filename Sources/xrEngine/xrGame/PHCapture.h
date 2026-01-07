@@ -27,7 +27,7 @@ CPhysicsShellHolder*	m_taget_object;
 dJointID			m_joint;
 dJointID			m_ajoint;
 dJointFeedback		m_joint_feedback;
-Fvector				m_capture_pos;
+fVector3				m_capture_pos;
 float				m_back_force;
 float				m_pull_force;
 float				m_capture_force;

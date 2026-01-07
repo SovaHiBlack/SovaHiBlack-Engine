@@ -120,7 +120,7 @@ void Log				(LPCSTR msg, float dop) {
 	Log		(buf);
 }
 
-void Log				(LPCSTR msg, const Fvector &dop) {
+void Log				(LPCSTR msg, const fVector3& dop) {
 	char buf[1024];
 
 	sprintf_s	(buf,sizeof(buf),"%s (%f,%f,%f)",msg,dop.x,dop.y,dop.z);

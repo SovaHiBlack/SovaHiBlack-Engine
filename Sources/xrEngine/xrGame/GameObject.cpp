@@ -140,10 +140,10 @@ void CGameObject::OnEvent		(NET_Packet& P, u16 type)
 		{
 /*
 			u16				id,weapon_id;
-			Fvector			dir;
+			fVector3			dir;
 			float			power, impulse;
 			s16				element;
-			Fvector			position_in_bone_space;
+			fVector3			position_in_bone_space;
 			u16				hit_type;
 			float			ap = 0.0f;
 
@@ -556,7 +556,7 @@ void CGameObject::validate_ai_locations			(bool decrement_reference)
 
 //	CTimer							timer;
 //	timer.Start						();
-	Fvector							center;
+	fVector3							center;
 	Center							(center);
 	center.x						= Position().x;
 	center.z						= Position().z;
@@ -569,7 +569,7 @@ void CGameObject::validate_ai_locations			(bool decrement_reference)
 
 #if 0
 	if (decrement_reference && (ai_location().level_vertex_id() != l_dwNewLevelVertexID)) {
-		Fvector						new_position = ai().level_graph().vertex_position(l_dwNewLevelVertexID);
+		fVector3						new_position = ai().level_graph().vertex_position(l_dwNewLevelVertexID);
 		if (Position().y - new_position.y >= 1.5f) {
 			u32						new_vertex_id = ai().level_graph().vertex(ai_location().level_vertex_id(),center);
 			new_vertex_id			= new_vertex_id;
@@ -613,16 +613,16 @@ void			CGameObject::dbg_DrawSkeleton	()
 			case SBoneShape::stBox:{
 				Fmatrix M;
 				M.invert			(I->b_IM);
-				Fvector h_size		= I->b_hsize;
+				fVector3 h_size		= I->b_hsize;
 				Level().debug_renderer().draw_obb	(M, h_size, color_rgba(0, 255, 0, 255));
 								   }break;
 			case SBoneShape::stCylinder:{
 				Fmatrix M;
 				M.c.set				(I->c_cylinder.m_center);
 				M.k.set				(I->c_cylinder.m_direction);
-				Fvector				h_size;
+				fVector3				h_size;
 				h_size.set			(I->c_cylinder.m_radius,I->c_cylinder.m_radius,I->c_cylinder.m_height*0.5f);
-				Fvector::generate_orthonormal_basis(M.k,M.j,M.i);
+				fVector3::generate_orthonormal_basis(M.k,M.j,M.i);
 				Level().debug_renderer().draw_obb	(M, h_size, color_rgba(0, 127, 255, 255));
 										}break;
 			case SBoneShape::stSphere:{
@@ -697,7 +697,8 @@ void CGameObject::OnRender()
 {
 	if (bDebug && Visual())
 	{
-		Fvector bc,bd; 
+		fVector3 bc;
+		fVector3 bd;
 		Visual()->vis.box.get_CD	(bc,bd);
 		Fmatrix	M = XFORM();		M.c.add (bc);
 		Level().debug_renderer().draw_obb			(M,bd,color_rgba(0,0,255,255));

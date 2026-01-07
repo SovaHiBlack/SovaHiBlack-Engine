@@ -100,7 +100,7 @@ CPHActivationShape::~CPHActivationShape()
 {
 	VERIFY(!m_body&&!m_geom);
 }
-void	CPHActivationShape::Create(const Fvector start_pos,const Fvector start_size,CPhysicsShellHolder* ref_obj,EType _type/*=etBox*/,u16	flags)
+void	CPHActivationShape::Create(const fVector3 start_pos,const fVector3 start_size,CPhysicsShellHolder* ref_obj,EType _type/*=etBox*/,u16	flags)
 {
 	VERIFY(ref_obj);
 	m_body			=	dBodyCreate	(0)												;
@@ -141,7 +141,7 @@ void CPHActivationShape::	Destroy	()
 	dBodyDestroy			(m_body)	;
 	m_body					=NULL		;
 }
-bool	CPHActivationShape::	Activate							(const Fvector need_size,u16 steps,float max_displacement,float max_rotation,bool	un_freeze_later/*	=false*/)										
+bool	CPHActivationShape::	Activate							(const fVector3 need_size,u16 steps,float max_displacement,float max_rotation,bool	un_freeze_later/*	=false*/)
 {
 
 #ifdef	DEBUG 
@@ -150,7 +150,9 @@ bool	CPHActivationShape::	Activate							(const Fvector need_size,u16 steps,floa
 		DBG_OpenCashedDraw();
 		Fmatrix M;
 		PHDynamicData::DMXPStoFMX(dBodyGetRotation(m_body),dBodyGetPosition(m_body),M);
-		Fvector v;dGeomBoxGetLengths(m_geom,cast_fp(v));v.mul(0.5f);
+		fVector3 v;
+		dGeomBoxGetLengths(m_geom,cast_fp(v));
+		v.mul(0.5f);
 		DBG_DrawOBB(M,v,D3DCOLOR_XRGB(0,255,0));
 	}
 #endif
@@ -183,8 +185,9 @@ bool	CPHActivationShape::	Activate							(const Fvector need_size,u16 steps,floa
 	if(m_flags.test(flStaticEnvironment))dGeomUserDataAddObjectContactCallback(m_geom,StaticEnvironment);
 	max_depth=0.f;
 	
-	Fvector from_size;
-	Fvector step_size,size;
+	fVector3 from_size;
+	fVector3 step_size;
+	fVector3 size;
 	dGeomBoxGetLengths(m_geom,cast_fp(from_size));
 	step_size.sub(need_size,from_size);
 	step_size.mul(fnum_steps_r);
@@ -226,24 +229,28 @@ bool	CPHActivationShape::	Activate							(const Fvector need_size,u16 steps,floa
 	RestoreVelocityState(temp_state);
 	CHECK_POS(Position(),"pos after RestoreVelocityState(temp_state);",true);
 	if(!un_freeze_later)ph_world->UnFreeze();
-#ifdef	DEBUG 
+
+#ifdef DEBUG
 	if(ph_dbg_draw_mask.test(phDbgDrawDeathActivationBox))
 	{
 		DBG_OpenCashedDraw();
 		Fmatrix M;
 		PHDynamicData::DMXPStoFMX(dBodyGetRotation(m_body),dBodyGetPosition(m_body),M);
-		Fvector v;v.set(need_size);v.mul(0.5f);
+		fVector3 v;
+		v.set(need_size);
+		v.mul(0.5f);
 		DBG_DrawOBB(M,v,D3DCOLOR_XRGB(0,255,255));
 		DBG_ClosedCashedDraw(30000);
 	}
 #endif
+
 	return ret;
 }
-const Fvector&	CPHActivationShape::	Position							()																
+const fVector3&	CPHActivationShape::	Position							()
 {
 	return cast_fv(dBodyGetPosition(m_body));
 }
-void	CPHActivationShape::	Size								(Fvector &size)																
+void	CPHActivationShape::	Size								(fVector3& size)
 {
 	dGeomBoxGetLengths(m_geom,cast_fp(size));
 }

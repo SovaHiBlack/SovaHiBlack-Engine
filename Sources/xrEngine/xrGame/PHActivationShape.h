@@ -25,11 +25,11 @@ enum		{
 			};
 							CPHActivationShape					()																															;
 							~CPHActivationShape					()																															;
-			void			Create								(const Fvector start_pos,const Fvector start_size,CPhysicsShellHolder* ref_obj,EType type=etBox,u16	flags=0)				;
+			void			Create								(const fVector3 start_pos,const fVector3 start_size,CPhysicsShellHolder* ref_obj,EType type=etBox,u16	flags=0)				;
 			void			Destroy								()																															;
-			bool			Activate							(const Fvector need_size,u16 steps,float max_displacement,float max_rotation,bool	un_freeze_later	=false)					;															
-const		Fvector			&Position							()																															;
-			void			Size								(Fvector &size)																												;
+			bool			Activate							(const fVector3 need_size,u16 steps,float max_displacement,float max_rotation,bool	un_freeze_later	=false)					;
+const		fVector3&		Position							()																															;
+			void			Size								(fVector3& size)																												;
 			dBodyID			ODEBody								()																											{return m_body	;}
 			void			set_rotation						(const	Fmatrix	&rot)																											;
 private:

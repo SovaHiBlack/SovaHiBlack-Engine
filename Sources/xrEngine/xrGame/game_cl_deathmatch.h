@@ -99,7 +99,7 @@ protected:
 	virtual		void				ConvertTime2String		(string64* str, u32 Time);
 	virtual		int					GetPlayersPlace			(game_PlayerState* ps);
 
-	virtual		void				PlayParticleEffect		(LPCSTR EffName, Fvector& pos);
+	virtual		void				PlayParticleEffect		(LPCSTR EffName, fVector3& pos);
 
 	virtual		void				ShowBuyMenu				();
 	virtual		void				HideBuyMenu				();

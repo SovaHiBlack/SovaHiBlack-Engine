@@ -48,30 +48,32 @@ struct envc :
 private boost::noncopyable,
 public SEnumVerticesCallback
 {
-	Fvector &pos;
-	Fvector start_pos;
+	fVector3& pos;
+	fVector3 start_pos;
 	const Fmatrix &i_bind_transform;
-	const Fvector &ax;
-	envc( const Fmatrix &_i_bind_transform, const Fvector &_ax,  Fvector &_pos ): 
+	const fVector3& ax;
+	envc( const Fmatrix &_i_bind_transform, const fVector3& _ax, fVector3& _pos ):
 	SEnumVerticesCallback( ), i_bind_transform( _i_bind_transform ), ax( _ax ), pos( _pos ) { start_pos.set(0,0,0); }
-	void operator () (const Fvector& p)
+	void operator () (const fVector3& p)
 	{
-		Fvector lpos;
+		fVector3 lpos;
 		i_bind_transform.transform_tiny(lpos, p );
-		//Fvector diff;diff.sub( lpos, pos );
-		if( Fvector().sub(lpos,start_pos).dotproduct( ax ) > Fvector().sub(pos,start_pos).dotproduct( ax ) )
+		//fVector3 diff;diff.sub( lpos, pos );
+		if(fVector3().sub(lpos,start_pos).dotproduct( ax ) > fVector3().sub(pos,start_pos).dotproduct( ax ) )
 						pos.set( lpos );
 	}
 };
 
-void get_toe(CKinematics *skeleton, Fvector & toe, const u16 bones[4])
+void get_toe(CKinematics *skeleton, fVector3& toe, const u16 bones[4])
 {
 	VERIFY( skeleton );
 	xr_vector<Fmatrix> binds;
 	skeleton->LL_GetBindTransform( binds );
 	Fmatrix ibind; ibind.invert( binds[ bones[3] ] );
-	Fvector ax; Fvector pos; pos.set( 0, 0, 0);
-	ax.set(1, 0, -1 );
+	fVector3 ax;
+	fVector3 pos;
+	pos.set( 0.0f, 0.0f, 0.0f);
+	ax.set(1.0f, 0.0f, -1.0f);
 	envc pred( ibind, ax, pos );
 	skeleton->EnumBoneVertices( pred, bones[3] );
 
@@ -84,7 +86,6 @@ void get_toe(CKinematics *skeleton, Fvector & toe, const u16 bones[4])
 	ax.set(1, 0, 0);
 	skeleton->EnumBoneVertices( pred, bones[2] );
 	toe.x = _max( pos.x, toe.x );
-
 }
 
 void	CIKLimbsController::LimbSetup(  const u16 bones[4] )
@@ -92,12 +93,10 @@ void	CIKLimbsController::LimbSetup(  const u16 bones[4] )
 	_bone_chains.push_back( CIKLimb( ) );
 	CKinematicsAnimated *skeleton_animated = m_object->Visual( )->dcast_PKinematicsAnimated( );
 	VERIFY( skeleton_animated );
-	Fvector toe;
+	fVector3 toe;
 	get_toe( skeleton_animated, toe, bones );
-	_bone_chains.back( ).Create( ( u16 ) _bone_chains.size( )-1, skeleton_animated, bones, toe, true );//Fvector( ).set( 0.13143f, 0, 0.20f )
+	_bone_chains.back( ).Create( ( u16 ) _bone_chains.size( )-1, skeleton_animated, bones, toe, true );//fVector3( ).set( 0.13143f, 0.0f, 0.2f )
 }
-
-
 
 void	CIKLimbsController::LimbCalculate( SCalculateData &cd )
 {
@@ -117,9 +116,9 @@ IC void	update_blend (CBlend* &b)
 	if(b && CBlend::eFREE_SLOT == b->blend)
 		b = 0;
 }
+
 void CIKLimbsController::Calculate( )
 {
-	
 	update_blend( m_legs_blend );
 	CKinematicsAnimated *skeleton_animated = m_object->Visual()->dcast_PKinematicsAnimated( );
 	const Fmatrix &obj = m_object->XFORM( );
@@ -150,6 +149,7 @@ void CIKLimbsController::Calculate( )
 
 void CIKLimbsController::Destroy(CGameObject* O)
 {
+
 #ifdef _DEBUG
 	CPhysicsShellHolder*	Sh = smart_cast<CPhysicsShellHolder*>(O);
 	VERIFY(Sh);
@@ -167,6 +167,7 @@ void CIKLimbsController::Destroy(CGameObject* O)
 
 void _stdcall CIKLimbsController:: IKVisualCallback( CKinematics* K )
 {
+
 #ifdef DEBUG
 	if( ph_dbg_draw_mask1.test( phDbgIKOff ) )
 		return;
@@ -179,16 +180,20 @@ void _stdcall CIKLimbsController:: IKVisualCallback( CKinematics* K )
 	VERIFY( ik );
 	ik->Calculate( );
 }
+
 void CIKLimbsController::PlayLegs( CBlend *b )	
 {
 	m_legs_blend	= b;
+
 #ifdef DEBUG
 	CKinematicsAnimated *skeleton_animated = m_object->Visual( )->dcast_PKinematicsAnimated( );
 	VERIFY( skeleton_animated );
 	anim_name = skeleton_animated->LL_MotionDefName_dbg( b->motionID ).first;
 	anim_set_name = skeleton_animated->LL_MotionDefName_dbg( b->motionID ).second;
 #endif
+
 }
+
 void	CIKLimbsController:: Update						( )
 {
 	CKinematicsAnimated *skeleton_animated = m_object->Visual()->dcast_PKinematicsAnimated( );

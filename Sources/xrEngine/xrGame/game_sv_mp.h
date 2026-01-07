@@ -68,7 +68,7 @@ protected:
 	virtual		void				RespawnPlayer			(ClientID id_who, bool NoSpectator);
 				void				SpawnPlayer				(ClientID id, LPCSTR N);
 	virtual		void				SetSkin					(CSE_Abstract* E, u16 Team, u16 ID);
-				bool				GetPosAngleFromActor	(ClientID id, Fvector& Pos, Fvector &Angle);				
+				bool				GetPosAngleFromActor	(ClientID id, fVector3& Pos, fVector3& Angle);
 				void				AllowDeadBodyRemove		(ClientID id, u16 GameID);
 				void				SpawnWeapon4Actor		(u16 actorId,  LPCSTR N, u8 Addons );
 				void				SpawnWeaponForActor		(u16 actorId,  LPCSTR N, bool isScope, bool isGrenadeLauncher, bool isSilencer);

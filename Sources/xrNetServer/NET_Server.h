@@ -58,7 +58,7 @@ public:
 		u32		bVerified	: 1;
 	};
 
-                        IClient( CTimer* timer );
+						IClient( CTimer* timer );
 	virtual             ~IClient();
 
 	IClientStatistic	stats;
@@ -75,11 +75,11 @@ public:
 	DWORD				m_dwPort;
 	u32					process_id;
 
-    IPureServer*        server;
+	IPureServer*        server;
 	
 private:
 
-    virtual void    _SendTo_LL( const void* data, u32 size, u32 flags, u32 timeout );
+	virtual void    _SendTo_LL( const void* data, u32 size, u32 flags, u32 timeout );
 };
 
 
@@ -89,14 +89,14 @@ class XRNETSERVER_API IServerStatistic
 {
 public:
 	void    clear()
-            {
-                bytes_out = bytes_out_real = 0;
-                bytes_in = bytes_in_real = 0;
+			{
+				bytes_out = bytes_out_real = 0;
+				bytes_in = bytes_in_real = 0;
 
-                dwBytesSended   = 0;
-                dwSendTime      = 0;
-                dwBytesPerSec   = 0;
-            }
+				dwBytesSended   = 0;
+				dwSendTime      = 0;
+				dwBytesPerSec   = 0;
+			}
 
 	u32		bytes_out,bytes_out_real;
 	u32		bytes_in, bytes_in_real;
@@ -240,7 +240,7 @@ public:
 
 private:
 
-    virtual void    _Recieve( const void* data, u32 data_size, u32 param );
+	virtual void    _Recieve( const void* data, u32 data_size, u32 param );
 };
 
 // =========================================================================================================

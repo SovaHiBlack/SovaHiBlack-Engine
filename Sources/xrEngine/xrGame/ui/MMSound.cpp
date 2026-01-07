@@ -22,13 +22,13 @@ void CMMSound::Init(CUIXml& xml_doc, LPCSTR path){
 		m_play_list.push_back(xml_doc.Read("menu_music", i, ""));		
 	xml_doc.SetLocalRoot(xml_doc.GetRoot());
 
-    strconcat(sizeof(_path),_path, path,":whell_sound");
+	strconcat(sizeof(_path),_path, path,":whell_sound");
 	if (check_file(xml_doc.Read(_path, 0, "")))
-        m_whell.create(xml_doc.Read(_path, 0, "") ,st_Effect,sg_SourceType);
+		m_whell.create(xml_doc.Read(_path, 0, "") ,st_Effect,sg_SourceType);
 
 	strconcat(sizeof(_path),_path, path,":whell_click");
 	if (check_file(xml_doc.Read(_path, 0, "")))
-        m_whell_click.create(xml_doc.Read(_path, 0, ""),st_Effect,sg_SourceType );
+		m_whell_click.create(xml_doc.Read(_path, 0, ""),st_Effect,sg_SourceType );
 }
 
 bool CMMSound::check_file(LPCSTR fname){
@@ -48,7 +48,7 @@ void CMMSound::whell_Stop(){
 }
 
 void CMMSound::whell_Click(){
-   	if (m_whell_click._handle())
+	if (m_whell_click._handle())
 		m_whell_click.play(NULL, sm_2D);
 }
 
@@ -72,8 +72,8 @@ void CMMSound::music_Play(){
 	m_music_l.create(_path,st_Music,sg_SourceType);
 	m_music_r.create(_path2,st_Music,sg_SourceType);
 
-    m_music_l.play_at_pos(NULL, Fvector().set(-0.5f,0.f,0.3f), sm_2D);
-    m_music_r.play_at_pos(NULL, Fvector().set(+0.5f,0.f,0.3f), sm_2D);
+	m_music_l.play_at_pos(NULL, fVector3().set(-0.5f,0.0f,0.3f), sm_2D);
+	m_music_r.play_at_pos(NULL, fVector3().set(+0.5f,0.0f,0.3f), sm_2D);
 }
 
 void CMMSound::music_Update(){
@@ -83,7 +83,7 @@ void CMMSound::music_Update(){
 }
 
 void CMMSound::music_Stop(){
-    m_music_l.stop();
+	m_music_l.stop();
 	m_music_r.stop();
 }
 

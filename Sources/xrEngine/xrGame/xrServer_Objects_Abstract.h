@@ -21,10 +21,8 @@
 class NET_Packet;
 class CDUInterface;
 
-#ifndef _EDITOR
-    #ifndef XRGAME_EXPORTS
-        #include "Sound.h"
-    #endif
+#ifndef XRGAME_EXPORTS
+#	include "Sound.h"
 #endif
 
 #include "xrEProps.h"
@@ -39,8 +37,8 @@ public:
 };
 
 SERVER_ENTITY_DECLARE_BEGIN0(CSE_Visual)
-    void __stdcall					OnChangeVisual	(PropValue* sender);  
-    void __stdcall					OnChangeAnim	(PropValue* sender);  
+	void __stdcall					OnChangeVisual	(PropValue* sender);  
+	void __stdcall					OnChangeAnim	(PropValue* sender);  
 public:
 	shared_str						visual_name;
 	shared_str						startup_animation;
@@ -55,7 +53,7 @@ public:
 	void							visual_read		(NET_Packet& P, u16 version);
 	void							visual_write	(NET_Packet& P);
 
-    void							set_visual		(LPCSTR name, bool load=true);
+	void							set_visual		(LPCSTR name, bool load=true);
 	LPCSTR							get_visual		() const {return *visual_name;};
 	virtual void					FillProps		(LPCSTR pref, PropItemVec &items);
 
@@ -75,7 +73,7 @@ public:
 	void							motion_read		(NET_Packet& P);
 	void							motion_write	(NET_Packet& P);
 
-    void							set_motion		(LPCSTR name);
+	void							set_motion		(LPCSTR name);
 	LPCSTR							get_motion		() const {return *motion_name;};
 
 	virtual void					FillProps		(LPCSTR pref, PropItemVec &items);

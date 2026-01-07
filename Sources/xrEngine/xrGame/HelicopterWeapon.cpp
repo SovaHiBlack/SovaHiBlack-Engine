@@ -91,18 +91,19 @@ void CHelicopter::MGunUpdateFire()
 		OnShot();
 		fTime += fTimeToFire;
 	}
-
 }
+
 void CHelicopter::OnShot		()
 {
-	Fvector fire_pos,fire_dir;
+	fVector3 fire_pos;
+	fVector3 fire_dir;
 	fire_pos = get_CurrentFirePoint();
 	fire_dir = m_fire_dir;
 
 	float fire_trail_speed		= 15.0f;
 	clamp						(fire_trail_speed,GetCurrVelocity(),300.0f);
 	if(m_enemy.bUseFireTrail){
-		Fvector enemy_pos = m_enemy.destEnemyPos;
+		fVector3 enemy_pos = m_enemy.destEnemyPos;
 
 		float	dt		= Device.fTimeGlobal - m_enemy.fStartFireTime; VERIFY(dt>=0);
 		float	dist	= m_enemy.fire_trail_length_curr - dt*fire_trail_speed;
@@ -112,9 +113,9 @@ void CHelicopter::OnShot		()
 			return		;
 		}
 
-		Fvector fp		= fire_pos;
+		fVector3 fp		= fire_pos;
 		fp.y			= enemy_pos.y;
-		Fvector	fd;
+		fVector3	fd;
 		fd.sub(enemy_pos,fp).normalize_safe();
 		if(dist > (m_enemy.fire_trail_length_curr/2.0f) ){
 			fd.mul(-1.0f);
@@ -122,11 +123,10 @@ void CHelicopter::OnShot		()
 		}else{
 			dist = (m_enemy.fire_trail_length_curr/2.0f) - dist;
 		}
-		
 
 		static float fire_trace_width = pSettings->r_float(*cNameSect(),"fire_trace_width");
 		enemy_pos.mad(fd,dist);
-		Fvector disp_dir;
+		fVector3 disp_dir;
 		disp_dir.random_point(fire_trace_width);
 
 		enemy_pos.add(disp_dir);
@@ -145,7 +145,6 @@ void CHelicopter::OnShot		()
 	OnShellDrop				(fire_pos, zero_vel);
 
 	HUD_SOUND::PlaySound	(m_sndShot, fire_pos, this, false);
-
 }
 
 void CHelicopter::MGunFireStart()
@@ -156,8 +155,8 @@ void CHelicopter::MGunFireStart()
 	if(FALSE==IsWorking() && m_enemy.bUseFireTrail){
 		//start calc fire trail
 		m_enemy.fStartFireTime			= Device.fTimeGlobal;
-		Fvector fp = get_CurrentFirePoint();
-		Fvector ep = m_enemy.destEnemyPos;
+		fVector3 fp = get_CurrentFirePoint();
+		fVector3 ep = m_enemy.destEnemyPos;
 
 		//calc min firetrail length
 		float h = fp.y-ep.y;
@@ -259,17 +258,23 @@ void CHelicopter::UpdateMGunDir()
 	m_allow_fire		= TRUE;
 	Fmatrix XFi;
 	XFi.invert			(XFORM());
-	Fvector dep;
+	fVector3 dep;
 	XFi.transform_tiny	(dep,m_enemy.destEnemyPos);
 	{// x angle
-		Fvector A_;		A_.sub(dep,m_bind_x);	m_i_bind_x_xform.transform_dir(A_); A_.normalize();
+		fVector3 A_;
+		A_.sub(dep,m_bind_x);
+		m_i_bind_x_xform.transform_dir(A_);
+		A_.normalize();
 		m_tgt_rot.x		= angle_normalize_signed(m_bind_rot.x-A_.getP());
 		float sv_x		= m_tgt_rot.x;
 		clamp			(m_tgt_rot.x,-m_lim_x_rot.y,-m_lim_x_rot.x);
 		if (!fsimilar(sv_x,m_tgt_rot.x, EPS_3)) m_allow_fire=FALSE;
 	}
 	{// y angle
-		Fvector A_;		A_.sub(dep,m_bind_y);	m_i_bind_y_xform.transform_dir(A_); A_.normalize();
+		fVector3 A_;
+		A_.sub(dep,m_bind_y);
+		m_i_bind_y_xform.transform_dir(A_);
+		A_.normalize();
 		m_tgt_rot.y		= angle_normalize_signed(m_bind_rot.y-A_.getH());
 		float sv_y		= m_tgt_rot.y;
 		clamp			(m_tgt_rot.y,-m_lim_y_rot.y,-m_lim_y_rot.x);
@@ -279,7 +284,6 @@ void CHelicopter::UpdateMGunDir()
 	if ((angle_difference(m_cur_rot.x,m_tgt_rot.x)>deg2rad(m_barrel_dir_tolerance))||
 		(angle_difference(m_cur_rot.y,m_tgt_rot.y)>deg2rad(m_barrel_dir_tolerance)))
 		m_allow_fire=FALSE;
-
 }
 
 void CHelicopter::startRocket(u16 idx)
@@ -292,15 +296,15 @@ void CHelicopter::startRocket(u16 idx)
 		Fmatrix rocketXFORM;
 		(idx==1)?rocketXFORM=m_left_rocket_bone_xform:rocketXFORM=m_right_rocket_bone_xform;
 
-		Fvector vel;
-		Fvector dir;
+		fVector3 vel;
+		fVector3 dir;
 		dir.sub(m_enemy.destEnemyPos, rocketXFORM.c ).normalize_safe();
 		vel.mul(dir,CRocketLauncher::m_fLaunchSpeed);
 
 		Fmatrix xform;
 		xform.identity();
 		xform.k.set(dir);
-		Fvector::generate_orthonormal_basis(xform.k,xform.j,xform.i);
+		fVector3::generate_orthonormal_basis(xform.k,xform.j,xform.i);
 		xform.c = rocketXFORM.c;
 		VERIFY2(_valid(xform),"CHelicopter::startRocket. Invalid xform");
 		LaunchRocket(xform,  vel, zero_vel);
@@ -314,17 +318,15 @@ void CHelicopter::startRocket(u16 idx)
 
 		m_last_launched_rocket = idx;
 		HUD_SOUND::PlaySound(m_sndShotRocket, xform.c, this, false);
-
 	}
 }
 
 const Fmatrix& CHelicopter::get_ParticlesXFORM()
-
 {
 	return m_fire_bone_xform;
 }
 
-const Fvector&	CHelicopter::get_CurrentFirePoint()
+const fVector3&	CHelicopter::get_CurrentFirePoint()
 {
 	return m_fire_pos;
 }

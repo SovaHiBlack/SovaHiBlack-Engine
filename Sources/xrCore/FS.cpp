@@ -13,10 +13,6 @@
 typedef void DUMMY_STUFF (const void*,const u32&,void*);
 XRCORE_API DUMMY_STUFF	*g_dummy_stuff = 0;
 
-#ifdef M_BORLAND
-#	define O_SEQUENTIAL 0
-#endif // M_BORLAND
-
 #ifdef DEBUG
 	XRCORE_API	u32								g_file_mapped_memory = 0;
 	u32								g_file_mapped_count	= 0;
@@ -233,9 +229,9 @@ void	IWriter::w_chunk(u32 type, void* data, u32 size)
 	else							w			(data,size);
 	close_chunk	();
 }
-void 	IWriter::w_sdir	(const Fvector& D) 
+void 	IWriter::w_sdir	(const fVector3& D)
 {
-	Fvector C;
+	fVector3 C;
 	float mag		= D.magnitude();
 	if (mag>EPS_S)	{
 		C.div		(D,mag);

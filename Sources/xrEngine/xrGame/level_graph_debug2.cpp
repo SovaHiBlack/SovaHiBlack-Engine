@@ -9,8 +9,6 @@
 #include "pch_script.h"
 
 #ifdef DEBUG
-#ifndef AI_COMPILER
-
 #include "level_graph.h"
 #include "../customhud.h"
 #include "ai_space.h"
@@ -45,11 +43,11 @@
 void CLevelGraph::draw_nodes	()
 {
 	CGameObject*	O	= smart_cast<CGameObject*> (Level().CurrentEntity());
-	Fvector	POSITION	= O->Position();
+	fVector3	POSITION	= O->Position();
 	POSITION.y += 0.5f;
 
 	// display
-	Fvector P			= POSITION;
+	fVector3 P			= POSITION;
 
 //	CPosition			Local;
 //	vertex_position		(Local,P);
@@ -76,7 +74,8 @@ void CLevelGraph::draw_nodes	()
 	float	st		= 0.98f*header().cell_size()/2;
 	float	tt		= 0.01f;
 
-	Fvector	DUP;		DUP.set(0,1,0);
+	fVector3	DUP;
+	DUP.set(0.0f,1.0f,0.0f);
 
 	RCache.set_Shader	(sh_debug);
 	F->SetColor			(color_rgba(255,255,255,255));
@@ -86,7 +85,8 @@ void CLevelGraph::draw_nodes	()
 	bool			b_light = false;
 	
 	//////////////////////////////////////////////////////////////////////////
-	Fvector min_position,max_position;
+	fVector3 min_position;
+	fVector3 max_position;
 	max_position = min_position = Device.vCameraPosition;
 	min_position.sub(30.f);
 	max_position.add(30.f);
@@ -109,7 +109,7 @@ void CLevelGraph::draw_nodes	()
 	for ( ; I != E; ++I)
 	{
 		const CLevelGraph::CVertex&	N	= *I;
-		Fvector			PC;
+		fVector3			PC;
 		PC				= vertex_position(N);
 
 		u32 Nid			= vertex_id(I);
@@ -135,12 +135,17 @@ void CLevelGraph::draw_nodes	()
 			}
 
 			// unpack plane
-			Fplane PL; Fvector vNorm;
+			Fplane PL;
+			fVector3 vNorm;
 			pvDecompress(vNorm,N.plane());
 			PL.build	(PC,vNorm);
 
 			// create vertices
-			Fvector		v,v1,v2,v3,v4;
+			fVector3		v;
+			fVector3		v1;
+			fVector3		v2;
+			fVector3		v3;
+			fVector3		v4;
 			v.set(PC.x-st,PC.y,PC.z-st);	PL.intersectRayPoint(v,DUP,v1);	v1.mad(v1,PL.n,tt);	// minX,minZ
 			v.set(PC.x+st,PC.y,PC.z-st);	PL.intersectRayPoint(v,DUP,v2);	v2.mad(v2,PL.n,tt);	// maxX,minZ
 			v.set(PC.x+st,PC.y,PC.z+st);	PL.intersectRayPoint(v,DUP,v3);	v3.mad(v3,PL.n,tt);	// maxX,maxZ
@@ -155,7 +160,7 @@ void CLevelGraph::draw_nodes	()
 
 			// render id
 			if (bHL) {
-				Fvector		T;
+				fVector3		T;
 				fVector4	S;
 				T.set		(PC); T.y+=0.3f;
 				Device.mFullTransform.transform	(S,T);
@@ -188,7 +193,7 @@ void CLevelGraph::draw_restrictions	()
 		xr_vector<u32>::const_iterator	i = (*I).second->border().begin();
 		xr_vector<u32>::const_iterator	e = (*I).second->border().end();
 		for ( ; i != e; ++i) {
-			Fvector temp = ai().level_graph().vertex_position(*i);
+			fVector3 temp = ai().level_graph().vertex_position(*i);
 			temp.y += .1f;
 			Level().debug_renderer().draw_aabb(temp,.05f,.05f,.05f,D3DCOLOR_XRGB(r,g,b));
 		}
@@ -200,7 +205,7 @@ void CLevelGraph::draw_restrictions	()
 			xr_vector<u32>::const_iterator	i = (*II).m_restriction->border().begin();
 			xr_vector<u32>::const_iterator	e = (*II).m_restriction->border().end();
 			for ( ; i != e; ++i) {
-				Fvector temp = ai().level_graph().vertex_position(*i);
+				fVector3 temp = ai().level_graph().vertex_position(*i);
 				temp.y += .1f;
 				Level().debug_renderer().draw_aabb(temp,.05f,.05f,.05f,D3DCOLOR_XRGB(255,0,0));
 			}
@@ -208,7 +213,7 @@ void CLevelGraph::draw_restrictions	()
 				xr_vector<u32>::const_iterator	i = (*II).m_restriction->border().begin();
 				xr_vector<u32>::const_iterator	e = (*II).m_restriction->border().end();
 				for ( ; i != e; ++i) {
-					Fvector temp = ai().level_graph().vertex_position(*i);
+					fVector3 temp = ai().level_graph().vertex_position(*i);
 					temp.y += .1f;
 					Level().debug_renderer().draw_aabb(temp,.05f,.05f,.05f,D3DCOLOR_XRGB(0,255,0));
 				}
@@ -227,12 +232,12 @@ void CLevelGraph::draw_covers	()
 	xr_vector<CCoverPoint*>::const_iterator	I = nearest.begin();
 	xr_vector<CCoverPoint*>::const_iterator	E = nearest.end();
 	for ( ; I != E; ++I) {
-		Fvector				position = (*I)->position();
+		fVector3				position = (*I)->position();
 		position.y			+= 1.f;
 		Level().debug_renderer().draw_aabb	(position,half_size - .01f,1.f,ai().level_graph().header().cell_size()*.5f-.01f,D3DCOLOR_XRGB(0*255,255,0*255));
 
 		CVertex				*v = vertex((*I)->level_vertex_id());
-		Fvector				direction;
+		fVector3				direction;
 		float				best_value = -1.f;
 
 		for (u32 i=0, j = 0; i<36; ++i) {
@@ -288,7 +293,7 @@ void CLevelGraph::draw_objects	()
 		if (tpCustomMonster) {
 			tpCustomMonster->OnRender();
 			if (!tpCustomMonster->movement().detail().path().empty()) {
-				Fvector				temp = tpCustomMonster->movement().detail().path()[tpCustomMonster->movement().detail().path().size() - 1].position;
+				fVector3				temp = tpCustomMonster->movement().detail().path()[tpCustomMonster->movement().detail().path().size() - 1].position;
 				Level().debug_renderer().draw_aabb	(temp,1.f,1.f,1.f,D3DCOLOR_XRGB(0,0,255));
 			}
 		}
@@ -296,11 +301,11 @@ void CLevelGraph::draw_objects	()
 }
 
 #ifdef DEBUG
-#ifndef AI_COMPILER
 void CLevelGraph::draw_debug_node()
 {
 	if (g_bDebugNode) {
-		Fvector pos_src, pos_dest;
+		fVector3 pos_src;
+		fVector3 pos_dest;
 
 		if (ai().level_graph().valid_vertex_id(g_dwDebugNodeSource)) {
 			pos_src		= ai().level_graph().vertex_position(g_dwDebugNodeSource);
@@ -322,7 +327,5 @@ void CLevelGraph::draw_debug_node()
 	}
 }
 #endif
-#endif
 
-#endif // AI_COMPILER
 #endif // DEBUG

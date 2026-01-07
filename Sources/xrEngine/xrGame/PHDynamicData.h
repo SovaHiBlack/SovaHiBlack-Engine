@@ -60,12 +60,12 @@ public:
 			if(!transform) return;
 			Fmatrix NormTransform,Transform;
 			dVector3 P0={0,0,0,-1};
-			Fvector Translate,Translate1;
+			fVector3 Translate;
+			fVector3 Translate1;
 			//compute_final_tx(geom);
 			//dQtoR(dBodyGetQuaternion(body),R);
 			DMXPStoFMX(dBodyGetRotation(body),P0,NormTransform);
 			DMXPStoFMX(dGeomGetRotation(dGeomTransformGetGeom(transform)),P0,Transform);
-	
 
 			dVectorSet((dReal*)&Translate,dGeomGetPosition(dGeomTransformGetGeom(transform)));
 			dVectorSet((dReal*)&Translate1,dBodyGetPosition(body));
@@ -92,7 +92,7 @@ public:
 
 			CopyMemory(&aTransform,R,sizeof(dMatrix3));
 			aTransform.transpose();
-			CopyMemory(&aTransform.c,pos,sizeof(Fvector));
+			CopyMemory(&aTransform.c,pos,sizeof(fVector3));
 			aTransform._14=0.f;
 			aTransform._24=0.f;
 			aTransform._34=0.f;

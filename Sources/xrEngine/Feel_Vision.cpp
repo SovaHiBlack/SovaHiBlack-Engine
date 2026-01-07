@@ -29,7 +29,7 @@ namespace Feel {
 		fp->vis			*= vis;
 		if (NULL==result.O && fis_zero(vis)){
 			CDB::TRI* T	= g_pGameLevel->ObjectSpace.GetStaticTris()+result.element;
-			Fvector* V	= g_pGameLevel->ObjectSpace.GetStaticVerts();
+			fVector3* V	= g_pGameLevel->ObjectSpace.GetStaticVerts();
 			fp->item->Cache.verts[0].set	(V[T->verts[0]]);
 			fp->item->Cache.verts[1].set	(V[T->verts[1]]);
 			fp->item->Cache.verts[2].set	(V[T->verts[2]]);
@@ -79,7 +79,7 @@ namespace Feel {
 		for (; Ii!=IiE; ++Ii)if (Ii->O==object){ feel_visible.erase(Ii); break; }
 	}
 
-	void	Vision::feel_vision_query	(Fmatrix& mFull, Fvector& P)
+	void	Vision::feel_vision_query	(Fmatrix& mFull, fVector3& P)
 	{
 		CFrustum								Frustum		;
 		Frustum.CreateFromMatrix				(mFull,FRUSTUM_P_LRTB|FRUSTUM_P_FAR);
@@ -110,7 +110,7 @@ namespace Feel {
 		}
 	}
 
-	void	Vision::feel_vision_update	(CObject* parent, Fvector& P, float dt, float vis_threshold)
+	void	Vision::feel_vision_update	(CObject* parent, fVector3& P, float dt, float vis_threshold)
 	{
 		// B-A = objects, that become visible
 		if (!seen.empty()) 
@@ -147,7 +147,7 @@ namespace Feel {
 		query				= seen;
 		o_trace				(P,dt,vis_threshold);
 	}
-	void Vision::o_trace	(Fvector& P, float dt, float vis_threshold)	{
+	void Vision::o_trace	(fVector3& P, float dt, float vis_threshold)	{
 		RQR.r_clear			();
 		xr_vector<feel_visible_Item>::iterator I=feel_visible.begin(),E=feel_visible.end();
 		for (; I!=E; I++){
@@ -161,13 +161,14 @@ namespace Feel {
 			I->cp_LR_src		= P;
 
 			// Fetch data
-			Fvector				OP;
+			fVector3			OP;
 			Fmatrix				mE;
 			const Fbox&			B = I->O->CFORM()->getBBox();
 			const Fmatrix&		M = I->O->XFORM();
 
 			// Build OBB + Ellipse and X-form point
-			Fvector				c,r;
+			fVector3			c;
+			fVector3			r;
 			Fmatrix				T,mR,mS;
 			B.getcenter			(c);
 			B.getradius			(r);
@@ -179,7 +180,7 @@ namespace Feel {
 			I->cp_LAST			= OP;
 
 			// 
-			Fvector				D;	
+			fVector3			D;
 			D.sub				(OP,P);
 			float				f = D.magnitude();
 			if (f>fuzzy_guaranteed){

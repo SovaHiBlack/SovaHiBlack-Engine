@@ -3,7 +3,7 @@
 
 #include "../PS_instance.h"
 
-extern const Fvector zero_vel;
+extern const fVector3 zero_vel;
 
 class CParticlesObject		:	public CPS_Instance
 {
@@ -33,12 +33,12 @@ public:
 	void				PerformAllTheWork	(u32 dt);
 	void	__stdcall	PerformAllTheWork_mt();
 
-	Fvector&			Position			();
+	fVector3&			Position			();
 	void				SetXFORM			(const Fmatrix& m);
 	IC	Fmatrix&		XFORM				()	{return renderable.xform;}
-	void				UpdateParent		(const Fmatrix& m, const Fvector& vel);
+	void				UpdateParent		(const Fmatrix& m, const fVector3& vel);
 
-	void				play_at_pos			(const Fvector& pos, BOOL xform=FALSE);
+	void				play_at_pos			(const fVector3& pos, BOOL xform=FALSE);
 	virtual void		Play				();
 	void				Stop				(BOOL bDefferedStop=TRUE);
 	virtual BOOL		Locked				()				{ return mt_dt; }

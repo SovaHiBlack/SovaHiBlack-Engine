@@ -49,9 +49,9 @@ void CHitMarker::Render()
 }
 //--------------------------------------------------------------------
 
-void CHitMarker::Hit(int id, const Fvector& dir){
+void CHitMarker::Hit(int id, const fVector3& dir){
 
-	Fvector hit_dir = dir;
+	fVector3 hit_dir = dir;
 	hit_dir.mul(-1.0f);
 	m_HitMarks.push_back	(xr_new<SHitMark>(hShader2,hit_dir));
 }
@@ -59,7 +59,7 @@ void CHitMarker::Hit(int id, const Fvector& dir){
 
 
 
-SHitMark::SHitMark		(const ref_shader& sh, const Fvector& dir)
+SHitMark::SHitMark		(const ref_shader& sh, const fVector3& dir)
 {
 	m_StartTime							= Device.fTimeGlobal;
 	m_lanim								= LALib.FindItem("hud_hit_mark");

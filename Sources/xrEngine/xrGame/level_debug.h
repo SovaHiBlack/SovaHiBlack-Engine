@@ -117,8 +117,8 @@ public:
 	//////////////////////////////////////////////////////////////////////////
 
 	struct SLevelItem {
-		Fvector		position1;
-		Fvector		position2;
+		fVector3	position1;
+		fVector3	position2;
 		float		radius;
 
 		enum {
@@ -130,24 +130,24 @@ public:
 		u32			color;
 		u32			id;
 
-		SLevelItem		(const Fvector &p, u32 col, u32 i) {
+		SLevelItem		(const fVector3& p, u32 col, u32 i) {
 			set			(p, col, i);
 			ptype		= ePoint;
 		}
 		
-		SLevelItem		(const Fvector &p, const Fvector &p2, u32 col, u32 i) {
+		SLevelItem		(const fVector3& p, const fVector3& p2, u32 col, u32 i) {
 			set			(p, col, i);
 			ptype		= eLine;
 			position2	= p2;
 		}
 
-		SLevelItem		(const Fvector &p, float r, u32 col, u32 i) {
+		SLevelItem		(const fVector3& p, float r, u32 col, u32 i) {
 			set			(p, col, i);
 			ptype		= eBox;
 			radius		= r;
 		}
 
-		void	set		(const Fvector &p, u32 col, u32 i) {
+		void	set		(const fVector3& p, u32 col, u32 i) {
 			position1	= p;
 			color		= col;
 			id			= i;
@@ -157,12 +157,11 @@ public:
 	class CLevelInfo : public CItemBase<SLevelItem> {
 		typedef CItemBase<SLevelItem> inherited;
 	public:
-		void	add_item		(const Fvector &pos, u32 color, u32 id = u32(-1));
-		void	add_item		(const Fvector &pos1, const Fvector &pos2, u32 color, u32 id = u32(-1));
-		void	add_item		(const Fvector &pos, float radius, u32 color, u32 id = u32(-1));
+		void	add_item		(const fVector3& pos, u32 color, u32 id = u32(-1));
+		void	add_item		(const fVector3& pos1, const fVector3& pos2, u32 color, u32 id = u32(-1));
+		void	add_item		(const fVector3& pos, float radius, u32 color, u32 id = u32(-1));
 		void	draw_info		();
 	};
-
 
 public:
 				CLevelDebug			();
@@ -188,7 +187,6 @@ public:
 		return level_info(typed_class, typeid((*typed_class)).name());	
 	}
 
-
 	void		draw_object_info	();
 	void		draw_text			();
 	void		draw_level_info		();
@@ -202,8 +200,7 @@ private:
 	CTextInfo	&text				(void *class_ptr, LPCSTR class_name);
 	CLevelInfo	&level_info			(void *class_ptr, LPCSTR class_name);
 
-private:
-	
+private:	
 	struct SKey {
 		void	*class_ptr;
 		LPCSTR	class_name;

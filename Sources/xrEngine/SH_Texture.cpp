@@ -3,10 +3,7 @@
 
 #include "ResourceManager.h"
 
-#ifndef _EDITOR
-    #include "render.h"
-#endif
-    
+#include "render.h"
 #include "tntQAVI.h"
 #include "xrTheora_Surface.h"
 
@@ -18,7 +15,6 @@ void resptrcode_texture::create(LPCSTR _name)
 {
 	_set(Device.Resources->_CreateTexture(_name));
 }
-
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction

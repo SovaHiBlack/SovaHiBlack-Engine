@@ -11,7 +11,7 @@
 #include "../render.h"
 #include "../IGame_Persistent.h"
 
-const Fvector zero_vel		= {0.f,0.f,0.f};
+const fVector3 zero_vel		= {0.0f,0.0f,0.0f};
 
 CParticlesObject::CParticlesObject	(LPCSTR p_name, BOOL bAutoRemove, bool destroy_on_game_load) :
 	inherited				(destroy_on_game_load)
@@ -85,7 +85,8 @@ void CParticlesObject::UpdateSpatial()
 	// spatial	(+ workaround occasional bug inside particle-system)
 	if (_valid(renderable.visual->vis.sphere))
 	{
-		Fvector	P;	float	R;
+		fVector3	P;
+		float	R;
 		renderable.xform.transform_tiny	(P,renderable.visual->vis.sphere.P);
 		R								= renderable.visual->vis.sphere.R;
 		if (0==spatial.type)	{
@@ -126,7 +127,7 @@ void CParticlesObject::Play		()
 	m_bStopping					= false;
 }
 
-void CParticlesObject::play_at_pos(const Fvector& pos, BOOL xform)
+void CParticlesObject::play_at_pos(const fVector3& pos, BOOL xform)
 {
 	if(g_dedicated_server)		return;
 
@@ -207,7 +208,7 @@ void CParticlesObject::SetXFORM			(const Fmatrix& m)
 	UpdateSpatial		();
 }
 
-void CParticlesObject::UpdateParent		(const Fmatrix& m, const Fvector& vel)
+void CParticlesObject::UpdateParent		(const Fmatrix& m, const fVector3& vel)
 {
 	if(g_dedicated_server)		return;
 
@@ -216,11 +217,11 @@ void CParticlesObject::UpdateParent		(const Fmatrix& m, const Fvector& vel)
 	UpdateSpatial		();
 }
 
-Fvector& CParticlesObject::Position		()
+fVector3& CParticlesObject::Position		()
 {
 	if(g_dedicated_server) 
 	{
-		static Fvector _pos = Fvector().set(0,0,0);
+		static fVector3 _pos = fVector3().set(0.0f,0.0f,0.0f);
 		return _pos;
 	}
 	return renderable.visual->vis.sphere.P;
@@ -230,7 +231,7 @@ float CParticlesObject::shedule_Scale		()
 { 
 	if(g_dedicated_server)		return 5.0f;
 
-	return Device.vCameraPosition.distance_to(Position())/200.f; 
+	return Device.vCameraPosition.distance_to(Position())/200.0f; 
 }
 
 void CParticlesObject::renderable_Render	()

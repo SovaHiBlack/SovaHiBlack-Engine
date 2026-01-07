@@ -27,24 +27,19 @@ namespace CPU {
 	XRCORE_API extern	_processor_info	ID					;
 	XRCORE_API extern	u64				QPC	()				;
 
-#ifdef M_VISUAL
-	#ifndef _M_AMD64
+#ifndef _M_AMD64
 		#pragma warning(disable:4035)
 		IC u64	GetCLK(void)	{
 			_asm    _emit 0x0F;
 			_asm    _emit 0x31;
 		}
 		#pragma warning(default:4035)
-	#else
+#else
 		IC u64	GetCLK(void)	{
 			return __rdtsc();
 		}
-	#endif
 #endif
 
-#ifdef M_BORLAND
-	XRCORE_API u64 __fastcall	GetCLK				(void);
-#endif
 };
 
 extern XRCORE_API	void	_initialize_cpu			();

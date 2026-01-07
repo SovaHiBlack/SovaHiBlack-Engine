@@ -9,7 +9,7 @@ void 	XRCORE_API		Log			(LPCSTR msg, LPCSTR			dop);
 void 	XRCORE_API		Log			(LPCSTR msg, u32			dop);
 void 	XRCORE_API		Log			(LPCSTR msg, int  			dop);
 void 	XRCORE_API		Log			(LPCSTR msg, float			dop);
-void 	XRCORE_API		Log			(LPCSTR msg, const Fvector& dop);
+void 	XRCORE_API		Log			(LPCSTR msg, const fVector3& dop);
 void 	XRCORE_API		Log			(LPCSTR msg, const Fmatrix& dop);
 void 	XRCORE_API		LogWinErr	(LPCSTR msg, long 			err_code);
 

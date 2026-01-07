@@ -79,7 +79,6 @@ void CPHCapture::PhTune(dReal /**step/**/)
 		break;
 	default: NODEFAULT;
 	}
-
 }
 
 void CPHCapture::PullingUpdate()
@@ -90,8 +89,8 @@ void CPHCapture::PullingUpdate()
 		return;
 	}
 
-	Fvector dir;
-	Fvector capture_bone_position;
+	fVector3 dir;
+	fVector3 capture_bone_position;
 	CObject* object=smart_cast<CObject*>(m_character->PhysicsRefObject());
 	capture_bone_position.set(m_capture_bone->mTransform.c);
 	object->XFORM().transform_tiny(capture_bone_position);
@@ -245,7 +244,7 @@ void CPHCapture::CapturedUpdate()
 		m_character->ApplyForce(m_joint_feedback.f1[0]/f,m_joint_feedback.f1[1]/f,m_joint_feedback.f1[2]/f);
 	}
 
-	Fvector capture_bone_position;
+	fVector3 capture_bone_position;
 	CObject* object=smart_cast<CObject*>(m_character->PhysicsRefObject());
 	capture_bone_position.set(m_capture_bone->mTransform.c);
 	object->XFORM().transform_tiny(capture_bone_position);
@@ -268,7 +267,6 @@ void CPHCapture::ReleaseInCallBack()
 	//	if(!b_failed) return;
 	b_collide=true;
 }
-
 
 void CPHCapture::object_contactCallbackFun(bool& do_colide,bool bo1,dContact& c,SGameMtl * /*material_1*/,SGameMtl * /*material_2*/)
 {

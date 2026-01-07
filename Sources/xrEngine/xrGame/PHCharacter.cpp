@@ -45,17 +45,16 @@ void	CPHCharacter::UnFreezeContent()
 	dBodyEnable(m_body);
 	CPHObject::UnFreezeContent();
 }
-void	CPHCharacter::getForce(Fvector& force)
+void	CPHCharacter::getForce(fVector3& force)
 {
 	if(!b_exist)return;
-	force.set(*(Fvector*)dBodyGetForce(m_body));
+	force.set(*(fVector3*)dBodyGetForce(m_body));
 }
-void	CPHCharacter::setForce(const Fvector &force)
+void	CPHCharacter::setForce(const fVector3& force)
 {
 	if(!b_exist)return;
 	dBodySetForce(m_body,force.x,force.y,force.z);
 }
-
 
 void CPHCharacter::get_State(SPHNetState& state)
 {
@@ -114,23 +113,13 @@ void CPHCharacter::Enable()
 	if(!b_exist) return;
 	CPHObject::activate();
 	dBodyEnable(m_body);
-
 }
-
-
-
-
-
-
 
 void  CarHitCallback(bool& /**do_colide/**/,dContact& /**c/**/)
-{
+{ }
 
-}
-
-void CPHCharacter::GetSavedVelocity(Fvector& vvel)
+void CPHCharacter::GetSavedVelocity(fVector3& vvel)
 {
-	
 	if(IsEnabled())vvel.set(m_safe_velocity);
 	else GetVelocity(vvel);
 }
@@ -147,4 +136,3 @@ void CPHCharacter::CutVelocity(float l_limit,float /*a_limit*/)
 		dBodySetLinearVel(m_body,limitedl[0],limitedl[1],limitedl[2]);
 	}
 }
-

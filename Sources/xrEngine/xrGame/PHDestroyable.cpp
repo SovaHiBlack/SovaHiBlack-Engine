@@ -294,29 +294,27 @@ void CPHDestroyable::NotificatePart(CPHDestroyableNotificate *dn)
 			float random_hit=random_min*e->getMass();
 			if(m_fatal_hit.is_valide() && m_fatal_hit.bone()!=BI_NONE )
 			{
-				Fvector pos;
+				fVector3 pos;
 				Fmatrix m;m.set(own_K->LL_GetTransform(m_fatal_hit.bone()));
 				m.mulA_43		(PPhysicsShellHolder()->XFORM());
 				m.transform_tiny(pos,m_fatal_hit.bone_space_position());
 				e->applyImpulseVsGF(pos,m_fatal_hit.direction(),m_fatal_hit.phys_impulse()*imp_transition_factor);
 				random_hit+=random_hit_imp*m_fatal_hit.phys_impulse();
 			}
-			Fvector rnd_dir;rnd_dir.random_dir();
+			fVector3 rnd_dir;
+			rnd_dir.random_dir();
 			e->applyImpulse(rnd_dir,random_hit);
-			Fvector mc; mc.set(e->mass_Center());
+			fVector3 mc;
+			mc.set(e->mass_Center());
 			dVector3 res_lvell;
 			dBodyGetPointVel(own_body,mc.x,mc.y,mc.z,res_lvell);
 			cast_fv(res_lvell).mul(lv_transition_factor);
 			e->set_LinearVel(cast_fv(res_lvell));
 			
-			Fvector res_avell;res_avell.set(cast_fv(dBodyGetAngularVel(own_body)));
+			fVector3 res_avell;res_avell.set(cast_fv(dBodyGetAngularVel(own_body)));
 			res_avell.mul(av_transition_factor);
 			e->set_AngularVel(res_avell);
 		}
-	
-
-
-
 
 	new_shell->Enable();
 	new_shell->EnableCollision();
@@ -328,7 +326,6 @@ void CPHDestroyable::NotificatePart(CPHDestroyableNotificate *dn)
 	CPHSkeleton* ps=dn->PPhysicsShellHolder()->PHSkeleton();
 	if(ps)
 	{
-	
 		if(own_ini&&own_ini->section_exist("autoremove_parts"))
 		{
 			ps->SetAutoRemove(1000*(READ_IF_EXISTS(own_ini,r_u32,"autoremove_parts","time",ps->DefaultExitenceTime())));
@@ -339,7 +336,6 @@ void CPHDestroyable::NotificatePart(CPHDestroyableNotificate *dn)
 			ps->SetAutoRemove(1000*(READ_IF_EXISTS(new_ini,r_u32,"autoremove","time",ps->DefaultExitenceTime())));
 		}
 	}
-
 }
 
 void CPHDestroyable::NotificateDestroy(CPHDestroyableNotificate *dn)
@@ -357,7 +353,6 @@ void CPHDestroyable::NotificateDestroy(CPHDestroyableNotificate *dn)
 		m_notificate_objects.clear();
 		m_flags.set(fl_released,TRUE);
 	}
-
 }
 
 void CPHDestroyable::SetFatalHit(const SHit& hit)

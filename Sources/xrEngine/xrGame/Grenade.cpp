@@ -55,7 +55,8 @@ BOOL CGrenade::net_Spawn(CSE_Abstract* DC)
 {
 	m_dwGrenadeIndependencyTime			= 0;
 	BOOL ret= inherited::net_Spawn		(DC);
-	Fvector box;BoundingBox().getsize	(box);
+	fVector3 box;
+	BoundingBox().getsize	(box);
 	float max_size						= _max(_max(box.x,box.y),box.z);
 	box.set								(max_size,max_size,max_size);
 	box.mul								(3.f);
@@ -94,7 +95,7 @@ void CGrenade::State(u32 state)
 	{
 	case MS_THREATEN:
 		{
-			Fvector						C;
+		fVector3						C;
 			Center						(C);
 			PlaySound					(sndCheckout,C);
 		}break;
@@ -141,21 +142,16 @@ void CGrenade::Throw()
 	m_thrown = true;
 }
 
-
-
 void CGrenade::Destroy() 
 {
 	//Generate Expode event
-	Fvector						normal;
+	fVector3						normal;
 	FindNormal					(normal);
 	CExplosive::GenExplodeEvent	(Position(), normal);
 }
 
-
-
 bool CGrenade::Useful() const
 {
-
 	bool res = (/* !m_throw && */ m_dwDestroyTime == 0xffffffff && CExplosive::Useful() && TestServerFlag(CSE_ALifeObject::flCanSave));
 
 	return res;
@@ -208,7 +204,6 @@ void CGrenade::OnAnimationEnd(u32 state)
 	}
 }
 
-
 void CGrenade::UpdateCL() 
 {
 	inherited::UpdateCL			();
@@ -216,7 +211,6 @@ void CGrenade::UpdateCL()
 
 	if(!IsGameTypeSingle())	make_Interpolation();
 }
-
 
 bool CGrenade::Action(s32 cmd, u32 flags) 
 {
@@ -227,7 +221,7 @@ bool CGrenade::Action(s32 cmd, u32 flags)
 	//переключение типа гранаты
 	case kWPN_NEXT:
 		{
-            if(flags&CMD_START) 
+			if(flags&CMD_START) 
 			{
 				if(m_pCurrentInventory)
 				{

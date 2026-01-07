@@ -43,16 +43,13 @@ void CGraviArtefact::Load(LPCSTR section)
 //	m_fEnergy = pSettings->r_float(section,"energy");
 }
 
-
-
 void CGraviArtefact::UpdateCLChild() 
 {
-
 	VERIFY(!ph_world->Processing());
 	if (getVisible() && m_pPhysicsShell) {
 		if (m_fJumpHeight) {
-			Fvector dir; 
-			dir.set(0, -1.f, 0);
+			fVector3 dir;
+			dir.set(0.0f, -1.0f, 0.0f);
 			collide::rq_result RQ;
 			
 			//проверить высоту артифакта
@@ -76,12 +73,12 @@ void CGraviArtefact::UpdateCLChild()
 				{
 					K->CalculateBones	();
 					Fmatrix Ruck_MTX	= K->LL_GetTransform(m_CarringBoneID);
-					Fvector	x;
-					x.set(-0.1f, 0.f, -0.3f);
+					fVector3	x;
+					x.set(-0.1f, 0.0f, -0.3f);
 					Ruck_MTX.translate_add(x);
 					Ruck_MTX.mulA_43	(XFORM());
 					XFORM().set(Ruck_MTX);
-				};
-			};
-		};
+				}
+			}
+		}
 }

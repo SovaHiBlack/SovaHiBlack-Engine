@@ -7,7 +7,7 @@
 // refs
 struct OggVorbis_File;
 
-class XRSOUND_EDITOR_API 	CSoundRender_Source	: public CSound_source
+class CSoundRender_Source : public CSound_source
 {
 public:
 	shared_str				pname;
@@ -32,7 +32,7 @@ public:
 							~CSoundRender_Source	();
 
 	void					load					(LPCSTR name);
-    void					unload					();
+	void					unload					();
 	void					decompress				(u32 line, OggVorbis_File* ovf);
 	
 	virtual	u32				length_ms				()	{return dwTimeTotal;	}

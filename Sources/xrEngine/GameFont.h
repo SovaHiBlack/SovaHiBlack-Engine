@@ -4,10 +4,7 @@
 
 #include "MbHelpers.h"
 
-class ENGINE_API CGameFont
-#ifndef M_BORLAND
-	: public pureRender
-#endif
+class ENGINE_API CGameFont : public pureRender
 {
 public:
 	enum EAligment{
@@ -15,6 +12,7 @@ public:
 		alRight,
 		alCenter
 	};
+
 private:
 	struct String
 	{
@@ -24,6 +22,7 @@ private:
 		u32			c;
 		EAligment	align;
 	};
+
 protected:
 	fVector2				vHalfPixel;
 	iVector2				vTS;
@@ -34,7 +33,7 @@ protected:
 	float					fCurrentX, fCurrentY;
 	fVector2				vInterval;
 
-	Fvector 				*TCMap;
+	fVector3*				TCMap;
 	float					fHeight;
 	float					fXStep;
 	float					fYStep;
@@ -61,7 +60,7 @@ public:
 	};
 
 protected:
-	IC const Fvector&		GetCharTC		(u16 c)		{return TCMap[c];}
+	IC const fVector3&		GetCharTC		(u16 c)		{return TCMap[c];}
 
 public:
 							CGameFont		(LPCSTR section, u32 flags=0);

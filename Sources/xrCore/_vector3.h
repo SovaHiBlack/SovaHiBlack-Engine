@@ -5,21 +5,21 @@ class _vector3
 {
 public:
 	using TYPE = T;
-	using Self = _vector3<T>;
+	using Self = _vector3<TYPE>;
 	using SelfRef = Self&;
 	using SelfCRef = const Self&;
 
-	TYPE	x;
+	TYPE x;
 	TYPE y;
 	TYPE z;
 
 	// access operators
-	ICF TYPE& operator[] (int i)
+	ICF TYPE& operator[] (s32 i)
 	{
 		return *((TYPE*)this + i);
 	}
 
-	ICF TYPE& operator[] (int i) const
+	ICF TYPE& operator[] (s32 i) const
 	{
 		return *((TYPE*)this + i);
 	}

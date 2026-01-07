@@ -25,6 +25,7 @@ public:
 		float				energy				;
 		Fcolor				color				;
 	};
+
 public:
 	// general
 	u32						MODE				;
@@ -42,20 +43,23 @@ public:
 	u32						result_iterator		;
 	u32						result_frame		;
 	s32						result_sun			;
+
 public:
 	u32						shadow_gen_frame	;
 	u32						shadow_recv_frame	;
 	int						shadow_recv_slot	;
+
 private:
 	float					hemi_value			;
 	float					hemi_smooth			;
 	float					sun_value			;
 	float					sun_smooth			;
 
-	Fvector					approximate			;
+	fVector3					approximate			;
+
 public:
 	virtual	void			force_mode			(u32 mode)		{ MODE = mode;															};
-	virtual float			get_luminocity		()				{ Fvector one; return one.set(1,1,1).div(3.f).dotproduct(approximate);	};
+	virtual float			get_luminocity		()				{ fVector3 one; return one.set(1,1,1).div(3.f).dotproduct(approximate);	};
 	virtual float			get_luminocity_hemi	()				{ return get_hemi();}
 
 	void					add					(light*			L);

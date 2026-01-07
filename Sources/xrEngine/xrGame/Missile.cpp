@@ -222,7 +222,7 @@ void CMissile::State(u32 state)
 	switch(GetState()) 
 	{
 	case MS_SHOWING:
-        {
+		{
 			m_bPending = true;
 			m_pHUD->animPlay(m_pHUD->animGet(*m_sAnimShow), FALSE, this, GetState());
 		} break;
@@ -354,7 +354,7 @@ void CMissile::UpdateXForm	()
 
 		// Get access to entity and its visual
 		CEntityAlive*		E		= smart_cast<CEntityAlive*>(H_Parent());
-        
+		
 		if(!E)				return	;
 
 		const CInventoryOwner	*parent = smart_cast<const CInventoryOwner*>(E);
@@ -380,16 +380,20 @@ void CMissile::UpdateXForm	()
 
 		// Calculate
 		Fmatrix				mRes;
-		Fvector				R,D,N;
-		D.sub				(mL.c,mR.c);	D.normalize_safe();
-		R.crossproduct		(mR.j,D);		R.normalize_safe();
-		N.crossproduct		(D,R);			N.normalize_safe();
+		fVector3			R;
+		fVector3			D;
+		fVector3			N;
+		D.sub				(mL.c,mR.c);
+		D.normalize_safe();
+		R.crossproduct		(mR.j,D);
+		R.normalize_safe();
+		N.crossproduct		(D,R);
+		N.normalize_safe();
 		mRes.set			(R,N,D,mR.c);
 		mRes.mulA_43		(E->XFORM());
 		UpdatePosition		(mRes);
 	}
 }
-
 
 void CMissile::Show() 
 {
@@ -412,7 +416,8 @@ void CMissile::setup_throw_params()
 	VERIFY					(inventory_owner);
 	Fmatrix					trans;
 	trans.identity			();
-	Fvector					FirePos, FireDir;
+	fVector3				FirePos;
+	fVector3				FireDir;
 	if (this == inventory_owner->inventory().ActiveItem())
 	{
 		CInventoryOwner* io		= smart_cast<CInventoryOwner*>(H_Parent());
@@ -431,7 +436,7 @@ void CMissile::setup_throw_params()
 		FireDir				= XFORM().k;
 	}
 	trans.k.set				(FireDir);
-	Fvector::generate_orthonormal_basis(trans.k, trans.j,trans.i);
+	fVector3::generate_orthonormal_basis(trans.k, trans.j,trans.i);
 	trans.c.set				(FirePos);
 	m_throw_matrix.set		(trans);
 	m_throw_direction.set	(trans.k);
@@ -524,7 +529,7 @@ bool CMissile::Action(s32 cmd, u32 flags)
 	case kWPN_ZOOM:
 		{
 			m_constpower = false;
-        	if(flags&CMD_START) 
+			if(flags&CMD_START) 
 			{
 				m_throw = false;
 				if(GetState() == MS_IDLE) 
@@ -550,7 +555,7 @@ void  CMissile::UpdateFireDependencies_internal	()
 {
 	if (0==H_Parent())		return;
 
-    if (Device.dwFrame!=dwFP_Frame){
+	if (Device.dwFrame!=dwFP_Frame){
 		dwFP_Frame = Device.dwFrame;
 
 		UpdateXForm			();
@@ -586,12 +591,12 @@ void CMissile::activate_physic_shell()
 		return;
 	}
 
-	Fvector				l_vel;
+	fVector3				l_vel;
 	l_vel.set			(m_throw_direction);
 	l_vel.normalize_safe();
 	l_vel.mul			(m_fThrowForce);
 
-	Fvector				a_vel;
+	fVector3				a_vel;
 	CInventoryOwner		*inventory_owner = smart_cast<CInventoryOwner*>(H_Root());
 	if (inventory_owner && inventory_owner->use_throw_randomness()) {
 		float			fi,teta,r;
@@ -608,7 +613,7 @@ void CMissile::activate_physic_shell()
 
 	CEntityAlive		*entity_alive = smart_cast<CEntityAlive*>(H_Root());
 	if (entity_alive && entity_alive->character_physics_support()){
-		Fvector			parent_vel;
+		fVector3			parent_vel;
 		entity_alive->character_physics_support()->movement()->GetCharacterVelocity(parent_vel);
 		l_vel.add		(parent_vel);
 	}
@@ -621,8 +626,8 @@ void CMissile::activate_physic_shell()
 	m_pPhysicsShell->add_ObjectContactCallback		(ExitContactCallback);
 	m_pPhysicsShell->set_CallbackData	(smart_cast<CPhysicsShellHolder*>(entity_alive));
 //	m_pPhysicsShell->remove_ObjectContactCallback	(ExitContactCallback);
-	m_pPhysicsShell->SetAirResistance	(0.f,0.f);
-	m_pPhysicsShell->set_DynamicScales	(1.f,1.f);
+	m_pPhysicsShell->SetAirResistance	(0.0f,0.0f);
+	m_pPhysicsShell->set_DynamicScales	(1.0f,1.0f);
 
 	CKinematics							*kinematics = smart_cast<CKinematics*>(Visual());
 	VERIFY								(kinematics);

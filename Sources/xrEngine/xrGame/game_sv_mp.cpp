@@ -407,7 +407,8 @@ void	game_sv_mp::SpawnPlayer(ClientID id, LPCSTR N)
 	else
 		if (pS)
 		{
-			Fvector Pos, Angle;
+			fVector3 Pos;
+			fVector3 Angle;
 			if (!GetPosAngleFromActor(id, Pos, Angle)) assign_RP				(E, ps_who);
 			else
 			{
@@ -519,7 +520,7 @@ void	game_sv_mp::SetSkin					(CSE_Abstract* E, u16 Team, u16 ID)
 
 #include "../CameraBase.h"
 
-bool	game_sv_mp::GetPosAngleFromActor				(ClientID id, Fvector& Pos, Fvector &Angle)
+bool	game_sv_mp::GetPosAngleFromActor				(ClientID id, fVector3& Pos, fVector3& Angle)
 {
 	xrClientData* xrCData	=	m_server->ID_to_client(id);
 	if (!xrCData || !xrCData->owner) return false;

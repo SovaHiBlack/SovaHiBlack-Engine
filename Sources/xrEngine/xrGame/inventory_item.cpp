@@ -39,17 +39,17 @@ struct net_updateData{
 	float			SCoeff[3][4];
 
 #ifdef DEBUG
-	DEF_VECTOR		(VIS_POSITION, Fvector);
+	DEF_VECTOR		(VIS_POSITION, fVector3);
 	VIS_POSITION	LastVisPos;
 #endif
 
-	Fvector			IStartPos;
+	fVector3			IStartPos;
 	Fquaternion		IStartRot;
 
-	Fvector			IRecPos;
+	fVector3			IRecPos;
 	Fquaternion		IRecRot;
 
-	Fvector			IEndPos;
+	fVector3			IEndPos;
 	Fquaternion		IEndRot;	
 
 	SPHNetState		LastState;
@@ -273,7 +273,7 @@ void CInventoryItem::OnEvent (NET_Packet& P, u16 type)
 		}break;	
 	case GE_CHANGE_POS:
 		{
-			Fvector p; 
+		fVector3 p;
 			P.r_vec3(p);
 			CPHSynchronize* pSyncObj = NULL;
 			pSyncObj = object().PHGetSyncItem(0);
@@ -671,7 +671,10 @@ void CInventoryItem::CalculateInterpolationParams()
 	p->IStartPos.set(object().Position());
 	p->IStartRot.set(object().XFORM());
 
-	Fvector P0, P1, P2, P3;
+	fVector3 P0;
+	fVector3 P1;
+	fVector3 P2;
+	fVector3 P3;
 
 	CPHSynchronize* pSyncObj = NULL;
 	pSyncObj = object().PHGetSyncItem(0);
@@ -689,7 +692,7 @@ void CInventoryItem::CalculateInterpolationParams()
 		{
 			P0[k] = c*(c*(c*p->SCoeff[k][0]+p->SCoeff[k][1])+p->SCoeff[k][2])+p->SCoeff[k][3];
 			P1[k] = (c*c*p->SCoeff[k][0]*3+c*p->SCoeff[k][1]*2+p->SCoeff[k][2])/3; // сокрость из формулы в 3 раза превышает скорость при расчете коэффициентов !!!!
-		};
+		}
 		P0.set(p->IStartPos);
 		P1.add(p->IStartPos);
 	}	
@@ -721,7 +724,7 @@ void CInventoryItem::CalculateInterpolationParams()
 	pSyncObj->cv2obj_Xfrom(p->PredictedState.quaternion, p->PredictedState.position, xformX1);
 	P3.set(xformX1.c);
 	/////////////////////////////////////////////////////////////////////////////
-	Fvector TotalPath;
+	fVector3 TotalPath;
 	TotalPath.sub(P3, P0);
 	float TotalLen = TotalPath.magnitude();
 	
@@ -743,7 +746,8 @@ void CInventoryItem::CalculateInterpolationParams()
 	else
 		p->m_dwIEndTime = p->m_dwIStartTime + ConstTime;
 	/////////////////////////////////////////////////////////////////////////////
-	Fvector V0, V1;
+	fVector3 V0;
+	fVector3 V1;
 	V0.sub(P1, P0);
 	V1.sub(P3, P2);
 	lV0 = V0.magnitude();
@@ -817,14 +821,14 @@ void CInventoryItem::make_Interpolation	()
 			if (factor > 1) factor = 1.0f;
 			else if (factor < 0) factor = 0;
 
-			Fvector IPos;
+			fVector3 IPos;
 			Fquaternion IRot;
 
 			float c = factor;
 			for (u32 k=0; k<3; k++)
 			{
 				IPos[k] = c*(c*(c*p->SCoeff[k][0]+p->SCoeff[k][1])+p->SCoeff[k][2])+p->SCoeff[k][3];
-			};
+			}
 
 			VERIFY2								(_valid(IPos),*object().cName());
 			VERIFY			(factor>=0.f && factor<=1.f);
@@ -842,7 +846,7 @@ void CInventoryItem::make_Interpolation	()
 	};
 
 #ifdef DEBUG
-	Fvector iPos = object().Position();
+	fVector3 iPos = object().Position();
 
 	if (!object().H_Parent() && object().getVisible()) 
 	{
@@ -850,8 +854,8 @@ void CInventoryItem::make_Interpolation	()
 			m_net_updateData->LastVisPos.push_back(iPos);
 	};
 #endif
-}
 
+}
 
 void CInventoryItem::reload		(LPCSTR section)
 {
@@ -936,7 +940,9 @@ void CInventoryItem::UpdateXForm	()
 	Fmatrix& mR			= V->LL_GetTransform(u16(boneR));
 	// Calculate
 	Fmatrix			mRes;
-	Fvector			R,D,N;
+	fVector3		R;
+	fVector3		D;
+	fVector3		N;
 	D.sub			(mL.c,mR.c);	D.normalize_safe();
 
 	if(fis_zero(D.magnitude()))
@@ -960,17 +966,15 @@ void CInventoryItem::UpdateXForm	()
 	object().Position().set(mRes.c);
 }
 
-
-
 #ifdef DEBUG
-
 void CInventoryItem::OnRender()
 {
 	if (bDebug && object().Visual())
 	{
 		if (!(dbg_net_Draw_Flags.is_any((1<<4)))) return;
 
-		Fvector bc,bd; 
+		fVector3 bc;
+		fVector3 bd;
 		object().Visual()->vis.box.get_CD	(bc,bd);
 		Fmatrix	M = object().XFORM();
 		M.c.add (bc);
@@ -998,7 +1002,8 @@ void CInventoryItem::OnRender()
 		{
 			Level().debug_renderer().draw_aabb			(Position(), size, size, size, color_rgba(0, 255, 0, 255));
 
-			Fvector Pos1, Pos2;
+			fVector3 Pos1;
+			fVector3 Pos2;
 			VIS_POSITION_it It = LastVisPos.begin();
 			Pos1 = *It;
 			for (; It != LastVisPos.end(); It++)
@@ -1024,7 +1029,8 @@ void CInventoryItem::OnRender()
 			Level().debug_renderer().draw_obb			(xformI,bd,color_rgba(0, 255, 0, 255));
 
 			///////////////////////////////////////////////////////////////////////////
-			Fvector point0 = IStartPos, point1;			
+			fVector3 point0 = IStartPos;
+			fVector3 point1;			
 			
 			float c = 0;
 			for (float i=0.1f; i<1.1f; i+= 0.1f)

@@ -16,7 +16,7 @@ private:
 	typedef	R_dsgraph::_MatrixItem	NODE;		
 	struct	caster			{
 		IRenderable*		O;
-		Fvector				C;
+		fVector3				C;
 		float				D;
 		xr_vector<NODE>		nodes;
 	};
@@ -26,21 +26,21 @@ private:
 #endif
 		IRenderable*		O;
 		int					slot;
-		Fvector				C;
+		fVector3				C;
 		Fmatrix				M;
 		light*				L;
 		float				E;
 	};
 	struct	tess_tri		{
-		Fvector				v[3];
-		Fvector				N;
+		fVector3				v[3];
+		fVector3				N;
 	};
 public:
 	struct	cache_item		{
 		IRenderable*		O;
-		Fvector				Op;
+		fVector3				Op;
 		light*				L;
-		Fvector				Lp;
+		fVector3				Lp;
 		u32					time;
 		tess_tri*			tris;
 		u32					tcnt;
@@ -65,7 +65,7 @@ private:
 	ref_geom				geom_World;
 	ref_shader				sh_Screen;
 	ref_geom				geom_Screen;
-private:
+
 public:
 	void					set_object		(IRenderable*	O);
 	void					add_element		(NODE&			N);

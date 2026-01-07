@@ -15,14 +15,6 @@
 #undef FLT_MIN
 #endif
 
-// Select platform
-#ifdef	_MSC_VER
-#define	M_VISUAL
-#endif
-#ifdef	__BORLANDC__
-#define M_BORLAND
-#endif
-
 #include	"_constants.h"
 #include	"_limits.h"
 

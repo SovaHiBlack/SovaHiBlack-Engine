@@ -1,7 +1,7 @@
 #ifndef SoundRender_CoreH
 #define SoundRender_CoreH
 #pragma once
-                                          
+										  
 #include "SoundRender.h"
 #include "SoundRender_Environment.h"
 #include "SoundRender_Cache.h"
@@ -9,12 +9,12 @@
 
 class CSoundRender_Core					: public CSound_manager_interface
 {
-    volatile BOOL						bLocked;
+	volatile BOOL						bLocked;
 protected:
 	virtual void						_create_data			( ref_sound_data& S, LPCSTR fName,	esound_type sound_type, int game_type); 
 	virtual void						_destroy_data			( ref_sound_data& S);
 protected:
-    BOOL								bListenerMoved;
+	BOOL								bListenerMoved;
 
 	CSoundRender_Environment			e_current;
 	CSoundRender_Environment			e_target;
@@ -24,20 +24,19 @@ public:
 public:
 	BOOL								bPresent;
 	BOOL								bUserEnvironment;
-    BOOL	 							bEAX;					// Boolean variable to indicate presence of EAX Extension 
-    BOOL								bDeferredEAX;
-    BOOL								bReady;
+	BOOL	 							bEAX;					// Boolean variable to indicate presence of EAX Extension 
+	BOOL								bDeferredEAX;
+	BOOL								bReady;
 
-    WAVEFORMATEX						wfm;
+	WAVEFORMATEX						wfm;
 	CTimer								Timer;
 	u32									Timer_Value;
 	u32									Timer_Delta;
 	sound_event*						Handler;
 protected:
 	// Collider
-#ifndef _EDITOR
 	CDB::COLLIDER						geom_DB;
-#endif
+
 	CDB::MODEL*							geom_SOM;
 	CDB::MODEL*							geom_MODEL;
 	CDB::MODEL*							geom_ENV;
@@ -98,14 +97,6 @@ public:
 	void								i_eax_listener_set		(CSound_environment* E);
 	void								i_eax_listener_get		(CSound_environment* E);
 
-#ifdef _EDITOR
-	virtual SoundEnvironment_LIB*		get_env_library			()																{ return s_environment; }
-	virtual void						refresh_env_library		();
-	virtual void						set_user_env			(CSound_environment* E);
-	virtual void						refresh_sources			();
-    virtual void						set_environment			(u32 id, CSound_environment** dst_env);
-    virtual void						set_environment_size	(CSound_environment* src_env, CSound_environment** dst_env);
-#endif
 public:
 	CSoundRender_Source*				i_create_source			( LPCSTR name				);
 	void								i_destroy_source		( CSoundRender_Source*  S	);
@@ -114,7 +105,7 @@ public:
 	void								i_stop					( CSoundRender_Emitter* E	);
 	void								i_rewind				( CSoundRender_Emitter* E	);
 	BOOL								i_allow_play			( CSoundRender_Emitter* E	);
-    virtual BOOL						i_locked 				(){return bLocked;}
+	virtual BOOL						i_locked 				(){return bLocked;}
 
 	virtual void						object_relcase			( CObject* obj );
 

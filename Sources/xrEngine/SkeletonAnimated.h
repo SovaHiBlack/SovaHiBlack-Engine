@@ -22,22 +22,22 @@ private:
 	typedef const MotionID *(MotionID::*unspecified_bool_type) () const;
 public:
 	union{
-    	struct{
-    	    u16		idx:14;
-	        u16		slot:2;
-        };
-        u16			val;
-    };
+		struct{
+			u16		idx:14;
+			u16		slot:2;
+		};
+		u16			val;
+	};
 public:
-    				MotionID	(){invalidate();}
-    				MotionID	(u16 motion_slot, u16 motion_idx){set(motion_slot,motion_idx);}
+					MotionID	(){invalidate();}
+					MotionID	(u16 motion_slot, u16 motion_idx){set(motion_slot,motion_idx);}
 	ICF bool		operator==	(const MotionID& tgt) const {return tgt.val==val;}
 	ICF bool		operator!=	(const MotionID& tgt) const {return tgt.val!=val;}
 	ICF bool		operator<	(const MotionID& tgt) const {return val<tgt.val;}
 	ICF	bool		operator!	() const					{return !valid();}
-    ICF void		set			(u16 motion_slot, u16 motion_idx){slot=motion_slot; idx=motion_idx;}
+	ICF void		set			(u16 motion_slot, u16 motion_idx){slot=motion_slot; idx=motion_idx;}
 	ICF void		invalidate	() {val=u16(-1);}
-    ICF bool		valid		() const {return val!=u16(-1);}
+	ICF bool		valid		() const {return val!=u16(-1);}
 	const MotionID*	get			() const {return this;};
 	ICF	operator	unspecified_bool_type () const 
 	{
@@ -65,7 +65,7 @@ public:
 	float			blendAmount;
 	float			timeCurrent;
 	float			timeTotal;
-    MotionID		motionID;
+	MotionID		motionID;
 	u16				bone_or_part;	// startup parameters
 	u8				channel;
 	ECurvature		blend;
@@ -139,12 +139,8 @@ public:
 	virtual void				Bone_Calculate			(CBoneData* bd, Fmatrix* parent);
 			void				Bone_GetAnimPos			(Fmatrix& pos,u16 id, u8 channel_mask, bool ignore_callbacks);
 	virtual void				OnCalculateBones		();
-public: 
-#ifdef _EDITOR
-public:
-#else
+
 private:
-#endif
 	u32											Update_LastTime;
 
 	CBlendInstance*								blend_instances;
@@ -156,7 +152,7 @@ private:
 	DEFINE_VECTOR(SMotionsSlot,MotionsSlotVec,MotionsSlotVecIt);
 	MotionsSlotVec								m_Motions;
 
-    CPartition*									m_Partition;
+	CPartition*									m_Partition;
 
 	// Blending
 	svector<CBlend, MAX_BLENDED_POOL>			blend_pool;
@@ -180,12 +176,7 @@ public:
 	std::pair<LPCSTR,LPCSTR>	LL_MotionDefName_dbg	(MotionID	ID);
 //	LPCSTR						LL_MotionDefName_dbg	(LPVOID		ptr);
 #endif
-#ifdef _EDITOR
-    u32							LL_CycleCount	(){u32 cnt=0; for (u32 k=0; k<m_Motions.size(); k++) cnt+=m_Motions[k].motions.cycle()->size(); return cnt;}
-    u32							LL_FXCount		(){u32 cnt=0; for (u32 k=0; k<m_Motions.size(); k++) cnt+=m_Motions[k].motions.fx()->size(); return cnt;}
-	accel_map*					LL_Motions		(u32 slot){return m_Motions[slot].motions.motion_map();}
-	MotionID					ID_Motion		(LPCSTR  N, u16 slot);
-#endif
+
 	u16							LL_MotionsSlotCount(){return (u16)m_Motions.size();}
 	const shared_motions&		LL_MotionsSlot	(u16 idx){return m_Motions[idx].motions;}
 
@@ -204,7 +195,7 @@ public:
 	void						LL_CloseCycle	(u16 partition, u8 mask_channel = (1<<0));
 	void						LL_SetChannelFactor (u16 channel,float factor);
 	CBlendInstance&				LL_GetBlendInstance	(u16 bone_id)	{	VERIFY(bone_id<LL_BoneCount()); return blend_instances[bone_id];	}
-	                                                                
+																	
 	// Main functionality
 	void						UpdateTracks	();								// Update motions
 	void						DestroyCycle	(CBlend &B);

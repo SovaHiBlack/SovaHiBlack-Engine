@@ -51,7 +51,7 @@ dMass			m_secondM;
 //when breaked m_pos_in_element-additional force m_break_force-additional torque -x additional torque-y add_torque_z - additional torque z
 float			m_break_force;
 float			m_break_torque;
-Fvector			m_pos_in_element;
+fVector3			m_pos_in_element;
 float			m_add_torque_z;
 				CPHFracture();
 public:

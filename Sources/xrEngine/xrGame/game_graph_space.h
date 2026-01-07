@@ -26,14 +26,9 @@ namespace GameGraph {
 		LOCATION_COUNT		= (u32(1) << (8*sizeof(_LOCATION_ID))),
 	};
 
-#ifdef AI_COMPILER
-	struct
-#else
-	class
-#endif
-		SLevel {
+	class SLevel {
 		shared_str				m_name;
-		Fvector					m_offset;
+		fVector3				m_offset;
 		_LEVEL_ID				m_id;
 		shared_str				m_section;
 		xrGUID					m_guid;
@@ -44,7 +39,7 @@ namespace GameGraph {
 			return				(m_name);
 		}
 
-		IC const Fvector &offset		() const
+		IC const fVector3& offset		() const
 		{
 			return				(m_offset);
 		}
@@ -73,12 +68,7 @@ namespace GameGraph {
 	typedef associative_vector<_LEVEL_ID,SLevel>		LEVEL_MAP;
 
 #pragma pack(push,1)
-#ifdef AI_COMPILER
-	struct
-#else
-	class
-#endif
-		CEdge {
+	class CEdge {
 		_GRAPH_ID					m_vertex_id;
 		float						m_path_distance;
 	public:
@@ -86,14 +76,9 @@ namespace GameGraph {
 		IC	const float				&distance			() const;
 	};
 
-#ifdef AI_COMPILER
-	struct
-#else
-	class
-#endif
-		CVertex {
-		Fvector						tLocalPoint;
-		Fvector						tGlobalPoint;
+	class CVertex {
+		fVector3						tLocalPoint;
+		fVector3						tGlobalPoint;
 		u32							tLevelID:8;
 		u32							tNodeID:24;
 		u8							tVertexTypes[LOCATION_TYPE_COUNT];
@@ -102,8 +87,8 @@ namespace GameGraph {
 		u8							tNeighbourCount;
 		u8							tDeathPointCount;
 	public:
-		IC	const Fvector			&level_point		() const;
-		IC	const Fvector			&game_point			() const;
+		IC	const fVector3&			level_point		() const;
+		IC	const fVector3&			game_point			() const;
 		IC	_LEVEL_ID				level_id			() const;
 		IC	u32						level_vertex_id		() const;
 		IC	const u8				*vertex_type		() const;
@@ -114,12 +99,7 @@ namespace GameGraph {
 		friend class CGameGraph;
 	};
 
-#ifdef AI_COMPILER
-	struct
-#else
-	class
-#endif
-		CHeader {
+	class CHeader {
 		u8							m_version;
 		_GRAPH_ID					m_vertex_count;
 		u32							m_edge_count;
@@ -144,17 +124,12 @@ namespace GameGraph {
 	};
 #pragma pack(pop)
 
-#ifdef AI_COMPILER
-	struct
-#else
-	class
-#endif
-		CLevelPoint  {
-		Fvector		tPoint;
+	class CLevelPoint  {
+		fVector3		tPoint;
 		u32			tNodeID;
 		float		fDistance;	
 	public:
-		IC const Fvector			&level_point		() const
+		IC const fVector3&			level_point		() const
 		{
 			return				(tPoint);
 		}

@@ -11,8 +11,8 @@ class	NET_Packet;
 
 struct		RPoint
 {
-	Fvector	P;
-	Fvector A;
+	fVector3	P;
+	fVector3 A;
 	u32		TimeToUnfreeze;
 	bool	Blocked;
 	u32		BlockedByID;
@@ -72,6 +72,7 @@ struct	game_PlayerState
 	MONEY_BONUS	m_aBonusMoney;
 	bool		m_bPayForSpawn;
 	u32			m_online_time;
+
 public:
 					game_PlayerState		();
 					~game_PlayerState		();
@@ -87,10 +88,9 @@ public:
 			
 			s16		frags					() const {return m_iRivalKills - m_iSelfKills - m_iTeamKills;} 
 
-#ifndef AI_COMPILER
 	virtual void	net_Export				(NET_Packet& P, BOOL Full = FALSE);
 	virtual void	net_Import				(NET_Packet& P);
-#endif
+
 	//---------------------------------------
 	
 	DEF_VECTOR(PLAYER_ITEMS_LIST, u16);

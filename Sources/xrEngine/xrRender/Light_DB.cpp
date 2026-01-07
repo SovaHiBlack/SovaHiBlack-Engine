@@ -44,7 +44,8 @@ void CLight_DB::Load			(IReader *fs)
 			F->r						(&controller,4);
 			F->r						(&Ldata,sizeof(Flight));
 			if (Ldata.type==D3DLIGHT_DIRECTIONAL)	{
-				Fvector tmp_R;		tmp_R.set(1,0,0);
+				fVector3 tmp_R;
+				tmp_R.set(1.0f,0.0f,0.0f);
 
 				// directional (base)
 				sun_original		= L;
@@ -61,7 +62,8 @@ void CLight_DB::Load			(IReader *fs)
 			}
 			else
 			{
-				Fvector tmp_D,tmp_R;
+				fVector3 tmp_D;
+				fVector3 tmp_R;
 				tmp_D.set			(0,0,-1);	// forward
 				tmp_R.set			(1,0,0);	// right
 
@@ -84,8 +86,10 @@ void CLight_DB::Load			(IReader *fs)
 	/*
 	if (0)
 	{
-		Fvector	P;			P.set(-5.58f,	-0.00f + 2, -3.63f);
-		Fvector	D;			D.set(0,-1,0);
+		fVector3	P;
+		P.set(-5.58f,	-0.00f + 2, -3.63f);
+		fVector3	D;
+		D.set(0,-1,0);
 		light*	fake		= Create();
 		fake->set_type		(IRender_Light::SPOT);
 		fake->set_color		(1,1,1);
@@ -144,8 +148,9 @@ void			CLight_DB::Update			()
 		light*	_sun_adapted		= (light*) sun_adapted._get();
 		CEnvDescriptor&	E			= g_pGamePersistent->Environment().CurrentEnv;
 		VERIFY						(_valid(E.sun_dir));
+
 #ifdef DEBUG
-		if(E.sun_dir.y>=0)
+		if(E.sun_dir.y>=0.0f)
 		{
 			Log("sect_name", E.sect_name.c_str());
 			Log("E.sun_dir", E.sun_dir);
@@ -162,10 +167,14 @@ void			CLight_DB::Update			()
 			Log("E.sky_color",E.sky_color);
 		}
 #endif
-		VERIFY2						(E.sun_dir.y<0,"Invalid sun direction settings in evironment-config");
-		Fvector						OD,OP,AD,AP;
+
+		VERIFY2						(E.sun_dir.y<0.0f,"Invalid sun direction settings in evironment-config");
+		fVector3					OD;
+		fVector3					OP;
+		fVector3					AD;
+		fVector3					AP;
 		OD.set						(E.sun_dir).normalize			();
-		OP.mad						(Device.vCameraPosition,OD,-500.f);
+		OP.mad						(Device.vCameraPosition,OD,-500.0f);
 		AD.set(0,-.75f,0).add		(E.sun_dir);
 
 		// for some reason E.sun_dir can point-up

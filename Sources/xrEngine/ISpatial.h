@@ -67,7 +67,7 @@ public:
 	{
 		u32						type;
 		Fsphere					sphere;
-		Fvector					node_center;	// Cached node center for TBV optimization
+		fVector3					node_center;	// Cached node center for TBV optimization
 		float					node_radius;	// Cached node bounds for TBV optimization
 		ISpatial_NODE*			node_ptr;		// Cached parent node for "empty-members" optimization
 		IRender_Sector*			sector;
@@ -82,7 +82,7 @@ public:
 	virtual		void			spatial_register	()	;
 	virtual		void			spatial_unregister	()	;
 	virtual		void			spatial_move		()	;
-	virtual		Fvector			spatial_sector_point()	{ return spatial.sphere.P; }
+	virtual		fVector3			spatial_sector_point()	{ return spatial.sphere.P; }
 	ICF			void			spatial_updatesector()	{
 		if (0== (spatial.type&STYPEFLAG_INVALIDSECTOR))	return;
 		spatial_updatesector_internal				()	;
@@ -131,18 +131,20 @@ private:
 	poolSS<ISpatial_NODE,128>		allocator;
 	xr_vector<ISpatial_NODE*>		allocator_pool;
 	ISpatial*						rt_insert_object;
+
 public:
 	ISpatial_NODE*					m_root;
-	Fvector							m_center;
+	fVector3							m_center;
 	float							m_bounds;
 	xr_vector<ISpatial*>*			q_result;
 	u32								stat_nodes;
 	u32								stat_objects;
 	CStatTimer						stat_insert;
 	CStatTimer						stat_remove;
+
 private:
 	IC u32							_octant			(u32 x, u32 y, u32 z)			{	return z*4 + y*2 + x;	}
-	IC u32							_octant			(Fvector& base, Fvector& rel)
+	IC u32							_octant			(fVector3& base, fVector3& rel)
 	{
 		u32 o	= 0;
 		if (rel.x > base.x) o+=1;
@@ -154,8 +156,9 @@ private:
 	ISpatial_NODE*					_node_create	();
 	void 							_node_destroy	(ISpatial_NODE* &P);
 
-	void							_insert			(ISpatial_NODE* N, Fvector& n_center, float n_radius);
+	void							_insert			(ISpatial_NODE* N, fVector3& n_center, float n_radius);
 	void							_remove			(ISpatial_NODE* N, ISpatial_NODE* N_sub);
+
 public:
 	ISpatial_DB();
 	~ISpatial_DB();
@@ -178,9 +181,9 @@ public:
 	};
 
 	// query
-	void							q_ray			(xr_vector<ISpatial*>& R, u32 _o, u32 _mask_and, const Fvector&		_start,  const Fvector&	_dir, float _range);
-	void							q_box			(xr_vector<ISpatial*>& R, u32 _o, u32 _mask_or,  const Fvector&		_center, const Fvector& _size);
-	void							q_sphere		(xr_vector<ISpatial*>& R, u32 _o, u32 _mask_or,  const Fvector&		_center, const float _radius);
+	void							q_ray			(xr_vector<ISpatial*>& R, u32 _o, u32 _mask_and, const fVector3&		_start,  const fVector3&	_dir, float _range);
+	void							q_box			(xr_vector<ISpatial*>& R, u32 _o, u32 _mask_or,  const fVector3&		_center, const fVector3& _size);
+	void							q_sphere		(xr_vector<ISpatial*>& R, u32 _o, u32 _mask_or,  const fVector3&		_center, const float _radius);
 	void							q_frustum		(xr_vector<ISpatial*>& R, u32 _o, u32 _mask_or,  const CFrustum&	_frustum);
 };
 

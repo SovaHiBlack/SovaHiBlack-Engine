@@ -72,13 +72,13 @@ struct ogf_desc	{
 
 // OGF_BBOX
 struct ogf_bbox		{
-	Fvector min;
-	Fvector max;
+	fVector3 min;
+	fVector3 max;
 };
 
 // OGF_BSPHERE
 struct ogf_bsphere	{
-	Fvector c;
+	fVector3 c;
 	float	r;
 };
 

@@ -64,11 +64,11 @@ void CGameFont::Initialize		(LPCSTR cShader, LPCSTR cTextureName)
 	CInifile* ini				= CInifile::Create(fn);
 
 	nNumChars = 0x100;
-	TCMap = ( Fvector* ) xr_realloc( ( void* ) TCMap , nNumChars * sizeof( Fvector ) );
+	TCMap = (fVector3* ) xr_realloc( ( void* ) TCMap , nNumChars * sizeof(fVector3) );
 
 	if ( ini->section_exist( "mb_symbol_coords" ) ) {
 		nNumChars = 0x10000;
-		TCMap = ( Fvector* ) xr_realloc( ( void* ) TCMap , nNumChars * sizeof( Fvector ) );
+		TCMap = (fVector3* ) xr_realloc( ( void* ) TCMap , nNumChars * sizeof(fVector3) );
 		uFlags |= fsMultibyte;
 		fHeight = ini->r_float( "mb_symbol_coords" , "height" );
 		
@@ -77,7 +77,7 @@ void CGameFont::Initialize		(LPCSTR cShader, LPCSTR cTextureName)
 		for ( u32 i=0 ; i < nNumChars ; i++ ) {
 			sprintf_s( buf ,sizeof(buf), "%05d" , i );
 			if ( ini->line_exist( "mb_symbol_coords" , buf ) ) {
-				Fvector v = ini->r_fvector3( "mb_symbol_coords" , buf );
+				fVector3 v = ini->r_fvector3( "mb_symbol_coords" , buf );
 				TCMap[i].set( v.x , v.y , 1 + v[2] - v[0] );
 			} else
 				TCMap[i].set( 0 , 0 , 0 );
@@ -87,7 +87,7 @@ void CGameFont::Initialize		(LPCSTR cShader, LPCSTR cTextureName)
 		fHeight						= ini->r_float("symbol_coords","height");
 		for (u32 i=0; i<nNumChars; i++){
 			sprintf_s				(buf,sizeof(buf),"%03d",i);
-			Fvector v				= ini->r_fvector3("symbol_coords",buf);
+			fVector3 v				= ini->r_fvector3("symbol_coords",buf);
 			TCMap[i].set			(v.x,v.y,v[2]-v[0]);
 		}
 	}else{
@@ -223,7 +223,7 @@ void CGameFont::OnRender()
 				float	tu,tv;
 				for (int j=0; j<len; j++)
 				{
-					Fvector l;
+					fVector3 l;
 
 					l = IsMultibyte() ? GetCharTC( wsStr[ 1 + j ] ) : GetCharTC( ( u16 ) ( u8 ) PS.string[j] );
 

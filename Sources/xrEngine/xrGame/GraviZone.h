@@ -32,11 +32,11 @@ public:
 
 	//воздействие зоной на объект
 	virtual void	Affect(SZoneObjectInfo* O);
-	virtual void	AffectPull(CPhysicsShellHolder* GO,const Fvector& throw_in_dir,float dist);
-	virtual void	AffectPullAlife(CEntityAlive* EA,const Fvector& throw_in_dir,float dist);
-	virtual void	AffectPullDead(CPhysicsShellHolder* GO,const Fvector& throw_in_dir,float dist);
-	virtual void	AffectThrow(SZoneObjectInfo* O, CPhysicsShellHolder* GO,const Fvector& throw_in_dir,float dist);
-	virtual void	ThrowInCenter(Fvector& C);
+	virtual void	AffectPull(CPhysicsShellHolder* GO,const fVector3& throw_in_dir,float dist);
+	virtual void	AffectPullAlife(CEntityAlive* EA,const fVector3& throw_in_dir,float dist);
+	virtual void	AffectPullDead(CPhysicsShellHolder* GO,const fVector3& throw_in_dir,float dist);
+	virtual void	AffectThrow(SZoneObjectInfo* O, CPhysicsShellHolder* GO,const fVector3& throw_in_dir,float dist);
+	virtual void	ThrowInCenter(fVector3& C);
 	virtual bool	CheckAffectField(CPhysicsShellHolder* GO,float dist_to_radius);
 	virtual void	shedule_Update		(u32 dt);
 	virtual bool	BlowoutState();

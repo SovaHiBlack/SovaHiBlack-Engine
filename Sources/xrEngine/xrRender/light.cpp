@@ -67,34 +67,44 @@ void light::set_texture		(LPCSTR name)
 }
 #endif
 
-void light::set_active		(bool a)
+void light::set_active(bool a)
 {
 	if (a)
 	{
-		if (flags.bActive)					return;
-		flags.bActive						= true;
-		spatial_register					();
-		spatial_move						();
-		//Msg								("!!! L-register: %X",u32(this));
+		if (flags.bActive)
+		{
+			return;
+		}
+
+		flags.bActive			= true;
+		spatial_register		( );
+		spatial_move			( );
+		Msg						("!!! L-register: %X", u32(this));
 
 #ifdef DEBUG
-		Fvector	zero = {0,-1000,0}			;
-		if (position.similar(zero))			{
-			Msg	("- Uninitialized light position.");
+		fVector3 zero			= {0.0f,-1000.0f,0.0f};
+		if (position.similar(zero))
+		{
+			Msg					("- Uninitialized light position.");
 		}
-#endif // DEBUG
+#endif // def DEBUG
+
 	}
 	else
 	{
-		if (!flags.bActive)					return;
-		flags.bActive						= false;
-		spatial_move						();
-		spatial_unregister					();
-		//Msg								("!!! L-unregister: %X",u32(this));
+		if (!flags.bActive)
+		{
+			return;
+		}
+
+		flags.bActive			= false;
+		spatial_move			( );
+		spatial_unregister		( );
+		Msg						("!!! L-unregister: %X", u32(this));
 	}
 }
 
-void	light::set_position		(const Fvector& P)
+void	light::set_position		(const fVector3& P)
 {
 	float	eps					= EPS_3;	//_max	(range*0.001f,EPS_3);
 	if (position.similar(P,eps))return	;
@@ -115,8 +125,8 @@ void	light::set_cone			(float angle)		{
 	cone						= angle;
 	spatial_move				();
 }
-void	light::set_rotation		(const Fvector& D, const Fvector& R)	{ 
-	Fvector	old_D		= direction;
+void	light::set_rotation		(const fVector3& D, const fVector3& R)	{
+	fVector3	old_D		= direction;
 	direction.normalize	(D);
 	right.normalize(R);
 	if (!fsimilar(1.f, old_D.dotproduct(D)))	spatial_move	();
@@ -173,7 +183,7 @@ vis_data&	light::get_homdata		()
 	return			hom;
 };
 
-Fvector	light::spatial_sector_point	()	
+fVector3	light::spatial_sector_point	()
 { 
 	return position; 
 }
@@ -187,7 +197,9 @@ void	light::xform_calc			()
 	m_xform_frame	= Device.dwFrame;
 
 	// build final rotation / translation
-	Fvector					L_dir,L_up,L_right;
+	fVector3				L_dir;
+	fVector3				L_up;
+	fVector3				L_right;
 
 	// dir
 	L_dir.set				(direction);
@@ -248,8 +260,8 @@ void	light::xform_calc			()
 }
 
 //								+X,				-X,				+Y,				-Y,			+Z,				-Z
-static	Fvector cmNorm[6]	= {{0.f,1.f,0.f}, {0.f,1.f,0.f}, {0.f,0.f,-1.f},{0.f,0.f,1.f}, {0.f,1.f,0.f}, {0.f,1.f,0.f}};
-static	Fvector cmDir[6]	= {{1.f,0.f,0.f}, {-1.f,0.f,0.f},{0.f,1.f,0.f}, {0.f,-1.f,0.f},{0.f,0.f,1.f}, {0.f,0.f,-1.f}};
+static	fVector3 cmNorm[6]	= {{0.0f,1.0f,0.0f}, {0.0f,1.0f,0.0f}, {0.0f,0.0f,-1.0f},{0.0f,0.0f,1.0f}, {0.0f,1.0f,0.0f}, {0.0f,1.0f,0.0f}};
+static	fVector3 cmDir[6]	= {{1.0f,0.0f,0.0f}, {-1.0f,0.0f,0.0f},{0.0f,1.0f,0.0f}, {0.0f,-1.0f,0.0f},{0.0f,0.0f,1.0f}, {0.0f,0.0f,-1.0f}};
 
 void	light::_export		(light_Package& package)
 {
@@ -261,7 +273,7 @@ void	light::_export		(light_Package& package)
 					if (0==omnipart[0])	for (int f=0; f<6; f++)	omnipart[f] = xr_new<light> ();
 					for (int f=0; f<6; f++)	{
 						light*	L			= omnipart[f];
-						Fvector				R;
+						fVector3				R;
 						R.crossproduct		(cmNorm[f],cmDir[f]);
 						L->set_type			(IRender_Light::OMNIPART);
 						L->set_shadow		(true);

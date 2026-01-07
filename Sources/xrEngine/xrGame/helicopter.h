@@ -22,7 +22,7 @@ class CHelicopter;
 enum EHeliHuntState{eEnemyNone,eEnemyPoint,eEnemyEntity};
 struct SHeliEnemy{
 	EHeliHuntState					type;
-	Fvector							destEnemyPos;
+	fVector3							destEnemyPos;
 	u32								destEnemyID;
 	float							fire_trail_length_curr;
 	float							fire_trail_length_des;
@@ -46,12 +46,12 @@ struct SHeliBodyState{
 	float							model_angSpeedPitch;
 
 	//runtime params
-	Fvector							currBodyHPB;
+	fVector3							currBodyHPB;
 
 	bool							b_looking_at_point;
-	Fvector							looking_point;
+	fVector3							looking_point;
 	void		reinit				();
-	void		LookAtPoint			(Fvector point, bool do_it);
+	void		LookAtPoint			(fVector3 point, bool do_it);
 
 	void save						(NET_Packet &output_packet);
 	void load						(IReader &input_packet);
@@ -62,9 +62,9 @@ struct SHeliBodyState{
 enum EHeilMovementState{eMovNone,eMovToPoint,eMovPatrolPath,eMovRoundPath,eMovLanding,eMovTakeOff};
 struct SHeliMovementState{
 	struct STmpPt{
-		Fvector		point;
+		fVector3		point;
 		float		dir_h;
-		STmpPt		(const Fvector& p, const float h):point(p),dir_h(h){};
+		STmpPt		(const fVector3& p, const float h):point(p),dir_h(h){};
 	};
 	~SHeliMovementState				();
 	CHelicopter*					parent;
@@ -89,17 +89,16 @@ protected:
 public:
 	float							min_altitude;
 //runtime values
-	Fvector							desiredPoint;
+	fVector3							desiredPoint;
 
 	float							curLinearSpeed;
 	float							curLinearAcc;
 
-	Fvector							currP;
+	fVector3							currP;
 	float							currPathH;
 	float							currPathP;
 
-
-	Fvector							round_center;
+	fVector3							round_center;
 	float							round_radius;
 	bool							round_reverse;
 
@@ -109,19 +108,18 @@ public:
 	float	GetAngSpeedPitch			(float speed);
 	float	GetAngSpeedHeading			(float speed);
 
-
 	float	GetSafeAltitude				();
 	void	reinit						();
 	void	Update						();
 	void	UpdateMovToPoint			();
 	void	UpdatePatrolPath			();
 	bool	AlreadyOnPoint				();
-	void	goByRoundPath				(Fvector center, float radius, bool clockwise);
+	void	goByRoundPath				(fVector3 center, float radius, bool clockwise);
 	float	GetDistanceToDestPosition	();
-	void	getPathAltitude				(Fvector& point, float base_altitude);
-	void	SetDestPosition				(Fvector* pos);
+	void	getPathAltitude				(fVector3& point, float base_altitude);
+	void	SetDestPosition				(fVector3* pos);
 	void	goPatrolByPatrolPath		(LPCSTR path_name,int start_idx);
-	void	CreateRoundPoints			(Fvector center, float radius, float start_h, float end_h, xr_vector<STmpPt>& round_points);
+	void	CreateRoundPoints			(fVector3 center, float radius, float start_h, float end_h, xr_vector<STmpPt>& round_points);
 	void	save						(NET_Packet &output_packet);
 	void	load						(IReader &input_packet);
 	void	Load						(LPCSTR section);
@@ -160,7 +158,8 @@ public:
 	HUD_SOUND						m_sndShot;
 	HUD_SOUND						m_sndShotRocket;
 
-	Fvector							m_fire_dir,m_fire_pos;
+	fVector3						m_fire_dir;
+	fVector3						m_fire_pos;
 
 	u16								m_left_rocket_bone, m_right_rocket_bone, m_fire_bone, m_rotate_x_bone, m_rotate_y_bone;
 
@@ -171,7 +170,8 @@ public:
 	fVector2						m_tgt_rot;
 	fVector2						m_cur_rot;
 	fVector2						m_bind_rot;
-	Fvector							m_bind_x, m_bind_y;
+	fVector3						m_bind_x;
+	fVector3						m_bind_y;
 	bool							m_allow_fire;
 	u16								m_last_launched_rocket;
 	u32								m_last_rocket_attack;
@@ -189,7 +189,7 @@ public:
 	//CShootingObject
 	virtual const Fmatrix&			ParticlesXFORM		()const					{return m_fire_bone_xform;};
 
-	virtual const Fvector&			CurrentFirePoint	()						{return m_fire_pos;};
+	virtual const fVector3&			CurrentFirePoint	()						{return m_fire_pos;};
 
 	void							MGunFireStart		();
 	void							MGunFireEnd			();
@@ -211,7 +211,7 @@ protected:
 	SHeliMovementState				m_movement;
 
 // on death...
-	Fvector							m_death_ang_vel;
+	fVector3							m_death_ang_vel;
 	float							m_death_lin_vel_k;
 	shared_str						m_death_bones_to_hide;
 
@@ -237,8 +237,8 @@ protected:
 	void							TurnEngineSound				(bool bOn);
 	//explosive
 	virtual void					OnAfterExplosion			(){};
-	virtual void					GetRayExplosionSourcePos	(Fvector &pos){random_point_in_object_box(pos,this);}
-	virtual void					ActivateExplosionBox		(const Fvector &size,Fvector &in_out_pos){};
+	virtual void					GetRayExplosionSourcePos	(fVector3& pos){random_point_in_object_box(pos,this);}
+	virtual void					ActivateExplosionBox		(const fVector3& size, fVector3& in_out_pos){};
 //general
 	EHeliState						m_curState;
 
@@ -247,10 +247,9 @@ protected:
 	float							m_stepRemains;
 
 	void	UpdateState					();
+
 public:
 	void							ExplodeHelicopter			();
-
-
 
 	CHelicopter();
 	virtual							~CHelicopter();
@@ -290,13 +289,13 @@ public:
 			void					MoveStep			();
 
 	virtual	void					Hit					(SHit* pHDS);
-	virtual void					PHHit				(float P,Fvector &dir, CObject *who,s16 element,Fvector p_in_object_space, float impulse, ALife::EHitType hit_type);
+	virtual void					PHHit				(float P, fVector3& dir, CObject *who,s16 element, fVector3 p_in_object_space, float impulse, ALife::EHitType hit_type);
 	//CEntity
-	virtual void					HitSignal			(float P, Fvector &local_dir,	CObject* who, s16 element){;}
-	virtual void					HitImpulse			(float P, Fvector &vWorldDir, 	Fvector& vLocalDir){;}
+	virtual void					HitSignal			(float P, fVector3& local_dir,	CObject* who, s16 element){;}
+	virtual void					HitImpulse			(float P, fVector3& vWorldDir, fVector3& vLocalDir){;}
 	
 	virtual const Fmatrix&			get_ParticlesXFORM			();
-	virtual const Fvector&			get_CurrentFirePoint		();
+	virtual const fVector3&			get_CurrentFirePoint		();
 
 	virtual CGameObject				*cast_game_object			()	{return this;}
 	virtual CExplosive				*cast_explosive				()	{return this;}
@@ -309,9 +308,9 @@ public:
 	bool			 		isOnAttack						()				{return m_enemy.type!=eEnemyNone;}
 
 	void					goPatrolByPatrolPath			(LPCSTR path_name,int start_idx);
-	void					goByRoundPath					(Fvector center, float radius, bool clockwise);
-	void					LookAtPoint						(Fvector point, bool do_it);
-	void					SetDestPosition					(Fvector* pos);
+	void					goByRoundPath					(fVector3 center, float radius, bool clockwise);
+	void					LookAtPoint						(fVector3 point, bool do_it);
+	void					SetDestPosition					(fVector3* pos);
 	float					GetDistanceToDestPosition		();
 	
 	void					SetSpeedInDestPoint				(float sp);
@@ -326,10 +325,10 @@ public:
 	//////////////////////Start By JoHnY///////////////////////
 	void					SetLinearAcc					(float LAcc_fw, float LAcc_bw);
 	//////////////////////End By JoHnY/////////////////////////
-	Fvector					GetCurrVelocityVec				();
+	fVector3					GetCurrVelocityVec				();
 	void					SetBarrelDirTolerance			(float val){m_barrel_dir_tolerance = val;};
 	void					SetEnemy						(CScriptGameObject* e);
-	void					SetEnemy						(Fvector* pos);
+	void					SetEnemy						(fVector3* pos);
 	void					UnSetEnemy						();
 	void					SetFireTrailLength				(float val);
 	bool					UseFireTrail					();
@@ -353,6 +352,7 @@ public:
 
 	DECLARE_SCRIPT_REGISTER_FUNCTION
 };
+
 add_to_type_list(CHelicopter)
 #undef script_type_list
 #define script_type_list save_type_list(CHelicopter)

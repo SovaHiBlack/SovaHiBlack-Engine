@@ -17,15 +17,15 @@ class ENGINE_API CDemoRecord :
 private:
 	int			iCount;
 	IWriter*	file;
-	Fvector		m_HPB;
-	Fvector		m_Position;
+	fVector3		m_HPB;
+	fVector3		m_Position;
 	Fmatrix		m_Camera;
 	u32			m_Stage;
 
-	Fvector		m_vT;
-    Fvector		m_vR;
-	Fvector		m_vVelocity;
-	Fvector		m_vAngularVelocity;
+	fVector3		m_vT;
+	fVector3		m_vR;
+	fVector3		m_vVelocity;
+	fVector3		m_vAngularVelocity;
 
 	BOOL		m_bMakeCubeMap;
 	BOOL		m_bMakeScreenshot;
@@ -41,7 +41,7 @@ private:
 	float		m_fAngSpeed2;
 	float		m_fAngSpeed3;
 
-	void		MakeCubeMapFace			(Fvector &D, Fvector &N);
+	void		MakeCubeMapFace			(fVector3& D, fVector3& N);
 	void		MakeLevelMapProcess		();
 	void		MakeScreenshotFace		();
 	void		RecordKey				();
@@ -58,7 +58,7 @@ public:
 	virtual void IR_OnMouseHold			(int btn);
 	
 	virtual BOOL Overlapped				(){return m_bOverlapped;}
-	virtual	BOOL Process				(Fvector &p, Fvector &d, Fvector &n, float& fFov, float& fFar, float& fAspect);
+	virtual	BOOL Process				(fVector3& p, fVector3& d, fVector3& n, float& fFov, float& fFar, float& fAspect);
 };
 
 #endif // !defined(AFX_FDEMORECORD_H__D7638760_FB61_11D3_B4E3_4854E82A090D__INCLUDED_)

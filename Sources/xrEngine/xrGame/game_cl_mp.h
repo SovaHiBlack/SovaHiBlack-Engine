@@ -39,7 +39,7 @@ struct cl_TeamStruct
 	ref_shader			IndicatorShader;
 	ref_shader			InvincibleShader;
 
-	Fvector				IndicatorPos;
+	fVector3				IndicatorPos;
 	float				Indicator_r1;
 	float				Indicator_r2;
 };

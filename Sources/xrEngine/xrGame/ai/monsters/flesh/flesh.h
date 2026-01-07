@@ -21,8 +21,7 @@ public:
 	virtual bool	ability_can_drag		() {return true;}
 
 private:
-	bool	ConeSphereIntersection	(Fvector ConeVertex, float ConeAngle, Fvector ConeDir, 
-									Fvector SphereCenter, float SphereRadius);
+	bool	ConeSphereIntersection	(fVector3 ConeVertex, float ConeAngle, fVector3 ConeDir, fVector3 SphereCenter, float SphereRadius);
 	
 	DECLARE_SCRIPT_REGISTER_FUNCTION
 };

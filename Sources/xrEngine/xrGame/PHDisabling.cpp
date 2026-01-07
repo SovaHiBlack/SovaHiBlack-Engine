@@ -21,18 +21,18 @@ void	SDisableVector::Init()
 	Reset();
 }
 
-float	SDisableVector::Update(const Fvector& new_vector)
+float	SDisableVector::Update(const fVector3& new_vector)
 {
-	Fvector dif;
+	fVector3 dif;
 	dif.sub(new_vector,previous);
 	previous.set(new_vector);
 	sum.add(dif);
 	return dif.magnitude();
 }
 
-float	SDisableVector::UpdatePrevious(const Fvector& new_vector)
+float	SDisableVector::UpdatePrevious(const fVector3& new_vector)
 {
-	Fvector dif;
+	fVector3 dif;
 	dif.sub(new_vector,previous);
 	previous.set(new_vector);
 	return dif.magnitude();
@@ -47,8 +47,6 @@ SDisableUpdateState::SDisableUpdateState()
 {
 	Reset();
 }
-
-
 
 void	SDisableUpdateState::Reset()
 {
@@ -65,7 +63,6 @@ SDisableUpdateState& SDisableUpdateState::operator &=	(SDisableUpdateState& lsta
 
 CBaseDisableData::CBaseDisableData()
 {
-
 	m_frames	=worldDisablingParams.objects_params.L2frames		;
 	Reinit();
 }
@@ -80,7 +77,6 @@ void	CBaseDisableData::Reinit()
 }
 void	CBaseDisableData::Disabling()
 {
-	
 	dBodyID	body	=		get_body();		
 	m_count--;
 
@@ -107,7 +103,6 @@ void	CBaseDisableData::Disabling()
 	}
 	if(m_disabled)	
 					Disable();//dBodyDisable(body);
-
 }
 
 void	CPHDisablingBase::Reinit()
@@ -121,9 +116,8 @@ void	CPHDisablingBase::Reinit()
 	m_stateL2.disable=disable;
 	m_stateL2.enable=!disable;
 }
-void	CPHDisablingBase::UpdateValues(const Fvector &new_pos,const Fvector &new_vel)
+void	CPHDisablingBase::UpdateValues(const fVector3& new_pos,const fVector3& new_vel)
 {
-
 	if(m_count<m_frames)
 	{
 		float			velocity_param		=	m_mean_velocity		.Update(new_pos)		;
@@ -165,8 +159,8 @@ void	CPHDisablingTranslational::Reinit()
 	dBodyID				body				=	get_body()												;
 	const	dReal		*position			=	dBodyGetPosition(body)									;
 	const	dReal		*velocity			=	dBodyGetLinearVel(body)									;
-	m_mean_velocity		.UpdatePrevious		(* (Fvector*) position)										;
-	m_mean_acceleration	.UpdatePrevious		(* (Fvector*) velocity)										;
+	m_mean_velocity		.UpdatePrevious		(* (fVector3*) position)										;
+	m_mean_acceleration	.UpdatePrevious		(* (fVector3*) velocity)										;
 }
 void	CPHDisablingTranslational::UpdateL1()
 {
@@ -175,9 +169,9 @@ void	CPHDisablingTranslational::UpdateL1()
 	const	dReal	*position			=	dBodyGetPosition(body)									;
 	const	dReal	*velocity			=	dBodyGetLinearVel(body)									;
 
-	CPHDisablingBase::UpdateValues(* (Fvector*) position,* (Fvector*) velocity);
-	//float			velocity_param		=	m_mean_velocity		.Update(* (Fvector*) position)		;
-	//float			acceleration_param	=	m_mean_acceleration	.Update(* (Fvector*) velocity)		;
+	CPHDisablingBase::UpdateValues(* (fVector3*) position,* (fVector3*) velocity);
+	//float			velocity_param		=	m_mean_velocity		.Update(* (fVector3*) position)		;
+	//float			acceleration_param	=	m_mean_acceleration	.Update(* (fVector3*) velocity)		;
 	//CheckState						(m_stateL1,velocity_param*m_frames,acceleration_param*m_frames)					;
 }
 
@@ -197,10 +191,10 @@ void	CPHDisablingRotational::Reinit()
 	dBodyID			body				=	get_body					()							;
 	const	dReal	*rotation			=	dBodyGetRotation			(body)						;
 	const	dReal	*velocity			=	dBodyGetAngularVel			(body)						;
-	Fvector	vrotation																				;
+	fVector3	vrotation																				;
 	vrotation.set(rotation[9],rotation[2],rotation[4])												;
 	m_mean_velocity		.UpdatePrevious		(vrotation)												;
-	m_mean_acceleration	.UpdatePrevious		(* (Fvector*) velocity)									;
+	m_mean_acceleration	.UpdatePrevious		(* (fVector3*) velocity)									;
 }
 void	CPHDisablingRotational::UpdateL1()
 {
@@ -208,12 +202,12 @@ void	CPHDisablingRotational::UpdateL1()
 	dBodyID			body				=	get_body					()							;
 	const	dReal	*rotation			=	dBodyGetRotation			(body)						;
 	const	dReal	*velocity			=	dBodyGetAngularVel			(body)						;
-			Fvector	vrotation																		;
+	fVector3	vrotation																		;
 	vrotation.set(rotation[9],rotation[2],rotation[4])												;
 
-	CPHDisablingBase::UpdateValues(vrotation,* (Fvector*) velocity);
+	CPHDisablingBase::UpdateValues(vrotation,* (fVector3*) velocity);
 	//float			velocity_param		=	m_mean_velocity		.Update	(			 vrotation	)	;
-	//float			acceleration_param	=	m_mean_acceleration	.Update	(* (Fvector*) velocity	)	;
+	//float			acceleration_param	=	m_mean_acceleration	.Update	(* (fVector3*) velocity	)	;
 
 	//CheckState									(m_stateL1,velocity_param,acceleration_param)		;
 }

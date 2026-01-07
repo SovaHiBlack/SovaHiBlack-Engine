@@ -728,7 +728,7 @@ void CLevel::OnEvent(EVENT E, u64 P1, u64 /**P2/**/)
 	if (E==eEntitySpawn)	{
 		char	Name[128];	Name[0]=0;
 		sscanf	(LPCSTR(P1),"%s", Name);
-		Level().g_cl_Spawn	(Name,0xff, M_SPAWN_OBJECT_LOCAL, Fvector().set(0,0,0));
+		Level().g_cl_Spawn	(Name,0xff, M_SPAWN_OBJECT_LOCAL, fVector3().set(0.0f,0.0f,0.0f));
 	} else if (E==eChangeRP && P1) {
 	} else if (E==eDemoPlay && P1) {
 		char* name = (char*)P1;
@@ -1070,8 +1070,8 @@ void GlobalFeelTouch::update()
 
 bool GlobalFeelTouch::is_object_denied(CObject const * O)
 {
-	/*Fvector temp_vector;
-	feel_touch_update(temp_vector, 0.f);*/
+	/*fVector3 temp_vector;
+	feel_touch_update(temp_vector, 0.0f);*/
 	if (std::find_if(feel_touch_disable.begin(), feel_touch_disable.end(),
 		std::bind2nd(objects_ptrs_equal(), O)) == feel_touch_disable.end())
 	{

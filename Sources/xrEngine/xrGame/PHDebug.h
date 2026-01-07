@@ -27,8 +27,8 @@ extern	LPCSTR			dbg_trace_object						;
 struct SPHContactDBGDraw
 {
 	int geomClass;
-	Fvector norm;
-	Fvector pos;
+	fVector3 norm;
+	fVector3 pos;
 	float depth;
 };
 DEFINE_VECTOR(SPHContactDBGDraw,CONTACT_VECTOR,CONTACT_I);
@@ -82,15 +82,14 @@ enum
 };
 struct SPHObjDBGDraw
 {
-	Fvector AABB;
-	Fvector AABB_center;
+	fVector3 AABB;
+	fVector3 AABB_center;
 };
 
 DEFINE_VECTOR( SPHObjDBGDraw, PHOBJ_DBG_V, PHOBJ_DBG_I );
 extern PHOBJ_DBG_V	dbg_draw_objects0;
 extern PHOBJ_DBG_V	dbg_draw_objects1;
 class CPHObject;
-
 
 struct SPHDBGDrawAbsract
 {
@@ -108,11 +107,11 @@ void DBG_DrawPHAbstruct( SPHDBGDrawAbsract* a );
 void DBG_DrawPHObject( CPHObject *obj );
 void DBG_DrawContact ( dContact &c );
 void DBG_DrawTri( CDB::RESULT *T, u32 c );
-void DBG_DrawTri(CDB::TRI *T, const Fvector *V_verts, u32 c );
-void DBG_DrawLine( const Fvector &p0, const Fvector &p1, u32 c );
-void DBG_DrawAABB( const Fvector &center, const Fvector& AABB, u32 c );
-void DBG_DrawOBB( const Fmatrix &m, const Fvector h, u32 c );
-void DBG_DrawPoint( const Fvector& p, float size, u32 c );
+void DBG_DrawTri(CDB::TRI *T, const fVector3* V_verts, u32 c );
+void DBG_DrawLine( const fVector3& p0, const fVector3& p1, u32 c );
+void DBG_DrawAABB( const fVector3& center, const fVector3& AABB, u32 c );
+void DBG_DrawOBB( const Fmatrix &m, const fVector3 h, u32 c );
+void DBG_DrawPoint( const fVector3& p, float size, u32 c );
 void DBG_DrawMatrix( const Fmatrix &m, float size, u8 a=255 );
 void DBG_DrawRotationX( const Fmatrix &m, float ang0, float ang1, float size, u32 ac, bool solid = false, u32 tessel = 7 );
 void DBG_DrawRotationY( const Fmatrix &m, float ang0, float ang1, float size, u32 ac, bool solid = false, u32 tessel = 7 );
@@ -124,12 +123,11 @@ void PH_DBG_Clear( );
 LPCSTR PH_DBG_ObjectTrack( );
 void PH_DBG_SetTrackObject( LPCSTR obj );
 
-
-
 struct CFunctionGraph
 {
 public:
 	typedef fastdelegate::FastDelegate1<float,float> type_function;
+
 private:
 	CStatGraph						*m_stat_graph																																					;
 	type_function					m_function																																						;

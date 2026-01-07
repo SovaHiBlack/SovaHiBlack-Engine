@@ -82,7 +82,7 @@ extern xr_token rpoint_game_type[];
         chunk WAY_CHUNK_POINTS
             word (count)
             for (i=0; i<count; ++i){
-            	Fvector (pos)
+            	fVector3 (pos)
                 dword	(flags)
                 stringZ	(name)
             }

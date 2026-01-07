@@ -8,15 +8,6 @@
 	#define XRSOUND_API __declspec(dllimport)
 #endif
 
-#ifdef __BORLANDC__
-	#define XRSOUND_EDITOR_API XRSOUND_API
-
-	// editor only refs
-	class XRSOUND_EDITOR_API SoundEnvironment_LIB;
-#else
-	#define XRSOUND_EDITOR_API
-#endif
-
 #define SNDENV_FILENAME				"sEnvironment.xr"
 #define OGG_COMMENT_VERSION 		0x0003 
 

@@ -4,7 +4,10 @@
 void CLight_Compute_XFORM_and_VIS::compute_xf_spot	(light* L)
 {
 	// Build EYE-space xform
-	Fvector						L_dir,L_up,L_right,L_pos;
+	fVector3						L_dir;
+	fVector3						L_up;
+	fVector3						L_right;
+	fVector3						L_pos;
 	L_dir.set					(L->direction);			L_dir.normalize		();
 
 	if (L->right.square_magnitude()>EPS)				{

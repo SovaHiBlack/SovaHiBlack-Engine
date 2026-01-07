@@ -8,11 +8,9 @@
 #	define DEBUG_MEMORY_NAME
 #endif // USE_MEMORY_MONITOR
 
-#ifndef M_BORLAND
-#	if 0//def DEBUG
-#		define DEBUG_MEMORY_MANAGER
-#	endif // DEBUG
-#endif // M_BORLAND
+#if 0//def DEBUG
+#	define DEBUG_MEMORY_MANAGER
+#endif // DEBUG
 
 #ifdef DEBUG_MEMORY_MANAGER
 	XRCORE_API	extern BOOL	g_bMEMO;

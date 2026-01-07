@@ -213,7 +213,7 @@ bool CPHFracturesHolder::PhDataUpdate(CPHElement* element)
 	
 }
 
-void CPHFracturesHolder::AddImpact(const Fvector& force,const Fvector& point,u16 id)
+void CPHFracturesHolder::AddImpact(const fVector3& force,const fVector3& point,u16 id)
 {
 	m_impacts.push_back(SPHImpact(force,point,id));
 }
@@ -297,7 +297,7 @@ bool CPHFracture::Update(CPHElement* element)
 
 	////itterate through impacts & calculate 
 	dBodyID body=element->get_body();
-	//const Fvector& v_bodyvel=*((Fvector*)dBodyGetLinearVel(body));
+	//const fVector3& v_bodyvel=*((fVector3*)dBodyGetLinearVel(body));
 	CPHFracturesHolder* holder=element->FracturesHolder();
 	PH_IMPACT_STORAGE&	impacts=holder->Impacts();
 	
