@@ -30,7 +30,7 @@ CScriptSound::~CScriptSound		()
 	m_sound.destroy			();
 }
 
-Fvector CScriptSound::GetPosition() const
+fVector3 CScriptSound::GetPosition() const
 {
 	VERIFY				(m_sound._handle());
 	const CSound_params	*l_tpSoundParams = m_sound.get_params();
@@ -38,7 +38,7 @@ Fvector CScriptSound::GetPosition() const
 		return			(l_tpSoundParams->position);
 	else {
 		ai().script_engine().script_log	(ScriptStorage::eLuaMessageTypeError,"Sound was not launched, can't get position!");
-		return			(Fvector().set(0,0,0));
+		return			(fVector3().set(0.0f,0.0f,0.0f));
 	}
 }
 
@@ -49,14 +49,14 @@ void CScriptSound::Play			(CScriptGameObject *object, float delay, int flags)
 	m_sound.play				(&object->object(),flags,delay);
 }
 
-void CScriptSound::PlayAtPos		(CScriptGameObject *object, const Fvector &position, float delay, int flags)
+void CScriptSound::PlayAtPos		(CScriptGameObject *object, const fVector3& position, float delay, int flags)
 {
 	THROW3						(m_sound._handle(),"There is no sound",*m_caSoundToPlay);
 //	Msg							("%6d : CScriptSound::Play (%s), delay %f, flags %d",m_sound._handle()->file_name(),delay,flags);
 	m_sound.play_at_pos			(&object->object(), position,flags,delay);
 }
 
-void CScriptSound::PlayNoFeedback	(CScriptGameObject *object,	u32 flags/*!< Looping */, float delay/*!< Delay */, Fvector pos, float vol)
+void CScriptSound::PlayNoFeedback	(CScriptGameObject *object,	u32 flags/*!< Looping */, float delay/*!< Delay */, fVector3 pos, float vol)
 {
 	THROW3						(m_sound._handle(),"There is no sound",*m_caSoundToPlay);
 	m_sound.play_no_feedback	(&object->object(), flags,delay,&pos,&vol);

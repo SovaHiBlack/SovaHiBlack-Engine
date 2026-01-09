@@ -16,7 +16,7 @@ public:
 	{ 
 		CL.ray_options(f); 
 	}
-	IC void			ray_query		(const CDB::MODEL *m_def, const Fvector& r_start,  const Fvector& r_dir, float r_range = 10000.f)
+	IC void			ray_query		(const CDB::MODEL *m_def, const fVector3& r_start,  const fVector3& r_dir, float r_range = 10000.f)
 	{
 #ifdef DEBUG
 		Device.Statistic->clRAY.Begin();
@@ -31,7 +31,7 @@ public:
 	{	
 		CL.box_options(f);
 	}
-	IC void			box_query		(const CDB::MODEL *m_def, const Fvector& b_center, const Fvector& b_dim)
+	IC void			box_query		(const CDB::MODEL *m_def, const fVector3& b_center, const fVector3& b_dim)
 	{
 #ifdef DEBUG
 		Device.Statistic->clBOX.Begin();

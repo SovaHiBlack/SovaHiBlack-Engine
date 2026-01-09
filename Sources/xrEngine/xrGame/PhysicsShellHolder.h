@@ -79,16 +79,16 @@ public:
 	virtual SCollisionHitCallback		*get_collision_hit_callback ()							{return NULL;}
 	virtual bool						set_collision_hit_callback	(SCollisionHitCallback *cc)	{return false;}
 	virtual void						enable_notificate			()							{;}
-public:
 
-	virtual void			PHGetLinearVell		(Fvector& velocity);
-	virtual void			PHSetLinearVell		(Fvector& velocity);
+public:
+	virtual void			PHGetLinearVell		(fVector3& velocity);
+	virtual void			PHSetLinearVell		(fVector3& velocity);
 	virtual void			PHSetMaterial		(LPCSTR m);
 	virtual void			PHSetMaterial		(u16 m);
 			void			PHSaveState			(NET_Packet &P);
 			void			PHLoadState			(IReader &P);
 	virtual f32				GetMass				();
-	virtual	void			PHHit				(float P,Fvector &dir, CObject *who,s16 element,Fvector p_in_object_space, float impulse, ALife::EHitType hit_type=ALife::eHitTypeWound);
+	virtual	void			PHHit				(float P, fVector3& dir, CObject *who,s16 element, fVector3 p_in_object_space, float impulse, ALife::EHitType hit_type=ALife::eHitTypeWound);
 	virtual	void			Hit					(SHit* pHDS);
 ///////////////////////////////////////////////////////////////////////
 	virtual u16				PHGetSyncItemsNumber();

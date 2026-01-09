@@ -184,10 +184,12 @@ public		:
 class ENGINE_API	CCC_Vector3 : public IConsole_Command
 {
 protected	:
-	Fvector*		value;
-	Fvector			min,max;
+	fVector3*		value;
+	fVector3		min;
+	fVector3		max;
+
 public		:
-	CCC_Vector3(LPCSTR N, Fvector* V, const Fvector _min, const Fvector _max) :
+	CCC_Vector3(LPCSTR N, fVector3* V, const fVector3 _min, const fVector3 _max) :
 	  IConsole_Command(N),
 	  value(V)
 	{
@@ -197,7 +199,7 @@ public		:
 
 	virtual void	Execute	(LPCSTR args)
 	{
-		Fvector v;
+		fVector3 v;
 		if (3!=sscanf(args,"%f,%f,%f",&v.x,&v.y,&v.z))	{ InvalidSyntax(); return; }
 		if (v.x<min.x || v.y<min.y || v.z<min.z)		{ InvalidSyntax(); return; }
 		if (v.x>max.x || v.y>max.y || v.z>max.z)		{ InvalidSyntax(); return; }

@@ -239,12 +239,12 @@ BOOL	CSkeletonX::has_visible_bones		()
 // Wallmarks
 //-----------------------------------------------------------------------------------------------------
 #include "cl_intersect.h"
-BOOL	CSkeletonX::_PickBoneSoft1W	(Fvector& normal, float& dist, const Fvector& S, const Fvector& D, u16* indices, CBoneData::FacesVec& faces)
+BOOL	CSkeletonX::_PickBoneSoft1W	(fVector3& normal, float& dist, const fVector3& S, const fVector3& D, u16* indices, CBoneData::FacesVec& faces)
 {
 	VERIFY				(*Vertices1W);
 	bool intersect		= FALSE;
 	for (CBoneData::FacesVecIt it=faces.begin(); it!=faces.end(); it++){
-		Fvector			p[3];
+		fVector3			p[3];
 		u32 idx			= (*it)*3;
 		for (u32 k=0; k<3; k++){
 			vertBoned1W& vert		= Vertices1W[indices[idx+k]];
@@ -261,15 +261,16 @@ BOOL	CSkeletonX::_PickBoneSoft1W	(Fvector& normal, float& dist, const Fvector& S
 	return intersect;
 }
 
-BOOL CSkeletonX::_PickBoneSoft2W	(Fvector& normal, float& dist, const Fvector& S, const Fvector& D, u16* indices, CBoneData::FacesVec& faces)
+BOOL CSkeletonX::_PickBoneSoft2W	(fVector3& normal, float& dist, const fVector3& S, const fVector3& D, u16* indices, CBoneData::FacesVec& faces)
 {
 	VERIFY				(*Vertices2W);
 	bool intersect		= FALSE;
 	for (CBoneData::FacesVecIt it=faces.begin(); it!=faces.end(); it++){
-		Fvector			p[3];
+		fVector3			p[3];
 		u32 idx			= (*it)*3;
 		for (u32 k=0; k<3; k++){
-			Fvector		P0,P1;
+			fVector3	P0;
+			fVector3	P1;
 			vertBoned2W& vert		= Vertices2W[indices[idx+k]];
 			Fmatrix& xform0			= Parent->LL_GetBoneInstance(vert.matrix0).mRenderTransform; 
 			Fmatrix& xform1			= Parent->LL_GetBoneInstance(vert.matrix1).mRenderTransform; 
@@ -288,11 +289,11 @@ BOOL CSkeletonX::_PickBoneSoft2W	(Fvector& normal, float& dist, const Fvector& S
 }
 
 // Fill Vertices
-void CSkeletonX::_FillVerticesSoft1W(const Fmatrix& view, CSkeletonWallmark& wm, const Fvector& normal, float size, u16* indices, CBoneData::FacesVec& faces)
+void CSkeletonX::_FillVerticesSoft1W(const Fmatrix& view, CSkeletonWallmark& wm, const fVector3& normal, float size, u16* indices, CBoneData::FacesVec& faces)
 {
 	VERIFY				(*Vertices1W);
 	for (CBoneData::FacesVecIt it=faces.begin(); it!=faces.end(); it++){
-		Fvector			p[3];
+		fVector3			p[3];
 		u32 idx			= (*it)*3;
 		CSkeletonWallmark::WMFace F;
 		for (u32 k=0; k<3; k++){
@@ -304,13 +305,13 @@ void CSkeletonX::_FillVerticesSoft1W(const Fmatrix& view, CSkeletonWallmark& wm,
 			F.vert[k].set			(vert.P);
 			xform.transform_tiny	(p[k],F.vert[k]);
 		}
-		Fvector test_normal;
+		fVector3 test_normal;
 		test_normal.mknormal	(p[0],p[1],p[2]);
 		float cosa				= test_normal.dotproduct(normal);
 		if (cosa<EPS)			continue;
 		if (CDB::TestSphereTri(wm.ContactPoint(),size,p))
 		{
-			Fvector				UV;
+			fVector3				UV;
 			for (u32 k=0; k<3; k++){
 				fVector2& uv	= F.uv[k];
 				view.transform_tiny(UV,p[k]);
@@ -322,15 +323,16 @@ void CSkeletonX::_FillVerticesSoft1W(const Fmatrix& view, CSkeletonWallmark& wm,
 	}
 }
 
-void CSkeletonX::_FillVerticesSoft2W(const Fmatrix& view, CSkeletonWallmark& wm, const Fvector& normal, float size, u16* indices, CBoneData::FacesVec& faces)
+void CSkeletonX::_FillVerticesSoft2W(const Fmatrix& view, CSkeletonWallmark& wm, const fVector3& normal, float size, u16* indices, CBoneData::FacesVec& faces)
 {
 	VERIFY				(*Vertices2W);
 	for (CBoneData::FacesVecIt it=faces.begin(); it!=faces.end(); it++){
-		Fvector			p[3];
+		fVector3			p[3];
 		u32 idx			= (*it)*3;
 		CSkeletonWallmark::WMFace F;
 		for (u32 k=0; k<3; k++){
-			Fvector		P0,P1;
+			fVector3	P0;
+			fVector3	P1;
 			vertBoned2W& vert		= Vertices2W[indices[idx+k]];
 			F.bone_id[k][0]			= vert.matrix0;
 			F.bone_id[k][1]			= vert.matrix1;
@@ -342,12 +344,12 @@ void CSkeletonX::_FillVerticesSoft2W(const Fmatrix& view, CSkeletonWallmark& wm,
 			xform1.transform_tiny	(P1,F.vert[k]);
 			p[k].lerp				(P0,P1,F.weight[k]);
 		}
-		Fvector test_normal;
+		fVector3 test_normal;
 		test_normal.mknormal	(p[0],p[1],p[2]);
 		float cosa				= test_normal.dotproduct(normal);
 		if (cosa<EPS)			continue;
 		if (CDB::TestSphereTri(wm.ContactPoint(),size,p)){
-			Fvector				UV;
+			fVector3				UV;
 			for (u32 k=0; k<3; k++){
 				fVector2& uv	= F.uv[k];
 				view.transform_tiny(UV,p[k]);

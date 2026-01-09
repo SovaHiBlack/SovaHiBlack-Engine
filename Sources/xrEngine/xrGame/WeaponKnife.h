@@ -32,7 +32,7 @@ protected:
 
 	void				state_Attacking				(float dt);
 
-	virtual void		KnifeStrike					(const Fvector& pos, const Fvector& dir);
+	virtual void		KnifeStrike					(const fVector3& pos, const fVector3& dir);
 
 	float				fWallmarkSize;
 	u16					knife_material_idx;

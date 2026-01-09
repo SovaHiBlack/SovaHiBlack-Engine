@@ -683,7 +683,7 @@ void CUIMapWnd::OnToolActorClicked		(CUIWindow*, void*)
 {
 	if (GlobalMap()->Locked())			return;
 
-	Fvector v					= Level().CurrentEntity()->Position();
+	fVector3 v					= Level().CurrentEntity()->Position();
 	fVector2 v2;
 	v2.set						(v.x,v.z);
 
@@ -705,7 +705,7 @@ void CUIMapWnd::AddUserSpot			(CUILevelMap* lm)
 	fVector2 _p;lm->GetAbsolutePos(_p);
 	cursor_pos.sub					(_p);
 	fVector2 p =					lm->ConvertLocalToReal(cursor_pos);
-	Fvector pos;
+	fVector3 pos;
 	pos.set							(p.x, 0.0f, p.y);
 	shared_str spot					= "user"; 
 	CMapLocation* ml				= Level().MapManager().AddUserLocation(spot, lm->MapName(), pos);

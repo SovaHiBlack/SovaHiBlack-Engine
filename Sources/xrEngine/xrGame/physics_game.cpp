@@ -38,10 +38,10 @@ public:
 		CParticlesObject* ps = CParticlesObject::Create(ps_name,TRUE);
 
 		Fmatrix pos; 
-		Fvector zero_vel = {0.f,0.f,0.f};
-		pos.k.set(*((Fvector*)c.normal));
-		Fvector::generate_orthonormal_basis(pos.k, pos.j, pos.i);
-		pos.c.set(*((Fvector*)c.pos));
+		fVector3 zero_vel = {0.0f,0.0f,0.0f};
+		pos.k.set(*((fVector3*)c.normal));
+		fVector3::generate_orthonormal_basis(pos.k, pos.j, pos.i);
+		pos.c.set(*((fVector3*)c.pos));
 
 		ps->UpdateParent(pos,zero_vel);
 		GamePersistent().ps_needtoplay.push_back(ps);
@@ -49,15 +49,15 @@ public:
 	virtual bool 			obsolete						()const{return false;}
 };
 
-
 class CPHWallMarksCall :
 	public CPHAction
 {
 	ref_shader pWallmarkShader;
-	Fvector pos;
+	fVector3 pos;
 	CDB::TRI* T;
+
 public:
-	CPHWallMarksCall(const Fvector &p,CDB::TRI* Tri,ref_shader s)
+	CPHWallMarksCall(const fVector3& p,CDB::TRI* Tri,ref_shader s)
 	{
 		pWallmarkShader=s;
 		pos.set(p);
@@ -72,9 +72,6 @@ public:
 	};
 	virtual bool 			obsolete						()const{return false;}
 };
-
-
-
 
 template<class Pars>
 void  TContactShotMark(CDB::TRI* T,dContactGeom* c)
@@ -98,7 +95,8 @@ void  TContactShotMark(CDB::TRI* T,dContactGeom* c)
 	dBodyGetMass(b,&m);
 	dBodyGetPointVel(b,c->pos[0],c->pos[1],c->pos[2],vel);
 	dReal vel_cret=dFabs(dDOT(vel,c->normal))* _sqrt(m.mass);
-	Fvector to_camera;to_camera.sub(cast_fv(c->pos),Device.vCameraPosition);
+	fVector3 to_camera;
+	to_camera.sub(cast_fv(c->pos),Device.vCameraPosition);
 	float square_cam_dist=to_camera.square_magnitude();
 	if(data)
 	{
@@ -108,12 +106,11 @@ void  TContactShotMark(CDB::TRI* T,dContactGeom* c)
 			if(vel_cret>Pars::vel_cret_wallmark && !mtl_pair->CollideMarks.empty())
 			{
 				ref_shader pWallmarkShader = mtl_pair->CollideMarks[::Random.randI(0,mtl_pair->CollideMarks.size())];
-				Level().ph_commander().add_call(xr_new<CPHOnesCondition>(),xr_new<CPHWallMarksCall>( *((Fvector*)c->pos),T,pWallmarkShader));
+				Level().ph_commander().add_call(xr_new<CPHOnesCondition>(),xr_new<CPHWallMarksCall>( *((fVector3*)c->pos),T,pWallmarkShader));
 			}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			if(square_cam_dist<SQUARE_SOUND_EFFECT_DIST)
-			{
-			
+			{			
 				SGameMtl* static_mtl =  GMLib.GetMaterialByIdx(T->material);
 				if(!static_mtl->Flags.test(SGameMtl::flPassable))
 				{
@@ -122,7 +119,7 @@ void  TContactShotMark(CDB::TRI* T,dContactGeom* c)
 						if(!mtl_pair->CollideSounds.empty())
 						{
 							float volume=collide_volume_min+vel_cret*(collide_volume_max-collide_volume_min)/(_sqrt(mass_limit)*default_l_limit-Pars::vel_cret_sound);
-							GET_RANDOM(mtl_pair->CollideSounds).play_no_feedback(0,0,0,((Fvector*)c->pos),&volume);
+							GET_RANDOM(mtl_pair->CollideSounds).play_no_feedback(0,0,0,((fVector3*)c->pos),&volume);
 						}
 					}
 				}
@@ -132,7 +129,7 @@ void  TContactShotMark(CDB::TRI* T,dContactGeom* c)
 					{
 						CPHSoundPlayer* sp=NULL;
 						sp=data->ph_ref_object->ph_sound_player();
-						if(sp) sp->Play(mtl_pair,*(Fvector*)c->pos);
+						if(sp) sp->Play(mtl_pair,*(fVector3*)c->pos);
 					}
 				}
 			}
@@ -148,8 +145,7 @@ void  TContactShotMark(CDB::TRI* T,dContactGeom* c)
 			}
 		}
 	}
- }
-
+}
 
 ContactCallbackFun *ContactShotMark = &TContactShotMark<EffectPars>;
 ContactCallbackFun *CharacterContactShotMark = &TContactShotMark<CharacterEffectPars>;

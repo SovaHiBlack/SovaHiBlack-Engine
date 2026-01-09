@@ -117,9 +117,8 @@ void CWeaponKnife::OnStateSwitch	(u32 S)
 		}break;
 	}
 }
-	
 
-void CWeaponKnife::KnifeStrike(const Fvector& pos, const Fvector& dir)
+void CWeaponKnife::KnifeStrike(const fVector3& pos, const fVector3& dir)
 {
 	CCartridge						cartridge; 
 	cartridge.m_buckShot			= 1;				
@@ -152,7 +151,6 @@ void CWeaponKnife::KnifeStrike(const Fvector& pos, const Fvector& dir)
 										SendHit);
 }
 
-
 void CWeaponKnife::OnAnimationEnd(u32 state)
 {
 	switch (state)
@@ -161,7 +159,7 @@ void CWeaponKnife::OnAnimationEnd(u32 state)
 	case eFire: 
 	case eFire2: 
 		{
-            if(m_attackStart) 
+			if(m_attackStart) 
 			{
 				m_attackStart = false;
 				if(GetState()==eFire)
@@ -169,7 +167,8 @@ void CWeaponKnife::OnAnimationEnd(u32 state)
 				else
 					m_pHUD->animPlay(random_anim(mhud_attack2_e), TRUE, this, GetState());
 
-				Fvector	p1, d; 
+				fVector3	p1;
+				fVector3	d;
 				p1.set(get_LastFP()); 
 				d.set(get_LastFD());
 
@@ -189,8 +188,7 @@ void CWeaponKnife::OnAnimationEnd(u32 state)
 }
 
 void CWeaponKnife::state_Attacking	(float)
-{
-}
+{ }
 
 void CWeaponKnife::switch2_Attacking	(u32 state)
 {
@@ -234,7 +232,6 @@ void CWeaponKnife::switch2_Showing	()
 //	m_bPending				= true;
 }
 
-
 void CWeaponKnife::FireStart()
 {	
 	inherited::FireStart();
@@ -246,7 +243,6 @@ void CWeaponKnife::Fire2Start ()
 	inherited::Fire2Start();
 	SwitchState(eFire2);
 }
-
 
 bool CWeaponKnife::Action(s32 cmd, u32 flags) 
 {

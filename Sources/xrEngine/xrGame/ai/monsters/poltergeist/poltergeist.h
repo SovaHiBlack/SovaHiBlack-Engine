@@ -63,13 +63,13 @@ public:
 
 	
 	// Poltergeist ability
-			void	PhysicalImpulse		(const Fvector &position);
-			void	StrangeSounds		(const Fvector &position);
+			void	PhysicalImpulse		(const fVector3& position);
+			void	StrangeSounds		(const fVector3& position);
 			
 			ref_sound m_strange_sound;
 	
 	// Movement
-			Fvector m_current_position;		// Позиция на ноде
+			fVector3 m_current_position;		// Позиция на ноде
 
 	// Dynamic Height
 			u32		time_height_updated;
@@ -78,7 +78,6 @@ public:
 			void	UpdateHeight			();
 
 	// Invisibility 
-
 			void	EnableHide				(){m_disable_hide = false;}
 			void	DisableHide				(){m_disable_hide = true;}
 	
@@ -86,12 +85,11 @@ private:
 			void	Hide					();
 			void	Show					();
 
-
 public:
+
 #ifdef DEBUG
 			virtual CBaseMonster::SDebugInfo show_debug_info();
 #endif
-
 
 	DECLARE_SCRIPT_REGISTER_FUNCTION
 };
@@ -193,8 +191,8 @@ class CPolterFlame : public CPolterSpecialAbility {
 public:
 	struct SFlameElement {
 		const CObject		*target_object;
-		Fvector				position;
-		Fvector				target_dir;
+		fVector3				position;
+		fVector3				target_dir;
 		u32					time_started;
 		ref_sound			sound;
 		CParticlesObject	*particles_object;
@@ -218,7 +216,7 @@ public:
 
 private:
 			void	select_state				(SFlameElement *elem, EFlameState state);
-			bool	get_valid_flame_position	(const CObject *target_object, Fvector &res_pos);
+			bool	get_valid_flame_position	(const CObject *target_object, fVector3& res_pos);
 			void	create_flame				(const CObject *target_object);
 };
 
@@ -268,10 +266,10 @@ public:
 	virtual void	update_schedule				();
 
 private:
-			void	tele_find_objects			(xr_vector<CObject*> &objects, const Fvector &pos);
+			void	tele_find_objects			(xr_vector<CObject*> &objects, const fVector3& pos);
 			bool	tele_raise_objects			();
 			void	tele_fire_objects			();
 
-			bool	trace_object				(CObject *obj, const Fvector &target);
+			bool	trace_object				(CObject *obj, const fVector3& target);
 };
 

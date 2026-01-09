@@ -23,17 +23,17 @@
 	{
 		u16	matrix0;
 		u16	matrix1;
-		Fvector	P0;
-		Fvector	N0;
-		Fvector	P1;
-		Fvector	N1;
+		fVector3	P0;
+		fVector3	N0;
+		fVector3	P1;
+		fVector3	N1;
 		float	w;
 		float	u,v;
 	};
 	struct vertRender
 	{
-		Fvector	P;
-		Fvector	N;
+		fVector3	P;
+		fVector3	N;
 		float	u,v;
 	};
 */

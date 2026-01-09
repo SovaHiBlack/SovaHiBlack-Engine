@@ -37,7 +37,7 @@ void CTeamBaseZone::reinit			()
 	inherited::reinit		();
 }
 
-void CTeamBaseZone::Center			(Fvector &C) const
+void CTeamBaseZone::Center			(fVector3& C) const
 {
 	XFORM().transform_tiny	(C,CFORM()->getSphere().P);
 }
@@ -77,7 +77,7 @@ BOOL CTeamBaseZone::net_Spawn	(CSE_Abstract* DC)
 	BOOL						bOk = inherited::net_Spawn(DC);
 	if (bOk) {
 		l_pShape->ComputeBounds	();
-		Fvector					P;
+		fVector3					P;
 		XFORM().transform_tiny	(P,CFORM()->getSphere().P);
 		setEnabled				(TRUE);
 	}
@@ -106,7 +106,7 @@ void CTeamBaseZone::shedule_Update(u32 dt)
 	inherited::shedule_Update	(dt);
 	
 	const Fsphere				&s = CFORM()->getSphere();
-	Fvector						P;
+	fVector3						P;
 	XFORM().transform_tiny		(P,s.P);
 	feel_touch_update			(P,s.R);
 }
@@ -152,7 +152,8 @@ void CTeamBaseZone::OnRender()
 	if(!bDebug) return;
 	if (!(dbg_net_Draw_Flags.is_any((1<<3)))) return;
 //	RCache.OnFrameEnd();
-	Fvector l_half; l_half.set(.5f, .5f, .5f);
+	fVector3 l_half;
+	l_half.set(0.5f, 0.5f, 0.5f);
 	Fmatrix l_ball, l_box;
 	xr_vector<CCF_Shape::shape_def> &l_shapes = ((CCF_Shape*)CFORM())->Shapes();
 	xr_vector<CCF_Shape::shape_def>::iterator l_pShape;
@@ -163,9 +164,10 @@ void CTeamBaseZone::OnRender()
 		{
 		case 0:
 			{
-                Fsphere &l_sphere = l_pShape->data.sphere;
+				Fsphere &l_sphere = l_pShape->data.sphere;
 				l_ball.scale(l_sphere.R, l_sphere.R, l_sphere.R);
-				Fvector l_p; XFORM().transform(l_p, l_sphere.P);
+				fVector3 l_p;
+				XFORM().transform(l_p, l_sphere.P);
 				l_ball.translate_add(l_p);
 				Level().debug_renderer().draw_ellipse(l_ball, D3DCOLOR_XRGB(0,255,255));
 			}

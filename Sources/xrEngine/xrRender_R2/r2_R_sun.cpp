@@ -223,10 +223,10 @@ public:
 			// verify
 			if (_debug)
 			{
-				Fvector&		p0	= points[P.points[0]];
-				Fvector&		p1	= points[P.points[1]];
-				Fvector&		p2	= points[P.points[2]];
-				Fvector&		p3	= points[P.points[3]];
+				fVector3&		p0	= points[P.points[0]];
+				fVector3&		p1	= points[P.points[1]];
+				fVector3&		p2	= points[P.points[2]];
+				fVector3&		p3	= points[P.points[3]];
 				Fplane	p012;	p012.build(p0,p1,p2);
 				Fplane	p123;	p123.build(p1,p2,p3);
 				Fplane	p230;	p230.build(p2,p3,p0);
@@ -383,7 +383,7 @@ struct	DumbClipper
 				for (int c=0; c<8; c++)
 				{
 					D3DXVECTOR3		p0	= point		(bb,c);
-					Fvector			x0	= wform		(xf,*((Fvector*)(&p0)));
+					fVector3			x0	= wform		(xf,*((fVector3*)(&p0)));
 					result.modify	(x0	);
 				}
 				break;
@@ -396,8 +396,8 @@ struct	DumbClipper
 						D3DXVECTOR3		p0	= point	(bb,c0);
 						D3DXVECTOR3		p1	= point	(bb,c1);
 						if (!clip(p0,p1))	continue;
-						Fvector			x0	= wform	(xf,*((Fvector*)(&p0)));
-						Fvector			x1	= wform	(xf,*((Fvector*)(&p1)));
+						fVector3			x0	= wform	(xf,*((fVector3*)(&p0)));
+						fVector3			x1	= wform	(xf,*((fVector3*)(&p1)));
 						result.modify	(x0	);
 						result.modify	(x1	);
 					}
@@ -506,7 +506,10 @@ void CRender::render_sun				()
 		// Create approximate ortho-xform
 		// view: auto find 'up' and 'right' vectors
 		Fmatrix						mdir_View, mdir_Project;
-		Fvector						L_dir,L_up,L_right,L_pos;
+		fVector3					L_dir;
+		fVector3					L_up;
+		fVector3					L_right;
+		fVector3					L_pos;
 		L_pos.set					(fuckingsun->position);
 		L_dir.set					(fuckingsun->direction).normalize	();
 		L_up.set					(0,1,0);					if (_abs(L_up.dotproduct(L_dir))>.99f)	L_up.set(0,0,1);
@@ -517,7 +520,7 @@ void CRender::render_sun				()
 		// projection: box
 		Fbox	frustum_bb;			frustum_bb.invalidate();
 		for (int it=0; it<8; it++)	{
-			Fvector	xf	= wform		(mdir_View,hull.points[it]);
+			fVector3	xf	= wform		(mdir_View,hull.points[it]);
 			frustum_bb.modify		(xf);
 		}
 		Fbox&	bb					= frustum_bb;
@@ -963,22 +966,25 @@ void CRender::render_sun_near	()
 		// Create approximate ortho-xform
 		// view: auto find 'up' and 'right' vectors
 		Fmatrix						mdir_View, mdir_Project;
-		Fvector						L_dir,L_up,L_right,L_pos;
+		fVector3						L_dir;
+		fVector3						L_up;
+		fVector3					L_right;
+		fVector3					L_pos;
 		L_pos.set					(fuckingsun->position);
 		L_dir.set					(fuckingsun->direction).normalize	();
-		L_right.set					(1,0,0);					if (_abs(L_right.dotproduct(L_dir))>.99f)	L_right.set(0,0,1);
+		L_right.set					(1.0f,0.0f,0.0f);					if (_abs(L_right.dotproduct(L_dir))>0.99f)	L_right.set(0.0f,0.0f,1.0f);
 		L_up.crossproduct			(L_dir,L_right).normalize	();
 		L_right.crossproduct		(L_up,L_dir).normalize		();
 		mdir_View.build_camera_dir	(L_pos,L_dir,L_up);
 
 		// projection: box
 		float	_D					= ps_r2_sun_near;
-		float	a0					= deg2rad(Device.fFOV*Device.fASPECT)/2.f;
-		float	a1					= deg2rad(Device.fFOV)/2.f;
+		float	a0					= deg2rad(Device.fFOV*Device.fASPECT)/2.0f;
+		float	a1					= deg2rad(Device.fFOV)/2.0f;
 		float	c0					= _D/_cos(a0);
 		float	c1					= _D/_cos(a1);
-		float	k0					= 2.f*c0*_sin(a0);
-		float	k1					= 2.f*c1*_sin(a1);
+		float	k0					= 2.0f*c0*_sin(a0);
+		float	k1					= 2.0f*c1*_sin(a1);
 		float	borderalpha			= (Device.fFOV-10) / (90-10);
 									
 		float	nearborder			= 1*borderalpha + 1.136363636364f*(1-borderalpha);
@@ -986,13 +992,13 @@ void CRender::render_sun_near	()
 		Fbox	frustum_bb;			frustum_bb.invalidate	();
 		hull.points.push_back		(Device.vCameraPosition);
 		for (int it=0; it<9; it++)	{
-			Fvector	xf	= wform		(mdir_View,hull.points[it]);
+			fVector3	xf	= wform		(mdir_View,hull.points[it]);
 			frustum_bb.modify		(xf);
 		}
 		float	size_x				= frustum_bb.max.x - frustum_bb.min.x;
 		float	size_y				= frustum_bb.max.y - frustum_bb.min.y;
-		float	diff_x				= (spherical_range - size_x)/2.f;	//VERIFY(diff_x>=0);
-		float	diff_y				= (spherical_range - size_y)/2.f;	//VERIFY(diff_y>=0);
+		float	diff_x				= (spherical_range - size_x)/2.0f;	//VERIFY(diff_x>=0);
+		float	diff_y				= (spherical_range - size_y)/2.0f;	//VERIFY(diff_y>=0);
 		frustum_bb.min.x -= diff_x; frustum_bb.max.x += diff_x;
 		frustum_bb.min.y -= diff_y; frustum_bb.max.y += diff_y;
 		Fbox&	bb					= frustum_bb;
@@ -1001,22 +1007,23 @@ void CRender::render_sun_near	()
 		// build viewport xform
 		float	view_dim			= float(RImplementation.o.smapsize);
 		Fmatrix	m_viewport			= {
-			view_dim/2.f,	0.0f,				0.0f,		0.0f,
-			0.0f,			-view_dim/2.f,		0.0f,		0.0f,
+			view_dim/2.0f,	0.0f,				0.0f,		0.0f,
+			0.0f,			-view_dim/2.0f,		0.0f,		0.0f,
 			0.0f,			0.0f,				1.0f,		0.0f,
-			view_dim/2.f,	view_dim/2.f,		0.0f,		1.0f
+			view_dim/2.0f,	view_dim/2.0f,		0.0f,		1.0f
 		};
 		Fmatrix				m_viewport_inv;
 		D3DXMatrixInverse	((D3DXMATRIX*)&m_viewport_inv,0,(D3DXMATRIX*)&m_viewport);
 
 		// snap view-position to pixel
 		cull_xform.mul		(mdir_Project,mdir_View	);
-		Fvector cam_proj	= wform		(cull_xform,Device.vCameraPosition	);
-		Fvector	cam_pixel	= wform		(m_viewport,cam_proj				);
+		fVector3 cam_proj	= wform		(cull_xform,Device.vCameraPosition	);
+		fVector3	cam_pixel	= wform		(m_viewport,cam_proj				);
 		cam_pixel.x			= floorf	(cam_pixel.x);
 		cam_pixel.y			= floorf	(cam_pixel.y);
-		Fvector cam_snapped	= wform		(m_viewport_inv,cam_pixel);
-		Fvector diff;		diff.sub	(cam_snapped,cam_proj				);
+		fVector3 cam_snapped	= wform		(m_viewport_inv,cam_pixel);
+		fVector3 diff;
+		diff.sub	(cam_snapped,cam_proj				);
 		Fmatrix adjust;		adjust.translate(diff);
 		cull_xform.mulA_44	(adjust);
 
@@ -1025,7 +1032,7 @@ void CRender::render_sun_near	()
 		Fmatrix		scissor_xf			;
 					scissor_xf.mul		(m_viewport,cull_xform);
 		for (int it=0; it<9; it++)	{
-			Fvector	xf	= wform		(scissor_xf,hull.points[it]);
+			fVector3	xf	= wform		(scissor_xf,hull.points[it]);
 			scissor.modify			(xf);
 		}
 		s32		limit					= RImplementation.o.smapsize-1;

@@ -7,7 +7,7 @@
 	#include "light_GI.h"
 #endif
 
-class	light		:	public IRender_Light, public ISpatial
+class light		:	public IRender_Light, public ISpatial
 {
 public:
 	struct {
@@ -74,38 +74,36 @@ public:
 #endif
 
 public:
-	virtual void	set_type				(LT type)						{ flags.type = type;		}
-	virtual void	set_active				(bool b);
-	virtual bool	get_active				()								{ return flags.bActive;		}
-	virtual void	set_shadow				(bool b)						
-	{ 
-		flags.bShadow=b;			
-	}
-	virtual void	set_position			(const fVector3& P);
-	virtual void	set_rotation			(const fVector3& D, const fVector3& R);
-	virtual void	set_cone				(float angle);
-	virtual void	set_range				(float R);
-	virtual void	set_virtual_size		(float R)						{};
-	virtual void	set_color				(const Fcolor& C)				{ color.set(C);				}
-	virtual void	set_color				(float r, float g, float b)		{ color.set(r,g,b,1);		}
-	virtual void	set_texture				(LPCSTR name);
+	virtual void			set_type				(LT type)						{ flags.type = type;		}
+	virtual void			set_active				(bool b);
+	virtual bool			get_active				()								{ return flags.bActive;		}
+	virtual void			set_shadow				(bool b)						{ flags.bShadow=b;			}
+	virtual void			set_position			(const fVector3& P);
+	virtual void			set_rotation			(const fVector3& D, const fVector3& R);
+	virtual void			set_cone				(float angle);
+	virtual void			set_range				(float R);
+	virtual void			set_virtual_size		(float R)						{};
+	virtual void			set_color				(const Fcolor& C)				{ color.set(C);				}
+	virtual void			set_color				(float r, float g, float b)		{ color.set(r,g,b,1);		}
+	virtual void			set_texture				(LPCSTR name);
 
-	virtual	void	spatial_move			();
-	virtual	fVector3	spatial_sector_point	();
+	virtual void			spatial_move			();
+	virtual fVector3		spatial_sector_point	();
 
-	virtual IRender_Light*	dcast_Light		()	{ return this; }
+	virtual IRender_Light*	dcast_Light				()								{ return this;				}
 
-	vis_data&		get_homdata				();
+	vis_data&				get_homdata				();
+
 #if RENDER==R_R2
-	void			gi_generate				();
-	void			xform_calc				();
-	void			vis_prepare				();
-	void			vis_update				();
-	void			_export 					(light_Package& dest);
+	void					gi_generate				();
+	void					xform_calc				();
+	void					vis_prepare				();
+	void					vis_update				();
+	void					_export 				(light_Package& dest);
 #endif
 
-	float			get_LOD					();
+	float					get_LOD					();
 
-	light();
-	virtual ~light();
+							light					();
+	virtual					~light();
 };

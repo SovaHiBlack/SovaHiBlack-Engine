@@ -15,7 +15,7 @@ protected:
 		//bl
 		bool					b_builded;
 		dSpaceID				m_group;					//e					//bl
-		Fvector					m_mass_center;				//e ??				//bl
+		fVector3				m_mass_center;				//e ??				//bl
 		CPhysicsShellHolder*	m_phys_ref_object;			//->to shell ??		//bl
 		float					m_volume;					//e ??				//bl
 		u16						ul_material;				//e ??				//bl
@@ -47,19 +47,19 @@ public:
 		CODEGeom*					GeomByBoneID							(u16 bone_id);
 		u16							numberOfGeoms							();																				//aux
 		dGeomID						dSpacedGeometry							();																				//aux
-		Fvector						get_mc_data								();																				//aux
-		Fvector						get_mc_geoms							();																				//aux
-		void						get_mc_kinematics						(CKinematics* K,Fvector& mc,float& mass);
+		fVector3					get_mc_data								();																				//aux
+		fVector3					get_mc_geoms							();																				//aux
+		void						get_mc_kinematics						(CKinematics* K, fVector3& mc,float& mass);
 		void						calc_volume_data						();																				//aux
-const	Fvector&					local_mass_Center						()		{return m_mass_center;}													//aux
+const	fVector3&					local_mass_Center						()		{return m_mass_center;}													//aux
 		float						get_volume								()		{calc_volume_data();return m_volume;};									//aux
-		void						get_Extensions							(const Fvector& axis,float center_prg,float& lo_ext, float& hi_ext);			//aux
-		void						get_MaxAreaDir							(Fvector& dir);
+		void						get_Extensions							(const fVector3& axis,float center_prg,float& lo_ext, float& hi_ext);			//aux
+		void						get_MaxAreaDir							(fVector3& dir);
 		float						getRadius								();	
 		void						setStaticForm							(const Fmatrix& form);
-		void						setPosition								(const Fvector& pos);
+		void						setPosition								(const fVector3& pos);
 		void						clear_cashed_tries						();
-		void						get_mc_vs_transform						(Fvector& mc,const Fmatrix& m);
+		void						get_mc_vs_transform						(fVector3& mc,const Fmatrix& m);
 protected:
 		void						build									();
 		void						CreateSimulBase							();
@@ -70,7 +70,6 @@ protected:
 
 									CPHGeometryOwner						();
 virtual								~CPHGeometryOwner						();
-private:
 };
 
 #endif

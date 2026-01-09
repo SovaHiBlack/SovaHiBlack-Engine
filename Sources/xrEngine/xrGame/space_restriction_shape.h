@@ -25,7 +25,7 @@ protected:
 	bool					m_default;
 
 protected:
-	IC			Fvector		position				(const CCF_Shape::shape_def &data) const;
+	IC			fVector3		position				(const CCF_Shape::shape_def &data) const;
 	IC			float		radius					(const CCF_Shape::shape_def &data) const;
 				void		build_border			();
 				void		fill_shape				(const CCF_Shape::shape_def &shape);

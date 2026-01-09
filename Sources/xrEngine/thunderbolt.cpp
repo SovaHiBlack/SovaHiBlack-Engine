@@ -115,7 +115,7 @@ int CEffect_Thunderbolt::AppendDef(CInifile* pIni, LPCSTR sect)
 	return collection.size()-1;
 }
 
-BOOL CEffect_Thunderbolt::RayPick(const Fvector& s, const Fvector& d, float& dist)
+BOOL CEffect_Thunderbolt::RayPick(const fVector3& s, const fVector3& d, float& dist)
 {
 	BOOL bRes 	= TRUE;
 	collide::rq_result	RQ;
@@ -123,8 +123,8 @@ BOOL CEffect_Thunderbolt::RayPick(const Fvector& s, const Fvector& d, float& dis
 	bRes 				= g_pGameLevel->ObjectSpace.RayPick(s,d,dist,collide::rqtBoth,RQ,E);	
 	if (bRes) dist	 	= RQ.range;
 	else{
-		Fvector N	={0.f,-1.f,0.f};
-		Fvector P	={0.f,0.f,0.f};
+		fVector3 N	={0.0f,-1.0f,0.0f};
+		fVector3 P	={0.0f,0.0f,0.0f};
 		Fplane PL; PL.build(P,N);
 		float dst	=dist;
 		if (PL.intersectRayDist(s,d,dst)&&(dst<=dist)){dist=dst; return true;}else return false;
@@ -143,7 +143,8 @@ void CEffect_Thunderbolt::Bolt(int id, float period, float lt)
 	current		            = collection[id]->GetRandomDesc(); VERIFY(current);
 
 	Fmatrix XF,S;
-	Fvector pos,dev;
+	fVector3 pos;
+	fVector3 dev;
 	float sun_h, sun_p; 
 	g_pGamePersistent->Environment().CurrentEnv.sun_dir.getHP			(sun_h,sun_p);
 	float alt	            = Random.randF(p_var_alt.x,p_var_alt.y);
@@ -156,7 +157,7 @@ void CEffect_Thunderbolt::Bolt(int id, float period, float lt)
 	dev.z		            = Random.randF(-p_tilt,p_tilt);
 	XF.setXYZi	            (dev);               
 
-	Fvector light_dir 		= {0.f,-1.f,0.f};
+	fVector3 light_dir 		= {0.0f,-1.0f,0.0f};
 	XF.transform_dir		(light_dir);
 	lightning_size			= FAR_DIST*2.f;
 	RayPick					(pos,light_dir,lightning_size);
@@ -176,7 +177,6 @@ void CEffect_Thunderbolt::Bolt(int id, float period, float lt)
 		current->snd.play_no_feedback		(0,0,dist/300.f,&pos,0,0,&fVector2().set(dist/2,dist*2.0f));
 	}
 
-
 	current_direction.invert			();	// for env-sun
 }
 
@@ -192,7 +192,7 @@ void CEffect_Thunderbolt::OnFrame(int id, float period, float duration)
 	if (state==stWorking){
 		if (current_time>life_time) state = stIdle;
 		current_time	+= Device.fTimeDelta;
-		Fvector fClr;		
+		fVector3 fClr;
 		int frame;
 		u32 uClr		= current->color_anim->CalculateRGB(current_time/life_time,frame);
 		fClr.set		(float(color_get_R(uClr))/255.f,float(color_get_G(uClr)/255.f),float(color_get_B(uClr)/255.f));
@@ -207,7 +207,6 @@ void CEffect_Thunderbolt::OnFrame(int id, float period, float duration)
 		if (::Render->get_generation()==IRender_interface::GENERATION_R2)	{
 			g_pGamePersistent->Environment().CurrentEnv.sun_dir = current_direction;
 			VERIFY2(g_pGamePersistent->Environment().CurrentEnv.sun_dir.y<0,"Invalid sun direction settings while CEffect_Thunderbolt");
-
 		} 
 	}
 }
@@ -239,7 +238,8 @@ void CEffect_Thunderbolt::Render()
 		RCache.set_CullMode	(CULL_CCW);
 
 		// gradient
-		Fvector				vecSx, vecSy;
+		fVector3			vecSx;
+		fVector3			vecSy;
 		u32					VS_Offset;
 		FVF::LIT *pv		= (FVF::LIT*) RCache.Vertex.Lock(8,hGeom_gradient.stride(),VS_Offset);
 		// top
@@ -273,4 +273,3 @@ void CEffect_Thunderbolt::Render()
 		RCache.Render			(D3DPT_TRIANGLELIST,VS_Offset+4, 0,4,0,2);
 	}
 }
-

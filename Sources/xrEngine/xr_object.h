@@ -32,7 +32,7 @@ public:
 	struct	SavedPosition
 	{
 		u32			dwTime;
-		Fvector		vPosition;
+		fVector3		vPosition;
 	};
 	union	ObjectProperties
 	{
@@ -99,7 +99,7 @@ public:
 	CObject*							H_SetParent			(CObject* O, bool just_before_destroy = false);
 
 	// Geometry xform
-	virtual void						Center				(Fvector& C) const;
+	virtual void						Center				(fVector3& C) const;
 	IC const Fmatrix&					XFORM				()			 const	{ VERIFY(_valid(renderable.xform));	return renderable.xform;	}
 	ICF Fmatrix&						XFORM				()					{ return renderable.xform;			}
 	virtual void						spatial_register	();
@@ -107,10 +107,10 @@ public:
 	virtual void						spatial_move		();
 	void								spatial_update		(float eps_P, float eps_R);
 
-	ICF Fvector&						Direction			() 					{ return renderable.xform.k;		}
-	ICF const Fvector&					Direction			() 			const	{ return renderable.xform.k;		}
-	ICF Fvector&						Position			() 					{ return renderable.xform.c;		}
-	ICF const Fvector&					Position			() 			const	{ return renderable.xform.c;		}
+	ICF fVector3&						Direction			() 					{ return renderable.xform.k;		}
+	ICF const fVector3&					Direction			() 			const	{ return renderable.xform.k;		}
+	ICF fVector3&						Position			() 					{ return renderable.xform.c;		}
+	ICF const fVector3&					Position			() 			const	{ return renderable.xform.c;		}
 	virtual float						Radius				()			const;
 	virtual const Fbox&					BoundingBox			()			const;
 	

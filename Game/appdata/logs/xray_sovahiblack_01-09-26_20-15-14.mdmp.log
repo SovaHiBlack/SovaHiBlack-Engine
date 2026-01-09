@@ -1,0 +1,115 @@
+* Detected CPU: GenuineIntel P3 family, F6/M10/S4, 2496.00 mhz, 17-clk 'rdtsc'
+* CPU Features: RDTSC, MMX, SSE, SSE2
+
+Initializing File System...
+using fs-ltx fsgame.ltx
+FS: 30111 files cached, 4922Kb memory used.
+Init FileSystem 0.774411 sec
+'X-Ray Engine' build 9833, Jan  9 2026
+
+Initializing Engine...
+Executing config-script "user.ltx"...
+! Cannot open script file [user.ltx]
+Starting INPUT device...
+Loading DLL: xrRender_R1.dll
+Loading DLL: xrGame.dll
+! Unable to find Software\GSC Game World\STALKER-SHOC\ in registry
+* [win32]: free[4061512 K], reserved[53236 K], committed[79492 K]
+* [ D3D ]: textures[0 K]
+* [x-ray]: crt heap[9026 K], process heap[9026 K], game lua[0 K], engine lua[0 K], render[0 K]
+* [x-ray]: economy: strings[1942 K], smem[0 K]
+Executing config-script "d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\default_controls.ltx"...
+! cant convert dik_name for dik[144], prop=[
+[d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\default_controls.ltx] successfully loaded.
+Executing config-script "user.ltx"...
+! Cannot open script file [user.ltx]
+SOUND: OpenAL: enumerate devices...
+SOUND: OpenAL: EnumerationExtension Present
+devices Generic Software
+SOUND: OpenAL: system  default SndDevice name is Generic Software
+SOUND: OpenAL: All available devices:
+1. Generic Software, Spec Version 1.1 (default)
+SOUND: OpenAL: SelectBestDevice is Generic Software 1.1
+SOUND: OpenAL: Required device: Generic Software. Created device: Generic Software.
+* sound: EAX 2.0 extension: absent
+* sound: EAX 2.0 deferred: absent
+* sound : cache: 32773 kb, 3805 lines, 8820 bpl
+Starting RENDER device...
+* GPU [vendor:8086]-[device:46A8]: Intel(R) Iris(R) Xe Graphics
+* GPU driver: 32.0.101.6299
+* CREATE: DeviceREF: 1
+* Vertex Processor: PURE HARDWARE
+*     Texture memory: 4067 M
+*          DDI-level: 9.0
+* GPU shading: vs(fffe0300/3.0/30), ps(ffff0300/3.0/30)
+* GPU vertex cache: unrecognized, 16
+* DVB created: 1536K
+* DIB created: 512K
+count of .thm files=6
+load time=19 ms
+* distortion: used, dev(30),need(14)
+* SSample: 1024x768
+* SSample: enabled
+- r__tf_aniso 4
+- r1_tf_mipbias 0.
+Starting engine...
+Loading DLL: xrGameSpy.dll
+Executing config-script "d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\rspec_extreme.ltx"...
+! Unknown command:  r__dtex_range
+! Unknown command:  r__ssa_glod_end
+! Unknown command:  r__ssa_glod_start
+! Unknown command:  r__wallmark_ttl
+! Unknown command:  rs_detail
+! Unknown command:  rs_skeleton_update
+! Unknown command:  vid_bpp
+[d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\rspec_extreme.ltx] successfully loaded.
+Executing config-script "d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\rspec_extreme.ltx"...
+! Unknown command:  r__dtex_range
+! Unknown command:  r__ssa_glod_end
+! Unknown command:  r__ssa_glod_start
+! Unknown command:  r__wallmark_ttl
+! Unknown command:  rs_detail
+! Unknown command:  rs_skeleton_update
+! Unknown command:  vid_bpp
+[d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\rspec_extreme.ltx] successfully loaded.
+* DVB created: 1536K
+* DIB created: 512K
+- r__tf_aniso 16
+- r1_tf_mipbias 0.
+* SSample: 2048x1536
+* SSample: enabled
+* GPU shading: vs(fffe0300/3.0/30), ps(ffff0300/3.0/30)
+* GPU vertex cache: unrecognized, 16
+*** RESET [0 ms]
+* MEMORY USAGE: 109114 K
+Input:  1
+Config-file [d:\sovahiblack-engine\game\appdata\user.ltx] saved successfully
+Destroying Direct3D...
+* RM_Dump: textures  : 0
+* RM_Dump: rtargets  : 0
+* RM_Dump: rtargetsc : 0
+* RM_Dump: vs        : 0
+* RM_Dump: ps        : 0
+* RM_Dump: dcl       : 0
+* RM_Dump: states    : 0
+* RM_Dump: tex_list  : 0
+* RM_Dump: matrices  : 0
+* RM_Dump: lst_constants: 0
+* RM_Dump: v_passes  : 0
+* RM_Dump: v_elements: 0
+* RM_Dump: v_shaders : 0
+refCount:pBaseZB 1
+refCount:pBaseRT 1
+DeviceREF: 1
+stack trace:
+
+0023:74A311E6 DINPUT8.dll, GetdfDIJoystick()
+0023:74A31FD7 DINPUT8.dll, GetdfDIJoystick()
+0023:74A2B20F DINPUT8.dll, DirectInput8Create()
+0023:74A31AEC DINPUT8.dll, GetdfDIJoystick()
+0023:75435D49 KERNEL32.DLL, BaseThreadInitThunk()
+0023:7761CEBB ntdll.dll, RtlInitializeExceptionChain()
+0023:7761CE41 ntdll.dll, RtlGetAppContainerNamedObjectPath()
+ 
+[error][    1400]    : Недопустимый дескриптор окна.
+

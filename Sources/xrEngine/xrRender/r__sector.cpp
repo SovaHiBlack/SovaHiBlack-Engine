@@ -34,7 +34,7 @@ void CPortal::OnRender	()
 		// draw rect
 		DEFINE_VECTOR		(FVF::L,LVec,LVecIt);
 		static LVec	V;		V.resize(poly.size()+2);
-		Fvector C			= {0,0,0};
+		fVector3 C			= {0.0f,0.0f,0.0f};
 		for (u32 k=0; k<poly.size(); k++){ C.add(poly[k]); V[k+1].set(poly[k],0x800000FF);}
 		V.back().set		(poly[0],0x800000FF);
 		C.div				((float)poly.size());
@@ -62,7 +62,7 @@ void CPortal::OnRender	()
 }
 #endif
 //
-void	CPortal::Setup	(Fvector* V, int vcnt, CSector* face, CSector* back)
+void	CPortal::Setup	(fVector3* V, int vcnt, CSector* face, CSector* back)
 {
 	// calc sphere
 	Fbox				BB;
@@ -77,8 +77,9 @@ void	CPortal::Setup	(Fvector* V, int vcnt, CSector* face, CSector* back)
 	pBack				= back;
 	marker				= 0xffffffff; 
 
-	Fvector				N,T;
-	N.set				(0,0,0);
+	fVector3				N;
+	fVector3			T;
+	N.set				(0.0f,0.0f,0.0f);
 
 	FPU::m64r();
 	u32	_cnt			= 0;
@@ -146,7 +147,7 @@ void CSector::traverse			(CFrustum &F, _scissor& R_scissor)
 		// SSA	(if required)
 		if (PortalTraverser.i_options&CPortalTraverser::VQ_SSA)
 		{
-			Fvector				dir2portal;
+			fVector3				dir2portal;
 			dir2portal.sub		(PORTAL->S.P,	PortalTraverser.i_vBase);
 			float R				=	PORTAL->S.R	;
 			float distSQ		=	dir2portal.square_magnitude();
@@ -162,7 +163,7 @@ void CSector::traverse			(CFrustum &F, _scissor& R_scissor)
 		}
 
 		// Clip by frustum
-		svector<Fvector,8>&	POLY = PORTAL->getPoly();
+		svector<fVector3,8>&	POLY = PORTAL->getPoly();
 		S.assign			(&*POLY.begin(),POLY.size()); D.clear();
 		sPoly* P			= F.ClipPoly(S,D);
 		if (0==P)			continue;
@@ -177,7 +178,7 @@ void CSector::traverse			(CFrustum &F, _scissor& R_scissor)
 			for		(u32 vit=0; vit<p.size(); vit++)	{
 				fVector4	t;
 				Fmatrix&	M	= PortalTraverser.i_mXFORM_01;
-				Fvector&	v	= p[vit];
+				fVector3&	v	= p[vit];
 
 				t.x = v.x*M._11 + v.y*M._21 + v.z*M._31 + M._41;
 				t.y = v.x*M._12 + v.y*M._22 + v.z*M._32 + M._42;

@@ -161,7 +161,7 @@ void CUICustomMap::OptimalFit(const fRect& r)
 }
 
 // try to positioning clipRect center to vNewPoint
-void CUICustomMap::SetActivePoint(const Fvector &vNewPoint)
+void CUICustomMap::SetActivePoint(const fVector3& vNewPoint)
 {
 	fVector2 pos;
 	pos.set(vNewPoint.x,vNewPoint.z);
@@ -226,7 +226,6 @@ bool CUIGlobalMap::OnMouse	(float x, float y, EUIMessages mouse_action)
 	return false;
 }
 
-
 CUIGlobalMap::CUIGlobalMap(CUIMapWnd*	pMapWnd)
 {
 	m_mapWnd				= pMapWnd;
@@ -236,8 +235,6 @@ CUIGlobalMap::CUIGlobalMap(CUIMapWnd*	pMapWnd)
 //	m_State					= stNone;
 	Show					(false);
 }
-
-
 
 CUIGlobalMap::~CUIGlobalMap()
 {
@@ -356,7 +353,6 @@ void CUILevelMap::Draw()
 		}
 	}
 	inherited::Draw();
-
 }
 
 void CUILevelMap::Init	(shared_str name, CInifile& gameLtx, LPCSTR sh_name)

@@ -106,8 +106,8 @@ public:
 	virtual void		__stdcall	set_name		(LPCSTR) = 0;
 	virtual LPCSTR		__stdcall	name_replace	() const = 0;
 	virtual void		__stdcall	set_name_replace(LPCSTR) = 0;
-	virtual Fvector&	__stdcall	position		() = 0;
-	virtual Fvector&	__stdcall	angle			() = 0;
+	virtual fVector3&	__stdcall	position		() = 0;
+	virtual fVector3&	__stdcall	angle			() = 0;
 	virtual Flags16&	__stdcall	flags			() = 0;
 	virtual ISE_Shape*  __stdcall	shape			() = 0;
 	virtual CSE_Visual* __stdcall	visual			() = 0;

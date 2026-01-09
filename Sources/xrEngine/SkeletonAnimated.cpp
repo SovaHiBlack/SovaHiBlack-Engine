@@ -697,7 +697,7 @@ IC	void QR2Quat(const CKeyQR &K,Fquaternion &Q)
 	Q.w		= float(K.w)*KEY_QuantI;
 }
 
-IC void QT2T(const CKeyQT& K,const CMotion& M,Fvector &T)
+IC void QT2T(const CKeyQT& K,const CMotion& M, fVector3& T)
 {
 	T.x		= float(K.x)*M._sizeT.x+M._initT.x;
 	T.y		= float(K.y)*M._sizeT.y+M._initT.y;
@@ -732,7 +732,8 @@ IC void Dequantize(CKey& K,const CBlend& BD,const CMotion& M)
 		const CKeyQT*	K1t	= &M._keysT[(frame+0)%count];
 		const CKeyQT*	K2t	= &M._keysT[(frame+1)%count];
 
-		Fvector T1,T2;
+		fVector3 T1;
+		fVector3 T2;
 		QT2T(*K1t,M,T1);
 		QT2T(*K2t,M,T2);
 		/*
@@ -901,7 +902,8 @@ IC void key_add(CKey &res, const CKey &k0, const CKey &k1)//add right
 }
 IC void q_scale(Fquaternion &q, float v)
 {
-	float angl;Fvector ax;
+	float angl;
+	fVector3 ax;
 	q.get_axis_angle(ax,angl);
 	q.rotation(ax,angl*v);
 	q.normalize();
@@ -1134,7 +1136,7 @@ void CKinematicsAnimated::CLBone(const CBoneData* bd,CBoneInstance& BONE_INST,co
 			CKeyQT*	K1t	= &M._keysT[(frame+0)%count];
 			CKeyQT*	K2t	= &M._keysT[(frame+1)%count];
 
-			Fvector T1,T2,Dt;
+			fVector3 T1,T2,Dt;
 			T1.x		= float(K1t->x)*M._sizeT.x+M._initT.x;
 			T1.y		= float(K1t->y)*M._sizeT.y+M._initT.y;
 			T1.z		= float(K1t->z)*M._sizeT.z+M._initT.z;

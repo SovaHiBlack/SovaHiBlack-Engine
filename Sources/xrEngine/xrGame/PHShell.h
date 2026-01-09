@@ -41,8 +41,8 @@ public:
 	Fmatrix					m_object_in_root;
 	CPHShell								();							
 	virtual ~CPHShell						();
-	virtual void			applyImpulseTrace		(const Fvector& pos, const Fvector& dir, float val,const u16 id);
-	virtual void			applyHit				(const Fvector& pos, const Fvector& dir, float val,const u16 id,ALife::EHitType hit_type);
+	virtual void			applyImpulseTrace		(const fVector3& pos, const fVector3& dir, float val,const u16 id);
+	virtual void			applyHit				(const fVector3& pos, const fVector3& dir, float val,const u16 id,ALife::EHitType hit_type);
 
 	static void 			BonesCallback				(CBoneInstance* B);
 	static void 			StataticRootBonesCallBack	(CBoneInstance* B);
@@ -68,12 +68,12 @@ public:
 	virtual	void			add_Joint				(CPhysicsJoint* J);
 
 	virtual CPHIsland*		PIsland					(){return &Island();};
-	virtual void			applyImpulseTrace		(const Fvector& pos, const Fvector& dir, float val)	;
+	virtual void			applyImpulseTrace		(const fVector3& pos, const fVector3& dir, float val)	;
 
 	virtual void			Update					()	;											
 
 	virtual void			Activate				(const Fmatrix& m0, float dt01, const Fmatrix& m2,bool disable=false);
-	virtual void			Activate				(const Fmatrix &transform,const Fvector& lin_vel,const Fvector& ang_vel,bool disable=false);
+	virtual void			Activate				(const Fmatrix &transform,const fVector3& lin_vel,const fVector3& ang_vel,bool disable=false);
 	virtual void			Activate				(bool disable=false);
 	virtual void			Activate				(const Fmatrix& start_from, bool disable=false){};
 
@@ -117,13 +117,13 @@ public:
 	virtual void			setDensity				(float M)									;
 	virtual float			getDensity				()											;
 	virtual float			getVolume				()											;
-	virtual	void			get_Extensions			(const Fvector& axis,float center_prg,float& lo_ext, float& hi_ext);
-	virtual void			applyForce				(const Fvector& dir, float val)				;
+	virtual	void			get_Extensions			(const fVector3& axis,float center_prg,float& lo_ext, float& hi_ext);
+	virtual void			applyForce				(const fVector3& dir, float val)				;
 	virtual void			applyForce				(float x,float y,float z)					;
-	virtual void			applyImpulse			(const Fvector& dir, float val)				;
-	virtual void			applyGravityAccel		(const Fvector& accel);
-	virtual void			setTorque				(const Fvector& torque);
-	virtual void			setForce				(const Fvector& force);
+	virtual void			applyImpulse			(const fVector3& dir, float val)				;
+	virtual void			applyGravityAccel		(const fVector3& accel);
+	virtual void			setTorque				(const fVector3& torque);
+	virtual void			setForce				(const fVector3& force);
 	virtual void			set_JointResistance		(float force)
 	{
 		JOINT_I i;
@@ -153,10 +153,10 @@ public:
 	virtual		void				UnblockBreaking					(){if(m_spliter_holder)m_spliter_holder->SetBreakable();}
 	virtual		bool				IsBreakingBlocked				(){return m_spliter_holder&&m_spliter_holder->IsUnbreakable();}
 	///////	////////////////////////////////////////////////////////////////////////////////////////////
-	virtual		void				get_LinearVel					(Fvector& velocity);
-	virtual		void				get_AngularVel					(Fvector& velocity);
-	virtual		void				set_LinearVel					(const Fvector& velocity);
-	virtual		void				set_AngularVel					(const Fvector& velocity);
+	virtual		void				get_LinearVel					(fVector3& velocity);
+	virtual		void				get_AngularVel					(fVector3& velocity);
+	virtual		void				set_LinearVel					(const fVector3& velocity);
+	virtual		void				set_AngularVel					(const fVector3& velocity);
 	virtual		void				TransformPosition				(const Fmatrix &form);
 	virtual		void				SetGlTransformDynamic			(const Fmatrix &form);
 	virtual		void				set_ApplyByGravity				(bool flag);
@@ -172,7 +172,7 @@ public:
 	virtual		CPHSynchronize		*get_ElementSync				(u16 element);
 	virtual		u16					get_elements_number				(){return get_ElementsNumber();}
 	virtual		CPHSynchronize		*get_element_sync				(u16 element){return get_ElementSync(element);}
-	virtual		CPhysicsElement		*NearestToPoint					(const Fvector& point);
+	virtual		CPhysicsElement		*NearestToPoint					(const fVector3& point);
 	virtual		CPhysicsJoint		*get_Joint						(u16 bone_id);
 	virtual		CPhysicsJoint		*get_Joint						(const shared_str & bone_name);
 	virtual		CPhysicsJoint		*get_Joint						(LPCSTR bone_name);
@@ -217,9 +217,9 @@ public:
 	virtual		void				UpdateRoot						();
 	virtual		void				SmoothElementsInertia			(float k);
 	virtual		void				InterpolateGlobalTransform		(Fmatrix* m);
-	virtual		void				InterpolateGlobalPosition		(Fvector* v);
+	virtual		void				InterpolateGlobalPosition		(fVector3* v);
 	virtual		void				GetGlobalTransformDynamic		(Fmatrix* m);
-	virtual		void				GetGlobalPositionDynamic		(Fvector* v);
+	virtual		void				GetGlobalPositionDynamic		(fVector3* v);
 	virtual		Fmatrix&			ObjectInRoot					(){return m_object_in_root;}
 	virtual		void				ObjectToRootForm				(const Fmatrix& form);
 	virtual		dSpaceID			dSpace							(){return m_space;}
@@ -259,7 +259,7 @@ private:
 				void				ResetCallbacksRecursive			(u16 id,u16 element,Flags64 &mask)												;
 				void				SetJointRootGeom				(CPhysicsElement* root_e,CPhysicsJoint* J)										;
 				void				ReanableObject					()																				;
-				void				ExplosionHit					(const Fvector& pos, const Fvector& dir, float val,const u16 id)				;
+				void				ExplosionHit					(const fVector3& pos, const fVector3& dir, float val,const u16 id)				;
 				void				ClearBreakInfo					();
 };
 #endif

@@ -9,21 +9,18 @@ protected:
 	typedef CState<_Object>*	state_ptr;
 
 	struct {
-		Fvector point;
+		fVector3 point;
 		u32		node;
 	} m_target;
-
 
 public:
 					CStatePoltergeistAttackHidden	(_Object *obj) : inherited(obj) {}
 	virtual			~CStatePoltergeistAttackHidden	() {}
 
-
 	virtual void	initialize				();
 	virtual void	execute					();
 
 private:
-
 			void	select_target_point		();
 };
 

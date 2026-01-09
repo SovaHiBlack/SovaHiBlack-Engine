@@ -35,9 +35,9 @@ public:
 	virtual	void	reload								(LPCSTR section);
 			void	remove_links						(CObject *object);
 			void	Exec_Look							(float dt);
-			bool	bfIf_I_SeePosition					(Fvector tPosition) const;
-			void	SetPointLookAngles					(const Fvector &tPosition, float &yaw, float &pitch, const CGameObject *object = 0);
-			void	SetFirePointLookAngles				(const Fvector &tPosition, float &yaw, float &pitch, const CGameObject *object = 0);
+			bool	bfIf_I_SeePosition					(fVector3 tPosition) const;
+			void	SetPointLookAngles					(const fVector3& tPosition, float &yaw, float &pitch, const CGameObject *object = 0);
+			void	SetFirePointLookAngles				(const fVector3& tPosition, float &yaw, float &pitch, const CGameObject *object = 0);
 			void	SetDirectionLook					();
 			void	SetLessCoverLook					(const LevelGraph::CVertex *tpNode, bool bDifferenceLook);
 			void	SetLessCoverLook					(const LevelGraph::CVertex *tpNode, float fMaxHeadTurnAngle, bool bDifferenceLook);

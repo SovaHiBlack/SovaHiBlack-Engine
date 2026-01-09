@@ -14,8 +14,7 @@ public:
 					CPoltergeisMovementManager	(CPoltergeist *monster) : inherited((CCustomMonster*)monster), m_monster(monster) {}
 	virtual			~CPoltergeisMovementManager	(){}
 
-	virtual	void	move_along_path				(CPHMovementControl *movement_control, Fvector &dest_position, float time_delta);
+	virtual	void	move_along_path				(CPHMovementControl *movement_control, fVector3& dest_position, float time_delta);
 
-			Fvector	CalculateRealPosition		();
+	fVector3	CalculateRealPosition		();
 };
-

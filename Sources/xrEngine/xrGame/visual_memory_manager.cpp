@@ -195,7 +195,7 @@ void CVisualMemoryManager::enable		(const CObject *object, bool enable)
 
 float CVisualMemoryManager::object_visible_distance(const CGameObject *game_object, float &object_distance) const
 {
-	Fvector								eye_position = Fvector().set(0.f,0.f,0.f), eye_direction;
+	fVector3								eye_position = fVector3().set(0.0f,0.0f,0.0f), eye_direction;
 	Fmatrix								eye_matrix;
 	float								object_range = flt_max, object_fov = flt_max;
 
@@ -208,7 +208,7 @@ float CVisualMemoryManager::object_visible_distance(const CGameObject *game_obje
 				u16(m_object->eye_bone)
 			);
 
-		Fvector							temp;
+		fVector3							temp;
 		eye_matrix.transform_tiny		(temp,eye_position);
 		m_object->XFORM().transform_tiny(eye_position,temp);
 
@@ -220,12 +220,12 @@ float CVisualMemoryManager::object_visible_distance(const CGameObject *game_obje
 		}
 	} 
 	else {
-		Fvector							dummy;
+		fVector3							dummy;
 		float							_0,_1;
 		m_client->camera				(eye_position,eye_direction,dummy,object_fov,_0,_1,object_range);
 	}
 
-	Fvector								object_direction;
+	fVector3								object_direction;
 	game_object->Center					(object_direction);
 	object_distance						= object_direction.distance_to(eye_position);
 	object_direction.sub				(eye_position);
@@ -466,7 +466,7 @@ void CVisualMemoryManager::check_visibles	() const
 
 bool CVisualMemoryManager::visible(u32 _level_vertex_id, float yaw, float eye_fov) const
 {
-	Fvector					direction;
+	fVector3					direction;
 	direction.sub			(ai().level_graph().vertex_position(_level_vertex_id),m_object->Position());
 	direction.normalize_safe();
 	float					y, p;

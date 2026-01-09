@@ -56,7 +56,8 @@ void CWeaponRG6::FireStart ()
 	{
 		inheritedSG::FireStart ();
 	
-		Fvector p1, d; 
+		fVector3 p1;
+		fVector3 d;
 		p1.set(get_LastFP()); 
 		d.set(get_LastFD());
 
@@ -77,7 +78,7 @@ void CWeaponRG6::FireStart ()
 		Fmatrix launch_matrix;
 		launch_matrix.identity();
 		launch_matrix.k.set(d);
-		Fvector::generate_orthonormal_basis(launch_matrix.k,
+		fVector3::generate_orthonormal_basis(launch_matrix.k,
 											launch_matrix.j, launch_matrix.i);
 		launch_matrix.c.set(p1);
 
@@ -95,20 +96,24 @@ void CWeaponRG6::FireStart ()
 			if (HasPick)
 			{
 				//			collide::rq_result& RQ = HUD().GetCurrentRayQuery();
-				Fvector Transference;
-				//Transference.add(p1, Fvector().mul(d, RQ.range));				
+				fVector3 Transference;
+				//Transference.add(p1, fVector3().mul(d, RQ.range));				
 				Transference.mul(d, RQ.range);
-				Fvector res[2];
+				fVector3 res[2];
+
 #ifdef		DEBUG
 				DBG_OpenCashedDraw();
-				DBG_DrawLine(p1,Fvector().add(p1,d),D3DCOLOR_XRGB(255,0,0));
+				DBG_DrawLine(p1, fVector3().add(p1,d),D3DCOLOR_XRGB(255,0,0));
 #endif
+
 				u8 canfire0 = TransferenceAndThrowVelToThrowDir(Transference, CRocketLauncher::m_fLaunchSpeed, EffectiveGravity(), res);
+
 #ifdef DEBUG
-				if(canfire0>0)DBG_DrawLine(p1,Fvector().add(p1,res[0]),D3DCOLOR_XRGB(0,255,0));
-				if(canfire0>1)DBG_DrawLine(p1,Fvector().add(p1,res[1]),D3DCOLOR_XRGB(0,0,255));
+				if(canfire0>0)DBG_DrawLine(p1, fVector3().add(p1,res[0]),D3DCOLOR_XRGB(0,255,0));
+				if(canfire0>1)DBG_DrawLine(p1, fVector3().add(p1,res[1]),D3DCOLOR_XRGB(0,0,255));
 				DBG_ClosedCashedDraw(30000);
 #endif
+
 				if (canfire0 != 0)
 				{
 //					Msg ("d[%f,%f,%f] - res [%f,%f,%f]", d.x, d.y, d.z, res[0].x, res[0].y, res[0].z);

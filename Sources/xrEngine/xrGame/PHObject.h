@@ -4,21 +4,25 @@
 #include "../ispatial.h"
 #include "PHItemList.h"
 #include "PHIsland.h"
+
 typedef u32	CLClassBits;
 typedef u32	CLBits;
 DEFINE_VECTOR(ISpatial*,qResultVec,qResultIt)
+
 class CPHObject;
 class CPHUpdateObject;
 class CPHMoveStorage;
 class CPHSynchronize;
+
 typedef void CollideCallback(CPHObject* obj1,CPHObject* obj2, dGeomID o1, dGeomID o2);
 
-class CPHObject :
-	public ISpatial 
+class CPHObject : public ISpatial 
 {
+
 #ifdef DEBUG
 	friend void DBG_DrawPHObject(CPHObject* obj);
 #endif
+
 	DECLARE_PHLIST_ITEM(CPHObject)
 
 			Flags8	m_flags;
@@ -45,10 +49,11 @@ public:
 					tpCharacter,
 					tpStaticShell
 			};
-protected:
-				Fvector		AABB;
-protected:
 
+protected:
+	fVector3		AABB;
+
+protected:
 	virtual		dGeomID			dSpacedGeom						()								=0;
 	virtual		void			get_spatial_params				()								=0;
 	virtual		void			spatial_register				()								;

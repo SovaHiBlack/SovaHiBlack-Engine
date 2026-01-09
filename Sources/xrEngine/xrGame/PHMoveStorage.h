@@ -11,7 +11,7 @@ public:
 	{
 		geom=i;
 	}
-	void Positions(const Fvector *&p0,const Fvector *&p1);
+	void Positions(const fVector3*& p0,const fVector3*& p1);
 	IC CPHPositionsPairs& operator ++	()
 	{
 		++geom;
@@ -43,6 +43,7 @@ public:
 class CPHMoveStorage
 {
 	GEOM_STORAGE m_trace_geometries;
+
 public:
 	typedef CPHPositionsPairs iterator;
 	IC	iterator	begin	()					{return	CPHPositionsPairs(m_trace_geometries.begin());}

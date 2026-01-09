@@ -17,7 +17,7 @@ CSoundRender_Emitter*	CSoundRender_Core::i_play(ref_sound* S, BOOL _loop, float 
 	return E;
 }
 
-void CSoundRender_Core::update	( const Fvector& P, const Fvector& D, const Fvector& N )
+void CSoundRender_Core::update	( const fVector3& P, const fVector3& D, const fVector3& N )
 {
 	u32 it;
 
@@ -174,15 +174,14 @@ void	CSoundRender_Core::statistic			(CSound_stats*  dest, CSound_stats_ext*  ext
 	}
 }
 
-
-
-float CSoundRender_Core::get_occlusion_to( const Fvector& hear_pt, const Fvector& snd_pt, float dispersion )
+float CSoundRender_Core::get_occlusion_to( const fVector3& hear_pt, const fVector3& snd_pt, float dispersion )
 {
 	float occ_value			= 1.f;
 
 	if (0!=geom_SOM){
 		// Calculate RAY params
-		Fvector	pos,dir;
+		fVector3	pos;
+		fVector3	dir;
 		pos.random_dir			();
 		pos.mul					(dispersion);
 		pos.add					(snd_pt);
@@ -205,13 +204,14 @@ float CSoundRender_Core::get_occlusion_to( const Fvector& hear_pt, const Fvector
 	return occ_value;
 }
 
-float CSoundRender_Core::get_occlusion(Fvector& P, float R, Fvector* occ)
+float CSoundRender_Core::get_occlusion(fVector3& P, float R, fVector3* occ)
 {
 	float occ_value			= 1.f;
 
 	// Calculate RAY params
-	Fvector base			= listener_position();
-	Fvector	pos,dir;
+	fVector3 base			= listener_position();
+	fVector3	pos;
+	fVector3	dir;
 	float	range;
 	pos.random_dir			();
 	pos.mul					(R);
@@ -237,7 +237,7 @@ float CSoundRender_Core::get_occlusion(Fvector& P, float R, Fvector* occ)
 				// cache polygon
 				const CDB::RESULT*	R = geom_DB.r_begin			();
 				const CDB::TRI&		T = geom_MODEL->get_tris	() [ R->id ];
-				const Fvector*		V = geom_MODEL->get_verts	();
+				const fVector3*		V = geom_MODEL->get_verts	();
 				occ[0].set			(V[T.verts[0]]);
 				occ[1].set			(V[T.verts[1]]);
 				occ[2].set			(V[T.verts[2]]);

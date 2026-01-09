@@ -19,8 +19,8 @@ public:
 	CGlow() : bActive(false)		{ }
 	virtual void					set_active			(bool b)					{ bActive=b;		}
 	virtual bool					get_active			()							{ return bActive;	}
-	virtual void					set_position		(const Fvector& P)			{ }
-	virtual void					set_direction		(const Fvector& D)			{ }
+	virtual void					set_position		(const fVector3& P)			{ }
+	virtual void					set_direction		(const fVector3& D)			{ }
 	virtual void					set_radius			(float R)					{ }
 	virtual void					set_texture			(LPCSTR name)				{ }
 	virtual void					set_color			(const Fcolor& C)			{ }
@@ -365,7 +365,7 @@ BOOL					CRender::occ_visible			(Fbox& P)			{ return HOM.visible(P);								}
 
 void					CRender::add_Visual				(IRender_Visual*		V )	{ add_leafs_Dynamic(V);								}
 void					CRender::add_Geometry			(IRender_Visual*		V )	{ add_Static(V,View->getMask());					}
-void					CRender::add_StaticWallmark		(ref_shader& S, const Fvector& P, float s, CDB::TRI* T, Fvector* verts)
+void					CRender::add_StaticWallmark		(ref_shader& S, const fVector3& P, float s, CDB::TRI* T, fVector3* verts)
 {
 	if (T->suppress_wm)	return;
 	VERIFY2							(_valid(P) && _valid(s) && T && verts && (s> EPS_3), "Invalid static wallmark params");
@@ -381,7 +381,7 @@ void					CRender::add_SkeletonWallmark	(intrusive_ptr<CSkeletonWallmark> wm)
 {
 	Wallmarks->AddSkeletonWallmark				(wm);
 }
-void					CRender::add_SkeletonWallmark	(const Fmatrix* xf, CKinematics* obj, ref_shader& sh, const Fvector& start, const Fvector& dir, float size)
+void					CRender::add_SkeletonWallmark	(const Fmatrix* xf, CKinematics* obj, ref_shader& sh, const fVector3& start, const fVector3& dir, float size)
 {
 	Wallmarks->AddSkeletonWallmark				(xf, obj, sh, start, dir, size);
 }

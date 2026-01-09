@@ -753,8 +753,6 @@ public:
 using iVector3 = _vector3<s32>;
 using fVector3 = _vector3<f32>;
 
-typedef _vector3<float>		Fvector;
-
 template <class T>
 BOOL _valid(const _vector3<T>& v)
 {

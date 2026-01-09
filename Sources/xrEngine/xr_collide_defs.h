@@ -6,11 +6,14 @@ class ENGINE_API CObject;
 namespace collide 
 {
 	struct			tri {
-		Fvector	e10; float e10s;
-		Fvector	e21; float e21s;
-		Fvector	e02; float e02s;
-		Fvector p[3];
-		Fvector N;
+		fVector3	e10;
+		float e10s;
+		fVector3	e21;
+		float e21s;
+		fVector3	e02;
+		float e02s;
+		fVector3 p[3];
+		fVector3 N;
 		float	d;
 	};
 	struct			elipsoid {
@@ -20,31 +23,31 @@ namespace collide
 	struct			ray_cache
 	{
 		// previous state
-		Fvector				start;
-		Fvector				dir;
+		fVector3				start;
+		fVector3				dir;
 		float				range;
 		BOOL				result;
 
 		// cached vertices
-		Fvector				verts[3];
+		fVector3				verts[3];
 		ray_cache() 
 		{
-			start.set	(0,0,0);
-			dir.set		(0,0,0);
-			range		= 0;
+			start.set	(0.0f,0.0f,0.0f);
+			dir.set		(0.0f,0.0f,0.0f);
+			range		= 0.0f;
 			result		= FALSE;
-			verts[0].set(0,0,0);
-			verts[1].set(0,0,0);
-			verts[2].set(0,0,0);
+			verts[0].set(0.0f,0.0f,0.0f);
+			verts[1].set(0.0f,0.0f,0.0f);
+			verts[2].set(0.0f,0.0f,0.0f);
 		}
-		void				set		(const Fvector& _start, const Fvector& _dir, const float _range,const BOOL _result)
+		void				set		(const fVector3& _start, const fVector3& _dir, const float _range,const BOOL _result)
 		{
 			start	= _start;
 			dir		= _dir;
 			range	= _range;
 			result	= _result;
 		}
-		BOOL				similar	(const Fvector& _start, const Fvector& _dir, const float _range)
+		BOOL				similar	(const fVector3& _start, const fVector3& _dir, const float _range)
 		{
 			if (!_start.similar(start))					return FALSE;
 			if (!fsimilar(1.f,dir.dotproduct(_dir)))	return FALSE;
@@ -63,12 +66,12 @@ namespace collide
 	};
 	struct			ray_defs
 	{
-		Fvector		start;
-		Fvector		dir;
+		fVector3		start;
+		fVector3		dir;
 		float		range;
 		u32			flags;
 		rq_target	tgt;
-		ray_defs	(const Fvector& _start, const Fvector& _dir, float _range, u32 _flags, rq_target _tgt)
+		ray_defs	(const fVector3& _start, const fVector3& _dir, float _range, u32 _flags, rq_target _tgt)
 		{
 			start	= _start;
 			dir		= _dir;

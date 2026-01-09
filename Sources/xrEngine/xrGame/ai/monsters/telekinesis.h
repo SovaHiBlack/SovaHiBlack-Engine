@@ -37,14 +37,13 @@ virtual		void	clear_notrelevant   ();
 			void	remove_object		(TELE_OBJECTS_IT it);
 			void	remove_object		(CPhysicsShellHolder *obj);
 			// бросить все объекты в позицию 'target'
-			void	fire_all			(const Fvector &target);
+			void	fire_all			(const fVector3& target);
 			
 			// бросить объект 'obj' в позицию 'target' с учетом коэф силы 
-			void	fire				(CPhysicsShellHolder *obj, const Fvector &target, float power);
+			void	fire				(CPhysicsShellHolder *obj, const fVector3& target, float power);
 
 			// бросить объект 'obj' в позицию 'target' с учетом коэф силы 
-			void	fire_t				(CPhysicsShellHolder *obj, const Fvector &target, float time);
-
+			void	fire_t				(CPhysicsShellHolder *obj, const fVector3& target, float time);
 
 			// вернуть активность телекинеза
 			bool	is_active			() {return active;}
@@ -58,7 +57,6 @@ virtual		void	clear_notrelevant   ();
 			// вернуть количество контролируемых объектов (всех)
 			u32		get_objects_total_count() {return objects.size();}
 
-
 			// вернуть объект по индексу в массиве
 			// a	copy of the object!
 CTelekineticObject	get_object_by_index (u32 index) {VERIFY(objects.size() > index); return *objects[index];}
@@ -71,12 +69,9 @@ CTelekineticObject	get_object_by_index (u32 index) {VERIFY(objects.size() > inde
 
 protected:
 	virtual CTelekineticObject*	alloc_tele_object(){return xr_new<CTelekineticObject>();}
-private:
 
+private:
 	// обновление на шагах физики
 	virtual void 	PhDataUpdate		(dReal step);
 	virtual void 	PhTune				(dReal step);
-	
-
 };
-

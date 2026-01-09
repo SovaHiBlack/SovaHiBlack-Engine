@@ -1,11 +1,12 @@
 #include "stdafx.h"
 #include "..\cl_intersect.h"
 
-extern Fvector du_cone_vertices			[DU_CONE_NUMVERTEX];
+extern fVector3 du_cone_vertices			[DU_CONE_NUMVERTEX];
 
-BOOL	tri_vs_sphere_intersect			(Fvector& SC, float R, Fvector& v0, Fvector& v1, Fvector& v2)
+BOOL	tri_vs_sphere_intersect			(fVector3& SC, float R, fVector3& v0, fVector3& v1, fVector3& v2)
 {
-	Fvector	e0,e1;
+	fVector3	e0;
+	fVector3	e1;
 	return	CDB::TestSphereTri	(SC,R,v0,e0.sub(v1,v0),e1.sub(v2,v0));
 }
 
@@ -20,12 +21,13 @@ void CRenderTarget::enable_dbt_bounds		(light* L)
 
 	// xform BB
 	Fbox	BB;
-	Fvector	rr; rr.set(L->spatial.sphere.R,L->spatial.sphere.R,L->spatial.sphere.R);
+	fVector3	rr;
+	rr.set(L->spatial.sphere.R,L->spatial.sphere.R,L->spatial.sphere.R);
 	BB.setb	(L->spatial.sphere.P, rr);
 
 	Fbox	bbp; bbp.invalidate();
 	for (u32 i=0; i<8; i++)		{
-		Fvector		pt;
+		fVector3		pt;
 		BB.getpoint	(i,pt);
 		Device.mFullTransform.transform	(pt);
 		bbp.modify	(pt);
@@ -150,7 +152,7 @@ BOOL CRenderTarget::enable_scissor		(light* L)		// true if intersects near plane
 	Fmatrix& M						= RCache.xforms.m_wvp;
 	BOOL	bIntersect				= FALSE;
 	for (u32 vit=0; vit<DU_CONE_NUMVERTEX; vit++)	{
-		Fvector&	v	= du_cone_vertices[vit];
+		fVector3&	v	= du_cone_vertices[vit];
 		float _z = v.x*M._13 + v.y*M._23 + v.z*M._33 + M._43;
 		float _w = v.x*M._14 + v.y*M._24 + v.z*M._34 + M._44;
 		if (_z<=0 || _w<=0)	{

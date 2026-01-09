@@ -182,7 +182,7 @@ void CWeaponStatMgun::UpdateBarrelDir()
 	m_allow_fire		= true;
 	Fmatrix				XFi;
 	XFi.invert			(XFORM());
-	Fvector				dep;
+	fVector3				dep;
 	XFi.transform_dir	(dep,m_destEnemyDir);
 	{// x angle
 		m_i_bind_x_xform.transform_dir(dep); dep.normalize();
@@ -206,8 +206,9 @@ void CWeaponStatMgun::UpdateBarrelDir()
 
 void CWeaponStatMgun::cam_Update			(float dt, float fov)
 {
-	Fvector							P,Da;
-	Da.set							(0,0,0);
+	fVector3						P;
+	fVector3						Da;
+	Da.set							(0.0f,0.0f,0.0f);
 
 	CKinematics* K					= smart_cast<CKinematics*>(Visual());
 	K->CalculateBones_Invalidate	();
@@ -215,30 +216,24 @@ void CWeaponStatMgun::cam_Update			(float dt, float fov)
 	const Fmatrix& C				= K->LL_GetTransform(m_camera_bone);
 	XFORM().transform_tiny			(P,C.c);
 
-	Fvector d = C.k;
+	fVector3 d = C.k;
 	XFORM().transform_dir			(d);
 	fVector2 des_cam_dir;
 
 	d.getHP(des_cam_dir.x, des_cam_dir.y);
 	des_cam_dir.mul(-1.0f);
 
-
 	Camera()->yaw		= angle_inertion_var(Camera()->yaw,		des_cam_dir.x,	0.5f,	7.5f,	PI_DIV_6,	Device.fTimeDelta);
 	Camera()->pitch		= angle_inertion_var(Camera()->pitch,	des_cam_dir.y,	0.5f,	7.5f,	PI_DIV_6,	Device.fTimeDelta);
-
-
-
 
 	if(OwnerActor()){
 		// rotate head
 		OwnerActor()->Orientation().yaw			= -Camera()->yaw;
 		OwnerActor()->Orientation().pitch		= -Camera()->pitch;
 	}
-	
 
 	Camera()->Update						(P,Da);
 	Level().Cameras().Update				(Camera());
-
 }
 
 void CWeaponStatMgun::renderable_Render	()

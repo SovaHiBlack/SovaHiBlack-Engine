@@ -62,7 +62,7 @@ void CPhysicsShellAnimator::OnFrame()
 		dMatrix3 ph_mat;
 		PHDynamicData::FMXtoDMX(target_obj_posFmatrixS,ph_mat);
 		dQfromR(target_obj_quat_dQuaternionS,ph_mat);
-		Fvector mc;
+		fVector3 mc;
 		i->m_element->CPHGeometryOwner::get_mc_vs_transform(mc,target_obj_posFmatrixS);
 		dJointSetFixedQuaternionPos(i->m_anim_fixed_dJointID,target_obj_quat_dQuaternionS,&mc.x);
 	}

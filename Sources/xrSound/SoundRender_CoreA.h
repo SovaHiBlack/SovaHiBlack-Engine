@@ -25,31 +25,31 @@ class CSoundRender_CoreA: public CSoundRender_Core
 	EAXSet					eaxSet;					// EAXSet function, retrieved if EAX Extension is supported
 	EAXGet					eaxGet;					// EAXGet function, retrieved if EAX Extension is supported
 	ALCdevice* 				pDevice;
-    ALCcontext*				pContext;
+	ALCcontext*				pContext;
 	ALDeviceList*			pDeviceList;
 
 	struct SListener{
-		Fvector				position;
-		Fvector				orientation[2];
+		fVector3				position;
+		fVector3				orientation[2];
 	};
 	SListener				Listener;
 
-    BOOL 					EAXQuerySupport			(BOOL bDeferred, const GUID* guid, u32 prop, void* val, u32 sz);
+	BOOL 					EAXQuerySupport			(BOOL bDeferred, const GUID* guid, u32 prop, void* val, u32 sz);
 	BOOL 					EAXTestSupport			(BOOL bDeferred);
 protected:
 	virtual void			i_eax_set				(const GUID* guid, u32 prop, void* val, u32 sz);
 	virtual void			i_eax_get				(const GUID* guid, u32 prop, void* val, u32 sz);
-	virtual void			update_listener			( const Fvector& P, const Fvector& D, const Fvector& N, float dt );
+	virtual void			update_listener			( const fVector3& P, const fVector3& D, const fVector3& N, float dt );
 public:	
-						    CSoundRender_CoreA		();
-    virtual					~CSoundRender_CoreA		();
+							CSoundRender_CoreA		();
+	virtual					~CSoundRender_CoreA		();
 
 	virtual void			_initialize				( u64 window );
 	virtual void			_clear					( );
-    
+	
 	virtual void			set_master_volume		( float f		);
 
-	virtual const Fvector&	listener_position		( ){return Listener.position;}
+	virtual const fVector3&	listener_position		( ){return Listener.position;}
 };
 extern CSoundRender_CoreA* SoundRenderA;
 #endif

@@ -27,7 +27,7 @@ public:
 	void						Init			();
 
 	void						Render			();
-	void						UpdateRadar		(Fvector pos);
+	void						UpdateRadar		(fVector3 pos);
 
 	void						SetScale		(float s)							{m_fScale = s;}
 	float						GetScale		()									{return m_fScale;}

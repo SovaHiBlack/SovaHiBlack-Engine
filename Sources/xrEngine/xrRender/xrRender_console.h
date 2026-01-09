@@ -14,7 +14,7 @@ extern float		ps_r__Tree_w_rot;
 extern float		ps_r__Tree_w_speed;
 extern float		ps_r__Tree_w_amp;
 extern float		ps_r__Tree_SBC;		// scale bias correct
-extern Fvector		ps_r__Tree_Wave;
+extern fVector3		ps_r__Tree_Wave;
 
 extern float		ps_r__WallmarkTTL		;
 extern float		ps_r__WallmarkSHIFT		;
@@ -68,8 +68,8 @@ extern float			ps_r2_ls_bloom_speed;		// r2-only
 extern float			ps_r2_ls_dsm_kernel;		// r2-only
 extern float			ps_r2_ls_psm_kernel;		// r2-only
 extern float			ps_r2_ls_ssm_kernel;		// r2-only
-extern Fvector		ps_r2_aa_barier;			// r2-only
-extern Fvector		ps_r2_aa_weight;			// r2-only
+extern fVector3			ps_r2_aa_barier;			// r2-only
+extern fVector3			ps_r2_aa_weight;			// r2-only
 extern float			ps_r2_aa_kernel;			// r2-only
 extern float			ps_r2_mblur;				// .5f
 extern int			ps_r2_GI_depth;				// 1..5

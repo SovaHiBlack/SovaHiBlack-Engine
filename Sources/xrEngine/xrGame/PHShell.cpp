@@ -30,14 +30,13 @@
 #include "ExtendedGeom.h"
 #include "PHElement.h"
 #include "PHShell.h"
-#include "PHCollideValidator.h"
 #include "PHElementInline.h"
 
 #ifdef ANIMATED_PHYSICS_OBJECT_SUPPORT
 	#include "PhysicsShellAnimator.h"
 #endif
 
-IC		bool	PhOutOfBoundaries			(const Fvector& v)
+IC		bool	PhOutOfBoundaries			(const fVector3& v)
 {
 	return v.y < phBoundaries.y1;
 }
@@ -279,7 +278,7 @@ void	CPHShell::UnFreezeContent()
 		(*i)->UnFreeze();
 	
 }
-void		CPHShell::	applyForce				(const Fvector& dir, float val)				
+void		CPHShell::	applyForce				(const fVector3& dir, float val)
 {
 	if(!isActive()) return;
 	ELEMENT_I i=elements.begin(),e=elements.end();
@@ -290,7 +289,8 @@ void		CPHShell::	applyForce				(const Fvector& dir, float val)
 };
 void		CPHShell::	applyForce				(float x,float y,float z)				
 {
-Fvector dir;dir.set(x,y,z);
+	fVector3 dir;
+	dir.set(x,y,z);
 float val=dir.magnitude();
 	if(!fis_zero(val))
 	{
@@ -298,19 +298,19 @@ float val=dir.magnitude();
 		applyForce(dir,val);
 	}
 };
-void	CPHShell::		applyImpulse			(const Fvector& dir, float val)				
+void	CPHShell::		applyImpulse			(const fVector3& dir, float val)
 {
 	if(!isActive()) return;
 	(*elements.begin())->applyImpulse			( dir, val);
 	EnableObject(0);
 };
-void	CPHShell::	applyImpulseTrace		(const Fvector& pos, const Fvector& dir, float val){
+void	CPHShell::	applyImpulseTrace		(const fVector3& pos, const fVector3& dir, float val){
 	if(!isActive()) return;
 	(*elements.begin())->applyImpulseTrace		( pos,  dir,  val, 0);
 	EnableObject(0);
 }
 
-void	CPHShell::	applyImpulseTrace		(const Fvector& pos, const Fvector& dir, float val,const u16 id){
+void	CPHShell::	applyImpulseTrace		(const fVector3& pos, const fVector3& dir, float val,const u16 id){
 	if(!isActive()) return;
 	VERIFY(m_pKinematics);
 	CBoneInstance& instance=m_pKinematics->LL_GetBoneInstance				(id);
@@ -393,14 +393,12 @@ void  CPHShell:: BonesCallback				(CBoneInstance* B){
 	E->BonesCallBack(B);
 }
 
-
 void  CPHShell::StataticRootBonesCallBack			(CBoneInstance* B){
 	///CPHElement*	E			= smart_cast<CPHElement*>	(static_cast<CPhysicsBase*>(B->Callback_Param));
 
 	CPHElement*	E			= cast_PHElement(B->Callback_Param);
 	E->StataticRootBonesCallBack(B);
 }
-
 
 void CPHShell::SetTransform	(const Fmatrix& m0){
 
@@ -412,7 +410,6 @@ void CPHShell::SetTransform	(const Fmatrix& m0){
 	}
 	spatial_move();
 }
-
 
 void CPHShell::Enable()
 {
@@ -429,8 +426,6 @@ void CPHShell::Enable()
 
 void CPHShell::set_PhysicsRefObject	 (CPhysicsShellHolder* ref_object)
 {
-	
-
  	if(elements.empty()) return;
 	if((*elements.begin())->PhysicsRefObject()==ref_object) return;
 	ELEMENT_I i;
@@ -438,12 +433,7 @@ void CPHShell::set_PhysicsRefObject	 (CPhysicsShellHolder* ref_object)
 	{
 		(*i)->set_PhysicsRefObject(ref_object);
 	}
-
-
-
 }
-
-
 
 void CPHShell::set_ContactCallback(ContactCallbackFun* callback)
 {
@@ -451,7 +441,6 @@ void CPHShell::set_ContactCallback(ContactCallbackFun* callback)
 	for(i=elements.begin();elements.end() != i;++i)
 		(*i)->set_ContactCallback(callback);
 }
-
 
 void CPHShell::set_ObjectContactCallback(ObjectContactCallbackFun* callback)
 {
@@ -503,30 +492,27 @@ void CPHShell::SetMaterial(u16 m)
 	}
 }
 
-void CPHShell::get_LinearVel(Fvector& velocity)
+void CPHShell::get_LinearVel(fVector3& velocity)
 {
-
 	(*elements.begin())->get_LinearVel(velocity);
 }
 
-void CPHShell::get_AngularVel(Fvector& velocity)
+void CPHShell::get_AngularVel(fVector3& velocity)
 {
-
 	(*elements.begin())->get_AngularVel(velocity);
 }
 
-void	CPHShell::set_LinearVel(const Fvector& velocity)
+void	CPHShell::set_LinearVel(const fVector3& velocity)
 {
 	ELEMENT_I i=elements.begin(),e=elements.end();
 	for(;i!=e;i++) (*i)->set_LinearVel(velocity);
 }
 
-void	CPHShell::set_AngularVel(const Fvector& velocity)
+void	CPHShell::set_AngularVel(const fVector3& velocity)
 {
 	ELEMENT_I i=elements.begin(),e=elements.end();
 	for(;i!=e;i++) (*i)->set_AngularVel(velocity);
 }
-
 
 void CPHShell::TransformPosition(const Fmatrix &form)
 {
@@ -552,9 +538,7 @@ void CPHShell::SmoothElementsInertia(float k)
 	ELEMENT_I i;
 	for(i=elements.begin();elements.end() != i;++i)
 	{
-
 		dMassAdd(&m_avrg,(*i)->getMassTensor());
-
 	}
 	int n = (int)elements.size();
 	m_avrg.mass*=k/float(n);
@@ -693,7 +677,6 @@ void CPHShell::AddElementRecursive(CPhysicsElement* root_e, u16 id,Fmatrix globa
 
 		if(joint_data.type==jtRigid && root_e ) //
 		{
-
 			Fmatrix vs_root_position;
 			vs_root_position.set(root_e->mXFORM);
 			vs_root_position.invert();
@@ -725,7 +708,6 @@ void CPHShell::AddElementRecursive(CPhysicsElement* root_e, u16 id,Fmatrix globa
 				root_e->add_Mass(bone_data.shape,vs_root_position,bone_data.center_of_mass,bone_data.mass);
 			}
 
-
 			//B.Callback_Param=root_e;
 			//B.Callback=NULL;
 
@@ -736,7 +718,7 @@ void CPHShell::AddElementRecursive(CPhysicsElement* root_e, u16 id,Fmatrix globa
 			E->m_SelfID=id;
 			E->mXFORM.set		(fm_position);
 			E->SetMaterial		(bone_data.game_mtl_idx);
-			//Fvector mc;
+			//fVector3 mc;
 			//fm_position.transform_tiny(mc,bone_data.center_of_mass);
 			E->set_ParentElement(root_e);
 			///B.set_callback(BonesCallback1,E);
@@ -747,7 +729,6 @@ void CPHShell::AddElementRecursive(CPhysicsElement* root_e, u16 id,Fmatrix globa
 			element_number=u16(elements.size());
 			add_Element(E);
 			element_added=true;
-
 
 			if(root_e)
 			{
@@ -1210,19 +1191,18 @@ void CPHShell::GetGlobalTransformDynamic(Fmatrix* m)
 	m->mulB_43	(m_object_in_root);
 	VERIFY2(_valid(*m),"not valide transform");
 }
-void CPHShell::InterpolateGlobalPosition(Fvector* v)
+void CPHShell::InterpolateGlobalPosition(fVector3* v)
 {
 	(*elements.begin())->InterpolateGlobalPosition(v);
 	v->add(m_object_in_root.c);
 	VERIFY2(_valid(*v),"not valide result position");
 }
 
-void CPHShell::GetGlobalPositionDynamic(Fvector* v)
+void CPHShell::GetGlobalPositionDynamic(fVector3* v)
 {
 	(*elements.begin())->GetGlobalPositionDynamic(v);
 	VERIFY2(_valid(*v),"not valide result position");
 }
-
 
 void CPHShell::ObjectToRootForm(const Fmatrix& form)
 {
@@ -1235,7 +1215,7 @@ void CPHShell::ObjectToRootForm(const Fmatrix& form)
 	VERIFY2(_valid(form),"not valide transform");
 	
 }
-CPhysicsElement* CPHShell::NearestToPoint(const Fvector& point)
+CPhysicsElement* CPHShell::NearestToPoint(const fVector3& point)
 {
 	ELEMENT_I i,e;
 	i=elements.begin(); e=elements.end();
@@ -1243,7 +1223,7 @@ CPhysicsElement* CPHShell::NearestToPoint(const Fvector& point)
 	CPHElement* nearest_element=NULL;
 	for( ;i!=e;++i)
 	{
-		Fvector tmp;
+		fVector3 tmp;
 		float	distance;
 		(*i)->GetGlobalPositionDynamic(&tmp);
 		tmp.sub(point);
@@ -1393,11 +1373,11 @@ bool CPHShell::get_ApplyByGravity()
 	return		(elements.front()->get_ApplyByGravity());
 }
 
-void CPHShell::applyGravityAccel(const Fvector& accel)
+void CPHShell::applyGravityAccel(const fVector3& accel)
 {
 	if(!isActive())return;
 	ELEMENT_I i,e;
-	Fvector a;
+	fVector3 a;
 	a.set(accel);
 	a.mul((float)elements.size());
 	i=elements.begin(); e=elements.end();
@@ -1412,14 +1392,14 @@ void CPHShell::PlaceBindToElForms()
 	mask.assign(m_pKinematics->LL_GetBonesVisible());
 	PlaceBindToElFormsRecursive(Fidentity,m_pKinematics->LL_GetBoneRoot(),0,mask);
 }
-void	CPHShell::		setTorque				(const Fvector& torque)
+void	CPHShell::		setTorque				(const fVector3& torque)
 {
 	ELEMENT_I i,e;
 	i=elements.begin(); e=elements.end();
 	for( ;i!=e;++i)
 		(*i)->setTorque(torque);
 }
-void	CPHShell::		setForce				(const Fvector& force)
+void	CPHShell::		setForce				(const fVector3& force)
 {
 	ELEMENT_I i,e;
 	i=elements.begin(); e=elements.end();
@@ -1622,7 +1602,7 @@ void CPHShell::ClearCashedTries()
 	for( ;i!=e;++i)(*i)->clear_cashed_tries();
 }
 
-void CPHShell::get_Extensions(const Fvector& axis,float center_prg,float& lo_ext, float& hi_ext)
+void CPHShell::get_Extensions(const fVector3& axis,float center_prg,float& lo_ext, float& hi_ext)
 {
 	lo_ext=dInfinity;hi_ext=-dInfinity;
 	ELEMENT_I i=elements.begin(),e=elements.end();
@@ -1633,7 +1613,6 @@ void CPHShell::get_Extensions(const Fvector& axis,float center_prg,float& lo_ext
 		if(lo_ext>temp_lo_ext)lo_ext=temp_lo_ext;
 		if(hi_ext<temp_hi_ext)hi_ext=temp_hi_ext;
 	}
-
 }
 
 const	CGID&	CPHShell::GetCLGroup										()const
@@ -1655,7 +1634,6 @@ void	CPHShell::		SetBonesCallbacksOverwrite(bool v)
 		(*i)->SetBoneCallbackOverwrite(v);
 }
 
-
 void		CPHShell::	ToAnimBonesPositions	()
 {
 	VERIFY(PKinematics());
@@ -1663,7 +1641,6 @@ void		CPHShell::	ToAnimBonesPositions	()
 	i=elements.begin(); e=elements.end();
 	for( ;i!=e;++i)	
 		(*i)->ToBonePos(&PKinematics()->LL_GetBoneInstance((*i)->m_SelfID));
-	
 }
 
 bool	CPHShell::		AnimToVelocityState		( float dt, float l_limit, float a_limit )

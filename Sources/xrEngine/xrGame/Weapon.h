@@ -278,24 +278,25 @@ protected:
 
 public:
 	//загружаемые параметры
-	Fvector					vLoadedFirePoint	;
-	Fvector					vLoadedFirePoint2	;
+	fVector3					vLoadedFirePoint	;
+	fVector3					vLoadedFirePoint2	;
 
 private:
 	//текущее положение и напрвление для партиклов
 	struct					_firedeps
 	{
 		Fmatrix				m_FireParticlesXForm;	//направление для партиклов огня и дыма
-		Fvector				vLastFP, vLastFP2	;	//огня
-		Fvector				vLastFD				;	// direction
-		Fvector				vLastSP				;	//гильз	
+		fVector3			vLastFP;			//огня
+		fVector3			vLastFP2;	//огня
+		fVector3			vLastFD				;	// direction
+		fVector3			vLastSP				;	//гильз	
 
 		_firedeps()			{
 			m_FireParticlesXForm.identity();
-			vLastFP.set			(0,0,0);
-			vLastFP2.set		(0,0,0);
-			vLastFD.set			(0,0,0);
-			vLastSP.set			(0,0,0);
+			vLastFP.set			(0.0f,0.0f,0.0f);
+			vLastFP2.set		(0.0f,0.0f,0.0f);
+			vLastFD.set			(0.0f,0.0f,0.0f);
+			vLastSP.set			(0.0f,0.0f,0.0f);
 		}
 	}						m_firedeps			;
 protected:
@@ -307,13 +308,13 @@ protected:
 
 	virtual void			LoadFireParams		(LPCSTR section, LPCSTR prefix);
 public:	
-	IC		const Fvector&	get_LastFP				()			{ UpdateFireDependencies(); return m_firedeps.vLastFP;	}
-	IC		const Fvector&	get_LastFP2				()			{ UpdateFireDependencies(); return m_firedeps.vLastFP2;	}
-	IC		const Fvector&	get_LastFD				()			{ UpdateFireDependencies(); return m_firedeps.vLastFD;	}
-	IC		const Fvector&	get_LastSP				()			{ UpdateFireDependencies(); return m_firedeps.vLastSP;	}
+	IC		const fVector3&	get_LastFP				()			{ UpdateFireDependencies(); return m_firedeps.vLastFP;	}
+	IC		const fVector3&	get_LastFP2				()			{ UpdateFireDependencies(); return m_firedeps.vLastFP2;	}
+	IC		const fVector3&	get_LastFD				()			{ UpdateFireDependencies(); return m_firedeps.vLastFD;	}
+	IC		const fVector3&	get_LastSP				()			{ UpdateFireDependencies(); return m_firedeps.vLastSP;	}
 
-	virtual const Fvector&	get_CurrentFirePoint	()			{ return get_LastFP();				}
-	virtual const Fvector&	get_CurrentFirePoint2	()			{ return get_LastFP2();				}
+	virtual const fVector3&	get_CurrentFirePoint	()			{ return get_LastFP();				}
+	virtual const fVector3&	get_CurrentFirePoint2	()			{ return get_LastFP2();				}
 	virtual const Fmatrix&	get_ParticlesXFORM		()			{ UpdateFireDependencies(); return m_firedeps.m_FireParticlesXForm;	}
 	virtual void			ForceUpdateFireParticles();
 
@@ -324,7 +325,7 @@ protected:
 	virtual void			SetDefaults			();
 
 	//трассирование полета пули
-			void			FireTrace			(const Fvector& P, const Fvector& D);
+			void			FireTrace			(const fVector3& P, const fVector3& D);
 	virtual float			GetWeaponDeterioration	();
 
 	virtual void			FireStart			() {CShootingObject::FireStart();}
@@ -334,7 +335,6 @@ protected:
 	virtual void			Fire2End			();
 	virtual void			Reload				();
 			void			StopShooting		();
-    
 
 	// обработка визуализации выстрела
 	virtual void			OnShot				(){};
@@ -346,7 +346,7 @@ public:
 	//текущая дисперсия (в радианах) оружия с учетом используемого патрона
 	float					GetFireDispersion	(bool with_cartridge)			;
 	float					GetFireDispersion	(float cartridge_k)				;
-//	const Fvector&			GetRecoilDeltaAngle	();
+//	const fVector3&			GetRecoilDeltaAngle	();
 	virtual	int				ShotsFired			() { return 0; }
 
 	//параметы оружия в зависимоти от его состояния исправности
@@ -385,7 +385,7 @@ protected:
 
 protected:
 	//для отдачи оружия
-	Fvector					m_vRecoilDeltaAngle;
+	fVector3					m_vRecoilDeltaAngle;
 
 	//для сталкеров, чтоб они знали эффективные границы использования 
 	//оружия
@@ -401,6 +401,7 @@ protected:
 			void			StartFlameParticles2();
 			void			StopFlameParticles2	();
 			void			UpdateFlameParticles2();
+
 protected:
 	shared_str					m_sFlameParticles2;
 	//объект партиклов для стрельбы из 2-го ствола

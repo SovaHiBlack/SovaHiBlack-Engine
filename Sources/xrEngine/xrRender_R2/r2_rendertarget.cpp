@@ -106,30 +106,32 @@ u8		fpackZ			(float v)				{
 	clamp	(_v,0,255);
 	return	u8(_v);
 }
-Fvector	vunpack			(s32 x, s32 y, s32 z)	{
-	Fvector	pck;
+fVector3	vunpack			(s32 x, s32 y, s32 z)	{
+	fVector3	pck;
 	pck.x	= (float(x)/255.f - .5f)*2.f;
 	pck.y	= (float(y)/255.f - .5f)*2.f;
 	pck.z	= -float(z)/255.f;
 	return	pck;
 }
-Fvector	vunpack			(iVector3 src)			{
+fVector3	vunpack			(iVector3 src)			{
 	return	vunpack	(src.x,src.y,src.z);
 }
-iVector3	vpack			(Fvector src)
+iVector3	vpack			(fVector3 src)
 {
-	Fvector			_v;
+	fVector3			_v;
 	int	bx			= fpack	(src.x);
 	int by			= fpack	(src.y);
 	int bz			= fpackZ(src.z);
 	// dumb test
 	float	e_best	= flt_max;
 	int		r=bx,g=by,b=bz;
+
 #ifdef DEBUG
 	int		d=0;
 #else
 	int		d=3;
 #endif
+
 	for (int x=_max(bx-d,0); x<=_min(bx+d,255); x++)
 	for (int y=_max(by-d,0); y<=_min(by+d,255); y++)
 	for (int z=_max(bz-d,0); z<=_min(bz+d,255); z++)
@@ -176,13 +178,13 @@ void	generate_jitter	(DWORD*	dest, u32 elem_count)
 
 CRenderTarget::CRenderTarget		()
 {
-	param_blur			= 0.f;
-	param_gray			= 0.f;
-	param_noise			= 0.f;
-	param_duality_h		= 0.f;
-	param_duality_v		= 0.f;
-	param_noise_fps		= 25.f;
-	param_noise_scale	= 1.f;
+	param_blur			= 0.0f;
+	param_gray			= 0.0f;
+	param_noise			= 0.0f;
+	param_duality_h		= 0.0f;
+	param_duality_v		= 0.0f;
+	param_noise_fps		= 25.0f;
+	param_noise_scale	= 1.0f;
 
 	im_noise_time		= 1/100;
 	im_noise_shift_w	= 0;

@@ -69,11 +69,11 @@ void CPHGeometryOwner::set_body(dBodyID body)
 	for(;i!=e;++i) (*i)->set_body(body);
 }
 
-Fvector CPHGeometryOwner::			get_mc_data	(){
-	Fvector s;
+fVector3 CPHGeometryOwner::			get_mc_data	(){
+	fVector3 s;
 	float pv;
-	m_mass_center.set(0,0,0);
-	m_volume=0.f;
+	m_mass_center.set(0.0f,0.0f,0.0f);
+	m_volume=0.0f;
 	GEOM_I i_geom=m_geoms.begin(),e=m_geoms.end();
 	for(;i_geom!=e;++i_geom)
 	{
@@ -86,13 +86,13 @@ Fvector CPHGeometryOwner::			get_mc_data	(){
 	return m_mass_center;
 }
 
-Fvector CPHGeometryOwner::			get_mc_geoms	(){
+fVector3 CPHGeometryOwner::			get_mc_geoms	(){
 	////////////////////to be implemented
-	Fvector mc;
-	mc.set(0.f,0.f,0.f);
+	fVector3 mc;
+	mc.set(0.0f,0.0f,0.0f);
 	return mc;
 }
-void CPHGeometryOwner::get_mc_kinematics(CKinematics* K,Fvector& mc,float& mass)
+void CPHGeometryOwner::get_mc_kinematics(CKinematics* K, fVector3& mc,float& mass)
 {
 
 	mc.set(0.f,0.f,0.f);
@@ -102,7 +102,7 @@ void CPHGeometryOwner::get_mc_kinematics(CKinematics* K,Fvector& mc,float& mass)
 	for(;i_geom!=e;++i_geom)
 	{
 		CBoneData& data=K->LL_GetData((*i_geom)->bone_id());
-		Fvector add;
+		fVector3 add;
 		mass+=data.mass;
 		m_volume+=(*i_geom)->volume();
 		add.set(data.center_of_mass);
@@ -309,7 +309,7 @@ u16	CPHGeometryOwner::numberOfGeoms()
 	return (u16)m_geoms.size();
 }
 
-void CPHGeometryOwner::get_Extensions(const Fvector& axis,float center_prg,float& lo_ext, float& hi_ext)
+void CPHGeometryOwner::get_Extensions(const fVector3& axis,float center_prg,float& lo_ext, float& hi_ext)
 {
 	lo_ext=dInfinity;hi_ext=-dInfinity;
 	GEOM_I i=m_geoms.begin(),e=m_geoms.end();
@@ -324,7 +324,7 @@ void CPHGeometryOwner::get_Extensions(const Fvector& axis,float center_prg,float
 
 }
 
-void CPHGeometryOwner::get_MaxAreaDir(Fvector& dir)
+void CPHGeometryOwner::get_MaxAreaDir(fVector3& dir)
 {
 	if(m_geoms.empty())return;
 	(*m_geoms.begin())->get_max_area_dir_bt(dir);
@@ -335,7 +335,7 @@ float CPHGeometryOwner::getRadius()
 	else				  return 0.f;
 }
 
-void CPHGeometryOwner::get_mc_vs_transform(Fvector& mc,const Fmatrix& m)
+void CPHGeometryOwner::get_mc_vs_transform(fVector3& mc,const Fmatrix& m)
 {
 	mc.set(m_mass_center);
 	m.transform_tiny(mc);
@@ -352,7 +352,7 @@ void CPHGeometryOwner::setStaticForm(const Fmatrix& form)
 	for(;i!=e;++i) (*i)->set_static_ref_form(f);
 }
 
-void CPHGeometryOwner::setPosition(const Fvector& pos)
+void CPHGeometryOwner::setPosition(const fVector3& pos)
 {
 	GEOM_I i=m_geoms.begin(),e=m_geoms.end();
 	for(;i!=e;++i)

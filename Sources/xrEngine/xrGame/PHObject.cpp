@@ -82,8 +82,9 @@ void CPHObject::Collide()
 		CPHMoveStorage::iterator I=tracers->begin(),E=tracers->end();
 		for(;E!=I;I++)
 		{
-				const Fvector	*from=0,	*to=0;
-				Fvector dir;
+			const fVector3* from = 0;
+			const fVector3* to = 0;
+			fVector3 dir;
 				I.Positions(from,to);
 				if(from->x==-dInfinity) continue;
 				dir.sub(*to,*from);
@@ -91,15 +92,16 @@ void CPHObject::Collide()
 				if(magnitude<EPS) continue;
 				dir.mul(1.f/magnitude);
 				g_SpatialSpacePhysic->q_ray(ph_world->r_spatial,0,STYPE_PHYSIC,*from,dir,magnitude);//|ISpatial_DB::O_ONLYFIRST
+
 #ifdef DEBUG
 				if(ph_dbg_draw_mask.test(phDbgDrawRayMotions))
 				{
 					DBG_OpenCashedDraw();
-					DBG_DrawLine(*from,Fvector().add(*from,Fvector().mul(dir,magnitude)),D3DCOLOR_XRGB(0,255,0));
+					DBG_DrawLine(*from, fVector3().add(*from, fVector3().mul(dir,magnitude)),D3DCOLOR_XRGB(0,255,0));
 					DBG_ClosedCashedDraw(30000);
 				}
-
 #endif
+
 				qResultVec& result=ph_world->r_spatial;
 				qResultIt i=result.begin(),e=result.end();
 				for(;i!=e;++i)	{
@@ -223,8 +225,6 @@ void CPHObject::UnFreeze()
 	ph_world->AddObject(this);
 }
 
-
-
 CPHUpdateObject::CPHUpdateObject()
 {
 	b_activated=false;
@@ -243,4 +243,3 @@ void CPHUpdateObject::Deactivate()
 	ph_world->RemoveUpdateObject(this);
 	b_activated=false;
 }
-

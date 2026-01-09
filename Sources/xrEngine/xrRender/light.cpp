@@ -79,7 +79,7 @@ void light::set_active(bool a)
 		flags.bActive			= true;
 		spatial_register		( );
 		spatial_move			( );
-		Msg						("!!! L-register: %X", u32(this));
+//		Msg						("!!! L-register: %X", u32(this));
 
 #ifdef DEBUG
 		fVector3 zero			= {0.0f,-1000.0f,0.0f};
@@ -100,7 +100,7 @@ void light::set_active(bool a)
 		flags.bActive			= false;
 		spatial_move			( );
 		spatial_unregister		( );
-		Msg						("!!! L-unregister: %X", u32(this));
+//		Msg						("!!! L-unregister: %X", u32(this));
 	}
 }
 

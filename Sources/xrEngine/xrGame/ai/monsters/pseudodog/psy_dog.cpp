@@ -212,7 +212,7 @@ void CPsyDogPhantom::Think()
 	if (!EnemyMan.get_enemy()) return;
 	if (!control().direction().is_face_target(EnemyMan.get_enemy(), PI_DIV_6)) return;
 
-	Fvector target;
+	fVector3 target;
 	target.mad(Position(),Direction(), 10.f);
 
 	// нода в прямой видимости?
@@ -229,7 +229,7 @@ void CPsyDogPhantom::Think()
 	setVisible		(TRUE);
 	setEnabled		(TRUE);
 
-	CParticlesPlayer::StartParticles(m_particles_appear,Fvector().set(0.0f,0.1f,0.0f),ID());
+	CParticlesPlayer::StartParticles(m_particles_appear, fVector3().set(0.0f,0.1f,0.0f),ID());
 
 	if (EnemyMan.get_enemy() != Actor()) return;
 
@@ -245,9 +245,9 @@ void	CPsyDogPhantom::Hit					(SHit* pHDS)
 
 void CPsyDogPhantom::net_Destroy()
 {
-	Fvector center;
+	fVector3 center;
 	Center(center);
-	PlayParticles(m_particles_disappear,center,Fvector().set(0.f,1.f,0.f));
+	PlayParticles(m_particles_disappear,center, fVector3().set(0.0f,1.0f,0.0f));
 	
 	if (m_parent && !is_wait_to_destroy_object()) {
 		m_parent->unregister_phantom	(this);

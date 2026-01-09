@@ -512,7 +512,7 @@ bool CUIMainIngameWnd::OnKeyboardPress(int dik)
 		else
 			return false;
 
-		Fvector tmpV;
+		fVector3 tmpV;
 
 		if (1 == g_bHudAdjustMode) //zoom offset
 		{
@@ -1060,10 +1060,8 @@ void CUIMainIngameWnd::AnimateContacts(bool b_snd)
 	UIPdaOnline.ResetClrAnimation	();
 
 	if(b_snd)
-		HUD_SOUND::PlaySound	(m_contactSnd, Fvector().set(0,0,0), 0, true );
-
+		HUD_SOUND::PlaySound	(m_contactSnd, fVector3().set(0.0f,0.0f,0.0f), 0, true );
 }
-
 
 void CUIMainIngameWnd::SetPickUpItem	(CInventoryItem* PickUpItem)
 {
@@ -1077,7 +1075,6 @@ void CUIMainIngameWnd::UpdatePickUpItem	()
 		UIPickUpItemIcon.Show(false);
 		return;
 	};
-
 
 	shared_str sect_name	= m_pPickUpItem->object().cNameSect();
 
@@ -1325,7 +1322,9 @@ void CUIMainIngameWnd::draw_adjust_mode()
 			CWeaponHUD *pWpnHud = NULL;
 			pWpnHud = m_pWeapon->GetHUD();
 
-			Fvector FP,SP,FP2;
+			fVector3 FP;
+			fVector3 SP;
+			fVector3 FP2;
 
 			CKinematics* V			= smart_cast<CKinematics*>(pWpnHud->Visual());
 			VERIFY					(V);
@@ -1335,9 +1334,9 @@ void CUIMainIngameWnd::draw_adjust_mode()
 			Fmatrix& fire_mat		= V->LL_GetTransform(u16(pWpnHud->FireBone()));
 			Fmatrix& parent			= pWpnHud->Transform	();
 
-			const Fvector& fp		= pWpnHud->FirePoint();
-			const Fvector& fp2		= pWpnHud->FirePoint2();
-			const Fvector& sp		= pWpnHud->ShellPoint();
+			const fVector3& fp		= pWpnHud->FirePoint();
+			const fVector3& fp2		= pWpnHud->FirePoint2();
+			const fVector3& sp		= pWpnHud->ShellPoint();
 
 			fire_mat.transform_tiny	(FP,fp);
 			parent.transform_tiny	(FP);
@@ -1354,9 +1353,9 @@ void CUIMainIngameWnd::draw_adjust_mode()
 			RCache.dbg_DrawAABB(SP,0.01f,0.01f,0.01f,D3DCOLOR_XRGB(0,255,0));
 		
 		}else{
-			Fvector FP = m_pWeapon->get_CurrentFirePoint();
-			Fvector FP2 = m_pWeapon->get_CurrentFirePoint2();
-			Fvector SP = m_pWeapon->get_LastSP();
+			fVector3 FP = m_pWeapon->get_CurrentFirePoint();
+			fVector3 FP2 = m_pWeapon->get_CurrentFirePoint2();
+			fVector3 SP = m_pWeapon->get_LastSP();
 			RCache.dbg_DrawAABB(FP,0.01f,0.01f,0.01f,D3DCOLOR_XRGB(255,0,0));
 			RCache.dbg_DrawAABB(FP2,0.02f,0.02f,0.02f,D3DCOLOR_XRGB(0,0,255));
 			RCache.dbg_DrawAABB(SP,0.02f,0.02f,0.02f,D3DCOLOR_XRGB(0,255,0));

@@ -343,12 +343,12 @@ LPCSTR		CSE_Abstract::name_replace	() const
 	return	(s_name_replace);
 }
 
-Fvector&	CSE_Abstract::position		()
+fVector3&	CSE_Abstract::position		()
 {
 	return	(o_Position);
 }
 
-Fvector&	CSE_Abstract::angle			()
+fVector3&	CSE_Abstract::angle			()
 {
 	return	(o_Angle);
 }

@@ -88,7 +88,7 @@ void CObject::setVisible			(BOOL _visible)
 	}
 }
 
-void	CObject::Center					(Fvector& C)	const	{ VERIFY2(renderable.visual,*cName()); renderable.xform.transform_tiny(C,renderable.visual->vis.sphere.P);	}
+void	CObject::Center					(fVector3& C)	const	{ VERIFY2(renderable.visual,*cName()); renderable.xform.transform_tiny(C,renderable.visual->vis.sphere.P);	}
 float	CObject::Radius					()				const	{ VERIFY2(renderable.visual,*cName()); return renderable.visual->vis.sphere.R;								}
 const	Fbox&	CObject::BoundingBox	()				const	{ VERIFY2(renderable.visual,*cName()); return renderable.visual->vis.box;									}
 
@@ -223,7 +223,7 @@ void	CObject::spatial_update		(float eps_P, float eps_R)
 		{	// Object registered!
 			if (!fsimilar(Radius(),spatial.sphere.R,eps_R))	spatial_move();
 			else			{
-				Fvector			C;
+				fVector3			C;
 				Center			(C);
 				if (!C.similar(spatial.sphere.P,eps_P))	spatial_move();
 			}

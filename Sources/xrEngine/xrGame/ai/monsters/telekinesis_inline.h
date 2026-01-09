@@ -8,9 +8,7 @@ CTelekinesis<_Object>::CTelekinesis()
 
 template <typename _Object>
 CTelekinesis<_Object>::~CTelekinesis()
-{
-
-}
+{ }
 
 template <typename _Object>
 void CTelekinesis<_Object>::InitExtern(_Object *pO, float s, float h, u32 keep_time)
@@ -31,7 +29,7 @@ void CTelekinesis<_Object>::Activate()
 
 	// получить список объектов
 	m_nearest.clear_not_free			();
-	Level().ObjectSpace.GetNearest		(m_nearest,control_object->Position(),10.f); 
+	Level().ObjectSpace.GetNearest		(m_nearest,control_object->Position(),10.0f); 
 	//xr_vector<CObject*> &m_nearest		= Level().ObjectSpace.q_nearest; 
 
 	// все объекты внести в список 
@@ -70,7 +68,7 @@ void CTelekinesis<_Object>::Deactivate()
 
 
 template <typename _Object>
-void CTelekinesis<_Object>::Throw(const Fvector &target)
+void CTelekinesis<_Object>::Throw(const fVector3& target)
 {
 	if (!active) return;
 
