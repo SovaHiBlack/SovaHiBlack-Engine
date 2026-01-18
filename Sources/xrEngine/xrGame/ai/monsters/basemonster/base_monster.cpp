@@ -446,7 +446,7 @@ CParticlesObject* CBaseMonster::PlayParticles(const shared_str& name, const fVec
 	CParticlesObject* ps = CParticlesObject::Create(name.c_str(),auto_remove);
 	
 	// вычислить позицию и направленность партикла
-	Fmatrix	matrix; 
+	fMatrix4x4	matrix;
 
 	matrix.identity			();
 	matrix.k.set			(dir);

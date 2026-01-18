@@ -14,12 +14,10 @@ PARTICLES_API IParticleManager* PAPI::ParticleManager(){	return &PM; }
 
 // 
 CParticleManager::CParticleManager	()
-{
-}
+{ }
 
 CParticleManager::~CParticleManager	()
-{
-}
+{ }
 
 ParticleEffect*	CParticleManager::GetEffectPtr(int effect_id)
 {
@@ -126,19 +124,20 @@ void CParticleManager::Render(int effect_id)
 {
 //    ParticleEffect* pe	= GetEffectPtr(effect_id);
 }
-void CParticleManager::Transform(int alist_id, const Fmatrix& full, const fVector3& vel)
+void CParticleManager::Transform(int alist_id, const fMatrix4x4& full, const fVector3& vel)
 {
 	// Execute the specified action list.
 	ParticleActions* pa	= GetActionListPtr(alist_id);
 
 	if(pa == NULL)		return; // ERROR
 
-	Fmatrix mT;			mT.translate(full.c);
+	fMatrix4x4 mT;
+	mT.translate(full.c);
 
 	// Step through all the actions in the action list.
 	for(PAVecIt it=pa->begin(); it!=pa->end(); it++){
 		BOOL r 			= (*it)->m_Flags.is(ParticleAction::ALLOW_ROTATE);
-		const Fmatrix& m = r?full:mT;
+		const fMatrix4x4& m = r?full:mT;
 		(*it)->Transform(m);
 		switch((*it)->type)
 		{
@@ -244,11 +243,3 @@ void CParticleManager::SaveActions(int alist_id, IWriter& W)
 	for (PAVecIt it=pa->begin(); it!=pa->end(); it++)
 		(*it)->Save			(W);
 }
-
-
-
-
-
-
-
-

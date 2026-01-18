@@ -139,7 +139,7 @@ void gen_auth_code()
 
 IClient::IClient( CTimer* timer )
   : stats(timer),
-    server(NULL)
+	server(NULL)
 {
 	dwTime_LastUpdate	= 0;
 	flags.bLocal = FALSE;
@@ -185,16 +185,13 @@ static HRESULT WINAPI Handler (PVOID pvUserContext, DWORD dwMessageType, PVOID p
 	return C->net_Handler	(dwMessageType,pMessage);
 }
 
-
 //------------------------------------------------------------------------------
 
-void    
-IClient::_SendTo_LL( const void* data, u32 size, u32 flags, u32 timeout )
+void IClient::_SendTo_LL( const void* data, u32 size, u32 flags, u32 timeout )
 {
-    R_ASSERT(server);
-    server->IPureServer::SendTo_LL( ID, const_cast<void*>(data), size, flags, timeout );
+	R_ASSERT(server);
+	server->IPureServer::SendTo_LL( ID, const_cast<void*>(data), size, flags, timeout );
 }
-
 
 //------------------------------------------------------------------------------
 IClient*	IPureServer::ID_to_client		(ClientID ID, bool ScanAll)
@@ -225,28 +222,27 @@ IClient*	IPureServer::ID_to_client		(ClientID ID, bool ScanAll)
 	return NULL;
 }
 
-void
-IPureServer::_Recieve( const void* data, u32 data_size, u32 param )
+void IPureServer::_Recieve( const void* data, u32 data_size, u32 param )
 {
 	if (data_size > NET_PacketSizeLimit) {
 		Msg		("! too large packet size[%d] received, DoS attack?", data_size);
 		return;
 	}
 
-    NET_Packet  packet; 
-    ClientID    id;
+	NET_Packet  packet; 
+	ClientID    id;
 
-    id.set( param );
-    packet.construct( data, data_size );
+	id.set( param );
+	packet.construct( data, data_size );
 	csMessage.Enter();
 	//---------------------------------------
 	if( psNET_Flags.test(NETFLAG_LOG_SV_PACKETS) ) 
 	{
 		if( !pSvNetLog) 
 			pSvNetLog = xr_new<INetLog>("logs\\net_sv_log.log", TimeGlobal(device_timer));
-		    
+			
 		if( pSvNetLog ) 
-		    pSvNetLog->LogPacket( TimeGlobal(device_timer), &packet, TRUE );
+			pSvNetLog->LogPacket( TimeGlobal(device_timer), &packet, TRUE );
 	}
 	//---------------------------------------
 	u32	result = OnMessage( packet, id );
@@ -254,9 +250,8 @@ IPureServer::_Recieve( const void* data, u32 data_size, u32 param )
 	csMessage.Leave();
 	
 	if( result )		
-	    SendBroadcast( id, packet, result );
+		SendBroadcast( id, packet, result );
 }
-
 
 //==============================================================================
 
@@ -361,7 +356,7 @@ if(!psNET_direct_connect)
 //		CHK_DX(CoInitializeExRes);
 //	};	
 	//---------------------------
-    // Create the IDirectPlay8Client object.
+	// Create the IDirectPlay8Client object.
 	HRESULT CoCreateInstanceRes = CoCreateInstance	(CLSID_DirectPlay8Server, NULL, CLSCTX_INPROC_SERVER, IID_IDirectPlay8Server, (LPVOID*) &NET);
 	//---------------------------	
 	if (CoCreateInstanceRes != S_OK)
@@ -371,9 +366,9 @@ if(!psNET_direct_connect)
 	}	
 	//---------------------------
 	
-    // Initialize IDirectPlay8Client object.
+	// Initialize IDirectPlay8Client object.
 #ifdef DEBUG
-    CHK_DX(NET->Initialize	(this, Handler, 0));
+	CHK_DX(NET->Initialize	(this, Handler, 0));
 #else
 	CHK_DX(NET->Initialize	(this, Handler, DPNINITIALIZE_DISABLEPARAMVAL));
 #endif
@@ -381,35 +376,34 @@ if(!psNET_direct_connect)
 	BOOL	bSimulator		= FALSE;
 	if (strstr(Core.Params,"-netsim"))		bSimulator = TRUE;
 	
-	
 	// dump_URL		("! sv ",	net_Address_device);
 
 	// Set server-player info
-    DPN_APPLICATION_DESC		dpAppDesc;
-    DPN_PLAYER_INFO				dpPlayerInfo;
-    WCHAR						wszName		[] = L"X-Ray Server";
+	DPN_APPLICATION_DESC		dpAppDesc;
+	DPN_PLAYER_INFO				dpPlayerInfo;
+	WCHAR						wszName		[] = L"X-Ray Server";
 	
-    ZeroMemory					(&dpPlayerInfo, sizeof(DPN_PLAYER_INFO));
-    dpPlayerInfo.dwSize			= sizeof(DPN_PLAYER_INFO);
-    dpPlayerInfo.dwInfoFlags	= DPNINFO_NAME;
-    dpPlayerInfo.pwszName		= wszName;
-    dpPlayerInfo.pvData			= NULL;
-    dpPlayerInfo.dwDataSize		= NULL;
-    dpPlayerInfo.dwPlayerFlags	= 0;
+	ZeroMemory					(&dpPlayerInfo, sizeof(DPN_PLAYER_INFO));
+	dpPlayerInfo.dwSize			= sizeof(DPN_PLAYER_INFO);
+	dpPlayerInfo.dwInfoFlags	= DPNINFO_NAME;
+	dpPlayerInfo.pwszName		= wszName;
+	dpPlayerInfo.pvData			= NULL;
+	dpPlayerInfo.dwDataSize		= NULL;
+	dpPlayerInfo.dwPlayerFlags	= 0;
 	
 	CHK_DX(NET->SetServerInfo( &dpPlayerInfo, NULL, NULL, DPNSETSERVERINFO_SYNC ) );
 	
-    // Set server/session description
+	// Set server/session description
 	WCHAR	SessionNameUNICODE[4096];
 	CHK_DX(MultiByteToWideChar(CP_ACP, 0, session_name, -1, SessionNameUNICODE, 4096 ));
-    // Set server/session description
+	// Set server/session description
 	
-    // Now set up the Application Description
-    ZeroMemory					(&dpAppDesc, sizeof(DPN_APPLICATION_DESC));
-    dpAppDesc.dwSize			= sizeof(DPN_APPLICATION_DESC);
-    dpAppDesc.dwFlags			= DPNSESSION_CLIENT_SERVER | DPNSESSION_NODPNSVR;
-    dpAppDesc.guidApplication	= NET_GUID;
-    dpAppDesc.pwszSessionName	= SessionNameUNICODE;
+	// Now set up the Application Description
+	ZeroMemory					(&dpAppDesc, sizeof(DPN_APPLICATION_DESC));
+	dpAppDesc.dwSize			= sizeof(DPN_APPLICATION_DESC);
+	dpAppDesc.dwFlags			= DPNSESSION_CLIENT_SERVER | DPNSESSION_NODPNSVR;
+	dpAppDesc.guidApplication	= NET_GUID;
+	dpAppDesc.pwszSessionName	= SessionNameUNICODE;
 	dpAppDesc.dwMaxPlayers		= (m_bDedicated) ? (dwMaxPlayers+2) : (dwMaxPlayers+1);
 	dpAppDesc.pvApplicationReservedData	= session_options;
 	dpAppDesc.dwApplicationReservedDataSize = xr_strlen(session_options)+1;
@@ -483,20 +477,19 @@ void IPureServer::Disconnect	()
 	if (!psNET_direct_connect)
 		BannedList_Save	();
 
-    if( NET )	NET->Close(0);
+	if( NET )	NET->Close(0);
 	
 	// Release interfaces
-    _RELEASE	(net_Address_device);
-    _RELEASE	(NET);
+	_RELEASE	(net_Address_device);
+	_RELEASE	(NET);
 }
-
 
 HRESULT	IPureServer::net_Handler(u32 dwMessageType, PVOID pMessage)
 {
-    // HRESULT     hr = S_OK;
+	// HRESULT     hr = S_OK;
 	
-    switch (dwMessageType)
-    {
+	switch (dwMessageType)
+	{
 	case DPN_MSGID_ENUM_HOSTS_QUERY :
 		{
 			PDPNMSG_ENUM_HOSTS_QUERY	msg = PDPNMSG_ENUM_HOSTS_QUERY(pMessage);
@@ -507,11 +500,11 @@ HRESULT	IPureServer::net_Handler(u32 dwMessageType, PVOID pMessage)
 			return S_OK;
 		}break;
 	case DPN_MSGID_CREATE_PLAYER :
-        {
+		{
 			PDPNMSG_CREATE_PLAYER	msg = PDPNMSG_CREATE_PLAYER(pMessage);
 			const	u32				max_size = 1024;
 			char	bufferData		[max_size];
-            DWORD	bufferSize		= max_size;
+			DWORD	bufferSize		= max_size;
 			ZeroMemory				(bufferData,bufferSize);
 			string512				res;
 
@@ -540,7 +533,7 @@ HRESULT	IPureServer::net_Handler(u32 dwMessageType, PVOID pMessage)
 			cl_data.clientID.set( msg->dpnidPlayer );
 
 			new_client( &cl_data );
-        }
+		}
 		break;
 	case DPN_MSGID_DESTROY_PLAYER:
 		{
@@ -563,9 +556,9 @@ HRESULT	IPureServer::net_Handler(u32 dwMessageType, PVOID pMessage)
 		}
 		break;
 	case DPN_MSGID_RECEIVE:
-        {
+		{
 
-            PDPNMSG_RECEIVE	pMsg = PDPNMSG_RECEIVE(pMessage);
+			PDPNMSG_RECEIVE	pMsg = PDPNMSG_RECEIVE(pMessage);
 			void*	m_data		= pMsg->pReceiveData;
 			u32		m_size		= pMsg->dwReceiveDataSize;
 			DPNID   m_sender	= pMsg->dpnidSender;
@@ -586,10 +579,10 @@ HRESULT	IPureServer::net_Handler(u32 dwMessageType, PVOID pMessage)
 			} 
 			else 
 			{
-                MultipacketReciever::RecievePacket( pMsg->pReceiveData, pMsg->dwReceiveDataSize, m_sender );
+				MultipacketReciever::RecievePacket( pMsg->pReceiveData, pMsg->dwReceiveDataSize, m_sender );
 			}
-        } break;
-        
+		} break;
+		
 	case DPN_MSGID_INDICATE_CONNECT :
 		{
 			PDPNMSG_INDICATE_CONNECT msg = (PDPNMSG_INDICATE_CONNECT)pMessage;
@@ -604,31 +597,31 @@ HRESULT	IPureServer::net_Handler(u32 dwMessageType, PVOID pMessage)
 				return					S_FALSE;
 			};
 		}break;
-    }
+	}
 	
-    return S_OK;
+	return S_OK;
 }
 
 void	IPureServer::Flush_Clients_Buffers	()
 {
-    #if NET_LOG_PACKETS
-    Msg( "#flush server send-buf" );
-    #endif
+	#if NET_LOG_PACKETS
+	Msg( "#flush server send-buf" );
+	#endif
 
 	csPlayers.Enter();	
 
 	for( xr_vector<IClient*>::iterator it = net_Players.begin(); it != net_Players.end(); ++it )
-        (*it)->MultipacketSender::FlushSendBuffer( 0 );
+		(*it)->MultipacketSender::FlushSendBuffer( 0 );
 
 	csPlayers.Leave();
 }
 
 void	IPureServer::SendTo_Buf(ClientID id, void* data, u32 size, u32 dwFlags, u32 dwTimeout)
 {
-    xr_vector<IClient*>::iterator it = std::find( net_Players.begin(), net_Players.end(), id );
+	xr_vector<IClient*>::iterator it = std::find( net_Players.begin(), net_Players.end(), id );
 
-    if( it != net_Players.end()) 
-        (*it)->MultipacketSender::SendPacket( data, size, dwFlags, dwTimeout );
+	if( it != net_Players.end()) 
+		(*it)->MultipacketSender::SendPacket( data, size, dwFlags, dwTimeout );
 }
 
 

@@ -7,10 +7,10 @@ void 	XRCORE_API	__cdecl		Msg			(LPCSTR format, ...);
 void 	XRCORE_API		Log			(LPCSTR msg);
 void 	XRCORE_API		Log			(LPCSTR msg, LPCSTR			dop);
 void 	XRCORE_API		Log			(LPCSTR msg, u32			dop);
-void 	XRCORE_API		Log			(LPCSTR msg, int  			dop);
-void 	XRCORE_API		Log			(LPCSTR msg, float			dop);
+void 	XRCORE_API		Log			(LPCSTR msg, s32  			dop);
+void 	XRCORE_API		Log			(LPCSTR msg, f32			dop);
 void 	XRCORE_API		Log			(LPCSTR msg, const fVector3& dop);
-void 	XRCORE_API		Log			(LPCSTR msg, const Fmatrix& dop);
+void 	XRCORE_API		Log			(LPCSTR msg, const fMatrix4x4& dop);
 void 	XRCORE_API		LogWinErr	(LPCSTR msg, long 			err_code);
 
 typedef void	( * LogCallback)	(LPCSTR string);

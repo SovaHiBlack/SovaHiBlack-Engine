@@ -2,20 +2,20 @@
 #define SoundRender_TargetAH
 #pragma once
 
-#include "soundrender_Target.h"
-#include "soundrender_CoreA.h"
+#include "SoundRender_Target.h"
+#include "SoundRender_CoreA.h"
 
 class CSoundRender_TargetA: public CSoundRender_Target
 {
 	typedef CSoundRender_Target	inherited;
 
 // OpenAL
-    ALuint						pSource;
+	ALuint						pSource;
 	ALuint						pBuffers[sdef_target_count];
-    float						cache_gain;
-    float						cache_pitch;
+	float						cache_gain;
+	float						cache_pitch;
 
-    ALuint						buf_block;
+	ALuint						buf_block;
 private:
 	void						fill_block				(ALuint BufferID);
 public:

@@ -8,7 +8,7 @@ void CAnimatorCamEffectorScriptCB::ProcessIfInvalid(fVector3& p, fVector3& d, fV
 {
 	if(m_bAbsolutePositioning)
 	{
-		const Fmatrix& m			= m_objectAnimator->XFORM();
+		const fMatrix4x4& m			= m_objectAnimator->XFORM();
 		d							= m.k;
 		n							= m.j;
 		p							= m.c;

@@ -5,7 +5,7 @@ class _vector4
 {
 public:
 	using TYPE			= T;
-	using Self			= _vector4<T>;
+	using Self			= _vector4<TYPE>;
 	using SelfRef		= Self&;
 	using SelfCRef		= const Self&;
 

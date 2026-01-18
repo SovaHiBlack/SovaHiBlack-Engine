@@ -912,7 +912,7 @@ void CAI_Stalker::dbg_draw_vision	()
 	fVector3					shift;
 	shift.set					(0.0f,2.5f,0.0f);
 
-	Fmatrix						res;
+	fMatrix4x4						res;
 	res.mul						(Device.mFullTransform,XFORM());
 
 	fVector4					v_res;

@@ -146,7 +146,7 @@ protected:
 	float 					m_fTracerLengthMin;
 protected:
 	void					PlayWhineSound		(SBullet* bullet, CObject* object, const fVector3& pos);
-	void					PlayExplodePS		(const Fmatrix& xf);
+	void					PlayExplodePS		(const fMatrix4x4& xf);
 	//функция обработки хитов объектов
 	static BOOL 			test_callback		(const collide::ray_defs& rd, CObject* object, LPVOID params);
 	static BOOL				firetrace_callback	(collide::rq_result& result, LPVOID params);

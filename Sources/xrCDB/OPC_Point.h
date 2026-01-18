@@ -31,9 +31,9 @@
 
 	#define EPSILON2 1.0e-20f;
 
-    class ICEMATHS_API icePoint;
-    #define Point icePoint
-    
+	class ICEMATHS_API icePoint;
+	#define Point icePoint
+	
 	class ICEMATHS_API icePoint
 	{
 		public:

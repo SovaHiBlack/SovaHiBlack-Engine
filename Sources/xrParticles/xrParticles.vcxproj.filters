@@ -18,19 +18,19 @@
     <ClInclude Include="noise.h">
       <Filter>PAPI</Filter>
     </ClInclude>
-    <ClInclude Include="particle_actions.h">
+    <ClInclude Include="Particle_Actions.h">
       <Filter>PAPI</Filter>
     </ClInclude>
-    <ClInclude Include="particle_actions_collection.h">
+    <ClInclude Include="Particle_Actions_collection.h">
       <Filter>PAPI</Filter>
     </ClInclude>
-    <ClInclude Include="particle_core.h">
+    <ClInclude Include="Particle_Core.h">
       <Filter>PAPI</Filter>
     </ClInclude>
-    <ClInclude Include="particle_effect.h">
+    <ClInclude Include="Particle_Effect.h">
       <Filter>PAPI</Filter>
     </ClInclude>
-    <ClInclude Include="particle_manager.h">
+    <ClInclude Include="Particle_Manager.h">
       <Filter>PAPI</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,22 +41,22 @@
     <ClCompile Include="noise.cpp">
       <Filter>PAPI</Filter>
     </ClCompile>
-    <ClCompile Include="particle_actions.cpp">
+    <ClCompile Include="Particle_Actions.cpp">
       <Filter>PAPI</Filter>
     </ClCompile>
-    <ClCompile Include="particle_actions_collection.cpp">
+    <ClCompile Include="Particle_Actions_collection.cpp">
       <Filter>PAPI</Filter>
     </ClCompile>
-    <ClCompile Include="particle_actions_collection_io.cpp">
+    <ClCompile Include="Particle_Actions_collection_io.cpp">
       <Filter>PAPI</Filter>
     </ClCompile>
-    <ClCompile Include="particle_core.cpp">
+    <ClCompile Include="Particle_Core.cpp">
       <Filter>PAPI</Filter>
     </ClCompile>
-    <ClCompile Include="particle_effect.cpp">
+    <ClCompile Include="Particle_Effect.cpp">
       <Filter>PAPI</Filter>
     </ClCompile>
-    <ClCompile Include="particle_manager.cpp">
+    <ClCompile Include="Particle_Manager.cpp">
       <Filter>PAPI</Filter>
     </ClCompile>
   </ItemGroup>

@@ -50,7 +50,7 @@ void CDetailManager::soft_Render	()
 			// Fill VB (and flush it as nesessary)
 			RCache.set_Shader	(Object.shader);
 
-			Fmatrix		mXform;
+			fMatrix4x4		mXform;
 			for (u32 L_ID=0; L_ID<lock_count; L_ID++){
 				// Calculate params
 				u32	item_start	= L_ID*o_per_lock;
@@ -69,12 +69,12 @@ void CDetailManager::soft_Render	()
 				u16*	iDest					= (u16*)					_IS.Lock(iCount_Lock,iBase);
 
 				// Filling itself
-                for (u32 item_idx=item_start; item_idx<item_end; ++item_idx){
+				for (u32 item_idx=item_start; item_idx<item_end; ++item_idx){
 					SlotItem&	Instance	= *items->at(item_idx);
 					float	scale			= Instance.scale_calculated;
 
 					// Build matrix
-					Fmatrix& M = Instance.mRotY;
+					fMatrix4x4& M = Instance.mRotY;
 					mXform._11=M._11*scale;	mXform._12=M._12*scale;	mXform._13=M._13*scale;	mXform._14=M._14;
 					mXform._21=M._21*scale;	mXform._22=M._22*scale;	mXform._23=M._23*scale;	mXform._24=M._24;
 					mXform._31=M._31*scale;	mXform._32=M._32*scale;	mXform._33=M._33*scale;	mXform._34=M._34;
@@ -87,10 +87,10 @@ void CDetailManager::soft_Render	()
 						CDetail::fvfVertexOut	*dstIt = vDest;
 
 						for	(; srcIt!=srcEnd; srcIt++, dstIt++){
-                            mXform.transform_tiny	(dstIt->P,srcIt->P);
-                            dstIt->C	= C;
-                            dstIt->u	= srcIt->u;
-                            dstIt->v	= srcIt->v;
+							mXform.transform_tiny	(dstIt->P,srcIt->P);
+							dstIt->C	= C;
+							dstIt->u	= srcIt->u;
+							dstIt->v	= srcIt->v;
 						}
 					}
 
@@ -128,14 +128,14 @@ void CDetailManager::soft_Render	()
 
 /*
 //.
-                VERIFY(sizeof(CDetail::fvfVertexOut)==soft_Geom->vb_stride);
-                
-                CDetail::fvfVertexOut	*dstIt = vDest;
+				VERIFY(sizeof(CDetail::fvfVertexOut)==soft_Geom->vb_stride);
+				
+				CDetail::fvfVertexOut	*dstIt = vDest;
 
-                VERIFY(items->size()*Object.number_vertices==vCount_Lock);
-                
-                for	(u32 k=0; k<vCount_Lock; k++)
-                {
+				VERIFY(items->size()*Object.number_vertices==vCount_Lock);
+				
+				for	(u32 k=0; k<vCount_Lock; k++)
+				{
 					// Transfer vertices
 					{
 						u32					C = 0xffffffff;
@@ -150,6 +150,6 @@ void CDetailManager::soft_Render	()
 							dstIt->v	= srcIt->v;
 						}
 					}
-                }
+				}
 */                
 

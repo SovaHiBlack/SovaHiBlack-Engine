@@ -10,9 +10,6 @@
     <Filter Include="Interfaces">
       <UniqueIdentifier>{619ee36c-2eb8-4e0d-8c9e-6075621c08b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Interfaces\Sound">
-      <UniqueIdentifier>{511885d9-ce11-40c1-877f-1a72abc11612}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Interfaces\Input">
       <UniqueIdentifier>{cd2f2ccb-8ccf-471a-9efb-e4075225deb8}</UniqueIdentifier>
     </Filter>
@@ -21,9 +18,6 @@
     </Filter>
     <Filter Include="Interfaces\Render">
       <UniqueIdentifier>{3ad70310-44dc-4d06-93c0-de954076362a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Interfaces\SPATIAL">
-      <UniqueIdentifier>{08ec2b1a-7c99-48ca-8b14-014398ab34a4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Interfaces\Collidable">
       <UniqueIdentifier>{4e5cfb84-2dd7-4795-9706-97f6783987e9}</UniqueIdentifier>
@@ -136,6 +130,9 @@
     <Filter Include="Engine\Noise">
       <UniqueIdentifier>{ec0e71c1-1c8b-49c0-951e-ef12e4c9a74d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Interfaces\Spatial">
+      <UniqueIdentifier>{08ec2b1a-7c99-48ca-8b14-014398ab34a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="_d3d_extensions.h">
@@ -159,9 +156,6 @@
     <ClInclude Include="resource.h">
       <Filter>General\Resources</Filter>
     </ClInclude>
-    <ClInclude Include="psystem.h">
-      <Filter>Interfaces</Filter>
-    </ClInclude>
     <ClInclude Include="IInputReceiver.h">
       <Filter>Interfaces\Input</Filter>
     </ClInclude>
@@ -184,7 +178,7 @@
       <Filter>Interfaces\Render</Filter>
     </ClInclude>
     <ClInclude Include="ISpatial.h">
-      <Filter>Interfaces\SPATIAL</Filter>
+      <Filter>Interfaces\Spatial</Filter>
     </ClInclude>
     <ClInclude Include="ICollidable.h">
       <Filter>Interfaces\Collidable</Filter>
@@ -528,19 +522,19 @@
       <Filter>Interfaces\Render</Filter>
     </ClCompile>
     <ClCompile Include="ISpatial.cpp">
-      <Filter>Interfaces\SPATIAL</Filter>
+      <Filter>Interfaces\Spatial</Filter>
     </ClCompile>
     <ClCompile Include="ISpatial_q_box.cpp">
-      <Filter>Interfaces\SPATIAL</Filter>
+      <Filter>Interfaces\Spatial</Filter>
     </ClCompile>
     <ClCompile Include="ISpatial_q_frustum.cpp">
-      <Filter>Interfaces\SPATIAL</Filter>
+      <Filter>Interfaces\Spatial</Filter>
     </ClCompile>
     <ClCompile Include="ISpatial_q_ray.cpp">
-      <Filter>Interfaces\SPATIAL</Filter>
+      <Filter>Interfaces\Spatial</Filter>
     </ClCompile>
     <ClCompile Include="ISpatial_verify.cpp">
-      <Filter>Interfaces\SPATIAL</Filter>
+      <Filter>Interfaces\Spatial</Filter>
     </ClCompile>
     <ClCompile Include="ICollidable.cpp">
       <Filter>Interfaces\Collidable</Filter>

@@ -28,5 +28,4 @@ struct	MSYS_PING
 	u32			dwTime_ClientReceive;
 };
 
-
 #pragma pack(pop)

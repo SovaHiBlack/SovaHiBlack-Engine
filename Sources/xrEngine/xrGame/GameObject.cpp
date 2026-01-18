@@ -611,13 +611,13 @@ void			CGameObject::dbg_DrawSkeleton	()
 		if (!I->valid())		continue;
 		switch (I->type){
 			case SBoneShape::stBox:{
-				Fmatrix M;
+				fMatrix4x4 M;
 				M.invert			(I->b_IM);
 				fVector3 h_size		= I->b_hsize;
 				Level().debug_renderer().draw_obb	(M, h_size, color_rgba(0, 255, 0, 255));
 								   }break;
 			case SBoneShape::stCylinder:{
-				Fmatrix M;
+				fMatrix4x4 M;
 				M.c.set				(I->c_cylinder.m_center);
 				M.k.set				(I->c_cylinder.m_direction);
 				fVector3				h_size;
@@ -626,7 +626,7 @@ void			CGameObject::dbg_DrawSkeleton	()
 				Level().debug_renderer().draw_obb	(M, h_size, color_rgba(0, 127, 255, 255));
 										}break;
 			case SBoneShape::stSphere:{
-				Fmatrix				l_ball;
+				fMatrix4x4				l_ball;
 				l_ball.scale		(I->s_sphere.R, I->s_sphere.R, I->s_sphere.R);
 				l_ball.translate_add(I->s_sphere.P);
 				Level().debug_renderer().draw_ellipse(l_ball, color_rgba(0, 255, 0, 255));
@@ -700,7 +700,8 @@ void CGameObject::OnRender()
 		fVector3 bc;
 		fVector3 bd;
 		Visual()->vis.box.get_CD	(bc,bd);
-		Fmatrix	M = XFORM();		M.c.add (bc);
+		fMatrix4x4	M = XFORM();
+		M.c.add (bc);
 		Level().debug_renderer().draw_obb			(M,bd,color_rgba(0,0,255,255));
 	}	
 }

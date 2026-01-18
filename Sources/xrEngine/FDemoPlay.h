@@ -13,10 +13,10 @@ struct	SAnimParams;
 // class
 class ENGINE_API CDemoPlay :	public CEffectorCam
 {
-    COMotion*			m_pMotion			;
-    SAnimParams*		m_MParam			;
+	COMotion*			m_pMotion			;
+	SAnimParams*		m_MParam			;
 
-	xr_vector<Fmatrix>	seq					;
+	xr_vector<fMatrix4x4>	seq					;
 	int					m_count				;
 	float				fStartTime			;
 	float				fSpeed				;

@@ -167,7 +167,7 @@ void CFrustum::CreateFromPlanes(Fplane* p, int count){
 	p_count = count;
 }
 
-void CFrustum::CreateFromPortal(sPoly* poly, fVector3& vPN, fVector3& vBase, Fmatrix& mFullXFORM)
+void CFrustum::CreateFromPortal(sPoly* poly, fVector3& vPN, fVector3& vBase, fMatrix4x4& mFullXFORM)
 {
 	Fplane	P;
 	P.build_precise	((*poly)[0],(*poly)[1],(*poly)[2]);
@@ -192,7 +192,7 @@ void CFrustum::CreateFromPortal(sPoly* poly, fVector3& vPN, fVector3& vBase, Fma
 	_add		(P);
 
 	// Far clipping plane
-	Fmatrix &M	= mFullXFORM;
+	fMatrix4x4& M	= mFullXFORM;
 	P.n.x		= -(M._14 - M._13);
 	P.n.y		= -(M._24 - M._23);
 	P.n.z		= -(M._34 - M._33);
@@ -207,7 +207,8 @@ void CFrustum::CreateFromPortal(sPoly* poly, fVector3& vPN, fVector3& vBase, Fma
 
 void CFrustum::SimplifyPoly_AABB(sPoly* poly, Fplane& plane)
 {
-	Fmatrix		mView,mInv;
+	fMatrix4x4	mView;
+	fMatrix4x4	mInv;
 	fVector3	from;
 	fVector3	up;
 	fVector3	right;
@@ -366,7 +367,7 @@ BOOL CFrustum::CreateFromClipPoly(fVector3* p, int count, fVector3& vBase, CFrus
 	return	true;
 }
 
-void CFrustum::CreateFromMatrix(Fmatrix &M, u32 mask)
+void CFrustum::CreateFromMatrix(fMatrix4x4& M, u32 mask)
 {
 	VERIFY			(_valid(M));
 	p_count			= 0;

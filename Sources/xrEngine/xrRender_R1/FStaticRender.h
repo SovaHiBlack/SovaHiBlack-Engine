@@ -71,13 +71,14 @@ public:
 	CRenderTarget*												Target;			// Render-target
 
 	// R1-specific global constants
-	Fmatrix														r1_dlight_tcgen			;
+	fMatrix4x4														r1_dlight_tcgen			;
 	light*														r1_dlight_light			;
 	float														r1_dlight_scale			;
 	cl_light_PR													r1_dlight_binder_PR		;
 	cl_light_C													r1_dlight_binder_color	;
 	cl_light_XFORM												r1_dlight_binder_xform	;
 	shared_str													c_ldynamic_props		;
+
 private:
 	// Loading / Unloading
 	void								LoadBuffers				(CStreamReader	*fs);
@@ -151,7 +152,7 @@ public:
 	virtual void					add_StaticWallmark		(ref_shader& S, const fVector3& P, float s, CDB::TRI* T, fVector3* V);
 	virtual void					clear_static_wallmarks	();
 	virtual void					add_SkeletonWallmark	(intrusive_ptr<CSkeletonWallmark> wm);
-	virtual void					add_SkeletonWallmark	(const Fmatrix* xf, CKinematics* obj, ref_shader& sh, const fVector3& start, const fVector3& dir, float size);
+	virtual void					add_SkeletonWallmark	(const fMatrix4x4* xf, CKinematics* obj, ref_shader& sh, const fVector3& start, const fVector3& dir, float size);
 	
 	//
 	virtual IBlender*				blender_create			(CLASS_ID cls);

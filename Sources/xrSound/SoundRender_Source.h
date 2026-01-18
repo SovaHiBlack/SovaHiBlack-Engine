@@ -2,7 +2,7 @@
 #define SoundRender_SourceH
 #pragma once
 
-#include "soundrender_cache.h"
+#include "SoundRender_Cache.h"
 
 // refs
 struct OggVorbis_File;
@@ -23,10 +23,12 @@ public:
 	float					m_fMaxDist;
 	float					m_fMaxAIDist;
 	u32						m_uGameType;
+
 private:
 	void 					i_decompress_fr			(OggVorbis_File* ovf, char* dest, u32 size);    
 	void 					i_decompress_hr			(OggVorbis_File* ovf, char* dest, u32 size);
 	void					LoadWave 				(LPCSTR name);
+
 public:
 							CSoundRender_Source		();
 							~CSoundRender_Source	();

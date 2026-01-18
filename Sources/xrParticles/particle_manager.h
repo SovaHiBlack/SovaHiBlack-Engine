@@ -33,7 +33,7 @@ namespace PAPI{
 		// update&render
 		virtual void				Update				(int effect_id, int alist_id, float dt);
 		virtual void				Render				(int effect_id);
-		virtual void				Transform			(int alist_id, const Fmatrix& m, const fVector3& velocity);
+		virtual void				Transform			(int alist_id, const fMatrix4x4& m, const fVector3& velocity);
 
 		// effect
 		virtual void				RemoveParticle		(int effect_id, u32 p_id);

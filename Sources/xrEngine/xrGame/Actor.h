@@ -35,11 +35,11 @@ class CHolderCustom;
 class CUsableScriptObject;
 
 struct SSleepEffector;
-class  CSleepEffectorPP;
+class CSleepEffectorPP;
 class CInventoryBox;
 
-class	CHudItem;
-class   CArtefact;
+class CHudItem;
+class CArtefact;
 
 struct SActorMotions;
 struct SActorVehicleAnims;
@@ -683,8 +683,8 @@ protected:
 	//////////////////////////////////////////////////////////////////////////
 public:
 	void			g_Physics(fVector3& accel, f32 jump, f32 dt);
-	virtual void			ForceTransform(const Fmatrix& m);
-	void			SetPhPosition(const Fmatrix& pos);
+	virtual void			ForceTransform(const fMatrix4x4& m);
+	void			SetPhPosition(const fMatrix4x4& pos);
 	virtual void			PH_B_CrPr( ); // actions & operations before physic correction-prediction steps
 	virtual void			PH_I_CrPr( ); // actions & operations after correction before prediction steps
 	virtual void			PH_A_CrPr( ); // actions & operations after phisic correction-prediction steps

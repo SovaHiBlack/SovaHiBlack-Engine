@@ -43,6 +43,7 @@ class XRNETSERVER_API IClientStatistic
 	u32					mps_send,	mps_send_base;
 	u32					dwBaseTime;
 	CTimer*				device_timer;
+
 public:
 			IClientStatistic	(CTimer* timer){ ZeroMemory(this,sizeof(*this)); device_timer=timer; dwBaseTime=TimeGlobal(device_timer); }
 
@@ -62,4 +63,3 @@ public:
 	u32		dwBytesSended;
 	u32		dwBytesPerSec;
 };
-

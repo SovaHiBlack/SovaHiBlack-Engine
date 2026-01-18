@@ -97,7 +97,7 @@ void game_cl_ArtefactHunt::Init ()
 						sprintf_s(ParticleStr, "teambase_particle_%d", RP_team);
 						if (pSettings->line_exist("artefacthunt_gamedata", ParticleStr))
 						{
-							Fmatrix			transform;
+							fMatrix4x4			transform;
 							transform.identity();
 							transform.setXYZ(R.A);
 							transform.translate_over(R.P);

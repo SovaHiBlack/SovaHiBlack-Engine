@@ -198,7 +198,7 @@ void	CPHAICharacter::OnRender()
 
 	fVector3 scale;
 	scale.set(0.35f,0.35f,0.35f);
-	Fmatrix M;
+	fMatrix4x4 M;
 	M.identity();
 	M.scale(scale);
 	M.c.set(pos);

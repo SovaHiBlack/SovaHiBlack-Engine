@@ -25,10 +25,10 @@ public:
 	IC		void	render			();
 
 public:
-	IC		void	draw_line		(const Fmatrix &matrix, const fVector3& vertex0, const fVector3& vertex1, const u32 &color);
+	IC		void	draw_line		(const fMatrix4x4& matrix, const fVector3& vertex0, const fVector3& vertex1, const u32 &color);
 	IC		void	draw_aabb		(const fVector3& center, const float &half_radius_x, const float &half_radius_y, const float &half_radius_z, const u32 &color);
-			void	draw_obb		(const Fmatrix &matrix, const fVector3& half_size, const u32 &color);
-			void	draw_ellipse	(const Fmatrix &matrix, const u32 &color);
+			void	draw_obb		(const fMatrix4x4& matrix, const fVector3& half_size, const u32 &color);
+			void	draw_ellipse	(const fMatrix4x4& matrix, const u32 &color);
 };
 
 #include "debug_renderer_inline.h"

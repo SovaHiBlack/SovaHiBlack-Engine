@@ -1223,7 +1223,8 @@ void game_sv_ArtefactHunt::OnRender				()
 {
 	if (dbg_net_Draw_Flags.test(1<<9))
 	{
-		Fmatrix T; T.identity();
+		fMatrix4x4 T;
+		T.identity();
 		fVector3 V0;
 		fVector3 V1;
 		for (u32 i=0; i<Artefact_rpoints.size(); i++)

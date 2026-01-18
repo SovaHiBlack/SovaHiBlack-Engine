@@ -2,8 +2,8 @@
 #define SoundRender_TargetDH
 #pragma once
 
-#include "soundrender_Target.h"
-#include "soundrender_CoreD.h"
+#include "SoundRender_Target.h"
+#include "SoundRender_CoreD.h"
 
 class CSoundRender_TargetD: public CSoundRender_Target
 {
@@ -21,9 +21,11 @@ class CSoundRender_TargetD: public CSoundRender_Target
 	s32							cache_hw_volume;
 	s32							cache_hw_freq;
 	u32							pos_write;		// bytes
+
 private:
 	void						fill_block				();
 	u32							calc_interval			(u32 ptr);
+
 public:
 								CSoundRender_TargetD	();
 	virtual 					~CSoundRender_TargetD	();

@@ -9,7 +9,7 @@ enum EBoxSideNearestPointCode
 	on_edge			,
 	on_vertex
 };
-EBoxSideNearestPointCode GetNearestPointOnOBBSide(const Fmatrix &xform,const fVector3& center,const fVector3 &sides,u16 side,const fVector3& p,fVector3& point)
+EBoxSideNearestPointCode GetNearestPointOnOBBSide(const fMatrix4x4& xform,const fVector3& center,const fVector3 &sides,u16 side,const fVector3& p,fVector3& point)
 {
 	//to plane dist
 	const fVector3& norm=xform[side];

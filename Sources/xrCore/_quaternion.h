@@ -171,7 +171,7 @@ public:
 	IC	SelfRef	set(SelfCRef Q)				// don't normalize
 	{	set(Q.w, Q.x, Q.y, Q.z);	return *this; }
 
-	IC SelfRef	set(const _matrix<T>& m);
+	IC SelfRef	set(const _matrix4x4<T>& m);
 
 	// multiplies q1 * q2, and places the result in *this.
 	// no failure. 	renormalization not automatic

@@ -76,7 +76,7 @@ public:
 	virtual	void			StartFlying				();
 	virtual	void			StopFlying				();
 
-	virtual	void			SetLaunchParams			(const Fmatrix& xform, 
+	virtual	void			SetLaunchParams			(const fMatrix4x4& xform,
 													 const fVector3& vel,
 													 const fVector3& angular_vel);
 
@@ -88,9 +88,9 @@ protected:
 
 	SRoketContact			m_contact;
 	//параметры которые задаются RocketLauncher-ом перед пуском
-	Fmatrix					m_LaunchXForm;
-	fVector3					m_vLaunchVelocity;
-	fVector3					m_vLaunchAngularVelocity;
+	fMatrix4x4				m_LaunchXForm;
+	fVector3				m_vLaunchVelocity;
+	fVector3				m_vLaunchAngularVelocity;
 
 	enum ERocketState{
 		eInactive,		//ракета неактивна и находиться в инвентаре

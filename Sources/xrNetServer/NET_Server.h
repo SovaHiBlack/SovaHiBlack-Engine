@@ -3,7 +3,6 @@
 #include "net_shared.h"
 #include "NET_Common.h"
 
-
 struct SClientConnectData
 {
 	ClientID		clientID;
@@ -46,8 +45,7 @@ struct XRNETSERVER_API ip_address
 	}
 };
 
-class XRNETSERVER_API 
-IClient		: public MultipacketSender
+class XRNETSERVER_API IClient		: public MultipacketSender
 {
 public:
 	struct Flags
@@ -82,7 +80,6 @@ private:
 	virtual void    _SendTo_LL( const void* data, u32 size, u32 flags, u32 timeout );
 };
 
-
 IC bool operator== (IClient const* pClient, ClientID const& ID) { return pClient->ID == ID; }
 
 class XRNETSERVER_API IServerStatistic
@@ -106,7 +103,6 @@ public:
 	u32		dwBytesPerSec;
 };
 
-
 class XRNETSERVER_API IBannedClient
 {
 public:
@@ -124,13 +120,10 @@ public:
 	xr_string			BannedTimeTo() const;
 };
 
-
 //==============================================================================
 class CServerInfo;
 
-class XRNETSERVER_API 
-IPureServer
-  : private MultipacketReciever
+class XRNETSERVER_API IPureServer : private MultipacketReciever
 {
 public:
 	enum EConnect
@@ -154,7 +147,6 @@ protected:
 	IClient*				SV_Client;
 
 	int						psNET_Port;	
-	
 
 	xr_vector<IBannedClient*>		BannedAddresses;
 
@@ -180,6 +172,7 @@ protected:
 			LPCSTR			GetBannedListName	();
 
 			void			UpdateBannedList	();
+
 public:
 							IPureServer			(CTimer* timer, BOOL Dedicated = FALSE);
 	virtual					~IPureServer		();
@@ -239,7 +232,6 @@ public:
 	const shared_str&		GetConnectOptions	() const {return connect_options;}
 
 private:
-
 	virtual void    _Recieve( const void* data, u32 data_size, u32 param );
 };
 

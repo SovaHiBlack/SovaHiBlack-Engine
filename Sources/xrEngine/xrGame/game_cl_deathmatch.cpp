@@ -930,7 +930,7 @@ void game_cl_Deathmatch::PlayParticleEffect(LPCSTR EffName, fVector3& pos)
 {
 	if (!EffName) return;
 	// вычислить позицию и направленность партикла
-	Fmatrix M; 
+	fMatrix4x4 M;
 	M.translate(pos);
 
 //	CParticlesPlayer::MakeXFORM(pObj,0,fVector3().set(0.f,1.f,0.f),fVector3().set(0.f,0.f,0.f),pos);

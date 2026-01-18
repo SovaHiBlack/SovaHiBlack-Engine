@@ -6,8 +6,6 @@
 
 #pragma pack(push,1)
 
-
-
 //for presentation
 const	u32			NET_PacketSizeLimit	= 8192; //16384;//8192;
 // const	u32			NET_PacketSizeLimit	= 16384; 
@@ -21,16 +19,16 @@ struct	NET_Buffer
 class	NET_Packet
 {
 public:
-
-    void            construct( const void* data, unsigned size )
-                    {
-                        memcpy( B.data, data, size );
-                        B.count = size;
-                    }
-                    
+	void            construct( const void* data, unsigned size )
+					{
+						memcpy( B.data, data, size );
+						B.count = size;
+					}
+					
 	NET_Buffer		B;
 	u32				r_pos;
 	u32				timeReceive;
+
 public:
 	// writing - main
 	IC void write_start(){
@@ -108,10 +106,10 @@ public:
 	}
 	IC void w_stringZ			( shared_str& p )
 	{
-    	if (*p)	w(*p,(u32)xr_strlen(p)+1);
-        else	w_u8(0);
+		if (*p)	w(*p,(u32)xr_strlen(p)+1);
+		else	w_u8(0);
 	}
-	IC void w_matrix			(Fmatrix& M)
+	IC void w_matrix			(fMatrix4x4& M)
 	{
 		w_vec3	(M.i);
 		w_vec3	(M.j);
@@ -253,7 +251,7 @@ public:
 		size_t	len		= xr_strlen(data);
 		r		(S,(u32)len+1);
 	}
-    
+	
 	IC void		r_stringZ		( xr_string& dest )
 	{
 		dest		= LPCSTR(&B.data[r_pos]);
@@ -261,12 +259,12 @@ public:
 	}
 
 	void 		r_stringZ		(shared_str& dest)
-    {
-        dest		= LPCSTR(&B.data[r_pos]);
-        r_advance	(dest.size()+1);
-    }
+	{
+		dest		= LPCSTR(&B.data[r_pos]);
+		r_advance	(dest.size()+1);
+	}
 
-	IC void		r_matrix		(Fmatrix& M)
+	IC void		r_matrix		(fMatrix4x4& M)
 	{
 		r_vec3	(M.i);	M._14_	= 0;
 		r_vec3	(M.j);	M._24_	= 0;
@@ -284,4 +282,3 @@ public:
 #pragma pack(pop)
 
 #endif /*_INCDEF_NETUTILS_H_*/
-

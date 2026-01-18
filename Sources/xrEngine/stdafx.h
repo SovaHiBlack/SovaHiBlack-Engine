@@ -36,7 +36,7 @@
 #include "device.h"
 #include "fs.h"
 #include "xrXRC.h"
-#include "../xrSound/sound.h"
+#include "../xrSound/Sound.h"
 
 extern ENGINE_API CInifile *pGameIni;
 

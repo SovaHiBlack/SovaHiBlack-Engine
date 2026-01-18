@@ -129,7 +129,7 @@ void CODEGeom::get_local_center_bt(fVector3& center)
 	}
 	center.set(*((const fVector3*)dGeomGetPosition(geom())));
 }
-void CODEGeom::get_local_form_bt(Fmatrix& form)
+void CODEGeom::get_local_form_bt(fMatrix4x4& form)
 {
 	PHDynamicData::DMXPStoFMX(dGeomGetRotation(geom()),dGeomGetPosition(geom()),form);
 }
@@ -142,7 +142,7 @@ void CODEGeom::get_global_center_bt(fVector3& center)
 	center.y += add[1];
 	center.z += add[2];
 }
-void CODEGeom::get_global_form_bt(Fmatrix& form)
+void CODEGeom::get_global_form_bt(fMatrix4x4& form)
 {
 	dMULTIPLY0_331 ((dReal*)(&form.c),dGeomGetRotation(m_geom_transform),dGeomGetPosition(geom()));
 	form.c.add(*((const fVector3*)dGeomGetPosition(m_geom_transform)));
@@ -150,7 +150,7 @@ void CODEGeom::get_global_form_bt(Fmatrix& form)
 	//PHDynamicData::DMXtoFMX((dReal*)(&form),form);
 }
 
-void CODEGeom::set_static_ref_form(const Fmatrix& form)
+void CODEGeom::set_static_ref_form(const fMatrix4x4& form)
 {
 	dGeomSetPosition(geometry_transform(),form.c.x,form.c.y,form.c.z);
 	Fmatrix33 m33;
@@ -322,9 +322,9 @@ void CODEGeom::set_ph_object(CPHObject* o)
 		dGeomGetUserData(m_geom_transform)->ph_object=o;
 	}
 }
-void CODEGeom::move_local_basis(const Fmatrix& inv_new_mul_old)
+void CODEGeom::move_local_basis(const fMatrix4x4& inv_new_mul_old)
 {
-	Fmatrix new_form;
+	fMatrix4x4 new_form;
 	get_local_form		(new_form);
 	new_form.mulA_43	(inv_new_mul_old);
 	set_local_form		(new_form);
@@ -463,7 +463,7 @@ const fVector3& CBoxGeom::local_center()
 	return m_box.m_translate;
 }
 
-void CBoxGeom::get_local_form(Fmatrix& form)
+void CBoxGeom::get_local_form(fMatrix4x4& form)
 {
 	form._14=0;
 	form._24=0;
@@ -474,7 +474,7 @@ void CBoxGeom::get_local_form(Fmatrix& form)
 	form.k.set(m_box.m_rotate.k);
 	form.c.set(m_box.m_translate);
 }
-void CBoxGeom::set_local_form(const Fmatrix& form)
+void CBoxGeom::set_local_form(const fMatrix4x4& form)
 {
 	m_box.m_rotate.i.set(form.i);
 	m_box.m_rotate.j.set(form.j);
@@ -544,12 +544,12 @@ const fVector3& CSphereGeom::local_center()
 	return m_sphere.P;
 }
 
-void CSphereGeom::get_local_form(Fmatrix& form)
+void CSphereGeom::get_local_form(fMatrix4x4& form)
 {
 	form.identity();
 	form.c.set(m_sphere.P);
 }
-void CSphereGeom::set_local_form(const Fmatrix& form)
+void CSphereGeom::set_local_form(const fMatrix4x4& form)
 {
 	m_sphere.P.set(form.c);
 }
@@ -611,7 +611,7 @@ const fVector3& CCylinderGeom::local_center()
 	return m_cylinder.m_center;
 }
 
-void CCylinderGeom::get_local_form(Fmatrix& form)
+void CCylinderGeom::get_local_form(fMatrix4x4& form)
 {
 	form._14=0;
 	form._24=0;
@@ -621,7 +621,7 @@ void CCylinderGeom::get_local_form(Fmatrix& form)
 	fVector3::generate_orthonormal_basis(form.j,form.k,form.i);
 	form.c.set(m_cylinder.m_center);
 }
-void CCylinderGeom::set_local_form(const Fmatrix& form)
+void CCylinderGeom::set_local_form(const fMatrix4x4& form)
 {
 	m_cylinder.m_center.set(form.c);
 	m_cylinder.m_direction.set(form.j);

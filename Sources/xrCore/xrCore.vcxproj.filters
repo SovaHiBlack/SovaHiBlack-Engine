@@ -294,10 +294,10 @@
     <ClInclude Include="_math.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="_matrix.h">
+    <ClInclude Include="_matrix4x4.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="_matrix33.h">
+    <ClInclude Include="_matrix3x3.h">
       <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="_obb.h">

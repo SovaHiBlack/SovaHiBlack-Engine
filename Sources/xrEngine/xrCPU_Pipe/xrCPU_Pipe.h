@@ -11,8 +11,8 @@ struct	ENGINE_API	CKey;
 struct	ENGINE_API	CKeyQR;
 struct	ENGINE_API	CKeyQT;
 
-template<class T>	struct _matrix;
-#define MATRIX		_matrix<float>
+template<class T>	class _matrix4x4;
+#define MATRIX		_matrix4x4<float>
 
 // Skinning processor specific functions
 // NOTE: Destination memory is uncacheble write-combining (AGP), so avoid non-linear writes

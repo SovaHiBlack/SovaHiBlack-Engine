@@ -69,7 +69,7 @@ void CParticleEffect::RefreshShader()
 	OnDeviceCreate();
 }
 
-void CParticleEffect::UpdateParent(const Fmatrix& m, const fVector3& velocity, BOOL bXFORM)
+void CParticleEffect::UpdateParent(const fMatrix4x4& m, const fVector3& velocity, BOOL bXFORM)
 {
 	m_RT_Flags.set			(flRT_XFORM, bXFORM);
 	if (bXFORM)				m_XFORM.set	(m);
@@ -286,7 +286,7 @@ void CParticleEffect::Render(float )
 				if (m_Def->m_Flags.is(CPEDef::dfAlignToPath)){
 					float speed	= m.vel.magnitude();
 					if ((speed<EPS_S)&&m_Def->m_Flags.is(CPEDef::dfWorldAlign)){
-						Fmatrix	M;  	
+						fMatrix4x4	M;
 						M.setXYZ			(m_Def->m_APDefaultRotation);
 						if (m_RT_Flags.is(flRT_XFORM)){
 							fVector3 p;
@@ -297,7 +297,8 @@ void CParticleEffect::Render(float )
 							FillSprite		(pv,M.k,M.i,m.pos,lt,rb,r_x,r_y,m.color,m.rot.x);
 						}
 					}else if ((speed>=EPS_S)&&m_Def->m_Flags.is(CPEDef::dfFaceAlign)){
-						Fmatrix	M;  		M.identity();
+						fMatrix4x4	M;
+						M.identity();
 						M.k.div				(m.vel,speed);            
 						M.j.set 			(0,1,0);	if (_abs(M.j.dotproduct(M.k))>.99f)  M.j.set(0,0,1);
 						M.i.crossproduct	(M.j,M.k);	M.i.normalize	();

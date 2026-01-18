@@ -2,7 +2,7 @@
 #pragma hdrstop
 
 #include "noise.h"
- 
+
 //==============================================================================
 // Perlin's noise from Texturing and Modeling...
 #define B 256
@@ -171,4 +171,3 @@ float	turbulence3(const fVector3& v, float freq, int octaves)
 	}
 	return sum*boost;
 }
-

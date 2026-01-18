@@ -632,11 +632,11 @@ public:
 		}
 	}
 
-	ICF float getH( ) const
+	ICF f32 getH( ) const
 	{
 		if (fis_zero(x) && fis_zero(z))
 		{
-			return	0.0f;
+			return 0.0f;
 		}
 		else
 		{

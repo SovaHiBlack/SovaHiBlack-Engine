@@ -70,8 +70,8 @@ public:
 	void			CreateOccluder		(fVector3* p,	int count, fVector3& vBase, CFrustum& clip);
 	BOOL			CreateFromClipPoly	(fVector3* p,	int count, fVector3& vBase, CFrustum& clip);	// returns 'false' if creation failed
 	void			CreateFromPoints	(fVector3* p,	int count, fVector3& vBase );
-	void			CreateFromMatrix	(Fmatrix &M,	u32 mask);
-	void			CreateFromPortal	(sPoly* P, fVector3& vPN, fVector3& vBase, Fmatrix& mFullXFORM);
+	void			CreateFromMatrix	(fMatrix4x4& M,	u32 mask);
+	void			CreateFromPortal	(sPoly* P, fVector3& vPN, fVector3& vBase, fMatrix4x4& mFullXFORM);
 	void			CreateFromPlanes	(Fplane* p,		int count);
 
 	sPoly*			ClipPoly			(sPoly& src, sPoly& dest) const;

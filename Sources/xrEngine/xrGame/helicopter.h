@@ -163,8 +163,9 @@ public:
 
 	u16								m_left_rocket_bone, m_right_rocket_bone, m_fire_bone, m_rotate_x_bone, m_rotate_y_bone;
 
-	Fmatrix							m_fire_bone_xform;
-	Fmatrix							m_i_bind_x_xform, m_i_bind_y_xform;
+	fMatrix4x4						m_fire_bone_xform;
+	fMatrix4x4						m_i_bind_x_xform;
+	fMatrix4x4						m_i_bind_y_xform;
 	fVector2						m_lim_x_rot;
 	fVector2						m_lim_y_rot;
 	fVector2						m_tgt_rot;
@@ -180,14 +181,15 @@ public:
 	CCartridge						m_CurrentAmmo;
 	float							delta_t;
 	float							flag_by_fire;
-	Fmatrix							m_left_rocket_bone_xform, m_right_rocket_bone_xform;
+	fMatrix4x4						m_left_rocket_bone_xform;
+	fMatrix4x4						m_right_rocket_bone_xform;
 
 	static void 					BoneMGunCallbackX		(CBoneInstance *B);
 	static void						BoneMGunCallbackY		(CBoneInstance *B);
 	void							startRocket(u16 idx);
 
 	//CShootingObject
-	virtual const Fmatrix&			ParticlesXFORM		()const					{return m_fire_bone_xform;};
+	virtual const fMatrix4x4&		ParticlesXFORM		()const					{return m_fire_bone_xform;};
 
 	virtual const fVector3&			CurrentFirePoint	()						{return m_fire_pos;};
 
@@ -228,7 +230,7 @@ protected:
 	Fcolor							m_light_color;
 	shared_str						m_smoke_particle;
 	CParticlesObject*				m_pParticle;
-	Fmatrix							m_particleXFORM;
+	fMatrix4x4						m_particleXFORM;
 
 	void							StartFlame					();
 	void							UpdateHeliParticles			();
@@ -294,7 +296,7 @@ public:
 	virtual void					HitSignal			(float P, fVector3& local_dir,	CObject* who, s16 element){;}
 	virtual void					HitImpulse			(float P, fVector3& vWorldDir, fVector3& vLocalDir){;}
 	
-	virtual const Fmatrix&			get_ParticlesXFORM			();
+	virtual const fMatrix4x4&		get_ParticlesXFORM			();
 	virtual const fVector3&			get_CurrentFirePoint		();
 
 	virtual CGameObject				*cast_game_object			()	{return this;}

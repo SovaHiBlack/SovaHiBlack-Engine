@@ -109,7 +109,7 @@ ICF void calc_point(fVector3& pt, f32 radius, f32 depth, f32 alpha)
 	pt.z	= depth;
 }
 
-ICF BOOL test_point(xrXRC& xrc, const Fmatrix& xform, const Fmatrix33& mat, const fVector3& ext, f32 radius, f32 angle)
+ICF BOOL test_point(xrXRC& xrc, const fMatrix4x4& xform, const Fmatrix33& mat, const fVector3& ext, f32 radius, f32 angle)
 {
 	fVector3				pt;
 	calc_point			(pt,radius,VIEWPORT_NEAR/2,angle);
@@ -139,8 +139,9 @@ void CActor::cam_Update(f32 dt, f32 fFOV)
 	fVector3 point = {0.0f,CameraHeight( ),0.0f};
 	fVector3 dangle = {0.0f,0.0f,0.0f};
 
-	Fmatrix				xform,xformR;
-	xform.setXYZ		(0,r_torso.yaw,0);
+	fMatrix4x4			xform;
+	fMatrix4x4			xformR;
+	xform.setXYZ		(0.0f,r_torso.yaw,0.0f);
 	xform.translate_over(XFORM().c);
 
 	// lookout

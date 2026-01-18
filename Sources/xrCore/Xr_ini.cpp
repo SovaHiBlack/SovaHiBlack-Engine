@@ -18,8 +18,8 @@ bool sect_pred(const CInifile::Sect *x, LPCSTR val)
 
 bool item_pred(const CInifile::Item& x, LPCSTR val)
 {
-    if ((!x.first) || (!val))	return x.first<val;
-    else				   		return xr_strcmp(*x.first,val)<0;
+	if ((!x.first) || (!val))	return x.first<val;
+	else				   		return xr_strcmp(*x.first,val)<0;
 }
 
 //------------------------------------------------------------------------------
@@ -65,10 +65,10 @@ XRCORE_API void _decorate(LPSTR dest, LPCSTR src)
 BOOL	CInifile::Sect::line_exist( LPCSTR L, LPCSTR* val )
 {
 	SectCIt A = std::lower_bound(Data.begin(),Data.end(),L,item_pred);
-    if (A!=Data.end() && xr_strcmp(*A->first,L)==0){
-    	if (val) *val = *A->second;
-    	return TRUE;
-    }
+	if (A!=Data.end() && xr_strcmp(*A->first,L)==0){
+		if (val) *val = *A->second;
+		return TRUE;
+	}
 	return FALSE;
 }
 //------------------------------------------------------------------------------
@@ -84,18 +84,18 @@ CInifile::CInifile(IReader* F ,LPCSTR path)
 CInifile::CInifile(LPCSTR szFileName, BOOL ReadOnly, BOOL bLoad, BOOL SaveAtEnd)
 {
 	fName		= szFileName?xr_strdup(szFileName):0;
-    bReadOnly	= ReadOnly;
-    bSaveAtEnd	= SaveAtEnd;
+	bReadOnly	= ReadOnly;
+	bSaveAtEnd	= SaveAtEnd;
 	if (bLoad)
 	{	
-    	string_path	path,folder; 
+		string_path	path,folder; 
 		_splitpath	(fName, path, folder, 0, 0 );
-        strcat		(path,folder);
+		strcat		(path,folder);
 		IReader* R 	= FS.r_open(szFileName);
-        if (R){
+		if (R){
 			Load		(R,path);
 			FS.r_close	(R);
-        }
+		}
 	}
 }
 
@@ -155,19 +155,19 @@ void	CInifile::Load(IReader* F, LPCSTR path)
 #endif
 		}
 
-        if (str[0] && (str[0]=='#') && strstr(str,"#include")){
-        	string64	inc_name;	
+		if (str[0] && (str[0]=='#') && strstr(str,"#include")){
+			string64	inc_name;	
 			R_ASSERT	(path&&path[0]);
-        	if (_GetItem	(str,1,inc_name,'"')){
-            	string_path	fn,inc_path,folder;
-                strconcat	(sizeof(fn),fn,path,inc_name);
+			if (_GetItem	(str,1,inc_name,'"')){
+				string_path	fn,inc_path,folder;
+				strconcat	(sizeof(fn),fn,path,inc_name);
 				_splitpath	(fn,inc_path,folder, 0, 0 );
 				strcat		(inc_path,folder);
-            	IReader* I 	= FS.r_open(fn); R_ASSERT3(I,"Can't find include file:", inc_name);
-            	Load		(I,inc_path);
-                FS.r_close	(I);
-            }
-        }else if (str[0] && (str[0]=='[')){
+				IReader* I 	= FS.r_open(fn); R_ASSERT3(I,"Can't find include file:", inc_name);
+				Load		(I,inc_path);
+				FS.r_close	(I);
+			}
+		}else if (str[0] && (str[0]=='[')){
 			// insert previous filled section
 			if (Current){
 				RootIt I		= std::lower_bound(DATA.begin(),DATA.end(),*Current->Name,sect_pred);
@@ -241,64 +241,64 @@ void	CInifile::Load(IReader* F, LPCSTR path)
 bool	CInifile::save_as( LPCSTR new_fname )
 {
 	// save if needed
-    if (new_fname&&new_fname[0]){
-        xr_free			(fName);
-        fName			= xr_strdup(new_fname);
-    }
-    R_ASSERT			(fName&&fName[0]);
-    IWriter* F			= FS.w_open_ex(fName);
-    if (F){
-        string512		temp,val;
-        for (RootIt r_it=DATA.begin(); r_it!=DATA.end(); ++r_it)
+	if (new_fname&&new_fname[0]){
+		xr_free			(fName);
+		fName			= xr_strdup(new_fname);
+	}
+	R_ASSERT			(fName&&fName[0]);
+	IWriter* F			= FS.w_open_ex(fName);
+	if (F){
+		string512		temp,val;
+		for (RootIt r_it=DATA.begin(); r_it!=DATA.end(); ++r_it)
 		{
-            sprintf_s		(temp,sizeof(temp),"[%s]",*(*r_it)->Name);
-            F->w_string	(temp);
-            for (SectCIt s_it=(*r_it)->Data.begin(); s_it!=(*r_it)->Data.end(); ++s_it)
-            {
-                const Item&	I = *s_it;
-                if (*I.first) {
-                    if (*I.second) {
-                        _decorate	(val,*I.second);
+			sprintf_s		(temp,sizeof(temp),"[%s]",*(*r_it)->Name);
+			F->w_string	(temp);
+			for (SectCIt s_it=(*r_it)->Data.begin(); s_it!=(*r_it)->Data.end(); ++s_it)
+			{
+				const Item&	I = *s_it;
+				if (*I.first) {
+					if (*I.second) {
+						_decorate	(val,*I.second);
 #ifdef DEBUG
-                        if (*I.comment) {
-                            // name, value and comment
-                            sprintf_s	(temp,sizeof(temp),"%8s%-32s = %-32s ;%s"," ",*I.first,val,*I.comment);
-                        } else
+						if (*I.comment) {
+							// name, value and comment
+							sprintf_s	(temp,sizeof(temp),"%8s%-32s = %-32s ;%s"," ",*I.first,val,*I.comment);
+						} else
 #endif
 						{
-                            // only name and value
-                            sprintf_s	(temp,sizeof(temp),"%8s%-32s = %-32s"," ",*I.first,val);
-                        }
-                    } else {
+							// only name and value
+							sprintf_s	(temp,sizeof(temp),"%8s%-32s = %-32s"," ",*I.first,val);
+						}
+					} else {
 #ifdef DEBUG
-                        if (*I.comment) {
-                            // name and comment
-                            sprintf_s(temp,sizeof(temp),"%8s%-32s = ;%s"," ",*I.first,*I.comment);
-                        } else
+						if (*I.comment) {
+							// name and comment
+							sprintf_s(temp,sizeof(temp),"%8s%-32s = ;%s"," ",*I.first,*I.comment);
+						} else
 #endif
 						{
-                            // only name
-                            sprintf_s(temp,sizeof(temp),"%8s%-32s = "," ",*I.first);
-                        }
-                    }
-                } else {
-                    // no name, so no value
+							// only name
+							sprintf_s(temp,sizeof(temp),"%8s%-32s = "," ",*I.first);
+						}
+					}
+				} else {
+					// no name, so no value
 #ifdef DEBUG
-                    if (*I.comment)
+					if (*I.comment)
 						sprintf_s		(temp,sizeof(temp),"%8s;%s"," ",*I.comment);
-                    else
+					else
 #endif
 						temp[0]		= 0;
-                }
-                _TrimRight			(temp);
-                if (temp[0])		F->w_string	(temp);
-            }
-            F->w_string		(" ");
-        }
-        FS.w_close			(F);
-	    return true;
-    }
-    return false;
+				}
+				_TrimRight			(temp);
+				if (temp[0])		F->w_string	(temp);
+			}
+			F->w_string		(" ");
+		}
+		FS.w_close			(F);
+		return true;
+	}
+	return false;
 }
 
 BOOL	CInifile::section_exist( LPCSTR S )
@@ -465,7 +465,7 @@ BOOL	CInifile::r_bool( LPCSTR S, LPCSTR L )
 	char		B[8];
 	strncpy		(B,C,7);
 	strlwr		(B);
-    return 		IsBOOL(B);
+	return 		IsBOOL(B);
 }
 CLASS_ID CInifile::r_clsid( LPCSTR S, LPCSTR L)
 {
@@ -530,16 +530,16 @@ void	CInifile::w_string	( LPCSTR S, LPCSTR L, LPCSTR			V, LPCSTR comment)
 #endif
 	SectIt_	it		= std::lower_bound(data.Data.begin(),data.Data.end(),*I.first,item_pred);
 
-    if (it != data.Data.end()) {
-	    // Check for "first" matching
-    	if (0==xr_strcmp(*it->first,*I.first)) {
-            *it  = I;
-        } else {
+	if (it != data.Data.end()) {
+		// Check for "first" matching
+		if (0==xr_strcmp(*it->first,*I.first)) {
+			*it  = I;
+		} else {
 			data.Data.insert(it,I);
-        }
-    } else {
+		}
+	} else {
 		data.Data.insert(it,I);
-    }
+	}
 }
 void	CInifile::w_u8			( LPCSTR S, LPCSTR L, u8				V, LPCSTR comment )
 {
@@ -632,11 +632,11 @@ void	CInifile::remove_line	( LPCSTR S, LPCSTR L )
 {
 	R_ASSERT	(!bReadOnly);
 
-    if (line_exist(S,L)){
+	if (line_exist(S,L)){
 		Sect&	data	= r_section	(S);
 		SectIt_ A = std::lower_bound(data.Data.begin(),data.Data.end(),L,item_pred);
-    	R_ASSERT(A!=data.Data.end() && xr_strcmp(*A->first,L)==0);
-        data.Data.erase(A);
-    }
+		R_ASSERT(A!=data.Data.end() && xr_strcmp(*A->first,L)==0);
+		data.Data.erase(A);
+	}
 }
 

@@ -103,7 +103,7 @@ protected:
 
 public:
 	bool rsp,lsp,fwp,bkp,brp;
-	Fmatrix m_root_transform;
+	fMatrix4x4 m_root_transform;
 	fVector3 m_exit_position;
 
 	enum eStateDrive
@@ -233,7 +233,7 @@ virtual void ApplyDamage			(u16 level);
 	struct SExhaust
 	{
 		u16					bone_id;
-		Fmatrix				transform;
+		fMatrix4x4				transform;
 		//fVector3				velocity;
 		CParticlesObject*	p_pgobject;
 		CPhysicsElement*	pelement;
@@ -281,7 +281,7 @@ virtual void ApplyDamage			(u16 level);
 		fVector2		door_plane_ext;
 		_vector2<int>	door_plane_axes;
 		fVector3			door_dir_in_door;
-		Fmatrix			closed_door_form_in_object;
+		fMatrix4x4			closed_door_form_in_object;
 		void Use();
 		void Switch();
 		void Init();
@@ -395,7 +395,7 @@ private:
 	xr_map	  <u16,SDoor>	m_doors;
 	xr_vector <SDoor*>		m_doors_update;
 	xr_vector <fVector3>		m_gear_ratious;
-	xr_vector <Fmatrix>		m_sits_transforms;// m_sits_transforms[0] - driver_place
+	xr_vector <fMatrix4x4>		m_sits_transforms;// m_sits_transforms[0] - driver_place
 	float					m_current_gear_ratio;
 
 	/////////////////////////////////////////////////////////////

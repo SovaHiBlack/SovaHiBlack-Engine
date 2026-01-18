@@ -148,7 +148,7 @@ bool	CPHActivationShape::	Activate							(const fVector3 need_size,u16 steps,flo
 	if(ph_dbg_draw_mask.test(phDbgDrawDeathActivationBox))
 	{
 		DBG_OpenCashedDraw();
-		Fmatrix M;
+		fMatrix4x4 M;
 		PHDynamicData::DMXPStoFMX(dBodyGetRotation(m_body),dBodyGetPosition(m_body),M);
 		fVector3 v;
 		dGeomBoxGetLengths(m_geom,cast_fp(v));
@@ -234,7 +234,7 @@ bool	CPHActivationShape::	Activate							(const fVector3 need_size,u16 steps,flo
 	if(ph_dbg_draw_mask.test(phDbgDrawDeathActivationBox))
 	{
 		DBG_OpenCashedDraw();
-		Fmatrix M;
+		fMatrix4x4 M;
 		PHDynamicData::DMXPStoFMX(dBodyGetRotation(m_body),dBodyGetPosition(m_body),M);
 		fVector3 v;
 		v.set(need_size);
@@ -290,7 +290,7 @@ void CPHActivationShape::CutVelocity(float l_limit,float /*a_limit*/)
 	}
 }
 
-void	CPHActivationShape::		set_rotation						(const	Fmatrix	&sof)
+void	CPHActivationShape::		set_rotation						(const	fMatrix4x4& sof)
 {
 	dMatrix3 rot;PHDynamicData::FMXtoDMX(sof,rot);
 	dBodySetRotation(ODEBody(),rot);

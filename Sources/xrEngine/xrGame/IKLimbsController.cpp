@@ -50,9 +50,9 @@ public SEnumVerticesCallback
 {
 	fVector3& pos;
 	fVector3 start_pos;
-	const Fmatrix &i_bind_transform;
+	const fMatrix4x4& i_bind_transform;
 	const fVector3& ax;
-	envc( const Fmatrix &_i_bind_transform, const fVector3& _ax, fVector3& _pos ):
+	envc( const fMatrix4x4& _i_bind_transform, const fVector3& _ax, fVector3& _pos ):
 	SEnumVerticesCallback( ), i_bind_transform( _i_bind_transform ), ax( _ax ), pos( _pos ) { start_pos.set(0,0,0); }
 	void operator () (const fVector3& p)
 	{
@@ -67,9 +67,10 @@ public SEnumVerticesCallback
 void get_toe(CKinematics *skeleton, fVector3& toe, const u16 bones[4])
 {
 	VERIFY( skeleton );
-	xr_vector<Fmatrix> binds;
+	xr_vector<fMatrix4x4> binds;
 	skeleton->LL_GetBindTransform( binds );
-	Fmatrix ibind; ibind.invert( binds[ bones[3] ] );
+	fMatrix4x4 ibind;
+	ibind.invert( binds[ bones[3] ] );
 	fVector3 ax;
 	fVector3 pos;
 	pos.set( 0.0f, 0.0f, 0.0f);
@@ -78,7 +79,7 @@ void get_toe(CKinematics *skeleton, fVector3& toe, const u16 bones[4])
 	skeleton->EnumBoneVertices( pred, bones[3] );
 
 	binds[ bones[3] ].transform_tiny( pos );
-	Fmatrix( ).invert(  binds[ bones[2] ]  ).transform_tiny( pos );
+	fMatrix4x4( ).invert(  binds[ bones[2] ]  ).transform_tiny( pos );
 	
 	toe.set( pos );
 	
@@ -121,7 +122,7 @@ void CIKLimbsController::Calculate( )
 {
 	update_blend( m_legs_blend );
 	CKinematicsAnimated *skeleton_animated = m_object->Visual()->dcast_PKinematicsAnimated( );
-	const Fmatrix &obj = m_object->XFORM( );
+	const fMatrix4x4& obj = m_object->XFORM( );
 	VERIFY( skeleton_animated );
 
 	{

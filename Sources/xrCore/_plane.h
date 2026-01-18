@@ -125,7 +125,7 @@ public:
 
 		return true;
 	}
-	IC	SelfRef	transform(_matrix<T>& M)
+	IC	SelfRef	transform(_matrix4x4<T>& M)
 	{
 		// rotate the normal
 		M.transform_dir		(n);

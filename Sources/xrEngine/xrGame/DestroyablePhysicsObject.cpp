@@ -103,15 +103,16 @@ void CDestroyablePhysicsObject::Destroy()
 	if(*m_destroy_particles)
 	{		
 			//fVector3 dir;dir.set(0,1,0);
-		Fmatrix m;m.identity();
+		fMatrix4x4 m;
+		m.identity();
 		/////////////////////////////////////////////////
-		m.j.set(0,1.f,0);
+		m.j.set(0.0f,1.0f,0.0f);
 		///////////////////////////////////////////////
 
 		fVector3 hdir;
 		hdir.set(CPHDestroyable::FatalHit().direction());
 
-		if(fsimilar(_abs(m.j.dotproduct(hdir)),1.f, EPS_3))
+		if(fsimilar(_abs(m.j.dotproduct(hdir)),1.0f, EPS_3))
 		{
 			do {
 				hdir.random_dir();

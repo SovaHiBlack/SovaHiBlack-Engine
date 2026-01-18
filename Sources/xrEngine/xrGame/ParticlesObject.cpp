@@ -132,7 +132,8 @@ void CParticlesObject::play_at_pos(const fVector3& pos, BOOL xform)
 	if(g_dedicated_server)		return;
 
 	IParticleCustom* V			= smart_cast<IParticleCustom*>(renderable.visual); VERIFY(V);
-	Fmatrix m; m.translate		(pos); 
+	fMatrix4x4 m;
+	m.translate		(pos);
 	V->UpdateParent				(m,zero_vel,xform);
 	V->Play						();
 	dwLastTime					= Device.dwTimeGlobal-33ul;
@@ -198,7 +199,7 @@ void CParticlesObject::PerformAllTheWork_mt()
 	mt_dt					= 0;
 }
 
-void CParticlesObject::SetXFORM			(const Fmatrix& m)
+void CParticlesObject::SetXFORM			(const fMatrix4x4& m)
 {
 	if(g_dedicated_server)		return;
 
@@ -208,7 +209,7 @@ void CParticlesObject::SetXFORM			(const Fmatrix& m)
 	UpdateSpatial		();
 }
 
-void CParticlesObject::UpdateParent		(const Fmatrix& m, const fVector3& vel)
+void CParticlesObject::UpdateParent		(const fMatrix4x4& m, const fVector3& vel)
 {
 	if(g_dedicated_server)		return;
 

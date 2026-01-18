@@ -255,7 +255,7 @@ NULL:*mtl_pair->CollideParticles[::Random.randI(0,mtl_pair->CollideParticles.siz
 
 	if( (ps_name && ShowMark) || (bullet->flags.explosive && bStatic) )
 	{
-		Fmatrix pos;
+		fMatrix4x4 pos;
 		pos.k.normalize(particle_dir);
 		fVector3::generate_orthonormal_basis(pos.k, pos.j, pos.i);
 		pos.c.set(vEnd);
@@ -311,7 +311,7 @@ void CBulletManager::DynamicObjectHit	(CBulletManager::_event& E)
 	//вычислить координаты попадания
 	fVector3			p_in_object_space;
 	fVector3			position_in_bone_space;
-	Fmatrix				m_inv;
+	fMatrix4x4				m_inv;
 	m_inv.invert		(E.R.O->XFORM());
 	m_inv.transform_tiny(p_in_object_space, E.point);
 
@@ -321,8 +321,8 @@ void CBulletManager::DynamicObjectHit	(CBulletManager::_event& E)
 	if(V)
 	{
 		VERIFY3(V->LL_GetBoneVisible(u16(E.R.element)),*E.R.O->cNameVisual(),V->LL_BoneName_dbg(u16(E.R.element)));
-		Fmatrix& m_bone = (V->LL_GetBoneInstance(u16(E.R.element))).mTransform;
-		Fmatrix  m_inv_bone;
+		fMatrix4x4& m_bone = (V->LL_GetBoneInstance(u16(E.R.element))).mTransform;
+		fMatrix4x4 m_inv_bone;
 		m_inv_bone.invert(m_bone);
 		m_inv_bone.transform_tiny(position_in_bone_space, p_in_object_space);
 	}
@@ -344,8 +344,8 @@ void CBulletManager::DynamicObjectHit	(CBulletManager::_event& E)
 			{
 				Game().m_WeaponUsageStatistic->OnBullet_Hit(&E.bullet, E.R.O->ID(), (s16)E.R.element, E.point);
 				AddStatistic = true;
-			};
-		};
+			}
+		}
 /*		
 		NET_Packet		P;
 //		CGameObject::u_EventGen	(P,(AddStatistic)? GE_HIT_STATISTIC : GE_HIT,E.R.O->ID());

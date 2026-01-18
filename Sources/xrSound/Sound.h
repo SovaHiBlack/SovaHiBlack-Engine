@@ -198,16 +198,16 @@ public:
 class XRSOUND_API			CSound_emitter
 {
 public:
-	virtual BOOL					is_2D					()															= 0;
-	virtual void					switch_to_2D			()															= 0;
-	virtual void					switch_to_3D			()															= 0;
+	virtual BOOL					is_2D					( )															= 0;
+	virtual void					switch_to_2D			( )															= 0;
+	virtual void					switch_to_3D			( )															= 0;
 	virtual void					set_position			(const fVector3& pos)										= 0;
-	virtual void					set_frequency			(float freq)												= 0;
-	virtual void					set_range				(float min, float max)										= 0;
-	virtual void					set_volume				(float vol)													= 0;
-	virtual void					set_priority			(float vol)													= 0;
+	virtual void					set_frequency			(f32 freq)													= 0;
+	virtual void					set_range				(f32 min, f32 max)										= 0;
+	virtual void					set_volume				(f32 vol)													= 0;
+	virtual void					set_priority			(f32 vol)													= 0;
 	virtual void					stop					(BOOL bDeffered)											= 0;
-	virtual	const CSound_params*	get_params				( )															= 0;
+	virtual const CSound_params*	get_params				( )															= 0;
 	virtual u32						play_time				( )															= 0;
 };
 

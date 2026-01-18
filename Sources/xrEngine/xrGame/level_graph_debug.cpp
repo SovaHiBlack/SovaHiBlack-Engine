@@ -441,7 +441,7 @@ void CLevelGraph::draw_game_graph	()
 //	fVector3					camera_position = Level().CurrentEntity()->Position();
 //	CGameFont				*font = HUD().Font().pFontDI;
 
-	const Fmatrix			&xform = Level().CurrentEntity()->XFORM();
+	const fMatrix4x4&			xform = Level().CurrentEntity()->XFORM();
 	fVector3					center = fVector3().set(0.0f,5.0f,0.0f);
 	fVector3					bounds = fVector3().set(3.0f,0.0f,3.0f);
 

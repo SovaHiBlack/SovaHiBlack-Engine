@@ -26,10 +26,10 @@ void CSoundRender_Emitter::update	(float dt)
 		break;
 	case stStartingDelayed:
 		if (iPaused)		break;
-	    starting_delay		-= dt;
-    	if (starting_delay<=0) 
-        	state			= stStarting;
-    	break;
+		starting_delay		-= dt;
+		if (starting_delay<=0) 
+			state			= stStarting;
+		break;
 	case stStarting:
 		if (iPaused)		break;
 		dwTimeStarted		= dwTime;
@@ -49,10 +49,10 @@ void CSoundRender_Emitter::update	(float dt)
 		break;
 	case stStartingLoopedDelayed:
 		if (iPaused)		break;
-	    starting_delay		-= dt;
-    	if (starting_delay<=0) 
-	    	state			= stStartingLooped;
-    	break;
+		starting_delay		-= dt;
+		if (starting_delay<=0) 
+			state			= stStartingLooped;
+		break;
 	case stStartingLooped:
 		if (iPaused)		break;
 		dwTimeStarted		= dwTime;

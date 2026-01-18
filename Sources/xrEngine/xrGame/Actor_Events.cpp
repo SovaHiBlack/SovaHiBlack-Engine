@@ -247,7 +247,7 @@ void CActor::OnEvent		(NET_Packet& P, u16 type)
 
 void			CActor::MoveActor		(fVector3 NewPos, fVector3 NewDir)
 {
-	Fmatrix	M = XFORM();
+	fMatrix4x4	M = XFORM();
 	M.translate(NewPos);
 	r_model_yaw				= NewDir.y;
 	r_torso.yaw				= NewDir.y;

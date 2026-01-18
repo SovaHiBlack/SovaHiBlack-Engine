@@ -271,4 +271,3 @@ void CHUDTarget::Render()
 		HUDCrosshair.OnRender		();
 	}
 }
-

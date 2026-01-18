@@ -96,10 +96,10 @@ public:
 	fVector3								vCameraDirection;
 	fVector3								vCameraTop;
 	fVector3								vCameraRight;
-	Fmatrix									mView;
-	Fmatrix									mProject;
-	Fmatrix									mFullTransform;
-	Fmatrix									mInvFullTransform;
+	fMatrix4x4								mView;
+	fMatrix4x4								mProject;
+	fMatrix4x4								mFullTransform;
+	fMatrix4x4								mInvFullTransform;
 	float									fFOV;
 	float									fASPECT;
 	

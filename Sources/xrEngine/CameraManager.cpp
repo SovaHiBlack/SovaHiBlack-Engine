@@ -350,7 +350,7 @@ void CCameraManager::ResetPP()
 
 void CCameraManager::Dump()
 {
-	Fmatrix mInvCamera;
+	fMatrix4x4 mInvCamera;
 	fVector3 _R;
 	fVector3 _U;
 	fVector3 _T;

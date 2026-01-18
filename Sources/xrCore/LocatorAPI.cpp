@@ -626,10 +626,10 @@ void CLocatorAPI::_initialize	(u32 flags, LPCSTR target_folder, LPCSTR fs_name)
 			_GetItem			(temp,3,add,_delimiter);
 			_GetItem			(temp,4,def,_delimiter);
 			_GetItem			(temp,5,capt,_delimiter);
-			xr_strlwr			(id);			
-			
 
+			xr_strlwr			(id);
 			xr_strlwr			(root);
+
 			lp_add				=(cnt>=4)?xr_strlwr(add):0;
 			lp_def				=(cnt>=5)?def:0;
 			lp_capt				=(cnt>=6)?capt:0;

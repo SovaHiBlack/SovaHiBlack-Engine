@@ -43,11 +43,11 @@ BOOL CLevel::Load_GameSpecific_After()
 		CParticlesObject* pStaticParticles;
 		u32				chunk = 0;
 		string256		ref_name;
-		Fmatrix			transform;
+		fMatrix4x4			transform;
 		fVector3		zero_vel={0.0f,0.0f,0.0f};
 		for (IReader *OBJ = F->open_chunk_iterator(chunk); OBJ; OBJ = F->open_chunk_iterator(chunk,OBJ)) {
 			OBJ->r_stringZ				(ref_name,sizeof(ref_name));
-			OBJ->r						(&transform,sizeof(Fmatrix));transform.c.y+=0.01f;
+			OBJ->r						(&transform,sizeof(fMatrix4x4));transform.c.y+=0.01f;
 			pStaticParticles			= CParticlesObject::Create(ref_name,FALSE,false);
 			pStaticParticles->UpdateParent	(transform,zero_vel);
 			pStaticParticles->Play			();

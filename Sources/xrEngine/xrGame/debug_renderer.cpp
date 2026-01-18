@@ -39,14 +39,15 @@ void CDebugRenderer::add_lines		(const fVector3* vertices, const u16 *pairs, con
 	}
 }
 
-void CDebugRenderer::draw_obb		(const Fmatrix &matrix, const fVector3& half_size, const u32 &color)
+void CDebugRenderer::draw_obb		(const fMatrix4x4& matrix, const fVector3& half_size, const u32 &color)
 {
-	Fmatrix							mL2W_Transform,mScaleTransform;
+	fMatrix4x4						mL2W_Transform;
+	fMatrix4x4						mScaleTransform;
 
 	mScaleTransform.scale			(half_size);
 	mL2W_Transform.mul_43			(matrix,mScaleTransform);
 
-	fVector3							aabb[8];
+	fVector3						aabb[8];
 	mL2W_Transform.transform_tiny	(aabb[0], fVector3().set( -1.0f, -1.0f, -1.0f)); // 0
 	mL2W_Transform.transform_tiny	(aabb[1], fVector3().set( -1.0f, +1.0f, -1.0f)); // 1
 	mL2W_Transform.transform_tiny	(aabb[2], fVector3().set( +1.0f, +1.0f, -1.0f)); // 2
@@ -63,7 +64,7 @@ void CDebugRenderer::draw_obb		(const Fmatrix &matrix, const fVector3& half_size
 	add_lines						(aabb,&aabb_id[0],12,color);
 }
 
-void CDebugRenderer::draw_ellipse	(const Fmatrix &matrix, const u32 &color)
+void CDebugRenderer::draw_ellipse	(const fMatrix4x4& matrix, const u32 &color)
 {
 	float vertices[114*3] = {
 			0.0000f,0.0000f,1.0000f,  0.0000f,0.3827f,0.9239f,  -0.1464f,0.3536f,0.9239f,

@@ -127,7 +127,7 @@ void Log				(LPCSTR msg, const fVector3& dop) {
 	Log		(buf);
 }
 
-void Log				(LPCSTR msg, const Fmatrix &dop)	{
+void Log				(LPCSTR msg, const fMatrix4x4& dop)	{
 	char	buf	[1024];
 
 	sprintf_s	(buf,sizeof(buf),"%s:\n%f,%f,%f,%f\n%f,%f,%f,%f\n%f,%f,%f,%f\n%f,%f,%f,%f\n",msg,dop.i.x,dop.i.y,dop.i.z,dop._14_

@@ -162,29 +162,33 @@ void CLightR_Manager::render_point	()
 		fVector3					L_up;
 		fVector3					L_right;
 		fVector3					L_pos;
-		Fmatrix						L_view,L_project,L_combine;
-		L_dir.set					(0,-1, 0);				
-		L_up.set					(0,	0, 1);				
+		fMatrix4x4					L_view;
+		fMatrix4x4					L_project;
+		fMatrix4x4					L_combine;
+		L_dir.set					(0.0f,-1.0f, 0.0f);				
+		L_up.set					(0.0f,	0.0f, 1.0f);				
 		L_right.crossproduct		(L_up,L_dir);			L_right.normalize	();
 		L_up.crossproduct			(L_dir,L_right);		L_up.normalize		();
-		float	_camrange			= 300.f;
+		float	_camrange			= 300.0f;
 		L_pos.set					(L->position);			L_pos.y	+=	_camrange;
 		L_view.build_camera_dir		(L_pos,L_dir,L_up);
 		L_project.build_projection	(deg2rad(2.f),1.f,_camrange-L->range,_camrange+L->range);
 		L_combine.mul				(L_project,L_view);
 
 		//		2. Calculate matrix for TC-gen
-		float			fTexelOffs			= (.5f / SSM_tex_size);
-		float			fRange				= 1.f  / L->range;
-		float			fBias				= 0.f;
-		Fmatrix			m_TexelAdjust		= 
+		float			fTexelOffs			= (0.5f / SSM_tex_size);
+		float			fRange				= 1.0f  / L->range;
+		float			fBias				= 0.0f;
+		fMatrix4x4			m_TexelAdjust		=
 		{
 			0.5f,				0.0f,				0.0f,			0.0f,
 			0.0f,				-0.5f,				0.0f,			0.0f,
 			0.0f,				0.0f,				fRange,			0.0f,
 			0.5f + fTexelOffs,	0.5f + fTexelOffs,	fBias,			1.0f
 		};
-		Fmatrix		L_texgen;		L_texgen.mul	(m_TexelAdjust,L_combine);
+
+		fMatrix4x4		L_texgen;
+		L_texgen.mul	(m_TexelAdjust,L_combine);
 
 		//		2. Set global light-params to be used by shading
 		RImplementation.r1_dlight_light		= L;
@@ -237,9 +241,12 @@ void CLightR_Manager::render_spot	()
 		fVector3					L_up;
 		fVector3					L_right;
 		fVector3					L_pos;
-		Fmatrix						L_view,L_project,L_combine;
+		fMatrix4x4					L_view;
+		fMatrix4x4					L_project;
+		fMatrix4x4					L_combine;
 		L_dir.set					(L->direction);			L_dir.normalize		();
-		L_up.set					(0,1,0);				if (_abs(L_up.dotproduct(L_dir))>.99f)	L_up.set(0,0,1);
+		L_up.set					(0.0f,1.0f,0.0f);
+		if (_abs(L_up.dotproduct(L_dir))>0.99f)	L_up.set(0.0f,0.0f,1.0f);
 		L_right.crossproduct		(L_up,L_dir);			L_right.normalize	();
 		L_up.crossproduct			(L_dir,L_right);		L_up.normalize		();
 		L_pos.set					(L->position);
@@ -251,14 +258,16 @@ void CLightR_Manager::render_spot	()
 		float			fTexelOffs			= (.5f / SSM_tex_size);
 		float			fRange				= 1.f  / L->range;
 		float			fBias				= 0.f;
-		Fmatrix			m_TexelAdjust		= 
+		fMatrix4x4			m_TexelAdjust		=
 		{
 			0.5f,				0.0f,				0.0f,			0.0f,
 			0.0f,				-0.5f,				0.0f,			0.0f,
 			0.0f,				0.0f,				fRange,			0.0f,
 			0.5f + fTexelOffs,	0.5f + fTexelOffs,	fBias,			1.0f
 		};
-		Fmatrix		L_texgen;		L_texgen.mul	(m_TexelAdjust,L_combine);
+
+		fMatrix4x4		L_texgen;
+		L_texgen.mul	(m_TexelAdjust,L_combine);
 
 		//		2. Set global light-params to be used by shading
 		RImplementation.r1_dlight_light		= L;

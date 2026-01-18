@@ -12,14 +12,16 @@
 void CCarWeapon::BoneCallbackX		(CBoneInstance *B)
 {
 	CCarWeapon	*P = static_cast<CCarWeapon*>(B->Callback_Param);
-	Fmatrix rX;		rX.rotateX		(P->m_cur_x_rot);
+	fMatrix4x4 rX;
+	rX.rotateX		(P->m_cur_x_rot);
 	B->mTransform.mulB_43			(rX);
 }
 
 void CCarWeapon::BoneCallbackY		(CBoneInstance *B)
 {
 	CCarWeapon	*P = static_cast<CCarWeapon*>(B->Callback_Param);
-	Fmatrix rY;		rY.rotateY		(P->m_cur_y_rot);
+	fMatrix4x4 rY;
+	rY.rotateY		(P->m_cur_y_rot);
 	B->mTransform.mulB_43			(rY);
 }
 
@@ -44,7 +46,7 @@ CCarWeapon::CCarWeapon(CPhysicsShellHolder* obj)
 	m_lim_y_rot.set			(bdY.IK_data.limits[1].limit.x,bdY.IK_data.limits[1].limit.y);
 	
 
-	xr_vector<Fmatrix>					matrices;
+	xr_vector<fMatrix4x4>					matrices;
 	K->LL_GetBindTransform				(matrices);
 	m_i_bind_x_xform.invert				(matrices[m_rotate_x_bone]);
 	m_i_bind_y_xform.invert				(matrices[m_rotate_y_bone]);
@@ -158,7 +160,7 @@ void CCarWeapon::UpdateBarrelDir()
 
 
 	m_allow_fire		= true;
-	Fmatrix XFi;
+	fMatrix4x4 XFi;
 	XFi.invert			(m_object->XFORM());
 	fVector3 dep;
 	XFi.transform_dir	(dep,m_destEnemyDir);
@@ -205,7 +207,7 @@ const fVector3&	CCarWeapon::get_CurrentFirePoint()
 	return m_fire_pos;
 }
 
-const Fmatrix&	CCarWeapon::get_ParticlesXFORM	()						
+const fMatrix4x4&	CCarWeapon::get_ParticlesXFORM	()
 {
 	return m_fire_bone_xform;
 }

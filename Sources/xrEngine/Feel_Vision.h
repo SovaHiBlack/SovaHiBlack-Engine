@@ -44,7 +44,7 @@ namespace Feel
 		xr_vector<feel_visible_Item>	feel_visible;
 	public:
 		void						feel_vision_clear		();
-		void						feel_vision_query		(Fmatrix& mFull, fVector3& P);
+		void						feel_vision_query		(fMatrix4x4& mFull, fVector3& P);
 		void						feel_vision_update		(CObject* parent, fVector3& P, float dt, float vis_threshold);
 		void	__stdcall			feel_vision_relcase		(CObject* object);
 		void						feel_vision_get			(xr_vector<CObject*>& R)		{

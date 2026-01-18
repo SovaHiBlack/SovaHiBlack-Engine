@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #pragma hdrstop
 
-#include "soundrender_emitter.h"
-#include "soundrender_core.h"
+#include "SoundRender_Emitter.h"
+#include "SoundRender_Core.h"
 
 extern	u32				psSoundModel;
 extern	u32				psSoundFreq;
@@ -16,6 +16,7 @@ CSoundRender_Emitter::CSoundRender_Emitter(void)
 	static	u32			incrementalID = 0;
 	dbg_ID				= ++incrementalID;
 #endif
+
 	target				= NULL;
 	source				= NULL;
 	owner_data			= NULL;

@@ -219,10 +219,10 @@ void _initialize_cpu	(void)
 	};
 
 	string128	features;	strcpy_s(features,sizeof(features),"RDTSC");
-    if (CPU::ID.feature&_CPU_FEATURE_MMX)	strcat(features,", MMX");
-    if (CPU::ID.feature&_CPU_FEATURE_3DNOW)	strcat(features,", 3DNow!");
-    if (CPU::ID.feature&_CPU_FEATURE_SSE)	strcat(features,", SSE");
-    if (CPU::ID.feature&_CPU_FEATURE_SSE2)	strcat(features,", SSE2");
+	if (CPU::ID.feature&_CPU_FEATURE_MMX)	strcat(features,", MMX");
+	if (CPU::ID.feature&_CPU_FEATURE_3DNOW)	strcat(features,", 3DNow!");
+	if (CPU::ID.feature&_CPU_FEATURE_SSE)	strcat(features,", SSE");
+	if (CPU::ID.feature&_CPU_FEATURE_SSE2)	strcat(features,", SSE2");
 	Msg("* CPU Features: %s\n",features);
 
 	Fidentity.identity		();	// Identity matrix

@@ -121,28 +121,28 @@ public:
 		box.getcenter(C);
 		DrawSelectionBox(C,S,c);
 	}
-	virtual void __stdcall DrawIdentSphere	(BOOL bSolid, BOOL bWire, u32 clr_s, u32 clr_w);
-	virtual void __stdcall DrawIdentSpherePart(BOOL bSolid, BOOL bWire, u32 clr_s, u32 clr_w);
+	virtual void __stdcall DrawIdentSphere		(BOOL bSolid, BOOL bWire, u32 clr_s, u32 clr_w);
+	virtual void __stdcall DrawIdentSpherePart	(BOOL bSolid, BOOL bWire, u32 clr_s, u32 clr_w);
 	virtual void __stdcall DrawIdentCone		(BOOL bSolid, BOOL bWire, u32 clr_s, u32 clr_w);
 	virtual void __stdcall DrawIdentCylinder	(BOOL bSolid, BOOL bWire, u32 clr_s, u32 clr_w);
-	virtual void __stdcall DrawIdentBox		(BOOL bSolid, BOOL bWire, u32 clr_s, u32 clr_w);
+	virtual void __stdcall DrawIdentBox			(BOOL bSolid, BOOL bWire, u32 clr_s, u32 clr_w);
 
-	virtual void __stdcall DrawBox	(const fVector3& offs, const fVector3& Size, BOOL bSolid, BOOL bWire, u32 clr_s, u32 clr_w);
-	virtual void __stdcall DrawAABB	(const fVector3& p0, const fVector3& p1, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire);
-	virtual void __stdcall DrawAABB	(const Fmatrix& parent, const fVector3& center, const fVector3& size, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire);
-	virtual void __stdcall DrawOBB	(const Fmatrix& parent, const Fobb& box, u32 clr_s, u32 clr_w);
-	virtual void __stdcall DrawSphere	(const Fmatrix& parent, const fVector3& center, float radius, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire);
-	virtual void __stdcall DrawSphere	(const Fmatrix& parent, const Fsphere& S, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire){DrawSphere(parent,S.P,S.R,clr_s,clr_w,bSolid,bWire);}
-	virtual void __stdcall DrawCylinder(const Fmatrix& parent, const fVector3& center, const fVector3& dir, float height, float radius, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire);
-	virtual void __stdcall DrawCone	(const Fmatrix& parent, const fVector3& apex, const fVector3& dir, float height, float radius, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire);
-	virtual void __stdcall DrawPlane	(const fVector3& center, const fVector2& scale, const fVector3& rotate, u32 clr_s, u32 clr_w, BOOL bCull, BOOL bSolid, BOOL bWire);
-	virtual void __stdcall DrawPlane	(const fVector3& p, const fVector3& n, const fVector2& scale, u32 clr_s, u32 clr_w, BOOL bCull, BOOL bSolid, BOOL bWire);
-	virtual void __stdcall DrawRectangle(const fVector3& o, const fVector3& u, const fVector3& v, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire);
+	virtual void __stdcall DrawBox				(const fVector3& offs, const fVector3& Size, BOOL bSolid, BOOL bWire, u32 clr_s, u32 clr_w);
+	virtual void __stdcall DrawAABB				(const fVector3& p0, const fVector3& p1, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire);
+	virtual void __stdcall DrawAABB				(const fMatrix4x4& parent, const fVector3& center, const fVector3& size, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire);
+	virtual void __stdcall DrawOBB				(const fMatrix4x4& parent, const Fobb& box, u32 clr_s, u32 clr_w);
+	virtual void __stdcall DrawSphere			(const fMatrix4x4& parent, const fVector3& center, float radius, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire);
+	virtual void __stdcall DrawSphere			(const fMatrix4x4& parent, const Fsphere& S, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire){DrawSphere(parent,S.P,S.R,clr_s,clr_w,bSolid,bWire);}
+	virtual void __stdcall DrawCylinder			(const fMatrix4x4& parent, const fVector3& center, const fVector3& dir, float height, float radius, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire);
+	virtual void __stdcall DrawCone				(const fMatrix4x4& parent, const fVector3& apex, const fVector3& dir, float height, float radius, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire);
+	virtual void __stdcall DrawPlane			(const fVector3& center, const fVector2& scale, const fVector3& rotate, u32 clr_s, u32 clr_w, BOOL bCull, BOOL bSolid, BOOL bWire);
+	virtual void __stdcall DrawPlane			(const fVector3& p, const fVector3& n, const fVector2& scale, u32 clr_s, u32 clr_w, BOOL bCull, BOOL bSolid, BOOL bWire);
+	virtual void __stdcall DrawRectangle		(const fVector3& o, const fVector3& u, const fVector3& v, u32 clr_s, u32 clr_w, BOOL bSolid, BOOL bWire);
 
 	virtual void __stdcall DrawGrid	();
 	virtual void __stdcall DrawPivot	(const fVector3& pos, float sz=5.f);
-	virtual void __stdcall DrawAxis	(const Fmatrix& T);
-	virtual void __stdcall DrawObjectAxis(const Fmatrix& T, float sz, BOOL sel);
+	virtual void __stdcall DrawAxis	(const fMatrix4x4& T);
+	virtual void __stdcall DrawObjectAxis(const fMatrix4x4& T, float sz, BOOL sel);
 	virtual void __stdcall DrawSelectionRect(const iVector2& m_SelStart, const iVector2& m_SelEnd);
 
 	virtual void __stdcall DrawPrimitiveL(D3DPRIMITIVETYPE pt, u32 pc, fVector3* vertices, int vc, u32 color, BOOL bCull, BOOL bCycle);

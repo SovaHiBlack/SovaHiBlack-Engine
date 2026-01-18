@@ -13,7 +13,7 @@ void CDetail::Unload	()
 	shader.destroy		();
 }
 
-void CDetail::transfer	(Fmatrix& mXform, fvfVertexOut* vDest, u32 C, u16* iDest, u32 iOffset)
+void CDetail::transfer	(fMatrix4x4& mXform, fvfVertexOut* vDest, u32 C, u16* iDest, u32 iOffset)
 {
 	// Transfer vertices
 	{
@@ -42,7 +42,7 @@ void CDetail::transfer	(Fmatrix& mXform, fvfVertexOut* vDest, u32 C, u16* iDest,
 	}
 }
 
-void CDetail::transfer	(Fmatrix& mXform, fvfVertexOut* vDest, u32 C, u16* iDest, u32 iOffset, float du, float dv)
+void CDetail::transfer	(fMatrix4x4& mXform, fvfVertexOut* vDest, u32 C, u16* iDest, u32 iOffset, float du, float dv)
 {
 	// Transfer vertices
 	{

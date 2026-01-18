@@ -34,7 +34,7 @@ class cl_fog_plane	: public R_constant_setup {
 		{
 			// Plane
 			fVector4		plane;
-			Fmatrix&	M	= Device.mFullTransform;
+			fMatrix4x4&	M	= Device.mFullTransform;
 			plane.x			= -(M._14 + M._13);
 			plane.y			= -(M._24 + M._23);
 			plane.z			= -(M._34 + M._33);

@@ -86,7 +86,7 @@ void CCustomRocket::net_Destroy()
 } 
 
 
-void CCustomRocket::SetLaunchParams (const Fmatrix& xform, 
+void CCustomRocket::SetLaunchParams (const fMatrix4x4& xform,
 									 const fVector3& vel,
 									 const fVector3& angular_vel)
 {
@@ -549,14 +549,14 @@ void CCustomRocket::UpdateParticles()
 	vel.mul(0.5f);
 	m_vPrevVel.set(vel);
 
-	Fmatrix particles_xform;
+	fMatrix4x4 particles_xform;
 	particles_xform.identity();
 	particles_xform.k.set(XFORM().k);
 	particles_xform.k.mul(-1.f);
 	fVector3::generate_orthonormal_basis(particles_xform.k,
 										particles_xform.j, 
 										particles_xform.i);
-    particles_xform.c.set	(XFORM().c);
+	particles_xform.c.set	(XFORM().c);
 
 	if(m_pEngineParticles)	m_pEngineParticles->UpdateParent(particles_xform, vel);
 	if(m_pFlyParticles)		m_pFlyParticles->UpdateParent(particles_xform, vel);

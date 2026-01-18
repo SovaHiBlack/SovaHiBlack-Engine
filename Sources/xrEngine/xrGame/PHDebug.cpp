@@ -128,7 +128,7 @@ void DBG_DrawLine ( const fVector3& p0, const fVector3& p1, u32 c )
 {
 	DBG_DrawPHAbstruct( xr_new<SPHDBGDrawLine>( p0, p1, c ) );
 }
-void DBG_DrawMatrix( const Fmatrix &m, float size, u8 a/* = 255*/ )
+void DBG_DrawMatrix( const fMatrix4x4& m, float size, u8 a/* = 255*/ )
 {
 	fVector3 to;
 	to.add( m.c, fVector3( ).mul( m.i, size ) );
@@ -140,27 +140,27 @@ void DBG_DrawMatrix( const Fmatrix &m, float size, u8 a/* = 255*/ )
 }
 
 template<int>
-IC	void rotate(Fmatrix &m, float ang);
+IC	void rotate(fMatrix4x4& m, float ang);
 
 template<>
-IC	void rotate<0>(Fmatrix &m, float ang)
+IC	void rotate<0>(fMatrix4x4& m, float ang)
 {
 	m.rotateX( ang );
 }
 template<>
-IC	void rotate<1>(Fmatrix &m, float ang)
+IC	void rotate<1>(fMatrix4x4& m, float ang)
 {
 	m.rotateY( ang );
 }
 
 template<>
-IC	void rotate<2>(Fmatrix &m, float ang)
+IC	void rotate<2>(fMatrix4x4& m, float ang)
 {
 	m.rotateZ( ang );
 }
 
 template<int ax>
-void DBG_DrawRotation( float ang0, float ang1, const Fmatrix& m, const fVector3& l, float size, u32 ac, bool solid, u32 tessel)
+void DBG_DrawRotation( float ang0, float ang1, const fMatrix4x4& m, const fVector3& l, float size, u32 ac, bool solid, u32 tessel)
 {
 	fVector3 from;
 	from.set( m.c );
@@ -169,9 +169,10 @@ void DBG_DrawRotation( float ang0, float ang1, const Fmatrix& m, const fVector3&
 	ln.mul( size );
 
 	const float ftess = (float)tessel;
-	Fmatrix mm; rotate<ax>( mm, ang0 );
+	fMatrix4x4 mm;
+	rotate<ax>( mm, ang0 );
 	mm.mulA_43( m );
-	Fmatrix r;
+	fMatrix4x4 r;
 	rotate<ax>( r, ( ang1 - ang0 ) / ftess );
 	for( u32 i = 0; tessel > i; ++i )
 	{
@@ -187,17 +188,17 @@ void DBG_DrawRotation( float ang0, float ang1, const Fmatrix& m, const fVector3&
 	}
 }
 
-void	DBG_DrawRotationX( const Fmatrix &m, float ang0, float ang1, float size, u32 ac, bool solid, u32 tessel )
+void	DBG_DrawRotationX( const fMatrix4x4& m, float ang0, float ang1, float size, u32 ac, bool solid, u32 tessel )
 {
 	DBG_DrawRotation<0>( ang0 , ang1, m, fVector3().set(0.0f,0.0f,1.0f) ,size, ac, solid, tessel );
 }
 
-void	DBG_DrawRotationY( const Fmatrix &m, float ang0, float ang1, float size, u32 ac, bool solid, u32 tessel  )
+void	DBG_DrawRotationY( const fMatrix4x4& m, float ang0, float ang1, float size, u32 ac, bool solid, u32 tessel  )
 {
 	DBG_DrawRotation<1>( ang0 , ang1, m, fVector3().set(1.0f,0.0f,0.0f),size, ac, solid, tessel );
 }
 
-void	DBG_DrawRotationZ( const Fmatrix &m, float ang0, float ang1, float size, u32 ac, bool solid, u32 tessel  )
+void	DBG_DrawRotationZ( const fMatrix4x4& m, float ang0, float ang1, float size, u32 ac, bool solid, u32 tessel  )
 {
 	DBG_DrawRotation<2>( ang0 , ang1, m, fVector3().set(0.0f,1.0f,0.0f), size, ac, solid, tessel );
 }
@@ -224,10 +225,10 @@ void DBG_DrawAABB(const fVector3& center,const fVector3& AABB,u32 c)
 
 struct SPHDBGDrawOBB: public SPHDBGDrawAbsract
 {
-	Fmatrix m;
+	fMatrix4x4 m;
 	fVector3 h;
 	u32 c;
-	SPHDBGDrawOBB(const Fmatrix am,const fVector3 ah, u32 ac)
+	SPHDBGDrawOBB(const fMatrix4x4 am,const fVector3 ah, u32 ac)
 	{
 		m.set(am);h.set(ah);c=ac;
 	}
@@ -236,7 +237,7 @@ struct SPHDBGDrawOBB: public SPHDBGDrawAbsract
 		Level().debug_renderer().draw_obb(m,h,c);
 	}
 };
-void DBG_DrawOBB(const Fmatrix& m,const fVector3 h,u32 c)
+void DBG_DrawOBB(const fMatrix4x4& m,const fVector3 h,u32 c)
 {
 	DBG_DrawPHAbstruct(xr_new<SPHDBGDrawOBB>(m,h,c));
 };
@@ -252,7 +253,10 @@ struct SPHDBGDrawPoint :public SPHDBGDrawAbsract
 	virtual void render()
 	{
 		//Level().debug_renderer().draw_aabb(p,size,size,size,c);
-		Fmatrix m;m.identity();m.scale(size,size,size);m.c.set(p);
+		fMatrix4x4 m;
+		m.identity();
+		m.scale(size,size,size);
+		m.c.set(p);
 		Level().debug_renderer().draw_ellipse(m,c);
 	}
 };
@@ -540,8 +544,8 @@ void DBG_DrawStatBeforeFrameStep()
 {
 	if(ph_dbg_draw_mask.test(phDbgDrawObjectStatistics))
 	{
-		static float obj_count=0.f;
-		static float update_obj_count=0.f;
+		static float obj_count=0.0f;
+		static float update_obj_count=0.0f;
 		obj_count=obj_count*0.9f + float(ph_world->ObjectsNumber())*0.1f;
 		update_obj_count=update_obj_count*0.9f + float(ph_world->UpdateObjectsNumber())*0.1f;
 		DBG_OutText("Active Phys Objects %3.0f",obj_count);
@@ -554,11 +558,11 @@ void DBG_DrawStatAfterFrameStep()
 	if(ph_dbg_draw_mask.test(phDbgDrawObjectStatistics))
 	{
 		DBG_OutText("------------------------------");
-		static float  fdbg_bodies_num=0.f;
-		static float  fdbg_joints_num=0.f;
-		static float  fdbg_islands_num=0.f;
-		static float  fdbg_contacts_num=0.f;
-		static float  fdbg_tries_num=0.f;
+		static float  fdbg_bodies_num=0.0f;
+		static float  fdbg_joints_num=0.0f;
+		static float  fdbg_islands_num=0.0f;
+		static float  fdbg_contacts_num=0.0f;
+		static float  fdbg_tries_num=0.0f;
 		fdbg_islands_num=0.9f*fdbg_islands_num+0.1f*float(dbg_islands_num);
 		fdbg_bodies_num=0.9f*fdbg_bodies_num+0.1f*float(dbg_bodies_num);
 		fdbg_joints_num=0.9f*fdbg_joints_num+0.1f*float(dbg_joints_num);

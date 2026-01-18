@@ -31,7 +31,7 @@ enum		{
 const		fVector3&		Position							()																															;
 			void			Size								(fVector3& size)																												;
 			dBodyID			ODEBody								()																											{return m_body	;}
-			void			set_rotation						(const	Fmatrix	&rot)																											;
+			void			set_rotation						(const	fMatrix4x4& rot)																											;
 private:
 virtual		void			PhDataUpdate						(dReal step)																												;
 virtual		void			PhTune								(dReal step)																												;

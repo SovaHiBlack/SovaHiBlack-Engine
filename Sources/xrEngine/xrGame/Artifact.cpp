@@ -332,11 +332,11 @@ void CArtefact::UpdateXForm()
 		boneL = boneR2;
 
 		V->CalculateBones	();
-		Fmatrix& mL			= V->LL_GetTransform(u16(boneL));
-		Fmatrix& mR			= V->LL_GetTransform(u16(boneR));
+		fMatrix4x4& mL			= V->LL_GetTransform(u16(boneL));
+		fMatrix4x4& mR			= V->LL_GetTransform(u16(boneR));
 
 		// Calculate
-		Fmatrix				mRes;
+		fMatrix4x4				mRes;
 		fVector3			R;
 		fVector3			D;
 		fVector3			N;

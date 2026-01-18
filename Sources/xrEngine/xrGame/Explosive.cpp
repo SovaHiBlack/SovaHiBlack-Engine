@@ -206,12 +206,11 @@ ICF static BOOL grenade_hit_callback(collide::rq_result& result, LPVOID params)
 	return				(ep.shoot_factor>0.01f);
 }
 
-
-
 float CExplosive::ExplosionEffect(collide::rq_results& storage, CExplosive*exp_obj,CPhysicsShellHolder*blasted_obj,  const fVector3& expl_centre, const float expl_radius)
 {
-	const Fmatrix	&obj_xform=blasted_obj->XFORM();
-	Fmatrix	inv_obj_form;inv_obj_form.invert(obj_xform);
+	const fMatrix4x4& obj_xform=blasted_obj->XFORM();
+	fMatrix4x4	inv_obj_form;
+	inv_obj_form.invert(obj_xform);
 	fVector3	local_exp_center;
 	inv_obj_form.transform_tiny(local_exp_center,expl_centre);
 
@@ -232,7 +231,8 @@ float CExplosive::ExplosionEffect(collide::rq_results& storage, CExplosive*exp_o
 #ifdef DEBUG
 	if(ph_dbg_draw_mask.test(phDbgDrawExplosions))
 	{
-		Fmatrix dbg_box_m;dbg_box_m.set(obj_xform);
+		fMatrix4x4 dbg_box_m;
+		dbg_box_m.set(obj_xform);
 		dbg_box_m.c.set(l_c);obj_xform.transform(dbg_box_m.c);
 		DBG_DrawOBB(dbg_box_m,l_d,D3DCOLOR_XRGB(255,255,0));
 	}
@@ -346,7 +346,7 @@ void CExplosive::Explode()
 	fVector3									vel;
 	smart_cast<CPhysicsShellHolder*>(cast_game_object())->PHGetLinearVell(vel);
 
-	Fmatrix explode_matrix;
+	fMatrix4x4 explode_matrix;
 	explode_matrix.identity();
 	explode_matrix.j.set(dir);
 	fVector3::generate_orthonormal_basis(explode_matrix.j, explode_matrix.i, explode_matrix.k);
@@ -445,12 +445,11 @@ void CExplosive::PositionUpdate()
 	GetExplVelocity(vel);
 	GetExplPosition(pos);
 	GetExplDirection(dir);
-	Fmatrix explode_matrix;
+	fMatrix4x4 explode_matrix;
 	explode_matrix.identity();
 	explode_matrix.j.set(dir);
 	fVector3::generate_orthonormal_basis(explode_matrix.j, explode_matrix.i, explode_matrix.k);
 	explode_matrix.c.set(pos);
-	
 }
 void CExplosive::GetExplPosition(fVector3& p)
 {
@@ -782,7 +781,7 @@ void CExplosive::UpdateExplosionParticles ()
 	CGameObject	*GO=cast_game_object();
 	if (!GO) return;
 
-	Fmatrix ParticleMatrix = m_pExpParticle->XFORM();	
+	fMatrix4x4 ParticleMatrix = m_pExpParticle->XFORM();
 	fVector3 Vel;
 	Vel.sub(GO->Position(), ParticleMatrix.c);
 	ParticleMatrix.c.set(GO->Position());

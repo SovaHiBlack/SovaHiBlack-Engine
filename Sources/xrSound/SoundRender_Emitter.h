@@ -2,8 +2,8 @@
 #define SoundRender_EmitterH
 #pragma once
 
-#include "soundrender.h"
-#include "soundrender_environment.h"
+#include "SoundRender.h"
+#include "SoundRender_Environment.h"
 
 class CSoundRender_Emitter		:	public CSound_emitter
 {
@@ -27,7 +27,9 @@ public:
 
 		stFORCEDWORD	= u32(-1)
 	};
+
 public:
+
 #ifdef DEBUG
 	u32							dbg_ID;
 #endif
@@ -59,6 +61,7 @@ public:
 
 	u32							marker;
 	void						i_stop					();
+
 public:
 	void						Event_Propagade			();
 	void						Event_ReleaseOwner		();

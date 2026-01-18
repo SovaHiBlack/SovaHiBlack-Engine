@@ -26,8 +26,8 @@ private:
 #endif
 		IRenderable*		O;
 		int					slot;
-		fVector3				C;
-		Fmatrix				M;
+		fVector3			C;
+		fMatrix4x4			M;
 		light*				L;
 		float				E;
 	};

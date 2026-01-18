@@ -384,7 +384,7 @@ void pDomain::Generate(pVector &pos) const
 	}
 }
 
-void pDomain::transform(const pDomain& domain, const Fmatrix& m)
+void pDomain::transform(const pDomain& domain, const fMatrix4x4& m)
 {
 	switch (type)
 	{
@@ -438,14 +438,13 @@ void pDomain::transform(const pDomain& domain, const Fmatrix& m)
 		m.transform_dir(v,domain.v);
 		break;
 	default:
-    	NODEFAULT;
+		NODEFAULT;
 	}
 }
 
-void pDomain::transform_dir(const pDomain& domain, const Fmatrix& m)
+void pDomain::transform_dir(const pDomain& domain, const fMatrix4x4& m)
 {
-	Fmatrix M=m;
+	fMatrix4x4 M=m;
 	M.c.set(0,0,0);
 	transform(domain,M);
 }
- 

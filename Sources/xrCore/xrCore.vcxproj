@@ -332,8 +332,8 @@
     <ClInclude Include="_flags.h" />
     <ClInclude Include="_limits.h" />
     <ClInclude Include="_math.h" />
-    <ClInclude Include="_matrix.h" />
-    <ClInclude Include="_matrix33.h" />
+    <ClInclude Include="_matrix4x4.h" />
+    <ClInclude Include="_matrix3x3.h" />
     <ClInclude Include="_obb.h" />
     <ClInclude Include="_plane.h" />
     <ClInclude Include="_plane2.h" />

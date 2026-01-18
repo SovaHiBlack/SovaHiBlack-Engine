@@ -10,7 +10,7 @@ public:
 	typedef Self&		SelfRef;
 	typedef const Self&	SelfCRef;
 	typedef _vector3<T>	Tvector;
-	typedef _matrix<T>	Tmatrix;
+	typedef _matrix4x4<T>	Tmatrix;
 public:
 	union{
 		struct{

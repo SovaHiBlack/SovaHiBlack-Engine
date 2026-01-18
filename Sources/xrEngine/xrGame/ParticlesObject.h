@@ -34,9 +34,9 @@ public:
 	void	__stdcall	PerformAllTheWork_mt();
 
 	fVector3&			Position			();
-	void				SetXFORM			(const Fmatrix& m);
-	IC	Fmatrix&		XFORM				()	{return renderable.xform;}
-	void				UpdateParent		(const Fmatrix& m, const fVector3& vel);
+	void				SetXFORM			(const fMatrix4x4& m);
+	IC	fMatrix4x4&		XFORM				()	{return renderable.xform;}
+	void				UpdateParent		(const fMatrix4x4& m, const fVector3& vel);
 
 	void				play_at_pos			(const fVector3& pos, BOOL xform=FALSE);
 	virtual void		Play				();

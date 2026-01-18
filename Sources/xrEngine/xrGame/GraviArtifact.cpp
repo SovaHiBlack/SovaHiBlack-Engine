@@ -72,7 +72,7 @@ void CGraviArtefact::UpdateCLChild()
 				if (K)
 				{
 					K->CalculateBones	();
-					Fmatrix Ruck_MTX	= K->LL_GetTransform(m_CarringBoneID);
+					fMatrix4x4 Ruck_MTX	= K->LL_GetTransform(m_CarringBoneID);
 					fVector3	x;
 					x.set(-0.1f, 0.0f, -0.3f);
 					Ruck_MTX.translate_add(x);

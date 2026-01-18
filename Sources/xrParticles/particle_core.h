@@ -20,16 +20,16 @@ namespace PAPI{
 		BOOL 		Within			(const pVector &) const;
 		void 		Generate		(pVector &) const;
 		// transformation
-		void 		transform		(const pDomain& domain, const Fmatrix& m);
-		void 		transform_dir	(const pDomain& domain, const Fmatrix& m);
+		void 		transform		(const pDomain& domain, const fMatrix4x4& m);
+		void 		transform_dir	(const pDomain& domain, const fMatrix4x4& m);
 		// This constructor is used when default constructing a
 		// ParticleAction that has a pDomain.
 		IC 			pDomain			(){}
 		// Construct a domain in the standard way.
 					pDomain			(PDomainEnum dtype,
-                                    float a0=0.0f, float a1=0.0f, float a2=0.0f,
-                                    float a3=0.0f, float a4=0.0f, float a5=0.0f,
-                                    float a6=0.0f, float a7=0.0f, float a8=0.0f);
+									float a0=0.0f, float a1=0.0f, float a2=0.0f,
+									float a3=0.0f, float a4=0.0f, float a5=0.0f,
+									float a6=0.0f, float a7=0.0f, float a8=0.0f);
 	};
 	#pragma pack (pop)
 	// misc    
@@ -37,4 +37,3 @@ namespace PAPI{
 };
 //---------------------------------------------------------------------------
 #endif
- 
