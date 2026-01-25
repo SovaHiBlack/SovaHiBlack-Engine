@@ -12,8 +12,8 @@
 #include <mmsystem.h>
 
 // Initialized on startup
-XRCORE_API	Fmatrix			Fidentity;
-XRCORE_API	Dmatrix			Didentity;
+XRCORE_API	fMatrix4x4			Fidentity;
+XRCORE_API	dMatrix4x4			Didentity;
 XRCORE_API	CRandom			Random;
 
 #ifdef _M_AMD64

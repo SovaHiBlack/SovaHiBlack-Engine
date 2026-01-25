@@ -19,7 +19,7 @@ void	CPHStaticGeomShell::PhDataUpdate		(dReal step)
 	PhysicsRefObject()->enable_notificate();
 	CPHUpdateObject::Deactivate();
 }
-void CPHStaticGeomShell::Activate(const Fmatrix& form)
+void CPHStaticGeomShell::Activate(const fMatrix4x4& form)
 {
 	build();
 	setStaticForm(form);

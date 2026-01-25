@@ -54,7 +54,9 @@ private:
 	fVector3				m_fire_dir;
 	fVector3				m_fire_pos;
 
-	Fmatrix					m_i_bind_x_xform, m_i_bind_y_xform, m_fire_bone_xform;
+	fMatrix4x4				m_i_bind_x_xform;
+	fMatrix4x4				m_i_bind_y_xform;
+	fMatrix4x4				m_fire_bone_xform;
 	fVector2				m_lim_x_rot; //in bone space
 	fVector2				m_lim_y_rot; //in bone space
 	CCartridge*				m_Ammo;
@@ -69,7 +71,7 @@ private:
 protected:
 	void					UpdateBarrelDir		();
 	virtual const fVector3&	get_CurrentFirePoint();
-	virtual const Fmatrix&	get_ParticlesXFORM	();
+	virtual const fMatrix4x4&	get_ParticlesXFORM	();
 
 	virtual	void			FireStart			();
 	virtual	void			FireEnd				();

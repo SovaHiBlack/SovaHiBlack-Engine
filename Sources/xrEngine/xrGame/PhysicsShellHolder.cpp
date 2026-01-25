@@ -122,7 +122,7 @@ void CPhysicsShellHolder::correct_spawn_pos()
 
 	VERIFY								(valid_pos(activation_shape.Position(),phBoundaries));
 	
-	Fmatrix								trans;
+	fMatrix4x4								trans;
 	trans.identity						();
 	trans.c.sub							(ap,c);
 	PPhysicsShell()->TransformPosition	(trans);
@@ -138,13 +138,14 @@ void CPhysicsShellHolder::activate_physic_shell()
 	fVector3					l_up;
 	l_fw.set					(XFORM().k);
 	l_up.set					(XFORM().j);
-	l_fw.mul					(2.f);
-	l_up.mul					(2.f);
+	l_fw.mul					(2.0f);
+	l_up.mul					(2.0f);
 
-	Fmatrix						l_p1, l_p2;
+	fMatrix4x4					l_p1;
+	fMatrix4x4					l_p2;
 	l_p1.set					(XFORM());
 	l_p2.set					(XFORM());
-	l_fw.mul					(2.f);
+	l_fw.mul					(2.0f);
 	l_p2.c.add					(l_fw);
 
 	m_pPhysicsShell->Activate	(l_p1, 0, l_p2);

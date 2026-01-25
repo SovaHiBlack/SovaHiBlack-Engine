@@ -49,12 +49,12 @@ void CPhysicsShellAnimator::OnFrame()
 	
 	for (xr_vector<CPhysicsShellAnimatorBoneData>::iterator i=m_bones_data.begin();i!=m_bones_data.end();i++)
 	{
-		Fmatrix target_obj_posFmatrixS;
+		fMatrix4x4 target_obj_posFmatrixS;
 		CBoneInstance& B=m_pPhysicsShell->PKinematics()->LL_GetBoneInstance(i->m_element->m_SelfID);
 		
 		target_obj_posFmatrixS.mul_43((*(m_pPhysicsShell->Elements().begin()))->PhysicsRefObject()->XFORM(),B.mTransform);
 				
-		Fmatrix parent;
+		fMatrix4x4 parent;
 		parent.invert		(m_pPhysicsShell->mXFORM);
 		B.mTransform.mul_43(parent,i->m_element->mXFORM);//restore actual physic position for display
 		

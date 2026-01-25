@@ -225,13 +225,13 @@ void		CPHElement::Deactivate()
 	}
 }
 
-void CPHElement::SetTransform(const Fmatrix &m0){
+void CPHElement::SetTransform(const fMatrix4x4& m0){
 	VERIFY2(_valid(m0),"invalid_form_in_set_transform");
 	fVector3 mc;
 	CPHGeometryOwner::get_mc_vs_transform(mc,m0);
 	VERIFY_BOUNDARIES2(mc,phBoundaries,PhysicsRefObject(),"mass	center	in set transform");
 	dBodySetPosition(m_body,mc.x,mc.y,mc.z);
-	Fmatrix33 m33;
+	fMatrix3x3 m33;
 	m33.set(m0);
 	dMatrix3 R;
 	PHDynamicData::FMX33toDMX(m33,R);
@@ -279,14 +279,14 @@ void CPHElement::SetGlobalPositionDynamic(const fVector3& position)
 	m_shell->spatial_move();
 }
 
-void CPHElement::TransformPosition(const Fmatrix &form)
+void CPHElement::TransformPosition(const fMatrix4x4& form)
 {
 	if(!isActive())return;
 	VERIFY(_valid(form));
 	R_ASSERT2(m_body,"body is not created");
-	Fmatrix bm;
+	fMatrix4x4 bm;
 	PHDynamicData::DMXPStoFMX(dBodyGetRotation(m_body),dBodyGetPosition(m_body),bm);
-	Fmatrix new_bm;
+	fMatrix4x4 new_bm;
 	new_bm.mul(form,bm);
 	dMatrix3 dBM;
 	PHDynamicData::FMXtoDMX(new_bm,dBM);
@@ -305,7 +305,7 @@ CPHElement::~CPHElement	()
 	DeleteFracturesHolder();
 }
 
-void CPHElement::Activate(const Fmatrix &transform,const fVector3& lin_vel,const fVector3& ang_vel,bool disable){
+void CPHElement::Activate(const fMatrix4x4& transform,const fVector3& lin_vel,const fVector3& ang_vel,bool disable){
 	VERIFY(!isActive());
 	mXFORM.set(transform);
 	Start();
@@ -330,7 +330,7 @@ void CPHElement::Activate(const Fmatrix &transform,const fVector3& lin_vel,const
 		K->LL_GetBoneInstance(m_SelfID).set_callback(bctPhysics,m_shell->GetBonesCallback(),static_cast<CPhysicsElement*>(this));
 	}
 }
-void CPHElement::Activate(const Fmatrix &m0,float dt01,const Fmatrix &m2,bool disable)
+void CPHElement::Activate(const fMatrix4x4& m0,float dt01,const fMatrix4x4& m2,bool disable)
 {
 	fVector3 lvel;
 	fVector3 avel;
@@ -348,9 +348,9 @@ void CPHElement::Activate(bool disable)
 	Activate(mXFORM,lvel,avel,disable);
 }
 
-void CPHElement::Activate(const Fmatrix& start_from,bool disable){
+void CPHElement::Activate(const fMatrix4x4& start_from,bool disable){
 	VERIFY(_valid(start_from));
-	Fmatrix globe;
+	fMatrix4x4 globe;
 	globe.mul_43(start_from,mXFORM);
 
 	fVector3 lvel;
@@ -608,7 +608,8 @@ void	CPHElement::	applyImpulseTrace		(const fVector3& pos, const fVector3& dir, 
 			CKinematics* K=m_shell->PKinematics();
 			if(K)
 			{
-				Fmatrix m;m.set(K->LL_GetTransform(m_SelfID));
+				fMatrix4x4 m;
+				m.set(K->LL_GetTransform(m_SelfID));
 				m.invert();m.mulB_43(K->LL_GetTransform(id));
 				m.transform(body_pos,pos);
 				body_pos.sub(m_mass_center);
@@ -663,7 +664,7 @@ void CPHElement::applyImpact(const SPHImpact& I)
 	}
 	
 }
-void CPHElement::InterpolateGlobalTransform(Fmatrix* m){
+void CPHElement::InterpolateGlobalTransform(fMatrix4x4* m){
 	if(!m_flags.test(flUpdate))
 	{
 		GetGlobalTransformDynamic(m);
@@ -676,7 +677,7 @@ void CPHElement::InterpolateGlobalTransform(Fmatrix* m){
 	m_flags.set(flUpdate,FALSE);
 	VERIFY(_valid(*m));
 }
-void CPHElement::GetGlobalTransformDynamic(Fmatrix* m)
+void CPHElement::GetGlobalTransformDynamic(fMatrix4x4* m)
 {
 	PHDynamicData::DMXPStoFMX(dBodyGetRotation(m_body),dBodyGetPosition(m_body),*m);
 	MulB43InverceLocalForm(*m);
@@ -698,38 +699,31 @@ void CPHElement::build(bool disable){
 	build();
 	//	if(place_current_forms)
 	{
-
 		SetTransform(mXFORM);
 	}
 
 	m_body_interpolation.SetBody(m_body);
 	//previous_f[0]=dInfinity;
 	if(disable) dBodyDisable(m_body);
-
-
 }
 
-void CPHElement::RunSimulation(const Fmatrix& start_from)
+void CPHElement::RunSimulation(const fMatrix4x4& start_from)
 {
-
 	RunSimulation();
 	//	if(place_current_forms)
 	{
-		Fmatrix globe;
+		fMatrix4x4 globe;
 		globe.mul(start_from,mXFORM);
 		SetTransform(globe);
 	}
 	//dVectorSet(m_safe_position,dBodyGetPosition(m_body));
 	//dQuaternionSet(m_safe_quaternion,dBodyGetQuaternion(m_body));
 	//dVectorSet(m_safe_velocity,dBodyGetLinearVel(m_body));
-
 }
-
-
 
 void CPHElement::StataticRootBonesCallBack(CBoneInstance* B)
 {
-	Fmatrix parent;
+	fMatrix4x4 parent;
 	VERIFY2( isActive(),"the element is not active");
 	VERIFY(_valid(m_shell->mXFORM));
 	//VERIFY2(fsimilar(DET(B->mTransform),1.f,DET_CHECK_EPS),"Bones callback resive 0 matrix");
@@ -744,7 +738,7 @@ void CPHElement::StataticRootBonesCallBack(CBoneInstance* B)
 		VERIFY(!m_shell->dSpace()->lock_count);
 		mXFORM.set(B->mTransform);
 		//m_start_time=Device.fTimeGlobal;
-		Fmatrix global_transform;
+		fMatrix4x4 global_transform;
 		//if(m_parent_element)
 		global_transform.mul_43(m_shell->mXFORM,mXFORM);
 		SetTransform(global_transform);
@@ -764,8 +758,6 @@ void CPHElement::StataticRootBonesCallBack(CBoneInstance* B)
 		VERIFY(valid_pos(B->mTransform.c,phBoundaries));
 		//return;
 	}
-
-	
 
 	//VERIFY2(fsimilar(DET(B->mTransform),1.f,DET_CHECK_EPS),"Bones callback returns 0 matrix");
 	VERIFY_RMATRIX(B->mTransform);
@@ -792,17 +784,15 @@ void CPHElement::StataticRootBonesCallBack(CBoneInstance* B)
 	//m_shell->mXFORM.mulB(parent);
 
 	//}
-
-
 }
 
-void CPHElement::BoneGlPos(Fmatrix &m,CBoneInstance* B)
+void CPHElement::BoneGlPos(fMatrix4x4& m,CBoneInstance* B)
 {
 	VERIFY(m_shell);
 	m.mul_43(m_shell->mXFORM, B->mTransform);
 }
 
-void CPHElement::GetAnimBonePos(Fmatrix &bp)
+void CPHElement::GetAnimBonePos(fMatrix4x4& bp)
 {
 	VERIFY(m_shell->PKinematics());
 	CKinematicsAnimated *ak = m_shell->PKinematics()->dcast_PKinematicsAnimated();
@@ -836,21 +826,24 @@ bool CPHElement::AnimToVel(float dt, float l_limit,float a_limit )
 	VERIFY(m_shell->PKinematics());
 	//CBoneInstance *BI = &m_shell->PKinematics()->LL_GetBoneInstance(m_SelfID);
 //
-//	Fmatrix bp;BoneGlPos(bp,BI);
+//	fMatrix4x4 bp;BoneGlPos(bp,BI);
 //
 	CPhysicsShellHolder	*ph = PhysicsRefObject();
 	VERIFY(ph);
-	Fmatrix bpl;GetAnimBonePos(bpl);
-	Fmatrix bp;bp.mul_43(ph->XFORM(),bpl);
+	fMatrix4x4 bpl;
+	GetAnimBonePos(bpl);
+	fMatrix4x4 bp;
+	bp.mul_43(ph->XFORM(),bpl);
 	//BoneGlPos(bp,BI);
 
-	Fmatrix cp;
+	fMatrix4x4 cp;
 	GetGlobalTransformDynamic(&cp);
 
 	//Fquaternion q0; q0.set(cp);
 
 	cp.invert();
-	Fmatrix diff;diff.mul_43(cp,bp);
+	fMatrix4x4 diff;
+	diff.mul_43(cp,bp);
 	if(dt<EPS_S)
 		dt = EPS_S;
 	fVector3 mc1;
@@ -860,7 +853,7 @@ bool CPHElement::AnimToVel(float dt, float l_limit,float a_limit )
 	fVector3	lv ;
 	lv.mul(fVector3().sub(mc1,mc0),(1.0f/dt));
 	fVector3 aw ;
-	aw.set((diff._32-diff._23)/2.f/dt,(diff._13-diff._31)/2.f/dt,(diff._21-diff._12)/2.f/dt);
+	aw.set((diff._32-diff._23)/2.0f/dt,(diff._13-diff._31)/2.0f/dt,(diff._21-diff._12)/2.0f/dt);
 	
 	//Fquaternion q1; q1.set(bp);
 	//twoq_2w(q0,q1,dt,aw);
@@ -888,7 +881,7 @@ void CPHElement::ToBonePos(CBoneInstance* B)
 
 	mXFORM.set(B->mTransform);
 	
-	Fmatrix global_transform;
+	fMatrix4x4 global_transform;
 	BoneGlPos(global_transform,B);
 	SetTransform(global_transform);
 	FillInterpolation();
@@ -902,7 +895,7 @@ void	CPHElement::SetBoneCallbackOverwrite				(bool v)
 }
 void CPHElement::BonesCallBack(CBoneInstance* B)
 {
-	Fmatrix parent;
+	fMatrix4x4 parent;
 	VERIFY (isActive());
 	VERIFY(_valid(m_shell->mXFORM));
 	//VERIFY2(fsimilar(DET(B->mTransform),1.f,DET_CHECK_EPS),"Bones callback receive 0 matrix");
@@ -928,7 +921,6 @@ void CPHElement::BonesCallBack(CBoneInstance* B)
 		VERIFY_RMATRIX(B->mTransform);
 		VERIFY(valid_pos(B->mTransform.c,phBoundaries));
 
-	
 	{
 		
 		parent.invert		(m_shell->mXFORM);
@@ -1017,7 +1009,6 @@ void CPHElement::get_LinearVel(fVector3& velocity)
 		return;
 	}
 	dVectorSet((dReal*)&velocity,dBodyGetLinearVel(m_body));
-	
 }
 void CPHElement::get_AngularVel	(fVector3& velocity)
 {
@@ -1031,7 +1022,6 @@ void CPHElement::get_AngularVel	(fVector3& velocity)
 
 void CPHElement::set_LinearVel			  (const fVector3& velocity)
 {
-
 	if(!isActive()||m_flags.test(flFixed)) return;
 	VERIFY2(_valid(velocity),"not valid arqument velocity");
 	fVector3 vel = velocity;
@@ -1114,7 +1104,7 @@ void	CPHElement::applyImpulse(const fVector3& dir, float val)//aux
 	applyForce(dir.x*val/fixed_step,dir.y*val/fixed_step,dir.z*val/fixed_step);
 }
 
-void CPHElement::add_Shape(const SBoneShape& shape,const Fmatrix& offset)
+void CPHElement::add_Shape(const SBoneShape& shape,const fMatrix4x4& offset)
 {
 	CPHGeometryOwner::add_Shape(shape,offset);
 }
@@ -1126,7 +1116,7 @@ void CPHElement::add_Shape(const SBoneShape& shape)
 
 #pragma todo(remake it using Geometry functions)
 
-void CPHElement::add_Mass(const SBoneShape& shape,const Fmatrix& offset,const fVector3& mass_center,float mass,CPHFracture* fracture)
+void CPHElement::add_Mass(const SBoneShape& shape,const fMatrix4x4& offset,const fVector3& mass_center,float mass,CPHFracture* fracture)
 {
 	dMass m;
 	dMatrix3 DMatx;
@@ -1136,7 +1126,7 @@ void CPHElement::add_Mass(const SBoneShape& shape,const Fmatrix& offset,const fV
 		{
 			dMassSetBox(&m,1.f,shape.box.m_halfsize.x*2.f,shape.box.m_halfsize.y*2.f,shape.box.m_halfsize.z*2.f);
 			dMassAdjust(&m,mass);
-			Fmatrix box_transform;
+			fMatrix4x4 box_transform;
 			shape.box.xform_get(box_transform);
 			PHDynamicData::FMX33toDMX(shape.box.m_rotate,DMatx);
 			dMassRotate(&m,DMatx);
@@ -1146,7 +1136,7 @@ void CPHElement::add_Mass(const SBoneShape& shape,const Fmatrix& offset,const fV
 	case SBoneShape::stSphere	:
 		{
 			shape.sphere;
-			dMassSetSphere(&m,1.f,shape.sphere.R);
+			dMassSetSphere(&m,1.0f,shape.sphere.R);
 			dMassAdjust(&m,mass);
 			dMassTranslate(&m,shape.sphere.P.x-mass_center.x,shape.sphere.P.y-mass_center.y,shape.sphere.P.z-mass_center.z);
 			break;
@@ -1158,10 +1148,10 @@ void CPHElement::add_Mass(const SBoneShape& shape,const Fmatrix& offset,const fV
 			const fVector3& pos=shape.cylinder.m_center;
 			fVector3 l;
 			l.sub(pos,mass_center);
-			dMassSetCylinder(&m,1.f,2,shape.cylinder.m_radius,shape.cylinder.m_height);
+			dMassSetCylinder(&m,1.0f,2,shape.cylinder.m_radius,shape.cylinder.m_height);
 			dMassAdjust(&m,mass);
 			dMatrix3 DMatx;
-			Fmatrix33 m33;
+			fMatrix3x3 m33;
 			m33.j.set(shape.cylinder.m_direction);
 			fVector3::generate_orthonormal_basis(m33.j,m33.k,m33.i);
 			PHDynamicData::FMX33toDMX(m33,DMatx);
@@ -1189,7 +1179,7 @@ void CPHElement::add_Mass(const SBoneShape& shape,const Fmatrix& offset,const fV
 	tmp2.mul(mass);
 	fVector3 new_mc;
 	new_mc.add(tmp1,tmp2);
-	new_mc.mul(1.f/(mass+m_mass.mass));
+	new_mc.mul(1.0f/(mass+m_mass.mass));
 	mc.sub(new_mc);
 	dMassTranslate(&m,mc.x,mc.y,mc.z);
 	m_mass_center.sub(new_mc);
@@ -1329,9 +1319,8 @@ void CPHElement::CreateSimulBase()
 	dBodyDisable(m_body);
 	CPHGeometryOwner::CreateSimulBase();
 }
-void CPHElement::ReAdjustMassPositions(const Fmatrix &shift_pivot,float density)
+void CPHElement::ReAdjustMassPositions(const fMatrix4x4& shift_pivot,float density)
 {
-
 	GEOM_I i=m_geoms.begin(),e=m_geoms.end();
 	for(;i!=e;++i)
 	{
@@ -1374,7 +1363,7 @@ void CPHElement::ResetMass(float density)
 
 	CPHGeometryOwner::setPosition(m_mass_center);
 }
-void CPHElement::ReInitDynamics(const Fmatrix &shift_pivot,float density)
+void CPHElement::ReInitDynamics(const fMatrix4x4& shift_pivot,float density)
 {
 	VERIFY(_valid(shift_pivot)&&_valid(density));
 	ReAdjustMassPositions(shift_pivot,density);
@@ -1399,7 +1388,7 @@ void CPHElement::PresetActive()
 	CBoneInstance& B=m_shell->PKinematics()->LL_GetBoneInstance(m_SelfID);
 	mXFORM.set(B.mTransform);
 	//m_start_time=Device.fTimeGlobal;
-	Fmatrix global_transform;
+	fMatrix4x4 global_transform;
 	global_transform.mul_43(m_shell->mXFORM, mXFORM);
 	SetTransform(global_transform);
 
@@ -1444,7 +1433,7 @@ u16	CPHElement::numberOfGeoms()
 	return CPHGeometryOwner::numberOfGeoms();
 }
 
-void CPHElement::cv2bone_Xfrom(const Fquaternion& q,const fVector3& pos, Fmatrix& xform)
+void CPHElement::cv2bone_Xfrom(const Fquaternion& q,const fVector3& pos, fMatrix4x4& xform)
 {
 	VERIFY2(_valid(q)&&_valid(pos),"cv2bone_Xfrom receive wrong data");
 	xform.rotation(q);
@@ -1453,7 +1442,7 @@ void CPHElement::cv2bone_Xfrom(const Fquaternion& q,const fVector3& pos, Fmatrix
 	MulB43InverceLocalForm(xform);
 	VERIFY2(_valid(xform),"cv2bone_Xfrom returns wrong data");
 }
-void CPHElement::cv2obj_Xfrom(const Fquaternion& q,const fVector3& pos, Fmatrix& xform)
+void CPHElement::cv2obj_Xfrom(const Fquaternion& q,const fVector3& pos, fMatrix4x4& xform)
 {
 	cv2bone_Xfrom(q,pos,xform);
 	xform.mulB_43(m_shell->m_object_in_root);

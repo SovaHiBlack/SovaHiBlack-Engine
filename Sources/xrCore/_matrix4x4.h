@@ -754,9 +754,7 @@ public:
 };
 
 using fMatrix4x4 = _matrix4x4<f32>;
-
-typedef		_matrix4x4<float>	Fmatrix;
-typedef		_matrix4x4<double>	Dmatrix;
+using dMatrix4x4 = _matrix4x4<f64>;
 
 template <class T>
 BOOL _valid(const _matrix4x4<T>& m)
@@ -764,5 +762,5 @@ BOOL _valid(const _matrix4x4<T>& m)
 	return _valid(m.i) && _valid(m._14_) && _valid(m.j) && _valid(m._24_) && _valid(m.k) && _valid(m._34_) && _valid(m.c) && _valid(m._44_);
 }
 
-extern XRCORE_API Fmatrix	Fidentity;
-extern XRCORE_API Dmatrix	Didentity;
+extern XRCORE_API fMatrix4x4	Fidentity;
+extern XRCORE_API dMatrix4x4	Didentity;

@@ -7,7 +7,7 @@ using namespace	collide;
 /*
 const u32	clStatic		= clQUERY_STATIC+clGET_TRIS;
 
-void CObjectSpace::BoxQuery	(collide::rq_results& r_dest, const Fbox& B, const Fmatrix& M, u32 flags)
+void CObjectSpace::BoxQuery	(collide::rq_results& r_dest, const Fbox& B, const fMatrix4x4& M, u32 flags)
 {
 	fVector3		bc,bd;
 	Fbox		xf; 

@@ -11,7 +11,6 @@
 #include "../SkeletonAnimated.h"
 #include "game_cl_single.h"
 
-
 // refs
 class CEntity;
 class ENGINE_API CMotionDef;
@@ -89,6 +88,7 @@ public:
 	virtual bool			ready_to_kill		() const;
 	virtual bool			NeedToDestroyObject	() const; 
 	virtual ALife::_TIME_ID	TimePassedAfterIndependant() const;
+
 protected:
 	//время удаления оружия
 	ALife::_TIME_ID			m_dwWeaponRemoveTime;
@@ -163,7 +163,6 @@ public:
 	// работа с аддонами к оружию
 	//////////////////////////////////////////
 
-
 			bool IsGrenadeLauncherAttached	() const;
 			bool IsScopeAttached			() const;
 			bool IsSilencerAttached			() const;
@@ -193,6 +192,7 @@ public:
 
 	u8		GetAddonsState						()		const		{return m_flagsAddOnState;};
 	void	SetAddonsState						(u8 st)	{m_flagsAddOnState=st;}//dont use!!! for buy menu only!!!
+
 protected:
 	//состояние подключенных аддонов
 	u8 m_flagsAddOnState;
@@ -234,8 +234,8 @@ protected:
 	//мы перемещаем HUD  
 	float			m_fZoomRotationFactor;
 	bool			m_bHideCrosshairInZoom;
-public:
 
+public:
 	IC bool					IsZoomEnabled		()	const	{return m_bZoomEnabled;}
 	virtual	void			ZoomInc				(){};
 	virtual	void			ZoomDec				(){};
@@ -255,7 +255,7 @@ public:
 	virtual float				Weight			();		
 
 public:
-    virtual EHandDependence		HandDependence		()	const		{	return eHandDependence;}
+	virtual EHandDependence		HandDependence		()	const		{	return eHandDependence;}
 			bool				IsSingleHanded		()	const		{	return m_bIsSingleHanded; }
 
 public:
@@ -267,11 +267,11 @@ public:
 protected:
 	LPCSTR					m_strap_bone0;
 	LPCSTR					m_strap_bone1;
-	Fmatrix					m_StrapOffset;
+	fMatrix4x4					m_StrapOffset;
 	bool					m_strapped_mode;
 	bool					m_can_be_strapped;
 
-	Fmatrix					m_Offset;
+	fMatrix4x4					m_Offset;
 	// 0-используется без участия рук, 1-одна рука, 2-две руки
 	EHandDependence			eHandDependence;
 	bool					m_bIsSingleHanded;
@@ -285,7 +285,7 @@ private:
 	//текущее положение и напрвление для партиклов
 	struct					_firedeps
 	{
-		Fmatrix				m_FireParticlesXForm;	//направление для партиклов огня и дыма
+		fMatrix4x4				m_FireParticlesXForm;	//направление для партиклов огня и дыма
 		fVector3			vLastFP;			//огня
 		fVector3			vLastFP2;	//огня
 		fVector3			vLastFD				;	// direction
@@ -301,9 +301,9 @@ private:
 	}						m_firedeps			;
 protected:
 	virtual void			UpdateFireDependencies_internal	();
-	virtual void			UpdatePosition			(const Fmatrix& transform);	//.
+	virtual void			UpdatePosition			(const fMatrix4x4& transform);	//.
 	virtual void			UpdateXForm				();
-	virtual void			UpdateHudAdditonal		(Fmatrix&);
+	virtual void			UpdateHudAdditonal		(fMatrix4x4&);
 	IC		void			UpdateFireDependencies	()			{ if (dwFP_Frame==Device.dwFrame) return; UpdateFireDependencies_internal(); };
 
 	virtual void			LoadFireParams		(LPCSTR section, LPCSTR prefix);
@@ -315,7 +315,7 @@ public:
 
 	virtual const fVector3&	get_CurrentFirePoint	()			{ return get_LastFP();				}
 	virtual const fVector3&	get_CurrentFirePoint2	()			{ return get_LastFP2();				}
-	virtual const Fmatrix&	get_ParticlesXFORM		()			{ UpdateFireDependencies(); return m_firedeps.m_FireParticlesXForm;	}
+	virtual const fMatrix4x4&	get_ParticlesXFORM		()			{ UpdateFireDependencies(); return m_firedeps.m_FireParticlesXForm;	}
 	virtual void			ForceUpdateFireParticles();
 
 	//////////////////////////////////////////////////////////////////////////
@@ -346,7 +346,6 @@ public:
 	//текущая дисперсия (в радианах) оружия с учетом используемого патрона
 	float					GetFireDispersion	(bool with_cartridge)			;
 	float					GetFireDispersion	(float cartridge_k)				;
-//	const fVector3&			GetRecoilDeltaAngle	();
 	virtual	int				ShotsFired			() { return 0; }
 
 	//параметы оружия в зависимоти от его состояния исправности
@@ -384,9 +383,6 @@ protected:
 	//  [8/2/2005]
 
 protected:
-	//для отдачи оружия
-	fVector3					m_vRecoilDeltaAngle;
-
 	//для сталкеров, чтоб они знали эффективные границы использования 
 	//оружия
 	float					m_fMinRadius;

@@ -294,7 +294,8 @@ void	CEffect_Rain::Render	()
 		_IndexStream& _IS		= RCache.Index;
 		RCache.set_Shader		(DM_Drop->shader);
 		
-		Fmatrix					mXform,mScale;
+		fMatrix4x4				mXform;
+		fMatrix4x4				mScale;
 		int						pcount  = 0;
 		u32						v_offset,i_offset;
 		u32						vCount_Lock		= particles_cache*DM_Drop->number_vertices;

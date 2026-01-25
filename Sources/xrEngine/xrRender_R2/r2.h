@@ -134,9 +134,9 @@ private:
 
 public:
 	IRender_Sector*					rimp_detectSector			(fVector3& P, fVector3& D);
-	void							render_main					(Fmatrix& mCombined, bool _fportals);
+	void							render_main					(fMatrix4x4& mCombined, bool _fportals);
 	void							render_forward				();
-	void							render_smap_direct			(Fmatrix& mCombined);
+	void							render_smap_direct			(fMatrix4x4& mCombined);
 	void							render_indirect				(light*			L	);
 	void							render_lights				(light_Package& LP	);
 	void							render_sun					();
@@ -231,7 +231,7 @@ public:
 	virtual void					add_StaticWallmark			(ref_shader& S, const fVector3& P, float s, CDB::TRI* T, fVector3* V);
 	virtual void					clear_static_wallmarks		();
 	virtual void					add_SkeletonWallmark		(intrusive_ptr<CSkeletonWallmark> wm);
-	virtual void					add_SkeletonWallmark		(const Fmatrix* xf, CKinematics* obj, ref_shader& sh, const fVector3& start, const fVector3& dir, float size);
+	virtual void					add_SkeletonWallmark		(const fMatrix4x4* xf, CKinematics* obj, ref_shader& sh, const fVector3& start, const fVector3& dir, float size);
 
 	//
 	virtual IBlender*				blender_create				(CLASS_ID cls);

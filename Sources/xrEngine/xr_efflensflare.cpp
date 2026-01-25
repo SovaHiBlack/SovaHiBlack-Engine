@@ -230,7 +230,7 @@ void CLensFlare::OnFrame(int id)
 
 	fVector3 vecPos;
 
-	Fmatrix	matEffCamPos;
+	fMatrix4x4	matEffCamPos;
 	matEffCamPos.identity();
 	// Calculate our position and direction
 

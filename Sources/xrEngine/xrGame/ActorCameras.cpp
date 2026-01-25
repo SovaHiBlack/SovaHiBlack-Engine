@@ -109,7 +109,7 @@ ICF void calc_point(fVector3& pt, f32 radius, f32 depth, f32 alpha)
 	pt.z	= depth;
 }
 
-ICF BOOL test_point(xrXRC& xrc, const fMatrix4x4& xform, const Fmatrix33& mat, const fVector3& ext, f32 radius, f32 angle)
+ICF BOOL test_point(xrXRC& xrc, const fMatrix4x4& xform, const fMatrix3x3& mat, const fVector3& ext, f32 radius, f32 angle)
 {
 	fVector3				pt;
 	calc_point			(pt,radius,VIEWPORT_NEAR/2,angle);
@@ -159,7 +159,7 @@ void CActor::cam_Update(f32 dt, f32 fFOV)
 			f32 valid_angle	= alpha;
 			// xform with roll
 			xformR.setXYZ		(-r_torso.pitch,r_torso.yaw,-dZ);
-			Fmatrix33			mat; 
+			fMatrix3x3			mat;
 			mat.i				= xformR.i;
 			mat.j				= xformR.j;
 			mat.k				= xformR.k;

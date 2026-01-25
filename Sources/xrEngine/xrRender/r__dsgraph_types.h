@@ -77,7 +77,7 @@ namespace	R_dsgraph
 		float				ssa;
 		IRenderable*		pObject;
 		IRender_Visual*		pVisual;
-		Fmatrix				Matrix;				// matrix (copy)
+		fMatrix4x4			Matrix;				// matrix (copy)
 	};
 
 	struct _MatrixItemS	: public _MatrixItem

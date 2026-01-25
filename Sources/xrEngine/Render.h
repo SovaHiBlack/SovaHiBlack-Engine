@@ -189,7 +189,7 @@ public:
 
 	// Main 
 	IC		void					set_Frustum				(CFrustum*	O	)							{ VERIFY(O);	View = O;			}
-	virtual void					set_Transform			(Fmatrix*	M	)							= 0;
+	virtual void					set_Transform			(fMatrix4x4*	M	)							= 0;
 	virtual void					set_HUD					(BOOL 		V	)							= 0;
 	virtual BOOL					get_HUD					()											= 0;
 	virtual void					set_Invisible			(BOOL 		V	)							= 0;
@@ -201,7 +201,7 @@ public:
 	virtual void					add_StaticWallmark		(ref_shader& S, const fVector3& P, float s, CDB::TRI* T, fVector3* V)=0;
 	virtual void					clear_static_wallmarks	()=0;
 	virtual void					add_SkeletonWallmark	(intrusive_ptr<CSkeletonWallmark> wm)						= 0;
-	virtual void					add_SkeletonWallmark	(const Fmatrix* xf, CKinematics* obj, ref_shader& sh, const fVector3& start, const fVector3& dir, float size)=0;
+	virtual void					add_SkeletonWallmark	(const fMatrix4x4* xf, CKinematics* obj, ref_shader& sh, const fVector3& start, const fVector3& dir, float size)=0;
 
 	virtual IBlender*				blender_create			(CLASS_ID cls)								= 0;
 	virtual void					blender_destroy			(IBlender* &)								= 0;

@@ -37,7 +37,7 @@ struct clQueryCollision
 		boxes.clear		();
 		spheres.clear	();
 	}
-	IC void				AddTri( const Fmatrix& m, const CDB::TRI* one, const fVector3* verts )
+	IC void				AddTri( const fMatrix4x4& m, const CDB::TRI* one, const fVector3* verts )
 	{
 		clQueryTri	T;
 		m.transform_tiny	(T.p[0],verts[one->verts[0]]);
@@ -55,14 +55,15 @@ struct clQueryCollision
 		T.T					= one;
 		tris.push_back		(T);
 	}
-	IC void				AddBox(const Fmatrix& M, const Fbox& B)
+	IC void				AddBox(const fMatrix4x4& M, const Fbox& B)
 	{
 		Fobb			box;
 		fVector3			c;
 		B.getcenter		(c);
 		B.getradius		(box.m_halfsize);
 		
-		Fmatrix			T,R;
+		fMatrix4x4		T;
+		fMatrix4x4		R;
 		T.translate		(c);
 		R.mul_43		(M,T);
 
@@ -96,7 +97,7 @@ public:
 	virtual			~ICollisionForm	( );
 
 	virtual BOOL	_RayQuery		( const collide::ray_defs& Q, collide::rq_results& R) = 0;
-	//virtual void	_BoxQuery		( const Fbox& B, const Fmatrix& M, u32 flags)	= 0;
+	//virtual void	_BoxQuery		( const Fbox& B, const fMatrix4x4& M, u32 flags)	= 0;
 
 	IC CObject*		Owner			( )	const				{ return owner;			}
 	const Fbox&		getBBox			( )	const				{ return bv_box;		}
@@ -111,7 +112,7 @@ public:
 	struct SElement{
 		union{
 			struct{
-				Fmatrix	b_IM;		// world 2 bone xform
+				fMatrix4x4	b_IM;		// world 2 bone xform
 				fVector3	b_hsize;
 			};
 			struct{
@@ -158,7 +159,7 @@ public:
 					CCF_EventBox	( CObject* _owner );
 
 	virtual BOOL	_RayQuery		( const collide::ray_defs& Q, collide::rq_results& R);
-	//virtual void	_BoxQuery		( const Fbox& B, const Fmatrix& M, u32 flags);
+	//virtual void	_BoxQuery		( const Fbox& B, const fMatrix4x4& M, u32 flags);
 
 	BOOL			Contact			( CObject* O );
 };
@@ -170,8 +171,8 @@ public:
 	{
 		Fsphere		sphere;
 		struct{
-			Fmatrix	box;
-			Fmatrix	ibox;
+			fMatrix4x4	box;
+			fMatrix4x4	ibox;
 		};
 	};
 	struct shape_def
@@ -184,10 +185,10 @@ public:
 					CCF_Shape		( CObject* _owner );
 
 	virtual BOOL	_RayQuery		( const collide::ray_defs& Q, collide::rq_results& R);
-	//virtual void	_BoxQuery		( const Fbox& B, const Fmatrix& M, u32 flags);
+	//virtual void	_BoxQuery		( const Fbox& B, const fMatrix4x4& M, u32 flags);
 
 	void			add_sphere		( Fsphere& S	);
-	void			add_box			( Fmatrix& B	);
+	void			add_box			(fMatrix4x4& B	);
 	void			ComputeBounds	( );
 	BOOL			Contact			( CObject* O	);
 	xr_vector<shape_def>& Shapes	(){return shapes;}

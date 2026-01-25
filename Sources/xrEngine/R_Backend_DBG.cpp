@@ -32,9 +32,10 @@ void CBackend::dbg_Draw			(D3DPRIMITIVETYPE T, FVF::L* pVerts, int pcnt)
 }
 
 #define RGBA_GETALPHA(rgb)      ((rgb) >> 24)
-void CBackend::dbg_DrawOBB		(Fmatrix& T, fVector3& half_dim, u32 C)
+void CBackend::dbg_DrawOBB		(fMatrix4x4& T, fVector3& half_dim, u32 C)
 {
-	Fmatrix mL2W_Transform,mScaleTransform;
+	fMatrix4x4 mL2W_Transform;
+	fMatrix4x4 mScaleTransform;
 
 	mScaleTransform.scale(half_dim);
 	mL2W_Transform.mul_43(T,mScaleTransform);
@@ -55,7 +56,7 @@ void CBackend::dbg_DrawOBB		(Fmatrix& T, fVector3& half_dim, u32 C)
 	set_xform_world	(mL2W_Transform);
 	dbg_Draw(D3DPT_LINELIST,aabb,8,aabb_id,12);
 }
-void CBackend::dbg_DrawTRI	(Fmatrix& T, fVector3& p1, fVector3& p2, fVector3& p3, u32 C)
+void CBackend::dbg_DrawTRI	(fMatrix4x4& T, fVector3& p1, fVector3& p2, fVector3& p3, u32 C)
 {
 	FVF::L	tri[3];
 	tri[0].p = p1; tri[0].color = C;
@@ -65,7 +66,7 @@ void CBackend::dbg_DrawTRI	(Fmatrix& T, fVector3& p1, fVector3& p2, fVector3& p3
 	set_xform_world	(T);
 	dbg_Draw(D3DPT_TRIANGLESTRIP,tri,1);
 }
-void CBackend::dbg_DrawLINE(Fmatrix& T, fVector3& p1, fVector3& p2, u32 C)
+void CBackend::dbg_DrawLINE(fMatrix4x4& T, fVector3& p1, fVector3& p2, u32 C)
 {
 	FVF::L	line[2];
 	line[0].p = p1; line[0].color = C;
@@ -74,9 +75,9 @@ void CBackend::dbg_DrawLINE(Fmatrix& T, fVector3& p1, fVector3& p2, u32 C)
 	set_xform_world	(T);
 	dbg_Draw(D3DPT_LINELIST,line,1);
 }
-void CBackend::dbg_DrawEllipse(Fmatrix& T, u32 C)
+void CBackend::dbg_DrawEllipse(fMatrix4x4& T, u32 C)
 {
-	float gVertices[] =
+	float gVertices[ ] =
 	{
 		0.0000f,0.0000f,1.0000f,  0.0000f,0.3827f,0.9239f,  -0.1464f,0.3536f,0.9239f,
 			-0.2706f,0.2706f,0.9239f,  -0.3536f,0.1464f,0.9239f,  -0.3827f,0.0000f,0.9239f,

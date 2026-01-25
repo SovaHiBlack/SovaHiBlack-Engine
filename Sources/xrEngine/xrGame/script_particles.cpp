@@ -113,7 +113,7 @@ void CScriptParticles::StopDeffered()
 void CScriptParticles::MoveTo	(const fVector3& pos, const fVector3& vel)
 {
 	VERIFY						(m_particles);
-	Fmatrix						XF;
+	fMatrix4x4						XF;
 	XF.translate				(pos);
 	m_particles->UpdateParent	(XF,vel);
 }

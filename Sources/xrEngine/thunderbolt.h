@@ -55,7 +55,7 @@ protected:
 	CollectionVec				collection;
 	SThunderboltDesc*			current;
 private:
-	Fmatrix				  		current_xform;
+	fMatrix4x4				  		current_xform;
 	fVector3					current_direction;
 
 	ref_geom			  		hGeom_model;

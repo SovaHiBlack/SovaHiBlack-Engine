@@ -154,7 +154,8 @@ void CTeamBaseZone::OnRender()
 //	RCache.OnFrameEnd();
 	fVector3 l_half;
 	l_half.set(0.5f, 0.5f, 0.5f);
-	Fmatrix l_ball, l_box;
+	fMatrix4x4 l_ball;
+	fMatrix4x4 l_box;
 	xr_vector<CCF_Shape::shape_def> &l_shapes = ((CCF_Shape*)CFORM())->Shapes();
 	xr_vector<CCF_Shape::shape_def>::iterator l_pShape;
 	

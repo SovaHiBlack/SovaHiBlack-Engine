@@ -13,7 +13,7 @@ void CMatrix::Calculate()
 			return;
 		case modeTCM:
 			{
-				Fmatrix		T;
+			fMatrix4x4		T;
 				float		sU=1,sV=1,t=Device.fTimeGlobal;
 				tc_trans	(xform,.5f,.5f);
 				if (tcm&tcmRotate) {
@@ -51,7 +51,7 @@ void CMatrix::Calculate()
 			return;
 		case modeC_refl:
 			{
-				Fmatrix	M	= Device.mView;
+			fMatrix4x4	M	= Device.mView;
 				M._41		= 0.f;
 				M._42		= 0.f;
 				M._43		= 0.f;

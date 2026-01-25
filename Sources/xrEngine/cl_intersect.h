@@ -223,7 +223,7 @@ namespace CDB
 	}
 	//---------------------------------------------------------------------------
 
-	IC bool TestBBoxTri(const Fmatrix33& A, const fVector3& T, const fVector3& extA, fVector3** p, BOOL bCulling){
+	IC bool TestBBoxTri(const fMatrix3x3& A, const fVector3& T, const fVector3& extA, fVector3** p, BOOL bCulling){
 		// construct triangle normal, difference of center and vertex (18 ops)
 		fVector3 D;
 		fVector3 E[2];
@@ -325,7 +325,7 @@ namespace CDB
 		// intersection occurs
 		return true;
 	}
-	IC bool TestBBoxTri(const Fmatrix33& A, const fVector3& T, const fVector3& extA, fVector3* p, BOOL bCulling){
+	IC bool TestBBoxTri(const fMatrix3x3& A, const fVector3& T, const fVector3& extA, fVector3* p, BOOL bCulling){
 		// construct triangle normal, difference of center and vertex (18 ops)
 		fVector3 D;
 		fVector3 E[2];

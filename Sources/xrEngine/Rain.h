@@ -33,7 +33,7 @@ private:
 	struct	Particle
 	{
 		Particle		*next,*prev;
-		Fmatrix			mXForm;
+		fMatrix4x4			mXForm;
 		Fsphere			bounds;
 		float			time;
 	};

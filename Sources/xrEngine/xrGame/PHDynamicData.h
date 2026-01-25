@@ -2,7 +2,6 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-
 #include "ode_include.h"
 #include "PHInterpolation.h"
 #include "MathUtils.h"
@@ -20,7 +19,7 @@ class PHDynamicData
 public:
 dVector3 pos;
 dMatrix3 R;
-Fmatrix BoneTransform;
+fMatrix4x4 BoneTransform;
 private:
 dBodyID body;
 CPHInterpolation* p_parent_body_interpolation;
@@ -30,15 +29,15 @@ dGeomID transform;
 //PHDynamicData* Childs;
 //xr_vector<PHDynamicData>  Childs;
 unsigned int numOfChilds;
-Fmatrix ZeroTransform;
+fMatrix4x4 ZeroTransform;
 public:
-	inline void UpdateInterpolation(){
+	IC void UpdateInterpolation(){
 		body_interpolation.UpdatePositions();
 		body_interpolation.UpdateRotations();
 	}
 	void UpdateInterpolationRecursive()	;
-	void InterpolateTransform(Fmatrix& transform);
-	void InterpolateTransformVsParent(Fmatrix& transform);
+	void InterpolateTransform(fMatrix4x4& transform);
+	void InterpolateTransformVsParent(fMatrix4x4& transform);
 	PHDynamicData& operator [] (unsigned int i) {return Childs[i];};
 	void Destroy();
 	void Create(unsigned int numOfchilds,dBodyID Body);
@@ -47,18 +46,19 @@ public:
 	bool SetChild(unsigned int ChildNum,unsigned int numOfchilds,dBodyID body);
 	void SetAsZero();
 	void SetAsZeroRecursive();
-	void SetZeroTransform(Fmatrix& aTransform);
+	void SetZeroTransform(fMatrix4x4& aTransform);
 	PHDynamicData(unsigned int numOfchilds,dBodyID body);
 	PHDynamicData();
 	virtual ~PHDynamicData();
-	void GetWorldMX(Fmatrix& aTransform){
+	void GetWorldMX(fMatrix4x4& aTransform){
 			dMatrix3 R;
 			dQtoR(dBodyGetQuaternion(body),R);
 			DMXPStoFMX(R,dBodyGetPosition(body),aTransform);
 			}
-	void GetTGeomWorldMX(Fmatrix& aTransform){
+	void GetTGeomWorldMX(fMatrix4x4& aTransform){
 			if(!transform) return;
-			Fmatrix NormTransform,Transform;
+			fMatrix4x4 NormTransform;
+			fMatrix4x4 Transform;
 			dVector3 P0={0,0,0,-1};
 			fVector3 Translate;
 			fVector3 Translate1;
@@ -88,34 +88,34 @@ public:
 			}
 #endif // #if 0
 public:
-	static inline void DMXPStoFMX(const dReal* R,const dReal* pos,Fmatrix& aTransform){
+	static IC void DMXPStoFMX(const dReal* R,const dReal* pos, fMatrix4x4& aTransform){
 
 			CopyMemory(&aTransform,R,sizeof(dMatrix3));
 			aTransform.transpose();
 			CopyMemory(&aTransform.c,pos,sizeof(fVector3));
-			aTransform._14=0.f;
-			aTransform._24=0.f;
-			aTransform._34=0.f;
-			aTransform._44=1.f;
+			aTransform._14=0.0f;
+			aTransform._24=0.0f;
+			aTransform._34=0.0f;
+			aTransform._44=1.0f;
 		};
-	static inline void DMXtoFMX(const dReal* R,Fmatrix& aTransform){
+	static IC void DMXtoFMX(const dReal* R, fMatrix4x4& aTransform){
 			aTransform._11=R[0];
 			aTransform._12=R[4];
 			aTransform._13=R[8];
-			aTransform._14=0.f;
+			aTransform._14=0.0f;
 
 			aTransform._21=R[1];
 			aTransform._22=R[5];
 			aTransform._23=R[9];
-			aTransform._24=0.f;
+			aTransform._24=0.0f;
 			
 			aTransform._31=R[2];
 			aTransform._32=R[6];
 			aTransform._33=R[10];
-			aTransform._34=0.f;
-			aTransform._44=1.f;
+			aTransform._34=0.0f;
+			aTransform._44=1.0f;
 	};
-	static inline void FMX33toDMX(const Fmatrix33& aTransform,dReal* R){	
+	static IC void FMX33toDMX(const fMatrix3x3& aTransform,dReal* R){
 		R[0]=aTransform._11;
 		R[4]=aTransform._12;
 		R[8]=aTransform._13;
@@ -128,7 +128,7 @@ public:
 		R[6]=aTransform._32;
 		R[10]=aTransform._33;
 		};
-	static inline void FMXtoDMX(const Fmatrix& aTransform,dReal* R){	
+	static IC void FMXtoDMX(const fMatrix4x4& aTransform,dReal* R){
 		R[0]=aTransform._11;
 		R[4]=aTransform._12;
 		R[8]=aTransform._13;

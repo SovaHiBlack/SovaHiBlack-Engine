@@ -350,7 +350,7 @@ void CWeaponMagazinedWGrenade::SwitchState(u32 S)
 		if (IsGameTypeSingle())
 			p1.set						(get_LastFP2());
 		
-		Fmatrix launch_matrix;
+		fMatrix4x4 launch_matrix;
 		launch_matrix.identity();
 		launch_matrix.k.set(d);
 		fVector3::generate_orthonormal_basis(launch_matrix.k, launch_matrix.j, launch_matrix.i);

@@ -77,7 +77,7 @@ void CSpaceRestrictionShape::fill_shape		(const CCF_Shape::shape_def &shape)
 			};
 			start					= fVector3().set(flt_max,flt_max,flt_max);
 			dest					= fVector3().set(flt_min,flt_min,flt_min);
-			Fmatrix					Q;
+			fMatrix4x4					Q;
 			Q.mul_43				(m_restrictor->XFORM(),shape.data.box);
 			fVector3					temp;
 			for (int i=0; i<8; ++i) {

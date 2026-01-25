@@ -36,8 +36,8 @@ class ENGINE_API		CBoneInstance
 {
 public:
 	// data
-	Fmatrix				mTransform;							// final x-form matrix (local to model)
-	Fmatrix				mRenderTransform;					// final x-form matrix (model_base -> bone -> model)
+	fMatrix4x4				mTransform;							// final x-form matrix (local to model)
+	fMatrix4x4				mRenderTransform;					// final x-form matrix (model_base -> bone -> model)
 	BoneCallback		Callback;
 	void*				Callback_Param;
 	BOOL				Callback_overwrite;					// performance hint - don't calc anims
@@ -66,13 +66,13 @@ public:
 	vecBones			children;		// bones which are slaves to this
 	Fobb				obb;			
 
-	Fmatrix				bind_transform;
-    Fmatrix				m2b_transform;	// model to bone conversion transform
-    SBoneShape			shape;
-    shared_str			game_mtl_name;
+	fMatrix4x4				bind_transform;
+	fMatrix4x4				m2b_transform;	// model to bone conversion transform
+	SBoneShape			shape;
+	shared_str			game_mtl_name;
 	u16					game_mtl_idx;
-    SJointIKData		IK_data;
-    float				mass;
+	SJointIKData		IK_data;
+	float				mass;
 	fVector3				center_of_mass;
 
 	DEFINE_VECTOR		(u16,FacesVec,FacesVecIt);
@@ -96,7 +96,7 @@ public:
 		child_faces[child_idx].push_back(idx);
 	}
 	// Calculation
-	void				CalculateM2B	(const Fmatrix& Parent);
+	void				CalculateM2B	(const fMatrix4x4& Parent);
 
 	virtual u32			mem_usage		()
 	{
@@ -113,7 +113,7 @@ class ENGINE_API CSkeletonWallmark : public intrusive_base // 4+4+4+12+4+16+16 =
 {
 #pragma warning(pop)
 	CKinematics*		m_Parent;		// 4
-	const Fmatrix*		m_XForm;		// 4
+	const fMatrix4x4*		m_XForm;		// 4
 	ref_shader			m_Shader;		// 4
 	fVector3			m_ContactPoint;	// 12		model space
 	float				m_fTimeStart;	// 4
@@ -133,7 +133,7 @@ public:
 public:
 	Fsphere				m_Bounds;		// 16		world space
 public:									
-						CSkeletonWallmark	(CKinematics* p,const Fmatrix* m, ref_shader s, const fVector3& cp, float ts):
+						CSkeletonWallmark	(CKinematics* p,const fMatrix4x4* m, ref_shader s, const fVector3& cp, float ts):
 						m_Parent(p),m_XForm(m),m_Shader(s),m_fTimeStart(ts),m_ContactPoint(cp)
 						{
 #ifdef DEBUG
@@ -152,7 +152,7 @@ public:
 	IC u32				VCount				(){return m_Faces.size()*3;}
 	IC bool				Similar				(ref_shader& sh, const fVector3& cp, float eps){return (m_Shader==sh)&&m_ContactPoint.similar(cp,eps);}
 	IC float			TimeStart			(){return m_fTimeStart;}
-	IC const Fmatrix*	XFORM				(){return m_XForm;}
+	IC const fMatrix4x4*	XFORM				(){return m_XForm;}
 	IC const fVector3&	ContactPoint		(){return m_ContactPoint;}
 	IC ref_shader		Shader				(){return m_Shader;}
 };
@@ -179,7 +179,7 @@ public:
 #ifdef DEBUG
 	BOOL						dbg_single_use_marker;
 #endif
-	virtual void				Bone_Calculate		(CBoneData* bd, Fmatrix* parent);
+	virtual void				Bone_Calculate		(CBoneData* bd, fMatrix4x4* parent);
 	virtual void				OnCalculateBones	(){}
 public:
 	typedef xr_vector<std::pair<shared_str,u16> >	accel;
@@ -192,7 +192,7 @@ protected:
 	xr_vector<IRender_Visual*>	children_invisible	;
 
 	// Globals
-    CInifile*					pUserData;
+	CInifile*					pUserData;
 	CBoneInstance*				bone_instances;	// bone instances
 	vecBones*					bones;			// all bones	(shared)
 	u16							iRoot;			// Root bone index
@@ -205,8 +205,8 @@ protected:
 	u32							UCalc_Time				;
 	s32							UCalc_Visibox			;
 
-    Flags64						visimask;
-    
+	Flags64						visimask;
+	
 	CSkeletonX*					LL_GetChild				(u32 idx);
 
 	// internal functions
@@ -216,19 +216,19 @@ protected:
 	void						Visibility_Invalidate	()	{ Update_Visibility=TRUE; };
 	void						Visibility_Update		()	;
 
-    void						LL_Validate				();
+	void						LL_Validate				();
 public:
 	UpdateCallback				Update_Callback;
 	void*						Update_Callback_Param;
 public:
 	// wallmarks
-	void						AddWallmark			(const Fmatrix* parent, const fVector3& start, const fVector3& dir, ref_shader shader, float size);
+	void						AddWallmark			(const fMatrix4x4* parent, const fVector3& start, const fVector3& dir, ref_shader shader, float size);
 	void						CalculateWallmarks	();
 	void						RenderWallmark		(intrusive_ptr<CSkeletonWallmark> wm, FVF::LIT* &verts);
 	void						ClearWallmarks		();
 public:
 				
-				bool			PickBone			(const Fmatrix &parent_xform, fVector3& normal, float& dist, const fVector3& start, const fVector3& dir, u16 bone_id);
+				bool			PickBone			(const fMatrix4x4& parent_xform, fVector3& normal, float& dist, const fVector3& start, const fVector3& dir, u16 bone_id);
 	virtual		void			EnumBoneVertices	(SEnumVerticesCallback &C, u16 bone_id);
 public:
 								CKinematics			();
@@ -239,22 +239,22 @@ public:
 	u16							LL_BoneID		(const shared_str& B);
 	LPCSTR						LL_BoneName_dbg	(u16 ID);
 
-    CInifile*					LL_UserData			(){return pUserData;}
+	CInifile*					LL_UserData			(){return pUserData;}
 	accel*						LL_Bones			(){return bone_map_N;}
 	ICF CBoneInstance&			LL_GetBoneInstance	(u16 bone_id)		{	VERIFY(bone_id<LL_BoneCount()); VERIFY(bone_instances); return bone_instances[bone_id];	}
 	CBoneData&					LL_GetData			(u16 bone_id)		{	VERIFY(bone_id<LL_BoneCount()); VERIFY(bones);			return *((*bones)[bone_id]);	}
 	u16							LL_BoneCount		()					{	return u16(bones->size());										}
 	u16							LL_VisibleBoneCount	()					{	u64 F=visimask.flags&((u64(1)<<u64(LL_BoneCount()))-1); return (u16)btwCount1(F); }
-	ICF Fmatrix&				LL_GetTransform		(u16 bone_id)		{	return LL_GetBoneInstance(bone_id).mTransform;					}
-	ICF Fmatrix&				LL_GetTransform_R	(u16 bone_id)		{	return LL_GetBoneInstance(bone_id).mRenderTransform;			}	// rendering only
+	ICF fMatrix4x4&				LL_GetTransform		(u16 bone_id)		{	return LL_GetBoneInstance(bone_id).mTransform;					}
+	ICF fMatrix4x4&				LL_GetTransform_R	(u16 bone_id)		{	return LL_GetBoneInstance(bone_id).mRenderTransform;			}	// rendering only
 	Fobb&						LL_GetBox			(u16 bone_id)		{	VERIFY(bone_id<LL_BoneCount());	return (*bones)[bone_id]->obb;	}
-	void						LL_GetBindTransform (xr_vector<Fmatrix>& matrices);
-    int 						LL_GetBoneGroups 	(xr_vector<xr_vector<u16> >& groups);
+	void						LL_GetBindTransform (xr_vector<fMatrix4x4>& matrices);
+	int 						LL_GetBoneGroups 	(xr_vector<xr_vector<u16> >& groups);
 
 	u16							LL_GetBoneRoot		()					{	return iRoot;													}
 	void						LL_SetBoneRoot		(u16 bone_id)		{	VERIFY(bone_id<LL_BoneCount());	iRoot=bone_id;					}
 
-    BOOL						LL_GetBoneVisible	(u16 bone_id)		{	VERIFY(bone_id<LL_BoneCount()); return visimask.is(u64(1)<<bone_id);	}
+	BOOL						LL_GetBoneVisible	(u16 bone_id)		{	VERIFY(bone_id<LL_BoneCount()); return visimask.is(u64(1)<<bone_id);	}
 	void						LL_SetBoneVisible	(u16 bone_id, BOOL val, BOOL bRecursive);
 	u64							LL_GetBonesVisible	()					{	return visimask.get();	}
 	void						LL_SetBonesVisible	(u64 mask);
@@ -266,15 +266,15 @@ public:
 
 	// debug
 #ifdef DEBUG
-	void						DebugRender			(Fmatrix& XFORM);
+	void						DebugRender			(fMatrix4x4& XFORM);
 #endif
 
 	// General "Visual" stuff
-    virtual void				Copy				(IRender_Visual *pFrom);
+	virtual void				Copy				(IRender_Visual *pFrom);
 	virtual void				Load				(const char* N, IReader *data, u32 dwFlags);
 	virtual void 				Spawn				();
 	virtual void				Depart				();
-    virtual void 				Release				();
+	virtual void 				Release				();
 
 	virtual	CKinematics*		dcast_PKinematics	()				{ return this;	}
 

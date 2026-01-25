@@ -62,7 +62,7 @@ BOOL CRenderTarget::enable_scissor		(light* L)		// true if intersects near plane
 	// Near plane intersection
 	BOOL	near_intersect				= FALSE;
 	{
-		Fmatrix& M						= Device.mFullTransform;
+		fMatrix4x4& M						= Device.mFullTransform;
 		fVector4 plane;
 		plane.x							= -(M._14 + M._13);
 		plane.y							= -(M._24 + M._23);
@@ -118,7 +118,7 @@ BOOL CRenderTarget::enable_scissor		(light* L)		// true if intersects near plane
 
 		// 3. convert it into world space
 		fVector3	s_points			[4];
-		Fmatrix&	iVP					= Device.mInvFullTransform;
+		fMatrix4x4&	iVP					= Device.mInvFullTransform;
 		iVP.transform	(s_points[0],s_points_pp[0]);
 		iVP.transform	(s_points[1],s_points_pp[1]);
 		iVP.transform	(s_points[2],s_points_pp[2]);
@@ -149,7 +149,7 @@ BOOL CRenderTarget::enable_scissor		(light* L)		// true if intersects near plane
 }
 /*
 {
-	Fmatrix& M						= RCache.xforms.m_wvp;
+	fMatrix4x4& M						= RCache.xforms.m_wvp;
 	BOOL	bIntersect				= FALSE;
 	for (u32 vit=0; vit<DU_CONE_NUMVERTEX; vit++)	{
 		fVector3&	v	= du_cone_vertices[vit];

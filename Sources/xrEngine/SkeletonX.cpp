@@ -57,7 +57,8 @@ void CSkeletonX::_Render	(ref_geom& hGeom, u32 vCount, u32 iOffset, u32 pCount)
 		break;
 	case RM_SINGLE:	
 		{
-			Fmatrix	W;	W.mul_43	(RCache.xforms.m_w,Parent->LL_GetTransform_R	(u16(RMS_boneid)));
+		fMatrix4x4	W;
+		W.mul_43	(RCache.xforms.m_w,Parent->LL_GetTransform_R	(u16(RMS_boneid)));
 			RCache.set_xform_world	(W);
 			RCache.set_Geometry		(hGeom);
 			RCache.Render			(D3DPT_TRIANGLELIST,0,0,vCount,iOffset,pCount);
@@ -71,7 +72,7 @@ void CSkeletonX::_Render	(ref_geom& hGeom, u32 vCount, u32 iOffset, u32 pCount)
 			ref_constant			array	= RCache.get_c				(s_bones_array_const);
 			u32						count	= RMS_bonecount;
 			for (u32 mid = 0; mid<count; mid++)	{
-				Fmatrix&	M				= Parent->LL_GetTransform_R				(u16(mid));
+				fMatrix4x4&	M				= Parent->LL_GetTransform_R				(u16(mid));
 				u32			id				= mid*3;
 				RCache.set_ca	(&*array,id+0,M._11,M._21,M._31,M._41);
 				RCache.set_ca	(&*array,id+1,M._12,M._22,M._32,M._42);
@@ -248,7 +249,7 @@ BOOL	CSkeletonX::_PickBoneSoft1W	(fVector3& normal, float& dist, const fVector3&
 		u32 idx			= (*it)*3;
 		for (u32 k=0; k<3; k++){
 			vertBoned1W& vert		= Vertices1W[indices[idx+k]];
-			const Fmatrix& xform	= Parent->LL_GetBoneInstance((u16)vert.matrix).mRenderTransform; 
+			const fMatrix4x4& xform	= Parent->LL_GetBoneInstance((u16)vert.matrix).mRenderTransform;
 			xform.transform_tiny	(p[k],vert.P);
 		}
 		float u,v,range	= flt_max;
@@ -272,8 +273,8 @@ BOOL CSkeletonX::_PickBoneSoft2W	(fVector3& normal, float& dist, const fVector3&
 			fVector3	P0;
 			fVector3	P1;
 			vertBoned2W& vert		= Vertices2W[indices[idx+k]];
-			Fmatrix& xform0			= Parent->LL_GetBoneInstance(vert.matrix0).mRenderTransform; 
-			Fmatrix& xform1			= Parent->LL_GetBoneInstance(vert.matrix1).mRenderTransform; 
+			fMatrix4x4& xform0			= Parent->LL_GetBoneInstance(vert.matrix0).mRenderTransform;
+			fMatrix4x4& xform1			= Parent->LL_GetBoneInstance(vert.matrix1).mRenderTransform;
 			xform0.transform_tiny	(P0,vert.P);
 			xform1.transform_tiny	(P1,vert.P);
 			p[k].lerp				(P0,P1,vert.w);
@@ -289,7 +290,7 @@ BOOL CSkeletonX::_PickBoneSoft2W	(fVector3& normal, float& dist, const fVector3&
 }
 
 // Fill Vertices
-void CSkeletonX::_FillVerticesSoft1W(const Fmatrix& view, CSkeletonWallmark& wm, const fVector3& normal, float size, u16* indices, CBoneData::FacesVec& faces)
+void CSkeletonX::_FillVerticesSoft1W(const fMatrix4x4& view, CSkeletonWallmark& wm, const fVector3& normal, float size, u16* indices, CBoneData::FacesVec& faces)
 {
 	VERIFY				(*Vertices1W);
 	for (CBoneData::FacesVecIt it=faces.begin(); it!=faces.end(); it++){
@@ -301,7 +302,7 @@ void CSkeletonX::_FillVerticesSoft1W(const Fmatrix& view, CSkeletonWallmark& wm,
 			F.bone_id[k][0]			= (u16)vert.matrix;
 			F.bone_id[k][1]			= F.bone_id[k][0];
 			F.weight[k]				= 0.f;
-			const Fmatrix& xform	= Parent->LL_GetBoneInstance(F.bone_id[k][0]).mRenderTransform; 
+			const fMatrix4x4& xform	= Parent->LL_GetBoneInstance(F.bone_id[k][0]).mRenderTransform;
 			F.vert[k].set			(vert.P);
 			xform.transform_tiny	(p[k],F.vert[k]);
 		}
@@ -323,7 +324,7 @@ void CSkeletonX::_FillVerticesSoft1W(const Fmatrix& view, CSkeletonWallmark& wm,
 	}
 }
 
-void CSkeletonX::_FillVerticesSoft2W(const Fmatrix& view, CSkeletonWallmark& wm, const fVector3& normal, float size, u16* indices, CBoneData::FacesVec& faces)
+void CSkeletonX::_FillVerticesSoft2W(const fMatrix4x4& view, CSkeletonWallmark& wm, const fVector3& normal, float size, u16* indices, CBoneData::FacesVec& faces)
 {
 	VERIFY				(*Vertices2W);
 	for (CBoneData::FacesVecIt it=faces.begin(); it!=faces.end(); it++){
@@ -337,8 +338,8 @@ void CSkeletonX::_FillVerticesSoft2W(const Fmatrix& view, CSkeletonWallmark& wm,
 			F.bone_id[k][0]			= vert.matrix0;
 			F.bone_id[k][1]			= vert.matrix1;
 			F.weight[k]				= vert.w;
-			Fmatrix& xform0			= Parent->LL_GetBoneInstance(F.bone_id[k][0]).mRenderTransform; 
-			Fmatrix& xform1			= Parent->LL_GetBoneInstance(F.bone_id[k][1]).mRenderTransform; 
+			fMatrix4x4& xform0			= Parent->LL_GetBoneInstance(F.bone_id[k][0]).mRenderTransform;
+			fMatrix4x4& xform1			= Parent->LL_GetBoneInstance(F.bone_id[k][1]).mRenderTransform;
 			F.vert[k].set			(vert.P);		
 			xform0.transform_tiny	(P0,F.vert[k]);
 			xform1.transform_tiny	(P1,F.vert[k]);

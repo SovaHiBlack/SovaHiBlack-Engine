@@ -560,5 +560,6 @@
     <None Include="rt_lzo1x_d.ch">
       <Filter>Compression\lzo</Filter>
     </None>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

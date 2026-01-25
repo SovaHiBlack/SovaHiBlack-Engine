@@ -17,15 +17,16 @@ public:
 		tcmScroll		= (1<<2),
 		tcmFORCE32		= u32(-1)
 	};
+
 public:
-	Fmatrix			xform;
+	fMatrix4x4			xform;
 
 	u32				dwFrame;
 	u32				dwMode;
-    union{
+	union{
 		u32		tcm;				// mask for tc-modifiers
-        Flags32	tcm_flags;
-    };
+		Flags32	tcm_flags;
+	};
 	WaveForm		scaleU, scaleV;
 	WaveForm		rotate;
 	WaveForm		scrollU,scrollV;
@@ -35,7 +36,7 @@ public:
 		Memory.mem_fill	(this,0,sizeof(CMatrix));
 	}
 
-	IC void			tc_trans	(Fmatrix& T, float u, float v)
+	IC void			tc_trans	(fMatrix4x4& T, float u, float v)
 	{
 		T.identity	();
 		T.m[2][0] = u;

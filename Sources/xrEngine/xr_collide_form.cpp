@@ -56,7 +56,7 @@ bool CCF_Skeleton::_ElementCenter(u16 elem_id, fVector3& e_center)
 	return false;
 }
 
-IC bool RAYvsOBB(const Fmatrix& IM, const fVector3& b_hsize, const fVector3& S, const fVector3& D, float &R, BOOL bCull)
+IC bool RAYvsOBB(const fMatrix4x4& IM, const fVector3& b_hsize, const fVector3& S, const fVector3& D, float &R, BOOL bCull)
 {
 	Fbox E	= {-b_hsize.x, -b_hsize.y, -b_hsize.z,	b_hsize.x,	b_hsize.y,	b_hsize.z};
 	// XForm world-2-local
@@ -105,7 +105,7 @@ void CCF_Skeleton::BuildState()
 	dwFrame				= Device.dwFrame;
 	CKinematics* K		= PKinematics(owner->Visual());
 	K->CalculateBones	();
-	const Fmatrix& L2W	= owner->XFORM();
+	const fMatrix4x4& L2W	= owner->XFORM();
 	
 	if (vis_mask!=K->LL_GetBonesVisible()){
 		vis_mask		= K->LL_GetBonesVisible();
@@ -124,8 +124,10 @@ void CCF_Skeleton::BuildState()
 	for (ElementVecIt I=elements.begin(); I!=elements.end(); I++){
 		if (!I->valid())		continue;
 		SBoneShape&	shape		= K->LL_GetData(I->elem_id).shape;
-		Fmatrix					ME,T,TW;
-		const Fmatrix& Mbone	= K->LL_GetTransform(I->elem_id);
+		fMatrix4x4					ME;
+		fMatrix4x4				T;
+		fMatrix4x4				TW;
+		const fMatrix4x4& Mbone	= K->LL_GetTransform(I->elem_id);
 		switch (I->type){
 			case SBoneShape::stBox:{
 				const Fobb& B		= shape.box;
@@ -243,7 +245,7 @@ CCF_EventBox::CCF_EventBox( CObject* O ) : ICollisionForm(O,cftShape)
 	A[6].set( +1.0f, -1.0f, +1.0f);
 	A[7].set( +1.0f, -1.0f, -1.0f);
 
-	const Fmatrix& T = O->XFORM();
+	const fMatrix4x4& T = O->XFORM();
 	for (int i=0; i<8; i++) {
 		A[i].mul(.5f);
 		T.transform_tiny(B[i],A[i]);
@@ -279,7 +281,7 @@ BOOL CCF_EventBox::Contact(CObject* O)
 BOOL CCF_EventBox::_RayQuery(const collide::ray_defs& Q, collide::rq_results& R)
 {	return FALSE; }
 /*
-void CCF_EventBox::_BoxQuery(const Fbox& B, const Fmatrix& M, u32 flags)
+void CCF_EventBox::_BoxQuery(const Fbox& B, const fMatrix4x4& M, u32 flags)
 {   return; }
 */
 
@@ -294,7 +296,7 @@ BOOL CCF_Shape::_RayQuery(const collide::ray_defs& Q, collide::rq_results& R)
 	// Convert ray into local model space
 	fVector3 dS;
 	fVector3 dD;
-	Fmatrix temp; 
+	fMatrix4x4 temp;
 	temp.invert			(owner->XFORM());
 	temp.transform_tiny	(dS,Q.start);
 	temp.transform_dir	(dD,Q.dir);
@@ -323,7 +325,7 @@ BOOL CCF_Shape::_RayQuery(const collide::ray_defs& Q, collide::rq_results& R)
 			{
 				Fbox				box;
 				box.identity		();
-				Fmatrix& B			= shape.data.ibox;
+				fMatrix4x4& B			= shape.data.ibox;
 				fVector3			S1;
 				fVector3			D1;
 				fVector3			P;
@@ -346,7 +348,7 @@ BOOL CCF_Shape::_RayQuery(const collide::ray_defs& Q, collide::rq_results& R)
 	return bHIT;
 }
 /*
-void CCF_Shape::_BoxQuery(const Fbox& B, const Fmatrix& M, u32 flags)
+void CCF_Shape::_BoxQuery(const Fbox& B, const fMatrix4x4& M, u32 flags)
 {   return; }
 */
 void CCF_Shape::add_sphere	(Fsphere& S )
@@ -356,7 +358,7 @@ void CCF_Shape::add_sphere	(Fsphere& S )
 	shapes.back().data.sphere.set(S);
 }
 
-void CCF_Shape::add_box		(Fmatrix& B )
+void CCF_Shape::add_box		(fMatrix4x4& B )
 {
 	shapes.push_back(shape_def());
 	shapes.back().type	= 1;
@@ -386,7 +388,7 @@ void CCF_Shape::ComputeBounds()
 			{
 			fVector3		A;
 			fVector3		B;
-				Fmatrix&	T		= shapes[el].data.box;
+			fMatrix4x4&	T		= shapes[el].data.box;
 				
 				// Build points
 				A.set( -.5f, -.5f, -.5f); T.transform_tiny	(B,A); bv_box.modify(B);
@@ -419,7 +421,7 @@ BOOL CCF_Shape::Contact		( CObject* O )
 	}else return FALSE;
 	
 	// Get our matrix
-	const Fmatrix& XF	= Owner()->XFORM();
+	const fMatrix4x4& XF	= Owner()->XFORM();
 	
 	// Iterate
 	for (u32 el=0; el<shapes.size(); el++)
@@ -437,8 +439,8 @@ BOOL CCF_Shape::Contact		( CObject* O )
 			break;
 		case 1:	// box
 			{
-				Fmatrix		Q;
-				Fmatrix&	T		= shapes[el].data.box;
+			fMatrix4x4		Q;
+			fMatrix4x4&	T		= shapes[el].data.box;
 				Q.mul_43			( XF,T);
 
 				// Build points

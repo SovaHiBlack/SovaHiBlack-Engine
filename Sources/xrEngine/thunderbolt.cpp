@@ -142,7 +142,8 @@ void CEffect_Thunderbolt::Bolt(int id, float period, float lt)
 	current_time            = 0.f;
 	current		            = collection[id]->GetRandomDesc(); VERIFY(current);
 
-	Fmatrix XF,S;
+	fMatrix4x4 XF;
+	fMatrix4x4 S;
 	fVector3 pos;
 	fVector3 dev;
 	float sun_h, sun_p; 

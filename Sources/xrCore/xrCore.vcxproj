@@ -414,6 +414,7 @@
     <ClInclude Include="xrSyncronize.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="cpp.hint" />
     <None Include="rt_lzo1x_c.ch" />
     <None Include="rt_lzo1x_d.ch" />
     <None Include="rt_lzo1_d.ch" />

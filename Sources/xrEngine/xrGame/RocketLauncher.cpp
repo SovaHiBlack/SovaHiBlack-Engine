@@ -92,10 +92,7 @@ void CRocketLauncher::DetachRocket(u16 rocket_id, bool bLaunch)
 	}
 }
 
-
-
-
-void CRocketLauncher::LaunchRocket(const Fmatrix& xform,  
+void CRocketLauncher::LaunchRocket(const fMatrix4x4& xform,
 								   const fVector3& vel,
 								   const fVector3& angular_vel)
 {

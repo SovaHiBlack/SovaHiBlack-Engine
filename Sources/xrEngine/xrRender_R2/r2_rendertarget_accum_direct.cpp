@@ -79,7 +79,7 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
 		float			fTexelOffs			= (.5f / float(RImplementation.o.smapsize));
 		float			fRange				= (SE_SUN_NEAR==sub_phase)?ps_r2_sun_depth_near_scale:ps_r2_sun_depth_far_scale;
 		float			fBias				= (SE_SUN_NEAR==sub_phase)?ps_r2_sun_depth_near_bias:ps_r2_sun_depth_far_bias;
-		Fmatrix			m_TexelAdjust		= 
+		fMatrix4x4			m_TexelAdjust		=
 		{
 			0.5f,				0.0f,				0.0f,			0.0f,
 			0.0f,				-0.5f,				0.0f,			0.0f,
@@ -89,12 +89,14 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
 
 		// compute xforms
 		FPU::m64r			();
-		Fmatrix				xf_invview;		xf_invview.invert	(Device.mView)	;
+		fMatrix4x4				xf_invview;
+		xf_invview.invert	(Device.mView)	;
 
 		// shadow xform
-		Fmatrix				m_shadow;
+		fMatrix4x4				m_shadow;
 		{
-			Fmatrix			xf_project;		xf_project.mul		(m_TexelAdjust,fuckingsun->X.D.combine);
+			fMatrix4x4			xf_project;
+			xf_project.mul		(m_TexelAdjust,fuckingsun->X.D.combine);
 			m_shadow.mul	(xf_project,	xf_invview);
 
 			// tsm-bias
@@ -102,17 +104,18 @@ void CRenderTarget::accum_direct		(u32 sub_phase)
 			{
 				fVector3		bias;
 				bias.mul		(L_dir,ps_r2_sun_tsm_bias);
-				Fmatrix		bias_t;	bias_t.translate(bias);
+				fMatrix4x4		bias_t;
+				bias_t.translate(bias);
 				m_shadow.mulB_44	(bias_t);
 			}
 			FPU::m24r		();
 		}
 
 		// clouds xform
-		Fmatrix				m_clouds_shadow;
+		fMatrix4x4				m_clouds_shadow;
 		{
 			static	float	w_shift		= 0;
-			Fmatrix			m_xform;
+			fMatrix4x4			m_xform;
 			fVector3			direction	= fuckingsun->direction	;
 			float	w_dir				= g_pGamePersistent->Environment().CurrentEnv.wind_direction	;
 			//float	w_speed				= g_pGamePersistent->Environment().CurrentEnv.wind_velocity	;
@@ -315,7 +318,7 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 		float			fTexelOffs			= (.5f / float(RImplementation.o.smapsize));
 		float			fRange				= (SE_SUN_NEAR==sub_phase)?ps_r2_sun_depth_near_scale:ps_r2_sun_depth_far_scale;
 		float			fBias				= (SE_SUN_NEAR==sub_phase)?ps_r2_sun_depth_near_bias:ps_r2_sun_depth_far_bias;
-		Fmatrix			m_TexelAdjust		= 
+		fMatrix4x4			m_TexelAdjust		=
 		{
 			0.5f,				0.0f,				0.0f,			0.0f,
 			0.0f,				-0.5f,				0.0f,			0.0f,
@@ -324,11 +327,13 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 		};
 
 		// compute xforms
-		Fmatrix				m_shadow;
+		fMatrix4x4				m_shadow;
 		{
 			FPU::m64r		();
-			Fmatrix			xf_invview;		xf_invview.invert	(Device.mView)	;
-			Fmatrix			xf_project;		xf_project.mul		(m_TexelAdjust,fuckingsun->X.D.combine);
+			fMatrix4x4			xf_invview;
+			xf_invview.invert	(Device.mView)	;
+			fMatrix4x4			xf_project;
+			xf_project.mul		(m_TexelAdjust,fuckingsun->X.D.combine);
 			m_shadow.mul	(xf_project,	xf_invview);
 
 			// tsm-bias
@@ -336,7 +341,8 @@ void CRenderTarget::accum_direct_f		(u32 sub_phase)
 			{
 				fVector3		bias;
 				bias.mul		(L_dir,ps_r2_sun_tsm_bias);
-				Fmatrix		bias_t;	bias_t.translate(bias);
+				fMatrix4x4		bias_t;
+				bias_t.translate(bias);
 				m_shadow.mulB_44	(bias_t);
 			}
 			FPU::m24r		();

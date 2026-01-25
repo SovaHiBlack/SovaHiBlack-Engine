@@ -34,7 +34,7 @@ CPHCapture*				PHCapture		(){return m_capture;}
 CPHCharacter*			PHCharacter		(){return m_character;}
 void					PHReleaseObject	();
 fVector3					PHCaptureGetNearestElemPos(const CPhysicsShellHolder* object);
-Fmatrix					PHCaptureGetNearestElemTransform(CPhysicsShellHolder* object);
+fMatrix4x4					PHCaptureGetNearestElemTransform(CPhysicsShellHolder* object);
 void					SetMaterial(u16 material);
 void					SetAirControlParam(float param){fAirControlParam=param;}
 void					SetActorRestrictorRadius(CPHCharacter::ERestrictionType rt, float r);

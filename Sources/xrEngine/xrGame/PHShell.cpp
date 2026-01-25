@@ -400,7 +400,7 @@ void  CPHShell::StataticRootBonesCallBack			(CBoneInstance* B){
 	E->StataticRootBonesCallBack(B);
 }
 
-void CPHShell::SetTransform	(const Fmatrix& m0){
+void CPHShell::SetTransform	(const fMatrix4x4& m0){
 
 	mXFORM.set(m0);
 	ELEMENT_I i=elements.begin();
@@ -514,17 +514,18 @@ void	CPHShell::set_AngularVel(const fVector3& velocity)
 	for(;i!=e;i++) (*i)->set_AngularVel(velocity);
 }
 
-void CPHShell::TransformPosition(const Fmatrix &form)
+void CPHShell::TransformPosition(const fMatrix4x4&form)
 {
 	ELEMENT_I i=elements.begin(),e=elements.end();
 	for(;i!=e;i++) (*i)->TransformPosition(form);
 }
 
-void CPHShell::SetGlTransformDynamic(const Fmatrix &form)
+void CPHShell::SetGlTransformDynamic(const fMatrix4x4& form)
 {
 	VERIFY(isActive());
 	VERIFY(_valid(form));
-	Fmatrix current,replace;
+	fMatrix4x4 current;
+	fMatrix4x4 replace;
 	GetGlobalTransformDynamic(&current);
 	current.invert();
 	replace.mul(form,current);
@@ -618,7 +619,7 @@ ICF bool no_physics_shape(const SBoneShape& shape)
 {
 	return shape.type==SBoneShape::stNone||shape.flags.test(SBoneShape::sfNoPhysics);
 }
-void CPHShell::AddElementRecursive(CPhysicsElement* root_e, u16 id,Fmatrix global_parent,u16 element_number,bool* vis_check)
+void CPHShell::AddElementRecursive(CPhysicsElement* root_e, u16 id, fMatrix4x4 global_parent,u16 element_number,bool* vis_check)
 {
 
 	//CBoneInstance& B	= m_pKinematics->LL_GetBoneInstance(u16(id));
@@ -629,7 +630,7 @@ void CPHShell::AddElementRecursive(CPhysicsElement* root_e, u16 id,Fmatrix globa
 
 	CBoneData& bone_data= m_pKinematics->LL_GetData(u16(id));
 	SJointIKData& joint_data=bone_data.IK_data;
-	Fmatrix fm_position;
+	fMatrix4x4 fm_position;
 	fm_position.set		(bone_data.bind_transform);
 	fm_position.mulA_43	(global_parent);
 	Flags64 mask;
@@ -677,7 +678,7 @@ void CPHShell::AddElementRecursive(CPhysicsElement* root_e, u16 id,Fmatrix globa
 
 		if(joint_data.type==jtRigid && root_e ) //
 		{
-			Fmatrix vs_root_position;
+			fMatrix4x4 vs_root_position;
 			vs_root_position.set(root_e->mXFORM);
 			vs_root_position.invert();
 			vs_root_position.mulB_43(fm_position);
@@ -1014,7 +1015,7 @@ void CPHShell::AddElementRecursive(CPhysicsElement* root_e, u16 id,Fmatrix globa
 		Msg("all bones transform:--------");
 		
 		for(u16 ii=0; ii<K->LL_BoneCount();++ii){
-			Fmatrix tr;
+			fMatrix4x4 tr;
 
 			tr = K->LL_GetTransform(ii);
 			Log("bone ",K->LL_BoneName_dbg(ii));
@@ -1152,17 +1153,14 @@ void CPHShell::set_DisableParams(const SAllDDOParams& params)
 
 void CPHShell::UpdateRoot()
 {
-
 	ELEMENT_I i=elements.begin();
 	if( !(*i)->isFullActive()) return;
 
 	(*i)->InterpolateGlobalTransform(&mXFORM);
-
 }
 
-void CPHShell::InterpolateGlobalTransform(Fmatrix* m)
+void CPHShell::InterpolateGlobalTransform(fMatrix4x4* m)
 {
-	
 	//if(!CPHObject::is_active()&&!CPHObject::NetInterpolation()) return;
 
 	ELEMENT_I i,e;
@@ -1181,7 +1179,7 @@ void CPHShell::InterpolateGlobalTransform(Fmatrix* m)
 	}
 }
 
-void CPHShell::GetGlobalTransformDynamic(Fmatrix* m)
+void CPHShell::GetGlobalTransformDynamic(fMatrix4x4* m)
 {
 	ELEMENT_I i,e;
 	i=elements.begin(); e=elements.end();
@@ -1204,10 +1202,10 @@ void CPHShell::GetGlobalPositionDynamic(fVector3* v)
 	VERIFY2(_valid(*v),"not valide result position");
 }
 
-void CPHShell::ObjectToRootForm(const Fmatrix& form)
+void CPHShell::ObjectToRootForm(const fMatrix4x4& form)
 {
-	Fmatrix M;
-	Fmatrix ILF;
+	fMatrix4x4 M;
+	fMatrix4x4 ILF;
 	(*elements.begin())->InverceLocalForm(ILF);
 	M.mul(m_object_in_root,ILF);
 	M.invert();
@@ -1406,16 +1404,14 @@ void	CPHShell::		setForce				(const fVector3& force)
 	for( ;i!=e;++i)
 		(*i)->setForce(force);
 }
-void CPHShell::PlaceBindToElFormsRecursive(Fmatrix parent,u16 id,u16 element,Flags64 &mask)
+
+void CPHShell::PlaceBindToElFormsRecursive(fMatrix4x4 parent,u16 id,u16 element,Flags64 &mask)
 {
-	
-	
 	CBoneData& bone_data= m_pKinematics->LL_GetData(u16(id));
 	SJointIKData& joint_data=bone_data.IK_data;
 
 	if(mask.is(1ui64<<(u64)id))
 	{
-
 		if(no_physics_shape(bone_data.shape)||joint_data.type==jtRigid&& element!=u16(-1))
 		{
 
@@ -1423,27 +1419,25 @@ void CPHShell::PlaceBindToElFormsRecursive(Fmatrix parent,u16 id,u16 element,Fla
 		}
 		else
 		{
-
 			element++;
 			R_ASSERT2(element<elements.size(),"Out of elements!!");
 			//if(elements.size()==element)	return;
 			CPHElement* E=(elements[element]);
 			E->mXFORM.mul(parent,bone_data.bind_transform);
-			
 		}
 	}
+
 	for (vecBonesIt it=bone_data.children.begin(); it!=bone_data.children.end(); ++it)
 		PlaceBindToElFormsRecursive(mXFORM,(*it)->GetSelfID(),element,mask);
-
 }
 
 void CPHShell::BonesBindCalculate(u16 id_from)
 {
 	BonesBindCalculateRecursive(Fidentity,0);
 }
-void CPHShell::BonesBindCalculateRecursive(Fmatrix parent,u16 id)
-{
 
+void CPHShell::BonesBindCalculateRecursive(fMatrix4x4 parent,u16 id)
+{
 	CBoneInstance& bone_instance=m_pKinematics->LL_GetBoneInstance(id);
 	CBoneData& bone_data= m_pKinematics->LL_GetData(u16(id));
 
@@ -1458,8 +1452,8 @@ void CPHShell::AddTracedGeom				(u16 element/*=0*/,u16 geom/*=0*/)
 	CODEGeom* g=elements[element]->Geom(geom);
 	g->set_ph_object(this);
 	m_traced_geoms.add(g);
-	
 }
+
 void CPHShell::SetAllGeomTraced()
 {
 	ELEMENT_I i,e;

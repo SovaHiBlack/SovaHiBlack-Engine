@@ -50,8 +50,8 @@ class CPHJoint: public CPhysicsJoint{
 				void 					SetForceActive				(const int axis_num)																																																	;
 				void 					SetVelocityActive			(const int axis_num)																																																	;
 				void					SetLimitsActive				(int axis_num)																																																			;
-				void 					CalcAxis					(int ax_num, fVector3& axis,float& lo,float& hi,const Fmatrix& first_matrix,const Fmatrix& second_matrix)																													;
-				void 					CalcAxis					(int ax_num, fVector3& axis,float& lo,float& hi,const Fmatrix& first_matrix,const Fmatrix& second_matrix,const Fmatrix& rotate)																							;
+				void 					CalcAxis					(int ax_num, fVector3& axis,float& lo,float& hi,const fMatrix4x4& first_matrix,const fMatrix4x4& second_matrix)																													;
+				void 					CalcAxis					(int ax_num, fVector3& axis,float& lo,float& hi,const fMatrix4x4& first_matrix,const fMatrix4x4& second_matrix,const fMatrix4x4& rotate)																							;
 	virtual		u16						GetAxesNumber				()																																																						;
 	virtual		void 					SetAxisSDfactors			(float spring_factor,float damping_factor,int axis_num)																																									;
 	virtual		void 					SetJointSDfactors			(float spring_factor,float damping_factor)																																												;
@@ -116,37 +116,37 @@ IC				CPHElement				*PSecondElement 			()																																							
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-IC void own_axis(const Fmatrix& m, fVector3& axis){
-	if(m._11==1.f) {axis.set(1.f,0.f,0.f); return;}
+IC void own_axis(const fMatrix4x4& m, fVector3& axis){
+	if(m._11==1.f) {axis.set(1.0f,0.0f,0.0f); return;}
 	float k=m._13*m._21-m._11*m._23+m._23;
 
-	if(k==0.f){
-		if(m._13==0.f) {axis.set(0.f,0.f,1.f);return;}
-		float k1=m._13/(1.f-m._11);
-		axis.z=_sqrt(1.f/(1.f+k1*k1));
+	if(k==0.0f){
+		if(m._13==0.0f) {axis.set(0.0f,0.0f,1.0f);return;}
+		float k1=m._13/(1.0f-m._11);
+		axis.z=_sqrt(1.0f/(1.0f+k1*k1));
 		axis.x=axis.z*k1;
-		axis.y=0.f;
+		axis.y=0.0f;
 		return;
 	}
 
-	float k_zy=-(m._12*m._21-m._11*m._22+m._11+m._22-1.f)/k;
-	float k_xy=(m._12+m._13*k_zy)/(1.f-m._11);
-	axis.y=_sqrt(1.f/(k_zy*k_zy+k_xy*k_xy+1.f));
+	float k_zy=-(m._12*m._21-m._11*m._22+m._11+m._22-1.0f)/k;
+	float k_xy=(m._12+m._13*k_zy)/(1.0f-m._11);
+	axis.y=_sqrt(1.0f/(k_zy*k_zy+k_xy*k_xy+1.0f));
 	axis.x=axis.y*k_xy;
 	axis.z=axis.y*k_zy;
 	return;
 }
 
-IC void own_axis_angle(const Fmatrix& m, fVector3& axis,float& angle){
+IC void own_axis_angle(const fMatrix4x4& m, fVector3& axis,float& angle){
 	own_axis(m,axis);
 	fVector3 ort1;
 	fVector3 ort2;
-	if(!(axis.z==0.f&&axis.y==0.f)){
-		ort1.set(0.f,-axis.z,axis.y);
+	if(!(axis.z==0.0f&&axis.y==0.0f)){
+		ort1.set(0.0f,-axis.z,axis.y);
 		ort2.crossproduct(axis,ort1);
 	}
 	else{
-		ort1.set(0.f,1.f,0.f);
+		ort1.set(0.0f,1.0f,0.0f);
 		ort2.crossproduct(axis,ort1);
 	}
 	ort1.normalize();
@@ -161,7 +161,7 @@ IC void own_axis_angle(const Fmatrix& m, fVector3& axis,float& angle){
 	if(sinus<0.f) angle= -angle;
 }
 
-IC void axis_angleB(const Fmatrix& m, const fVector3& axis,float& angle){
+IC void axis_angleB(const fMatrix4x4& m, const fVector3& axis,float& angle){
 
 	fVector3 ort1;
 	fVector3 ort2;
@@ -181,7 +181,7 @@ IC void axis_angleB(const Fmatrix& m, const fVector3& axis,float& angle){
 	float pr1,pr2;
 	pr1=ort1.dotproduct(ort1_t);
 	pr2=ort2.dotproduct(ort1_t);
-	if(pr1==0.f&&pr2==0.f){angle=0.f;return;}
+	if(pr1==0.0f&&pr2==0.0f){angle=0.0f;return;}
 	ort_r.set(pr1*ort1.x+pr2*ort2.x,
 		pr1*ort1.y+pr2*ort2.y,
 		pr1*ort1.z+pr2*ort2.z);
@@ -190,10 +190,10 @@ IC void axis_angleB(const Fmatrix& m, const fVector3& axis,float& angle){
 	float cosinus=ort1.dotproduct(ort_r);
 	float sinus=ort2.dotproduct(ort_r);
 	angle=acosf(cosinus);
-	if(sinus<0.f) angle= -angle;
+	if(sinus<0.0f) angle= -angle;
 }
 
-IC void axis_angleA(const Fmatrix& m, const fVector3& axis,float& angle){
+IC void axis_angleA(const fMatrix4x4& m, const fVector3& axis,float& angle){
 
 	fVector3 ort1;
 	fVector3 ort2;
@@ -215,7 +215,7 @@ IC void axis_angleA(const Fmatrix& m, const fVector3& axis,float& angle){
 	float pr1,pr2;
 	pr1=ort1.dotproduct(ort1_t);
 	pr2=ort2.dotproduct(ort1_t);
-	if(pr1==0.0f&&pr2==0.0f){angle=0.f;return;}
+	if(pr1==0.0f&&pr2==0.0f){angle=0.0f;return;}
 	ort_r.set(pr1*ort1.x+pr2*ort2.x,
 		pr1*ort1.y+pr2*ort2.y,
 		pr1*ort1.z+pr2*ort2.z);

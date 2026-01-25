@@ -211,7 +211,7 @@ void CShootingObject::UpdateParticles (CParticlesObject*& pParticles,
 {
 	if(!pParticles)		return;
 
-	Fmatrix particles_pos; 
+	fMatrix4x4 particles_pos;
 	particles_pos.set	(get_ParticlesXFORM());
 	particles_pos.c.set	(pos);
 	
@@ -270,7 +270,7 @@ void CShootingObject::OnShellDrop	(const fVector3& play_pos,
 
 	CParticlesObject* pShellParticles	= CParticlesObject::Create(*m_sShellParticles,TRUE);
 
-	Fmatrix particles_pos; 
+	fMatrix4x4 particles_pos;
 	particles_pos.set		(get_ParticlesXFORM());
 	particles_pos.c.set		(play_pos);
 
@@ -321,7 +321,7 @@ void CShootingObject::UpdateFlameParticles	()
 	if(0==m_sFlameParticlesCurrent.size())		return;
 	if(!m_pFlameParticles)				return;
 
-	Fmatrix		pos; 
+	fMatrix4x4		pos;
 	pos.set		(get_ParticlesXFORM()	); 
 	pos.c.set	(get_CurrentFirePoint()	);
 

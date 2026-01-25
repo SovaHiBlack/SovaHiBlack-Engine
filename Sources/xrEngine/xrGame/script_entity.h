@@ -80,7 +80,7 @@ public:
 	virtual DLL_Pure			*_construct				();
 
 public:
-			const Fmatrix		GetUpdatedMatrix		(shared_str caBoneName, const fVector3& tPositionOffset, const fVector3& tAngleOffset);
+			const fMatrix4x4		GetUpdatedMatrix		(shared_str caBoneName, const fVector3& tPositionOffset, const fVector3& tAngleOffset);
 			void				vfUpdateParticles		();
 			void				vfUpdateSounds			();
 	virtual	void				vfFinishAction			(CScriptEntityAction		*tpEntityAction);

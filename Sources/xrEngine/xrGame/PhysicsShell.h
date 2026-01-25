@@ -40,14 +40,14 @@ typedef const  BONE_P_MAP :: iterator			BONE_P_PAIR_CIT;
 class	CPhysicsBase
 {
 public:
-	Fmatrix						mXFORM																																							;					// In parent space
+	fMatrix4x4						mXFORM																																							;					// In parent space
 public:
-	virtual		void			Activate								(const Fmatrix& m0, float dt01, const Fmatrix& m2,bool disable=false)													= 0;
-	virtual		void			Activate								(const Fmatrix &transform,const fVector3& lin_vel,const fVector3& ang_vel,bool disable=false)								= 0;
+	virtual		void			Activate								(const fMatrix4x4& m0, float dt01, const fMatrix4x4& m2,bool disable=false)													= 0;
+	virtual		void			Activate								(const fMatrix4x4& transform,const fVector3& lin_vel,const fVector3& ang_vel,bool disable=false)								= 0;
 	virtual		void			Activate								(bool disable=false)																									= 0;
-	virtual		void			Activate								(const Fmatrix& form,bool disable=false)																				= 0;
-	virtual		void			InterpolateGlobalTransform				(Fmatrix* m)																											= 0;
-	virtual		void			GetGlobalTransformDynamic				(Fmatrix* m)																											= 0;
+	virtual		void			Activate								(const fMatrix4x4& form,bool disable=false)																				= 0;
+	virtual		void			InterpolateGlobalTransform				(fMatrix4x4* m)																											= 0;
+	virtual		void			GetGlobalTransformDynamic				(fMatrix4x4* m)																											= 0;
 	virtual		void			InterpolateGlobalPosition				(fVector3* v)																											= 0;
 	virtual		void			net_Import								(NET_Packet& P)																											= 0;
 	virtual		void			net_Export								(NET_Packet& P)																											= 0;
@@ -87,14 +87,14 @@ public:
 	virtual		void			get_AngularVel							(fVector3& velocity)																										= 0;
 	virtual		void			set_LinearVel							(const fVector3& velocity)																								= 0;
 	virtual		void			set_AngularVel							(const fVector3& velocity)																								= 0;
-	virtual		void			TransformPosition						(const Fmatrix &form)																									= 0;
+	virtual		void			TransformPosition						(const fMatrix4x4& form)																									= 0;
 	virtual		void			set_ApplyByGravity						(bool flag)																												= 0;
 	virtual		bool			get_ApplyByGravity						()																														= 0;
 
 	virtual		void			SetMaterial								(u16 m)																													= 0;
 	virtual		void			SetMaterial								(LPCSTR m)																												= 0;
 	virtual		void			set_DisableParams						(const SAllDDOParams& params)																							= 0;
-	virtual		void			SetTransform							(const Fmatrix& m0)																										= 0;
+	virtual		void			SetTransform							(const fMatrix4x4& m0)																										= 0;
 	virtual						~CPhysicsBase							()																																		{};
 };
 
@@ -111,10 +111,10 @@ public:
 	virtual		void							add_Box									(const Fobb&		V)																								= 0;
 	virtual		void							add_Cylinder							(const Fcylinder&	V)																								= 0;
 	virtual		void							add_Shape								(const SBoneShape& shape)																							= 0;
-	virtual		void							add_Shape								(const SBoneShape& shape,const Fmatrix& offset)																		= 0;
+	virtual		void							add_Shape								(const SBoneShape& shape,const fMatrix4x4& offset)																		= 0;
 	virtual		CODEGeom						*last_geom								()																													= 0;
 	virtual		bool							has_geoms								()																													= 0;
-	virtual		void							add_Mass								(const SBoneShape& shape,const Fmatrix& offset,const fVector3& mass_center,float mass,CPHFracture* fracture=NULL)	= 0;
+	virtual		void							add_Mass								(const SBoneShape& shape,const fMatrix4x4& offset,const fVector3& mass_center,float mass,CPHFracture* fracture=NULL)	= 0;
 	virtual		void							set_ParentElement						(CPhysicsElement* p)																								= 0;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	virtual		void							set_BoxMass								(const Fobb& box, float mass)																						= 0;	
@@ -306,7 +306,7 @@ IC					CKinematics					*PKinematics								()																{return m_pKinemati
 	virtual			void						SetRemoveCharacterCollLADisable				()																							= 0;
 	virtual			void						DisableCharacterCollision					()																							= 0;
 	virtual			void						PureStep									(float step = fixed_step)																	= 0;
-	virtual			void						SetGlTransformDynamic						(const Fmatrix &form)																		= 0;
+	virtual			void						SetGlTransformDynamic						(const fMatrix4x4& form)																		= 0;
 	virtual			void						CollideAll									()																							= 0;
 	virtual			CPhysicsElement				*NearestToPoint								(const fVector3& point)																		= 0;
 	virtual			void						build_FromKinematics						(CKinematics* K,BONE_P_MAP* p_geting_map=NULL)												= 0;
@@ -324,8 +324,8 @@ IC					CKinematics					*PKinematics								()																{return m_pKinemati
 	virtual			void						ToAnimBonesPositions						()																							= 0;
 	virtual			bool						AnimToVelocityState							(float dt, float l_limit, float a_limit )													= 0;
 	virtual 		void						SetBonesCallbacksOverwrite					(bool v)																					= 0;
-	virtual			Fmatrix						&ObjectInRoot								()																							= 0;
-	virtual			void						ObjectToRootForm							(const Fmatrix& form)							    										= 0;
+	virtual			fMatrix4x4&					ObjectInRoot								()																							= 0;
+	virtual			void						ObjectToRootForm							(const fMatrix4x4& form)							    										= 0;
 	virtual			void						SetPrefereExactIntegration					()																							= 0;
 	virtual										~CPhysicsShell								()																							;
 	//build_FromKinematics		in returns elements  & joint pointers according bone IDs;
@@ -335,7 +335,7 @@ add_to_type_list(CPhysicsShell)
 #undef script_type_list
 #define script_type_list save_type_list(CPhysicsShell)
 
-void	get_box(CPhysicsShell*	shell,const	Fmatrix& form, fVector3& sz, fVector3& c);
+void	get_box(CPhysicsShell*	shell,const	fMatrix4x4& form, fVector3& sz, fVector3& c);
 
 // Implementation creator
 CPhysicsJoint*				P_create_Joint				(CPhysicsJoint::enumType type ,CPhysicsElement* first,CPhysicsElement* second)		;

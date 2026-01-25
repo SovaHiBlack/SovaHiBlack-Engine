@@ -37,7 +37,7 @@ public:
 	{
 		CParticlesObject* ps = CParticlesObject::Create(ps_name,TRUE);
 
-		Fmatrix pos; 
+		fMatrix4x4 pos;
 		fVector3 zero_vel = {0.0f,0.0f,0.0f};
 		pos.k.set(*((fVector3*)c.normal));
 		fVector3::generate_orthonormal_basis(pos.k, pos.j, pos.i);

@@ -11,7 +11,7 @@ CPHInterpolation();
 void SetBody(dBodyID body);
 static const u16 PH_INTERPOLATION_POINTS=2;
 void	InterpolatePosition	(fVector3& pos);
-void	InterpolateRotation	(Fmatrix& rot);
+void	InterpolateRotation	(fMatrix4x4& rot);
 void	UpdatePositions		();
 void	UpdateRotations		();
 void	ResetPositions		();

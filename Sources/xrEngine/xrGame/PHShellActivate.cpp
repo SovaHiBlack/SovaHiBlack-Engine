@@ -33,7 +33,7 @@ void CPHShell::activate(bool disable)
 	if(!disable)EnableObject(0);
 
 }
-void CPHShell::Activate(const Fmatrix &m0,float dt01,const Fmatrix &m2,bool disable){
+void CPHShell::Activate(const fMatrix4x4& m0,float dt01,const fMatrix4x4& m2,bool disable){
 
 	if(isActive())return;
 	activate(disable);
@@ -54,7 +54,7 @@ void CPHShell::Activate(const Fmatrix &m0,float dt01,const Fmatrix &m2,bool disa
 		for(;i!=e;++i) (*i)->Activate();
 	}	
 	
-	Fmatrix m;
+	fMatrix4x4 m;
 	GetGlobalTransformDynamic	(&m);
 	m.invert();m.mulA_43		(mXFORM);
 	TransformPosition(m);
@@ -79,7 +79,7 @@ void CPHShell::Activate(const Fmatrix &m0,float dt01,const Fmatrix &m2,bool disa
 
 
 
-void CPHShell::Activate(const Fmatrix &transform,const fVector3& lin_vel,const fVector3& ang_vel,bool disable){
+void CPHShell::Activate(const fMatrix4x4& transform,const fVector3& lin_vel,const fVector3& ang_vel,bool disable){
 
 	if(isActive())return;
 	activate(disable);
@@ -242,7 +242,7 @@ void CPHShell::Deactivate(){
 		CPHObject::UnFreeze();
 		ph_world->StepTouch();
 		ph_world->UnFreeze();
-		//Fmatrix m;
+		//fMatrix4x4 m;
 		//InterpolateGlobalTransform(&m);
 	}
 	spatial_unregister();

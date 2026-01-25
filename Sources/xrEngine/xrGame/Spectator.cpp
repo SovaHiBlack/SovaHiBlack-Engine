@@ -319,7 +319,7 @@ void CSpectator::cam_Set	(EActorCameras style)
 void CSpectator::cam_Update	(CActor* A)
 {
 	if (A){
-		const Fmatrix& M			= A->XFORM();
+		const fMatrix4x4& M			= A->XFORM();
 		CCameraBase* pACam			= A->cam_Active();
 		CCameraBase* cam			= cameras[cam_active];
 		switch(cam_active) {
@@ -337,7 +337,8 @@ void CSpectator::cam_Update	(CActor* A)
 			}
 		case eacFreeLook:{
 			cam->SetParent			(A);
-			Fmatrix tmp; tmp.identity();
+			fMatrix4x4 tmp;
+			tmp.identity();
 			
 			fVector3 point;
 			fVector3 point1;

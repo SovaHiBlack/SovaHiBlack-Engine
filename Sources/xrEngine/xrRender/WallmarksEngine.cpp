@@ -110,7 +110,7 @@ void		CWallmarksEngine::static_wm_render		(CWallmarksEngine::static_wallmark*	W,
 	}
 }
 //--------------------------------------------------------------------------------
-void CWallmarksEngine::RecurseTri(u32 t, Fmatrix &mView, CWallmarksEngine::static_wallmark	&W)
+void CWallmarksEngine::RecurseTri(u32 t, fMatrix4x4& mView, CWallmarksEngine::static_wallmark	&W)
 {
 	CDB::TRI*	T			= sml_collector.getT()+t;
 	if (T->dummy)			return;
@@ -168,10 +168,10 @@ void CWallmarksEngine::RecurseTri(u32 t, Fmatrix &mView, CWallmarksEngine::stati
 	}
 }
 
-void CWallmarksEngine::BuildMatrix	(Fmatrix &mView, float invsz, const fVector3& from)
+void CWallmarksEngine::BuildMatrix	(fMatrix4x4& mView, float invsz, const fVector3& from)
 {
 	// build projection
-	Fmatrix				mScale;
+	fMatrix4x4				mScale;
 	fVector3				at;
 	fVector3 up;
 	fVector3 right;
@@ -218,7 +218,7 @@ void CWallmarksEngine::AddWallmark_internal	(CDB::TRI* pTri, const fVector3* pVe
 	sml_normal.set		(N);
 
 	// build 3D ortho-frustum
-	Fmatrix				mView,mRot;
+	fMatrix4x4				mView,mRot;
 	BuildMatrix			(mView,1/sz,contact_point);
 	mRot.rotateZ		(::Random.randF(deg2rad(-20.f),deg2rad(20.f)));
 	mView.mulA_43		(mRot);
@@ -274,7 +274,7 @@ void CWallmarksEngine::AddStaticWallmark	(CDB::TRI* pTri, const fVector3* pVerts
 	lock.Leave				();
 }
 
-void CWallmarksEngine::AddSkeletonWallmark	(const Fmatrix* xf, CKinematics* obj, ref_shader& sh, const fVector3& start, const fVector3& dir, float size)
+void CWallmarksEngine::AddSkeletonWallmark	(const fMatrix4x4* xf, CKinematics* obj, ref_shader& sh, const fVector3& start, const fVector3& dir, float size)
 {	
 	if( 0==g_r || ::RImplementation.phase != CRender::PHASE_NORMAL)				return;
 	// optimization cheat: don't allow wallmarks more than 50 m from viewer/actor
@@ -337,7 +337,7 @@ void CWallmarksEngine::Render()
 	RCache.set_xform_world		(Fidentity);
 	RCache.set_xform_project	(Device.mProject);
 
-	Fmatrix	mSavedView			= Device.mView;
+	fMatrix4x4	mSavedView			= Device.mView;
 	fVector3	mViewPos			;
 			mViewPos.mad		(Device.vCameraPosition, Device.vCameraDirection,ps_r__WallmarkSHIFT_V);
 	Device.mView.build_camera_dir	(mViewPos,Device.vCameraDirection,Device.vCameraTop);

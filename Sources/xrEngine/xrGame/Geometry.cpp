@@ -153,7 +153,7 @@ void CODEGeom::get_global_form_bt(fMatrix4x4& form)
 void CODEGeom::set_static_ref_form(const fMatrix4x4& form)
 {
 	dGeomSetPosition(geometry_transform(),form.c.x,form.c.y,form.c.z);
-	Fmatrix33 m33;
+	fMatrix3x3 m33;
 	m33.set(form);
 	dMatrix3 R;
 	PHDynamicData::FMX33toDMX(m33,R);
@@ -578,7 +578,7 @@ void CCylinderGeom::get_mass(dMass& m)
 {
 	dMassSetCylinder(&m,1.f,2,m_cylinder.m_radius,m_cylinder.m_height);
 	dMatrix3 DMatx;
-	Fmatrix33 m33;
+	fMatrix3x3 m33;
 	m33.j.set(m_cylinder.m_direction);
 	fVector3::generate_orthonormal_basis(m33.j,m33.k,m33.i);
 	PHDynamicData::FMX33toDMX(m33,DMatx);
@@ -651,7 +651,7 @@ void CCylinderGeom::set_position(const fVector3& ref_point)
 			local_position[2]
 			);
 		dMatrix3 R;
-		Fmatrix33 m33;
+		fMatrix3x3 m33;
 		m33.j.set(m_cylinder.m_direction);
 		fVector3::generate_orthonormal_basis(m33.j,m33.k,m33.i);
 		PHDynamicData::FMX33toDMX(m33,R);
