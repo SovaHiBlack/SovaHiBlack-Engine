@@ -173,7 +173,7 @@ void	CEffect_Rain::Render	()
 	}
 
 	// build source plane
-	Fplane src_plane;
+	fPlane src_plane;
 	fVector3 norm	={0.0f,-1.0f,0.0f};
 	fVector3 upper;
 	upper.set(Device.vCameraPosition.x,Device.vCameraPosition.y+source_offset,Device.vCameraPosition.z);

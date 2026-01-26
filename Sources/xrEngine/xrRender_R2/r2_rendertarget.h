@@ -25,6 +25,7 @@ public:
 	IBlender*					b_bloom;
 	IBlender*					b_luminance;
 	IBlender*					b_combine;
+
 #ifdef DEBUG
 	struct		dbg_line_t		{
 		fVector3	P0;
@@ -33,7 +34,7 @@ public:
 	};
 	xr_vector<std::pair<Fsphere,Fcolor> >		dbg_spheres;
 	xr_vector<dbg_line_t>						dbg_lines;
-	xr_vector<Fplane>							dbg_planes;
+	xr_vector<fPlane>							dbg_planes;
 #endif
 
 	// MRT-path
@@ -210,11 +211,11 @@ public:
 		dbg_lines.back().P1		= P1;
 		dbg_lines.back().color	= c;
 	}
-	IC void						dbg_addplane			(Fplane& P0,  u32 c)								{
+	IC void						dbg_addplane			(fPlane& P0,  u32 c)								{
 		dbg_planes.push_back(P0);
 	}
 #else
 	IC void						dbg_addline				(fVector3& P0, fVector3& P1, u32 c)					{}
-	IC void						dbg_addplane			(Fplane& P0,  u32 c)								{}
+	IC void						dbg_addplane			(fPlane& P0,  u32 c)								{}
 #endif
 };

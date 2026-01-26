@@ -133,7 +133,7 @@ public:
 	IC		bool	inside						(const CVertex *vertex, const fVector3& vertex_position, const float epsilon) const;
 	IC		bool	inside						(const u32 vertex_id,	const CLevelGraph::CPosition &vertex_position, const float epsilon) const;
 	IC		bool	inside						(const u32 vertex_id,	const fVector3& position, const float epsilon) const;
-	IC		void	project_point				(const Fplane &plane, fVector3& point) const;
+	IC		void	project_point				(const fPlane& plane, fVector3& point) const;
 	IC		u32		row_length					() const;
 			float	distance					(const fVector3& position, const CVertex *vertex) const;
 			float	distance					(const fVector3 &position, const u32 vertex_id) const;

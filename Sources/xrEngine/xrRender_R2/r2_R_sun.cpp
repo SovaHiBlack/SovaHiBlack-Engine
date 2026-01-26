@@ -227,15 +227,19 @@ public:
 				fVector3&		p1	= points[P.points[1]];
 				fVector3&		p2	= points[P.points[2]];
 				fVector3&		p3	= points[P.points[3]];
-				Fplane	p012;	p012.build(p0,p1,p2);
-				Fplane	p123;	p123.build(p1,p2,p3);
-				Fplane	p230;	p230.build(p2,p3,p0);
-				Fplane	p301;	p301.build(p3,p0,p1);
+				fPlane	p012;
+				p012.build(p0,p1,p2);
+				fPlane	p123;
+				p123.build(p1,p2,p3);
+				fPlane	p230;
+				p230.build(p2,p3,p0);
+				fPlane	p301;
+				p301.build(p3,p0,p1);
 				VERIFY	(p012.n.similar(p123.n) && p012.n.similar(p230.n) && p012.n.similar(p301.n));
 			}
 		}
 	}
-	void				compute_caster_model	(xr_vector<Fplane>& dest, fVector3 direction)
+	void				compute_caster_model	(xr_vector<fPlane>& dest, fVector3 direction)
 	{
 		CRenderTarget&	T	= *RImplementation.Target;
 
@@ -314,7 +318,7 @@ public:
 		for (int it=0; it<int(polys.size()); it++)
 		{
 			_poly&			P	= polys[it];
-			Fplane			pp	= {P.planeN,P.planeD};
+			fPlane			pp	= {P.planeN,P.planeD};
 			dest.push_back	(pp);
 		}
 	}
@@ -458,7 +462,7 @@ void CRender::render_sun				()
 	// Compute volume(s) - something like a frustum for infinite directional light
 	// Also compute virtual light position and sector it is inside
 	CFrustum					cull_frustum	;
-	xr_vector<Fplane>			cull_planes		;
+	xr_vector<fPlane>			cull_planes		;
 	fVector3					cull_COP		;
 	CSector*					cull_sector		;
 	fMatrix4x4						cull_xform		;
@@ -782,7 +786,7 @@ void CRender::render_sun				()
 		view_clipper.frustum.CreateFromMatrix(ex_full,FRUSTUM_P_ALL);
 		for		(int p=0; p<view_clipper.frustum.p_count; p++)
 		{
-			Fplane&		P	= view_clipper.frustum.planes	[p];
+			fPlane&		P	= view_clipper.frustum.planes	[p];
 			view_clipper.planes.push_back(D3DXPLANE(P.n.x,P.n.y,P.n.z,P.d));
 		}
 
@@ -914,7 +918,7 @@ void CRender::render_sun_near	()
 	// Compute volume(s) - something like a frustum for infinite directional light
 	// Also compute virtual light position and sector it is inside
 	CFrustum					cull_frustum;
-	xr_vector<Fplane>			cull_planes;
+	xr_vector<fPlane>			cull_planes;
 	fVector3					cull_COP;
 	CSector*					cull_sector;
 	fMatrix4x4						cull_xform;

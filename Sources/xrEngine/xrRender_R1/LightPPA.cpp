@@ -106,7 +106,8 @@ void CLightR_Manager::render_point	()
 				fVector3	V1		= verts[T.verts[0]];
 				fVector3 V2		= verts[T.verts[1]];
 				fVector3 V3		= verts[T.verts[2]];
-				Fplane  Poly;	Poly.build(V1,V2,V3);
+				fPlane  Poly;
+				Poly.build(V1,V2,V3);
 
 				// Test for poly facing away from light or camera
 				if (Poly.classify(PPL.position)<0)	continue;

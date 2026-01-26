@@ -725,7 +725,7 @@ void CCustomMonster::PitchCorrection()
 	CLevelGraph::SContour	contour;
 	ai().level_graph().contour(contour, ai_location().level_vertex_id());
 	
-	Fplane  P;
+	fPlane  P;
 	P.build(contour.v1,contour.v2,contour.v3);
 
 	fVector3 position_on_plane;

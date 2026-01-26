@@ -60,7 +60,7 @@ void CBackend::Invalidate	()
 	for (u32 vs_it =0; vs_it< 5;)	textures_vs	[vs_it++]	= 0;
 }
 
-void	CBackend::set_ClipPlanes	(u32 _enable, Fplane*	_planes /*=NULL */, u32 count/* =0*/)
+void	CBackend::set_ClipPlanes	(u32 _enable, fPlane*	_planes /*=NULL */, u32 count/* =0*/)
 {
 	if (0==HW.Caps.geometry.dwClipPlanes)	return;
 	if (!_enable)	{
@@ -76,7 +76,7 @@ void	CBackend::set_ClipPlanes	(u32 _enable, Fplane*	_planes /*=NULL */, u32 coun
 	D3DXMatrixInverse	(&worldToClipMatrixIT,NULL,(D3DXMATRIX*)&Device.mFullTransform);
 	D3DXMatrixTranspose	(&worldToClipMatrixIT,&worldToClipMatrixIT);
 	for		(u32 it=0; it<count; it++)		{
-		Fplane&		P			= _planes	[it];
+		fPlane&		P			= _planes	[it];
 		D3DXPLANE	planeWorld	(-P.n.x,-P.n.y,-P.n.z,-P.d), planeClip;
 		D3DXPlaneNormalize		(&planeWorld,	&planeWorld);
 		D3DXPlaneTransform		(&planeClip,	&planeWorld, &worldToClipMatrixIT);

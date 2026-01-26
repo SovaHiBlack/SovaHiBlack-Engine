@@ -108,7 +108,7 @@ public:
 	virtual		void							set_ContactCallback						(ContactCallbackFun	*callback)																						= 0;
 	virtual		CPhysicsShellHolder				*PhysicsRefObject						()																													= 0;
 	virtual		void							add_Sphere								(const Fsphere&		V)																								= 0;
-	virtual		void							add_Box									(const Fobb&		V)																								= 0;
+	virtual		void							add_Box									(const fObb&		V)																								= 0;
 	virtual		void							add_Cylinder							(const Fcylinder&	V)																								= 0;
 	virtual		void							add_Shape								(const SBoneShape& shape)																							= 0;
 	virtual		void							add_Shape								(const SBoneShape& shape,const fMatrix4x4& offset)																		= 0;
@@ -117,7 +117,7 @@ public:
 	virtual		void							add_Mass								(const SBoneShape& shape,const fMatrix4x4& offset,const fVector3& mass_center,float mass,CPHFracture* fracture=NULL)	= 0;
 	virtual		void							set_ParentElement						(CPhysicsElement* p)																								= 0;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	virtual		void							set_BoxMass								(const Fobb& box, float mass)																						= 0;	
+	virtual		void							set_BoxMass								(const fObb& box, float mass)																						= 0;
 	virtual		void							setInertia								(const dMass& M)																									= 0;																
 	virtual		void							addInertia								(const dMass& M)																									= 0;
 	virtual		void							setMassMC								(float M,const fVector3& mass_center)																				= 0;

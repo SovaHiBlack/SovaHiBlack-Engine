@@ -24,7 +24,7 @@ private:
 	svector<fVector3,8>				poly;
 	CSector							*pFace,*pBack;
 public:
-	Fplane							P;
+	fPlane							P;
 	Fsphere							S;
 	u32								marker;
 	BOOL							bDualRender;

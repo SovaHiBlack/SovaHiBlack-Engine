@@ -11,7 +11,6 @@
 	#include "PhysicsShellAnimator.h"
 #endif
 
-
 CPhysicObject::CPhysicObject(void) 
 {
 	m_type					=	epotBox;
@@ -19,9 +18,8 @@ CPhysicObject::CPhysicObject(void)
 	m_collision_hit_callback=	NULL;
 }
 
-CPhysicObject::~CPhysicObject(void)
-{
-}
+CPhysicObject::~CPhysicObject()
+{ }
 
 BOOL CPhysicObject::net_Spawn(CSE_Abstract* DC)
 {
@@ -33,12 +31,12 @@ BOOL CPhysicObject::net_Spawn(CSE_Abstract* DC)
 	m_collision_hit_callback= NULL;
 	inherited::net_Spawn	(DC);
 	xr_delete(collidable.model);
-	switch(m_type) {
+	switch(m_type)
+	{
 		case epotBox:			
 		case epotFixedChain:
 		case epotFreeChain :
 		case epotSkeleton  :	collidable.model = xr_new<CCF_Skeleton>(this);	break;
-
 		default: NODEFAULT; 
 	}
 
@@ -46,8 +44,10 @@ BOOL CPhysicObject::net_Spawn(CSE_Abstract* DC)
 	setVisible(TRUE);
 	setEnabled(TRUE);
 
-	if (!PPhysicsShell()->isBreakable()&&!CScriptBinder::object()&&!CPHSkeleton::IsRemoving())
-		SheduleUnregister();
+	if (!PPhysicsShell( )->isBreakable( ) && !CScriptBinder::object( ) && !CPHSkeleton::IsRemoving( ))
+	{
+		SheduleUnregister( );
+	}
 
 #ifdef ANIMATED_PHYSICS_OBJECT_SUPPORT
 	if (PPhysicsShell()->Animated())
@@ -63,8 +63,8 @@ void	CPhysicObject::SpawnInitPhysics	(CSE_Abstract* D)
 {
 	CreatePhysicsShell(D);
 	RunStartupAnim(D);
-
 }
+
 void CPhysicObject::RunStartupAnim(CSE_Abstract *D)
 {
 	if(Visual()&&smart_cast<CKinematics*>(Visual()))
@@ -80,13 +80,15 @@ void CPhysicObject::RunStartupAnim(CSE_Abstract *D)
 			R_ASSERT2					(*visual->startup_animation,"no startup animation");
 			PKinematicsAnimated->PlayCycle(*visual->startup_animation);
 		}
+
 		smart_cast<CKinematics*>(Visual())->CalculateBones_Invalidate();
 		smart_cast<CKinematics*>(Visual())->CalculateBones	();
-
 	}
 }
+
 void CPhysicObject::net_Destroy()
 {
+
 #ifdef ANIMATED_PHYSICS_OBJECT_SUPPORT
 	if (PPhysicsShell()->Animated())
 	{
@@ -103,6 +105,7 @@ void CPhysicObject::net_Save(NET_Packet& P)
 	inherited::net_Save(P);
 	CPHSkeleton::SaveNetState(P);
 }
+
 void CPhysicObject::CreatePhysicsShell(CSE_Abstract* e)
 {
 	CSE_ALifeObjectPhysic	*po	= smart_cast<CSE_ALifeObjectPhysic*>(e);
@@ -125,13 +128,12 @@ void CPhysicObject::Load(LPCSTR section)
 	CPHSkeleton::Load(section);
 }
 
-
 void CPhysicObject::shedule_Update		(u32 dt)
 {
 	inherited::shedule_Update(dt);
 	CPHSkeleton::Update(dt);
-
 }
+
 void CPhysicObject::UpdateCL()
 {
 	inherited::UpdateCL();
@@ -147,23 +149,21 @@ void CPhysicObject::UpdateCL()
 
 	PHObjectPositionUpdate();
 }
+
 void CPhysicObject::PHObjectPositionUpdate	()
 {
-	
 	if(m_pPhysicsShell)
 	{
-
-
 		if(m_type==epotBox) 
 		{
 			m_pPhysicsShell->Update();
 			XFORM().set			(m_pPhysicsShell->mXFORM);
 		}
 		else
-			m_pPhysicsShell->InterpolateGlobalTransform(&XFORM());
+		{
+			m_pPhysicsShell->InterpolateGlobalTransform(&XFORM( ));
+		}
 	}
-
-
 }
 
 void CPhysicObject::AddElement(CPhysicsElement* root_e, int id)
@@ -173,14 +173,13 @@ void CPhysicObject::AddElement(CPhysicsElement* root_e, int id)
 	CPhysicsElement* E	= P_create_Element();
 	CBoneInstance& B	= K->LL_GetBoneInstance(u16(id));
 	E->mXFORM.set		(K->LL_GetTransform(u16(id)));
-	Fobb bb			= K->LL_GetBox(u16(id));
-
+	fObb bb			= K->LL_GetBox(u16(id));
 
 	if(bb.m_halfsize.magnitude()<0.05f)
 	{
 		bb.m_halfsize.add(0.05f);
-
 	}
+
 	E->add_Box			(bb);
 	E->setMass			(10.f);
 	E->set_ParentElement(root_e);
@@ -199,14 +198,14 @@ void CPhysicObject::AddElement(CPhysicsElement* root_e, int id)
 	}
 
 	CBoneData& BD		= K->LL_GetData(u16(id));
-	for (vecBonesIt it=BD.children.begin(); BD.children.end() != it; ++it){
+	for (vecBonesIt it=BD.children.begin(); BD.children.end() != it; ++it)
+	{
 		AddElement		(E,(*it)->GetSelfID());
 	}
 }
 
-
-void CPhysicObject::CreateBody(CSE_ALifeObjectPhysic* po) {
-
+void CPhysicObject::CreateBody(CSE_ALifeObjectPhysic* po)
+{
 	if(m_pPhysicsShell) return;
 	CKinematics* pKinematics=smart_cast<CKinematics*>(Visual());
 	switch(m_type) {
@@ -237,33 +236,22 @@ void CPhysicObject::CreateBody(CSE_ALifeObjectPhysic* po) {
 	m_pPhysicsShell->SetAirResistance(0.001f, 0.02f);
 	if(pKinematics)
 	{
-
 		SAllDDOParams disable_params;
 		disable_params.Load(pKinematics->LL_UserData());
 		m_pPhysicsShell->set_DisableParams(disable_params);
 	}
 	//m_pPhysicsShell->SetAirResistance(0.002f, 0.3f);
-
-
 }
-
-
-
-
-
 
 BOOL CPhysicObject::net_SaveRelevant()
 {
 	return TRUE;//!m_flags.test(CSE_ALifeObjectPhysic::flSpawnCopy);
 }
 
-
 BOOL CPhysicObject::UsedAI_Locations()
 {
-	return					(FALSE);
+	return FALSE;
 }
-
-
 
 void CPhysicObject::InitServerObject(CSE_Abstract * D)
 {
@@ -272,24 +260,30 @@ void CPhysicObject::InitServerObject(CSE_Abstract * D)
 	if(!l_tpALifePhysicObject)return;
 	l_tpALifePhysicObject->type			= u32(m_type);
 }
+
 SCollisionHitCallback*	CPhysicObject::	get_collision_hit_callback ()	
 {
 	return m_collision_hit_callback;
 }
-bool					CPhysicObject::	set_collision_hit_callback	(SCollisionHitCallback *cc)	
+
+bool CPhysicObject::	set_collision_hit_callback	(SCollisionHitCallback *cc)	
 {
 	if(!cc)
 	{
 		m_collision_hit_callback=NULL;
 		return true;
 	}
+
 	if(PPhysicsShell())
 	{
 		VERIFY2(cc->m_collision_hit_callback!=0,"No callback function");
 		m_collision_hit_callback=cc;
 		return true;
 	}
-	else return false;
+	else
+	{
+		return false;
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////

@@ -82,7 +82,7 @@ public:
 ////////////////////////////////////////////////Geometry/////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	virtual	void						add_Sphere								(const Fsphere&		V);															//aux
-	virtual	void						add_Box									(const Fobb&		V);															//aux
+	virtual	void						add_Box									(const fObb&		V);															//aux
 	virtual	void						add_Cylinder							(const Fcylinder&	V);															//aux
 	virtual void						add_Shape								(const SBoneShape& shape);														//aux
 	virtual void						add_Shape								(const SBoneShape& shape,const fMatrix4x4& offset);								//aux
@@ -121,7 +121,7 @@ public:																																				//
 	virtual void						setInertia								(const dMass& M);																//aux
 	virtual void						addInertia								(const dMass& M);
 	virtual void						add_Mass								(const SBoneShape& shape,const fMatrix4x4& offset,const fVector3& mass_center,float mass,CPHFracture* fracture=NULL);//aux
-	virtual	void						set_BoxMass								(const Fobb& box, float mass);													//aux
+	virtual	void						set_BoxMass								(const fObb& box, float mass);													//aux
 	virtual void						setMass									(float M);																		//aux
 	virtual float						getMass									(){return m_mass.mass;}															//aux
 	virtual	dMass*						getMassTensor							();	//aux

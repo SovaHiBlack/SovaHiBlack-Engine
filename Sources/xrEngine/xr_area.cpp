@@ -177,7 +177,7 @@ void CObjectSpace::dbgRender()
 	RCache.set_Shader(sh_debug);
 	for (u32 i=0; i<q_debug.boxes.size(); i++)
 	{
-		Fobb&		obb		= q_debug.boxes[i];
+		fObb&		obb		= q_debug.boxes[i];
 		fMatrix4x4		X;
 		fMatrix4x4	S;
 		fMatrix4x4	R;

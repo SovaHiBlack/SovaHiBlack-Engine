@@ -123,7 +123,7 @@ void CKinematics::DebugRender(fMatrix4x4& XFORM)
 
 	for (u32 b=0; b<bones->size(); b++)
 	{
-		Fobb&		obb		= (*bones)[b]->obb;
+		fObb&		obb		= (*bones)[b]->obb;
 		fMatrix4x4&	Mbone	= bone_instances[b].mTransform;
 		fMatrix4x4		Mbox;
 		obb.xform_get(Mbox);
@@ -268,7 +268,7 @@ void	CKinematics::Load(const char* N, IReader *data, u32 dwFlags)
 		data->r_stringZ				(buf,sizeof(buf));	strlwr(buf);
 		L_parents.push_back			(buf);
 
-		data->r						(&pBone->obb,sizeof(Fobb));
+		data->r						(&pBone->obb,sizeof(fObb));
 		visimask.set				(u64(1)<<ID,TRUE);
 	}
 	std::sort	(bone_map_N->begin(),bone_map_N->end(),pred_sort_N);
@@ -582,7 +582,7 @@ void CKinematics::EnumBoneVertices	(SEnumVerticesCallback &C, u16 bone_id)
 }
 #include "cl_intersect.h"
 
-DEFINE_VECTOR(Fobb,OBBVec,OBBVecIt);
+DEFINE_VECTOR(fObb,OBBVec,OBBVecIt);
 
 bool	CKinematics::	PickBone			(const fMatrix4x4& parent_xform, fVector3& normal, float& dist, const fVector3& start, const fVector3& dir, u16 bone_id)
 {
@@ -617,14 +617,14 @@ void CKinematics::AddWallmark(const fMatrix4x4* parent_xform, const fVector3& st
 	float dist				= flt_max;
 	BOOL picked				= FALSE;
 
-	DEFINE_VECTOR			(Fobb,OBBVec,OBBVecIt);
+	DEFINE_VECTOR			(fObb,OBBVec,OBBVecIt);
 	OBBVec					cache_obb;
 	cache_obb.resize		(LL_BoneCount());
 
 	for (u16 k=0; k<LL_BoneCount(); k++){
 		CBoneData& BD		= LL_GetData(k);
 		if (LL_GetBoneVisible(k)&&!BD.shape.flags.is(SBoneShape::sfNoPickable)){
-			Fobb& obb		= cache_obb[k];
+			fObb& obb		= cache_obb[k];
 			obb.transform	(BD.obb,LL_GetBoneInstance(k).mTransform);
 			if (CDB::TestRayOBB(S,D, obb))
 				for (u32 i=0; i<children.size(); i++)
@@ -645,7 +645,7 @@ void CKinematics::AddWallmark(const fMatrix4x4* parent_xform, const fVector3& st
 	for (k=0; k<LL_BoneCount(); k++){
 		CBoneData& BD		= LL_GetData(k);  
 		if (LL_GetBoneVisible(k)&&!BD.shape.flags.is(SBoneShape::sfNoPickable)){
-			Fobb& obb		= cache_obb[k];
+			fObb& obb		= cache_obb[k];
 			if (CDB::TestSphereOBB(test_sphere, obb))
 				test_bones.push_back(k);
 		}

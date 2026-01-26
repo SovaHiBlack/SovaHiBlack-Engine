@@ -130,7 +130,7 @@ void CCF_Skeleton::BuildState()
 		const fMatrix4x4& Mbone	= K->LL_GetTransform(I->elem_id);
 		switch (I->type){
 			case SBoneShape::stBox:{
-				const Fobb& B		= shape.box;
+				const fObb& B		= shape.box;
 				B.xform_get			(ME			);
 				I->b_hsize.set		(B.m_halfsize);
 				// prepare matrix World to Element
@@ -446,7 +446,7 @@ BOOL CCF_Shape::Contact		( CObject* O )
 				// Build points
 				fVector3 A;
 				fVector3 B[8];
-				Fplane  P;
+				fPlane  P;
 				A.set(-.5f, -.5f, -.5f);	Q.transform_tiny(B[0],A);
 				A.set(-.5f, -.5f, +.5f);	Q.transform_tiny(B[1],A);
 				A.set(-.5f, +.5f, +.5f);	Q.transform_tiny(B[2],A);

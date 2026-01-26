@@ -143,15 +143,14 @@ dGeomID CPHGeometryOwner::dSpacedGeometry()
 	else return (*m_geoms.begin())->geometry_transform();
 }
 
-void CPHGeometryOwner::			add_Box		(const Fobb&		V)
+void CPHGeometryOwner::			add_Box		(const fObb&		V)
 {
-	Fobb box;
+	fObb box;
 	box=V;
 	if(box.m_halfsize.x<0.005f) box.m_halfsize.x=0.005f;
 	if(box.m_halfsize.y<0.005f) box.m_halfsize.y=0.005f;
 	if(box.m_halfsize.z<0.005f) box.m_halfsize.z=0.005f;
 	m_geoms.push_back(smart_cast<CODEGeom*>(xr_new<CBoxGeom>(box)));
-
 }
 
 void CPHGeometryOwner::			add_Sphere	(const Fsphere&	V)
@@ -170,7 +169,7 @@ void CPHGeometryOwner::add_Shape(const SBoneShape& shape,const fMatrix4x4& offse
 	switch(shape.type) {
 	case SBoneShape::stBox	:
 		{
-			Fobb box=shape.box;
+		fObb box=shape.box;
 			fMatrix4x4 m;
 			m.set(offset);
 			//fMatrix4x4 position;

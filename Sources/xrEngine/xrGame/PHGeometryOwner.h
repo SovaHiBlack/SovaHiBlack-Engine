@@ -24,7 +24,7 @@ protected:
 public:
 	///
 		void						add_Sphere								(const Fsphere&		V);															//aux
-		void						add_Box									(const Fobb&		V);															//aux
+		void						add_Box									(const fObb&		V);															//aux
 		void						add_Cylinder							(const Fcylinder&	V);															//aux
 		void						add_Shape								(const SBoneShape& shape);														//aux
 		void						add_Shape								(const SBoneShape& shape,const fMatrix4x4& offset);								//aux

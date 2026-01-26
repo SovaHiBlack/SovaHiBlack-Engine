@@ -23,7 +23,7 @@ void			CFrustum::fplane::cache	()	{
 		}
 	}
 }
-void			CFrustum::_add			(Fplane &P) 
+void			CFrustum::_add			(fPlane& P)
 { 
 	VERIFY(p_count<FRUSTUM_MAXPLANES); 
 	planes[p_count].set		(P);
@@ -151,7 +151,7 @@ void CFrustum::CreateFromPoints(fVector3* p, int count, fVector3& COP)
 	_add(COP,p[count-1],p[0]);
 }
 
-void CFrustum::CreateFromPlanes(Fplane* p, int count){
+void CFrustum::CreateFromPlanes(fPlane* p, int count){
 	for (int k=0; k<count; k++)
 		planes[k].set(p[k]);
 
@@ -169,7 +169,7 @@ void CFrustum::CreateFromPlanes(Fplane* p, int count){
 
 void CFrustum::CreateFromPortal(sPoly* poly, fVector3& vPN, fVector3& vBase, fMatrix4x4& mFullXFORM)
 {
-	Fplane	P;
+	fPlane	P;
 	P.build_precise	((*poly)[0],(*poly)[1],(*poly)[2]);
 
 	if (poly->size()>6) {
@@ -205,7 +205,7 @@ void CFrustum::CreateFromPortal(sPoly* poly, fVector3& vPN, fVector3& vBase, fMa
 	_add		(P);
 }
 
-void CFrustum::SimplifyPoly_AABB(sPoly* poly, Fplane& plane)
+void CFrustum::SimplifyPoly_AABB(sPoly* poly, fPlane& plane)
 {
 	fMatrix4x4	mView;
 	fMatrix4x4	mInv;

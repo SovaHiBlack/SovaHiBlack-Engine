@@ -25,10 +25,11 @@ bool IC CheckObjectSize(CKinematics* K)
 	{
 		if(K->LL_GetBoneVisible(i))
 		{
-			Fobb obb=K->LL_GetBox(i);
+			fObb obb=K->LL_GetBox(i);
 			if(check_obb_sise(obb))return true;
 		}
 	}
+
 	return false;
 }
 

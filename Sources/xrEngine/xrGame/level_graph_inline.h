@@ -210,7 +210,7 @@ IC float CLevelGraph::vertex_plane_y	(const CLevelGraph::CVertex &vertex, const 
 	fVector3			v;
 	fVector3			v1;
 	fVector3			P;
-	Fplane				PL; 
+	fPlane				PL;
 
 	DUP.set				(0.0f,1.0f,0.0f);
 	pvDecompress		(normal,vertex.plane());
@@ -549,7 +549,7 @@ IC	void CLevelGraph::assign_y_values		(xr_vector<T> &path)
 	fVector3					normal;
 	fVector3					v1;
 	fVector3					P = {0.0f,0.0f,0.0f};
-	Fplane						PL; 
+	fPlane						PL;
 	const CVertex				*_vertex;
 	u32							prev_id = u32(-1);
 

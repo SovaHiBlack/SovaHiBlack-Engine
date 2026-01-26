@@ -27,7 +27,7 @@ struct clQueryCollision
 {
 	xr_vector<CObject*>		objects;		// affected objects
 	xr_vector<clQueryTri>	tris;			// triangles		(if queried)
-	xr_vector<Fobb>			boxes;			// boxes/ellipsoids	(if queried)
+	xr_vector<fObb>			boxes;			// boxes/ellipsoids	(if queried)
 	xr_vector<fVector4>		spheres;		// spheres			(if queried)
 	
 	IC void				Clear	()
@@ -57,7 +57,7 @@ struct clQueryCollision
 	}
 	IC void				AddBox(const fMatrix4x4& M, const Fbox& B)
 	{
-		Fobb			box;
+		fObb			box;
 		fVector3			c;
 		B.getcenter		(c);
 		B.getradius		(box.m_halfsize);
@@ -70,7 +70,7 @@ struct clQueryCollision
 		box.xform_set	(R);
 		boxes.push_back	(box);
 	}
-	IC void				AddBox(const Fobb& B)
+	IC void				AddBox(const fObb& B)
 	{
 		boxes.push_back	(B);
 	}
@@ -154,7 +154,8 @@ public:
 class ENGINE_API	CCF_EventBox : public ICollisionForm
 {
 private:
-	Fplane			Planes[6];
+	fPlane			Planes[6];
+
 public:
 					CCF_EventBox	( CObject* _owner );
 

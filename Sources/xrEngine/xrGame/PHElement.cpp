@@ -69,7 +69,7 @@ CPHElement::CPHElement()																															//aux
 	m_volume=0.f;
 }
 
-void CPHElement::add_Box		(const Fobb&		V)
+void CPHElement::add_Box		(const fObb&		V)
 {
 	CPHGeometryOwner::add_Box(V);
 }
@@ -1198,7 +1198,7 @@ void CPHElement::add_Mass(const SBoneShape& shape,const fMatrix4x4& offset,const
 	m_mass_center.set(new_mc);
 }
 
-void CPHElement::set_BoxMass(const Fobb& box, float mass)
+void CPHElement::set_BoxMass(const fObb& box, float mass)
 {
 	dMassSetZero(&m_mass);
 	m_mass_center.set(box.m_translate);
