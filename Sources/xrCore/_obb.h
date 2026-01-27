@@ -168,9 +168,6 @@ public:
 using fObb = _obb<f32>;
 using dObb = _obb<f64>;
 
-typedef		_obb<float>		Fobb;
-typedef		_obb<double>	Dobb;
-
 template <class T>
 BOOL	_valid(const _obb<T>& m)
 {

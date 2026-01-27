@@ -283,7 +283,7 @@ BOOL CHOM::visible		(Fbox3& B)
 	return _visible		(B,m_xform_01)		;
 }
 
-BOOL CHOM::visible		(Fbox2& B, float depth)
+BOOL CHOM::visible		(fBox2& B, float depth)
 {
 	if (!bEnabled)		return TRUE;
 	return Raster.test	(B.min.x,B.min.y,B.max.x,B.max.y,depth);

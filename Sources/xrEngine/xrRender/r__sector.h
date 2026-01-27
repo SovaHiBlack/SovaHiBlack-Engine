@@ -9,7 +9,7 @@
 class	CPortal;
 class	CSector;
 
-struct	_scissor					: public Fbox2
+struct	_scissor					: public fBox2
 {
 	float	depth;
 };

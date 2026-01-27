@@ -1376,7 +1376,7 @@ void	CActor::OnRender_Network()
 				u16 BoneCount = V->LL_BoneCount();
 				for (u16 i=0; i<BoneCount; i++)
 				{
-					Fobb BoneOBB = V->LL_GetBox(i);
+					fObb BoneOBB = V->LL_GetBox(i);
 					fMatrix4x4 BoneMatrix; BoneOBB.xform_get(BoneMatrix);
 					fMatrix4x4 BoneMatrixRes; BoneMatrixRes.mul(V->LL_GetTransform(i), BoneMatrix);
 					BoneMatrix.mul(XFORM(), BoneMatrixRes);
@@ -1535,7 +1535,7 @@ void	CActor::OnRender_Network()
 			u16 BoneCount = V->LL_BoneCount();
 			for (u16 i=0; i<BoneCount; i++)
 			{
-				Fobb BoneOBB = V->LL_GetBox(i);
+				fObb BoneOBB = V->LL_GetBox(i);
 				fMatrix4x4 BoneMatrix;
 				BoneOBB.xform_get(BoneMatrix);
 				fMatrix4x4 BoneMatrixRes;

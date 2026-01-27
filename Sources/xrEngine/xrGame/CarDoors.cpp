@@ -393,7 +393,7 @@ bool CCar::SDoor::IsFront(const fVector3& pos,const fVector3& dir)
 	//CBoneInstance bi=K->LL_GetBoneInstance(bone_id);
 	//CBoneData& bd=K->LL_GetData(bone_id);
 	K->LL_GetBindTransform(bones_bind_forms);
-	//		Fobb bb=bd.obb;
+	//		fObb bb=bd.obb;
 	fVector3 tdir;
 	tdir.set(pcar->XFORM().i);
 	if (tdir.dotproduct(dir) < 0.0f)
@@ -424,7 +424,7 @@ bool CCar::SDoor::IsInArea(const fVector3& pos,const fVector3& dir)
 		//CBoneInstance bi=K->LL_GetBoneInstance(bone_id);
 		//CBoneData& bd=K->LL_GetData(bone_id);
 		K->LL_GetBindTransform(bones_bind_forms);
-		//		Fobb bb=bd.obb;
+		//		fObb bb=bd.obb;
 		fVector3 tdir;
 		tdir.set(pcar->XFORM().i);
 		if (tdir.dotproduct(dir) < 0.0f)
@@ -499,7 +499,7 @@ void CCar::SDoor::GetExitPosition(fVector3& pos)
 		//CBoneInstance bi=K->LL_GetBoneInstance(bone_id);
 		CBoneData& bd=K->LL_GetData(bone_id);
 		K->LL_GetBindTransform(bones_bind_forms);
-		Fobb bb;//=bd.obb;
+		fObb bb;//=bd.obb;
 		
 		fMatrix4x4 pf;
 		pf.mul(pcar->XFORM(),bones_bind_forms[bone_id]);
@@ -573,7 +573,7 @@ bool CCar::SDoor::TestPass(const fVector3& pos,const fVector3& dir)
 		//CBoneInstance bi=K->LL_GetBoneInstance(bone_id);
 		//CBoneData& bd=K->LL_GetData(bone_id);
 		K->LL_GetBindTransform(bones_bind_forms);
-		//		Fobb bb=bd.obb;
+		//		fObb bb=bd.obb;
 		fMatrix4x4 pf;
 		pf.mul(pcar->XFORM(),bones_bind_forms[bone_id]);
 		fVector3 dif;

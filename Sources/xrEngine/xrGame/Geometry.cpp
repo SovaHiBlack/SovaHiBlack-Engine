@@ -359,7 +359,7 @@ void CODEGeom::destroy()
 	m_geom_transform=NULL;
 }
 
-CBoxGeom::CBoxGeom(const Fobb& box)
+CBoxGeom::CBoxGeom(const fObb& box)
 {
 	m_box=box;
 }

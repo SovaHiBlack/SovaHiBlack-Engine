@@ -105,7 +105,7 @@ BOOL CRenderTarget::enable_scissor		(light* L)		// true if intersects near plane
 		// if it does - do nothing, if doesn't - we look on light through portal
 
 		// 1. convert rect into -1..1 space
-		Fbox2		b_pp	= bb;
+		fBox2		b_pp	= bb;
 		b_pp.min.x			= b_pp.min.x * 2 - 1;
 		b_pp.max.x			= b_pp.max.x * 2 - 1;
 		b_pp.min.y			= (1-b_pp.min.y) * 2 - 1;

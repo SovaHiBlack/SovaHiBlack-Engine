@@ -207,7 +207,7 @@ void					CRender::add_SkeletonWallmark	(const fMatrix4x4* xf, CKinematics* obj, 
 {
 	Wallmarks->AddSkeletonWallmark				(xf, obj, sh, start, dir, size);
 }
-void					CRender::add_Occluder			(Fbox2&	bb_screenspace	)
+void					CRender::add_Occluder			(fBox2&	bb_screenspace	)
 {
 	VERIFY					(_valid(bb_screenspace));
 	HOM.occlude				(bb_screenspace);

@@ -223,7 +223,7 @@ public:
 	// Main 
 	virtual void					flush						();
 	virtual void					set_Object					(IRenderable*		O	);
-	virtual	void					add_Occluder				(Fbox2&	bb_screenspace	);			// mask screen region as oclluded
+	virtual	void					add_Occluder				(fBox2&	bb_screenspace	);			// mask screen region as oclluded
 	virtual void					add_Visual					(IRender_Visual*	V	);			// add visual leaf	(no culling performed at all)
 	virtual void					add_Geometry				(IRender_Visual*	V	);			// add visual(s)	(all culling performed)
 

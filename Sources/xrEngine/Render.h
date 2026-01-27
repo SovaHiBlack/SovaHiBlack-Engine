@@ -195,7 +195,7 @@ public:
 	virtual void					set_Invisible			(BOOL 		V	)							= 0;
 	virtual void					flush					()											= 0;	
 	virtual void					set_Object				(IRenderable*		O	)					= 0;
-	virtual	void					add_Occluder			(Fbox2&	bb_screenspace	)					= 0;	// mask screen region as oclluded (-1..1, -1..1)
+	virtual	void					add_Occluder			(fBox2&	bb_screenspace	)					= 0;	// mask screen region as oclluded (-1..1, -1..1)
 	virtual void					add_Visual				(IRender_Visual*	V	)					= 0;	// add visual leaf	(no culling performed at all)
 	virtual void					add_Geometry			(IRender_Visual*	V	)					= 0;	// add visual(s)	(all culling performed)
 	virtual void					add_StaticWallmark		(ref_shader& S, const fVector3& P, float s, CDB::TRI* T, fVector3* V)=0;

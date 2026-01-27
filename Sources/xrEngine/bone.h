@@ -54,7 +54,7 @@ struct SBoneShape
 
 	u16				type;		// 2
 	Flags16			flags;		// 2
-	Fobb			box;      	// 15*4
+	fObb			box;      	// 15*4
 	Fsphere			sphere;		// 4*4
 	Fcylinder		cylinder;	// 8*4
 	SBoneShape		(){Reset();}

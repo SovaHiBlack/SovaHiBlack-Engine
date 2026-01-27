@@ -11,7 +11,7 @@ class CClimableObject: public CPhysicsShellHolder
 {
 	typedef	CPhysicsShellHolder		inherited;
 	CPHLeaderGeomShell* m_pStaticShell;
-	Fobb				m_box;
+	fObb				m_box;
 	fVector3				m_axis;
 	fVector3				m_side;
 	fVector3				m_norm;

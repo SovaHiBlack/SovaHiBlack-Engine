@@ -667,7 +667,7 @@ void CDrawUtilities::DrawBox(const fVector3& offs, const fVector3& Size, BOOL bS
 }
 //----------------------------------------------------
 
-void CDrawUtilities::DrawOBB(const fMatrix4x4& parent, const Fobb& box, u32 clr_s, u32 clr_w)
+void CDrawUtilities::DrawOBB(const fMatrix4x4& parent, const fObb& box, u32 clr_s, u32 clr_w)
 {
 	fMatrix4x4		R;
 	fMatrix4x4		S;

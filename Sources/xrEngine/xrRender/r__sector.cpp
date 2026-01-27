@@ -173,7 +173,9 @@ void CSector::traverse			(CFrustum &F, _scissor& R_scissor)
 		if (PortalTraverser.i_options&CPortalTraverser::VQ_SCISSOR && (!PORTAL->bDualRender))
 		{
 			// Build scissor rectangle in projection-space
-			Fbox2	bb;	bb.invalidate(); float depth = flt_max;
+			fBox2	bb;
+			bb.invalidate();
+			float depth = flt_max;
 			sPoly&	p	= *P;
 			for		(u32 vit=0; vit<p.size(); vit++)	{
 				fVector4	t;

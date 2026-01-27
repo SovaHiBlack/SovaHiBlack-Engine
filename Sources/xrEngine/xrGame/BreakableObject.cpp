@@ -159,15 +159,14 @@ void CBreakableObject::CreateBroken()
 	//	0.3f*skel_airr_ang_factor);
 	m_Shell->set_PhysicsRefObject(this);
 	m_Shell->Build();
-	m_Shell->setMass(m_Shell->getMass()*0.1f*100.f);
+	m_Shell->setMass(m_Shell->getMass()*0.1f*100.0f);
 	dMass m;
-	dMassSetBox(&m,m_Shell->getMass()/100.f,1.f,1.f,1.f);
+	dMassSetBox(&m,m_Shell->getMass()/100.0f,1.0f,1.0f,1.0f);
 	m_Shell->addEquelInertiaToEls(m);
 	m_Shell->SmoothElementsInertia(0.3f);
-	Fobb b;
+	fObb b;
 	Visual()->vis.box.getradius(b.m_halfsize);
-	m_Shell->SetMaxAABBRadius(_max(_max(b.m_halfsize.x,b.m_halfsize.y),b.m_halfsize.z)*2.f);//+2.f
-
+	m_Shell->SetMaxAABBRadius(_max(_max(b.m_halfsize.x,b.m_halfsize.y),b.m_halfsize.z)*2.0f);//+2.f
 }
 
 void CBreakableObject::ActivateBroken()

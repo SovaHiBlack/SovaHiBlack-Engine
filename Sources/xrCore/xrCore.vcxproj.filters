@@ -282,10 +282,10 @@
     <ClInclude Include="_cylinder.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="_fbox.h">
+    <ClInclude Include="_box3.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="_fbox2.h">
+    <ClInclude Include="_box2.h">
       <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="_flags.h">

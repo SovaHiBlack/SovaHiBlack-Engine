@@ -115,11 +115,11 @@ public:
 class CBoxGeom : public CODEGeom
 {
 	typedef CODEGeom inherited																						;
-	Fobb	m_box;
+	fObb	m_box;
 
 public:
-							CBoxGeom			(const Fobb& box)													;
-//	virtual					~CBoxGeom			(const Fobb& box)													;
+							CBoxGeom			(const fObb& box)													;
+//	virtual					~CBoxGeom			(const fObb& box)													;
 	virtual		float		volume				()																	;
 	virtual		float		radius				()																	;
 	virtual		void		get_extensions_bt	(const fVector3& axis,float center_prg,float& lo_ext, float& hi_ext) ;

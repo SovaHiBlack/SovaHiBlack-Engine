@@ -395,7 +395,7 @@ IC	bool	CLevelGraph::create_straight_path	(u32 start_vertex_id, const fVector2& 
 		return				(false);
 
 	u32						cur_vertex_id = start_vertex_id, prev_vertex_id = start_vertex_id;
-	Fbox2					box;
+	fBox2					box;
 	fVector2				identity;
 	fVector2				start;
 	fVector2				dest;

@@ -58,7 +58,7 @@ bool CCF_Skeleton::_ElementCenter(u16 elem_id, fVector3& e_center)
 
 IC bool RAYvsOBB(const fMatrix4x4& IM, const fVector3& b_hsize, const fVector3& S, const fVector3& D, float &R, BOOL bCull)
 {
-	Fbox E	= {-b_hsize.x, -b_hsize.y, -b_hsize.z,	b_hsize.x,	b_hsize.y,	b_hsize.z};
+	fBox3 E	= {-b_hsize.x, -b_hsize.y, -b_hsize.z,	b_hsize.x,	b_hsize.y,	b_hsize.z};
 	// XForm world-2-local
 	fVector3	SL;
 	fVector3	DL;
@@ -67,8 +67,8 @@ IC bool RAYvsOBB(const fMatrix4x4& IM, const fVector3& b_hsize, const fVector3& 
 	IM.transform_dir	(DL,D);
 
 	// Actual test
-	Fbox::ERP_Result rp_res = E.Pick2(SL,DL,PL);
-	if ((rp_res==Fbox::rpOriginOutside)||(!bCull&&(rp_res==Fbox::rpOriginInside))){
+	fBox3::ERP_Result rp_res = E.Pick2(SL,DL,PL);
+	if ((rp_res== fBox3::rpOriginOutside)||(!bCull&&(rp_res== fBox3::rpOriginInside))){
 		float d = PL.distance_to_sqr(SL);
 		if (d<R*R) {
 			R		= _sqrt(d);
@@ -169,7 +169,7 @@ void CCF_Skeleton::BuildTopLevel()
 {
 	dwFrameTL			= Device.dwFrame;
 	IRender_Visual* K	= owner->Visual();
-	Fbox& B				= K->vis.box;
+	fBox3& B				= K->vis.box;
 	bv_box.min.average	(B.min);
 	bv_box.max.average	(B.max);
 	bv_box.grow			(0.05f);
@@ -281,7 +281,7 @@ BOOL CCF_EventBox::Contact(CObject* O)
 BOOL CCF_EventBox::_RayQuery(const collide::ray_defs& Q, collide::rq_results& R)
 {	return FALSE; }
 /*
-void CCF_EventBox::_BoxQuery(const Fbox& B, const fMatrix4x4& M, u32 flags)
+void CCF_EventBox::_BoxQuery(const fBox3& B, const fMatrix4x4& M, u32 flags)
 {   return; }
 */
 
@@ -323,7 +323,7 @@ BOOL CCF_Shape::_RayQuery(const collide::ray_defs& Q, collide::rq_results& R)
 			break;
 		case 1: // box
 			{
-				Fbox				box;
+			fBox3				box;
 				box.identity		();
 				fMatrix4x4& B			= shape.data.ibox;
 				fVector3			S1;
@@ -331,8 +331,8 @@ BOOL CCF_Shape::_RayQuery(const collide::ray_defs& Q, collide::rq_results& R)
 				fVector3			P;
 				B.transform_tiny	(S1,dS);
 				B.transform_dir		(D1,dD);
-				Fbox::ERP_Result	rp_res 	= box.Pick2(S1,D1,P);
-				if ((rp_res==Fbox::rpOriginOutside)||(!(Q.flags&CDB::OPT_CULL)&&(rp_res==Fbox::rpOriginInside))){
+				fBox3::ERP_Result	rp_res 	= box.Pick2(S1,D1,P);
+				if ((rp_res== fBox3::rpOriginOutside)||(!(Q.flags&CDB::OPT_CULL)&&(rp_res== fBox3::rpOriginInside))){
 					float d			= P.distance_to_sqr(dS);
 					if (d<range*range) {
 						range		= _sqrt(d);
