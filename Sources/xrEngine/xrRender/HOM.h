@@ -49,7 +49,7 @@ public:
 	}
 
 	BOOL					visible		(vis_data&	vis);
-	BOOL					visible		(Fbox3&		B);
+	BOOL					visible		(fBox3&		B);
 	BOOL					visible		(sPoly&		P);
 	BOOL					visible		(fBox2&		B, float depth);	// viewport-space (0..1)
 

@@ -2,3 +2,5 @@
 // (например, имена функций и макросов).
 // Дополнительные сведения: https://go.microsoft.com/fwlink/?linkid=865984
 #define IC
+#define XRCORE_API __declspec(dllexport)
+#define XRCORE_API __declspec(dllimport)

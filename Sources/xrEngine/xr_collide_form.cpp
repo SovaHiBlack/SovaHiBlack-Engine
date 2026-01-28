@@ -348,7 +348,7 @@ BOOL CCF_Shape::_RayQuery(const collide::ray_defs& Q, collide::rq_results& R)
 	return bHIT;
 }
 /*
-void CCF_Shape::_BoxQuery(const Fbox& B, const fMatrix4x4& M, u32 flags)
+void CCF_Shape::_BoxQuery(const fBox3& B, const fMatrix4x4& M, u32 flags)
 {   return; }
 */
 void CCF_Shape::add_sphere	(Fsphere& S )

@@ -30,7 +30,8 @@ fVector3				m_contact_damage_dir;
 static	u32					m_remove_time;
 		u32					m_break_time;
 		bool				bRemoved;
-//		Fbox				m_saved_box;
+//		fBox3				m_saved_box;
+
 public:
 					CBreakableObject	();
 	virtual			~CBreakableObject	();

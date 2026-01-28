@@ -207,10 +207,10 @@ public:
 	// fpu
 	ICF BOOL		_box_fpu	(const fVector3& bCenter, const fVector3& bExtents, fVector3& coord)
 	{
-		Fbox		BB;
+		fBox3		BB;
 		BB.min.sub	(bCenter,bExtents);
 		BB.max.add	(bCenter,bExtents);
-        return 		isect_fpu	(BB.min,BB.max,ray,coord);
+		return 		isect_fpu	(BB.min,BB.max,ray,coord);
 	}
 	// sse
 	ICF BOOL		_box_sse	(const fVector3& bCenter, const fVector3& bExtents, float&  dist )
@@ -218,7 +218,7 @@ public:
 		aabb_t		box;
 		box.min.sub (bCenter,bExtents);	box.min.pad = 0;
 		box.max.add	(bCenter,bExtents); box.max.pad = 0;
-        return 		isect_sse	(box,ray,dist);
+		return 		isect_sse	(box,ray,dist);
 	}
 	
 	IC bool			_tri		(u32* p, float& u, float& v, float& range)

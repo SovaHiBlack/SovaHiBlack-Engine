@@ -456,8 +456,9 @@ IC float DET(const fMatrix4x4& a){
 		a._13 * ( a._21 * a._32 - a._22 * a._31 ) ));
 }
 
-IC bool valid_pos(const fVector3& P,const Fbox &B){
-	Fbox BB=B;BB.grow(100000);
+IC bool valid_pos(const fVector3& P,const fBox3& B){
+	fBox3 BB=B;
+	BB.grow(100000);
 	return !!BB.contains(P) ;
 }
 

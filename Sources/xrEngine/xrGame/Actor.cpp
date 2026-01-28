@@ -257,7 +257,7 @@ void CActor::Load(LPCSTR section)
 
 	// m_PhysicMovementControl: General
 	//m_PhysicMovementControl->SetParent		(this);
-	Fbox	bb;
+	fBox3	bb;
 	fVector3	vBOX_center;
 	fVector3	vBOX_size;
 	// m_PhysicMovementControl: BOX

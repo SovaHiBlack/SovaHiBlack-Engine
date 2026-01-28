@@ -166,7 +166,7 @@ bool SHeliMovementState::AlreadyOnPoint()
 
 void SHeliMovementState::getPathAltitude (fVector3& point, float base_altitude)
 {
-	Fbox	boundingVolume = Level().ObjectSpace.GetBoundingVolume();
+	fBox3	boundingVolume = Level().ObjectSpace.GetBoundingVolume();
 	fVector3 boundSize;
 	boundingVolume.getsize(boundSize);
 
@@ -301,12 +301,11 @@ void SHeliMovementState::load(IReader &input_packet)
 	if(type==eMovRoundPath){
 		goByRoundPath(round_center, round_radius, !round_reverse);
 	}
-
 }
 
 float SHeliMovementState::GetSafeAltitude()
 {
-	Fbox	boundingVolume = Level().ObjectSpace.GetBoundingVolume();
+	fBox3	boundingVolume = Level().ObjectSpace.GetBoundingVolume();
 	return	boundingVolume.max.y+safe_altitude_add;
 }
 

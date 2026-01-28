@@ -93,8 +93,8 @@ private:
 	CObject*			pObject;
 	EEnvironment		eOldEnvironment;
 	EEnvironment		eEnvironment;
-	Fbox				aabb;
-	Fbox				boxes	[4];
+	fBox3				aabb;
+	fBox3				boxes	[4];
 
 	u32					trying_times[4];
 	fVector3			trying_poses[4];
@@ -181,12 +181,12 @@ public:
 	void				InterpolateBox				(DWORD id,float k);
 	EEnvironment		Environment					( )			{ return eEnvironment; }
 	EEnvironment		OldEnvironment				( )			{ return eOldEnvironment; }
-	const Fbox&			Box							( )			{ return aabb; }
+	const fBox3&			Box							( )			{ return aabb; }
 	DWORD				BoxID						( )const	{ return m_dwCurBox;}
-	const Fbox*			Boxes						( )			{return boxes;}
+	const fBox3*			Boxes						( )			{return boxes;}
 	float				FootRadius					( )			{if(m_character)return m_character->FootRadius(); else return 0.f;};
 	void				CollisionEnable 			(BOOL enable){if(m_character) if(enable)m_character->collision_enable();else m_character->collision_disable();}
-	void				SetBox						(DWORD id, const Fbox &BB)	{ boxes[id].set(BB); aabb.set(BB); }
+	void				SetBox						(DWORD id, const fBox3& BB)	{ boxes[id].set(BB); aabb.set(BB); }
 	void				SetMass						(float M)	{ fMass = M;
 	if(m_character)
 		m_character->SetMas(fMass);

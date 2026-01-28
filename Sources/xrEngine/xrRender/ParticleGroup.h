@@ -77,7 +77,7 @@ namespace PS
 			void			StartFreeChild		(CParticleEffect* emitter, LPCSTR eff_name, PAPI::Particle& m);
 
 			void 			UpdateParent	(const fMatrix4x4& m, const fVector3& velocity, BOOL bXFORM);
-			void			OnFrame			(u32 u_dt, const CPGDef::SEffect& def, Fbox& box, bool& bPlaying);
+			void			OnFrame			(u32 u_dt, const CPGDef::SEffect& def, fBox3& box, bool& bPlaying);
 
 			u32				ParticlesCount	();
 			BOOL			IsPlaying		();

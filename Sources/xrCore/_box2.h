@@ -215,6 +215,7 @@ public:
 			min.y = max.y;
 			max.y = tmp;
 		}
+
 		return *this;
 	}
 
@@ -224,7 +225,8 @@ public:
 		TYPE		alpha;
 		TYPE		xt;
 		TYPE		yt;
-		Tvector rvmin, rvmax;
+		Tvector rvmin;
+		Tvector rvmax;
 
 		rvmin.sub(min, start);
 		rvmax.sub(max, start);
@@ -233,14 +235,14 @@ public:
 		{
 			alpha = rvmin.x / dir.x;
 			yt = alpha * dir.y;
-			if (yt >= rvmin.y && yt <= rvmax.y)
+			if ((yt >= rvmin.y) && (yt <= rvmax.y))
 			{
 				return true;
 			}
 
 			alpha = rvmax.x / dir.x;
 			yt = alpha * dir.y;
-			if (yt >= rvmin.y && yt <= rvmax.y)
+			if ((yt >= rvmin.y) && (yt <= rvmax.y))
 			{
 				return true;
 			}
@@ -250,14 +252,14 @@ public:
 		{
 			alpha = rvmin.y / dir.y;
 			xt = alpha * dir.x;
-			if (xt >= rvmin.x && xt <= rvmax.x)
+			if ((xt >= rvmin.x) && (xt <= rvmax.x))
 			{
 				return true;
 			}
 
 			alpha = rvmax.y / dir.y;
 			xt = alpha * dir.x;
-			if (xt >= rvmin.x && xt <= rvmax.x)
+			if ((xt >= rvmin.x) && (xt <= rvmax.x))
 			{
 				return true;
 			}
@@ -270,7 +272,8 @@ public:
 		TYPE		alpha;
 		TYPE		xt;
 		TYPE		yt;
-		Tvector rvmin, rvmax;
+		Tvector rvmin;
+		Tvector rvmax;
 
 		rvmin.sub(min, start);
 		rvmax.sub(max, start);
@@ -312,7 +315,7 @@ public:
 		return false;
 	}
 
-	IC u32& IR(T& x)
+	IC u32& IR(TYPE& x)
 	{
 		return (u32&)x;
 	}
@@ -328,13 +331,21 @@ public:
 			{
 				coord[0] = min[0];
 				Inside = FALSE;
-				if (IR(dir[0]))	MaxT[0] = (min[0] - origin[0]) / dir[0]; // Calculate T distances to candidate planes
+				if (IR(dir[0]))
+				{
+					// Calculate T distances to candidate planes
+					MaxT[0] = (min[0] - origin[0]) / dir[0];
+				}
 			}
 			else if (origin[0] > max[0])
 			{
 				coord[0] = max[0];
 				Inside = FALSE;
-				if (IR(dir[0]))	MaxT[0] = (max[0] - origin[0]) / dir[0]; // Calculate T distances to candidate planes
+				if (IR(dir[0]))
+				{
+					// Calculate T distances to candidate planes
+					MaxT[0] = (max[0] - origin[0]) / dir[0];
+				}
 			}
 		}
 		{
@@ -342,13 +353,21 @@ public:
 			{
 				coord[1] = min[1];
 				Inside = FALSE;
-				if (IR(dir[1]))	MaxT[1] = (min[1] - origin[1]) / dir[1]; // Calculate T distances to candidate planes
+				if (IR(dir[1]))
+				{
+					// Calculate T distances to candidate planes
+					MaxT[1] = (min[1] - origin[1]) / dir[1];
+				}
 			}
 			else if (origin[1] > max[1])
 			{
 				coord[1] = max[1];
 				Inside = FALSE;
-				if (IR(dir[1]))	MaxT[1] = (max[1] - origin[1]) / dir[1]; // Calculate T distances to candidate planes
+				if (IR(dir[1]))
+				{
+					// Calculate T distances to candidate planes
+					MaxT[1] = (max[1] - origin[1]) / dir[1];
+				}
 			}
 		}
 
@@ -361,7 +380,10 @@ public:
 
 		// Get largest of the maxT's for final choice of intersection
 		u32 WhichPlane = 0;
-		if (MaxT[1] > MaxT[0])			WhichPlane = 1;
+		if (MaxT[1] > MaxT[0])
+		{
+			WhichPlane = 1;
+		}
 
 		// Check final candidate actually inside box
 		if (IR(MaxT[WhichPlane]) & 0x80000000)
@@ -371,7 +393,7 @@ public:
 
 		if (0 == WhichPlane)
 		{
-				// 1
+			// 1
 			coord[1] = origin[1] + MaxT[0] * dir[1];
 			if ((coord[1] < min[1]) || (coord[1] > max[1]))
 			{
@@ -382,7 +404,7 @@ public:
 		}
 		else
 		{
-				 // 0
+			// 0
 			coord[0] = origin[0] + MaxT[1] * dir[0];
 			if ((coord[0] < min[0]) || (coord[0] > max[0]))
 			{
@@ -393,15 +415,35 @@ public:
 		}
 	}
 
-	IC void getpoint(int index, Tvector& result)
+	IC void getpoint(s32 index, Tvector& result)
 	{
 		switch (index)
 		{
-			case 0: result.set(min.x, min.y); break;
-			case 1: result.set(min.x, min.y); break;
-			case 2: result.set(max.x, min.y); break;
-			case 3: result.set(max.x, min.y); break;
-			default: result.set(0.f, 0.f); break;
+			case 0:
+			{
+				result.set(min.x, min.y);
+				break;
+			}
+			case 1:
+			{
+				result.set(min.x, min.y);
+				break;
+			}
+			case 2:
+			{
+				result.set(max.x, min.y);
+				break;
+			}
+			case 3:
+			{
+				result.set(max.x, min.y);
+				break;
+			}
+			default:
+			{
+				result.set(0.0f, 0.0f);
+				break;
+			}
 		}
 	}
 	IC void getpoints(Tvector* result)

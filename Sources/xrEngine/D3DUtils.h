@@ -114,7 +114,7 @@ public:
 		P.mad(C,N,size);
 		DrawLine(C,P,clr);}
 	virtual void __stdcall DrawSelectionBox(const fVector3& center, const fVector3& size, u32* c=0);
-	IC virtual void __stdcall DrawSelectionBox(const Fbox& box, u32* c=0){
+	IC virtual void __stdcall DrawSelectionBox(const fBox3& box, u32* c=0){
 		fVector3 S;
 		fVector3 C;
 		box.getsize(S);

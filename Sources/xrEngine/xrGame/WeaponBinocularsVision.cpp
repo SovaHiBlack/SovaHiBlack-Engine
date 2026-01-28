@@ -67,7 +67,7 @@ void SBinocVisibleObj::Update()
 {
 	m_flags.set		(	flVisObjNotValid,TRUE);
 
-	Fbox		b		= m_object->Visual()->vis.box;
+	fBox3		b		= m_object->Visual()->vis.box;
 
 	fMatrix4x4			xform;
 	xform.mul			(Device.mFullTransform,m_object->XFORM());

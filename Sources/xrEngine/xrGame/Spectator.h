@@ -57,7 +57,7 @@ public:
 
 	virtual void			Center					(fVector3& C)	const	{ C.set(Position());	}
 	virtual float			Radius					()				const	{ return EPS;}
-//	virtual const Fbox&		BoundingBox				()				const	{ VERIFY2(renderable.visual,*cName()); return renderable.visual->vis.box;									}
+//	virtual const fBox3&		BoundingBox				()				const	{ VERIFY2(renderable.visual,*cName()); return renderable.visual->vis.box;									}
 	virtual CGameObject*	cast_game_object		()						{return this;}
 	virtual IInputReceiver*	cast_input_receiver		()						{return this;}
 

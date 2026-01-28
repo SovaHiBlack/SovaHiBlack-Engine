@@ -1698,7 +1698,7 @@ void	CActor::Check_for_AutoPickUp()
 
 	fVector3 bc;
 	bc.add(Position(), m_AutoPickUp_AABB_Offset);
-	Fbox APU_Box;
+	fBox3 APU_Box;
 	APU_Box.set(fVector3().sub(bc, m_AutoPickUp_AABB), fVector3().add(bc, m_AutoPickUp_AABB));
 
 	xr_vector<ISpatial*>	ISpatialResult;

@@ -689,7 +689,7 @@ void CPHMovementControl::SetActorRestrictorRadius(CPHCharacter::ERestrictionType
 }
 void CPHMovementControl::Load					(LPCSTR section)
 {
-	Fbox	bb;
+	fBox3	bb;
 
 	// m_PhysicMovementControl: BOX
 	fVector3	vBOX1_center= pSettings->r_fvector3	(section,"ph_box1_center"	);

@@ -20,12 +20,13 @@ void CRenderTarget::enable_dbt_bounds		(light* L)
 	if (vis!=fcvFully)								return;
 
 	// xform BB
-	Fbox	BB;
+	fBox3	BB;
 	fVector3	rr;
 	rr.set(L->spatial.sphere.R,L->spatial.sphere.R,L->spatial.sphere.R);
 	BB.setb	(L->spatial.sphere.P, rr);
 
-	Fbox	bbp; bbp.invalidate();
+	fBox3	bbp;
+	bbp.invalidate();
 	for (u32 i=0; i<8; i++)		{
 		fVector3		pt;
 		BB.getpoint	(i,pt);

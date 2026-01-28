@@ -90,9 +90,9 @@ void CScriptFvector::script_register(lua_State *L)
 			.def("slide",						&fVector3::slide,																										return_reference_to(_1)),
 //			.def("generate_orthonormal_basis",	&fVector3::generate_orthonormal_basis),
 
-		class_<Fbox>("Fbox")
-			.def_readwrite("min",				&Fbox::min)
-			.def_readwrite("max",				&Fbox::max)
+		class_<fBox3>("fBox3")
+			.def_readwrite("min",				&fBox3::min)
+			.def_readwrite("max",				&fBox3::max)
 			.def(								constructor<>()),
 
 		class_<fRect>("fRect")

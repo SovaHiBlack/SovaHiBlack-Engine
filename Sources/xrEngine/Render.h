@@ -229,7 +229,7 @@ public:
 
 	// Occlusion culling
 	virtual BOOL					occ_visible				(vis_data&	V)								= 0;
-	virtual BOOL					occ_visible				(Fbox&		B)								= 0;
+	virtual BOOL					occ_visible				(fBox3&		B)								= 0;
 	virtual BOOL					occ_visible				(sPoly&		P)								= 0;
 
 	// Main

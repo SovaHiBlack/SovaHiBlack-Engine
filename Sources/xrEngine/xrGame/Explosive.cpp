@@ -214,7 +214,7 @@ float CExplosive::ExplosionEffect(collide::rq_results& storage, CExplosive*exp_o
 	fVector3	local_exp_center;
 	inv_obj_form.transform_tiny(local_exp_center,expl_centre);
 
-	const Fbox &l_b1 = blasted_obj->BoundingBox();
+	const fBox3& l_b1 = blasted_obj->BoundingBox();
 	if(l_b1.contains(local_exp_center)) 
 										return 1.f;
 	fVector3 l_c;

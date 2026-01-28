@@ -268,7 +268,7 @@ ICF float	CLevelGraph::CHeader::factor_y() const
 	return				(size_y);
 }
 
-ICF const Fbox &CLevelGraph::CHeader::box() const
+ICF const fBox3& CLevelGraph::CHeader::box() const
 {
 	return				(aabb);
 }

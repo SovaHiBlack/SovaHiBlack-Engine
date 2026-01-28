@@ -198,7 +198,7 @@ namespace CDB
 
 		u32					VPack		( const fVector3& V);
 	public:
-		CollectorPacked	(const Fbox &bb, int apx_vertices=5000, int apx_faces=5000);
+		CollectorPacked	(const fBox3& bb, int apx_vertices=5000, int apx_faces=5000);
 
 		//		__declspec(noinline) CollectorPacked &operator=	(const CollectorPacked &object)
 		//		{

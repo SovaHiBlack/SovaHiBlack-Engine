@@ -154,7 +154,7 @@ ISpatial_DB::~ISpatial_DB()
 	}
 }
 
-void			ISpatial_DB::initialize(Fbox& BB)
+void			ISpatial_DB::initialize(fBox3& BB)
 {
 	if (0==m_root)			
 	{

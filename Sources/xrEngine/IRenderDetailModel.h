@@ -16,9 +16,10 @@ public:
 		u32		C;
 		float	u,v;
 	};
+
 public:
 	Fsphere		bv_sphere;
-	Fbox		bv_bb;
+	fBox3		bv_bb;
 	flags32		m_Flags;
 	float		m_fMinScale;
 	float		m_fMaxScale;

@@ -65,7 +65,7 @@ void CPortal::OnRender	()
 void	CPortal::Setup	(fVector3* V, int vcnt, CSector* face, CSector* back)
 {
 	// calc sphere
-	Fbox				BB;
+	fBox3				BB;
 	BB.invalidate		();
 	for (int v=0; v<vcnt; v++)
 		BB.modify		(V[v]);

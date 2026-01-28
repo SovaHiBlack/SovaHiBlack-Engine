@@ -156,14 +156,14 @@ public:
 	ICF	SelfRef	modify(TYPE x, TYPE y, TYPE z)
 	{
 		Tvector tmp = {x,y,z};
-		return		modify(tmp);
+		return modify(tmp);
 	}
 	IC	SelfRef	merge(SelfCRef b)
 	{
 		modify(b.min);
 		modify(b.max);
 		return *this;
-	};
+	}
 	IC	SelfRef	merge(SelfCRef b1, SelfCRef b2)
 	{
 		invalidate( );
@@ -175,7 +175,9 @@ public:
 	{
 		// The three edges transformed: you can efficiently transform an X-only vector3
 		// by just getting the "X" column of the matrix
-		Tvector vx, vy, vz;
+		Tvector vx;
+		Tvector vy;
+		Tvector vz;
 		vx.mul(m.i, B.max.x - B.min.x);
 		vy.mul(m.j, B.max.y - B.min.y);
 		vz.mul(m.k, B.max.z - B.min.z);
@@ -186,15 +188,87 @@ public:
 
 		// Take the transformed min & axes and find _new_ extents
 		// Using CPU code in the right place is faster...
-		if (negative(vx.x))	min.x += vx.x; else max.x += vx.x;
-		if (negative(vx.y))	min.y += vx.y; else max.y += vx.y;
-		if (negative(vx.z))	min.z += vx.z; else max.z += vx.z;
-		if (negative(vy.x))	min.x += vy.x; else max.x += vy.x;
-		if (negative(vy.y))	min.y += vy.y; else max.y += vy.y;
-		if (negative(vy.z))	min.z += vy.z; else max.z += vy.z;
-		if (negative(vz.x))	min.x += vz.x; else max.x += vz.x;
-		if (negative(vz.y))	min.y += vz.y; else max.y += vz.y;
-		if (negative(vz.z))	min.z += vz.z; else max.z += vz.z;
+		if (negative(vx.x))
+		{
+			min.x += vx.x;
+		}
+		else
+		{
+			max.x += vx.x;
+		}
+
+		if (negative(vx.y))
+		{
+			min.y += vx.y;
+		}
+		else
+		{
+			max.y += vx.y;
+		}
+
+		if (negative(vx.z))
+		{
+			min.z += vx.z;
+		}
+		else
+		{
+			max.z += vx.z;
+		}
+
+		if (negative(vy.x))
+		{
+			min.x += vy.x;
+		}
+		else
+		{
+			max.x += vy.x;
+		}
+
+		if (negative(vy.y))
+		{
+			min.y += vy.y;
+		}
+		else
+		{
+			max.y += vy.y;
+		}
+
+		if (negative(vy.z))
+		{
+			min.z += vy.z;
+		}
+		else
+		{
+			max.z += vy.z;
+		}
+
+		if (negative(vz.x))
+		{
+			min.x += vz.x;
+		}
+		else
+		{
+			max.x += vz.x;
+		}
+
+		if (negative(vz.y))
+		{
+			min.y += vz.y;
+		}
+		else
+		{
+			max.y += vz.y;
+		}
+
+		if (negative(vz.z))
+		{
+			min.z += vz.z;
+		}
+		else
+		{
+			max.z += vz.z;
+		}
+
 		return *this;
 	}
 	ICF	SelfRef	xform(const Tmatrix& m)
@@ -238,7 +312,7 @@ public:
 		bc.add(min, bd);
 		return *this;
 	}
-	IC	SelfRef		scale(float s)					// 0.1 means make 110%, -0.1 means make 90%
+	IC	SelfRef		scale(f32 s)					// 0.1 means make 110%, -0.1 means make 90%
 	{
 		fVector3	bd;
 		bd.sub(max, min).mul(s);
@@ -253,16 +327,40 @@ public:
 	}
 
 	// Detects if this box intersect other
-	ICF	BOOL	intersect(SelfCRef box)
+	ICF BOOL	intersect(SelfCRef box)
 	{
-		if (max.x < box.min.x)	return FALSE;
-		if (max.y < box.min.y)	return FALSE;
-		if (max.z < box.min.z)	return FALSE;
-		if (min.x > box.max.x)	return FALSE;
-		if (min.y > box.max.y)	return FALSE;
-		if (min.z > box.max.z)	return FALSE;
+		if (max.x < box.min.x)
+		{
+			return FALSE;
+		}
+
+		if (max.y < box.min.y)
+		{
+			return FALSE;
+		}
+
+		if (max.z < box.min.z)
+		{
+			return FALSE;
+		}
+
+		if (min.x > box.max.x)
+		{
+			return FALSE;
+		}
+
+		if (min.y > box.max.y)
+		{
+			return FALSE;
+		}
+
+		if (min.z > box.max.z)
+		{
+			return FALSE;
+		}
+
 		return TRUE;
-	};
+	}
 
 	// Does the vector3 intersects box
 	IC BOOL Pick(const Tvector& start, const Tvector& dir)
@@ -271,7 +369,8 @@ public:
 		TYPE	xt;
 		TYPE	yt;
 		TYPE	zt;
-		Tvector rvmin, rvmax;
+		Tvector rvmin;
+		Tvector rvmax;
 
 		rvmin.sub(min, start);
 		rvmax.sub(max, start);
@@ -365,6 +464,7 @@ public:
 		rpOriginOutside = 2,
 		fcv_forcedword = u32(-1)
 	};
+
 	IC ERP_Result Pick2(const Tvector& origin, const Tvector& dir, Tvector& coord)
 	{
 		BOOL Inside = TRUE;
@@ -377,13 +477,21 @@ public:
 			{
 				coord[0] = min[0];
 				Inside = FALSE;
-				if (IR(dir[0]))	MaxT[0] = (min[0] - origin[0]) / dir[0]; // Calculate T distances to candidate planes
+				if (IR(dir[0]))
+				{
+					// Calculate T distances to candidate planes
+					MaxT[0] = (min[0] - origin[0]) / dir[0];
+				}
 			}
 			else if (origin[0] > max[0])
 			{
 				coord[0] = max[0];
 				Inside = FALSE;
-				if (IR(dir[0]))	MaxT[0] = (max[0] - origin[0]) / dir[0]; // Calculate T distances to candidate planes
+				if (IR(dir[0]))
+				{
+					// Calculate T distances to candidate planes
+					MaxT[0] = (max[0] - origin[0]) / dir[0];
+				}
 			}
 		}
 		{
@@ -391,13 +499,21 @@ public:
 			{
 				coord[1] = min[1];
 				Inside = FALSE;
-				if (IR(dir[1]))	MaxT[1] = (min[1] - origin[1]) / dir[1]; // Calculate T distances to candidate planes
+				if (IR(dir[1]))
+				{
+					// Calculate T distances to candidate planes
+					MaxT[1] = (min[1] - origin[1]) / dir[1];
+				}
 			}
 			else if (origin[1] > max[1])
 			{
 				coord[1] = max[1];
 				Inside = FALSE;
-				if (IR(dir[1]))	MaxT[1] = (max[1] - origin[1]) / dir[1]; // Calculate T distances to candidate planes
+				if (IR(dir[1]))
+				{
+					// Calculate T distances to candidate planes
+					MaxT[1] = (max[1] - origin[1]) / dir[1];
+				}
 			}
 		}
 		{
@@ -405,13 +521,21 @@ public:
 			{
 				coord[2] = min[2];
 				Inside = FALSE;
-				if (IR(dir[2]))	MaxT[2] = (min[2] - origin[2]) / dir[2]; // Calculate T distances to candidate planes
+				if (IR(dir[2]))
+				{
+					// Calculate T distances to candidate planes
+					MaxT[2] = (min[2] - origin[2]) / dir[2];
+				}
 			}
 			else if (origin[2] > max[2])
 			{
 				coord[2] = max[2];
 				Inside = FALSE;
-				if (IR(dir[2]))	MaxT[2] = (max[2] - origin[2]) / dir[2]; // Calculate T distances to candidate planes
+				if (IR(dir[2]))
+				{
+					// Calculate T distances to candidate planes
+					MaxT[2] = (max[2] - origin[2]) / dir[2];
+				}
 			}
 		}
 
@@ -424,57 +548,131 @@ public:
 
 		// Get largest of the maxT's for final choice of intersection
 		u32 WhichPlane = 0;
-		if (MaxT[1] > MaxT[0])			WhichPlane = 1;
-		if (MaxT[2] > MaxT[WhichPlane])	WhichPlane = 2;
+		if (MaxT[1] > MaxT[0])
+		{
+			WhichPlane = 1;
+		}
+
+		if (MaxT[2] > MaxT[WhichPlane])
+		{
+			WhichPlane = 2;
+		}
 
 		// Check final candidate actually inside box
-		if (IR(MaxT[WhichPlane]) & 0x80000000) return rpNone;
+		if (IR(MaxT[WhichPlane]) & 0x80000000)
+		{
+			return rpNone;
+		}
 
 		if (0 == WhichPlane)
 		{
 			// 1 & 2
 			coord[1] = origin[1] + MaxT[0] * dir[1];
-			if ((coord[1] < min[1]) || (coord[1] > max[1]))	return rpNone;
+			if ((coord[1] < min[1]) || (coord[1] > max[1]))
+			{
+				return rpNone;
+			}
+
 			coord[2] = origin[2] + MaxT[0] * dir[2];
-			if ((coord[2] < min[2]) || (coord[2] > max[2]))	return rpNone;
+			if ((coord[2] < min[2]) || (coord[2] > max[2]))
+			{
+				return rpNone;
+			}
+
 			return rpOriginOutside;
 		}
+
 		if (1 == WhichPlane)
 		{
 			// 0 & 2
 			coord[0] = origin[0] + MaxT[1] * dir[0];
-			if ((coord[0] < min[0]) || (coord[0] > max[0]))	return rpNone;
+			if ((coord[0] < min[0]) || (coord[0] > max[0]))
+			{
+				return rpNone;
+			}
+
 			coord[2] = origin[2] + MaxT[1] * dir[2];
-			if ((coord[2] < min[2]) || (coord[2] > max[2]))	return rpNone;
+			if ((coord[2] < min[2]) || (coord[2] > max[2]))
+			{
+				return rpNone;
+			}
+
 			return rpOriginOutside;
 		}
+
 		if (2 == WhichPlane)
 		{
 			// 0 & 1
 			coord[0] = origin[0] + MaxT[2] * dir[0];
-			if ((coord[0] < min[0]) || (coord[0] > max[0]))	return rpNone;
+			if ((coord[0] < min[0]) || (coord[0] > max[0]))
+			{
+				return rpNone;
+			}
+
 			coord[1] = origin[1] + MaxT[2] * dir[1];
-			if ((coord[1] < min[1]) || (coord[1] > max[1]))	return rpNone;
+			if ((coord[1] < min[1]) || (coord[1] > max[1]))
+			{
+				return rpNone;
+			}
+
 			return rpOriginOutside;
 		}
+
 		return rpNone;
 	}
 
-	IC void getpoint(int index, Tvector& result) const
+	IC void getpoint(s32 index, Tvector& result) const
 	{
 		switch (index)
 		{
-			case 0: result.set(min.x, min.y, min.z); break;
-			case 1: result.set(min.x, min.y, max.z); break;
-			case 2: result.set(max.x, min.y, max.z); break;
-			case 3: result.set(max.x, min.y, min.z); break;
-			case 4: result.set(min.x, max.y, min.z); break;
-			case 5: result.set(min.x, max.y, max.z); break;
-			case 6: result.set(max.x, max.y, max.z); break;
-			case 7: result.set(max.x, max.y, min.z); break;
-			default: result.set(0, 0, 0); break;
+			case 0:
+			{
+				result.set(min.x, min.y, min.z);
+				break;
+			}
+			case 1:
+			{
+				result.set(min.x, min.y, max.z);
+				break;
+			}
+			case 2:
+			{
+				result.set(max.x, min.y, max.z);
+				break;
+			}
+			case 3:
+			{
+				result.set(max.x, min.y, min.z);
+				break;
+			}
+			case 4:
+			{
+				result.set(min.x, max.y, min.z);
+				break;
+			}
+			case 5:
+			{
+				result.set(min.x, max.y, max.z);
+				break;
+			}
+			case 6:
+			{
+				result.set(max.x, max.y, max.z);
+				break;
+			}
+			case 7:
+			{
+				result.set(max.x, max.y, min.z);
+				break;
+			}
+			default:
+			{
+				result.set(0, 0, 0);
+				break;
+			}
 		}
-	};
+	}
+
 	IC void getpoints(Tvector* result)
 	{
 		result[0].set(min.x, min.y, min.z);
@@ -485,17 +683,18 @@ public:
 		result[5].set(min.x, max.y, max.z);
 		result[6].set(max.x, max.y, max.z);
 		result[7].set(max.x, max.y, min.z);
-	};
+	}
 
 	IC SelfRef modify(SelfCRef src, const Tmatrix& M)
 	{
 		Tvector pt;
-		for (int i = 0; i < 8; i++)
+		for (s32 i = 0; i < 8; i++)
 		{
 			src.getpoint(i, pt);
 			M.transform_tiny(pt);
 			modify(pt);
 		}
+
 		return *this;
 	}
 };
@@ -503,14 +702,8 @@ public:
 using fBox3 = _box3<f32>;
 using dBox3 = _box3<f64>;
 
-
-typedef _box3<float>	Fbox;
-typedef _box3<float>	Fbox3;
-typedef _box3<double>	Dbox;
-typedef _box3<double>	Dbox3;
-
 template <class T>
-BOOL	_valid(const _box3<T>& c)
+BOOL _valid(const _box3<T>& c)
 {
-	return _valid(min) && _valid(max);
+	return (_valid(min) && _valid(max));
 }

@@ -170,7 +170,7 @@ void CActor::cam_Update(f32 dt, f32 fFOV)
 			w/=2.0f;
 			h/=2.0f;
 			// find tris
-			Fbox box;
+			fBox3 box;
 			box.invalidate		();
 			box.modify			(src_pt);
 			box.modify			(tgt_pt);
@@ -179,7 +179,7 @@ void CActor::cam_Update(f32 dt, f32 fFOV)
 			// query
 			fVector3			bc;
 			fVector3			bd;
-			Fbox				xf			; 
+			fBox3				xf			;
 			xf.xform			(box,xform)	;
 			xf.get_CD			(bc,bd)		;
 

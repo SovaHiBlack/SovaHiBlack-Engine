@@ -179,7 +179,7 @@ void					CRender::flush					()					{ r_dsgraph_render_graph	(0);						}
 
 BOOL					CRender::occ_visible			(vis_data& P)		{ return HOM.visible(P);								}
 BOOL					CRender::occ_visible			(sPoly& P)			{ return HOM.visible(P);								}
-BOOL					CRender::occ_visible			(Fbox& P)			{ return HOM.visible(P);								}
+BOOL					CRender::occ_visible			(fBox3& P)			{ return HOM.visible(P);								}
 ENGINE_API	extern BOOL g_bRendering;
 void					CRender::add_Visual				(IRender_Visual* V )
 {

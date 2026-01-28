@@ -570,12 +570,13 @@ bool CCharacterPhysicsSupport::DoCharacterShellCollide()
 	}
 	return true;
 }
+
 void CCharacterPhysicsSupport::CollisionCorrectObjPos(const fVector3& start_from,bool	character_create/*=false*/)
 {
 	fVector3 shift;
 	shift.sub(start_from,m_EntityAlife.Position());
 
-	Fbox box;
+	fBox3 box;
 	if(character_create)box.set(movement()->Box());
 	else	box.set(m_EntityAlife.BoundingBox());
 	fVector3 vbox;

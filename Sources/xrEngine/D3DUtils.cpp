@@ -190,7 +190,7 @@ void CDrawUtilities::OnDeviceCreate()
 		circledef3[i].z = _ca;
 	}
 	// initialize identity box
-	Fbox bb;
+	fBox3 bb;
 	bb.set(-0.505f,-0.505f,-0.505f, 0.505f,0.505f,0.505f);
 	for (i=0; i<8; i++){
 		fVector3 S;
@@ -301,7 +301,7 @@ void CDrawUtilities::DrawDirectionalLight(const fVector3& p, const fVector3& d, 
 	// and Render it as triangle list
 	DU_DRAW_DP		(D3DPT_LINELIST,vs_L,vBase,3);
 
-	Fbox b;
+	fBox3 b;
 	b.min.set(-r,-r,-r);
 	b.max.set(r,r,r);
 
