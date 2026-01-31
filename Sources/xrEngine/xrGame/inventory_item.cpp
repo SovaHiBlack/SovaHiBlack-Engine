@@ -44,13 +44,13 @@ struct net_updateData{
 #endif
 
 	fVector3			IStartPos;
-	Fquaternion		IStartRot;
+	fQuaternion		IStartRot;
 
 	fVector3			IRecPos;
-	Fquaternion		IRecRot;
+	fQuaternion		IRecRot;
 
 	fVector3			IEndPos;
-	Fquaternion		IEndRot;	
+	fQuaternion		IEndRot;
 
 	SPHNetState		LastState;
 	SPHNetState		RecalculatedState;
@@ -219,7 +219,7 @@ void CInventoryItem::OnH_A_Chield()
 	inherited::OnH_A_Chield		();
 }
 #ifdef DEBUG
-extern	Flags32	dbg_net_Draw_Flags;
+extern	flags32	dbg_net_Draw_Flags;
 #endif
 
 void CInventoryItem::UpdateCL()
@@ -823,7 +823,7 @@ void CInventoryItem::make_Interpolation	()
 			else if (factor < 0) factor = 0;
 
 			fVector3 IPos;
-			Fquaternion IRot;
+			fQuaternion IRot;
 
 			float c = factor;
 			for (u32 k=0; k<3; k++)

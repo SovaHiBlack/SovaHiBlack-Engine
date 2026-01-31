@@ -39,7 +39,7 @@ public:
 					lmFirst			= (1<<5),
 //.					lmHighlightSpot = (1<<6),
 				};
-	Flags32						m_flags;
+	flags32						m_flags;
 private:
 	float						m_currentZoom;
 	CUIGlobalMap*				m_GlobalMap;

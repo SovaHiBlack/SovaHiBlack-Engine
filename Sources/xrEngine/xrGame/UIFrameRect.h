@@ -10,9 +10,17 @@ class CUIFrameRect: public CUISimpleWindow, CUIMultiTextureOwner //public CUICus
 public:
 	enum EFramePart{
 		fmBK=0,
-		fmL, fmR, fmT, fmB, fmLT, fmRB, fmRT, fmLB, fmMax
+		fmL,
+		fmR,
+		fmT,
+		fmB,
+		fmLT,
+		fmRB,
+		fmRT,
+		fmLB,
+		fmMax
 	};
-	Flags16		m_itm_mask;
+	flags16		m_itm_mask;
 
 	friend class CUIFrameWindow;
 	using CUISimpleWindow::Init;
@@ -38,7 +46,7 @@ protected:
 		flValidSize	= (1<<0),
 		flSingleTex	= (1<<1),
 	};
-	Flags8			uFlags;
+	flags8			uFlags;
 	void			UpdateSize		();
 };
 

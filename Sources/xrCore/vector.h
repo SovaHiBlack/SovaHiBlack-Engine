@@ -82,7 +82,7 @@ IC f32 snapto(f32 value, f32 snap)
 };
 
 // pre-definitions
-template <class T> struct _quaternion;
+template <class T> class _quaternion;
 
 #pragma pack(push)
 #pragma pack(1)

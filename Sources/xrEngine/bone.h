@@ -53,7 +53,7 @@ struct SBoneShape
 	};
 
 	u16				type;		// 2
-	Flags16			flags;		// 2
+	flags16			flags;		// 2
 	fObb			box;      	// 15*4
 	fSphere			sphere;		// 4*4
 	fCylinder		cylinder;	// 8*4
@@ -87,7 +87,7 @@ struct SJointIKData
 	enum{
 		flBreakable	= (1<<0),
 	};
-	Flags32			ik_flags;
+	flags32			ik_flags;
 	float			break_force;	// [0..+INF]
 	float			break_torque;	// [0..+INF]
 
@@ -177,7 +177,7 @@ public:
 	BoneVec				children;
 public:
 	// editor part
-	Flags8			    flags;    
+	flags8			    flags;
 	enum{
 		flSelected	    = (1<<0),
 	};

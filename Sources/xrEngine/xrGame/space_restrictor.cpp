@@ -203,7 +203,7 @@ continue_loop:
 #ifdef DEBUG
 #include "hudmanager.h"
 
-extern	Flags32	dbg_net_Draw_Flags;
+extern	flags32	dbg_net_Draw_Flags;
 
 void CSpaceRestrictor::OnRender	()
 {

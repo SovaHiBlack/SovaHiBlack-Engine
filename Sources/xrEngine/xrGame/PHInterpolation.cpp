@@ -19,7 +19,7 @@ if(!body) return;
 m_body=body;
 qPositions.fill_in(*((fVector3*) dBodyGetPosition(m_body)));
 const dReal* dQ=dBodyGetQuaternion(m_body);
-Fquaternion fQ;
+fQuaternion fQ;
 fQ.set(-dQ[0],dQ[1],dQ[2],dQ[3]);
 qRotations.fill_in(fQ);
 }
@@ -34,7 +34,7 @@ void CPHInterpolation::UpdateRotations(){
 	VERIFY(m_body);
 	//VERIFY2(dM_valid(dBodyGetRotation(m_body)),"invalid body rotation in update interpolation");
 	const dReal* dQ=dBodyGetQuaternion(m_body);
-	Fquaternion fQ;
+	fQuaternion fQ;
 	fQ.set(-dQ[0],dQ[1],dQ[2],dQ[3]);
 	qRotations.push_back(fQ);
 }
@@ -48,7 +48,7 @@ void CPHInterpolation::InterpolatePosition(fVector3& pos)
 }
 
 void CPHInterpolation::InterpolateRotation(fMatrix4x4& rot){
-	Fquaternion q;
+	fQuaternion q;
 	float	t = ph_world->m_frame_time/fixed_step;
 	VERIFY		(t>=0.f && t<=1.f);
 	//if(!b_udating_rotations)
@@ -68,12 +68,12 @@ void CPHInterpolation::ResetRotations()
 {
 	VERIFY2(dBodyStateValide(m_body),"Invalid body state");
 	const dReal* dQ=dBodyGetQuaternion(m_body);
-	Fquaternion fQ;
+	fQuaternion fQ;
 	fQ.set(-dQ[0],dQ[1],dQ[2],dQ[3]);
 	qRotations.fill_in(fQ);
 }
 
-void CPHInterpolation::GetRotation(Fquaternion& q, u16 num)
+void CPHInterpolation::GetRotation(fQuaternion& q, u16 num)
 {
 	if(!m_body)	return;
 	q.set(qRotations[num]);
@@ -90,7 +90,7 @@ void CPHInterpolation::SetPosition(const fVector3& p, u16 num)
 	qPositions[num].set(p);
 }
 
-void CPHInterpolation::SetRotation(const Fquaternion& q, u16 num)
+void CPHInterpolation::SetRotation(const fQuaternion& q, u16 num)
 {
 	if(!m_body)	return;
 	qRotations[num]=q;

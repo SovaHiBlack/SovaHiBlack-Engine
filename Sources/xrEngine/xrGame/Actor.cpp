@@ -67,7 +67,7 @@
 static f32 IReceived = 0;
 static f32 ICoincidenced = 0;
 
-Flags32			psActorFlags = {0};
+flags32			psActorFlags = {0};
 
 CActor::CActor( ) : CEntityAlive( )
 {

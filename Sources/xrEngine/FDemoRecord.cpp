@@ -80,8 +80,8 @@ CDemoRecord::~CDemoRecord()
 static fVector3 cmNorm[6]	= {{0.0f,1.0f,0.0f}, {0.0f,1.0f,0.0f}, {0.0f,0.0f,-1.0f},{0.0f,0.0f,1.0f}, {0.0f,1.0f,0.0f}, {0.0f,1.0f,0.0f}};
 static fVector3 cmDir[6]	= {{1.0f,0.0f,0.0f}, {-1.0f,0.0f,0.0f},{0.0f,1.0f,0.0f}, {0.0f,-1.0f,0.0f},{0.0f,0.0f,1.0f}, {0.0f,0.0f,-1.0f}};
 
-static Flags32	s_hud_flag	= {0};
-static Flags32	s_dev_flags	= {0};
+static flags32	s_hud_flag	= {0};
+static flags32	s_dev_flags	= {0};
 
 void CDemoRecord::MakeScreenshotFace()
 {

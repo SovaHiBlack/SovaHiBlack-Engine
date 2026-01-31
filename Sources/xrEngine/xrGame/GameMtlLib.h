@@ -68,7 +68,7 @@ public:
 	shared_str			m_Name;
 	shared_str			m_Desc;
 
-	Flags32				Flags;
+	flags32				Flags;
 	// physics part
 	float				fPHFriction;            // ?
 	float				fPHDamping;             // ?
@@ -127,7 +127,7 @@ public:
 		flCollideParticles	= (1<<5),
 		flCollideMarks		= (1<<6)
 	};
-	Flags32				OwnProps;
+	flags32				OwnProps;
 //	properties
 	SoundVec			BreakingSounds;
 	SoundVec			StepSounds;

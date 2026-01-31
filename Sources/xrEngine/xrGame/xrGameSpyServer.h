@@ -60,7 +60,7 @@ public:
 	shared_str					HostName;
 	shared_str					MapName;
 	shared_str					Password;
-	Flags8						ServerFlags;
+	flags8						ServerFlags;
 
 	int							m_iMaxPlayers;
 	bool						m_bCheckCDKey;

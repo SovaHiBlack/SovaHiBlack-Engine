@@ -10,10 +10,10 @@ public:
 	using SelfCRef = const Self&;
 	using Tvector = _vector3<TYPE>;
 
-	Tvector			m_center;
-	Tvector			m_direction;
-	TYPE			m_height;
-	TYPE			m_radius;
+	Tvector m_center;
+	Tvector m_direction;
+	TYPE m_height;
+	TYPE m_radius;
 
 	IC SelfRef invalidate( )
 	{
@@ -232,8 +232,8 @@ public:
 		s32 cnt;
 		if (0 != (cnt = intersect(start, dir, afT)))
 		{
-			bool		o_inside = false;
-			bool		b_result = false;
+			bool o_inside = false;
+			bool b_result = false;
 			for (s32 k = 0; k < cnt; k++)
 			{
 				if (afT[k] < 0.0f)

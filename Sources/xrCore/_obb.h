@@ -100,8 +100,8 @@ public:
 	}
 	IC void xform_full(Tmatrix& D) const
 	{
-		Tmatrix		R;
-		Tmatrix		S;
+		Tmatrix R;
+		Tmatrix S;
 		xform_get(R);
 		S.scale(m_halfsize);
 		D.mul_43(R, S);
@@ -110,8 +110,8 @@ public:
 	// NOTE: Unoptimized
 	IC SelfRef transform(SelfCRef src, const Tmatrix& M)
 	{
-		Tmatrix		srcR;
-		Tmatrix		destR;
+		Tmatrix srcR;
+		Tmatrix destR;
 
 		src.xform_get(srcR);
 		destR.mul_43(M, srcR);
@@ -169,7 +169,7 @@ using fObb = _obb<f32>;
 using dObb = _obb<f64>;
 
 template <class T>
-BOOL	_valid(const _obb<T>& m)
+BOOL _valid(const _obb<T>& m)
 {
-	return _valid(m_rotate) && _valid(m_translate) && _valid(m_halfsize);
+	return (_valid(m_rotate) && _valid(m_translate) && _valid(m_halfsize));
 }

@@ -54,7 +54,7 @@ struct SChooseEvents{
 	TOnChooseSelectItem	on_sel;
 	TOnDrawThumbnail    on_thm;
 	TOnChooseClose	    on_close;
-	Flags32				flags;
+	flags32				flags;
 						SChooseEvents	(){caption="Select Item";flags.zero();}
 						SChooseEvents	(LPCSTR capt, TOnChooseFillItems f, TOnChooseSelectItem s, TOnDrawThumbnail t, TOnChooseClose c, u32 fl)
 	{

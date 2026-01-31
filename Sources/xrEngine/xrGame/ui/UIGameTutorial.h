@@ -60,7 +60,7 @@ protected:
 	xr_vector<luabind::functor<void> >	m_start_lua_functions;
 	xr_vector<luabind::functor<void> >	m_stop_lua_functions;
 
-	Flags32					m_flags;
+	flags32					m_flags;
 	CUISequencer*			m_owner;
 public:
 							CUISequenceItem		(CUISequencer* owner):m_owner(owner){m_flags.zero();}

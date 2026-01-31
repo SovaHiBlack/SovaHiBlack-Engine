@@ -10,7 +10,6 @@ enum{
 		AF_PSP				=(1<<6),
 };
 
-extern Flags32 psActorFlags;
+extern flags32 psActorFlags;
 
-extern BOOL		GodMode	();	
-
+extern BOOL		GodMode	();

@@ -69,5 +69,5 @@ protected:
 	fVector2				m_wheel_size[2];
 	enum {fl_SoundFinalized	= 1, fl_MovingStoped = 2	};
 
-	Flags32				m_flags;	
+	flags32				m_flags;
 };

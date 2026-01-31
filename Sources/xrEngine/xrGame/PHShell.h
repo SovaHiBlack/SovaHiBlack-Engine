@@ -25,7 +25,7 @@ class CPHShell: public CPhysicsShell,public CPHObject {
 		flRemoveCharacterCollisionAfterDisable		=	1<<2,
 	};
 	s16						m_active_count;
-	Flags8					m_flags;					
+	flags8					m_flags;
 	ELEMENT_STORAGE			elements;
 	JOINT_STORAGE			joints;
 	CPHShellSplitterHolder	*m_spliter_holder;
@@ -209,7 +209,7 @@ public:
 	virtual		void				build_FromKinematics			(CKinematics* K,BONE_P_MAP* p_geting_map=NULL);
 	virtual		void				preBuild_FromKinematics			(CKinematics* K,BONE_P_MAP* p_geting_map);
 	virtual		void                ZeroCallbacks					();
-	virtual		void				ResetCallbacks					(u16 id,Flags64 &mask);
+	virtual		void				ResetCallbacks					(u16 id, flags64& mask);
 				void				PlaceBindToElForms				();
 	virtual		void				SetCallbacks					(BoneCallbackFun* callback);
 	virtual		void				EnabledCallbacks				(BOOL val);
@@ -251,12 +251,12 @@ private:
 				void				AddSplitter			  			(CPHShellSplitter::EType type,u16 element,u16 joint,u16 position)				;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				void				AddElementRecursive				(CPhysicsElement* root_e, u16 id, fMatrix4x4 global_parent,u16 element_number,bool *vis_check)		;
-				void				PlaceBindToElFormsRecursive		(fMatrix4x4 parent,u16 id,u16 element,Flags64 &mask);
+				void				PlaceBindToElFormsRecursive		(fMatrix4x4 parent,u16 id,u16 element, flags64& mask);
 				void				BonesBindCalculate				(u16 id_from=0);
 				void				BonesBindCalculateRecursive		(fMatrix4x4 parent,u16 id);
 				void				ZeroCallbacksRecursive			(u16 id)																		;
 				void				SetCallbacksRecursive			(u16 id,u16 element)															;
-				void				ResetCallbacksRecursive			(u16 id,u16 element,Flags64 &mask)												;
+				void				ResetCallbacksRecursive			(u16 id,u16 element, flags64& mask)												;
 				void				SetJointRootGeom				(CPhysicsElement* root_e,CPhysicsJoint* J)										;
 				void				ReanableObject					()																				;
 				void				ExplosionHit					(const fVector3& pos, const fVector3& dir, float val,const u16 id)				;

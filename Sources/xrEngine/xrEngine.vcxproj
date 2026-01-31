@@ -425,7 +425,6 @@
     <ClInclude Include="HW.h" />
     <ClInclude Include="HWCaps.h" />
     <ClInclude Include="xr_effgamma.h" />
-    <ClInclude Include="Shader_xrLC.h" />
     <ClInclude Include="WaveForm.h" />
     <ClInclude Include="Blenders\Blender.h" />
     <ClInclude Include="Blenders\Blender_CLSID.h" />

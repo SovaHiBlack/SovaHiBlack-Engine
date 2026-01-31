@@ -255,7 +255,7 @@ public:
 	void					OnDeviceDestroy		();
 };
 
-ENGINE_API extern Flags32	psEnvFlags;
+ENGINE_API extern flags32	psEnvFlags;
 ENGINE_API extern float		psVisDistance;
 
 #endif //EnvironmentH

@@ -96,9 +96,9 @@ public:
 	virtual FloatValue* 		__stdcall	CreateFloat		    (PropItemVec& items, shared_str key, float* val, float mn=0.f, float mx=1.f, float inc=0.01f, int decim=2)=0;
 	virtual BOOLValue* 	  		__stdcall	CreateBOOL		    (PropItemVec& items, shared_str key, BOOL* val)=0;
 	virtual VectorValue*  	 	__stdcall	CreateVector	    (PropItemVec& items, shared_str key, fVector3* val, float mn=0.f, float mx=1.f, float inc=0.01f, int decim=2)=0;
-	virtual Flag8Value*			__stdcall	CreateFlag8		    (PropItemVec& items, shared_str key, Flags8* val, u8 mask, LPCSTR c0=0, LPCSTR c1=0, u32 flags=0)=0;
-	virtual Flag16Value*		__stdcall	CreateFlag16	    (PropItemVec& items, shared_str key, Flags16* val, u16 mask, LPCSTR c0=0, LPCSTR c1=0, u32 flags=0)=0;
-	virtual Flag32Value*		__stdcall	CreateFlag32	    (PropItemVec& items, shared_str key, Flags32* val, u32 mask, LPCSTR c0=0, LPCSTR c1=0, u32 flags=0)=0;
+	virtual Flag8Value*			__stdcall	CreateFlag8		    (PropItemVec& items, shared_str key, flags8* val, u8 mask, LPCSTR c0=0, LPCSTR c1=0, u32 flags=0)=0;
+	virtual Flag16Value*		__stdcall	CreateFlag16	    (PropItemVec& items, shared_str key, flags16* val, u16 mask, LPCSTR c0=0, LPCSTR c1=0, u32 flags=0)=0;
+	virtual Flag32Value*		__stdcall	CreateFlag32	    (PropItemVec& items, shared_str key, flags32* val, u32 mask, LPCSTR c0=0, LPCSTR c1=0, u32 flags=0)=0;
 	virtual Token8Value*		__stdcall	CreateToken8	    (PropItemVec& items, shared_str key, u8* val, xr_token* token)=0;
 	virtual Token16Value*		__stdcall	CreateToken16	    (PropItemVec& items, shared_str key, u16* val, xr_token* token)=0;
 	virtual Token32Value*		__stdcall	CreateToken32	    (PropItemVec& items, shared_str key, u32* val, xr_token* token)=0;

@@ -18,7 +18,7 @@ struct SBinocVisibleObj{
 	fRect					cur_rect;
 
 	float					m_upd_speed;
-	Flags8					m_flags;
+	flags8					m_flags;
 	void					create_default			(u32 color);
 	void					Draw					();
 	void					Update					();

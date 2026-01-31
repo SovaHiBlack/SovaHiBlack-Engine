@@ -40,7 +40,7 @@ extern float		ps_r1_pps_v;
 
 // R1-specific
 extern int			ps_r1_GlowsPerFrame;	// r1-only
-extern Flags32		ps_r1_flags;			// r1-only
+extern flags32		ps_r1_flags;			// r1-only
 enum
 {
 	R1FLAG_DLIGHTS				= (1<<0),
@@ -52,7 +52,7 @@ extern float		ps_r2_ssaLOD_B;
 extern float		ps_r2_tf_Mipbias;
 
 // R2-specific
-extern Flags32		ps_r2_ls_flags;				// r2-only
+extern flags32		ps_r2_ls_flags;				// r2-only
 extern float			ps_r2_df_parallax_h;		// r2-only
 extern float			ps_r2_df_parallax_range;	// r2-only
 extern float			ps_r2_gmaterial;			// r2-only

@@ -8,68 +8,70 @@ public:
 	using Self = _plane<TYPE>;
 	using SelfRef = Self&;
 	using SelfCRef = const Self&;
+	using Tvector = _vector3<TYPE>;
+	using Tmatrix = _matrix4x4<TYPE>;
 
-	_vector3<TYPE>	n;
-	TYPE			d;
+	Tvector n;
+	TYPE d;
 
-	IC SelfRef	set(SelfRef P)
+	IC SelfRef set(SelfRef P)
 	{
 		n.set(P.n);
 		d = P.d;
 		return *this;
 	}
-	IC BOOL 	similar(SelfRef P, TYPE eps_n = EPS, TYPE eps_d = EPS)
+	IC BOOL similar(SelfRef P, TYPE eps_n = EPS, TYPE eps_d = EPS)
 	{
 		return (n.similar(P.n, eps_n) && (_abs(d - P.d) < eps_d));
 	}
-	ICF SelfRef	build(const _vector3<TYPE>& v1, const _vector3<TYPE>& v2, const _vector3<TYPE>& v3)
+	ICF SelfRef build(const Tvector& v1, const Tvector& v2, const Tvector& v3)
 	{
-		_vector3<TYPE> t1;
-		_vector3<TYPE> t2;
+		Tvector t1;
+		Tvector t2;
 		n.crossproduct(t1.sub(v1, v2), t2.sub(v1, v3)).normalize( );
 		d = -n.dotproduct(v1);
 		return *this;
 	}
-	ICF SelfRef	build_precise(const _vector3<TYPE>& v1, const _vector3<TYPE>& v2, const _vector3<TYPE>& v3)
+	ICF SelfRef build_precise(const Tvector& v1, const Tvector& v2, const Tvector& v3)
 	{
-		_vector3<TYPE> t1;
-		_vector3<TYPE> t2;
+		Tvector t1;
+		Tvector t2;
 		n.crossproduct(t1.sub(v1, v2), t2.sub(v1, v3)); exact_normalize(n);
 		d = -n.dotproduct(v1);
 		return *this;
 	}
-	ICF SelfRef	build(const _vector3<TYPE>& _p, const _vector3<TYPE>& _n)
+	ICF SelfRef build(const Tvector& _p, const Tvector& _n)
 	{
 		d = -n.normalize(_n).dotproduct(_p);
 		return *this;
 	}
-	ICF SelfRef	build_unit_normal(const _vector3<TYPE>& _p, const _vector3<TYPE>& _n)
+	ICF SelfRef build_unit_normal(const Tvector& _p, const Tvector& _n)
 	{
 		VERIFY(fsimilar(_n.magnitude( ), 1, EPS));
 		d = -n.set(_n).dotproduct(_p);
 		return *this;
 	}
-	IC SelfRef	project(_vector3<TYPE>& pdest, _vector3<TYPE>& psrc)
+	IC SelfRef project(Tvector& pdest, Tvector& psrc)
 	{
 		pdest.mad(psrc, n, -classify(psrc));
 		return *this;
 	}
-	ICF TYPE		classify(const _vector3<TYPE>& v) const
+	ICF TYPE classify(const Tvector& v) const
 	{
 		return n.dotproduct(v) + d;
 	}
-	IC SelfRef	normalize( )
+	IC SelfRef normalize( )
 	{
 		TYPE denom = 1.0f / n.magnitude( );
 		n.mul(denom);
 		d *= denom;
 		return *this;
 	}
-	IC TYPE	distance(const _vector3<TYPE>& v)
+	IC TYPE distance(const Tvector& v)
 	{
 		return _abs(classify(v));
 	}
-	IC BOOL intersectRayDist(const _vector3<TYPE>& P, const _vector3<TYPE>& D, TYPE& dist)
+	IC BOOL intersectRayDist(const Tvector& P, const Tvector& D, TYPE& dist)
 	{
 		TYPE numer = classify(P);
 		TYPE denom = n.dotproduct(D);
@@ -82,7 +84,7 @@ public:
 		dist = -(numer / denom);
 		return ((dist > 0.0f) || fis_zero(dist));
 	}
-	ICF BOOL intersectRayPoint(const _vector3<TYPE>& P, const _vector3<TYPE>& D, _vector3<TYPE>& dest)
+	ICF BOOL intersectRayPoint(const Tvector& P, const Tvector& D, Tvector& dest)
 	{
 		TYPE numer = classify(P);
 		TYPE denom = n.dotproduct(D);
@@ -98,12 +100,12 @@ public:
 			return ((dist > 0.0f) || fis_zero(dist));
 		}
 	}
-	IC	BOOL	intersect(const _vector3<TYPE>& u, const _vector3<TYPE>& v,	// segment
-						  _vector3<TYPE>& isect)                  // intersection point
+	IC BOOL intersect(const Tvector& u, const Tvector& v,	// segment
+					  Tvector& isect)						// intersection point
 	{
-		TYPE		denom;
-		TYPE		dist;
-		_vector3<TYPE>		t;
+		TYPE denom;
+		TYPE dist;
+		Tvector t;
 
 		t.sub(v, u);
 		denom = n.dotproduct(t);
@@ -122,12 +124,12 @@ public:
 		return true;
 	}
 
-	IC	BOOL	intersect_2(const _vector3<TYPE>& u, const _vector3<TYPE>& v,				// segment
-							_vector3<TYPE>& isect)						// intersection point
+	IC BOOL intersect_2(const Tvector& u, const Tvector& v,			// segment
+						Tvector& isect)								// intersection point
 	{
-		TYPE		dist1;
-		TYPE		dist2;
-		_vector3<TYPE>		t;
+		TYPE dist1;
+		TYPE dist2;
+		Tvector t;
 
 		dist1 = n.dotproduct(u) + d;
 		dist2 = n.dotproduct(v) + d;
@@ -142,7 +144,7 @@ public:
 
 		return true;
 	}
-	IC	SelfRef	transform(_matrix4x4<TYPE>& M)
+	IC SelfRef transform(Tmatrix& M)
 	{
 		// rotate the normal
 		M.transform_dir(n);
@@ -153,10 +155,10 @@ public:
 };
 
 using fPlane = _plane<f32>;
-using dPlane = _plane<f64>;
+//using dPlane = _plane<f64>;
 
 template <class T>
-BOOL	_valid(const _plane<T>& s)
+BOOL _valid(const _plane<T>& s)
 {
-	return _valid(s.n) && _valid(s.d);
+	return (_valid(s.n) && _valid(s.d));
 }

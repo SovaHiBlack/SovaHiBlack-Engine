@@ -225,7 +225,7 @@ IC	void	dMatrixSmallDeviationAdd(const dReal* matrix33_from,const dReal* matrix3
 	vector_dev[2]+=matrix33_from[4]-matrix33_to[4];
 }
 
-IC	void twoq_2w(const Fquaternion& q1,const Fquaternion& q2,float dt, fVector3& w)
+IC	void twoq_2w(const fQuaternion& q1,const fQuaternion& q2,float dt, fVector3& w)
 {
 //	
 //	w=	2/dt*arccos(q1.w*q2.w+ q1.v.dotproduct(q2.v))

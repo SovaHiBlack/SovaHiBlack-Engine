@@ -283,7 +283,7 @@ void CPhysicsShellHolder::PHSaveState(NET_Packet &P)
 {
 	//CPhysicsShell* pPhysicsShell=PPhysicsShell();
 	CKinematics* K	=smart_cast<CKinematics*>(Visual());
-	//Flags8 lflags;
+	//flags8 lflags;
 	//if(pPhysicsShell&&pPhysicsShell->isActive())			lflags.set(CSE_PHSkeleton::flActive,pPhysicsShell->isEnabled());
 
 //	P.w_u8 (lflags.get());
@@ -339,7 +339,7 @@ void CPhysicsShellHolder::PHSaveState(NET_Packet &P)
 void CPhysicsShellHolder::PHLoadState(IReader &P)
 {
 	
-//	Flags8 lflags;
+//	flags8 lflags;
 	CKinematics* K=smart_cast<CKinematics*>(Visual());
 //	P.r_u8 (lflags.flags);
 	if(K)

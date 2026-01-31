@@ -47,7 +47,7 @@ class CPHElement	:
 	dReal						k_l;						//->to shell ??		//st
 	//ObjectContactCallbackFun*	temp_for_push_out;			//->to shell ??		//aux
 	//u32							push_untill;				//->to shell ??		//st
-	Flags8						m_flags;					//
+	flags8						m_flags;					//
 	enum				
 	{
 		flActive				=	1<<0,
@@ -201,12 +201,12 @@ public:																																				//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	virtual void						SetTransform					(const fMatrix4x4& m0);															//
 	virtual void						TransformPosition				(const fMatrix4x4&form);
-	virtual void						getQuaternion					(Fquaternion& quaternion);														//
-	virtual void						setQuaternion					(const Fquaternion& quaternion);												//
+	virtual void						getQuaternion					(fQuaternion& quaternion);														//
+	virtual void						setQuaternion					(const fQuaternion& quaternion);												//
 	virtual void						SetGlobalPositionDynamic		(const fVector3& position);														//
 	virtual void						GetGlobalPositionDynamic		(fVector3* v);																	//
-	virtual void						cv2obj_Xfrom					(const Fquaternion& q,const fVector3& pos, fMatrix4x4& xform);						//
-	virtual void						cv2bone_Xfrom					(const Fquaternion& q,const fVector3& pos, fMatrix4x4& xform);						//
+	virtual void						cv2obj_Xfrom					(const fQuaternion& q,const fVector3& pos, fMatrix4x4& xform);						//
+	virtual void						cv2bone_Xfrom					(const fQuaternion& q,const fVector3& pos, fMatrix4x4& xform);						//
 	virtual void						InterpolateGlobalTransform		(fMatrix4x4* m);																	//called UpdateCL vis influent
 	virtual void						InterpolateGlobalPosition		(fVector3* v);																	//aux
 	virtual void						GetGlobalTransformDynamic		(fMatrix4x4* m);																	//aux

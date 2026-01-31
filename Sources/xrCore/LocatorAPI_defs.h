@@ -16,17 +16,19 @@ class XRCORE_API FS_Path
 {
 public:
 	enum{
-    	flRecurse	= (1<<0),
-    	flNotif		= (1<<1),
-    	flNeedRescan= (1<<2),
-    };
+		flRecurse	= (1<<0),
+		flNotif		= (1<<1),
+		flNeedRescan= (1<<2),
+	};
+
 public:
 	LPSTR		m_Path;
 	LPSTR		m_Root;
 	LPSTR		m_Add;
 	LPSTR		m_DefExt;
 	LPSTR		m_FilterCaption;
-    Flags32		m_Flags;
+	flags32		m_Flags;
+
 public:
 				FS_Path		(LPCSTR _Root, LPCSTR _Add, LPCSTR _DefExt=0, LPCSTR _FilterString=0, u32 flags=0);
 				~FS_Path	();
@@ -35,7 +37,7 @@ public:
 	void		_set		(LPSTR add);
 	void		_set_root	(LPSTR root);
 
-    void __stdcall rescan_path_cb	();
+	void __stdcall rescan_path_cb	();
 };
 
 	struct 				_finddata64i32_t;

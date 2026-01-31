@@ -4,7 +4,7 @@
 //#define USE_DIFFERENCES
 
 struct actor_mp_state {
-	Fquaternion		physics_quaternion;
+	fQuaternion		physics_quaternion;
 	fVector3			physics_angular_velocity;
 	fVector3			physics_linear_velocity;
 	fVector3			physics_force;

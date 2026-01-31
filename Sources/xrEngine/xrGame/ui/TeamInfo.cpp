@@ -9,7 +9,7 @@ shared_str	CTeamInfo::team2_name;
 shared_str	CTeamInfo::team1_color_tag;
 shared_str	CTeamInfo::team2_color_tag;
 
-Flags32		CTeamInfo::flags;
+flags32		CTeamInfo::flags;
 
 u32 CTeamInfo::GetTeam1_color(){
 	if (flags.test(flTeam1_color))

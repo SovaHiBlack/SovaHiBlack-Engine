@@ -109,6 +109,6 @@ enum{
 	st_sound_info_object= (1<<5),
 };
 
-extern Flags32 g_stats_flags;
+extern flags32 g_stats_flags;
 
 #endif // !defined(AFX_STATS_H__4C8D1860_0EE2_11D4_B4E3_4854E82A090D__INCLUDED_)

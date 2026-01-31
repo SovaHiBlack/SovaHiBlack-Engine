@@ -667,7 +667,8 @@ IC void MakeKeysConsistant(ConsistantKey *keys, int count)
 
 	// recalc
 	for (int i=0; i<count-1; i++) {
-		Fquaternion Q1,Q2;
+		fQuaternion Q1;
+		fQuaternion Q2;
 		Q1.add(keys[i].K->Q,keys[i+1].K->Q);
 		Q2.sub(keys[i].K->Q,keys[i+1].K->Q);
 		if (Q1.magnitude()<Q2.magnitude())	keys[i+1].K->Q.inverse_with_w();
@@ -689,7 +690,7 @@ ICF float smooth(float x)
 	return ((s*pow(_abs(x0),1.f/1.5f))+1.f)/2.f;
 }
 */
-IC	void QR2Quat(const CKeyQR &K,Fquaternion &Q)
+IC	void QR2Quat(const CKeyQR &K, fQuaternion& Q)
 {
 	Q.x		= float(K.x)*KEY_QuantI;
 	Q.y		= float(K.y)*KEY_QuantI;
@@ -720,7 +721,8 @@ IC void Dequantize(CKey& K,const CBlend& BD,const CMotion& M)
 	}else{
 		const CKeyQR*		K1r		=	&M._keysR[(frame+0)%count];
 		const CKeyQR*		K2r		=	&M._keysR[(frame+1)%count];
-		Fquaternion	Q1,Q2;
+		fQuaternion Q1;
+		fQuaternion Q2;
 		QR2Quat(*K1r,Q1);
 		QR2Quat(*K2r,Q2);
 		D->Q.slerp	(Q1,Q2,clampr(delta,0.f,1.f));
@@ -881,7 +883,7 @@ IC void MixInterlerp( CKey &Result, const CKey	*R, const float* BA, int b_count 
 
 IC void key_sub(CKey &rk, const CKey &k0, const CKey& k1)//sub right
 {
-	Fquaternion q;
+	fQuaternion q;
 	q.inverse(k1.Q);
 	rk.Q.mul(k0.Q,q);
 	//rk.Q.normalize();//?
@@ -895,12 +897,11 @@ IC void key_identity(CKey &k)
 }
 IC void key_add(CKey &res, const CKey &k0, const CKey &k1)//add right
 {
-	
-	res.Q.set(Fquaternion().mul(k0.Q,k1.Q));
+	res.Q.set(fQuaternion().mul(k0.Q,k1.Q));
 	//res.Q.normalize();
 	res.T.add(k0.T,k1.T);
 }
-IC void q_scale(Fquaternion &q, float v)
+IC void q_scale(fQuaternion& q, float v)
 {
 	float angl;
 	fVector3 ax;
@@ -940,14 +941,14 @@ IC void keys_substruct(CKey	*R, const CKey	*BR, int b_count )
 
 IC void q_scalem(fMatrix4x4& m, float v)
 {
-	Fquaternion q;
+	fQuaternion q;
 	q.set(m);
 	q_scale(q,v);
 	m.rotation(q);
 }
 
 //sclale base' * q by scale_factor returns result in matrix  m_res
-IC void q_scale_vs_basem(fMatrix4x4& m_res,const Fquaternion &q, const Fquaternion &base,float scale_factor)
+IC void q_scale_vs_basem(fMatrix4x4& m_res,const fQuaternion& q, const fQuaternion& base,float scale_factor)
 {
 	fMatrix4x4 mb;
 	fMatrix4x4 imb;
@@ -959,7 +960,7 @@ IC void q_scale_vs_basem(fMatrix4x4& m_res,const Fquaternion &q, const Fquaterni
 	q_scalem(m_res,scale_factor);
 }
 
-IC void q_add_scaled_basem( Fquaternion &q, const Fquaternion &base, const Fquaternion &q0, const Fquaternion &q1, float v1 )
+IC void q_add_scaled_basem(fQuaternion& q, const fQuaternion& base, const fQuaternion& q0, const fQuaternion& q1, f32 v1 )
 {
 	//VERIFY(0.f =< v && 1.f >= v );
 	fMatrix4x4 m0;
@@ -985,7 +986,7 @@ IC bool check_scale(const fMatrix4x4& m)
 	return (0.8f<det&&det<1.3f);
 }
 
-IC bool check_scale(const Fquaternion &q)
+IC bool check_scale(const fQuaternion& q)
 {
 	fMatrix4x4 m;
 	m.rotation(q);

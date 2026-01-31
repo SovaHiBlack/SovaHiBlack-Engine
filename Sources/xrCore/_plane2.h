@@ -8,46 +8,47 @@ public:
 	using Self = _plane2<TYPE>;
 	using SelfRef = Self&;
 	using SelfCRef = const Self&;
+	using Tvector = _vector2<TYPE>;
 
-	_vector2<TYPE>	n;
-	TYPE			d;
+	Tvector n;
+	TYPE d;
 
-	IC SelfRef	set(SelfRef P)
+	IC SelfRef set(SelfRef P)
 	{
 		n.set(P.n);
 		d = P.d;
 		return *this;
 	}
-	IC BOOL 	similar(SelfRef P, TYPE eps_n = EPS, TYPE eps_d = EPS)
+	IC BOOL similar(SelfRef P, TYPE eps_n = EPS, TYPE eps_d = EPS)
 	{
 		return (n.similar(P.n, eps_n) && (_abs(d - P.d) < eps_d));
 	}
-	IC SelfRef	build(const _vector2<TYPE>& _p, const _vector2<TYPE>& _n)
+	IC SelfRef build(const Tvector& _p, const Tvector& _n)
 	{
 		d = -n.normalize(_n).dotproduct(_p);
 		return *this;
 	}
-	IC SelfRef	project(_vector2<TYPE>& pdest, _vector2<TYPE>& psrc)
+	IC SelfRef project(Tvector& pdest, Tvector& psrc)
 	{
 		pdest.mad(psrc, n, -classify(psrc));
 		return *this;
 	}
-	IC TYPE		classify(const _vector2<TYPE>& v) const
+	IC TYPE classify(const Tvector& v) const
 	{
 		return (n.dotproduct(v) + d);
 	}
-	IC SelfRef	normalize( )
+	IC SelfRef normalize( )
 	{
 		TYPE denom = 1.0f / n.magnitude( );
 		n.mul(denom);
 		d *= denom;
 		return *this;
 	}
-	IC TYPE		distance(const _vector2<TYPE>& v)
+	IC TYPE distance(const Tvector& v)
 	{
 		return _abs(classify(v));
 	}
-	IC BOOL intersectRayDist(const _vector2<TYPE>& P, const _vector2<TYPE>& D, TYPE& dist)
+	IC BOOL intersectRayDist(const Tvector& P, const Tvector& D, TYPE& dist)
 	{
 		TYPE numer = classify(P);
 		TYPE denom = n.dotproduct(D);
@@ -60,7 +61,7 @@ public:
 		dist = -(numer / denom);
 		return ((dist > 0.0f) || fis_zero(dist));
 	}
-	IC BOOL intersectRayPoint(const _vector2<TYPE>& P, const _vector2<TYPE>& D, _vector2<TYPE>& dest)
+	IC BOOL intersectRayPoint(const Tvector& P, const Tvector& D, Tvector& dest)
 	{
 		TYPE numer = classify(P);
 		TYPE denom = n.dotproduct(D);
@@ -76,12 +77,12 @@ public:
 			return ((dist > 0.0f) || fis_zero(dist));
 		}
 	}
-	IC BOOL intersect(const _vector2<TYPE>& u, const _vector2<TYPE>& v,		// segment
-					  _vector2<TYPE>& isect)								// intersection point
+	IC BOOL intersect(const Tvector& u, const Tvector& v,		// segment
+					  Tvector& isect)							// intersection point
 	{
-		TYPE				denom;
-		TYPE				dist;
-		_vector2<TYPE>		t;
+		TYPE denom;
+		TYPE dist;
+		Tvector t;
 
 		t.sub(v, u);
 		denom = n.dotproduct(t);
@@ -100,12 +101,12 @@ public:
 		return true;
 	}
 
-	IC BOOL intersect_2(const _vector2<TYPE>& u, const _vector2<TYPE>& v,		// segment
-						_vector2<TYPE>& isect)									// intersection point
+	IC BOOL intersect_2(const Tvector& u, const Tvector& v,			// segment
+						Tvector& isect)								// intersection point
 	{
-		TYPE				dist1;
-		TYPE				dist2;
-		_vector2<TYPE>		t;
+		TYPE dist1;
+		TYPE dist2;
+		Tvector t;
 
 		dist1 = n.dotproduct(u) + d;
 		dist2 = n.dotproduct(v) + d;
@@ -126,7 +127,7 @@ using fPlane2 = _plane2<f32>;
 using dPlane2 = _plane2<f64>;
 
 template <class T>
-BOOL	_valid(const _plane2<T>& s)
+BOOL _valid(const _plane2<T>& s)
 {
 	return _valid(s.n) && _valid(s.d);
 }

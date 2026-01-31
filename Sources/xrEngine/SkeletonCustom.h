@@ -207,7 +207,7 @@ protected:
 	u32							UCalc_Time				;
 	s32							UCalc_Visibox			;
 
-	Flags64						visimask;
+	flags64						visimask;
 	
 	CSkeletonX*					LL_GetChild				(u32 idx);
 

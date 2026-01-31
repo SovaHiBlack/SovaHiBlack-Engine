@@ -26,7 +26,7 @@ private:
 			ePhyHealthMinReached			=(1<<6),
 			eCantWalkWeight					=(1<<7),
 			};
-	Flags16											m_condition_flags;
+	flags16											m_condition_flags;
 private:
 	CActor*											m_object;
 	void				UpdateTutorialThresholds	();

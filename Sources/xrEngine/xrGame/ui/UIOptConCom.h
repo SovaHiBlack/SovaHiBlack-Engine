@@ -21,9 +21,9 @@ protected:
 		fl_listen						= (1<<5),
 		fl_battleye						= (1<<6),
 	};
-    int			m_iMaxPlayers;
-	Flags32		m_uNetSrvParams;
-	Flags32		m_uNetFilter;
+	int			m_iMaxPlayers;
+	flags32		m_uNetSrvParams;
+	flags32		m_uNetFilter;
 	u32			m_curGameMode;
 	string64	m_playerName;
 	string64	m_serverName;

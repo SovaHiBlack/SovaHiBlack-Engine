@@ -154,8 +154,8 @@ virtual		void		setForce							(const	fVector3& force)										;
 virtual		float		FootRadius							()															=0 ;
 virtual		void		get_State							(		SPHNetState&	state)								;
 virtual		void		set_State							(const	SPHNetState&	state)								;
-virtual		void		cv2obj_Xfrom						(const Fquaternion& q,const fVector3& pos, fMatrix4x4& xform)	{;}
-virtual		void		cv2bone_Xfrom						(const Fquaternion& q,const fVector3& pos, fMatrix4x4& xform)	{;}
+virtual		void		cv2obj_Xfrom						(const fQuaternion& q,const fVector3& pos, fMatrix4x4& xform)	{;}
+virtual		void		cv2bone_Xfrom						(const fQuaternion& q,const fVector3& pos, fMatrix4x4& xform)	{;}
 virtual	const fVector3&  ControlAccel						()const														=0;
 virtual		float		&FrictionFactor						()															=0;
 virtual		void		CutVelocity							(float l_limit,float a_limit)								;

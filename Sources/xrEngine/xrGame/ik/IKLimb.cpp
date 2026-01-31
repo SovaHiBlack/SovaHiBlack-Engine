@@ -437,7 +437,7 @@ void CollideGoal(fMatrix4x4& g, const  SIKCollideData &cld )
 	}
 }
 
-IC float clamp_rotation( Fquaternion &q, float v )
+IC float clamp_rotation(fQuaternion& q, float v )
 {
 	float angl;
 	fVector3 ax;
@@ -454,7 +454,7 @@ IC float clamp_rotation( Fquaternion &q, float v )
 
 IC float  clamp_rotation(fMatrix4x4& m, float v )
 {
-	Fquaternion q;
+	fQuaternion q;
 	q.set(m);
 	float r = clamp_rotation( q, v );
 	fVector3 c = m.c;
@@ -465,7 +465,7 @@ IC float  clamp_rotation(fMatrix4x4& m, float v )
 
 IC void get_axix_angle( const fMatrix4x4& m, fVector3& ax, float &angl )
 {
-	Fquaternion q;
+	fQuaternion q;
 	q.set( m );
 	q.get_axis_angle( ax, angl );
 }

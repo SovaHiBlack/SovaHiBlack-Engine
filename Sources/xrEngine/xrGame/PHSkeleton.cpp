@@ -315,7 +315,8 @@ void CPHSkeleton::UnsplitSingle(CPHSkeleton* SO)
 	CKinematics *newKinematics=smart_cast<CKinematics*>(O->Visual());
 	CKinematics *pKinematics  =smart_cast<CKinematics*>(obj->Visual());
 
-	Flags64 mask0,mask1;
+	flags64 mask0;
+	flags64 mask1;
 	u16 split_bone=m_unsplited_shels.front().second;
 	mask1.assign(pKinematics->LL_GetBonesVisible());//source bones mask
 	pKinematics->LL_SetBoneVisible(split_bone,FALSE,TRUE);
@@ -383,7 +384,7 @@ void CPHSkeleton::RecursiveBonesCheck(u16 id)
 	CKinematics* K		= smart_cast<CKinematics*>(obj->Visual());
 	CBoneData& BD		= K->LL_GetData(u16(id));
 	//////////////////////////////////////////
-	Flags64 mask;
+	flags64 mask;
 	mask.assign(K->LL_GetBonesVisible());
 	///////////////////////////////////////////
 	if(

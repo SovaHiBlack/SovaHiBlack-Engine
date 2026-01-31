@@ -25,5 +25,5 @@ protected:
 		flTeam1_col_t = 1<<4,
 		flTeam2_col_t = 1<<5
 	};
-	static Flags32		flags;
+	static flags32		flags;
 };

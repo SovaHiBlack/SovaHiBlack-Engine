@@ -243,14 +243,14 @@ void CPHElement::SetTransform(const fMatrix4x4& m0){
 	m_shell->spatial_move();
 }
 
-void CPHElement::getQuaternion(Fquaternion& quaternion)
+void CPHElement::getQuaternion(fQuaternion& quaternion)
 {
 	if(!isActive()) return;
 	const float* q=dBodyGetQuaternion(m_body);
 	quaternion.set(-q[0],q[1],q[2],q[3]);
 	VERIFY(_valid(quaternion));
 }
-void CPHElement::setQuaternion(const Fquaternion& quaternion)
+void CPHElement::setQuaternion(const fQuaternion& quaternion)
 {
 	VERIFY(_valid(quaternion));
 	if(!isActive()) return;
@@ -838,7 +838,7 @@ bool CPHElement::AnimToVel(float dt, float l_limit,float a_limit )
 	fMatrix4x4 cp;
 	GetGlobalTransformDynamic(&cp);
 
-	//Fquaternion q0; q0.set(cp);
+	//fQuaternion q0; q0.set(cp);
 
 	cp.invert();
 	fMatrix4x4 diff;
@@ -854,7 +854,7 @@ bool CPHElement::AnimToVel(float dt, float l_limit,float a_limit )
 	fVector3 aw ;
 	aw.set((diff._32-diff._23)/2.0f/dt,(diff._13-diff._31)/2.0f/dt,(diff._21-diff._12)/2.0f/dt);
 	
-	//Fquaternion q1; q1.set(bp);
+	//fQuaternion q1; q1.set(bp);
 	//twoq_2w(q0,q1,dt,aw);
 
 	bool ret = aw.square_magnitude( ) < a_limit * a_limit && lv.square_magnitude() < l_limit * l_limit;
@@ -1432,7 +1432,7 @@ u16	CPHElement::numberOfGeoms()
 	return CPHGeometryOwner::numberOfGeoms();
 }
 
-void CPHElement::cv2bone_Xfrom(const Fquaternion& q,const fVector3& pos, fMatrix4x4& xform)
+void CPHElement::cv2bone_Xfrom(const fQuaternion& q,const fVector3& pos, fMatrix4x4& xform)
 {
 	VERIFY2(_valid(q)&&_valid(pos),"cv2bone_Xfrom receive wrong data");
 	xform.rotation(q);
@@ -1441,7 +1441,7 @@ void CPHElement::cv2bone_Xfrom(const Fquaternion& q,const fVector3& pos, fMatrix
 	MulB43InverceLocalForm(xform);
 	VERIFY2(_valid(xform),"cv2bone_Xfrom returns wrong data");
 }
-void CPHElement::cv2obj_Xfrom(const Fquaternion& q,const fVector3& pos, fMatrix4x4& xform)
+void CPHElement::cv2obj_Xfrom(const fQuaternion& q,const fVector3& pos, fMatrix4x4& xform)
 {
 	cv2bone_Xfrom(q,pos,xform);
 	xform.mulB_43(m_shell->m_object_in_root);

@@ -35,7 +35,7 @@ namespace PS
 			flRT_DefferedStop	= (1<<1),
 			flRT_XFORM			= (1<<2),
 		};
-		Flags8				m_RT_Flags;
+		flags8				m_RT_Flags;
 
 	protected:
 		BOOL 				SaveActionList		(IWriter& F);

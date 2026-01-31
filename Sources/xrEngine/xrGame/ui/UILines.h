@@ -103,7 +103,7 @@ protected:
 		flRecognizeNewLine	= (1<<5)
 	};	
 private:
-	Flags8					uFlags;
+	flags8					uFlags;
 	float					m_oldWidth;
 };
 

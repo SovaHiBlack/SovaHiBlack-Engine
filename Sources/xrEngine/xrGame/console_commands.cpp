@@ -88,9 +88,10 @@ void register_mp_console_commands();
 
 		BOOL	g_bCheckTime			= FALSE;
 		int		net_cl_inputupdaterate	= 50;
-		Flags32	g_mt_config				= {mtLevelPath | mtDetailPath | mtObjectHandler | mtSoundPlayer | mtAiVision | mtBullets | mtLUA_GC | mtLevelSounds | mtALife};
+		flags32	g_mt_config				= {mtLevelPath | mtDetailPath | mtObjectHandler | mtSoundPlayer | mtAiVision | mtBullets | mtLUA_GC | mtLevelSounds | mtALife};
+
 #ifdef DEBUG
-		Flags32	dbg_net_Draw_Flags		= {0};
+		flags32	dbg_net_Draw_Flags		= {0};
 #endif
 
 #ifdef DEBUG
@@ -106,7 +107,7 @@ extern LPSTR	dbg_stalker_death_anim;
 extern BOOL		b_death_anim_velocity;
 #endif
 int g_AI_inactive_time = 0;
-Flags32 g_uCommonFlags;
+flags32 g_uCommonFlags;
 enum E_COMMON_FLAGS{
 	flAiUseTorchDynamicLights = 1
 };
@@ -1108,7 +1109,7 @@ class CCC_RadioMask :public CCC_Mask
 {
 	CCC_RadioGroupMask2		*group;
 public:
-	CCC_RadioMask(LPCSTR N, Flags32* V, u32 M):
+	CCC_RadioMask(LPCSTR N, flags32* V, u32 M):
 	  CCC_Mask(N,V,M)
 	 {
 		group=NULL;

@@ -78,7 +78,7 @@ public:
 };
 
 extern 	CProfiler *g_profiler;
-extern Flags32 psAI_Flags;
+extern flags32 psAI_Flags;
 
 IC	CProfiler&	profiler();
 		

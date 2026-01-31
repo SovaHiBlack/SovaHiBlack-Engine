@@ -314,7 +314,6 @@ public:
 	{
 		s32 i;
 		s32 j;
-
 		for (i = 0; i < 3; i++)
 		{
 			for (j = 0; j < 3; j++)
@@ -355,7 +354,7 @@ public:
 		m[2][1] = v.x;
 		return *this;
 	}
-	IC SelfRef sMxVpV(Tvector& R, float s1, const Tvector& V1, const Tvector& V2) const
+	IC SelfRef sMxVpV(Tvector& R, f32 s1, const Tvector& V1, const Tvector& V2) const
 	{
 		R.x = s1 * (m[0][0] * V1.x + m[0][1] * V1.y + m[0][2] * V1.z) + V2.x;
 		R.y = s1 * (m[1][0] * V1.x + m[1][1] * V1.y + m[1][2] * V1.z) + V2.y;
@@ -381,7 +380,7 @@ public:
 		R.z = (m[0][2] * V1.x + m[1][2] * V1.y + m[2][2] * V1.z - V2.z);
 		return *this;
 	}
-	IC SelfRef sMTxV(Tvector& R, float s1, const Tvector& V1) const
+	IC SelfRef sMTxV(Tvector& R, f32 s1, const Tvector& V1) const
 	{
 		R.x = s1 * (m[0][0] * V1.x + m[1][0] * V1.y + m[2][0] * V1.z);
 		R.y = s1 * (m[0][1] * V1.x + m[1][1] * V1.y + m[2][1] * V1.z);
@@ -395,13 +394,13 @@ public:
 		R.z = (m[2][0] * V1.x + m[2][1] * V1.y + m[2][2] * V1.z);
 		return *this;
 	}
-	IC	void transform_dir(_vector2<TYPE>& dest, const _vector2<TYPE>& v) const 	// preferred to use
+	IC void transform_dir(_vector2<TYPE>& dest, const _vector2<TYPE>& v) const 	// preferred to use
 	{
 		dest.x = v.x * _11 + v.y * _21;
 		dest.y = v.x * _12 + v.y * _22;
 		dest.z = v.x * _13 + v.y * _23;
 	}
-	IC	void transform_dir(_vector2<TYPE>& v) const
+	IC void transform_dir(_vector2<TYPE>& v) const
 	{
 		_vector2<TYPE> res;
 		transform_dir(res, v);
@@ -420,10 +419,7 @@ using fMatrix3x3 = _matrix3x3<f32>;
 using dMatrix3x3 = _matrix3x3<f64>;
 
 template <class T>
-BOOL	_valid(const _matrix3x3<T>& m)
+BOOL _valid(const _matrix3x3<T>& m)
 {
-	return
-		_valid(m.i) &&
-		_valid(m.j) &&
-		_valid(m.k);
+	return (_valid(m.i) && _valid(m.j) && _valid(m.k));
 }

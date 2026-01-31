@@ -63,7 +63,7 @@ private:
 	void 					DBgClearPlots		()				;
 #endif
 ////////////////////////////////////////////////////////////////////	
-	Flags16						async_calls						;
+	flags16						async_calls						;
 static	const u16				cAsCallsnum						=3;
 	enum EAsyncCalls
 	{

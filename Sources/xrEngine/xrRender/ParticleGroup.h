@@ -12,7 +12,7 @@ namespace PS
 	{
 	public:
 		shared_str			m_Name;
-		Flags32				m_Flags;
+		flags32				m_Flags;
 		float				m_fTimeLimit;
 		struct SEffect{
 			enum{
@@ -23,7 +23,7 @@ namespace PS
 				flOnBirthChild		= (1<<5),
 				flOnDeadChild		= (1<<6),
 			};
-			Flags32			m_Flags;
+			flags32			m_Flags;
 			shared_str		m_EffectName;  
 			shared_str		m_OnPlayChildName;
 			shared_str		m_OnBirthChildName;
@@ -91,7 +91,7 @@ namespace PS
 			flRT_Playing		= (1<<0),
 			flRT_DefferedStop	= (1<<1),
 		};
-		Flags8				m_RT_Flags;
+		flags8				m_RT_Flags;
 	public:
 		CParticleGroup	();
 		virtual				~CParticleGroup	();

@@ -10,9 +10,10 @@ class CUICustomMap : public CUIStatic, public CUIWndCallback
 protected:	
 	shared_str		m_name;
 	fRect			m_BoundRect;// real map size (meters)
-	Flags16			m_flags;
+	flags16			m_flags;
 	enum EFlags{	eLocked	=(1<<0),};
 	float			m_pointer_dist;
+
 public:
 	fRect			m_prevRect;
 					CUICustomMap					();

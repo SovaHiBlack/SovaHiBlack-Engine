@@ -58,7 +58,8 @@ IC	void	Qslerp(_quaternion<float>& D, _quaternion<float> &Q0, _quaternion<float>
 
 void __stdcall xrBoneLerp_x86	(CKey* D, CKeyQ* K1, CKeyQ* K2, float delta)
 {
-	Fquaternion	Q1,Q2;
+	fQuaternion Q1;
+	fQuaternion Q2;
 
 	Q1.x		= float(K1->x)*KEY_QuantI;
 	Q1.y		= float(K1->y)*KEY_QuantI;

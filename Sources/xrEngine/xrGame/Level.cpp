@@ -425,7 +425,7 @@ void CLevel::ProcessGameEvents		()
 }
 
 #ifdef DEBUG_MEMORY_MANAGER
-	extern Flags32				psAI_Flags;
+	extern flags32				psAI_Flags;
 	extern float				debug_on_frame_gather_stats_frequency;
 
 struct debug_memory_guard {
@@ -599,7 +599,7 @@ void test_precise_path	();
 #endif
 
 #ifdef DEBUG
-extern	Flags32	dbg_net_Draw_Flags;
+extern	flags32	dbg_net_Draw_Flags;
 #endif
 
 extern void draw_wnds_rects();

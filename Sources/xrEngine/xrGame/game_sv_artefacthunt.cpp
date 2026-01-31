@@ -1216,8 +1216,7 @@ void game_sv_ArtefactHunt::ConsoleCommands_Clear	()
 
 	//  [7/5/2005]
 #ifdef DEBUG
-
-extern	Flags32	dbg_net_Draw_Flags;
+extern	flags32	dbg_net_Draw_Flags;
 
 void game_sv_ArtefactHunt::OnRender				()
 {

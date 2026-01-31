@@ -353,7 +353,7 @@ fVector3&	CSE_Abstract::angle			()
 	return	(o_Angle);
 }
 
-Flags16&	CSE_Abstract::flags			()
+flags16&	CSE_Abstract::flags			()
 {
 	return	(s_flags);
 }
