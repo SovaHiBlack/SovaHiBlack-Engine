@@ -91,7 +91,7 @@ void CSpaceRestrictor::net_Destroy	()
 	Level().space_restriction_manager().unregister_restrictor(this);
 }
 
-bool CSpaceRestrictor::inside	(const Fsphere &sphere) const
+bool CSpaceRestrictor::inside	(const fSphere& sphere) const
 {
 	if (!actual())
 		prepare	();
@@ -130,8 +130,8 @@ void CSpaceRestrictor::prepare			() const
 	for ( ; I != E; ++I) {
 		switch ((*I).type) {
 			case 0 : { // sphere
-				Fsphere					temp;
-				const Fsphere			&sphere = (*I).data.sphere;
+				fSphere					temp;
+				const fSphere& sphere = (*I).data.sphere;
 				XFORM().transform_tiny	(temp.P,sphere.P);
 				temp.R					= sphere.R;
 				m_spheres.push_back		(temp);
@@ -173,7 +173,7 @@ void CSpaceRestrictor::prepare			() const
 	actual							(true);
 }
 
-bool CSpaceRestrictor::prepared_inside	(const Fsphere &sphere) const
+bool CSpaceRestrictor::prepared_inside	(const fSphere& sphere) const
 {
 	VERIFY							(actual());
 	
@@ -201,8 +201,6 @@ continue_loop:
 }
 
 #ifdef DEBUG
-
-#include "customzone.h"
 #include "hudmanager.h"
 
 extern	Flags32	dbg_net_Draw_Flags;
@@ -233,7 +231,7 @@ void CSpaceRestrictor::OnRender	()
 		{
 		case 0:
 			{
-				Fsphere &l_sphere = l_pShape->data.sphere;
+			fSphere& l_sphere = l_pShape->data.sphere;
 				l_ball.scale(l_sphere.R, l_sphere.R, l_sphere.R);
 				//l_ball.scale(1.f, 1.f, 1.f);
 				fVector3 l_p;
@@ -295,7 +293,5 @@ void CSpaceRestrictor::OnRender	()
 			HUD().Font().pFontMedium->OutNext	( str );
 		}
 	}
-
-
 }
 #endif

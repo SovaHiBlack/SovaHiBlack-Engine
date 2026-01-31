@@ -424,9 +424,9 @@ public:
 };
 //------------------------------------------------------------------------------
 
-IC bool operator == (const Fcolor& A, const Fcolor& B)
+IC bool operator == (const fColor& A, const fColor& B)
 {	return !!A.similar_rgba(B); }
-typedef CustomValue<Fcolor>		ColorValue;
+typedef CustomValue<fColor>		ColorValue;
 //------------------------------------------------------------------------------
 
 template <class T>

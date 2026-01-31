@@ -638,7 +638,7 @@ void CKinematics::AddWallmark(const fMatrix4x4* parent_xform, const fVector3& st
 	cp.mad		(S,D,dist);
  
 	// collect collide boxes
-	Fsphere test_sphere;
+	fSphere test_sphere;
 	test_sphere.set			(cp,size); 
 	U16Vec					test_bones;
 	test_bones.reserve		(LL_BoneCount());

@@ -327,7 +327,7 @@ bool Basis::push (const fVector3& p)
 	return true;
 }
 
-void Fsphere_compute(Fsphere& dest, const fVector3* verts, int count)
+void Fsphere_compute(fSphere& dest, const fVector3* verts, int count)
 {
 	Miniball mb;
 

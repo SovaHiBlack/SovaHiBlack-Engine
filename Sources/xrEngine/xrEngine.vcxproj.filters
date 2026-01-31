@@ -888,5 +888,6 @@
     <None Include="Effects description.txt" />
     <None Include="features.txt" />
     <None Include="TODO.txt" />
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

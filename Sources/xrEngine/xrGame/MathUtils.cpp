@@ -47,7 +47,7 @@ EBoxSideNearestPointCode GetNearestPointOnOBBSide(const fMatrix4x4& xform,const 
 	float diffs=diffc<0.f ? diffc+h	:	diffc-h;
 }
 */
-IC bool RAYvsCYLINDER(const Fcylinder& c_cylinder, const fVector3& S, const fVector3& D, float &R, BOOL bCull)
+IC bool RAYvsCYLINDER(const fCylinder& c_cylinder, const fVector3& S, const fVector3& D, float &R, BOOL bCull)
 {
 	const float &r=c_cylinder.m_radius;
 	float h=c_cylinder.m_height/2.f;
@@ -414,11 +414,11 @@ IC bool RAYvsCYLINDER(const Fcylinder& c_cylinder, const fVector3& S, const fVec
 
 void capped_cylinder_ray_collision_test()
 {
-	Fcylinder c;
-	c.m_center.set(0,0,0);
-	c.m_direction.set(0,0,1);
-	c.m_height=2;
-	c.m_radius=1;
+	fCylinder c;
+	c.m_center.set(0.0f,0.0f,0.0f);
+	c.m_direction.set(0.0f,0.0f,1.0f);
+	c.m_height=2.0f;
+	c.m_radius=1.0f;
 	//ray
 	fVector3 dir;
 	fVector3 pos;
@@ -456,7 +456,7 @@ void capped_cylinder_ray_collision_test()
 	CTimer t;t.Start();
 	for(int i=0;i<1000000;i++)
 	{
-		Fcylinder c;
+		fCylinder c;
 		c.m_center.random_point(fVector3().set(2.0f,2.0f,2.0f));
 		c.m_direction.random_dir();
 		c.m_height=Random.randF(0.2f,2.0f);
@@ -473,7 +473,7 @@ void capped_cylinder_ray_collision_test()
 	t.Start();
 	for(int i=0;i<1000000;i++)
 	{
-		Fcylinder c;
+		fCylinder c;
 		c.m_center.random_point(fVector3().set(2.0f,2.0f,2.0f));
 		c.m_direction.random_dir();
 		c.m_height=Random.randF(0.2f,2.0f);

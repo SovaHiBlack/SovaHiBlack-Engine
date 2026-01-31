@@ -15,8 +15,8 @@ public:
 	{
 		struct
 		{
-			Tvector	min;
-			Tvector	max;
+			Tvector min;
+			Tvector max;
 		};
 		struct
 		{

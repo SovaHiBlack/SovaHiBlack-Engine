@@ -129,7 +129,7 @@ protected:
 	bool			m_bStopLightsWithEngine;
 	//подсветка во время полета и работы двигателя
 	ref_light		m_pTrailLight;
-	Fcolor			m_TrailLightColor;
+	fColor			m_TrailLightColor;
 	float			m_fTrailLightRange;
 	ref_sound		m_flyingSound;
 

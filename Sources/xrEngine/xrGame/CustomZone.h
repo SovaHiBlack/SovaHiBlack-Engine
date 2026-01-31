@@ -246,7 +246,7 @@ protected:
 
 	//подсветка idle состояния
 	ref_light				m_pIdleLight;
-	Fcolor					m_IdleLightColor;
+	fColor					m_IdleLightColor;
 	float					m_fIdleLightRange;
 	float					m_fIdleLightHeight;
 	float					m_fIdleLightRangeDelta;
@@ -256,16 +256,13 @@ protected:
 	void					StopIdleLight				();
 	void					UpdateIdleLight				();
 
-
 	//подсветка выброса
 	ref_light				m_pLight;
 	float					m_fLightRange;
-	Fcolor					m_LightColor;
+	fColor					m_LightColor;
 	float					m_fLightTime;
 	float					m_fLightTimeLeft;
 	float					m_fLightHeight;
-
-
 
 	void					StartBlowoutLight			();
 	void					StopBlowoutLight			();

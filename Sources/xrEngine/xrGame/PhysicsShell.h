@@ -107,9 +107,9 @@ public:
 	virtual		CPhysicsShell					*PhysicsShell							()																													= 0;		
 	virtual		void							set_ContactCallback						(ContactCallbackFun	*callback)																						= 0;
 	virtual		CPhysicsShellHolder				*PhysicsRefObject						()																													= 0;
-	virtual		void							add_Sphere								(const Fsphere&		V)																								= 0;
+	virtual		void							add_Sphere								(const fSphere&		V)																								= 0;
 	virtual		void							add_Box									(const fObb&		V)																								= 0;
-	virtual		void							add_Cylinder							(const Fcylinder&	V)																								= 0;
+	virtual		void							add_Cylinder							(const fCylinder&	V)																								= 0;
 	virtual		void							add_Shape								(const SBoneShape& shape)																							= 0;
 	virtual		void							add_Shape								(const SBoneShape& shape,const fMatrix4x4& offset)																		= 0;
 	virtual		CODEGeom						*last_geom								()																													= 0;

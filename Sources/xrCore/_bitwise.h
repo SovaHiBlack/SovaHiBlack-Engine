@@ -77,23 +77,22 @@ IC	u64	btwCount1(u64 v)
 	return btwCount1(u32(v&u32(-1)))+btwCount1(u32(v>>u64(32)));
 }
 
-
 ICF int iFloor (f32 x)
 {
-    int a			= *(const int*)(&x);
-    int exponent	= (127 + 31) - ((a >> 23) & 0xFF);
-    int r			= (((u32)(a) << 8) | (1U << 31)) >> exponent;
-    exponent		+= 31-127;
-    {
-        int imask	=	(!(((( (1<<(exponent)))-1)>>8)&a));
-        exponent	-=	(31-127)+32;
-        exponent	>>=	31;
-        a			>>=	31;
-        r			-=	(imask&a);
-        r			&=	exponent;
-        r			^=	a;
-    }
-    return r;
+	int a			= *(const int*)(&x);
+	int exponent	= (127 + 31) - ((a >> 23) & 0xFF);
+	int r			= (((u32)(a) << 8) | (1U << 31)) >> exponent;
+	exponent		+= 31-127;
+	{
+		int imask	=	(!(((( (1<<(exponent)))-1)>>8)&a));
+		exponent	-=	(31-127)+32;
+		exponent	>>=	31;
+		a			>>=	31;
+		r			-=	(imask&a);
+		r			&=	exponent;
+		r			^=	a;
+	}
+	return r;
 }
 
 /* intCeil() is a non-interesting variant, since effectively
@@ -101,28 +100,28 @@ ICF int iFloor (f32 x)
 */
 ICF int iCeil (float x)
 {
-    int a			= (*(const int*)(&x));
-    int exponent	= (127 + 31) - ((a >> 23) & 0xFF);
-    int r			= (((u32)(a) << 8) | (1U << 31)) >> exponent;
-    exponent		+= 31-127;
-    {
-        int imask	=	(!(((( (1<<(exponent)))-1)>>8)&a));
-        exponent	-=	(31-127)+32;
-        exponent	>>=	31;
-        a			=	~((a-1)>>31);		/* change sign */
-        r			-=	(imask&a);
-        r			&=	exponent;
-        r			^=	a;
-        r			=	-r;                 /* change sign */
-    }
-    return r;								/* r = (int)(ceil(f)) */
+	int a			= (*(const int*)(&x));
+	int exponent	= (127 + 31) - ((a >> 23) & 0xFF);
+	int r			= (((u32)(a) << 8) | (1U << 31)) >> exponent;
+	exponent		+= 31-127;
+	{
+		int imask	=	(!(((( (1<<(exponent)))-1)>>8)&a));
+		exponent	-=	(31-127)+32;
+		exponent	>>=	31;
+		a			=	~((a-1)>>31);		/* change sign */
+		r			-=	(imask&a);
+		r			&=	exponent;
+		r			^=	a;
+		r			=	-r;                 /* change sign */
+	}
+	return r;								/* r = (int)(ceil(f)) */
 }
 
 // Validity checks
 IC bool fis_gremlin		( const float &f ) 
 {
 	u8		value = u8(((*(int*)&f & 0x7f800000)>>23)-0x20);
-    return	value > 0xc0;
+	return	value > 0xc0;
 }
 IC bool fis_denormal	( const float &f ) 
 {
@@ -132,9 +131,9 @@ IC bool fis_denormal	( const float &f )
 // Approximated calculations
 IC float apx_InvSqrt( const float& n )
 {
-    long tmp	= (long(0xBE800000) - *(long*)&n) >> 1;
-    float y		= *(float*)&tmp;
-    return y * (1.47f - 0.47f * n * y * y);
+	long tmp	= (long(0xBE800000) - *(long*)&n) >> 1;
+	float y		= *(float*)&tmp;
+	return y * (1.47f - 0.47f * n * y * y);
 }
 // Only for [0..1] (positive) range 
 IC float apx_asin	(const float x)

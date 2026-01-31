@@ -56,7 +56,7 @@ public:
 	IC void			w_stringZ(const shared_str& p) 	{	w(*p?*p:"",p.size());w_u8(0);		}
 	IC void			w_stringZ(shared_str& p)		{	w(*p?*p:"",p.size());w_u8(0);		}
 	IC void			w_stringZ(const xr_string& p)	{	w(p.c_str()?p.c_str():"",(u32)p.size());w_u8(0);	}
-	IC void			w_fcolor(const Fcolor &v)		{	w(&v,sizeof(Fcolor));	}
+	IC void			w_fcolor(const fColor& v)		{	w(&v,sizeof(fColor));	}
 	IC void			w_fvector4(const fVector4& v)	{	w(&v,sizeof(fVector4));	}
 	IC void			w_fvector3(const fVector3&v)	{	w(&v,sizeof(fVector3));	}
 	IC void			w_fvector2(const fVector2& v)	{	w(&v,sizeof(fVector2));	}
@@ -157,7 +157,7 @@ public:
 	IC void			r_ivector4	(iVector4& v){	r(&v,sizeof(iVector4));	}
 	IC void			r_ivector3	(iVector3&v){	r(&v,sizeof(iVector3));	}
 	IC void			r_ivector2	(iVector2& v){	r(&v,sizeof(iVector2));	}
-	IC void			r_fcolor	(Fcolor &v)	{	r(&v,sizeof(Fcolor));	}
+	IC void			r_fcolor	(fColor& v)	{	r(&v,sizeof(fColor));	}
 	
 	IC float		r_float_q16	(float min, float max)
 	{

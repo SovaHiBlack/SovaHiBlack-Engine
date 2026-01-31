@@ -10,6 +10,6 @@
 
 XRCORE_API u16		pvCompress			( const fVector3& vec );
 XRCORE_API void		pvDecompress		(fVector3& vec, u16 mVec );
-XRCORE_API void		pvInitializeStatics	( void );
+XRCORE_API void		pvInitializeStatics	( );
 
 #endif

@@ -23,7 +23,7 @@ public:
 	virtual void					set_direction		(const fVector3& D)			{ }
 	virtual void					set_radius			(float R)					{ }
 	virtual void					set_texture			(LPCSTR name)				{ }
-	virtual void					set_color			(const Fcolor& C)			{ }
+	virtual void					set_color			(const fColor& C)			{ }
 	virtual void					set_color			(float r, float g, float b)	{ }
 };
 

@@ -68,7 +68,7 @@ void	CGlow::set_radius		(float R)			{
 void	CGlow::set_texture		(LPCSTR name)		{
 	shader.create				("effects\\glow",name);
 }
-void	CGlow::set_color		(const Fcolor& C)	{
+void	CGlow::set_color		(const fColor& C)	{
 	color						= C;
 }
 void	CGlow::set_color		(float r, float g, float b)	{

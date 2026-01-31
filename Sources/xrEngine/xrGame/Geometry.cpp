@@ -509,7 +509,7 @@ void CBoxGeom::set_position(const fVector3& ref_point)
 	dGeomSetRotation(geom(),R);
 }
 
-CSphereGeom::CSphereGeom(const Fsphere& sphere)
+CSphereGeom::CSphereGeom(const fSphere& sphere)
 {
 	m_sphere=sphere;
 }
@@ -570,7 +570,7 @@ void CSphereGeom::set_position(const fVector3& ref_point)
 	dGeomSetPosition(geom(),local_position[0],local_position[1],local_position[2]);
 }
 
-CCylinderGeom::CCylinderGeom(const Fcylinder& cyl)
+CCylinderGeom::CCylinderGeom(const fCylinder& cyl)
 {
 	m_cylinder=cyl;
 }

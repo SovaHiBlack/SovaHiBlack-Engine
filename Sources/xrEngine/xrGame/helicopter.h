@@ -227,7 +227,7 @@ protected:
 	CLAItem*						m_lanim;
 	u16								m_light_bone, m_smoke_bone;
 	float							m_light_range, m_light_brightness;
-	Fcolor							m_light_color;
+	fColor							m_light_color;
 	shared_str						m_smoke_particle;
 	CParticlesObject*				m_pParticle;
 	fMatrix4x4						m_particleXFORM;

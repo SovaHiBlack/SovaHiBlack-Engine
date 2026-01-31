@@ -130,7 +130,9 @@ BOOL CObjectSpace::_RayPick	( const fVector3& start, const fVector3& dir, float 
 				}
 #ifdef DEBUG
 				if (bDebug){
-					Fsphere	S;		S.P = spatial->spatial.sphere.P; S.R = spatial->spatial.sphere.R;
+					fSphere	S;
+					S.P = spatial->spatial.sphere.P;
+					S.R = spatial->spatial.sphere.R;
 					dbg_S.push_back	(mk_pair(S,C));
 				}
 #endif

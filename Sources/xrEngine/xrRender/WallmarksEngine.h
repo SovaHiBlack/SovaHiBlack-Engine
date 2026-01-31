@@ -16,12 +16,13 @@ public:
 public:
 	struct static_wallmark 
 	{
-		Fsphere				bounds;
+		fSphere				bounds;
 		xr_vector<FVF::LIT>	verts;
 		float				ttl;
 	};
 	DEFINE_VECTOR		(static_wallmark*,StaticWMVec,StaticWMVecIt);
 	DEFINE_VECTOR		(wm_slot*,WMSlotVec,WMSlotVecIt);
+
 private:
 	StaticWMVec			static_pool;
 	WMSlotVec			marks;

@@ -5,7 +5,7 @@
 #pragma pack(push,4)
 struct	vis_data
 {
-	Fsphere		sphere;				//
+	fSphere		sphere;				//
 	fBox3		box;				//
 	u32			marker;				// for different sub-renders
 	u32			accept_frame;		// when it was requisted accepted for main render

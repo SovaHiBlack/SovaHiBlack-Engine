@@ -81,9 +81,9 @@ IC	void					UpdateInterpolation				()																				//interpolation called 
 public:
 ////////////////////////////////////////////////Geometry/////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	virtual	void						add_Sphere								(const Fsphere&		V);															//aux
+	virtual	void						add_Sphere								(const fSphere&		V);															//aux
 	virtual	void						add_Box									(const fObb&		V);															//aux
-	virtual	void						add_Cylinder							(const Fcylinder&	V);															//aux
+	virtual	void						add_Cylinder							(const fCylinder&	V);															//aux
 	virtual void						add_Shape								(const SBoneShape& shape);														//aux
 	virtual void						add_Shape								(const SBoneShape& shape,const fMatrix4x4& offset);								//aux
 	virtual CODEGeom*					last_geom								(){return CPHGeometryOwner::last_geom();}										//aux

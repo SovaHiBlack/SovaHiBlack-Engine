@@ -81,7 +81,7 @@ BOOL CHangingLamp::net_Spawn(CSE_Abstract* DC)
 	CSE_ALifeObjectHangingLamp	*lamp	= smart_cast<CSE_ALifeObjectHangingLamp*>(e);
 	R_ASSERT				(lamp);
 	inherited::net_Spawn	(DC);
-	Fcolor					clr;
+	fColor					clr;
 
 	// set bone id
 //	CInifile* pUserData		= K->LL_UserData(); 
@@ -229,7 +229,7 @@ void CHangingLamp::UpdateCL	()
 		if (lanim){
 			int frame;
 			u32 clr					= lanim->CalculateBGR(Device.fTimeGlobal,frame); // возвращает в формате BGR
-			Fcolor					fclr;
+			fColor					fclr;
 			fclr.set				((float)color_get_B(clr),(float)color_get_G(clr),(float)color_get_R(clr),1.f);
 			fclr.mul_rgb			(fBrightness/255.f);
 			light_render->set_color	(fclr);

@@ -396,7 +396,7 @@ static const WORD IL[24]={0,2, 2,5, 0,5, 3,5, 3,0, 4,3, 4,0, 4,2, 1,2, 1,5, 1,3,
 static const WORD IT[24]={2,4,0, 4,3,0, 3,5,0, 5,2,0, 4,2,1, 2,5,1, 5,3,1, 3,4,1};
 	u32			vBase,iBase;
 
-	Fcolor C;
+	fColor C;
 	C.set			(c);
 	C.mul_rgb		(0.75);
 	u32 c1 =		C.get();

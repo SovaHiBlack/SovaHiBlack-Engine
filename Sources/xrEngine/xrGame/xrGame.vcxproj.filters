@@ -5505,16 +5505,10 @@
     <ClInclude Include="xrServer_Space.h">
       <Filter>Core\Server</Filter>
     </ClInclude>
-    <ClInclude Include="DrawUtils.h">
-      <Filter>Core\Server\Editor</Filter>
-    </ClInclude>
     <ClInclude Include="FastDelegate.h">
       <Filter>Core\Server\Editor</Filter>
     </ClInclude>
     <ClInclude Include="ItemListTypes.h">
-      <Filter>Core\Server\Editor</Filter>
-    </ClInclude>
-    <ClInclude Include="PropertiesListHelper.h">
       <Filter>Core\Server\Editor</Filter>
     </ClInclude>
     <ClInclude Include="WaveForm.h">
@@ -5654,9 +5648,6 @@
     </ClInclude>
     <ClInclude Include="id_generator.h">
       <Filter>Core\Server\ID_Generator</Filter>
-    </ClInclude>
-    <ClInclude Include="PropertiesListTypes.h">
-      <Filter>Core\Server\ServerEntities</Filter>
     </ClInclude>
     <ClInclude Include="ShapeData.h">
       <Filter>Core\Server\ServerEntities</Filter>
@@ -6492,8 +6483,11 @@
     <ClInclude Include="ui\UIGameTutorial.h">
       <Filter>UI\Tutorial</Filter>
     </ClInclude>
-    <ClInclude Include="ChooseTypes.H">
-      <Filter>Core\Server\ServerEntities</Filter>
+    <ClInclude Include="PropertiesListTypes.h">
+      <Filter>Core\Server\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="ChooseTypes.h">
+      <Filter>Core\Server\Editor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

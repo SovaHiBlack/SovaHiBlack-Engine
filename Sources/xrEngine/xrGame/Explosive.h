@@ -146,7 +146,7 @@ protected:
 	
 	//подсветка взрыва
 	ref_light					m_pLight;
-	Fcolor						m_LightColor;
+	fColor						m_LightColor;
 	float						m_fLightRange;
 	float						m_fLightTime;
 	

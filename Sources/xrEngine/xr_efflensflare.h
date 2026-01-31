@@ -75,7 +75,7 @@ protected:
 	BOOL				bRender;
 
 	// variable
-	Fcolor				LightColor;
+	fColor				LightColor;
 	float				fGradientValue;
 
 	ref_geom			hGeom;

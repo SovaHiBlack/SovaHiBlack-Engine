@@ -55,15 +55,16 @@ struct SBoneShape
 	u16				type;		// 2
 	Flags16			flags;		// 2
 	fObb			box;      	// 15*4
-	Fsphere			sphere;		// 4*4
-	Fcylinder		cylinder;	// 8*4
+	fSphere			sphere;		// 4*4
+	fCylinder		cylinder;	// 8*4
 	SBoneShape		(){Reset();}
 	void			Reset()
 	{
 		flags.zero	();
 		type		= stNone;
 		box.invalidate();
-		sphere.P.set(0.f,0.f,0.f); sphere.R = 0.f;
+		sphere.P.set(0.0f,0.0f,0.0f);
+		sphere.R = 0.0f;
 		cylinder.invalidate();
 	}
 	bool			Valid(){  

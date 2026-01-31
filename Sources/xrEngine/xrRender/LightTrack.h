@@ -23,7 +23,7 @@ public:
 	struct	Light			{
 		light*				source				;
 		float				energy				;
-		Fcolor				color				;
+		fColor				color				;
 	};
 
 public:

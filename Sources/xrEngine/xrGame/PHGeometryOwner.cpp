@@ -153,16 +153,15 @@ void CPHGeometryOwner::			add_Box		(const fObb&		V)
 	m_geoms.push_back(smart_cast<CODEGeom*>(xr_new<CBoxGeom>(box)));
 }
 
-void CPHGeometryOwner::			add_Sphere	(const Fsphere&	V)
+void CPHGeometryOwner::			add_Sphere	(const fSphere&	V)
 {
 	m_geoms.push_back(smart_cast<CODEGeom*>(xr_new<CSphereGeom>(V)));
 }
 
-void CPHGeometryOwner::add_Cylinder	(const Fcylinder& V)
+void CPHGeometryOwner::add_Cylinder	(const fCylinder& V)
 {
 	m_geoms.push_back(smart_cast<CODEGeom*>(xr_new<CCylinderGeom>(V)));
 }
-
 
 void CPHGeometryOwner::add_Shape(const SBoneShape& shape,const fMatrix4x4& offset)
 {
@@ -184,7 +183,7 @@ void CPHGeometryOwner::add_Shape(const SBoneShape& shape,const fMatrix4x4& offse
 		}
 	case SBoneShape::stSphere	:
 		{
-			Fsphere sphere=shape.sphere;
+		fSphere sphere=shape.sphere;
 			offset.transform_tiny(sphere.P);
 			add_Sphere(sphere);
 			break;
@@ -193,7 +192,7 @@ void CPHGeometryOwner::add_Shape(const SBoneShape& shape,const fMatrix4x4& offse
 
 	case SBoneShape::stCylinder :
 		{
-			Fcylinder C=shape.cylinder;
+		fCylinder C=shape.cylinder;
 			offset.transform_tiny(C.m_center);
 			offset.transform_dir(C.m_direction);
 			add_Cylinder(C);

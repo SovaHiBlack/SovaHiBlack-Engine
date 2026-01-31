@@ -73,11 +73,13 @@ IC	u32	CSpaceRestrictionBridge::accessible_nearest	(T restriction, const fVector
 		bool		found = false;
 		min_dist_sqr = flt_max;
 		for (u32 i=0; i<5; ++i) {
-			Fsphere		current;
+			fSphere		current;
 			current.R	= EPS_3;
+
 #ifdef DEBUG
 			current.P	= fVector3().set(flt_max,flt_max,flt_max);
 #endif
+
 			switch (i) {
 				case 0 : current.P.set(center.x + offset,center.y,center.z + offset); break;
 				case 1 : current.P.set(center.x + offset,center.y,center.z - offset); break;

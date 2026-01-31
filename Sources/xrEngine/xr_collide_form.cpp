@@ -78,18 +78,18 @@ IC bool RAYvsOBB(const fMatrix4x4& IM, const fVector3& b_hsize, const fVector3& 
 	}
 	return false;
 }
-IC bool RAYvsSPHERE(const Fsphere& s_sphere, const fVector3& S, const fVector3& D, float &R, BOOL bCull)
+IC bool RAYvsSPHERE(const fSphere& s_sphere, const fVector3& S, const fVector3& D, float &R, BOOL bCull)
 {
-	Fsphere::ERP_Result rp_res = s_sphere.intersect(S,D,R);
+	fSphere::ERP_Result rp_res = s_sphere.intersect(S,D,R);
 	VERIFY				(R>=0.f);
-	return				((rp_res==Fsphere::rpOriginOutside)||(!bCull&&(rp_res==Fsphere::rpOriginInside)));
+	return				((rp_res == fSphere::rpOriginOutside) || (!bCull && (rp_res == fSphere::rpOriginInside)));
 }
-IC bool RAYvsCYLINDER(const Fcylinder& c_cylinder, const fVector3& S, const fVector3& D, float &R, BOOL bCull)
+IC bool RAYvsCYLINDER(const fCylinder& c_cylinder, const fVector3& S, const fVector3& D, float &R, BOOL bCull)
 {
 	// Actual test
-	Fcylinder::ERP_Result rp_res = c_cylinder.intersect(S,D,R);
+	fCylinder::ERP_Result rp_res = c_cylinder.intersect(S,D,R);
 	VERIFY				(R>=0.f);
-	return				((rp_res==Fcylinder::rpOriginOutside)||(!bCull&&(rp_res==Fcylinder::rpOriginInside)));
+	return				((rp_res== fCylinder::rpOriginOutside)||(!bCull&&(rp_res== fCylinder::rpOriginInside)));
 }
 
 CCF_Skeleton::CCF_Skeleton(CObject* O) : ICollisionForm(O,cftObject)
@@ -147,13 +147,13 @@ void CCF_Skeleton::BuildState()
 				}
 								   }break;
 			case SBoneShape::stSphere:{
-				const Fsphere& S	= shape.sphere;
+				const fSphere& S	= shape.sphere;
 				Mbone.transform_tiny(I->s_sphere.P,S.P);
 				L2W.transform_tiny	(I->s_sphere.P);
 				I->s_sphere.R		= S.R;
 			}break;
 			case SBoneShape::stCylinder:{
-				const Fcylinder& C	= shape.cylinder;
+				const fCylinder& C	= shape.cylinder;
 				Mbone.transform_tiny(I->c_cylinder.m_center,C.m_center);
 				L2W.transform_tiny	(I->c_cylinder.m_center);
 				Mbone.transform_dir	(I->c_cylinder.m_direction,C.m_direction);
@@ -181,10 +181,12 @@ void CCF_Skeleton::BuildTopLevel()
 
 BOOL CCF_Skeleton::_RayQuery( const collide::ray_defs& Q, collide::rq_results& R)
 {
-	if (dwFrameTL!=Device.dwFrame)			BuildTopLevel();
+	if (dwFrameTL != Device.dwFrame)
+	{
+		BuildTopLevel( );
+	}
 
-
-	Fsphere w_bv_sphere;
+	fSphere w_bv_sphere;
 	owner->XFORM().transform_tiny		(w_bv_sphere.P,bv_sphere.P);
 	w_bv_sphere.R						= bv_sphere.R;
 
@@ -192,8 +194,8 @@ BOOL CCF_Skeleton::_RayQuery( const collide::ray_defs& Q, collide::rq_results& R
 	float tgt_dist						= Q.range;
 	float aft[2];
 	int quant;
-	Fsphere::ERP_Result res				= w_bv_sphere.intersect(Q.start,Q.dir,tgt_dist,quant,aft);
-	if ((Fsphere::rpNone==res)||((Fsphere::rpOriginOutside==res)&&(aft[0]>tgt_dist)) ) return FALSE;
+	fSphere::ERP_Result res				= w_bv_sphere.intersect(Q.start,Q.dir,tgt_dist,quant,aft);
+	if ((fSphere::rpNone==res)||((fSphere::rpOriginOutside==res)&&(aft[0]>tgt_dist)) ) return FALSE;
 
 	if (dwFrame != Device.dwFrame)		BuildState	();
 	else{
@@ -313,8 +315,8 @@ BOOL CCF_Shape::_RayQuery(const collide::ray_defs& Q, collide::rq_results& R)
 		{
 		case 0:
 			{ // sphere
-				Fsphere::ERP_Result	rp_res 	= shape.data.sphere.intersect(dS,dD,range);
-				if ((rp_res==Fsphere::rpOriginOutside)||(!(Q.flags&CDB::OPT_CULL)&&(rp_res==Fsphere::rpOriginInside))){
+			fSphere::ERP_Result	rp_res 	= shape.data.sphere.intersect(dS,dD,range);
+				if ((rp_res== fSphere::rpOriginOutside)||(!(Q.flags&CDB::OPT_CULL)&&(rp_res== fSphere::rpOriginInside))){
 					bHIT	= TRUE;
 					R.append_result(owner,range,el,Q.flags&CDB::OPT_ONLYNEAREST);
 					if (Q.flags&CDB::OPT_ONLYFIRST) return TRUE;
@@ -351,7 +353,7 @@ BOOL CCF_Shape::_RayQuery(const collide::ray_defs& Q, collide::rq_results& R)
 void CCF_Shape::_BoxQuery(const fBox3& B, const fMatrix4x4& M, u32 flags)
 {   return; }
 */
-void CCF_Shape::add_sphere	(Fsphere& S )
+void CCF_Shape::add_sphere	(fSphere& S )
 {
 	shapes.push_back(shape_def());
 	shapes.back().type	= 0;
@@ -377,7 +379,7 @@ void CCF_Shape::ComputeBounds()
 		{
 		case 0: // sphere
 			{
-				Fsphere		T		= shapes[el].data.sphere;
+			fSphere		T		= shapes[el].data.sphere;
 				fVector3		P;
 				P.set		(T.P);	P.sub(T.R);	bv_box.modify(P);
 				P.set		(T.P);	P.add(T.R);	bv_box.modify(P);
@@ -411,7 +413,7 @@ void CCF_Shape::ComputeBounds()
 BOOL CCF_Shape::Contact		( CObject* O )
 {
 	// Build object-sphere in World-Space
-	Fsphere			S;
+	fSphere			S;
 	if (O->Visual()){
 		O->Center		(S.P);
 		S.R				= O->Radius();
@@ -430,8 +432,8 @@ BOOL CCF_Shape::Contact		( CObject* O )
 		{
 		case 0: // sphere
 			{
-				Fsphere		Q;
-				Fsphere&	T		= shapes[el].data.sphere;
+			fSphere		Q;
+			fSphere&	T		= shapes[el].data.sphere;
 				XF.transform_tiny	(Q.P,T.P);
 				Q.R					= T.R;
 				if (S.intersect(Q))	return TRUE;

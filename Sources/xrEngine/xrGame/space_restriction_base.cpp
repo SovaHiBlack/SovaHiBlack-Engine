@@ -25,7 +25,7 @@ IC	fVector3 construct_position		(u32 level_vertex_id, float x, float z)
 
 IC	bool CSpaceRestrictionBase_inside	(CSpaceRestrictionBase *self, const fVector3& position, const float &radius)
 {
-	Fsphere							sphere;
+	fSphere							sphere;
 	sphere.P						= position;
 	sphere.R						= radius;
 	return							(self->inside(sphere));

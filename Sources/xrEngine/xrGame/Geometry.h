@@ -135,9 +135,10 @@ virtual			void		set_local_form		(const fMatrix4x4& form)												;
 class CSphereGeom : public CODEGeom
 {
 	typedef CODEGeom inherited																						;
-	Fsphere	m_sphere;
+	fSphere	m_sphere;
+
 public:
-							CSphereGeom			(const Fsphere& sphere)												;
+							CSphereGeom			(const fSphere& sphere)												;
 	virtual		float		volume				()																	;
 	virtual		float		radius				()																	;
 	virtual		void		get_extensions_bt	(const fVector3& axis,float center_prg,float& lo_ext, float& hi_ext) ;
@@ -152,9 +153,10 @@ virtual const	fVector3&	local_center		()																	;
 class CCylinderGeom : public CODEGeom
 {
 	typedef CODEGeom inherited																						;
-	Fcylinder m_cylinder;
+	fCylinder m_cylinder;
+
 public:
-							CCylinderGeom		(const Fcylinder& cyl)												;
+							CCylinderGeom		(const fCylinder& cyl)												;
 	virtual		float		volume				()																	;
 	virtual		float		radius				()																	;
 	virtual		void		get_extensions_bt	(const fVector3& axis,float center_prg,float& lo_ext, float& hi_ext) ;

@@ -43,6 +43,7 @@ protected:
 
 	u16								m_CarringBoneID;
 	shared_str						m_sParticlesName;
+
 protected:
 	SArtefactActivation*			m_activationObj;
 	//////////////////////////////////////////////////////////////////////////
@@ -52,8 +53,9 @@ protected:
 	bool							m_bLightsEnabled;
 	//подсветка во время полета и работы двигателя
 	ref_light						m_pTrailLight;
-	Fcolor							m_TrailLightColor;
+	fColor							m_TrailLightColor;
 	float							m_fTrailLightRange;
+
 protected:
 	virtual void					UpdateLights();
 	

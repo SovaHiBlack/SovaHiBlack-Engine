@@ -22,7 +22,7 @@ public:
 	fVector3				position	;
 	fVector3				direction	;
 	float				radius		;
-	Fcolor				color		;
+	fColor				color		;
 
 	// Ray-testing cache
 	BOOL				bTestResult	;
@@ -40,7 +40,7 @@ public:
 	virtual void					set_direction		(const fVector3& P);
 	virtual void					set_radius			(float			R);
 	virtual void					set_texture			(LPCSTR			name);
-	virtual void					set_color			(const Fcolor&	C);
+	virtual void					set_color			(const fColor&	C);
 	virtual void					set_color			(float r, float g, float b);
 	virtual void					spatial_move		();
 };

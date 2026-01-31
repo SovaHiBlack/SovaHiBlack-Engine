@@ -188,7 +188,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ChooseTypes.H" />
+    <ClInclude Include="ChooseTypes.h" />
     <ClInclude Include="mt_config.h" />
     <ClInclude Include="damage_manager.h" />
     <ClInclude Include="DamageSource.h" />
@@ -1273,10 +1273,8 @@
     <ClInclude Include="xr_Server_BattlEye.h" />
     <ClInclude Include="xrServer.h" />
     <ClInclude Include="xrServer_Space.h" />
-    <ClInclude Include="DrawUtils.h" />
     <ClInclude Include="FastDelegate.h" />
     <ClInclude Include="ItemListTypes.h" />
-    <ClInclude Include="PropertiesListHelper.h" />
     <ClInclude Include="WaveForm.h" />
     <ClInclude Include="xrEProps.h" />
     <ClInclude Include="game_base.h" />

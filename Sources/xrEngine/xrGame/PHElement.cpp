@@ -74,13 +74,12 @@ void CPHElement::add_Box		(const fObb&		V)
 	CPHGeometryOwner::add_Box(V);
 }
 
-
-void CPHElement::add_Sphere	(const Fsphere&	V)
+void CPHElement::add_Sphere	(const fSphere&	V)
 {
 	CPHGeometryOwner::add_Sphere(V);
 }
 
-void CPHElement::add_Cylinder	(const Fcylinder& V)
+void CPHElement::add_Cylinder	(const fCylinder& V)
 {
 	CPHGeometryOwner::add_Cylinder(V);
 }

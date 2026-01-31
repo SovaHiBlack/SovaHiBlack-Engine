@@ -121,7 +121,7 @@ public:
 #ifdef DEBUG
 	u32					used_in_render;	
 #endif
-	Fsphere				m_LocalBounds;	// 16		model space
+	fSphere				m_LocalBounds;	// 16		model space
 	struct WMFace{
 		fVector3		vert	[3];
 		fVector2		uv		[3];
@@ -130,8 +130,10 @@ public:
 	};
 	DEFINE_VECTOR		(WMFace,WMFacesVec,WMFacesVecIt);
 	WMFacesVec			m_Faces;		// 16 
+
 public:
-	Fsphere				m_Bounds;		// 16		world space
+	fSphere				m_Bounds;		// 16		world space
+
 public:									
 						CSkeletonWallmark	(CKinematics* p,const fMatrix4x4* m, ref_shader s, const fVector3& cp, float ts):
 						m_Parent(p),m_XForm(m),m_Shader(s),m_fTimeStart(ts),m_ContactPoint(cp)

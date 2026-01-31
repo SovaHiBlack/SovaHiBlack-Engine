@@ -25,7 +25,7 @@ private:
 	CSector							*pFace,*pBack;
 public:
 	fPlane							P;
-	Fsphere							S;
+	fSphere							S;
 	u32								marker;
 	BOOL							bDualRender;
 

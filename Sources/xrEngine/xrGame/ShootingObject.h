@@ -86,9 +86,9 @@ protected:
 // Lights
 //////////////////////////////////////////////////////////////////////////
 protected:
-	Fcolor					light_base_color;
+	fColor					light_base_color;
 	float					light_base_range;
-	Fcolor					light_build_color;
+	fColor					light_build_color;
 	float					light_build_range;
 	ref_light				light_render;
 	float					light_var_color;

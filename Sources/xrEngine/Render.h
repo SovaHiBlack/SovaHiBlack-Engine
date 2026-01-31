@@ -39,7 +39,7 @@ public:
 	virtual void					set_range			(float R)							= 0;
 	virtual void					set_virtual_size	(float R)							= 0;
 	virtual void					set_texture			(LPCSTR name)						= 0;
-	virtual void					set_color			(const Fcolor& C)					= 0;
+	virtual void					set_color			(const fColor& C)					= 0;
 	virtual void					set_color			(float r, float g, float b)			= 0;
 	virtual ~IRender_Light()		;
 };
@@ -59,7 +59,7 @@ public:
 	virtual void					set_direction		(const fVector3& P)					= 0;
 	virtual void					set_radius			(float R)							= 0;
 	virtual void					set_texture			(LPCSTR name)						= 0;
-	virtual void					set_color			(const Fcolor& C)					= 0;
+	virtual void					set_color			(const fColor& C)					= 0;
 	virtual void					set_color			(float r, float g, float b)			= 0;
 	virtual ~IRender_Glow()			;
 };

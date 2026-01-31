@@ -62,14 +62,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Platform)'=='Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>
-        $(SolutionDir)\Sources\Externals\DXSDK_Jun2010\Include\;
-        $(SolutionDir)\Sources\Externals\EAX\Include\;
-        $(SolutionDir)\Sources\Externals\OpenAL32\;
-        $(SolutionDir)\Sources\Externals\Xiph\Sources\ogg\include\;
-        $(SolutionDir)\Sources\Externals\Xiph\Sources\vorbis\include\;
-        $(SolutionDir)\Sources\xrCore\
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Sources\Externals\DXSDK_Jun2010\Include\;$(SolutionDir)\Sources\Externals\EAX\Include\;$(SolutionDir)\Sources\Externals\OpenAL32\;$(SolutionDir)\Sources\Externals\Xiph\Sources\ogg\include\;$(SolutionDir)\Sources\Externals\Xiph\Sources\vorbis\include\;$(SolutionDir)\Sources\xrCore\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)\Output\Libraries\;$(SolutionDir)\Sources\Externals\EAX\Lib\</AdditionalLibraryDirectories>

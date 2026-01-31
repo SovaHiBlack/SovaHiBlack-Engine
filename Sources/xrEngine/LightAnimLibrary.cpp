@@ -119,7 +119,9 @@ u32 CLAItem::InterpolateRGB(int frame)
 
 	R_ASSERT(Keys.size()>1);
 	// интерполируем цвет
-	Fcolor c, c0, c1;
+	fColor c;
+	fColor c0;
+	fColor c1;
 	float a0=(float)A->first;
 	float a1=(float)B->first;
 	c0.set(A->second);
