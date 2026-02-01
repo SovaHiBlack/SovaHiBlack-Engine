@@ -1,11 +1,11 @@
-* Detected CPU: GenuineIntel P3 family, F6/M10/S4, 2495.00 mhz, 19-clk 'rdtsc'
+* Detected CPU: GenuineIntel P3 family, F6/M10/S4, 2495.00 mhz, 18-clk 'rdtsc'
 * CPU Features: RDTSC, MMX, SSE, SSE2
 
 Initializing File System...
 using fs-ltx fsgame.ltx
 FS: 30122 files cached, 4922Kb memory used.
-Init FileSystem 0.771322 sec
-'X-Ray Engine' build 9848, Jan 24 2026
+Init FileSystem 0.317573 sec
+'X-Ray Engine' build 9855, Jan 31 2026
 
 Initializing Engine...
 Executing config-script "user.ltx"...
@@ -14,9 +14,9 @@ Starting INPUT device...
 Loading DLL: xrRender_R2.dll
 Loading DLL: xrGame.dll
 ! Unable to find Software\GSC Game World\STALKER-SHOC\ in registry
-* [win32]: free[4045012 K], reserved[61628 K], committed[87600 K]
+* [win32]: free[4045904 K], reserved[60632 K], committed[87704 K]
 * [ D3D ]: textures[0 K]
-* [x-ray]: crt heap[9196 K], process heap[9196 K], game lua[0 K], engine lua[0 K], render[0 K]
+* [x-ray]: crt heap[9197 K], process heap[9197 K], game lua[0 K], engine lua[0 K], render[0 K]
 * [x-ray]: economy: strings[1942 K], smem[0 K]
 Executing config-script "d:\sovahiblack-engine\game\resourcesogsm2.4.3\config\default_controls.ltx"...
 ! cant convert dik_name for dik[144], prop=[
@@ -65,7 +65,7 @@ Starting RENDER device...
 ! Renderer doesn't support blender 'effects\shadow_world'
 ! Version conflict in shader 'effects\watertest-1'
 count of .thm files=6
-load time=17 ms
+load time=33 ms
 * NULLRT supported
 * ...and used
 * HWDST/PCF supported and used
@@ -73,58 +73,67 @@ load time=17 ms
 - r2_tf_mipbias 0.
 Starting engine...
 Loading DLL: xrGameSpy.dll
+No new patches are available.
 * DVB created: 1536K
 * DIB created: 512K
 - r__tf_aniso 16
 - r2_tf_mipbias 0.
 * GPU shading: vs(fffe0300/3.0/30), ps(ffff0300/3.0/30)
 * GPU vertex cache: unrecognized, 16
-*** RESET [206 ms]
+*** RESET [0 ms]
+* MEMORY USAGE: 112200 K
+* DVB created: 1536K
+* DIB created: 512K
+- r__tf_aniso 16
+- r2_tf_mipbias 0.
+* GPU shading: vs(fffe0300/3.0/30), ps(ffff0300/3.0/30)
+* GPU vertex cache: unrecognized, 16
+*** RESET [200 ms]
 binaries\xrengine.exe 
 * phase time: 0 ms
-* phase cmem: 103073 K
+* phase cmem: 113463 K
 Кэширование объектов...
 Loading objects...
 Loading models...
-* [prefetch] time:    2859 ms
-* [prefetch] memory:  429301Kb
-* phase time: 2881 ms
-* phase cmem: 525976 K
+* [prefetch] time:    3045 ms
+* [prefetch] memory:  428726Kb
+* phase time: 3066 ms
+* phase cmem: 535793 K
 Сервер: Старт...
-* phase time: 29 ms
-* phase cmem: 526202 K
+* phase time: 30 ms
+* phase cmem: 526945 K
 Сервер: Загрузка симуляции жизни...
 * phase time: 8 ms
-* phase cmem: 526202 K
+* phase cmem: 526945 K
 Создание новой игры...
 * Creating new game...
 * Loading spawn registry...
 * 8641 spawn points are successfully loaded
 * Saving spawns...
 * Saving objects...
-* 15470 objects are successfully saved
+* 15525 objects are successfully saved
 * Game all.sav is successfully saved to file 'd:\sovahiblack-engine\game\appdata\savedgames\all.sav'
 * New game is successfully created!
-* phase time: 1213 ms
-* phase cmem: 555878 K
+* phase time: 1256 ms
+* phase cmem: 556593 K
 Сервер: Соединяемся...
 MaxPlayers = 32
-* phase time: 14 ms
-* phase cmem: 555979 K
+* phase time: 19 ms
+* phase cmem: 556690 K
 Клиент: Соединение с localhost...
 # Player not found. New player created.
 * client : connection accepted - <>
-* phase time: 10 ms
-* phase cmem: 556003 K
+* phase time: 12 ms
+* phase cmem: 556715 K
 Открытие потока...
 * phase time: 9 ms
-* phase cmem: 556003 K
+* phase cmem: 556715 K
 Загрузка формы объектов...
-* phase time: 1185 ms
-* phase cmem: 628671 K
+* phase time: 1241 ms
+* phase cmem: 629398 K
 Загрузка шейдеров...
-* phase time: 117 ms
-* phase cmem: 630206 K
+* phase time: 121 ms
+* phase cmem: 630934 K
 Загрузка геометрии...
 * [Loading VB] 65532 verts, 2047 Kb
 * [Loading VB] 65525 verts, 2047 Kb
@@ -167,46 +176,47 @@ MaxPlayers = 32
 * [Loading IB] 1048575 indices, 2047 Kb
 * [Loading IB] 1048575 indices, 2047 Kb
 * [Loading IB] 718302 indices, 1402 Kb
-* phase time: 132 ms
-* phase cmem: 699144 K
+* phase time: 208 ms
+* phase cmem: 699856 K
 Загрузка базы пространств...
-* phase time: 310 ms
-* phase cmem: 703597 K
+* phase time: 335 ms
+* phase cmem: 704277 K
 Загрузка детальных объектов...
 * [DETAILS] VertexConsts(256), Batch(61)
 * [DETAILS] 40687 v(20), 26352 p
 * [DETAILS] Batch(61), VB(794K), IB(154K)
 * phase time: 26 ms
-* phase cmem: 704605 K
+* phase cmem: 705285 K
 Загрузка секторов и порталов...
 * Loading HOM: d:\sovahiblack-engine\game\resourcesogsm2.4.3\levels\l01_escape\level.hom
-* phase time: 11 ms
-* phase cmem: 704795 K
+* phase time: 12 ms
+* phase cmem: 705474 K
 Загрузка ИИ объектов...
 - Loading music tracks from 'l01_escape_musics'...
-* phase time: 18 ms
-* phase cmem: 704834 K
+* phase time: 20 ms
+* phase cmem: 705514 K
 Клиент: Создание...
 - Game configuring : Started 
 - Game configuring : Finished 
 * phase time: 81 ms
-* phase cmem: 705811 K
+* phase cmem: 713082 K
 Загрузка текстур...
 * t-report - base: 1448, 567927 K
 * t-report - lmap: 5, 5120 K
-* phase time: 1261 ms
-* phase cmem: 1005356 K
+* phase time: 1573 ms
+* phase cmem: 1012627 K
 Клиент: Синхронизация...
-* phase time: 14 ms
-* phase cmem: 1005356 K
-* [win32]: free[2531980 K], reserved[146336 K], committed[1515924 K]
+* phase time: 16 ms
+* phase cmem: 1012627 K
+* [win32]: free[2513792 K], reserved[155060 K], committed[1525388 K]
 * [ D3D ]: textures[573048 K]
-* [x-ray]: crt heap[1005356 K], process heap[1005356 K], game lua[28543 K], engine lua[130 K], render[0 K]
-* [x-ray]: economy: strings[4493 K], smem[15587 K]
-Intro start 17447
-* MEMORY USAGE: 1055506 K
+* [x-ray]: crt heap[1012627 K], process heap[1012627 K], game lua[28543 K], engine lua[131 K], render[0 K]
+* [x-ray]: economy: strings[4496 K], smem[15587 K]
+Intro start 69129
+* MEMORY USAGE: 1060343 K
 - Disconnect
 - Destroying level
+DestroySingleton::RefCounter: 0
 DestroySingleton::RefCounter: 0
 DestroySingleton::RefCounter: 0
 DestroySingleton::RefCounter: 0
